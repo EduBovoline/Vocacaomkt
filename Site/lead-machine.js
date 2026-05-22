@@ -12,7 +12,7 @@
       id: 'intro',
       eyebrow: 'Antes de começar',
       title: 'Vamos entender sua <em>presença digital</em>.',
-      help: 'Em 9 perguntas rápidas, mapeamos onde sua empresa pode estar perdendo confiança online. No final, você recebe um diagnóstico personalizado — sem proposta empurrada.',
+      help: 'Em 10 perguntas rápidas, mapeamos onde sua empresa pode estar perdendo confiança online. No final, você recebe um diagnóstico personalizado — sem proposta empurrada.',
       type: 'intro'
     },
     {
@@ -106,8 +106,15 @@
       ]
     },
     {
+      id: 'links',
+      eyebrow: '08 · Seus canais online',
+      title: 'Quais são os seus canais digitais?',
+      help: 'Cole os links que você tiver — site, Instagram, Google Maps, Facebook. Todos opcionais. Quanto mais informação, mais preciso e personalizado será o diagnóstico.',
+      type: 'links'
+    },
+    {
       id: 'contato',
-      eyebrow: '08 · Para enviarmos a análise',
+      eyebrow: '09 · Para enviarmos a análise',
       title: 'Como entramos em contato?',
       help: 'Vamos analisar sua presença digital e enviar o diagnóstico em até 1 dia útil. Você recebe direto no canal que preferir.',
       type: 'contact'
@@ -190,7 +197,7 @@
         <h2>${step.title}</h2>
         <p class="help">${step.help}</p>
         <div class="lm-final-marks">
-          <div class="m"><b>9</b><span>perguntas rápidas, sem formulário gigante</span></div>
+          <div class="m"><b>10</b><span>perguntas rápidas, sem formulário gigante</span></div>
           <div class="m"><b>~4 min</b><span>tempo médio para responder</span></div>
           <div class="m"><b>1 dia útil</b><span>para receber o diagnóstico personalizado</span></div>
         </div>
@@ -270,6 +277,27 @@
       input.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') { e.preventDefault(); next(); }
       });
+    } else if (step.type === 'links') {
+      qArea.innerHTML = `
+        <div class="lm-eye">${step.eyebrow}</div>
+        <h2>${step.title}</h2>
+        <p class="help">${step.help}</p>
+        <div class="lm-options" style="gap:14px;">
+          <input type="url" class="lm-input" id="linkSite" placeholder="Site (ex: minhaempresa.com.br)" value="${(answers.link_site || '').replace(/"/g, '&quot;')}" autocomplete="url" />
+          <input type="url" class="lm-input" id="linkInstagram" placeholder="Instagram (ex: instagram.com/minhaempresa)" value="${(answers.link_instagram || '').replace(/"/g, '&quot;')}" />
+          <input type="url" class="lm-input" id="linkFacebook" placeholder="Facebook (ex: facebook.com/minhaempresa)" value="${(answers.link_facebook || '').replace(/"/g, '&quot;')}" />
+          <input type="text" class="lm-input" id="linkGoogle" placeholder="Google Maps — cole o link do perfil ou nome exato" value="${(answers.link_google || '').replace(/"/g, '&quot;')}" />
+        </div>
+      `;
+      const lSite    = document.getElementById('linkSite');
+      const lInsta   = document.getElementById('linkInstagram');
+      const lFace    = document.getElementById('linkFacebook');
+      const lGoogle  = document.getElementById('linkGoogle');
+      lSite.focus();
+      [['link_site', lSite], ['link_instagram', lInsta], ['link_facebook', lFace], ['link_google', lGoogle]].forEach(([k, el]) => {
+        el.addEventListener('input', () => { answers[k] = el.value; persist(); });
+        el.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); next(); } });
+      });
     } else if (step.type === 'contact') {
       qArea.innerHTML = `
         <div class="lm-eye">${step.eyebrow}</div>
@@ -303,6 +331,10 @@
       google: 'Google',
       redes: 'Redes',
       gargalo: 'Gargalo principal',
+      link_site: '🌐 Link do site',
+      link_instagram: '📸 Instagram',
+      link_facebook: '👥 Facebook',
+      link_google: '🗺️ Google Maps',
       name: 'Contato',
       phone: 'WhatsApp',
       email: 'E-mail'
@@ -322,17 +354,24 @@
   }
 
   function buildWhatsAppLink() {
+    const hasLinks = answers.link_site || answers.link_instagram || answers.link_facebook || answers.link_google;
     const lines = [
       'Olá! Acabei de fazer o diagnóstico no site da Vocação.',
       '',
-      'Resumo:',
-      answers.empresa ? '• Empresa: ' + answers.empresa : null,
-      answers.segmento ? '• Setor: ' + answers.segmento : null,
-      answers.tempo ? '• Tempo: ' + answers.tempo : null,
-      answers.site ? '• Site: ' + answers.site : null,
-      answers.google ? '• Google: ' + answers.google : null,
-      answers.redes ? '• Redes: ' + answers.redes : null,
-      answers.gargalo ? '• Gargalo: ' + answers.gargalo : null,
+      '📋 Resumo:',
+      answers.empresa   ? '• Empresa: '  + answers.empresa   : null,
+      answers.segmento  ? '• Setor: '    + answers.segmento  : null,
+      answers.tempo     ? '• Tempo: '    + answers.tempo     : null,
+      answers.site      ? '• Site: '     + answers.site      : null,
+      answers.google    ? '• Google: '   + answers.google    : null,
+      answers.redes     ? '• Redes: '    + answers.redes     : null,
+      answers.gargalo   ? '• Gargalo: '  + answers.gargalo   : null,
+      hasLinks ? '' : null,
+      hasLinks ? '🔗 Links digitais:' : null,
+      answers.link_site       ? '• Site: '        + answers.link_site       : null,
+      answers.link_instagram  ? '• Instagram: '   + answers.link_instagram  : null,
+      answers.link_facebook   ? '• Facebook: '    + answers.link_facebook   : null,
+      answers.link_google     ? '• Google Maps: ' + answers.link_google     : null,
       '',
       'Quero falar sobre os próximos passos.'
     ].filter(Boolean).join('\n');

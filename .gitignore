@@ -14,3 +14,6 @@ Desktop.ini
 
 # Logs
 *.log
+
+# Relatórios internos — nunca subir ao Git
+Prospects/
