@@ -129,6 +129,15 @@ section { position: relative; }
   font-size: 26px;
   letter-spacing: -0.02em;
 }
+.brand-logo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
+}
+.footer .brand-logo {
+  filter: brightness(0) invert(1);
+}
 .brand .dot {
   width: 9px; height: 9px; border-radius: 50%;
   background: var(--accent);
