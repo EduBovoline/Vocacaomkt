@@ -30,15 +30,15 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="#home" class="brand"><span class="dot"></span> Vocação</a>
+    <a href="/" class="brand"><span class="dot"></span> Vocação</a>
     <nav class="nav-links">
-      <a href="#problema">O problema</a>
-      <a href="#solucao">Como funciona</a>
-      <a href="#processo">Diagnóstico</a>
-      <a href="#avaliacoes">Avaliações</a>
-      <a href="#faq">FAQ</a>
+      <a href="presenca-local">Presença Local</a>
+      <a href="design-avulso">Design Avulso</a>
+      <a href="impressao">Impressão</a>
+      <a href="redes">Redes</a>
+      <a href="trafego">Tráfego</a>
     </nav>
-    <a href="diagnostico.html" class="btn btn-primary">
+    <a href="diagnostico" class="btn btn-primary">
       Diagnóstico gratuito
       <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
     </a>
@@ -63,7 +63,7 @@ Online, ela precisa parecer.</h1>
           Quem procura sua empresa hoje não entende bem o que você faz, encontra informações desencontradas — e escolhe quem parece mais organizado.
         </p>
         <div class="hero-ctas reveal" data-d="3">
-          <a href="diagnostico.html" class="btn btn-primary magnet">
+          <a href="diagnostico" class="btn btn-primary magnet">
             Quero meu diagnóstico
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
           </a>
@@ -152,7 +152,7 @@ Online, ela precisa parecer.</h1>
       </div>
       <div class="step reveal" data-d="4">
         <div class="step-n"><b>04</b> Escolha</div>
-        <div class="step-title">Vai pra quem parece organizado.</div>
+        <div class="step-title">Vai pra quem parece organized.</div>
         <p class="step-desc">Não necessariamente o melhor. Apenas o que transmite mais confiança.</p>
       </div>
     </div>
@@ -220,16 +220,16 @@ Online, ela precisa parecer.</h1>
         <div class="pillar-mark"><span class="line"></span>Clareza · Confiança</div>
       </article>
 
-      <article class="pillar reveal" data-d="2">
+      <a class="pillar reveal" data-d="2" href="presenca-local" style="display:flex; flex-direction:column; text-decoration:none; color:inherit;">
         <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
           <circle cx="16" cy="16" r="12"></circle>
           <path d="M4 16h24M16 4c4 4 4 20 0 24M16 4c-4 4-4 20 0 24"></path>
         </svg>
-        <span class="pillar-idx">Pilar 02</span>
+        <span class="pillar-idx">Pilar 02 · Presença Local</span>
         <h3 class="pillar-title">Google Bem Configurado</h3>
-        <p class="pillar-desc">Quem procura sua empresa encontra informações corretas, atualizadas e confiáveis no primeiro toque.</p>
-        <div class="pillar-mark"><span class="line"></span>Mapa · Perfil · Avaliações</div>
-      </article>
+        <p class="pillar-desc">Quem procura sua empresa no bairro encontra perfil otimizado, fotos tratadas e avaliações no topo do mapa.</p>
+        <div class="pillar-mark"><span class="line"></span>Ver Presença Local (R$ 450) →</div>
+      </a>
 
       <article class="pillar reveal" data-d="3">
         <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -467,39 +467,51 @@ Online, ela precisa parecer.</h1>
 </section>
 
 <!-- ============ AFTER STRUCTURE ============ -->
-<section class="after" data-screen-label="10 Depois da estrutura">
+<section class="after" data-screen-label="10 Serviços e Ofertas">
   <div class="wrap">
     <div class="section-head">
       <div class="meta">
-        <span class="eyebrow">09 · Quando a base está pronta</span>
+        <span class="eyebrow">09 · Soluções Sob Demanda &amp; Escala</span>
       </div>
-      <h2 class="reveal">Depois da estrutura, a gente <em>acelera</em>.</h2>
+      <h2 class="reveal">Ofertas diretas e <em>aceleração de marketing</em>.</h2>
     </div>
-    <p class="lede reveal">Com presença digital organizada, o investimento em marketing rende. São quatro frentes para escalar com consistência.</p>
-    <div class="after-grid">
-      <a class="after-item reveal" href="redes.html">
+    <p class="lede reveal">Das necessidades imediatas de presença e design à gestão contínua de vendas. Escolha a solução ideal para o seu momento.</p>
+    <div class="after-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+      <a class="after-item reveal" href="presenca-local">
         <span class="idx">01</span>
+        <h3 class="ttl">Presença Local</h3>
+        <p class="det">Perfil no Google Maps otimizado, fotos tratadas e avaliações. Pronto em 7 dias.</p>
+        <span class="arrow">Ver oferta (R$ 450) →</span>
+      </a>
+      <a class="after-item reveal" data-d="1" href="design-avulso">
+        <span class="idx">02</span>
+        <h3 class="ttl">Design Avulso</h3>
+        <p class="det">Artes profissionais por demanda. Peças gráficas e digitais sem mensalidade.</p>
+        <span class="arrow">Ver tabela de preços →</span>
+      </a>
+      <a class="after-item reveal" data-d="2" href="impressao">
+        <span class="idx">03</span>
+        <h3 class="ttl">Impressão Gráfica</h3>
+        <p class="det">Conferência técnica de arquivos, impressão industrial e entrega direta.</p>
+        <span class="arrow">Ver materiais →</span>
+      </a>
+      <a class="after-item reveal" data-d="3" href="redes">
+        <span class="idx">04</span>
         <h3 class="ttl">Gestão de Redes</h3>
         <p class="det">Posts estratégicos, design profissional, planos de 12 a 30 publicações.</p>
         <span class="arrow">Ver planos →</span>
       </a>
-      <a class="after-item reveal" data-d="1" href="trafego.html">
-        <span class="idx">02</span>
+      <a class="after-item reveal" data-d="4" href="trafego">
+        <span class="idx">05</span>
         <h3 class="ttl">Tráfego Pago</h3>
         <p class="det">Google Ads &amp; Meta Ads com foco em ROI real, não em métrica de vaidade.</p>
         <span class="arrow">Saber mais →</span>
       </a>
-      <a class="after-item reveal" data-d="2" href="branding.html">
-        <span class="idx">03</span>
-        <h3 class="ttl">Branding</h3>
-        <p class="det">Posicionamento claro, identidade visual e consistência de marca.</p>
+      <a class="after-item reveal" data-d="5" href="branding">
+        <span class="idx">06</span>
+        <h3 class="ttl">Branding &amp; Vídeos</h3>
+        <p class="det">Posicionamento claro, identidade visual e vídeos para anúncios.</p>
         <span class="arrow">Conhecer →</span>
-      </a>
-      <a class="after-item reveal" data-d="3" href="video.html">
-        <span class="idx">04</span>
-        <h3 class="ttl">Vídeos para Anúncios</h3>
-        <p class="det">Criativos otimizados para conversão, com roteiros estratégicos.</p>
-        <span class="arrow">Saber mais →</span>
       </a>
     </div>
   </div>
@@ -533,28 +545,27 @@ Online, ela precisa parecer.</h1>
         <p class="lede">A Vocação ajuda empresas a organizarem sua presença digital para transmitir confiança antes de investir em marketing.</p>
       </div>
       <div class="footer-col">
-        <h5>Estrutura</h5>
+        <h5>Ofertas Diretas</h5>
         <ul>
-          <li><a href="#solucao">Site Profissional</a></li>
-          <li><a href="#solucao">Google</a></li>
-          <li><a href="#solucao">Redes</a></li>
-          <li><a href="#solucao">Domínio</a></li>
+          <li><a href="presenca-local">Presença Local</a></li>
+          <li><a href="design-avulso">Design Avulso</a></li>
+          <li><a href="impressao">Impressão Gráfica</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Depois da estrutura</h5>
+        <h5>Marketing &amp; Escala</h5>
         <ul>
-          <li><a href="redes.html">Gestão de Redes <span class="arrow">↗</span></a></li>
-          <li><a href="trafego.html">Tráfego Pago <span class="arrow">↗</span></a></li>
-          <li><a href="branding.html">Branding <span class="arrow">↗</span></a></li>
-          <li><a href="video.html">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
+          <li><a href="redes">Gestão de Redes <span class="arrow">↗</span></a></li>
+          <li><a href="trafego">Tráfego Pago <span class="arrow">↗</span></a></li>
+          <li><a href="branding">Branding <span class="arrow">↗</span></a></li>
+          <li><a href="video">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Contato</h5>
         <ul>
           <li><a href="https://wa.me/5515981512083">WhatsApp <span class="arrow">↗</span></a></li>
-          <li><a href="diagnostico.html">Diagnóstico <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
           <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM">Google <span class="arrow">↗</span></a></li>
         </ul>
       </div>
