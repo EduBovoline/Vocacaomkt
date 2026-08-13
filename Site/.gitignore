@@ -1,0 +1,21 @@
+# IDE and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Relatórios internos — nunca subir ao Git
+Prospects/
+site_novo_temp/
+*.zip
