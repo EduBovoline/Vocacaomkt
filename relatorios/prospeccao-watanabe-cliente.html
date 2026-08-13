@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Presença Digital — Watanabe Autopeças</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #1a1a2e;
+    --color-accent: #e8b86d;
+    --color-accent-soft: #f5e6c8;
+    --color-bg: #fafaf8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #6b6b6b;
+    --color-border: #e8e4dc;
+    --color-positive: #2d6a4f;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.65;
+    font-size: 15px;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--color-primary);
+    color: white;
+    padding: 56px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--color-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .header-inner {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .vocacao-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .vocacao-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+  .vocacao-name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .header-title em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+  .header-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTION */
+  .section {
+    padding: 52px 0 0;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    line-height: 1.25;
+  }
+
+  /* INTRO CARD */
+  .intro-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .intro-card strong { color: var(--color-primary); }
+
+  /* CHANNEL GRID */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .channel-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 22px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .channel-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .channel-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--color-primary);
+    margin-bottom: 6px;
+  }
+  .channel-note {
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    line-height: 1.55;
+  }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .badge-otimo { background: #d4edda; color: #1a5c36; }
+  .badge-bom { background: #d1ecf1; color: #0c4a6e; }
+  .badge-mediano { background: #fff3cd; color: #7c5000; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555; }
+
+  /* RADAR */
+  .radar-wrap {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 8px;
+    text-align: center;
+  }
+  .radar-wrap h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 20px;
+  }
+
+  /* BAR CHART */
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 13px;
+  }
+  .bar-label {
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    width: 130px;
+    flex-shrink: 0;
+    text-align: right;
+  }
+  .bar-track {
+    flex: 1;
+    height: 10px;
+    background: #f0ede8;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 1s ease;
+  }
+  .bar-fill.watanabe { background: var(--color-accent); }
+  .bar-fill.competitor { background: #c5d5e8; }
+  .bar-score {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-primary);
+    width: 32px;
+  }
+
+  /* COMPETITOR TABLE */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13.5px;
+  }
+  .comp-table thead th {
+    background: var(--color-primary);
+    color: white;
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .comp-table thead th:first-child { border-radius: 8px 0 0 0; }
+  .comp-table thead th:last-child { border-radius: 0 8px 0 0; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); }
+  .comp-table tbody td {
+    padding: 12px 14px;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .comp-table tbody td:first-child { font-weight: 600; color: var(--color-primary); }
+  .stars { color: var(--color-accent); font-size: 13px; }
+
+  /* FORCES GRID */
+  .forces-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-top: 8px;
+  }
+  .force-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-positive);
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+  .force-card .icon { font-size: 22px; margin-bottom: 8px; display: block; }
+  .force-card .title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 6px; }
+  .force-card .desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+
+  /* OPPORTUNITIES */
+  .opp-list { margin-top: 8px; }
+  .opp-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-negative);
+    border-radius: 0 12px 12px 0;
+    padding: 20px 24px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .opp-item .opp-num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--color-border);
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .opp-item .opp-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .opp-item .opp-desc { font-size: 13.5px; color: var(--color-text-muted); line-height: 1.6; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary);
+    border-radius: 16px;
+    padding: 52px 40px;
+    text-align: center;
+    margin: 52px 0 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    background: rgba(232, 184, 109, 0.08);
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    background: rgba(232, 184, 109, 0.05);
+  }
+  .cta-section .cta-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+  .cta-section h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .cta-section h2 em { font-style: italic; color: var(--color-accent); }
+  .cta-section p {
+    color: rgba(255,255,255,0.65);
+    font-size: 14.5px;
+    max-width: 500px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 15px;
+    padding: 16px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; z-index: 1;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(232,184,109,0.35);
+  }
+  .cta-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 16px;
+    position: relative; z-index: 1;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: 28px 0 40px;
+    margin-top: 52px;
+    text-align: center;
+  }
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+  }
+  .footer-tag {
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: 48px 0 0;
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 40px 20px 40px; }
+    .header-title { font-size: 30px; }
+    .container { padding: 0 16px; }
+    .comp-table { font-size: 12px; }
+    .cta-section { padding: 40px 24px; }
+    .cta-section h2 { font-size: 24px; }
+  }
+
+  @media print {
+    .cta-btn { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-inner">
+    <div class="vocacao-brand">
+      <div class="vocacao-dot"></div>
+      <span class="vocacao-name">Vocação Comunicação & Marketing</span>
+    </div>
+    <div class="header-label">Diagnóstico de Presença Digital</div>
+    <h1 class="header-title">Watanabe<br><em>Autopeças</em></h1>
+    <div class="header-sub">Sorocaba, SP · Comércio de Autopeças · Análise realizada em maio de 2025</div>
+  </div>
+</header>
+
+<!-- INTRO -->
+<div class="container">
+  <div class="section">
+    <div class="section-label">Apresentação</div>
+    <div class="section-title">Conhecemos a sua empresa</div>
+    <div class="intro-card">
+      A <strong>Watanabe Autopeças</strong> é uma referência em Sorocaba há <strong>mais de 20 anos</strong>, localizada na Av. Ipanema — um dos endereços mais movimentados da cidade para o setor automotivo. Com mais de <strong>35.000 itens em estoque</strong>, entrega ágil, cobertura da concorrência e uma equipe reconhecida pelo atendimento humano e próximo, a Watanabe construiu uma reputação sólida que pouquíssimas empresas do setor conseguem. 
+      <br><br>
+      Identificamos uma presença digital <strong>parcialmente estruturada</strong> — com pontos realmente fortes, mas também com lacunas que, num mercado cada vez mais competitivo, podem estar custando clientes. Esse diagnóstico mostra onde vocês estão e onde há espaço para crescer.
+    </div>
+  </div>
+
+  <!-- DIAGNÓSTICO POR CANAL -->
+  <div class="section">
+    <div class="section-label">Diagnóstico</div>
+    <div class="section-title">Como a Watanabe aparece em cada canal</div>
+    <div class="channel-grid">
+
+      <div class="channel-card">
+        <span class="channel-icon">🗺️</span>
+        <span class="badge badge-otimo">Ótimo</span>
+        <div class="channel-name">Google Meu Negócio</div>
+        <div class="channel-note">4,4 ⭐ com mais de 1.260 avaliações. Ficha bem preenchida, horários corretos, fotos e respostas ativas. Um dos pontos mais fortes da presença digital.</div>
+      </div>
+
+      <div class="channel-card">
+        <span class="channel-icon">📸</span>
+        <span class="badge badge-mediano">Mediano</span>
+        <div class="channel-name">Instagram</div>
+        <div class="channel-note">Conta ativa com 1.696 seguidores e 151 posts. Publica com frequência, mas o volume de seguidores está abaixo do potencial para uma empresa com 20+ anos.</div>
+      </div>
+
+      <div class="channel-card">
+        <span class="channel-icon">👥</span>
+        <span class="badge badge-mediano">Mediano</span>
+        <div class="channel-name">Facebook</div>
+        <div class="channel-note">Página ativa com anúncio em veiculação. Presença funcional, mas sem destaque orgânico relevante na rede.</div>
+      </div>
+
+      <div class="channel-card">
+        <span class="channel-icon">🌐</span>
+        <span class="badge badge-fraco">Fraco</span>
+        <div class="channel-name">Site Próprio</div>
+        <div class="channel-note">O site existe, mas está fora do ar com erros técnicos visíveis. Para quem busca informações antes de visitar a loja, isso gera desconfiança na primeira impressão.</div>
+      </div>
+
+      <div class="channel-card">
+        <span class="channel-icon">💬</span>
+        <span class="badge badge-bom">Bom</span>
+        <div class="channel-name">WhatsApp</div>
+        <div class="channel-note">Número divulgado, cotações em até 30 minutos. Canal de atendimento bem posicionado e ativo no dia a dia.</div>
+      </div>
+
+      <div class="channel-card">
+        <span class="channel-icon">📧</span>
+        <span class="badge badge-mediano">Mediano</span>
+        <div class="channel-name">E-mail & Domínio</div>
+        <div class="channel-note">Domínio próprio (watanabeautopecas.com.br) existe, mas o uso de e-mail genérico reduz a percepção de profissionalismo.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BARRA COMPARATIVA -->
+  <div class="section">
+    <div class="section-label">Visão Geral</div>
+    <div class="section-title">Presença digital: Watanabe vs. mercado local</div>
+    <div class="radar-wrap">
+      <h4>Pontuação por canal (0–10)</h4>
+
+      <div class="bar-row">
+        <span class="bar-label">Google</span>
+        <div class="bar-track"><div class="bar-fill watanabe" style="width:90%"></div></div>
+        <span class="bar-score">9</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Instagram</span>
+        <div class="bar-track"><div class="bar-fill watanabe" style="width:50%"></div></div>
+        <span class="bar-score">5</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Facebook</span>
+        <div class="bar-track"><div class="bar-fill watanabe" style="width:55%"></div></div>
+        <span class="bar-score">5.5</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Site</span>
+        <div class="bar-track"><div class="bar-fill watanabe" style="width:10%"></div></div>
+        <span class="bar-score">1</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">WhatsApp</span>
+        <div class="bar-track"><div class="bar-fill watanabe" style="width:75%"></div></div>
+        <span class="bar-score">7.5</span>
+      </div>
+
+      <div style="margin-top:16px; display:flex; gap:20px; justify-content:center; font-size:12px; color:var(--color-text-muted)">
+        <span><span style="display:inline-block;width:12px;height:12px;border-radius:2px;background:var(--color-accent);margin-right:5px;vertical-align:middle"></span>Watanabe Autopeças</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MERCADO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-label">Mercado</div>
+    <div class="section-title">Como o setor se comporta online em Sorocaba</div>
+    <div class="intro-card" style="margin-bottom:24px;">
+      O setor de autopeças em Sorocaba é altamente competitivo e cada vez mais digital. O cliente típico pesquisa no Google antes de ir à loja — seja para confirmar o horário, verificar a reputação ou comparar preços. Quem tem melhor presença online <strong>recebe o contato antes</strong> do concorrente, mesmo quando a loja física é menor.
+    </div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google</th>
+          <th>Site</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>✦ Watanabe Autopeças</td>
+          <td><span class="stars">★★★★</span> 4,4 (1.260+)</td>
+          <td>Fora do ar ⚠️</td>
+          <td>1.696 seg.</td>
+          <td><span class="badge badge-mediano">Mediana</span></td>
+        </tr>
+        <tr>
+          <td>AutoZone (rede nacional)</td>
+          <td><span class="stars">★★★★</span> 4,5</td>
+          <td>Sim, estruturado</td>
+          <td>Forte (marca global)</td>
+          <td><span class="badge badge-otimo">Forte</span></td>
+        </tr>
+        <tr>
+          <td>Kavem Autopeças</td>
+          <td><span class="stars">★★★★</span> 4,4 (1,8 mil)</td>
+          <td>Sim, funcional</td>
+          <td>Presente</td>
+          <td><span class="badge badge-bom">Forte</span></td>
+        </tr>
+        <tr>
+          <td>SportCar Distribuidora</td>
+          <td><span class="stars">★★★★</span> 4,5 (368)</td>
+          <td>Sim</td>
+          <td>Presente</td>
+          <td><span class="badge badge-bom">Mediana</span></td>
+        </tr>
+        <tr>
+          <td>Center Peças Fabbri</td>
+          <td>—</td>
+          <td>Sim</td>
+          <td>Presente</td>
+          <td><span class="badge badge-mediano">Mediana</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FORÇAS -->
+  <div class="section">
+    <div class="section-label">Forças</div>
+    <div class="section-title">O que a Watanabe já tem — e é muito</div>
+    <div class="forces-grid">
+
+      <div class="force-card">
+        <span class="icon">🏆</span>
+        <div class="title">Reputação construída</div>
+        <div class="desc">4,4 estrelas com mais de 1.260 avaliações no Google é um ativo raro. A maioria dos concorrentes tem menos da metade disso.</div>
+      </div>
+
+      <div class="force-card">
+        <span class="icon">⏳</span>
+        <div class="title">Mais de 20 anos de mercado</div>
+        <div class="desc">Longevidade é confiança. Muito poucos negócios locais sobrevivem duas décadas — isso precisa aparecer online da mesma forma que aparece na rua.</div>
+      </div>
+
+      <div class="force-card">
+        <span class="icon">📦</span>
+        <div class="title">Estoque robusto</div>
+        <div class="desc">Mais de 35.000 itens é um diferencial real. O cliente que não acha em outro lugar, encontra na Watanabe.</div>
+      </div>
+
+      <div class="force-card">
+        <span class="icon">🤝</span>
+        <div class="title">Atendimento humano</div>
+        <div class="desc">Os elogios no Google destacam funcionários pelo nome. Isso é raro — e é exatamente o tipo de diferencial que fideliza e que a AutoZone não consegue replicar.</div>
+      </div>
+
+      <div class="force-card">
+        <span class="icon">🚀</span>
+        <div class="title">Entrega ágil + cotação rápida</div>
+        <div class="desc">Cotação em 30 minutos e entrega no dia. Serviço que resolve o problema do cliente sem burocracia.</div>
+      </div>
+
+      <div class="force-card">
+        <span class="icon">📣</span>
+        <div class="title">Já investe em anúncios</div>
+        <div class="desc">Há campanha ativa no Facebook Ads — o que mostra mentalidade de crescimento e disposição para investir em marketing.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- O QUE PODE MELHORAR -->
+  <div class="section">
+    <div class="section-label">Oportunidades</div>
+    <div class="section-title">O que pode estar custando clientes hoje</div>
+    <div class="opp-list">
+
+      <div class="opp-item">
+        <div class="opp-num">01</div>
+        <div>
+          <div class="opp-title">Sua primeira impressão digital não corresponde à realidade da loja</div>
+          <div class="opp-desc">Quando alguém busca "Watanabe Autopeças" e clica no site, encontra uma tela de erro. Essa pessoa não vai ligar — ela vai escolher o concorrente que tem tudo funcionando. A qualidade real da loja não está chegando para quem nunca a conheceu.</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-num">02</div>
+        <div>
+          <div class="opp-title">Vocês estão num ponto estratégico, mas o concorrente mais novo parece maior online</div>
+          <div class="opp-desc">Com a AutoZone estabelecida próxima ao mesmo endereço, o cliente que pesquisa online antes de sair de casa pode escolher a rede global por parecer mais estruturada — mesmo que a Watanabe ofereça serviço superior. A percepção digital define a escolha antes da visita.</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-num">03</div>
+        <div>
+          <div class="opp-title">20 anos de história não estão contados em lugar nenhum</div>
+          <div class="opp-desc">A trajetória da Watanabe, os diferenciais reais, o atendimento personalizado — nada disso está visível para quem chega pela internet. Novos clientes não têm como saber o que clientes antigos sabem.</div>
+        </div>
+      </div>
+
+      <div class="opp-item">
+        <div class="opp-num">04</div>
+        <div>
+          <div class="opp-title">As redes sociais publicam, mas não convertem</div>
+          <div class="opp-desc">O Instagram está ativo, mas 1.696 seguidores para uma empresa com 20+ anos e 35 mil itens é um número baixo. Há potencial significativo de crescimento orgânico que ainda não está sendo aproveitado.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="cta-label">Próximo passo</div>
+    <h2>A Watanabe merece<br><em>aparecer como é</em></h2>
+    <p>20 anos de serviço, mais de 35 mil itens e uma equipe reconhecida pelo nome. Isso não está aparecendo online — e podemos mudar isso juntos. Sem enrolação.</p>
+    <a href="https://wa.me/5515981512083?text=Olá!%20Recebi%20o%20diagnóstico%20da%20Watanabe%20Autopeças%20e%20quero%20entender%20as%20próximas%20etapas." class="cta-btn">💬 Conversar com a Vocação</a>
+    <div class="cta-note">Resposta em até 1 hora · Sem compromisso</div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">Vocação Comunicação & Marketing</div>
+    <div class="footer-tag">Sua empresa é confiável. Online, ela não parece. — Vamos mudar isso.</div>
+  </footer>
+</div>
+
+</body>
+</html>

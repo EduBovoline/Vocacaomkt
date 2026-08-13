@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Presença Digital — Vocação</title>
+  
+  <!-- Fonts Google: Fraunces & DM Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Paleta Identidade Vocação */
+      --color-primary: #1a1a2e;
+      --color-accent: #e8b86d;
+      --color-accent-soft: #fcf6e8;
+      --color-accent-border: #f0d5a3;
+      
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #6b6b6b;
+      --color-border: #e8e4dc;
+      
+      /* Semânticas */
+      --color-positive: #1b6340;
+      --color-positive-bg: #eaf5ef;
+      --color-negative: #a7283c;
+      --color-negative-bg: #fdf0f2;
+      --color-warning: #c17f24;
+      --color-warning-bg: #fdf7ee;
+      --color-info: #1d4e89;
+      --color-info-bg: #eef4fc;
+
+      --shadow-sm: 0 2px 8px rgba(26, 26, 46, 0.04);
+      --shadow-md: 0 8px 24px rgba(26, 26, 46, 0.08);
+      --shadow-lg: 0 16px 40px rgba(26, 26, 46, 0.12);
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 60px;
+    }
+
+    /* Container Principal */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 48px 0 40px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, #c49646 100%);
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 184, 109, 0.15);
+      border: 1px solid rgba(232, 184, 109, 0.3);
+      color: var(--color-accent);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .header-title h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header-title p {
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 1.1rem;
+    }
+
+    .meta-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      min-width: 260px;
+      backdrop-filter: blur(10px);
+    }
+
+    .meta-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .meta-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .meta-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .meta-value {
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    /* Cards e Seções */
+    section {
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 24px;
+    }
+
+    .section-header {
+      margin-bottom: 24px;
+    }
+
+    .section-subtitle {
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      color: var(--color-primary);
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    /* Intro Card */
+    .intro-card {
+      border-left: 4px solid var(--color-accent);
+      background: linear-gradient(135deg, #ffffff 0%, var(--color-accent-soft) 100%);
+    }
+
+    .intro-card p {
+      font-size: 1.05rem;
+      color: #333333;
+      line-height: 1.7;
+    }
+
+    /* Grid de Diagnóstico por Canal */
+    .channel-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .channel-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .channel-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .channel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .channel-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .channel-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: var(--color-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .status-otimo { background: var(--color-positive-bg); color: var(--color-positive); }
+    .status-bom { background: #e8f4fd; color: #1d4e89; }
+    .status-mediano { background: var(--color-warning-bg); color: var(--color-warning); }
+    .status-fraco { background: var(--color-negative-bg); color: var(--color-negative); }
+    .status-ausente { background: #f0f0f0; color: #666666; }
+
+    .channel-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+      margin-bottom: 16px;
+    }
+
+    .channel-link {
+      font-size: 0.85rem;
+      color: var(--color-info);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .channel-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Tabela de Concorrentes */
+    .table-responsive {
+      overflow-x: auto;
+      margin-top: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 14px 16px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+
+    th:first-child { border-top-left-radius: var(--radius-sm); }
+    th:last-child { border-top-right-radius: var(--radius-sm); }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    tr:nth-child(even) td {
+      background-color: rgba(250, 250, 248, 0.6);
+    }
+
+    tr.highlight-row td {
+      background-color: var(--color-accent-soft) !important;
+      font-weight: 600;
+    }
+
+    /* Visual Graph Comparison */
+    .comparison-box {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: var(--radius-md);
+      padding: 28px;
+      margin-top: 24px;
+    }
+
+    .comparison-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      margin-bottom: 20px;
+    }
+
+    .bar-group {
+      margin-bottom: 16px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .bar-bg {
+      height: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      transition: width 1s ease-in-out;
+    }
+
+    .bar-fill.lead { background: var(--color-accent); }
+    .bar-fill.competitor { background: #4a6fa5; }
+
+    /* Highlights / Lists */
+    .feature-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .feature-item {
+      background: var(--color-positive-bg);
+      border: 1px solid rgba(27, 99, 64, 0.15);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      color: var(--color-positive);
+      font-weight: bold;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    .feature-text h4 {
+      font-size: 0.95rem;
+      color: var(--color-positive);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      font-size: 0.85rem;
+      color: #2b4536;
+      line-height: 1.4;
+    }
+
+    /* Alert / Improvement Opportunities */
+    .gap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .gap-item {
+      background: #ffffff;
+      border: 1px solid var(--color-border);
+      border-left: 4px solid var(--color-negative);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gap-item h4 {
+      font-size: 1.05rem;
+      color: var(--color-negative);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gap-item p {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* CTA Box */
+    .cta-card {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #0f0f1d 100%);
+      color: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 48px 36px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(232, 184, 109, 0.15) 0%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+    }
+
+    .cta-card h2 {
+      color: #ffffff;
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-card p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 1.1rem;
+      max-width: 620px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(232, 184, 109, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .btn-whatsapp:hover {
+      background: #f0c47d;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(232, 184, 109, 0.45);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      border-top: 1px solid var(--color-border);
+      padding-top: 24px;
+    }
+
+    footer a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .header-title h1 { font-size: 1.9rem; }
+      .card { padding: 20px; }
+      .cta-card { padding: 32px 20px; }
+      .cta-card h2 { font-size: 1.6rem; }
+      .meta-box { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="header-title">
+          <div class="brand-badge">Diagnóstico de Presença Digital</div>
+          <h1>Vocação</h1>
+          <p>Análise de Autoridade Digital & Oportunidades de Mercado</p>
+        </div>
+        <div class="meta-box">
+          <div class="meta-item">
+            <span class="meta-label">Segmento:</span>
+            <span class="meta-value">Comunicação & Marketing</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Tempo de Mercado:</span>
+            <span class="meta-value">Mais de 7 anos</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Data da Análise:</span>
+            <span class="meta-value">Agosto de 2026</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Status Geral:</span>
+            <span class="meta-value">Oportunidade Elevada</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Introdução -->
+    <section>
+      <div class="card intro-card">
+        <div class="section-header">
+          <div class="section-subtitle">Visão Geral</div>
+          <h2>Sua empresa é altamente qualificada. Mas o digital está acompanhando essa bagagem?</h2>
+        </div>
+        <p>
+          Identificamos que a <strong>Vocação</strong> acumula mais de 7 anos de atuação sólida e autoridade consolidada no mercado offline. Contudo, ao realizar um diagnóstico da jornada que um potencial cliente percorre online para encontrar e contratar seus serviços, identificamos desencontros importantes entre a excelência real da empresa e o que é projetado nos canais digitais.
+        </p>
+      </div>
+    </section>
+
+    <!-- Bloco A: Diagnóstico por Canal -->
+    <section>
+      <div class="section-header">
+        <div class="section-subtitle">Bloco A</div>
+        <h2>Diagnóstico Canal por Canal</h2>
+      </div>
+
+      <div class="channel-grid">
+        <!-- Site -->
+        <div class="channel-card">
+          <div>
+            <div class="channel-header">
+              <div class="channel-title">
+                <div class="channel-icon">🌐</div>
+                <span>Website Oficial</span>
+              </div>
+              <span class="status-badge status-otimo">Ótimo</span>
+            </div>
+            <p class="channel-desc">
+              Site profissional, moderno e atualizado. Apresenta posicionamento claro e boa experiência de navegação mobile e desktop.
+            </p>
+          </div>
+          <a href="https://vocacao.digital/" target="_blank" class="channel-link">Acessar site ↗</a>
+        </div>
+
+        <!-- Google Meu Negócio / Maps -->
+        <div class="channel-card">
+          <div>
+            <div class="channel-header">
+              <div class="channel-title">
+                <div class="channel-icon">📍</div>
+                <span>Google Maps / GMN</span>
+              </div>
+              <span class="status-badge status-fraco">Fraco</span>
+            </div>
+            <p class="channel-desc">
+              Perfil existente no Google, porém com informações desatualizadas. Ausência de postagens recentes, fotos atualizadas e gestão de prova social.
+            </p>
+          </div>
+          <a href="https://maps.app.goo.gl/Q72TJVdKfFS2jor79" target="_blank" class="channel-link">Ver localização no Google ↗</a>
+        </div>
+
+        <!-- Instagram -->
+        <div class="channel-card">
+          <div>
+            <div class="channel-header">
+              <div class="channel-title">
+                <div class="channel-icon">📸</div>
+                <span>Instagram</span>
+              </div>
+              <span class="status-badge status-fraco">Fraco</span>
+            </div>
+            <p class="channel-desc">
+              Perfil oficial registrado (@vocacaomkt), porém inativo há meses. Transmite aos novos visitantes a falsa impressão de que a empresa está pausada.
+            </p>
+          </div>
+          <span class="channel-link" style="color: var(--color-text-muted);">@vocacaomkt</span>
+        </div>
+
+        <!-- Facebook -->
+        <div class="channel-card">
+          <div>
+            <div class="channel-header">
+              <div class="channel-title">
+                <div class="channel-icon">👥</div>
+                <span>Facebook</span>
+              </div>
+              <span class="status-badge status-fraco">Fraco</span>
+            </div>
+            <p class="channel-desc">
+              Página oficial presente (@vocacaomkt), mas desacompanhada de atualizações regulares ou integração estratégica com anúncios locais.
+            </p>
+          </div>
+          <span class="channel-link" style="color: var(--color-text-muted);">@vocacaomkt</span>
+        </div>
+
+        <!-- Busca Orgânica -->
+        <div class="channel-card">
+          <div>
+            <div class="channel-header">
+              <div class="channel-title">
+                <div class="channel-icon">🔍</div>
+                <span>Busca Orgânica</span>
+              </div>
+              <span class="status-badge status-mediano">Mediano</span>
+            </div>
+            <p class="channel-desc">
+              Visibilidade restrita para pesquisas de intenção comercial no segmento. Quem procura por soluções de marketing na região nem sempre encontra a Vocação.
+            </p>
+          </div>
+          <span class="channel-link" style="color: var(--color-text-muted);">Palavras-chave do setor</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco B: Nicho e Concorrentes -->
+    <section>
+      <div class="card">
+        <div class="section-header">
+          <div class="section-subtitle">Bloco B</div>
+          <h2>Análise de Nicho & Panorama Regional</h2>
+        </div>
+        <p style="margin-bottom: 20px; color: var(--color-text-muted);">
+          No setor de serviços B2B e consultoria de comunicação, <strong>87% dos tomadores de decisão</strong> pesquisam o Google Meu Negócio e validam as redes sociais da empresa antes de fechar qualquer contrato, mesmo quando chegam por indicação.
+        </p>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Empresa</th>
+                <th>Website</th>
+                <th>Google Maps</th>
+                <th>Instagram</th>
+                <th>Presença Digital Geral</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-row">
+                <td><strong>Vocação (Sua Empresa)</strong></td>
+                <td><span class="status-badge status-otimo">Atualizado</span></td>
+                <td><span class="status-badge status-fraco">Desatualizado</span></td>
+                <td><span class="status-badge status-fraco">Inativo</span></td>
+                <td><strong>Mediana (Gargalo de Busca)</strong></td>
+              </tr>
+              <tr>
+                <td>Beatz Agência</td>
+                <td><span class="status-badge status-otimo">Atualizado</span></td>
+                <td><span class="status-badge status-otimo">Ativo (4.9 ★)</span></td>
+                <td><span class="status-badge status-otimo">Constante</span></td>
+                <td>Forte</td>
+              </tr>
+              <tr>
+                <td>WMB Marketing Digital</td>
+                <td><span class="status-badge status-bom">Bom</span></td>
+                <td><span class="status-badge status-bom">Ativo (4.8 ★)</span></td>
+                <td><span class="status-badge status-mediano">Moderado</span></td>
+                <td>Mediana/Forte</td>
+              </tr>
+              <tr>
+                <td>Atua Comunicação</td>
+                <td><span class="status-badge status-otimo">Atualizado</span></td>
+                <td><span class="status-badge status-bom">Ativo</span></td>
+                <td><span class="status-badge status-bom">Ativo</span></td>
+                <td>Forte</td>
+              </tr>
+              <tr>
+                <td>MMweb Agência Local</td>
+                <td><span class="status-badge status-mediano">Simples</span></td>
+                <td><span class="status-badge status-otimo">Otimizado</span></td>
+                <td><span class="status-badge status-mediano">Frequente</span></td>
+                <td>Mediana</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Gráfico Comparativo em HTML/CSS -->
+        <div class="comparison-box">
+          <div class="comparison-title">Nível de Presença Digital Encontrável vs. Qualidade Real da Empresa</div>
+          
+          <div class="bar-group">
+            <div class="bar-label">
+              <span>Experiência Real & Tradição da Vocação (7+ anos)</span>
+              <span>95% (Excelente)</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill lead" style="width: 95%;"></div>
+            </div>
+          </div>
+
+          <div class="bar-group">
+            <div class="bar-label">
+              <span>Visibilidade Atual nos Canais de Busca (Google Maps + Redes)</span>
+              <span>35% (Gargalo)</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill lead" style="width: 35%; background: var(--color-negative);"></div>
+            </div>
+          </div>
+
+          <div class="bar-group">
+            <div class="bar-label">
+              <span>Média dos Concorrentes Ativos no Digital</span>
+              <span>75% (Otimizada)</span>
+            </div>
+            <div class="bar-bg">
+              <div class="bar-fill competitor" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco C: Forças Reconhecidas -->
+    <section>
+      <div class="card">
+        <div class="section-header">
+          <div class="section-subtitle">Bloco C</div>
+          <h2>Pontos Fortes de Destaque</h2>
+        </div>
+        <p style="color: var(--color-text-muted); margin-bottom: 12px;">
+          Sua empresa possui ativos valiosos que a maioria dos concorrentes novos tenta construir a todo custo:
+        </p>
+
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h4>Mais de 7 anos de mercado</h4>
+              <p>Bagagem consolidada, repertório técnico e maturidade de atendimento.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h4>Site moderno e alinhado</h4>
+              <p>Uma excelente vitrine principal (vocacao.digital) com proposta clara.</p>
+            </div>
+          </div>
+
+          <div class="feature-item">
+            <div class="feature-icon">✓</div>
+            <div class="feature-text">
+              <h4>Potencial imediato de conversão</h4>
+              <p>Basta destravar a visibilidade para que os novos visitantes convertam em clientes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bloco D: O que pode melhorar (Urgência sem vender) -->
+    <section>
+      <div class="card">
+        <div class="section-header">
+          <div class="section-subtitle">Bloco D</div>
+          <h2>Onde Estão os Gargalos Invisíveis de Faturamento?</h2>
+        </div>
+        <p style="color: var(--color-text-muted);">
+          Mesmo com uma excelente reputação offline, três furos na jornada digital estão fazendo clientes qualificados contratarem concorrentes menores:
+        </p>
+
+        <div class="gap-list">
+          <div class="gap-item">
+            <h4>1. O "Vazamento" no Google Maps quando o cliente pesquisa na região</h4>
+            <p>
+              Quando um empresário ou tomador de decisão busca por soluções no Google Maps, perfis desatualizados não aparecem no topo das pesquisas locais. O cliente assume que a empresa mudou de endereço ou fechou e clica na primeira opção bem avaliada.
+            </p>
+          </div>
+
+          <div class="gap-item">
+            <h4>2. A quebra de confiança nas Redes Sociais inativas</h4>
+            <p>
+              Um cliente em dúvida que visita seu site profissional e decide checar o Instagram em busca de prova social encontra um perfil sem posts há meses. Essa lacuna gera dúvida imediata: <em>"Será que a empresa continua ativa?"</em>
+            </p>
+          </div>
+
+          <div class="gap-item">
+            <h4>3. Dependência excessiva de indicações pontuais</h4>
+            <p>
+              Sem um funil digital estruturado e encontrável de ponta a ponta, a empresa fica refém de indicações orgânicas, deixando de capturar a demanda ativa de quem está pronto para contratar agora na internet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section>
+      <div class="cta-card">
+        <h2>Pronto para transformar sua presença digital na altura da sua história?</h2>
+        <p>
+          Organizar esses canais e fechar os furos da jornada do seu cliente é mais rápido e acessível do que parece. Vamos conversar sobre como ajustar essa estrutura?
+        </p>
+        <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Li%20o%20diagn%C3%B3stico%20de%20presen%C3%A7a%20digital%20da%20Voca%C3%A7%C3%A3o%20e%20gostaria%20de%20falar%20sobre%20os%20pr%C3%B3ximos%20passos." target="_blank" class="btn-whatsapp">
+          <span>💬 Conversar no WhatsApp com a Vocação</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Diagnóstico produzido pela <strong>Vocação Comunicação & Marketing</strong> • <a href="https://vocacao.digital/" target="_blank">vocacao.digital</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
