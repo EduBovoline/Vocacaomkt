@@ -1,9 +1,0 @@
-User-agent: *
-Allow: /
-
-# Bloqueia arquivos de desenvolvimento que não devem ser indexados
-Disallow: /tweaks-panel.jsx
-Disallow: /tweaks.jsx
-Disallow: /screenshots-check/
-
-Sitemap: https://vocacao.digital/sitemap.xml
