@@ -3,11 +3,70 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Impressão Fácil — Vocação</title>
-<meta name="description" content="Serviço de suporte de impressão da Vocação. Você manda o arquivo, a gente confere e cuida de tudo com a gráfica." />
+
+<!-- ===== SEO PRIMARY ===== -->
+<title>Impressão Gráfica Facilitada | Conferência Técnica e Entrega — Vocação</title>
+<meta name="description" content="Você manda o arquivo, a Vocação confere tecnicamente e cuida de tudo com a gráfica. Cartões, panfletos, banners, adesivos e muito mais. Entrega direta." />
+<link rel="canonical" href="https://vocacao.digital/impressao.html" />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+<!-- ===== GEO ===== -->
+<meta name="geo.region" content="BR" />
+<meta name="geo.placename" content="Brasil" />
+<meta name="language" content="pt-BR" />
+
+<!-- ===== OPEN GRAPH ===== -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Vocação — Comunicação & Marketing" />
+<meta property="og:url" content="https://vocacao.digital/impressao.html" />
+<meta property="og:title" content="Impressão Gráfica Facilitada | Conferência Técnica — Vocação" />
+<meta property="og:description" content="Manda o arquivo, a Vocação confere e cuida de tudo com a gráfica. Cartões, panfletos, banners e adesivos." />
+<meta property="og:image" content="https://vocacao.digital/logo-vocacao.png" />
+<meta property="og:image:alt" content="Vocação — Impressão Gráfica" />
+
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Impressão Gráfica Facilitada — Vocação" />
+<meta name="twitter:description" content="Conferência técnica e impressão industrial. Você manda o arquivo, a gente cuida do resto." />
+<meta name="twitter:image" content="https://vocacao.digital/logo-vocacao.png" />
+
+<!-- ===== ICONS & MANIFEST ===== -->
+<link rel="icon" type="image/png" href="logo-vocacao.png" />
+<link rel="apple-touch-icon" href="logo-vocacao.png" />
+<link rel="manifest" href="site.webmanifest" />
+<meta name="theme-color" content="#E5B910" />
+
+<!-- ===== FONTS ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<!-- ===== SCHEMA.ORG JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Início", "item": "https://vocacao.digital/"},
+        {"@type": "ListItem", "position": 2, "name": "Impressão Gráfica", "item": "https://vocacao.digital/impressao.html"}
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Impressão Gráfica Facilitada",
+      "description": "Serviço completo de impressão gráfica: conferência técnica do arquivo, impressão industrial e entrega direta. Cartões de visita, panfletos, banners, adesivos e muito mais.",
+      "url": "https://vocacao.digital/impressao.html",
+      "provider": {"@type": "Organization", "name": "Vocação", "url": "https://vocacao.digital/"},
+      "areaServed": {"@type": "Country", "name": "Brasil"},
+      "serviceType": "Impressão Gráfica",
+      "category": "Gráfica e Impressão"
+    }
+  ]
+}
+</script>
 <style>
 /* ===== styles.css ===== */
 /* ============================================
@@ -17,21 +76,21 @@
 
 :root {
   /* Cor */
-  --bg: oklch(0.965 0.012 75);          /* off-white quente */
-  --bg-2: oklch(0.93 0.018 70);         /* areia */
-  --bg-3: oklch(0.20 0.018 50);         /* near-black quente */
-  --ink: oklch(0.20 0.018 50);
-  --ink-2: oklch(0.36 0.018 55);        /* texto secundário */
-  --ink-3: oklch(0.55 0.020 60);        /* meta */
-  --line: oklch(0.85 0.015 70);         /* divisórias */
-  --line-2: oklch(0.78 0.020 65);
+  --bg: oklch(0.975 0.004 260);          /* off-white quente */
+  --bg-2: oklch(0.945 0.005 260);         /* areia */
+  --bg-3: oklch(0.21 0.045 240);         /* near-black quente */
+  --ink: oklch(0.21 0.045 240);
+  --ink-2: oklch(0.36 0.035 240);        /* texto secundário */
+  --ink-3: oklch(0.55 0.03 240);        /* meta */
+  --line: oklch(0.88 0.007 260);         /* divisórias */
+  --line-2: oklch(0.81 0.009 260);
   --accent: oklch(0.78 0.12 78);        /* âmbar/dourado Vocação */
-  --accent-ink: oklch(0.20 0.018 50);
-  --accent-soft: oklch(0.96 0.04 80);
+  --accent-ink: oklch(0.21 0.045 240);
+  --accent-soft: oklch(0.965 0.006 260);
 
   /* Tipografia */
-  --display: "Fraunces", "Times New Roman", serif;
-  --body: "Geist", -apple-system, BlinkMacSystemFont, sans-serif;
+  --display: "Poppins", sans-serif;
+  --body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", monospace;
 
   /* Espaço */
@@ -60,7 +119,7 @@ body {
   overflow-x: hidden;
   background-image:
     radial-gradient(1400px 800px at 80% -10%, color-mix(in oklab, var(--accent) 5%, transparent), transparent 70%),
-    radial-gradient(1200px 700px at -10% 30%, color-mix(in oklab, oklch(0.85 0.02 80) 30%, transparent), transparent 70%);
+    radial-gradient(1200px 700px at -10% 30%, color-mix(in oklab, oklch(0.88 0.008 260) 30%, transparent), transparent 70%);
   background-attachment: fixed;
 }
 
@@ -490,13 +549,13 @@ section { position: relative; }
   position: relative;
   overflow: hidden;
 }
-.statement .eyebrow { color: oklch(0.7 0.020 60); }
+.statement .eyebrow { color: oklch(0.72 0.012 250); }
 .statement h2 {
   font-size: clamp(44px, 7vw, 112px);
   max-width: 14ch;
   margin: 40px 0 60px;
 }
-.statement h2 em { color: oklch(0.78 0.16 50); }
+.statement h2 em { color: oklch(0.82 0.16 95); }
 
 .statement-grid {
   display: grid;
@@ -515,7 +574,7 @@ section { position: relative; }
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: oklch(0.6 0.02 60);
+  color: oklch(0.62 0.012 250);
   margin-bottom: 18px;
 }
 .statement-grid .big {
@@ -524,8 +583,8 @@ section { position: relative; }
   line-height: 1.05;
   margin-bottom: 18px;
 }
-.statement-grid .big em { color: oklch(0.78 0.16 50); }
-.statement-grid p { color: oklch(0.78 0.02 60); font-size: 16px; max-width: 38ch; }
+.statement-grid .big em { color: oklch(0.82 0.16 95); }
+.statement-grid p { color: oklch(0.8 0.012 250); font-size: 16px; max-width: 38ch; }
 
 @media (max-width: 860px) {
   .statement-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -899,16 +958,16 @@ section { position: relative; }
   position: relative;
   overflow: hidden;
 }
-.bigcta .eyebrow { color: oklch(0.65 0.02 60); justify-content: center; }
+.bigcta .eyebrow { color: oklch(0.67 0.012 250); justify-content: center; }
 .bigcta h2 {
   font-size: clamp(48px, 8vw, 140px);
   letter-spacing: -0.025em;
   margin: 40px auto 30px;
   max-width: 16ch;
 }
-.bigcta h2 em { color: oklch(0.78 0.16 50); }
+.bigcta h2 em { color: oklch(0.82 0.16 95); }
 .bigcta p {
-  color: oklch(0.78 0.02 60);
+  color: oklch(0.8 0.012 250);
   font-size: clamp(16px, 1.4vw, 19px);
   max-width: 48ch;
   margin: 0 auto 50px;
@@ -949,7 +1008,7 @@ section { position: relative; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
 }
 .footer .brand { color: var(--bg); }
-.footer .lede { color: oklch(0.78 0.02 60); font-size: 14px; max-width: 38ch; margin-top: 16px; }
+.footer .lede { color: oklch(0.8 0.012 250); font-size: 14px; max-width: 38ch; margin-top: 16px; }
 
 .footer-col h5 {
   font-family: var(--mono);
@@ -957,13 +1016,13 @@ section { position: relative; }
   font-weight: 500;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: oklch(0.62 0.02 60);
+  color: oklch(0.64 0.012 250);
   margin: 12px 0 18px;
 }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
 .footer-col li { margin-bottom: 12px; font-size: 14px; }
 .footer-col a {
-  color: oklch(0.86 0.02 60);
+  color: oklch(0.88 0.01 250);
   display: inline-flex; align-items: center; gap: 6px;
   transition: color .2s;
 }
@@ -982,7 +1041,7 @@ section { position: relative; }
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: oklch(0.62 0.02 60);
+  color: oklch(0.64 0.012 250);
   flex-wrap: wrap; gap: 16px;
 }
 
@@ -1368,7 +1427,7 @@ body { letter-spacing: -0.005em; }
   border-top-color: oklch(0.34 0.02 50);
   color: var(--bg);
 }
-.wall-bento .mega .who span { color: oklch(0.62 0.02 60); }
+.wall-bento .mega .who span { color: oklch(0.64 0.012 250); }
 .wall-bento .mega .avatar {
   background: var(--accent);
   color: var(--bg);
@@ -1378,7 +1437,7 @@ body { letter-spacing: -0.005em; }
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: oklch(0.62 0.02 60);
+  color: oklch(0.64 0.012 250);
   display: flex; justify-content: space-between;
   margin-bottom: 28px;
 }
@@ -1645,7 +1704,7 @@ body { letter-spacing: -0.005em; }
 }
 .plan.featured .plan-name,
 .plan.featured .plan-feat li { color: var(--bg); }
-.plan.featured .plan-price em { color: oklch(0.78 0.02 60); }
+.plan.featured .plan-price em { color: oklch(0.8 0.012 250); }
 .plan.featured .plan-feat li { border-color: oklch(0.32 0.02 50); }
 .plan.featured .ribbon {
   position: absolute; top: -10px; left: 30px;
@@ -1660,7 +1719,7 @@ body { letter-spacing: -0.005em; }
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.plan.featured .plan-tag { color: oklch(0.72 0.02 60); }
+.plan.featured .plan-tag { color: oklch(0.74 0.012 250); }
 .plan-name {
   font-family: var(--display);
   font-variation-settings: "opsz" 100, "SOFT" 40;
@@ -1703,14 +1762,14 @@ body { letter-spacing: -0.005em; }
   letter-spacing: -0.01em;
   color: var(--ink-2);
 }
-.plan.featured .plan-price-sub .freq { color: oklch(0.62 0.02 60); }
-.plan.featured .plan-price-sub .monthly { color: oklch(0.82 0.02 60); }
+.plan.featured .plan-price-sub .freq { color: oklch(0.64 0.012 250); }
+.plan.featured .plan-price-sub .monthly { color: oklch(0.84 0.01 250); }
 .plan-sub {
   font-size: 13px;
   color: var(--ink-3);
   margin-bottom: 28px;
 }
-.plan.featured .plan-sub { color: oklch(0.72 0.02 60); }
+.plan.featured .plan-sub { color: oklch(0.74 0.012 250); }
 .plan-feat {
   list-style: none; padding: 0; margin: 0;
   border-top: 1px solid var(--line);
@@ -1724,7 +1783,7 @@ body { letter-spacing: -0.005em; }
   color: var(--ink-2);
   line-height: 1.45;
 }
-.plan.featured .plan-feat li { color: oklch(0.85 0.02 60); }
+.plan.featured .plan-feat li { color: oklch(0.87 0.01 250); }
 .plan-feat .chk {
   flex-shrink: 0;
   width: 14px; height: 14px;
@@ -1766,7 +1825,7 @@ body { letter-spacing: -0.005em; }
   letter-spacing: -0.015em;
 }
 .split-col p { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
-.split-col.dark p { color: oklch(0.78 0.02 60); }
+.split-col.dark p { color: oklch(0.8 0.012 250); }
 .split-col .nb {
   display: block;
   font-family: var(--mono);
@@ -1776,7 +1835,7 @@ body { letter-spacing: -0.005em; }
   color: var(--ink-3);
   margin-bottom: 14px;
 }
-.split-col.dark .nb { color: oklch(0.72 0.02 60); }
+.split-col.dark .nb { color: oklch(0.74 0.012 250); }
 @media (max-width: 760px) { .split-grid { grid-template-columns: 1fr; } }
 
 /* Mini process (for landings) */
@@ -2039,7 +2098,7 @@ body { letter-spacing: -0.005em; }
   border-color: transparent;
 }
 .price-row.highlight .product { color: var(--bg); }
-.price-row.highlight .specs { color: oklch(0.72 0.02 60); }
+.price-row.highlight .specs { color: oklch(0.74 0.012 250); }
 .price-row.highlight .price { color: var(--bg); }
 
 @media (max-width: 600px) {
@@ -2053,6 +2112,12 @@ body { letter-spacing: -0.005em; }
 <link rel="stylesheet" href="styles-sections.css" />
 <link rel="stylesheet" href="styles-more.css" />
 <link rel="stylesheet" href="styles-premium.css" />
+<style>
+/* Pérola: hover discreto em cartões */
+.after-item, .pillar, .testi { transition: background 0.35s var(--ease), box-shadow 0.35s var(--ease), transform 0.35s var(--ease); }
+.after-item:hover, .pillar:hover { background: #fff; box-shadow: 0 14px 34px oklch(0.21 0.045 240 / 0.08); transform: translateY(-2px); }
+.testi:hover { box-shadow: 0 14px 34px oklch(0.21 0.045 240 / 0.07); }
+</style>
 </head>
 <body class="is-landing">
 
@@ -2062,16 +2127,16 @@ body { letter-spacing: -0.005em; }
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+    <a href="index.html" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
     <nav class="nav-links">
-      <a href="/#solucao">Estrutura</a>
-      <a href="presenca-local">Presença Local</a>
-      <a href="redes">Redes</a>
-      <a href="trafego">Tráfego</a>
-      <a href="branding">Branding</a>
-      <a href="video">Vídeo</a>
+      <a href="presenca-local.html">Presença Local</a>
+      <a href="design-avulso.html">Design Avulso</a>
+      <a href="impressao.html" aria-current="page">Impressão</a>
+      <a href="redes.html">Redes</a>
+      <a href="trafego.html">Tráfego</a>
+      <a href="portfolio.html">Portfólio</a>
     </nav>
-    <a href="diagnostico" class="btn btn-primary magnet">
+    <a href="diagnostico.html" class="btn btn-primary magnet">
       Diagnóstico gratuito
       <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
     </a>
@@ -2081,7 +2146,7 @@ body { letter-spacing: -0.005em; }
 <!-- HERO -->
 <section class="lhero">
   <div class="wrap">
-    <span class="crumb reveal"><a href="/" class="back-home">Vocação</a><span class="sep"></span>Impressão Fácil</span>
+    <span class="crumb reveal"><a href="index.html" class="back-home">Vocação</a><span class="sep"></span>Impressão Fácil</span>
 
     <h1 class="reveal" data-d="1">
       Sua marca impressa com qualidade industrial — <em>sem complicação</em>.
@@ -2261,7 +2326,7 @@ body { letter-spacing: -0.005em; }
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">E se eu não tiver a arte pronta?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Conferimos e ajustamos arquivos prontos. Caso você precise criar uma arte nova ou reformular um layout, oferecemos nosso serviço de <a href="design-avulso" style="text-decoration: underline;">Design Avulso</a>.</div></div>
+        <div class="faq-a"><div style="padding-top:6px;">Conferimos e ajustamos arquivos prontos. Caso você precise criar uma arte nova ou reformular um layout, oferecemos nosso serviço de <a href="design-avulso.html" style="text-decoration: underline;">Design Avulso</a>.</div></div>
       </div>
       <div class="faq-item">
         <button class="faq-q" type="button">E se houver falha técnica na impressão?<span class="plus" aria-hidden="true"></span></button>
@@ -2303,37 +2368,38 @@ body { letter-spacing: -0.005em; }
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+        <a href="index.html" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
         <p class="lede">A Vocação ajuda empresas a organizarem sua presença digital para transmitir confiança antes de investir em marketing.</p>
       </div>
       <div class="footer-col">
         <h5>Ofertas Diretas</h5>
         <ul>
-          <li><a href="presenca-local">Presença Local</a></li>
-          <li><a href="design-avulso">Design Avulso</a></li>
-          <li><a href="impressao">Impressão Gráfica</a></li>
+          <li><a href="presenca-local.html">Presença Local</a></li>
+          <li><a href="design-avulso.html">Design Avulso</a></li>
+          <li><a href="impressao.html">Impressão Gráfica</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Marketing &amp; Escala</h5>
         <ul>
-          <li><a href="redes">Gestão de Redes <span class="arrow">↗</span></a></li>
-          <li><a href="trafego">Tráfego Pago <span class="arrow">↗</span></a></li>
-          <li><a href="branding">Branding <span class="arrow">↗</span></a></li>
-          <li><a href="video">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
+          <li><a href="redes.html">Gestão de Redes <span class="arrow">↗</span></a></li>
+          <li><a href="trafego.html">Tráfego Pago <span class="arrow">↗</span></a></li>
+          <li><a href="branding.html">Branding <span class="arrow">↗</span></a></li>
+          <li><a href="video.html">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Contato</h5>
         <ul>
           <li><a href="https://wa.me/5515981512083">WhatsApp <span class="arrow">↗</span></a></li>
-          <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico.html">Diagnóstico <span class="arrow">↗</span></a></li>
           <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM">Google <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Empresa</h5>
         <ul>
+          <li><a href="portfolio.html">Portfólio</a></li>
           <li>(15) 98151-2083</li>
           <li>Brasil · PT-BR</li>
           <li>Atendimento remoto</li>
@@ -2353,7 +2419,7 @@ body { letter-spacing: -0.005em; }
 </a>
 
 <script>
-  window.__TWEAKS__ = { "accent": "#e8b86d", "palette": "warm", "displayFont": "Fraunces", "bodyFont": "Geist", "grain": true };
+  window.__TWEAKS__ = { "accent": "#e8b86d", "palette": "warm", "displayFont": "Poppins", "bodyFont": "Montserrat", "grain": true };
 </script>
 <script>/* ============================================
    VOCAÇÃO — Motion & Interactions
@@ -2382,10 +2448,10 @@ body { letter-spacing: -0.005em; }
       root.style.setProperty('--bg-3', 'oklch(0.15 0 0)');
       root.style.setProperty('--ink', 'oklch(0.18 0 0)');
     } else {
-      root.style.setProperty('--bg', 'oklch(0.965 0.012 75)');
-      root.style.setProperty('--bg-2', 'oklch(0.93 0.018 70)');
-      root.style.setProperty('--bg-3', 'oklch(0.20 0.018 50)');
-      root.style.setProperty('--ink', 'oklch(0.20 0.018 50)');
+      root.style.setProperty('--bg', 'oklch(0.975 0.004 260)');
+      root.style.setProperty('--bg-2', 'oklch(0.945 0.005 260)');
+      root.style.setProperty('--bg-3', 'oklch(0.21 0.045 240)');
+      root.style.setProperty('--ink', 'oklch(0.21 0.045 240)');
     }
     document.body.classList.toggle('no-grain', t.grain === false);
   }

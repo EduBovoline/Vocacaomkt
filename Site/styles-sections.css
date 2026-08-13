@@ -116,8 +116,9 @@
   content: "↳ ";
   color: var(--accent);
 }
-.hero-marks .m1 { top: 18%; right: 6%; animation-delay: 1.4s; }
-.hero-marks .m2 { top: 32%; right: 6%; animation-delay: 1.7s; }
+.hero-marks .m1 { top: 46%; right: 5%; animation-delay: 1.4s; }
+.hero-marks .m2 { top: 56%; right: 5%; animation-delay: 1.7s; }
+.hero-marks { display: none; }
 @media (max-width: 900px) { .hero-marks { display: none; } }
 @keyframes fadeIn { to { opacity: 1; } }
 
@@ -259,13 +260,13 @@
   position: relative;
   overflow: hidden;
 }
-.statement .eyebrow { color: oklch(0.7 0.020 60); }
+.statement .eyebrow { color: oklch(0.72 0.012 250); }
 .statement h2 {
   font-size: clamp(44px, 7vw, 112px);
   max-width: 14ch;
   margin: 40px 0 60px;
 }
-.statement h2 em { color: oklch(0.78 0.16 50); }
+.statement h2 em { color: oklch(0.82 0.16 95); }
 
 .statement-grid {
   display: grid;
@@ -284,7 +285,7 @@
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: oklch(0.6 0.02 60);
+  color: oklch(0.62 0.012 250);
   margin-bottom: 18px;
 }
 .statement-grid .big {
@@ -293,8 +294,8 @@
   line-height: 1.05;
   margin-bottom: 18px;
 }
-.statement-grid .big em { color: oklch(0.78 0.16 50); }
-.statement-grid p { color: oklch(0.78 0.02 60); font-size: 16px; max-width: 38ch; }
+.statement-grid .big em { color: oklch(0.82 0.16 95); }
+.statement-grid p { color: oklch(0.8 0.012 250); font-size: 16px; max-width: 38ch; }
 
 @media (max-width: 860px) {
   .statement-grid { grid-template-columns: 1fr; gap: 40px; }

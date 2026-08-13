@@ -330,7 +330,7 @@ body { letter-spacing: -0.005em; }
   border-top-color: oklch(0.34 0.02 50);
   color: var(--bg);
 }
-.wall-bento .mega .who span { color: oklch(0.62 0.02 60); }
+.wall-bento .mega .who span { color: oklch(0.64 0.012 250); }
 .wall-bento .mega .avatar {
   background: var(--accent);
   color: var(--bg);
@@ -340,7 +340,7 @@ body { letter-spacing: -0.005em; }
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: oklch(0.62 0.02 60);
+  color: oklch(0.64 0.012 250);
   display: flex; justify-content: space-between;
   margin-bottom: 28px;
 }

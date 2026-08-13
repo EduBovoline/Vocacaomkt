@@ -121,7 +121,7 @@
 }
 .plan.featured .plan-name,
 .plan.featured .plan-feat li { color: var(--bg); }
-.plan.featured .plan-price em { color: oklch(0.78 0.02 60); }
+.plan.featured .plan-price em { color: oklch(0.8 0.012 250); }
 .plan.featured .plan-feat li { border-color: oklch(0.32 0.02 50); }
 .plan.featured .ribbon {
   position: absolute; top: -10px; left: 30px;
@@ -136,7 +136,7 @@
   text-transform: uppercase;
   color: var(--ink-3);
 }
-.plan.featured .plan-tag { color: oklch(0.72 0.02 60); }
+.plan.featured .plan-tag { color: oklch(0.74 0.012 250); }
 .plan-name {
   font-family: var(--display);
   font-variation-settings: "opsz" 100, "SOFT" 40;
@@ -167,7 +167,7 @@
   color: var(--ink-3);
   margin-bottom: 28px;
 }
-.plan.featured .plan-sub { color: oklch(0.72 0.02 60); }
+.plan.featured .plan-sub { color: oklch(0.74 0.012 250); }
 .plan-feat {
   list-style: none; padding: 0; margin: 0;
   border-top: 1px solid var(--line);
@@ -181,7 +181,7 @@
   color: var(--ink-2);
   line-height: 1.45;
 }
-.plan.featured .plan-feat li { color: oklch(0.85 0.02 60); }
+.plan.featured .plan-feat li { color: oklch(0.87 0.01 250); }
 .plan-feat .chk {
   flex-shrink: 0;
   width: 14px; height: 14px;
@@ -223,7 +223,7 @@
   letter-spacing: -0.015em;
 }
 .split-col p { color: var(--ink-2); font-size: 15px; line-height: 1.6; }
-.split-col.dark p { color: oklch(0.78 0.02 60); }
+.split-col.dark p { color: oklch(0.8 0.012 250); }
 .split-col .nb {
   display: block;
   font-family: var(--mono);
@@ -233,7 +233,7 @@
   color: var(--ink-3);
   margin-bottom: 14px;
 }
-.split-col.dark .nb { color: oklch(0.72 0.02 60); }
+.split-col.dark .nb { color: oklch(0.74 0.012 250); }
 @media (max-width: 760px) { .split-grid { grid-template-columns: 1fr; } }
 
 /* Mini process (for landings) */

@@ -26,10 +26,10 @@
       root.style.setProperty('--bg-3', 'oklch(0.15 0 0)');
       root.style.setProperty('--ink', 'oklch(0.18 0 0)');
     } else {
-      root.style.setProperty('--bg', 'oklch(0.965 0.012 75)');
-      root.style.setProperty('--bg-2', 'oklch(0.93 0.018 70)');
-      root.style.setProperty('--bg-3', 'oklch(0.20 0.018 50)');
-      root.style.setProperty('--ink', 'oklch(0.20 0.018 50)');
+      root.style.setProperty('--bg', 'oklch(0.975 0.004 260)');
+      root.style.setProperty('--bg-2', 'oklch(0.945 0.005 260)');
+      root.style.setProperty('--bg-3', 'oklch(0.21 0.045 240)');
+      root.style.setProperty('--ink', 'oklch(0.21 0.045 240)');
     }
     document.body.classList.toggle('no-grain', t.grain === false);
   }

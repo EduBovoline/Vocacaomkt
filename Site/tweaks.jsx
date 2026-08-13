@@ -15,7 +15,7 @@ function App() {
           label="Acento"
           value={t.accent}
           onChange={(v) => setTweak('accent', v)}
-          options={['#C2410C', '#0B5E47', '#2A6FDB', '#1F1F1F', '#A24A1B', '#7C3AED']}
+          options={['#C2410C', '#E5B910', '#2A6FDB', '#1F1F1F', '#A24A1B', '#7C3AED']}
         />
         <TweakRadio
           label="Paleta"
@@ -40,9 +40,11 @@ function App() {
           value={t.displayFont}
           onChange={(v) => setTweak('displayFont', v)}
           options={[
+            'Poppins',
             'Fraunces',
             'Instrument Serif',
             'DM Serif Display',
+            'Montserrat',
             'Geist',
           ]}
         />
