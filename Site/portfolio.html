@@ -194,14 +194,14 @@
       <div class="bwin-bar">
         <div class="bwin-dots"><span></span><span></span><span></span></div>
         <div class="bwin-tabs">
-          <button class="bwin-tab active" type="button" data-site="https://sorellezanoni.netlify.app/" data-cap="Boutique feminina · Guarulhos/SP">Sorelle Zanoni</button>
+          <button class="bwin-tab active" type="button" data-site="https://samuraicarstyling.netlify.app/" data-cap="Estética automotiva · Sorocaba/SP">Samurai Car Styling</button>
+          <button class="bwin-tab" type="button" data-site="https://sorellezanoni.netlify.app/" data-cap="Boutique feminina · Guarulhos/SP">Sorelle Zanoni</button>
           <button class="bwin-tab" type="button" data-site="https://jkmprimeservice.online/" data-cap="Assistência técnica · Sorocaba/SP">JKM Prime Service</button>
-          <button class="bwin-tab" type="button" data-site="https://samuraicarstyling.netlify.app/" data-cap="Estética automotiva">Samurai Car Styling</button>
         </div>
       </div>
-      <iframe id="siteFrame" src="https://sorellezanoni.netlify.app/" title="Site do cliente" loading="lazy"></iframe>
+      <iframe id="siteFrame" src="https://samuraicarstyling.netlify.app/" title="Site do cliente" loading="lazy"></iframe>
     </div>
-    <div class="site-cap"><b id="siteCapName">Sorelle Zanoni</b><span id="siteCapMeta">Boutique feminina · Guarulhos/SP</span></div>
+    <div class="site-cap"><b id="siteCapName">Samurai Car Styling</b><span id="siteCapMeta">Estética automotiva · Sorocaba/SP</span></div>
   </div>
 </section>
 
@@ -397,14 +397,60 @@
   }/*EDITMODE-END*/;
 </script>
 <script>
-document.querySelectorAll('.bwin-tab').forEach(function(tab){
-  tab.addEventListener('click', function(){
-    document.querySelectorAll('.bwin-tab').forEach(function(t){ t.classList.remove('active'); });
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.bwin-tab');
+  const iframe = document.getElementById('siteFrame');
+  const capName = document.getElementById('siteCapName');
+  const capMeta = document.getElementById('siteCapMeta');
+  if (tabs.length === 0 || !iframe) return;
+
+  let activeIndex = 0;
+  let cycleInterval = null;
+  let userInteracted = false;
+
+  function setTabActive(index) {
+    tabs.forEach(t => t.classList.remove('active'));
+    const tab = tabs[index];
     tab.classList.add('active');
-    document.getElementById('siteFrame').src = tab.dataset.site;
-    document.getElementById('siteCapName').textContent = tab.textContent;
-    document.getElementById('siteCapMeta').textContent = tab.dataset.cap;
+    iframe.src = tab.dataset.site;
+    capName.textContent = tab.textContent;
+    capMeta.textContent = tab.dataset.cap;
+  }
+
+  function startCycle() {
+    if (userInteracted) return;
+    cycleInterval = setInterval(function() {
+      activeIndex = (activeIndex + 1) % tabs.length;
+      setTabActive(activeIndex);
+    }, 6000);
+  }
+
+  function stopCycle() {
+    if (cycleInterval) {
+      clearInterval(cycleInterval);
+      cycleInterval = null;
+    }
+  }
+
+  tabs.forEach(function(tab, index) {
+    tab.addEventListener('click', function() {
+      userInteracted = true;
+      stopCycle();
+      activeIndex = index;
+      setTabActive(activeIndex);
+    });
   });
+
+  // Pause cycling on hover
+  const bwinContainer = document.querySelector('.bwin');
+  if (bwinContainer) {
+    bwinContainer.addEventListener('mouseenter', stopCycle);
+    bwinContainer.addEventListener('mouseleave', function() {
+      if (!userInteracted) startCycle();
+    });
+  }
+
+  startCycle();
 });
 </script>
 <script type="module">
