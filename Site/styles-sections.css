@@ -300,3 +300,11 @@
 @media (max-width: 860px) {
   .statement-grid { grid-template-columns: 1fr; gap: 40px; }
 }
+
+/* Custom Steps Mobile Overrides */
+@media (max-width: 580px) {
+  .steps { grid-template-columns: 1fr !important; }
+  .step { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; padding: 24px 20px 48px !important; }
+  .step:last-child { border-bottom: 0 !important; }
+  .step-n { margin-bottom: 20px !important; }
+}
