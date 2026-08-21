@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnóstico & Ganhos de Valor — Vocação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary: #061B28;
+      --primary-soft: #f0f4f7;
+      --accent: #E5B910;
+      --accent-soft: #fcf9eb;
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --text: #1a1a1a;
+      --text-muted: #5a625f;
+      --border: #e2e8e5;
+      --positive: #0B5E47;
+      --positive-soft: #eaf6f2;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --radius: 12px;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+      padding: 40px;
+      border: 1px solid var(--border);
+    }
+    
+    .header {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 32px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
+    
+    .header h1 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    
+    .header-tag {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: inline-block;
+    }
+    
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 13px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      padding-top: 16px;
+      margin-top: 16px;
+      color: #b0c2cc;
+    }
+    
+    .manifesto-box {
+      background-color: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 24px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 40px;
+      font-style: italic;
+    }
+    
+    .manifesto-box p {
+      font-size: 18px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    
+    .manifesto-box span {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: normal;
+      display: block;
+    }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    
+    .stat-card {
+      background-color: var(--primary-soft);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    
+    .stat-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    .pilar-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .pilar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    
+    .pilar-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .status-badge {
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    
+    .status-otimo {
+      background-color: var(--positive-soft);
+      color: var(--positive);
+    }
+    
+    .pilar-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    
+    .pilar-val {
+      background-color: #fafafa;
+      padding: 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      border-left: 3px solid var(--positive);
+    }
+    
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin-bottom: 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+    
+    th, td {
+      padding: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      background-color: var(--primary-soft);
+      font-family: var(--font-display);
+      font-weight: 700;
+      color: var(--primary);
+    }
+    
+    .cta-section {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    .cta-section h2 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    
+    .cta-section p {
+      font-size: 14px;
+      color: #b0c2cc;
+      margin-bottom: 24px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    
+    .btn-whatsapp:hover {
+      background-color: #f5c91c;
+    }
+    
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    
+    .footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  
+  <!-- Header -->
+  <header class="header">
+    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; flex-wrap: wrap; gap: 16px; width: 100%;">
+      <span class="header-tag" style="margin-bottom: 0;">Diagnóstico de Presença Digital</span>
+      <div class="vocacao-logo" style="display: flex; align-items: center; gap: 8px; flex-shrink: 0;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="32" height="32" fill="none" style="display: block;">
+              <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+              <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+            </svg>
+        <span style="font-family: var(--font-display); font-weight: 700; font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; color: #ffffff;">Vocação</span>
+      </div>
+    </div>
+    <h1>Vocação</h1>
+    <div class="header-meta">
+      <span>Atuação: <b>Sorocaba - SP</b></span>
+      <span>Status do Estudo: <b>Modelo de Autoridade Concluído</b></span>
+      <span>Metodologia: <b>Foco em Estrutura de Valor</b></span>
+    </div>
+  </header>
+  
+  <!-- Manifesto -->
+  <div class="manifesto-box">
+    <p>"Sua empresa já é confiável no mundo real. Online, ela precisa parecer."</p>
+    <span>Princípio da Vocação Comunicação & Marketing</span>
+  </div>
+  
+  <!-- Seção Dados de Mercado -->
+  <section style="margin-bottom: 40px;">
+    <h2 class="section-title">O Comportamento do Consumidor Moderno</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-num">97%</div>
+        <div class="stat-desc">dos consumidores pesquisam na internet sobre empresas de serviços antes de comprar.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">4.2s</div>
+        <div class="stat-desc">tempo médio para o cliente decidir se confia em uma empresa ao abrir o site.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">73%</div>
+        <div class="stat-desc">desconfiam de negócios com perfis nas redes sociais desatualizados ou abandonados.</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">2.8x</div>
+        <div class="stat-desc">mais chances de fechar com quem possui uma presença organizada no Google.</div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Pilares de Presença Digital -->
+  <section style="margin-bottom: 40px;">
+    <h2 class="section-title">Análise de Pilares da Vocação (Prova de Conceito)</h2>
+    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">
+      Como agência de posicionamento digital, a Vocação atua como uma referência absoluta, garantindo que a própria estrutura reflita exatamente os valores e regras que comercializa para seus clientes.
+    </p>
+    
+    <!-- Pilar 1 -->
+    <div class="pilar-card">
+      <div class="pilar-header">
+        <span class="pilar-name">Pilar 01 — Site Profissional</span>
+        <span class="status-badge status-otimo">Excelente / Modelo</span>
+      </div>
+      <p class="pilar-text">
+        O site oficial <code>vocacao.digital</code> possui carregamento instantâneo, design editorial clean focado em conversão direta para o WhatsApp, tipografia legível e zero distrações. Atua como a sede oficial estável e confiável da marca.
+      </p>
+      <div class="pilar-val">
+        <strong>O Valor Praticado:</strong> A landing page converte a atenção do visitante em cliques qualificados imediatamente, servindo como modelo real do que os leads necessitam.
+      </div>
+    </div>
+    
+    <!-- Pilar 2 -->
+    <div class="pilar-card">
+      <div class="pilar-header">
+        <span class="pilar-name">Pilar 02 — Presença Local (Google Maps)</span>
+        <span class="status-badge status-otimo">Excelente / Modelo</span>
+      </div>
+      <p class="pilar-text">
+        Ficha do Google Maps otimizada, com categorização ideal, avaliações verificadas de 5,0 estrelas e botões curtos que ligam o cliente ao WhatsApp comercial sem fricção.
+      </p>
+      <div class="pilar-val">
+        <strong>O Valor Praticado:</strong> Captura e atrai a demanda de busca qualificada do mercado corporativo e de PMEs da região no momento exato do interesse.
+      </div>
+    </div>
+    
+    <!-- Pilar 3 -->
+    <div class="pilar-card">
+      <div class="pilar-header">
+        <span class="pilar-name">Pilar 03 — Redes Organizadas</span>
+        <span class="status-badge status-otimo">Excelente</span>
+      </div>
+      <p class="pilar-text">
+        O perfil do Instagram <code>@vocacao.digital</code> é padronizado, focado em posicionamento estratégico, biografia baseada em propostas de valor real e destaques institucionais claros.
+      </p>
+      <div class="pilar-val">
+        <strong>O Valor Praticado:</strong> O Instagram atua como prova de conceito estética. O capricho visual gera uma percepção de valor imediata e consolida a reputação.
+      </div>
+    </div>
+    
+    <!-- Pilar 4 -->
+    <div class="pilar-card">
+      <div class="pilar-header">
+        <span class="pilar-name">Pilar 04 — Domínio & Hospedagem Próprios</span>
+        <span class="status-badge status-otimo">Excelente</span>
+      </div>
+      <p class="pilar-text">
+        Domínio profissional de alto nível <code>.digital</code> e e-mails estruturados (ex: <code>contato@vocacao.digital</code>), eliminando o uso de domínios gratuitos e e-mails pessoais que geram amadorismo.
+      </p>
+      <div class="pilar-val">
+        <strong>O Valor Praticado:</strong> Autonomia completa de marca, governança e segurança de dados, gerando credibilidade empresarial imediata.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Comparativo de Mercado -->
+  <section style="margin-bottom: 40px;">
+    <h2 class="section-title">Análise Competitiva de Agências (Sorocaba/SP)</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa</th>
+            <th>Site Próprio</th>
+            <th>Google Maps</th>
+            <th>Instagram</th>
+            <th>Classificação Geral</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background-color: var(--accent-soft);">
+            <td><b>Vocação</b></td>
+            <td>Sim (Focado em Conversão / Excelente)</td>
+            <td>Nota 5.0 ★ (Otimizado)</td>
+            <td>Perfil Estruturado e Alinhado</td>
+            <td><b>Excelente (Líder em Conversão)</b></td>
+          </tr>
+          <tr>
+            <td>Agência Kombi</td>
+            <td>Sim (Visual Moderno)</td>
+            <td>Nota 4.8 ★ (30+ avaliações)</td>
+            <td>Perfil Ativo e Criativo</td>
+            <td>Forte</td>
+          </tr>
+          <tr>
+            <td>2S Digital</td>
+            <td>Sim (Foco em E-commerce)</td>
+            <td>Nota 4.9 ★ (20+ avaliações)</td>
+            <td>Perfil Regular / Corporativo</td>
+            <td>Mediana</td>
+          </tr>
+          <tr>
+            <td>F15 Digital</td>
+            <td>Sim (Layout Básico)</td>
+            <td>Nota 4.7 ★ (10+ avaliações)</td>
+            <td>Pouca Frequência / Básico</td>
+            <td>Mediana</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="background-color: var(--primary-soft); border-radius: var(--radius); padding: 24px; font-size: 15px;">
+      <strong>Oportunidade de Destaque:</strong> A Vocação se diferencia de agências tradicionais por não focar em métricas de vaidade (como volume de posts sem estratégia ou curtidas). Ao estruturar o próprio ecossistema com foco 100% em conversão e estrutura de valor, a agência se posiciona como a escolha de maior ROI para PMEs brasileiras.
+    </div>
+  </section>
+  
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Deseja auditar outro negócio local?</h2>
+    <p>Utilize nossa inteligência comercial de prospecção para mapear gargalos e construir relatórios de valor que convertem abordagens frias em reuniões altamente lucrativas.</p>
+    <a href="https://wa.me/5515981512083?text=Quero%20falar%20sobre%20presen%C3%A7a%20digital" class="btn-whatsapp">
+      Falar com a Equipe Vocação
+    </a>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" style="border-top: 1px solid var(--color-border, var(--border, #e5e7eb)); padding-top: 32px; margin-top: 64px;">
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; max-width: 800px; margin: 0 auto;">
+      <div style="display: flex; align-items: center; gap: 10px; color: var(--color-primary, var(--primary, #061B28)); text-align: left;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="28" height="28" fill="none" style="display: block;">
+          <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#061B28" />
+          <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#fafaf8" />
+        </svg>
+        <div>
+          <span style="font-family: var(--font-display, 'Poppins'); font-weight: 700; font-size: 13px; letter-spacing: 0.05em; text-transform: uppercase; display: block; line-height: 1.2;">Vocação</span>
+          <span style="font-size: 11px; color: var(--color-text-muted, var(--text-muted, #6b7280));">Comunicação & Marketing</span>
+        </div>
+      </div>
+      <div style="display: flex; gap: 16px; font-size: 13px; color: var(--color-text-muted, var(--text-muted, #6b7280)); flex-wrap: wrap;">
+        <a href="https://vocacao.digital" target="_blank" style="color: var(--color-primary, var(--primary, #061B28)); text-decoration: none; font-weight: 500;">vocacao.digital</a>
+        <span>•</span>
+        <a href="https://instagram.com/vocacao.digital" target="_blank" style="color: var(--color-primary, var(--primary, #061B28)); text-decoration: none; font-weight: 500;">@vocacao.digital</a>
+        <span>•</span>
+        <a href="https://wa.me/5515981512083" target="_blank" style="color: var(--color-primary, var(--primary, #061B28)); text-decoration: none; font-weight: 500;">(15) 98151-2083</a>
+      </div>
+    </div>
+    <p style="font-size: 11px; color: var(--color-text-muted, var(--text-muted, #6b7280)); margin-top: 24px;">© 2026 Vocação. Todos os direitos reservados. Análise de Presença Digital estruturada para fins de consultoria comercial.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
