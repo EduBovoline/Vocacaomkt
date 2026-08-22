@@ -19,3 +19,10 @@ Desktop.ini
 Prospects/
 site_novo_temp/
 *.zip
+
+# Pastas de Leads e Catálogos
+Leads/
+Catálogo/
+*.pdf
+*.svg
+Logotipo Vocação 2027 w.png

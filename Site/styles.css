@@ -1,23 +1,29 @@
+
 /* ============================================
-   VOCAÇÃO — Editorial Warm Redesign
-   Tipografia: Instrument Serif + Manrope
+   VOCAÇÃO — Brand Book Color Palette & Typography
    ============================================ */
 
 :root {
-  /* Cor */
-  --bg: oklch(0.975 0.004 260);          /* off-white quente */
-  --bg-2: oklch(0.945 0.005 260);         /* areia */
-  --bg-3: oklch(0.21 0.045 240);         /* near-black quente */
-  --ink: oklch(0.21 0.045 240);
-  --ink-2: oklch(0.36 0.035 240);        /* texto secundário */
-  --ink-3: oklch(0.55 0.03 240);        /* meta */
-  --line: oklch(0.88 0.007 260);         /* divisórias */
-  --line-2: oklch(0.81 0.009 260);
-  --accent: #E5B910;        /* terracota */
-  --accent-ink: #061B28;
-  --accent-soft: oklch(0.93 0.08 95);
+  /* Vocação Brand Book Colors (Oficial) */
+  --chalk-white: #F8F9F9;
+  --obsidian-black: #061B28;
+  --citron-yellow: #E5B910;
+  --sterling-silver: #B8BFC3;
 
-  /* Tipografia */
+  /* Mapeamento do Tema */
+  --bg: #F8F9F9;                          /* Chalk White */
+  --bg-2: #F0F2F4;                        /* Soft Chalk */
+  --bg-3: #061B28;                        /* Obsidian Black */
+  --ink: #061B28;                         /* Obsidian Black */
+  --ink-2: #243542;                       /* Texto secundário */
+  --ink-3: #526370;                       /* Meta / rótulos */
+  --line: rgba(184, 191, 195, 0.35);      /* Divisória Sterling Silver */
+  --line-2: #B8BFC3;                      /* Borda Sterling Silver */
+  --accent: #E5B910;                      /* Citron Yellow */
+  --accent-ink: #061B28;                  /* Texto sobre o amarelo */
+  --accent-soft: rgba(229, 185, 16, 0.12); /* Brilho amarelo suave */
+
+  /* Tipografia Oficial (Brand Book) */
   --display: "Poppins", sans-serif;
   --body: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
   --mono: "Geist Mono", ui-monospace, "SF Mono", monospace;

@@ -203,6 +203,9 @@
         </div>
       `;
     } else if (step.type === 'success') {
+      if (typeof window.trackDiagnosticConversion === 'function') {
+        window.trackDiagnosticConversion(answers);
+      }
       const wa = buildWhatsAppLink();
       qArea.innerHTML = `
         <div class="lm-success">

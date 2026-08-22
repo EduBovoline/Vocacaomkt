@@ -1,9 +1,27 @@
+# Robots.txt — Vocação Comunicação & Marketing
 User-agent: *
 Allow: /
-
-# Bloqueia arquivos de desenvolvimento que não devem ser indexados
 Disallow: /tweaks-panel.jsx
 Disallow: /tweaks.jsx
 Disallow: /screenshots-check/
+
+# Motores de Busca & AI Search Bots (GEO / SGE / Gemini / ChatGPT / Perplexity)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 Sitemap: https://vocacao.digital/sitemap.xml
