@@ -1,0 +1,27 @@
+{
+  "name": "Maçã d'Amor — Doces e Festas",
+  "short_name": "Maçã d'Amor",
+  "description": "Maçãs do amor tradicionais, coloridas, carrinhos para eventos e doces finos em São Paulo.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0607",
+  "theme_color": "#0A0607",
+  "icons": [
+    {
+      "src": "assets/images/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
