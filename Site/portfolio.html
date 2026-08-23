@@ -19,6 +19,13 @@
     a { color: #061B28; text-decoration: none; }
     a:hover { color: #A8890C; }
     @keyframes voca-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    
+    /* Scrollbar estilizada na paleta da Vocação */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #061B28; }
+    ::-webkit-scrollbar-thumb { background: rgba(229, 185, 16, 0.45); border-radius: 4px; border: 2px solid #061B28; }
+    ::-webkit-scrollbar-thumb:hover { background: #E5B910; }
+    * { scrollbar-width: thin; scrollbar-color: rgba(229, 185, 16, 0.45) #061B28; }
   </style>
 </helmet>
 
