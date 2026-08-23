@@ -236,23 +236,33 @@
 
     <div style="margin-top:64px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:start">
       <div style="min-width:0">
-        <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);aspect-ratio:3/2;background:#fdfcf9;border:1px solid rgba(6,27,40,.16);border-radius:4px 12px 12px 4px;box-shadow:0 44px 70px -30px rgba(6,27,40,.45),0 7px 0 -3px #fdfcf9,0 8px 0 -3px rgba(6,27,40,.12),0 14px 0 -7px #fdfcf9,0 15px 0 -7px rgba(6,27,40,.1)">
-          <image-slot id="voca-ebook-acalma-l" shape="rect" fit="contain" placeholder="Página esquerda — Acalma-se"></image-slot>
-          <image-slot id="voca-ebook-acalma-r" shape="rect" fit="contain" placeholder="Página direita — Acalma-se"></image-slot>
-          <div style="position:absolute;left:50%;top:0;bottom:0;width:64px;transform:translateX(-50%);pointer-events:none;background:linear-gradient(90deg,transparent,rgba(6,27,40,.07) 42%,rgba(6,27,40,.18) 50%,rgba(6,27,40,.07) 58%,transparent)"></div>
+        <div class="book" data-pdf="ebooks/acalma-se.pdf" style="position:relative;background:#fdfcf9;border:1px solid rgba(6,27,40,.16);border-radius:4px 12px 12px 4px;box-shadow:0 44px 70px -30px rgba(6,27,40,.45),0 7px 0 -3px #fdfcf9,0 8px 0 -3px rgba(6,27,40,.12),0 14px 0 -7px #fdfcf9,0 15px 0 -7px rgba(6,27,40,.1);perspective:2200px">
+          <div class="book-pages" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);aspect-ratio:3/2;width:100%;height:100%;position:relative;overflow:hidden">
+            <canvas class="pgL" style="display:block;width:100%;height:100%;object-fit:contain;background:#fdfcf9"></canvas>
+            <canvas class="pgR" style="display:block;width:100%;height:100%;object-fit:contain;background:#fdfcf9"></canvas>
+            <div style="position:absolute;left:50%;top:0;bottom:0;width:64px;transform:translateX(-50%);pointer-events:none;z-index:2;background:linear-gradient(90deg,transparent,rgba(6,27,40,.07) 42%,rgba(6,27,40,.18) 50%,rgba(6,27,40,.07) 58%,transparent)"></div>
+          </div>
+          <button class="pg prev" type="button" aria-label="Página anterior" style="position:absolute;top:50%;left:12px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(6,27,40,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center" style-hover="background:#061B28">‹</button>
+          <button class="pg next" type="button" aria-label="Próxima página" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(6,27,40,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center" style-hover="background:#061B28">›</button>
+          <span class="pgnum" style="position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(6,27,40,.5);white-space:nowrap">—</span>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:26px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:40px">
           <b style="font-family:Poppins,sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em">Acalma-se</b>
           <span style="font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(6,27,40,.5);text-transform:uppercase">Ilustração · Diagramação</span>
         </div>
       </div>
       <div style="padding-top:40px;min-width:0">
-        <div style="position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);aspect-ratio:3/2;background:#fdfcf9;border:1px solid rgba(6,27,40,.16);border-radius:4px 12px 12px 4px;box-shadow:0 34px 56px -28px rgba(6,27,40,.4);filter:saturate(.6);opacity:.85">
-          <image-slot id="voca-ebook-dist-l" shape="rect" fit="contain" placeholder="Página esquerda — Distorções Cognitivas"></image-slot>
-          <image-slot id="voca-ebook-dist-r" shape="rect" fit="contain" placeholder="Página direita — Distorções Cognitivas"></image-slot>
-          <div style="position:absolute;left:50%;top:0;bottom:0;width:54px;transform:translateX(-50%);pointer-events:none;background:linear-gradient(90deg,transparent,rgba(6,27,40,.07) 42%,rgba(6,27,40,.18) 50%,rgba(6,27,40,.07) 58%,transparent)"></div>
+        <div class="book" data-pdf="ebooks/distorcoes-cognitivas.pdf" style="position:relative;background:#fdfcf9;border:1px solid rgba(6,27,40,.16);border-radius:4px 12px 12px 4px;box-shadow:0 34px 56px -28px rgba(6,27,40,.4);perspective:2200px">
+          <div class="book-pages" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);aspect-ratio:3/2;width:100%;height:100%;position:relative;overflow:hidden">
+            <canvas class="pgL" style="display:block;width:100%;height:100%;object-fit:contain;background:#fdfcf9"></canvas>
+            <canvas class="pgR" style="display:block;width:100%;height:100%;object-fit:contain;background:#fdfcf9"></canvas>
+            <div style="position:absolute;left:50%;top:0;bottom:0;width:54px;transform:translateX(-50%);pointer-events:none;z-index:2;background:linear-gradient(90deg,transparent,rgba(6,27,40,.07) 42%,rgba(6,27,40,.18) 50%,rgba(6,27,40,.07) 58%,transparent)"></div>
+          </div>
+          <button class="pg prev" type="button" aria-label="Página anterior" style="position:absolute;top:50%;left:12px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(6,27,40,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center" style-hover="background:#061B28">‹</button>
+          <button class="pg next" type="button" aria-label="Próxima página" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(6,27,40,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center" style-hover="background:#061B28">›</button>
+          <span class="pgnum" style="position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(6,27,40,.5);white-space:nowrap">—</span>
         </div>
-        <div style="margin-top:22px">
+        <div style="margin-top:40px">
           <b style="font-family:Poppins,sans-serif;font-weight:600;font-size:16px;letter-spacing:-.02em">Distorções Cognitivas</b>
           <div style="margin-top:6px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(6,27,40,.5);text-transform:uppercase">Joquebede Toni · Ilustração · Diagramação</div>
         </div>
@@ -398,6 +408,70 @@ class Component extends DCLogic {
       tab2: this.tab(i === 2)
     };
   }
+}
+</script>
+<script type="module">
+const pdfjs = await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.min.mjs');
+pdfjs.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.6.82/build/pdf.worker.min.mjs';
+const PAPER = '#fdfcf9';
+
+function initFlipbooks() {
+  document.querySelectorAll('.book[data-pdf]').forEach(async function(book) {
+    if (book._initialized) return;
+    book._initialized = true;
+    const cL = book.querySelector('.pgL'), cR = book.querySelector('.pgR');
+    const pages = book.querySelector('.book-pages'), num = book.querySelector('.pgnum');
+    if (!cL || !cR) return;
+    let doc, spread = 0, busy = false;
+    try { doc = await pdfjs.getDocument(book.dataset.pdf).promise; }
+    catch(e) { if (num) num.textContent = 'PDF indisponível'; return; }
+    const N = doc.numPages;
+    const maxSpread = Math.floor(N / 2);
+    function nums(s) { return { l: s === 0 ? 0 : 2 * s, r: 2 * s + 1 <= N ? 2 * s + 1 : (s === 0 ? 1 : 0) }; }
+    async function draw(canvas, n) {
+      if (!n || n > N) {
+        canvas.width = 900; canvas.height = 1200;
+        const g = canvas.getContext('2d'); g.fillStyle = PAPER; g.fillRect(0, 0, 900, 1200);
+        return;
+      }
+      const p = await doc.getPage(n);
+      const base = p.getViewport({ scale: 1 });
+      const scale = ((pages.clientWidth / 2) * 2) / base.width || 1.5;
+      const vp = p.getViewport({ scale: scale });
+      canvas.width = vp.width; canvas.height = vp.height;
+      const g = canvas.getContext('2d'); g.fillStyle = PAPER; g.fillRect(0, 0, vp.width, vp.height);
+      await p.render({ canvasContext: canvas.getContext('2d'), viewport: vp }).promise;
+    }
+    async function render() {
+      const s = nums(spread);
+      await Promise.all([draw(cL, s.l), draw(cR, s.r)]);
+      if (num) {
+        num.textContent = spread === 0 ? 'Capa · ' + N + ' páginas'
+          : (s.r && s.r <= N ? s.l + '–' + s.r : s.l) + ' / ' + N;
+      }
+    }
+    async function turn(dir) {
+      if (busy) return;
+      const target = spread + dir;
+      if (target < 0 || target > maxSpread) return;
+      busy = true;
+      spread = target;
+      await render();
+      busy = false;
+    }
+    const prevBtn = book.querySelector('.prev');
+    const nextBtn = book.querySelector('.next');
+    if (prevBtn) prevBtn.addEventListener('click', function(e) { e.stopPropagation(); turn(-1); });
+    if (nextBtn) nextBtn.addEventListener('click', function(e) { e.stopPropagation(); turn(1); });
+    render();
+  });
+}
+
+// Inicia após montagem do DOM
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => setTimeout(initFlipbooks, 300));
+} else {
+  setTimeout(initFlipbooks, 300);
 }
 </script>
 </body>
