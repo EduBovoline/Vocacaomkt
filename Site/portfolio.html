@@ -26,6 +26,28 @@
     ::-webkit-scrollbar-thumb { background: rgba(229, 185, 16, 0.45); border-radius: 4px; border: 2px solid #061B28; }
     ::-webkit-scrollbar-thumb:hover { background: #E5B910; }
     * { scrollbar-width: thin; scrollbar-color: rgba(229, 185, 16, 0.45) #061B28; }
+
+    /* ===== OTIMIZAÇÕES MOBILE & RESPONSIVIDADE ===== */
+    @media (max-width: 900px) {
+      .pf-nav-inner { padding: 14px 20px !important; }
+      .pf-nav-links { display: none !important; }
+      .pf-hero-wrap { padding: 90px 20px 40px !important; }
+      .pf-hero-grid { grid-template-columns: 1fr !important; gap: 32px !important; margin-top: 36px !important; }
+      .pf-section-wrap { padding: 70px 20px 20px !important; }
+      .pf-section-head { grid-template-columns: 1fr !important; gap: 24px !important; }
+      .pf-bwin-wrap { padding: 10px !important; border-radius: 16px !important; margin-top: 36px !important; }
+      .pf-bwin-header { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+      .pf-bwin-tabs { margin-left: 0 !important; width: 100% !important; overflow-x: auto !important; padding-bottom: 4px !important; -webkit-overflow-scrolling: touch !important; }
+      .pf-bwin-url { display: none !important; }
+      .pf-bwin-frame { height: 420px !important; }
+      .pf-grid-3 { grid-template-columns: 1fr !important; gap: 20px !important; }
+      .pf-video-grid { grid-template-columns: 1fr !important; max-width: 320px !important; margin-left: auto !important; margin-right: auto !important; }
+      .pf-ebooks-grid { grid-template-columns: 1fr !important; gap: 48px !important; }
+      .pf-cta-wrap { grid-template-columns: 1fr !important; gap: 36px !important; padding: 60px 20px !important; }
+      .pf-footer-grid { grid-template-columns: 1fr !important; gap: 36px !important; padding: 60px 20px 30px !important; }
+      .pf-footer-title { font-size: clamp(52px, 16vw, 120px) !important; }
+      .pf-footer-bottom { flex-direction: column !important; gap: 10px !important; padding: 20px !important; text-align: center !important; }
+    }
   </style>
 </helmet>
 
@@ -39,11 +61,11 @@
   </div>
 
   <header style="position:sticky;top:0;z-index:50;backdrop-filter:blur(16px);background:rgba(248,249,249,.82);border-bottom:1px solid rgba(6,27,40,.1)">
-    <nav style="max-width:1340px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px">
+    <nav class="pf-nav-inner" style="max-width:1340px;margin:0 auto;padding:16px 40px;display:flex;align-items:center;justify-content:space-between;gap:32px">
       <a href="/" style="display:flex;align-items:center;gap:10px;color:#061B28;font-family:Poppins,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.02em">
         <img src="logo-vocacao.png" alt="Vocação" style="width:28px;height:28px;object-fit:contain;display:block;" /> Vocação
       </a>
-      <div style="display:flex;align-items:center;gap:26px;font-size:12.5px">
+      <div class="pf-nav-links" style="display:flex;align-items:center;gap:26px;font-size:12.5px">
         <a href="presenca-local" style="color:rgba(6,27,40,.62)" style-hover="color:#061B28">Presença Local</a>
         <a href="design-avulso" style="color:rgba(6,27,40,.62)" style-hover="color:#061B28">Design Avulso</a>
         <a href="impressao" style="color:rgba(6,27,40,.62)" style-hover="color:#061B28">Impressão</a>
@@ -51,26 +73,26 @@
         <a href="trafego" style="color:rgba(6,27,40,.62)" style-hover="color:#061B28">Tráfego</a>
         <a href="portfolio" aria-current="page" style="color:#061B28;font-weight:600;border-bottom:2px solid #E5B910;padding-bottom:2px">Portfólio</a>
       </div>
-      <a href="diagnostico" style="display:inline-flex;align-items:center;gap:8px;background:#061B28;color:#F8F9F9;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:12px 20px;border-radius:999px" style-hover="background:#E5B910;color:#061B28">Diagnóstico gratuito <span style="font-size:11px">↗</span></a>
+      <a href="diagnostico" style="display:inline-flex;align-items:center;gap:8px;background:#061B28;color:#F8F9F9;font-family:Poppins,sans-serif;font-weight:600;font-size:13px;padding:12px 20px;border-radius:999px;white-space:nowrap" style-hover="background:#E5B910;color:#061B28">Diagnóstico gratuito <span style="font-size:11px">↗</span></a>
     </nav>
   </header>
 
-  <section id="topo" data-screen-label="01 Hero" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:120px 40px 64px">
+  <section id="topo" class="pf-hero-wrap" data-screen-label="01 Hero" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:120px 40px 64px">
     <div style="display:flex;align-items:center;gap:14px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.28em;color:rgba(6,27,40,.5);margin-bottom:44px">
       <span style="width:56px;height:1px;background:#E5B910"></span>VOCAÇÃO · PORTFÓLIO
     </div>
-    <h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(54px,9.6vw,152px);line-height:.86;letter-spacing:-.045em">
+    <h1 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(44px,8.5vw,152px);line-height:.88;letter-spacing:-.045em">
       Trabalho que<br />está <em style="font-style:italic;color:#E5B910;text-shadow:0 0 1px rgba(6,27,40,.25)">no ar</em>.
     </h1>
-    <div style="display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:end;margin-top:56px;border-top:1px solid rgba(6,27,40,.12);padding-top:30px">
+    <div class="pf-hero-grid" style="display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:end;margin-top:56px;border-top:1px solid rgba(6,27,40,.12);padding-top:30px">
       <p style="margin:0;max-width:620px;font-size:16.5px;line-height:1.65;color:rgba(6,27,40,.66);text-wrap:pretty">
         Sites publicados, perfis no Google configurados, criativos de anúncio e e-books diagramados. Tudo aqui existe, funciona e pode ser conferido.
       </p>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(6,27,40,.14);border:1px solid rgba(6,27,40,.14)">
-        <a href="#sites" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em" style-hover="background:#061B28;color:#F8F9F9">01<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">SITES</span></a>
-        <a href="#google" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em" style-hover="background:#061B28;color:#F8F9F9">02<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">GOOGLE</span></a>
-        <a href="#videos" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em" style-hover="background:#061B28;color:#F8F9F9">03<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">VÍDEO</span></a>
-        <a href="#ebooks" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em" style-hover="background:#061B28;color:#F8F9F9">04<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">EDITORIAL</span></a>
+        <a href="#sites" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-align:center" style-hover="background:#061B28;color:#F8F9F9">01<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">SITES</span></a>
+        <a href="#google" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-align:center" style-hover="background:#061B28;color:#F8F9F9">02<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">GOOGLE</span></a>
+        <a href="#videos" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-align:center" style-hover="background:#061B28;color:#F8F9F9">03<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">VÍDEO</span></a>
+        <a href="#ebooks" style="background:#F8F9F9;padding:18px 14px;color:#061B28;font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.06em;text-align:center" style-hover="background:#061B28;color:#F8F9F9">04<br /><span style="font-size:10px;letter-spacing:.14em;color:inherit">EDITORIAL</span></a>
       </div>
     </div>
   </section>
@@ -102,56 +124,56 @@
     </div>
   </sc-if>
 
-  <section id="sites" data-screen-label="02 Sites publicados" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 30px">
-    <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
+  <section id="sites" class="pf-section-wrap" data-screen-label="02 Sites publicados" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 30px">
+    <div class="pf-section-head" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
       <div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(88px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">01</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(64px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">01</div>
         <div style="margin-top:24px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.24em;color:#A8890C">SITES PUBLICADOS</div>
         <p style="margin:16px 0 0;max-width:400px;font-size:15.5px;line-height:1.62;color:rgba(6,27,40,.66);text-wrap:pretty">Publicamos mais sites do que cabe aqui — estes três são a seleção do portfólio.</p>
         <p style="margin:20px 0 0;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(6,27,40,.45);text-transform:uppercase">Janela navegável — alterne, role e clique dentro dela</p>
       </div>
-      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
+      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
         Sites que explicam o negócio em <em style="font-style:italic;color:#E5B910">segundos</em>.
       </h2>
     </div>
 
-    <div style="margin-top:56px;padding:14px;background:#061B28;border-radius:22px;box-shadow:0 60px 120px -50px rgba(6,27,40,.55)">
-      <div style="display:flex;align-items:center;gap:14px;padding:6px 8px 16px">
+    <div class="pf-bwin-wrap" style="margin-top:56px;padding:14px;background:#061B28;border-radius:22px;box-shadow:0 60px 120px -50px rgba(6,27,40,.55)">
+      <div class="pf-bwin-header" style="display:flex;align-items:center;gap:14px;padding:6px 8px 16px">
         <div style="display:flex;gap:7px">
           <span style="width:9px;height:9px;border-radius:50%;background:rgba(248,249,249,.28)"></span>
           <span style="width:9px;height:9px;border-radius:50%;background:rgba(248,249,249,.28)"></span>
           <span style="width:9px;height:9px;border-radius:50%;background:#E5B910"></span>
         </div>
-        <div style="display:flex;gap:8px;margin-left:14px;flex-wrap:wrap">
+        <div class="pf-bwin-tabs" style="display:flex;gap:8px;margin-left:14px;flex-wrap:wrap">
           <button onClick="{{ selectSamurai }}" style="{{ tab0 }}">Samurai Car Styling</button>
           <button onClick="{{ selectSorelle }}" style="{{ tab1 }}">Sorelle Zanoni</button>
           <button onClick="{{ selectMaca }}" style="{{ tab2 }}">Maçã d'Amor</button>
         </div>
-        <div style="margin-left:auto;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(248,249,249,.45);white-space:nowrap">{{ siteUrlLabel }}</div>
+        <div class="pf-bwin-url" style="margin-left:auto;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(248,249,249,.45);white-space:nowrap">{{ siteUrlLabel }}</div>
       </div>
-      <div style="position:relative;border-radius:12px;overflow:hidden;background:#fff;height:min(78vh,820px)">
+      <div class="pf-bwin-frame" style="position:relative;border-radius:12px;overflow:hidden;background:#fff;height:min(78vh,820px)">
         <iframe src="{{ siteUrl }}" title="Site do cliente" loading="lazy" style="display:block;width:calc(100% + 18px);height:100%;border:0;background:#fff;padding-right:0;"></iframe>
       </div>
-      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:16px 8px 6px">
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:16px 8px 6px;flex-wrap:wrap">
         <b style="font-family:Poppins,sans-serif;font-weight:600;font-size:18px;color:#F8F9F9;letter-spacing:-.02em">{{ siteNome }}</b>
         <span style="font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">{{ siteMeta }}</span>
       </div>
     </div>
   </section>
 
-  <section id="google" data-screen-label="03 Presença local" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 30px">
-    <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
+  <section id="google" class="pf-section-wrap" data-screen-label="03 Presença local" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 30px">
+    <div class="pf-section-head" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
       <div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(88px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">02</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(64px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">02</div>
         <div style="margin-top:24px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.24em;color:#A8890C">PRESENÇA LOCAL</div>
         <p style="margin:16px 0 0;max-width:400px;font-size:15.5px;line-height:1.62;color:rgba(6,27,40,.66);text-wrap:pretty">Cadastro, otimização e fotos tratadas. Cada perfil abaixo está ativo e pode ser conferido direto no Google Maps.</p>
       </div>
-      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
+      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
         Perfis no Google que colocam a empresa <em style="font-style:italic;color:#E5B910">no mapa</em>.
       </h2>
     </div>
 
-    <div style="margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(6,27,40,.14);border:1px solid rgba(6,27,40,.14)">
+    <div class="pf-grid-3" style="margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(6,27,40,.14);border:1px solid rgba(6,27,40,.14)">
       <article style="background:#fff;display:flex;flex-direction:column" style-hover="background:#FDFBF2">
         <div style="position:relative;height:330px;overflow:hidden">
           <image-slot id="voca-gbp-1" shape="rect" fit="cover" src="gbp/beluchi.png" placeholder="Print do perfil no Google"></image-slot>
@@ -185,21 +207,21 @@
     </div>
   </section>
 
-  <section id="videos" data-screen-label="04 Criativos em vídeo" style="position:relative;z-index:2;margin-top:110px;background:#061B28;color:#F8F9F9;overflow:hidden">
+  <section id="videos" class="pf-section-wrap" data-screen-label="04 Criativos em vídeo" style="position:relative;z-index:2;margin-top:70px;background:#061B28;color:#F8F9F9;overflow:hidden">
     <div style="position:absolute;left:0;right:0;bottom:-4%;font-family:Poppins,sans-serif;font-weight:700;font-style:italic;font-size:26vw;line-height:.8;letter-spacing:-.06em;color:rgba(248,249,249,.045);pointer-events:none;white-space:nowrap;text-align:center">ANÚNCIO</div>
-    <div style="position:relative;max-width:1340px;margin:0 auto;padding:110px 40px 120px">
-      <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
+    <div style="position:relative;max-width:1340px;margin:0 auto;padding:80px 40px 90px">
+      <div class="pf-section-head" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
         <div>
-          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(88px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(248,249,249,.3)">03</div>
+          <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(64px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(248,249,249,.3)">03</div>
           <div style="margin-top:24px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.24em;color:#E5B910">CRIATIVOS EM VÍDEO</div>
           <p style="margin:16px 0 0;max-width:400px;font-size:15.5px;line-height:1.62;color:rgba(248,249,249,.62);text-wrap:pretty">Criativos produzidos para campanhas reais — formato vertical, pensados para prender atenção nos primeiros 3 segundos.</p>
         </div>
-        <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
+        <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
           Vídeos feitos para <em style="font-style:italic;color:#E5B910">anúncio</em>, não para enfeite.
         </h2>
       </div>
 
-      <div style="margin-top:60px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px">
+      <div class="pf-video-grid" style="margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px">
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
             <video src="videos/leal-gas-agua.mp4" controls="" preload="metadata" playsinline="" style="width:100%;height:100%;object-fit:cover;display:block;background:#1a1512"></video>
@@ -222,19 +244,19 @@
     </div>
   </section>
 
-  <section id="ebooks" data-screen-label="05 Design editorial" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 40px">
-    <div style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
+  <section id="ebooks" class="pf-section-wrap" data-screen-label="05 Design editorial" style="position:relative;z-index:2;max-width:1340px;margin:0 auto;padding:110px 40px 40px">
+    <div class="pf-section-head" style="display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.2fr);gap:64px;align-items:end">
       <div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(88px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">04</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(64px,12vw,180px);line-height:.78;letter-spacing:-.055em;color:transparent;-webkit-text-stroke:1.5px rgba(6,27,40,.22)">04</div>
         <div style="margin-top:24px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.24em;color:#A8890C">DESIGN EDITORIAL</div>
         <p style="margin:16px 0 0;max-width:400px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(6,27,40,.45);text-transform:uppercase">Livros de verdade — use as setas para virar as páginas</p>
       </div>
-      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(38px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
+      <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5.6vw,78px);line-height:.96;letter-spacing:-.038em">
         E-books ilustrados e diagramados <em style="font-style:italic;color:#E5B910">página a página</em>.
       </h2>
     </div>
 
-    <div style="margin-top:64px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:start">
+    <div class="pf-ebooks-grid" style="margin-top:64px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:36px;align-items:start">
       <div style="min-width:0">
         <div class="book" data-pdf="ebooks/acalma-se.pdf" style="position:relative;background:#fdfcf9;border:1px solid rgba(6,27,40,.16);border-radius:4px 12px 12px 4px;box-shadow:0 44px 70px -30px rgba(6,27,40,.45),0 7px 0 -3px #fdfcf9,0 8px 0 -3px rgba(6,27,40,.12),0 14px 0 -7px #fdfcf9,0 15px 0 -7px rgba(6,27,40,.1);perspective:2200px">
           <div class="book-pages" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);aspect-ratio:3/2;width:100%;height:100%;position:relative;overflow:hidden">
@@ -246,7 +268,7 @@
           <button class="pg next" type="button" aria-label="Próxima página" style="position:absolute;top:50%;right:12px;transform:translateY(-50%);width:36px;height:36px;border-radius:50%;border:0;background:rgba(6,27,40,.6);color:#fff;font-size:20px;line-height:1;cursor:pointer;z-index:4;display:flex;align-items:center;justify-content:center" style-hover="background:#061B28">›</button>
           <span class="pgnum" style="position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.12em;color:rgba(6,27,40,.5);white-space:nowrap">—</span>
         </div>
-        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:40px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-top:40px;flex-wrap:wrap">
           <b style="font-family:Poppins,sans-serif;font-weight:600;font-size:18px;letter-spacing:-.02em">Acalma-se</b>
           <span style="font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(6,27,40,.5);text-transform:uppercase">Ilustração · Diagramação</span>
         </div>
@@ -270,24 +292,24 @@
     </div>
   </section>
 
-  <section data-screen-label="06 CTA" style="position:relative;z-index:2;margin-top:90px;background:#E5B910;color:#061B28">
-    <div style="max-width:1340px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:60px;align-items:end">
+  <section data-screen-label="06 CTA" style="position:relative;z-index:2;margin-top:70px;background:#E5B910;color:#061B28">
+    <div class="pf-cta-wrap" style="max-width:1340px;margin:0 auto;padding:100px 40px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:60px;align-items:end">
       <div>
         <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.26em;margin-bottom:26px">PRÓXIMO CASO</div>
-        <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(40px,6.4vw,94px);line-height:.94;letter-spacing:-.042em">
+        <h2 style="margin:0;font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(36px,6.4vw,94px);line-height:.94;letter-spacing:-.042em">
           O próximo trabalho desta página pode ser o <em style="font-style:italic">seu</em>.
         </h2>
       </div>
       <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
         <p style="margin:0 0 8px;font-size:15px;line-height:1.6;color:rgba(6,27,40,.72);max-width:380px;text-wrap:pretty">Diagnóstico gratuito da sua presença digital: site, Google, redes e anúncios em um relatório objetivo.</p>
-        <a href="diagnostico" style="display:inline-flex;align-items:center;gap:10px;background:#061B28;color:#F8F9F9;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;padding:16px 26px;border-radius:999px" style-hover="background:#04121B;color:#E5B910">Quero meu diagnóstico <span style="font-size:12px">↗</span></a>
-        <a href="https://wa.me/5515981512083?text=Vi%20o%20portf%C3%B3lio%20e%20quero%20conversar" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(6,27,40,.35);color:#061B28;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;padding:14px 26px;border-radius:999px" style-hover="border-color:#061B28">Falar no WhatsApp</a>
+        <a href="diagnostico" style="display:inline-flex;align-items:center;gap:10px;background:#061B28;color:#F8F9F9;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;padding:16px 26px;border-radius:999px;white-space:nowrap" style-hover="background:#04121B;color:#E5B910">Quero meu diagnóstico <span style="font-size:12px">↗</span></a>
+        <a href="https://wa.me/5515981512083?text=Vi%20o%20portf%C3%B3lio%20e%20quero%20conversar" style="display:inline-flex;align-items:center;gap:10px;border:1.5px solid rgba(6,27,40,.35);color:#061B28;font-family:Poppins,sans-serif;font-weight:600;font-size:14px;padding:14px 26px;border-radius:999px;white-space:nowrap" style-hover="border-color:#061B28">Falar no WhatsApp</a>
       </div>
     </div>
   </section>
 
   <footer data-screen-label="07 Footer" style="position:relative;z-index:2;background:#061B28;color:#F8F9F9;overflow:hidden">
-    <div style="max-width:1340px;margin:0 auto;padding:80px 40px 40px;display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:40px">
+    <div class="pf-footer-grid" style="max-width:1340px;margin:0 auto;padding:80px 40px 40px;display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:40px">
       <div>
         <div style="display:flex;align-items:center;gap:10px;font-family:Poppins,sans-serif;font-weight:700;font-size:19px;letter-spacing:-.02em">
           <img src="logo-vocacao-white.png" alt="Vocação" style="width:28px;height:28px;object-fit:contain;display:block;" /> Vocação
@@ -322,9 +344,9 @@
       </div>
     </div>
     <div style="padding:0 40px">
-      <div style="max-width:1340px;margin:0 auto;font-family:Poppins,sans-serif;font-weight:700;font-style:italic;font-size:clamp(70px,17.5vw,268px);line-height:.82;letter-spacing:-.05em">Vocação<span style="color:#E5B910">.</span></div>
+      <div class="pf-footer-title" style="max-width:1340px;margin:0 auto;font-family:Poppins,sans-serif;font-weight:700;font-style:italic;font-size:clamp(70px,17.5vw,268px);line-height:.82;letter-spacing:-.05em">Vocação<span style="color:#E5B910">.</span></div>
     </div>
-    <div style="max-width:1340px;margin:24px auto 0;padding:26px 40px 40px;display:flex;justify-content:space-between;gap:20px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(248,249,249,.45);border-top:1px solid rgba(248,249,249,.12);text-transform:uppercase">
+    <div class="pf-footer-bottom" style="max-width:1340px;margin:24px auto 0;padding:26px 40px 40px;display:flex;justify-content:space-between;gap:20px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.14em;color:rgba(248,249,249,.45);border-top:1px solid rgba(248,249,249,.12);text-transform:uppercase">
       <span>© 2026 Vocação · Comunicação &amp; Marketing</span>
       <span>Trabalho feito com critério, padrão e responsabilidade.</span>
     </div>
