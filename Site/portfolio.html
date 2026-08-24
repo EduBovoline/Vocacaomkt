@@ -224,19 +224,19 @@
       <div class="pf-video-grid" style="margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px">
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/leal-gas-agua.mp4" controls="" preload="metadata" playsinline="" style="width:100%;height:100%;object-fit:cover;display:block;background:#1a1512"></video>
+            <video src="videos/leal-gas-agua.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B;cursor:pointer"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Leal Gás e Água · Distribuidora</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/rivaldo-construcoes.mp4" controls="" preload="metadata" playsinline="" style="width:100%;height:100%;object-fit:cover;display:block;background:#1a1512"></video>
+            <video src="videos/rivaldo-construcoes.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B;cursor:pointer"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Rivaldo Construções · Construção civil</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/vocacao-motion.mp4" controls="" preload="metadata" playsinline="" style="width:100%;height:100%;object-fit:cover;display:block;background:#1a1512"></video>
+            <video src="videos/vocacao-motion.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B;cursor:pointer"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Vocação · Motion institucional</figcaption>
         </figure>
@@ -491,9 +491,54 @@ function initFlipbooks() {
 
 // Inicia após montagem do DOM
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => setTimeout(initFlipbooks, 300));
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initFlipbooks, 300);
+    initVideos();
+  });
 } else {
   setTimeout(initFlipbooks, 300);
+  initVideos();
+}
+
+function initVideos() {
+  const videos = document.querySelectorAll('#videos video');
+  videos.forEach(v => {
+    v.muted = true;
+    v.setAttribute('muted', '');
+    v.setAttribute('playsinline', '');
+    v.setAttribute('webkit-playsinline', '');
+    
+    // Tenta autoplay silencioso
+    const playPromise = v.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        // Fallback: inicia ao primeiro clique/toque no container ou vídeo
+        const triggerPlay = () => {
+          v.play();
+          v.removeEventListener('click', triggerPlay);
+          v.parentElement.removeEventListener('click', triggerPlay);
+        };
+        v.addEventListener('click', triggerPlay);
+        v.parentElement.addEventListener('click', triggerPlay);
+      });
+    }
+  });
+
+  // IntersectionObserver para tocar quando entrar na tela e pausar quando sair
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const vid = entry.target;
+        if (entry.isIntersecting) {
+          vid.play().catch(() => {});
+        } else {
+          vid.pause();
+        }
+      });
+    }, { threshold: 0.25 });
+
+    videos.forEach(v => observer.observe(v));
+  }
 }
 </script>
 </body>
