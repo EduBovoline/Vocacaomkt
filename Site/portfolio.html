@@ -224,28 +224,19 @@
       <div class="pf-video-grid" style="margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px">
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/leal-gas-agua.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
-            <button class="voca-sound-btn" type="button" aria-label="Ativar som" style="position:absolute;top:12px;right:12px;z-index:10;background:rgba(6,27,40,.75);color:#fff;border:1px solid rgba(248,249,249,.25);border-radius:999px;padding:6px 12px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.05em;cursor:pointer;display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px);transition:all .2s ease">
-              <span class="sound-icon">🔇</span> <span class="sound-label">Sem som</span>
-            </button>
+            <video src="videos/leal-gas-agua.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Leal Gás e Água · Distribuidora</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/rivaldo-construcoes.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
-            <button class="voca-sound-btn" type="button" aria-label="Ativar som" style="position:absolute;top:12px;right:12px;z-index:10;background:rgba(6,27,40,.75);color:#fff;border:1px solid rgba(248,249,249,.25);border-radius:999px;padding:6px 12px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.05em;cursor:pointer;display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px);transition:all .2s ease">
-              <span class="sound-icon">🔇</span> <span class="sound-label">Sem som</span>
-            </button>
+            <video src="videos/rivaldo-construcoes.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Rivaldo Construções · Construção civil</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/vocacao-motion.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="auto" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
-            <button class="voca-sound-btn" type="button" aria-label="Ativar som" style="position:absolute;top:12px;right:12px;z-index:10;background:rgba(6,27,40,.75);color:#fff;border:1px solid rgba(248,249,249,.25);border-radius:999px;padding:6px 12px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.05em;cursor:pointer;display:flex;align-items:center;gap:6px;backdrop-filter:blur(6px);transition:all .2s ease">
-              <span class="sound-icon">🔇</span> <span class="sound-label">Sem som</span>
-            </button>
+            <video src="videos/vocacao-motion.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Vocação · Motion institucional</figcaption>
         </figure>
@@ -510,56 +501,20 @@ if (document.readyState === 'loading') {
 }
 
 function initVideos() {
-  const figures = document.querySelectorAll('#videos figure');
-  figures.forEach(fig => {
-    const v = fig.querySelector('video');
-    const btn = fig.querySelector('.voca-sound-btn');
-    if (!v) return;
-
-    // Garante que inicia sem som
+  const videos = document.querySelectorAll('#videos video');
+  videos.forEach(v => {
     v.muted = true;
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    v.setAttribute('webkit-playsinline', '');
-
-    const updateBtnState = () => {
-      if (!btn) return;
-      const icon = btn.querySelector('.sound-icon');
-      const label = btn.querySelector('.sound-label');
-      if (v.muted) {
-        if (icon) icon.textContent = '🔇';
-        if (label) label.textContent = 'Sem som';
-        btn.style.background = 'rgba(6,27,40,.75)';
-        btn.style.color = '#fff';
-      } else {
-        if (icon) icon.textContent = '🔊';
-        if (label) label.textContent = 'Com som';
-        btn.style.background = '#E5B910';
-        btn.style.color = '#061B28';
-      }
-    };
-
-    if (btn) {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        v.muted = !v.muted;
-        if (!v.muted && v.paused) {
-          v.play().catch(() => {});
-        }
-        updateBtnState();
-      });
-    }
-
-    v.addEventListener('volumechange', updateBtnState);
+    v.defaultMuted = true;
+    v.playsInline = true;
     
     // Tenta autoplay silencioso
-    const playPromise = v.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {});
+    const p = v.play();
+    if (p !== undefined) {
+      p.catch(() => {});
     }
   });
 
-  // IntersectionObserver para tocar silenciosamente quando entrar na tela e pausar quando sair
+  // IntersectionObserver para tocar quando entrar no viewport
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -570,9 +525,9 @@ function initVideos() {
           vid.pause();
         }
       });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.2 });
 
-    document.querySelectorAll('#videos video').forEach(v => observer.observe(v));
+    videos.forEach(v => observer.observe(v));
   }
 }
 </script>
