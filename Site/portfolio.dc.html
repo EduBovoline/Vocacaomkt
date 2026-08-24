@@ -224,19 +224,19 @@
       <div class="pf-video-grid" style="margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:980px">
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/leal-gas-agua.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
+            <video src="videos/leal-gas-agua.mp4" loop playsinline webkit-playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Leal Gás e Água · Distribuidora</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/rivaldo-construcoes.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
+            <video src="videos/rivaldo-construcoes.mp4" loop playsinline webkit-playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Rivaldo Construções · Construção civil</figcaption>
         </figure>
         <figure style="margin:0;transform:translateY(0);transition:transform .35s ease" style-hover="transform:translateY(-10px)">
           <div style="position:relative;aspect-ratio:9/16;border-radius:14px;overflow:hidden;border:1px solid rgba(248,249,249,.18);background:#04121B">
-            <video src="videos/vocacao-motion.mp4" controls="" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
+            <video src="videos/vocacao-motion.mp4" loop playsinline webkit-playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover;display:block;background:#04121B"></video>
           </div>
           <figcaption style="margin-top:14px;font-family:'Geist Mono',monospace;font-size:10.5px;letter-spacing:.16em;color:rgba(248,249,249,.55);text-transform:uppercase">Vocação · Motion institucional</figcaption>
         </figure>
@@ -503,29 +503,24 @@ if (document.readyState === 'loading') {
 function initVideos() {
   const videos = document.querySelectorAll('#videos video');
   videos.forEach(v => {
+    // React não aplica muted/controls corretamente via atributo HTML,
+    // então forçamos via propriedades JS diretamente no elemento DOM.
     v.muted = true;
     v.defaultMuted = true;
+    v.controls = true;
     v.playsInline = true;
-    
-    // Tenta autoplay silencioso
-    const p = v.play();
-    if (p !== undefined) {
-      p.catch(() => {});
-    }
+    v.pause();  // garante que começa pausado
   });
 
-  // IntersectionObserver para tocar quando entrar no viewport
+  // IntersectionObserver: pausa o vídeo quando sai da tela (sem autoplay)
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        const vid = entry.target;
-        if (entry.isIntersecting) {
-          vid.play().catch(() => {});
-        } else {
-          vid.pause();
+        if (!entry.isIntersecting) {
+          entry.target.pause();
         }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.1 });
 
     videos.forEach(v => observer.observe(v));
   }
