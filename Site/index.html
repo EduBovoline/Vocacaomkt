@@ -102,7 +102,7 @@
       <span class="hero-meta-time">Edição <b>2026</b> · Atualizado hoje</span>
     </div>
 
-    <h1 class="reveal" data-d="1">Sua empresa <em style="color: #E5B910">já</em> é confiável.<br/>Online, ela precisa parecer.</h1>
+    <h1 class="reveal" data-d="1" id="hero-headline">Seu próximo cliente <em style="color:#E5B910">está pesquisando agora.</em><br/>Ele vai achar você — ou o concorrente.</h1>
 
     <div class="hero-grid">
       <div>
@@ -742,6 +742,29 @@
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeMenu();
   });
+})();
+</script>
+<script>
+(function () {
+  var headlines = [
+    'Seu próximo cliente <em style="color:#E5B910">está pesquisando agora.</em><br/>Ele vai achar você — ou o concorrente.',
+    'Todo mundo na sua rua <em style="color:#E5B910">te conhece.</em><br/>E quem pesquisa no Google?',
+    'Você já tem a confiança.<br/><em style="color:#E5B910">Quem busca na internet</em> precisa ver isso.'
+  ];
+
+  var el = document.getElementById('hero-headline');
+  if (!el) return;
+
+  // Sorteia uma frase diferente da que já está no HTML (índice 0)
+  var idx = Math.floor(Math.random() * headlines.length);
+
+  // Aplica com fade suave
+  el.style.transition = 'opacity .45s ease';
+  el.style.opacity = '0';
+  setTimeout(function () {
+    el.innerHTML = headlines[idx];
+    el.style.opacity = '1';
+  }, 200);
 })();
 </script>
 </body>
