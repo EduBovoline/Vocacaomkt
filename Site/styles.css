@@ -158,9 +158,78 @@ section { position: relative; }
 .nav-links a { transition: color .2s; white-space: nowrap; }
 .nav-links a:hover { color: var(--ink); }
 
-@media (max-width: 980px) {
-  .nav-links { display: none; }
+/* ============ HAMBURGER MOBILE NAV ============ */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none; border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background .2s;
+  z-index: 60;
 }
+.nav-toggle:hover { background: rgba(6,27,40,.08); }
+.nav-toggle span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: transform .3s var(--ease), opacity .3s;
+  transform-origin: center;
+}
+.nav-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.nav-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.4);
+  z-index: 45;
+}
+.nav-overlay.open { display: block; }
+
+@media (max-width: 980px) {
+  .nav-toggle { display: flex; }
+  .nav-links {
+    display: flex !important;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    position: fixed;
+    top: 0; right: 0;
+    width: min(280px, 80vw);
+    height: 100dvh;
+    background: var(--bg);
+    border-left: 1px solid var(--line);
+    padding: 80px 28px 40px;
+    z-index: 55;
+    transform: translateX(100%);
+    transition: transform .35s var(--ease);
+    box-shadow: -8px 0 40px rgba(0,0,0,.12);
+    overflow-y: auto;
+    white-space: normal;
+  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 500;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .nav-links a:last-child { border-bottom: none; }
+  .nav-links a:active { color: var(--accent); }
+}
+
 
 /* Buttons */
 .btn {
