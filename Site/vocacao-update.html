@@ -1,0 +1,1092 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Vocação Update — A modernização completa do seu site em até 5 dias</title>
+<meta name="description" content="Pegamos toda a estrutura do seu site atual, extraímos as informações e entregamos uma versão nova, ultrarrápida e pronta para vender no WhatsApp. Sem você perder tempo escrevendo nada do zero." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logo-vocacao.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles-sections.css" />
+<link rel="stylesheet" href="styles-more.css" />
+<link rel="stylesheet" href="styles-premium.css" />
+
+<!-- Canonical & Open Graph -->
+<link rel="canonical" href="https://vocacao.digital/vocacao-update.html" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:site_name" content="Vocação — Comunicação &amp; Marketing" />
+<meta property="og:title" content="Vocação Update — Seu site novo, veloz e vendedor em até 5 dias" />
+<meta property="og:description" content="Sem reuniões sem fim. Sem escrever nada do zero. A gente resgata o que você tem e entrega uma máquina moderna de conversão pro WhatsApp." />
+<meta property="og:image" content="logo-vocacao.png" />
+<meta name="theme-color" content="#04121b" />
+
+<style>
+/* ==========================================================================
+   THEME TOKENS FOR SCROLL-WORLD ENGINE (DARK INDUSTRIAL OBSIDIAN + CITRON)
+   ========================================================================== */
+:root, .sw-root {
+  --sw-bg: #04121b;
+  --sw-ink: #F8F9F9;
+  --sw-ink-soft: #A3B8C2;
+  --sw-accent: #E5B910;
+  --sw-font-display: 'Poppins', sans-serif;
+  --sw-font-body: 'Montserrat', sans-serif;
+}
+
+body.is-scroll-world {
+  margin: 0;
+  background: var(--sw-bg);
+  color: var(--sw-ink);
+  font-family: var(--sw-font-body);
+  overflow-x: hidden;
+}
+
+/* Custom Tactical Reticle / Cursor */
+.tactical-reticle {
+  position: fixed;
+  width: 32px;
+  height: 32px;
+  border: 1px dashed rgba(229, 185, 16, 0.45);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.05s ease-out;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tactical-reticle::after {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--sw-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--sw-accent);
+}
+.tactical-reticle.active {
+  width: 48px;
+  height: 48px;
+  border-color: var(--sw-accent);
+  border-style: solid;
+}
+@media (hover: none) {
+  .tactical-reticle { display: none; }
+}
+
+/* ==========================================================================
+   DIAGRAMAÇÃO & ALINHAMENTO MILIMÉTRICO DO SCROLL-WORLD
+   ========================================================================== */
+
+/* Posicionamento do Vídeo 3D: Desloca sutilmente para a direita no desktop
+   deixando a metade esquerda livre para o texto respirar sem encavalar! */
+.sw-scene__video, .sw-scene__still {
+  object-fit: cover !important;
+  object-position: 64% 50% !important;
+}
+@media (max-width: 860px) {
+  .sw-scene__video, .sw-scene__still {
+    object-position: center 38% !important;
+  }
+}
+
+/* Scrim / Vinheta Escura lateral: Garante 100% de legibilidade do texto */
+.sw-copylayer::before {
+  width: min(56vw, 820px) !important;
+  background: linear-gradient(90deg, 
+    rgba(4, 18, 27, 0.97) 0%, 
+    rgba(4, 18, 27, 0.90) 42%, 
+    rgba(4, 18, 27, 0.45) 75%, 
+    transparent 100%) !important;
+}
+
+/* Bloco de Texto (Copy): Alinhado verticalmente, sem estourar altura e sem cortar */
+.sw-copy {
+  width: min(48vw, 560px) !important;
+  left: clamp(24px, 5.5vw, 84px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  max-height: calc(100vh - 140px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+
+.sw-copy__num {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.22em !important;
+  color: rgba(229, 185, 16, 0.85) !important;
+  margin-bottom: 6px !important;
+  font-weight: 600 !important;
+}
+
+.sw-copy__eyebrow {
+  margin-top: 4px !important;
+  font-family: 'Geist Mono', monospace !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.2em !important;
+  color: var(--sw-accent) !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 0 14px rgba(229, 185, 16, 0.4) !important;
+}
+
+.sw-copy__title {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: clamp(1.85rem, 2.7vw, 2.75rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.03em !important;
+  margin: 12px 0 0 !important;
+  color: #FFFFFF !important;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.95) !important;
+}
+
+.sw-copy__body {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(0.92rem, 1.1vw, 1.05rem) !important;
+  line-height: 1.62 !important;
+  margin-top: 14px !important;
+  color: #c5d3dc !important;
+  max-width: 48ch !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9) !important;
+}
+
+.sw-copy__tags {
+  list-style: none !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin: 18px 0 0 !important;
+  padding: 0 !important;
+}
+
+.sw-copy__tags li {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  padding: 5px 12px !important;
+  border-radius: 6px !important;
+  background: rgba(229, 185, 16, 0.12) !important;
+  color: var(--sw-accent) !important;
+  border: 1px solid rgba(229, 185, 16, 0.35) !important;
+  letter-spacing: 0.04em !important;
+}
+
+.sw-copy__cta {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 22px !important;
+}
+
+.sw-btn {
+  text-decoration: none !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  letter-spacing: 0.02em !important;
+}
+
+.sw-btn--primary {
+  background: var(--sw-accent) !important;
+  color: #061B28 !important;
+  box-shadow: 0 6px 20px -4px rgba(229, 185, 16, 0.6) !important;
+}
+.sw-btn--primary:hover {
+  background: #f3cc30 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px -4px rgba(229, 185, 16, 0.8) !important;
+}
+
+.sw-btn--ghost {
+  color: #F8F9F9 !important;
+  border: 1.5px solid rgba(184, 191, 195, 0.3) !important;
+  background: rgba(6, 27, 40, 0.65) !important;
+  backdrop-filter: blur(10px) !important;
+}
+.sw-btn--ghost:hover {
+  border-color: #F8F9F9 !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Topbar refinada */
+.sw-topbar {
+  padding: 16px clamp(20px, 4.5vw, 64px) !important;
+  background: linear-gradient(180deg, rgba(4, 18, 27, 0.95) 0%, rgba(4, 18, 27, 0) 100%) !important;
+}
+.sw-brand__mark {
+  background: url('logo-vocacao-white.png') center/contain no-repeat !important;
+  width: 28px !important;
+  height: 28px !important;
+  border-radius: 4px !important;
+  box-shadow: none !important;
+}
+.sw-brand__name {
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 1.05rem !important;
+  color: #FFFFFF !important;
+  letter-spacing: -0.02em !important;
+}
+.sw-topcta {
+  background: var(--sw-accent) !important;
+  color: #061B28 !important;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 0.85rem !important;
+  padding: 9px 20px !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px -3px rgba(229, 185, 16, 0.5) !important;
+}
+.sw-nav {
+  background: rgba(6, 27, 40, 0.85) !important;
+  border: 1px solid rgba(229, 185, 16, 0.25) !important;
+  padding: 4px !important;
+  border-radius: 999px !important;
+}
+.sw-nav__item {
+  font-family: 'Geist Mono', monospace !important;
+  font-size: 0.76rem !important;
+  color: #94a3b8 !important;
+  padding: 6px 14px !important;
+  border-radius: 999px !important;
+}
+.sw-nav__item.is-active {
+  background: var(--sw-accent) !important;
+  color: #061B28 !important;
+  font-weight: 700 !important;
+}
+
+@media (max-width: 860px) {
+  .sw-copylayer::before {
+    width: 100% !important;
+    height: 65% !important;
+    background: linear-gradient(0deg, rgba(4, 18, 27, 0.98) 20%, rgba(4, 18, 27, 0.85) 60%, transparent 100%) !important;
+  }
+  .sw-copy {
+    width: auto !important;
+    left: 20px !important;
+    right: 20px !important;
+    bottom: 30px !important;
+    top: auto !important;
+    transform: none !important;
+    max-height: none !important;
+  }
+  .sw-copy__title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem) !important;
+  }
+}
+
+/* ==========================================================================
+   CONTINUATION SECTIONS BELOW THE 3D SCROLL-WORLD
+   ========================================================================== */
+.post-world-container {
+  position: relative;
+  z-index: 50;
+  background: #04121b;
+  border-top: 1px solid rgba(184, 191, 195, 0.2);
+  padding: 80px 24px 120px;
+}
+.post-world-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sec-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: var(--sw-accent);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+.sec-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin: 0 0 20px;
+  color: #fff;
+}
+
+/* SIMULATOR BOX */
+.url-simulator-box {
+  background: rgba(6, 27, 40, 0.95);
+  border: 1px solid rgba(229, 185, 16, 0.5);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 80px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(229, 185, 16, 0.15);
+}
+.url-input-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+@media (max-width: 640px) {
+  .url-input-group { flex-direction: column; }
+}
+.url-input-field {
+  flex: 1;
+  background: #02090e;
+  border: 1px solid #233b4e;
+  border-radius: 8px;
+  padding: 16px 20px;
+  color: #fff;
+  font-family: 'Geist Mono', monospace;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.url-input-field:focus {
+  border-color: var(--sw-accent);
+  box-shadow: 0 0 12px rgba(229, 185, 16, 0.3);
+}
+.btn-update-cta {
+  background: var(--sw-accent);
+  color: #061B28;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 28px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: all 0.2s;
+  box-shadow: 0 8px 24px -6px rgba(229, 185, 16, 0.5);
+  white-space: nowrap;
+}
+.btn-update-cta:hover {
+  background: #f1c726;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -4px rgba(229, 185, 16, 0.7);
+}
+
+/* CASES TABS & PANELS */
+.cases-nav-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 40px 0 30px;
+  border-bottom: 1px solid rgba(184, 191, 195, 0.2);
+  padding-bottom: 16px;
+}
+.case-tab-btn {
+  background: #071c2b;
+  border: 1px solid rgba(184, 191, 195, 0.2);
+  color: #94a3b8;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.case-tab-btn.active, .case-tab-btn:hover {
+  background: var(--sw-accent);
+  color: #061B28;
+  border-color: var(--sw-accent);
+  box-shadow: 0 4px 18px -4px rgba(229, 185, 16, 0.5);
+}
+
+.case-card-panel {
+  display: none;
+  background: #061926;
+  border: 1px solid rgba(184, 191, 195, 0.22);
+  border-radius: 16px;
+  padding: 34px;
+  animation: fadeIn 0.3s ease;
+}
+.case-card-panel.active { display: block; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.comparison-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 24px;
+}
+@media (max-width: 900px) {
+  .comparison-columns { grid-template-columns: 1fr; }
+}
+
+.comp-box {
+  background: #030e16;
+  border-radius: 12px;
+  border: 1px solid #1a3245;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.comp-box.is-before { border-left: 4px solid #ef4444; }
+.comp-box.is-after {
+  border-left: 4px solid var(--sw-accent);
+  background: #051420;
+  box-shadow: inset 0 0 25px rgba(229, 185, 16, 0.05);
+}
+
+.comp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.comp-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.comp-box.is-before .comp-label { color: #f87171; }
+.comp-box.is-after .comp-label { color: var(--sw-accent); }
+
+.comp-link-preview {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  color: #38bdf8;
+  text-decoration: none;
+  margin-bottom: 16px;
+  word-break: break-all;
+}
+.comp-link-preview:hover { text-decoration: underline; }
+
+.comp-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comp-specs-list li {
+  font-size: 13.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #cbd5e1;
+}
+
+.metric-pill-tag {
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.metric-pill-tag.bad {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.metric-pill-tag.good {
+  background: rgba(16, 229, 117, 0.15);
+  color: #10E575;
+  border: 1px solid rgba(16, 229, 117, 0.3);
+}
+
+.comp-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: auto;
+  transition: all 0.2s;
+}
+.comp-cta-button.btn-test {
+  background: #11283a;
+  color: #e2e8f0;
+  border: 1px solid #24435c;
+}
+.comp-cta-button.btn-test:hover {
+  background: #183a54;
+  color: #fff;
+}
+.comp-cta-button.btn-vocacao {
+  background: var(--sw-accent);
+  color: #061B28;
+  box-shadow: 0 4px 15px -3px rgba(229, 185, 16, 0.4);
+}
+.comp-cta-button.btn-vocacao:hover {
+  background: #f3cc30;
+  transform: translateY(-2px);
+}
+
+/* FINAL CARD */
+.final-launchpad-section {
+  padding-top: 80px;
+  text-align: center;
+}
+.launchpad-card {
+  background: linear-gradient(180deg, #071f30 0%, #02090f 100%);
+  border: 1px solid rgba(229, 185, 16, 0.5);
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.9), 0 0 50px -10px rgba(229, 185, 16, 0.15);
+}
+.launchpad-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #02090e;
+  border: 1px solid #1a394f;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 14px;
+  color: var(--sw-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+/* ==========================================================================
+   INTERACTIVE BEFORE / AFTER SLIDER (SCREENSHOT COMPARATOR)
+   ========================================================================== */
+.ba-mockup-window {
+  background: #030e16;
+  border: 1px solid rgba(184, 191, 195, 0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 24px 0 28px;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.95);
+}
+.ba-mockup-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  background: #051420;
+  border-bottom: 1px solid rgba(184, 191, 195, 0.15);
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+}
+.ba-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.ba-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.ba-slider-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9.5;
+  max-height: 580px;
+  overflow: hidden;
+  user-select: none;
+  cursor: ew-resize;
+  background: #000;
+  touch-action: none;
+}
+.ba-slider-container img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  pointer-events: none;
+}
+.ba-before-clip {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 calc(100% - var(--split-pos, 50%)) 0 0);
+  pointer-events: none;
+}
+.ba-badge-after, .ba-badge-before {
+  position: absolute;
+  top: 14px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-family: 'Geist Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+.ba-badge-after {
+  right: 16px;
+  background: rgba(4, 18, 27, 0.88);
+  color: var(--sw-accent);
+  border: 1px solid rgba(229, 185, 16, 0.45);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+.ba-badge-before {
+  left: 16px;
+  background: rgba(36, 10, 10, 0.88);
+  color: #f87171;
+  border: 1px solid rgba(239, 68, 68, 0.45);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+.ba-divider-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--split-pos, 50%);
+  width: 3px;
+  background: var(--sw-accent);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 15;
+  box-shadow: 0 0 15px var(--sw-accent);
+}
+.ba-divider-knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #061B28;
+  border: 2.5px solid var(--sw-accent);
+  color: var(--sw-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Geist Mono', monospace;
+  font-size: 12px;
+  font-weight: 800;
+  box-shadow: 0 0 25px rgba(0,0,0,0.9), 0 0 15px rgba(229, 185, 16, 0.6);
+}
+.ba-hint-bar {
+  text-align: center;
+  padding: 8px 12px;
+  background: #02090e;
+  border-top: 1px solid rgba(184, 191, 195, 0.1);
+  font-family: 'Geist Mono', monospace;
+  font-size: 10.5px;
+  color: #64748b;
+  letter-spacing: 0.08em;
+}
+</style>
+</head>
+<body class="is-scroll-world">
+
+<!-- Tactical Reticle (Cursor Follower) -->
+<div class="tactical-reticle" id="tacticalReticle"></div>
+
+<!-- ==========================================================================
+     SCROLL-WORLD VIEWPORT (O MUNDO 3D IMERSIVO CONTROLADO POR SCROLL)
+     ========================================================================== -->
+<div id="top"></div>
+<div id="world"></div>
+
+<!-- ==========================================================================
+     SEÇÕES COMPLEMENTARES: CASES REAIS, SIMULADOR E GARANTIA
+     ========================================================================== -->
+<div class="post-world-container" id="cases">
+  <div class="post-world-inner">
+    
+    <!-- SIMULADOR EXPRESSO -->
+    <div class="url-simulator-box">
+      <span class="sec-tag">SIMULADOR DE MODERNIZAÇÃO EXPRESSA</span>
+      <h3 style="font-family:'Poppins',sans-serif;font-size:22px;color:#fff;margin:0 0 8px;">
+        Descubra como o seu site fica no padrão Vocação Update
+      </h3>
+      <p style="color:#a0aec0;font-size:14.5px;margin:0 0 16px;">
+        Digite o endereço do seu site atual. Nós analisamos a estrutura e preparamos a rota de modernização para 5 dias:
+      </p>
+      
+      <form class="url-input-group" onsubmit="event.preventDefault(); dispararWhatsAppUpdate();">
+        <input type="text" id="siteUrlInput" class="url-input-field" placeholder="ex: www.minhaempresa.com.br" required />
+        <button type="submit" class="btn-update-cta">
+          Quero meu site novo em 5d
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+    </div>
+
+    <!-- CASES AUDITADOS (MAÇÃ D'AMOR & SAFETY FIRST) -->
+    <div>
+      <span class="sec-tag">PROVA REAL E AUDITADA</span>
+      <h2 class="sec-title">Veja a transformação do Vocação Update na prática</h2>
+      <p style="color:#94a3b8;max-width:720px;font-size:16px;margin:0 0 20px;">
+        Não trabalhamos com teorias. Compare abaixo sites reais que passaram pelo processo de modernização e veja a diferença brutal de velocidade, presença visual e direcionamento de conversão.
+      </p>
+
+      <!-- CASES TABS -->
+      <div class="cases-nav-tabs">
+        <button class="case-tab-btn active" onclick="switchCaseTab('maca', this)">
+          <span>🍏 Case 01: Maçã d'Amor</span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[Alimentação & Eventos]</span>
+        </button>
+        <button class="case-tab-btn" onclick="switchCaseTab('safety', this)">
+          <span>🛡️ Case 02: Safety First</span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[B2B & Segurança do Trabalho]</span>
+        </button>
+      </div>
+
+      <!-- CASE 1: MAÇÃ D'AMOR -->
+      <div class="case-card-panel active" id="case-maca">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+          <div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:24px;margin:0 0 6px;color:#fff;">Maçã d'Amor — Da página desatualizada ao cardápio de vendas direto no WhatsApp</h3>
+            <p style="margin:0;color:#94a3b8;font-size:14.5px;">Transformação de um site estático e lento em uma vitrine dinâmica com catálogo interativo e pedidos instantâneos.</p>
+          </div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--sw-accent);border:1px solid rgba(229,185,16,0.3);padding:6px 14px;border-radius:6px;background:rgba(229,185,16,0.08);">
+            PRAZO TOTAL: 4 DIAS ÚTEIS
+          </div>
+        </div>
+
+        <!-- MOCKUP BROWSER WINDOW COM SLIDER ANTES / DEPOIS INTERATIVO -->
+        <div class="ba-mockup-window">
+          <div class="ba-mockup-bar">
+            <div class="ba-dots">
+              <span class="ba-dot" style="background:#ef4444;"></span>
+              <span class="ba-dot" style="background:#f59e0b;"></span>
+              <span class="ba-dot" style="background:#10b981;"></span>
+              <span style="margin-left:10px;color:#cbd5e1;font-weight:600;">macadamor.com.br — Raio-X Visual Comparativo</span>
+            </div>
+            <div style="color:var(--sw-accent);font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
+          </div>
+
+          <div class="ba-slider-container" id="slider-maca" style="--split-pos: 50%;">
+            <!-- NOVO VOCAÇÃO UPDATE (CAMADA BASE) -->
+            <img src="cases/maca-novo.png" alt="Maçã d'Amor Novo - Vocação Update" />
+            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s ⚡</div>
+
+            <!-- ANTIGO (CAMADA REVELADA POR CORTE) -->
+            <div class="ba-before-clip">
+              <img src="cases/maca-antigo.png" alt="Maçã d'Amor Antigo" />
+              <div class="ba-badge-before">ANTES · SITE LENTO E DATADO ❌</div>
+            </div>
+
+            <!-- DIVISOR COM KNOB -->
+            <div class="ba-divider-line">
+              <div class="ba-divider-knob">
+                <span>◄ ►</span>
+              </div>
+            </div>
+          </div>
+          <div class="ba-hint-bar">
+            RAIO-X REGISTRADO: Visual histórico auditado e preservado permanentemente. Arraste a linha central para comparar.
+          </div>
+        </div>
+
+        <div class="comparison-columns">
+          <!-- ANTES -->
+          <div class="comp-box is-before">
+            <div>
+              <div class="comp-header">
+                <span class="comp-label">VERSÃO ANTIGA (ORIGINAL)</span>
+                <span class="metric-pill-tag bad">LENTO & DATADO</span>
+              </div>
+              <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#94a3b8;margin-bottom:14px;">
+                Domínio: macadamor.com.br (Original)
+              </div>
+              <ul class="comp-specs-list">
+                <li>❌ <b>Tempo de carregamento:</b> 4.6 segundos no 4G</li>
+                <li>❌ <b>Estrutura:</b> Layout rígido, difícil leitura no smartphone</li>
+                <li>❌ <b>Conversão:</b> O visitante precisava procurar contato ou formulário</li>
+                <li>❌ <b>Cardápio:</b> Fotos soltas sem fluxo direto de orçamento</li>
+              </ul>
+            </div>
+            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#f87171;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+              Diagnóstico: Alto índice de abandono antes de carregar no celular.
+            </div>
+          </div>
+
+          <!-- NOVO VOCAÇÃO UPDATE -->
+          <div class="comp-box is-after">
+            <div>
+              <div class="comp-header">
+                <span class="comp-label">VOCAÇÃO UPDATE (NOVO)</span>
+                <span class="metric-pill-tag good">0.4s · CONVERSÃO ATIVA</span>
+              </div>
+              <div style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--sw-accent);margin-bottom:14px;">
+                Padrão Vocação Update entregue em 4 dias
+              </div>
+              <ul class="comp-specs-list">
+                <li>✅ <b>Velocidade:</b> Abre instantaneamente em menos de 0.5s</li>
+                <li>✅ <b>Mobile-First:</b> Experiência de aplicativo fluido para quem compra pelo celular</li>
+                <li>✅ <b>Catálogo Integrado:</b> O cliente escolhe os produtos e já abre o WhatsApp com o pedido montado</li>
+                <li>✅ <b>Zero dor de cabeça:</b> O cliente não precisou reescrever nada</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20um%20Update%20estilo%20Maca%20do%20Amor%20no%20meu%20site" target="_blank" rel="noopener" class="comp-cta-button btn-vocacao">
+              Quero um Update assim para meu site 🚀
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CASE 2: SAFETY FIRST -->
+      <div class="case-card-panel" id="case-safety">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+          <div>
+            <h3 style="font-family:'Poppins',sans-serif;font-size:24px;margin:0 0 6px;color:#fff;">Safety First — De um site institucional padrão a uma autoridade B2B de alto valor</h3>
+            <p style="margin:0;color:#94a3b8;font-size:14.5px;">Reestruturação total da engenharia e autoridade visual em Segurança do Trabalho e Laudos Industriais.</p>
+          </div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--sw-accent);border:1px solid rgba(229,185,16,0.3);padding:6px 14px;border-radius:6px;background:rgba(229,185,16,0.08);">
+            PRAZO TOTAL: 5 DIAS ÚTEIS
+          </div>
+        </div>
+
+        <!-- MOCKUP BROWSER WINDOW COM SLIDER ANTES / DEPOIS INTERATIVO -->
+        <div class="ba-mockup-window">
+          <div class="ba-mockup-bar">
+            <div class="ba-dots">
+              <span class="ba-dot" style="background:#ef4444;"></span>
+              <span class="ba-dot" style="background:#f59e0b;"></span>
+              <span class="ba-dot" style="background:#10b981;"></span>
+              <span style="margin-left:10px;color:#cbd5e1;font-weight:600;">safetyfirst.com.br — Raio-X Visual Comparativo</span>
+            </div>
+            <div style="color:var(--sw-accent);font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
+          </div>
+
+          <div class="ba-slider-container" id="slider-safety" style="--split-pos: 50%;">
+            <!-- NOVO VOCAÇÃO UPDATE (CAMADA BASE) -->
+            <img src="cases/safety-novo.png" alt="Safety First Novo - Vocação Update" />
+            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE ⚡ AUTORIDADE MÁXIMA</div>
+
+            <!-- ANTIGO (CAMADA REVELADA POR CORTE) -->
+            <div class="ba-before-clip">
+              <img src="cases/safety-antigo.png" alt="Safety First Antigo" />
+              <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO & LENTO ❌</div>
+            </div>
+
+            <!-- DIVISOR COM KNOB -->
+            <div class="ba-divider-line">
+              <div class="ba-divider-knob">
+                <span>◄ ►</span>
+              </div>
+            </div>
+          </div>
+          <div class="ba-hint-bar">
+            RAIO-X REGISTRADO: Visual histórico auditado e preservado permanentemente. Arraste a linha central para comparar.
+          </div>
+        </div>
+
+        <div class="comparison-columns">
+          <!-- ANTES -->
+          <div class="comp-box is-before">
+            <div>
+              <div class="comp-header">
+                <span class="comp-label">VERSÃO ANTERIOR</span>
+                <span class="metric-pill-tag bad">INSTITUCIONAL FRIO</span>
+              </div>
+              <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#94a3b8;margin-bottom:14px;">
+                Domínio: safetyfirst.com.br (Original)
+              </div>
+              <ul class="comp-specs-list">
+                <li>❌ <b>Percepção:</b> Não transmitia o tamanho e sofisticação dos serviços prestados</li>
+                <li>❌ <b>Navegação:</b> Menus densos e formulários ignorados pelos decisores</li>
+                <li>❌ <b>Velocidade:</b> Scripts pesados de temas prontos atrasando o carregamento</li>
+              </ul>
+            </div>
+            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#f87171;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+              Diagnóstico: Decisores B2B saíam sem solicitar proposta devido à lentidão e frieza.
+            </div>
+          </div>
+
+          <!-- NOVO VOCAÇÃO UPDATE -->
+          <div class="comp-box is-after">
+            <div>
+              <div class="comp-header">
+                <span class="comp-label">VOCAÇÃO UPDATE (NOVO)</span>
+                <span class="metric-pill-tag good">CINEMATIC · LEAD IMEDIATO</span>
+              </div>
+              <div style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--sw-accent);margin-bottom:14px;">
+                Padrão Vocação Update entregue em 5 dias
+              </div>
+              <ul class="comp-specs-list">
+                <li>✅ <b>Posicionamento Premium:</b> Identidade industrial imersiva que impõe respeito perante grandes indústrias</li>
+                <li>✅ <b>Carregamento Relâmpago:</b> 100% de pontuação técnica em mobile</li>
+                <li>✅ <b>Funil Direto:</b> Contratação e laudos direcionados com um clique ao time comercial</li>
+                <li>✅ <b>Aprovação Imediata:</b> Concluído em 5 dias sem atrapalhar a rotina da empresa</li>
+              </ul>
+            </div>
+            <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20um%20Update%20estilo%20Safety%20First%20no%20meu%20site" target="_blank" rel="noopener" class="comp-cta-button btn-vocacao">
+              Quero um Update B2B para minha empresa 🛡️
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FECHAMENTO & GARANTIA -->
+    <div class="final-launchpad-section">
+      <div class="launchpad-card">
+        <div class="launchpad-timer">
+          <span class="update-status-dot"></span>
+          <span>CRONÔMETRO DE ENTREGA: 05 DIAS CORRIDOS</span>
+        </div>
+
+        <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(32px, 4.5vw, 48px);font-weight:800;color:#fff;margin:0 0 16px;">
+          Chega de perder clientes com um site que parou no tempo.
+        </h2>
+
+        <p style="font-size:16.5px;color:#a0aec0;max-width:680px;margin:0 auto 36px;line-height:1.65;">
+          Não gaste semanas escrevendo briefings. Envie o link do seu site agora e colocamos sua nova máquina de vendas no ar em até 5 dias.
+        </p>
+
+        <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;">
+          <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20fazer%20o%20Vocacao%20Update%20do%20meu%20site%20em%205%20dias" class="btn-update-cta" style="font-size:16px;padding:18px 36px;" target="_blank" rel="noopener">
+            Quero Modernizar Meu Site Agora
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div style="margin-top:30px;display:flex;justify-content:center;gap:30px;font-family:'Geist Mono',monospace;font-size:11.5px;color:#64748b;flex-wrap:wrap;">
+          <span>✓ SEU DOMÍNIO CONTINUA O MESMO</span>
+          <span>✓ SEUS E-MAILS NÃO SÃO AFETADOS</span>
+          <span>✓ GARANTIA TOTAL DE VELOCIDADE</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer style="border-top:1px solid rgba(184, 191, 195, 0.15);padding:40px 24px;text-align:center;font-family:'Geist Mono',monospace;font-size:12px;color:#64748b;background:#030c14;">
+  <div style="margin-bottom:12px;">
+    <a href="/" style="color:#cbd5e1;text-decoration:none;font-weight:600;">VOCAÇÃO COMUNICAÇÃO &amp; MARKETING</a> · BRASIL
+  </div>
+  <div>Vocação Update · Todos os direitos reservados. Design e Engenharia de Alta Precisão.</div>
+</footer>
+
+<!-- SCRIPTS: SCROLL-WORLD ENGINE & INTERATIVIDADE -->
+<script src="scrub-engine.js"></script>
+<script>
+  // Tactical Reticle Follower
+  const reticle = document.getElementById('tacticalReticle');
+  document.addEventListener('mousemove', (e) => {
+    if (reticle) {
+      reticle.style.left = e.clientX + 'px';
+      reticle.style.top = e.clientY + 'px';
+    }
+  });
+  document.querySelectorAll('a, button, input').forEach(el => {
+    el.addEventListener('mouseenter', () => reticle && reticle.classList.add('active'));
+    el.addEventListener('mouseleave', () => reticle && reticle.classList.remove('active'));
+  });
+
+  // MONTAGEM DO SCROLL-WORLD (A CÂMERA 3D VIAJANDO PELO SCROLL)
+  mountScrollWorld(document.getElementById('world'), {
+    brand: { name: 'Vocação Update', href: '/' },
+    cta: { label: 'Pedir Update 5D', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Vocacao%20Update%20em%205%20dias' },
+    hint: 'role para sobrevoar o mundo 3d',
+    diveScroll: 1.8,
+    connScroll: 1.0,
+    atmosphere: true,
+    sections: [
+      {
+        id: 'operacao',
+        label: '01. A Máquina em Ação',
+        still: 'videos/update/signal-waves-poster.jpg',
+        clip: 'videos/update/signal-waves-scrub.mp4',
+        accent: '#E5B910',
+        scroll: 2.2,
+        linger: 0.45,
+        eyebrow: 'PROTOCOLO VOCAÇÃO UPDATE · CICLO 5 DIAS',
+        title: 'A modernização completa do seu site em até 5 dias.',
+        body: 'A gente pega toda a estrutura do seu site atual, extrai as informações e entrega uma versão nova, ultrarrápida e pronta para vender no WhatsApp, sem você precisar perder tempo escrevendo nada do zero.',
+        tags: ['Zero Redação', 'Carregamento < 1s', 'Foco no WhatsApp']
+      },
+      {
+        id: 'modular',
+        label: '02. Extração & Montagem',
+        still: 'videos/update/data-cartridges-poster.jpg',
+        clip: 'videos/update/data-cartridges-scrub.mp4',
+        accent: '#E5B910',
+        scroll: 2.4,
+        linger: 0.5,
+        eyebrow: 'ENGENHARIA INDUSTRIAL MODULAR',
+        title: 'Seu conteúdo resgatado e lapidado.',
+        body: 'Cada cartucho (estrutura, fotos, catálogo, ofertas) é extraído do site antigo e encaixado em um chassi moderno com velocidade máxima no 4G e 5G.',
+        tags: ['Snap Automático', 'Score 98+', 'Chave na Mão'],
+        cta: {
+          primary: { label: 'Quero meu site novo em 5 dias', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20fazer%20o%20Vocacao%20Update%20do%20meu%20site%20em%205%20dias' },
+          secondary: { label: 'Ver Cases Reais ↓', href: '#cases' }
+        }
+      }
+    ],
+    connectors: []
+  });
+
+  // Cases Tabs Switcher
+  function switchCaseTab(caseId, btn) {
+    document.querySelectorAll('.case-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.case-card-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById('case-' + caseId);
+    if (target) target.classList.add('active');
+  }
+
+  // Disparador de WhatsApp personalizado
+  function dispararWhatsAppUpdate() {
+    const input = document.getElementById('siteUrlInput');
+    const siteUrl = input ? input.value.trim() : '';
+    const msg = encodeURIComponent(`Olá! Vi o Vocação Update e quero modernizar meu site atual em 5 dias.\nO link do meu site é: ${siteUrl}`);
+    window.open(`https://wa.me/5515981512083?text=${msg}`, '_blank');
+  }
+
+  // Interação do Slider Antes / Depois (Arrasto & Mouse Move)
+  function initBeforeAfterSliders() {
+    document.querySelectorAll('.ba-slider-container').forEach(slider => {
+      let isDragging = false;
+      function updatePos(clientX) {
+        const rect = slider.getBoundingClientRect();
+        let x = clientX - rect.left;
+        let pct = (x / rect.width) * 100;
+        if (pct < 3) pct = 3;
+        if (pct > 97) pct = 97;
+        slider.style.setProperty('--split-pos', pct.toFixed(1) + '%');
+      }
+      slider.addEventListener('mousedown', (e) => { isDragging = true; updatePos(e.clientX); });
+      window.addEventListener('mousemove', (e) => { if (isDragging) updatePos(e.clientX); });
+      window.addEventListener('mouseup', () => { isDragging = false; });
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDragging && e.buttons === 0) updatePos(e.clientX);
+      });
+      slider.addEventListener('touchstart', (e) => { updatePos(e.touches[0].clientX); }, { passive: true });
+      slider.addEventListener('touchmove', (e) => { updatePos(e.touches[0].clientX); }, { passive: true });
+    });
+  }
+  initBeforeAfterSliders();
+</script>
+
+</body>
+</html>
