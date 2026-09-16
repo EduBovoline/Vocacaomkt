@@ -27,7 +27,7 @@
   * Formulário oficial no ar: [`vocacao.digital/espaconature`](https://vocacao.digital/espaconature)
   * Questionário local: `QG Vocação 2027 do zero/1 Leads/onboarding-espaco-nature-miriam.html` e `.pdf`
   * Diagnóstico de Visibilidade: `QG Vocação 2027 do zero/1 Leads/Análise Visibilidade Local Vocação - Espaco Nature.pdf`
-* **Status:** Onboarding enviado para a Miriam preencher.
+* **Status:** ⚠️ **TRAVADO (Sem retorno desde quinta-feira).** Necessário áudio/mensagem de resgate amigável para não perder o fechamento.
 * **🚨 Ação do Dia:** Enviar lembrete amigável no WhatsApp para recolher os dados e fotos para subir a otimização no Google Maps.
 
 ---
@@ -48,17 +48,7 @@
 ## 🟡 3. DIAGNÓSTICO AGENDADO (VISITA PRESENCIAL)
 
 ### 🪵 3.1 Marcenaria Mantovani (Sorocaba - Jardim Simus)
-* **Contato:** (15) 3202-9888 / (15) 3221-9435
-* **Endereço da Visita:** R. Benedito Ferreira Telles, 920 - Jardim Simus, Sorocaba - SP
-* **Perfil do Negócio:** 25 anos de tradição impecável em marcenaria sob medida de alto padrão.
-* **Gargalos Ouro Mapeados:**
-  * E-mail corporativo amador (`@terra.com.br`) passando desconfiança para orçamentos de R$ 50k a R$ 100k+.
-  * Site antigo, não responsivo para celular e sem catálogo de projetos modernos.
-* **Combinação de Ofertas da Vocação:**
-  * **Pilar 04:** Registro de domínio próprio + E-mail corporativo Google Workspace / Zoho (`contato@marcenariamantovani.com.br`).
-  * **Pilar 01:** Novo Catálogo Web Rápido e Mobile-First.
-  * **Pilar 02:** Google Maps Estratégico (reivindicação, blindagem de avaliações e palavras-chave locais).
-* **🚨 Ação do Dia:** Imprimir diagnóstico ou carregar no tablet com apresentação do case Maçã d'Amor e Safety First para fechar pacote completo.
+* **Status:** ⛔ **CANCELADO E DESCARTADO PELO COMERCIAL.** Não investir mais tempo.
 
 ---
 
@@ -139,3 +129,4 @@ Todas as bases contam com versão em **CSV** para planilhas e **HTML Interativo*
 1. **Chatbot de Vendas & Triagem:** Estruturar o bot oficial da Vocação no WhatsApp para qualificar leads que chegam pelo site e direcionar para o tipo de serviço certo.
 2. **Disparo Agendado de Follow-up:** Cadência automática de lembretes (D+2, D+5) para leads que visualizaram o dossiê e não responderam.
 3. **Robô de Backup Automático:** Backup zip diário das pastas de clientes e repositórios sincronizado com a nuvem.
+
