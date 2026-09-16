@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Prospeccao B2B — Industrias & Fabril | Vocacao</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E5B910;
+            --color-accent-soft: #fcf9eb;
+            --color-accent-hover: #cfa50a;
+            --color-primary: #061B28;
+            --color-primary-light: #0c2b3f;
+            --color-bg: #f4f6f8;
+            --color-surface: #ffffff;
+            --color-text: #1a202c;
+            --color-text-muted: #5a6578;
+            --color-border: #e2e8f0;
+            
+            --color-positive: #059669;
+            --color-positive-bg: #ecfdf5;
+            --color-negative: #dc2626;
+            --color-negative-bg: #fef2f2;
+            --color-warning: #d97706;
+            --color-warning-bg: #fffbeb;
+            --color-info: #0284c7;
+            --color-info-bg: #f0f9ff;
+            --color-purple: #7c3aed;
+            --color-purple-bg: #f5f3ff;
+            
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(6,27,40,0.12);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: 24px 20px;
+            font-size: 13.5px;
+        }
+        
+        .container {
+            max-width: 1750px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER VOCACAO */
+        header.vocacao-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #ffffff;
+            padding: 26px 32px;
+            border-radius: var(--radius-lg);
+            border-bottom: 4px solid var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        
+        .brand-logo-badge {
+            background: rgba(229, 185, 16, 0.12);
+            border: 1.5px solid var(--color-accent);
+            padding: 10px 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .brand-logo-badge svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--color-accent);
+        }
+        
+        .header-title-wrap h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
+        }
+        
+        .header-title-wrap p {
+            font-size: 13px;
+            color: #cbd5e1;
+            max-width: 820px;
+        }
+        
+        .header-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .badge-tag {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-tag.accent {
+            background: rgba(229, 185, 16, 0.2);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+        }
+        
+        .badge-tag.cold {
+            background: rgba(124, 58, 237, 0.25);
+            color: #c4b5fd;
+            border: 1px solid #a78bfa;
+        }
+        
+        .badge-tag.white {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+        .btn-accent:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .btn-outline-white {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline-white:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: #ffffff;
+        }
+
+        /* KPI STATS ROW */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        
+        .stat-card {
+            background: var(--color-surface);
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--color-accent);
+        }
+        
+        .stat-card.stat-blue::before { background: var(--color-info); }
+        .stat-card.stat-green::before { background: var(--color-positive); }
+        .stat-card.stat-red::before { background: var(--color-negative); }
+        .stat-card.stat-purple::before { background: var(--color-purple); }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+        
+        .stat-sub {
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* FILTER PANEL */
+        .filter-panel {
+            background: var(--color-surface);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--color-primary);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            pointer-events: none;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 9px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: 12.5px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: var(--color-text);
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .filter-select:focus {
+            border-color: var(--color-primary);
+        }
+
+        /* TABLE WRAPPER */
+        .table-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        table.crm-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 1400px;
+        }
+        
+        th {
+            background: #f8fafc;
+            color: var(--color-text-muted);
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 12px 14px;
+            border-bottom: 2px solid var(--color-border);
+            white-space: nowrap;
+            user-select: none;
+        }
+        
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+            font-size: 13px;
+        }
+        
+        tr:hover td {
+            background-color: #fafbfc;
+        }
+        
+        /* COLUMN STYLES */
+        .col-id {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .lead-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lead-category {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .lead-address {
+            font-size: 11.5px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .status-select {
+            padding: 5px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+        }
+        
+        .status-novo { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+        .status-enviada { background: var(--color-info-bg); color: var(--color-info); border-color: #bae6fd; }
+        .status-agendado { background: var(--color-warning-bg); color: var(--color-warning); border-color: #fde68a; }
+        .status-proposta { background: var(--color-purple-bg); color: var(--color-purple); border-color: #ddd6fe; }
+        .status-fechado { background: var(--color-positive-bg); color: var(--color-positive); border-color: #a7f3d0; }
+        .status-recusado { background: var(--color-negative-bg); color: var(--color-negative); border-color: #fecaca; }
+        
+        .priority-badge {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .priority-critica { background: var(--color-negative-bg); color: var(--color-negative); border: 1px solid #fecaca; }
+        .priority-alta { background: var(--color-warning-bg); color: var(--color-warning); border: 1px solid #fde68a; }
+        .priority-media { background: var(--color-info-bg); color: var(--color-info); border: 1px solid #bae6fd; }
+        
+        .gargalo-text {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.45;
+            max-width: 320px;
+        }
+        
+        .pilares-tag {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--color-primary);
+            background: #eef2f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+            line-height: 1.35;
+        }
+        
+        .ticket-box {
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+        
+        .roi-text {
+            font-size: 11px;
+            color: var(--color-positive);
+            font-weight: 500;
+            line-height: 1.3;
+            max-width: 200px;
+        }
+        
+        .actions-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 150px;
+        }
+        
+        .btn-action {
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11.5px;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+            background: #ffffff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+        
+        .btn-action:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        
+        .btn-action.btn-wa {
+            background: #25D366;
+            color: #ffffff;
+            border-color: #22bf5b;
+        }
+        .btn-action.btn-wa:hover {
+            background: #1eb956;
+            color: #ffffff;
+        }
+        
+        .btn-action.btn-script {
+            background: var(--color-accent-soft);
+            color: #856404;
+            border-color: #ffeeba;
+        }
+        .btn-action.btn-script:hover {
+            background: #fff3cd;
+        }
+        
+        .links-row {
+            display: flex;
+            gap: 8px;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        
+        .link-mini {
+            color: var(--color-info);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .link-mini:hover {
+            text-decoration: underline;
+        }
+        
+        /* MODAL DE SCRIPTS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 27, 40, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(3px);
+            padding: 20px;
+        }
+        
+        .modal-box {
+            background: #ffffff;
+            width: 100%;
+            max-width: 760px;
+            max-height: 90vh;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .modal-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+        }
+        
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        
+        .modal-body {
+            padding: 22px 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .script-block {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+        }
+        
+        .script-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .script-tag {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+        }
+        
+        .script-text {
+            font-size: 12.5px;
+            color: #1e293b;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn-copy {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-copy:hover {
+            background: var(--color-accent-hover);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            font-weight: 600;
+            font-size: 13px;
+            display: none;
+            z-index: 2000;
+        }
+        
+        footer.vocacao-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            padding: 16px 0;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HEADER VOCACAO -->
+    <header class="vocacao-header">
+        <div class="header-brand">
+            <div class="brand-logo-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="header-title-wrap">
+                <div class="header-badges">
+                    <span class="badge-tag accent">Vocacao Outbound 2027</span>
+                    <span class="badge-tag cold">🏭 B2B & Homologação Industrial</span>
+                    <span class="badge-tag white">20 Indústrias Mais Carentes</span>
+                    <span class="badge-tag white">Polo Industrial Sorocaba & Votorantim</span>
+                </div>
+                <h1>CRM & Mineração Outbound — Indústrias & Fábricas Carentes</h1>
+                <p>Mapeamento das 20 empresas industriais com maior carência de presença digital, e-mails corporativos, portfólio fabril e Tour 360° em Sorocaba. Foco em homologação de fornecedores e captação de grandes contratos.</p>
+            </div>
+        </div>
+        
+        <div class="header-actions">
+            <a href="Planilha_Prospeccao_Industrias_Sorocaba.csv" download class="btn btn-accent">
+                📥 Baixar Planilha CSV (Excel)
+            </a>
+            <button onclick="window.print()" class="btn btn-outline-white">
+                🖨️ Imprimir / Salvar PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- STATS ROW -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Total de Fábricas Mapeadas</div>
+            <div class="stat-value" id="stat-total">20</div>
+            <div class="stat-sub">Usinagem, Caldeiraria, Laser e Injeção</div>
+        </div>
+        <div class="stat-card stat-red">
+            <div class="stat-label">Gargalos Críticos de Homologação</div>
+            <div class="stat-value">10</div>
+            <div class="stat-sub">E-mail @gmail/@terra ou sem site ativo</div>
+        </div>
+        <div class="stat-card stat-blue">
+            <div class="stat-label">Ticket Médio de Contrato B2B</div>
+            <div class="stat-value">R$ 65.000+</div>
+            <div class="stat-sub">Contratos industriais anuais e ordens seriadas</div>
+        </div>
+        <div class="stat-card stat-green">
+            <div class="stat-label">Taxa de Cobertura Vocação</div>
+            <div class="stat-value">1 Contrato</div>
+            <div class="stat-sub">1 ordem de fornecimento paga 3 a 5 anos de assessoria</div>
+        </div>
+    </div>
+
+    <!-- FILTER PANEL -->
+    <div class="filter-panel">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Buscar por fábrica, polo (Éden, Iporanga), serviço ou gargalo..." onkeyup="filterTable()">
+        </div>
+        <div class="filter-group">
+            <select id="statusFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todos os Status CRM</option>
+                <option value="Novo Lead">Novo Lead</option>
+                <option value="Mensagem Enviada">Mensagem Enviada</option>
+                <option value="Diagnóstico Agendado">Diagnóstico Agendado</option>
+                <option value="Proposta em Aberto">Proposta em Aberto</option>
+                <option value="Fechado">Fechado</option>
+                <option value="Sem Interesse">Sem Interesse</option>
+            </select>
+            
+            <select id="priorityFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todas as Prioridades</option>
+                <option value="Crítica">Prioridade Crítica</option>
+                <option value="Alta">Prioridade Alta</option>
+            </select>
+            
+            <select id="regionFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todos os Polos</option>
+                <option value="Éden">Éden</option>
+                <option value="Iporanga">Iporanga</option>
+                <option value="Aparecidinha">Aparecidinha</option>
+                <option value="Cajuru">Cajuru do Sul</option>
+                <option value="Votorantim">Votorantim</option>
+            </select>
+            
+            <button onclick="resetFilters()" class="btn-action" style="padding: 9px 12px;">Limpar Filtros</button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="crm-table" id="crmTable">
+                <thead>
+                    <tr>
+                        <th style="width: 70px;">ID</th>
+                        <th style="width: 250px;">Indústria / Polo</th>
+                        <th style="width: 140px;">Status CRM</th>
+                        <th style="width: 100px;">Prioridade</th>
+                        <th style="width: 320px;">Gargalo Digital & Homologação</th>
+                        <th style="width: 220px;">Pilares Recomendados</th>
+                        <th style="width: 160px;">Ticket & ROI</th>
+                        <th style="width: 160px;">Ações Rápidas</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="vocacao-footer">
+        Vocação Comunicação & Marketing — Inteligência Comercial Outbound & Estratégia de Presença Digital © 2026. Todos os direitos reservados.
+    </footer>
+</div>
+
+<!-- MODAL SCRIPTS -->
+<div class="modal-overlay" id="scriptModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modalTitle">Scripts Outbound Industrial — Empresa</h3>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">🏭 Script Inicial — Gancho de Homologação & Suprimentos</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptInicial')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptInicial"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">⏱️ Follow-up 1 (+24h - Checagem Leve com Diretor)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup1')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup1"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">📊 Follow-up 2 (+48h - Demanda de Engenharia / Suprimentos)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup2')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup2"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">🚪 Follow-up 3 (Break-up / Saída Profissional)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup3')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toastMessage">Texto copiado para a área de transferência!</div>
+
+<script>
+const rawLeads = [{"id": "ind_01", "data": "16/09/2026", "nome": "Usimarks Usinagem e Ferramentaria", "categoria": "Usinagem CNC & Ferramentaria Pesada", "cidade_bairro": "Sorocaba (Éden / Zona Industrial)", "endereco": "Região Industrial do Éden - Sorocaba - SP", "telefone": "(15) 3227-3121", "whatsapp_raw": "551532273121", "maps": "https://www.google.com/maps/search/?api=1&query=Usimarks+Usinagem+Ferramentaria+Sorocaba", "email": "usimarks.escritorio@gmail.com", "site": "Inexistente / Sem site oficial", "gargalo": "Uso de e-mail amador (@gmail.com) para receber RFQs e cotações de peças técnicas; ausência total de site corporativo com catálogo de máquinas (tornos CNC, centros de usinagem) e capacidades dimensionais; compradores industriais descartam fornecedores sem domínio próprio nas auditorias de homologação.", "pilares": "Pilar 04 (Domínio Oficial @usimarks.com.br & E-mail Corporativo) + Pilar 01 (Site Institucional & Portfólio de Capacidade Fabril) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 30.000 - R$ 150.000 / contrato", "roi": "1 único contrato de usinagem seriada (R$ 50k+) paga 5 anos de infraestrutura digital e assessoria Vocação.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Usimarks, tudo bem? Notamos a solidez da usinagem de vocês aqui no polo industrial de Sorocaba. No entanto, identificamos uma vulnerabilidade crítica: o contato institucional ainda roda em @gmail.com e a empresa não possui site oficial para consulta de capacidade fabril. Hoje, departamentos de suprimentos e multinacionais descartam fornecedores sem domínio próprio nas primeiras fases de auditoria. Podemos estruturar a governança digital e o portal corporativo da Usimarks em poucos dias. Vale 5 minutos de conversa técnica hoje?", "script_fup_1": "Olá equipe da Usimarks! Passando para saber se o diretor industrial ou de novos negócios conseguiu ver o apontamento sobre a homologação de fornecedores e o e-mail corporativo.", "script_fup_2": "Oi Usimarks! Compradores de multinacionais em Sorocaba e Campinas exigem domínio próprio e apresentação técnica das máquinas antes de enviar desenhos DWG/STEP para cotação. Resolver isso é rápido e destrava grandes contratos. Faz sentido falarmos?", "script_fup_3": "Olá diretoria da Usimarks! Para respeitar a rotina da fábrica, encerro meus contatos. Ficamos à disposição quando decidirem profissionalizar a governança digital da empresa. Um abraço!", "notas": "Usa Gmail corporativo. Fábrica com maquinário pesado mas invisível para compradores de multinacionais."}, {"id": "ind_02", "data": "16/09/2026", "nome": "Ferus Usinagem Indústria e Comércio", "categoria": "Usinagem de Precisão & Peças Seriadas", "cidade_bairro": "Sorocaba (Zona Industrial)", "endereco": "Sorocaba - SP (Zona Industrial)", "telefone": "(15) 3234-5003", "whatsapp_raw": "551532345003", "maps": "https://www.google.com/maps/search/?api=1&query=Ferus+Usinagem+Industria+Comercio+Sorocaba", "email": "guimaservic@terra.com.br", "site": "Inexistente ou arcaico", "gargalo": "Utilização de e-mail de provedor antigo (@terra.com.br) para contato comercial; perfil do Google Maps sem fotos das peças técnicas nem laudos dimensionais; ausência de envio facilitado de projetos em CAD/PDF para orçamento rápido.", "pilares": "Pilar 04 (Domínio Oficial .com.br e E-mails Seguros) + Pilar 01 (Vitrine Técnica com Envio de Desenhos) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 40.000 - R$ 200.000 / contrato", "roi": "Captar 1 contrato anual de peças seriadas para setor automotivo ou agrícola gera faturamento recorrente com margem líquida superior a R$ 60k.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Ferus Usinagem! Mapeando o polo metalmecânico de Sorocaba, vimos o histórico fabril de vocês. Notamos que o canal comercial da empresa ainda utiliza @terra.com.br e não há uma vitrine digital para engenheiros consultarem seu parque de máquinas e tolerâncias de usinagem. Temos um modelo de presença industrial que coloca compradores qualificados direto na sua esteira de cotação. Vale batermos um papo de 5 min com quem responde pelo comercial?", "script_fup_1": "Olá time da Ferus! Conseguiram avaliar a ideia sobre a modernização do canal de cotação e infraestrutura de e-mails da empresa?", "script_fup_2": "Oi Ferus Usinagem! Engenheiros de suprimentos hoje buscam fornecedores locais no Google antes de cotar fora do estado. Ter presença técnica estruturada retém essas demandas em Sorocaba. Podemos conversar 5 minutos?", "script_fup_3": "Olá Ferus! Encerro meu contato para não tomar seu tempo. Estaremos à disposição para apoiar a autoridade digital da fábrica quando necessário. Sucesso!", "notas": "Canal @terra.com.br passa imagem desatualizada para compradores de grandes indústrias."}, {"id": "ind_03", "data": "16/09/2026", "nome": "Valmetal Usinagem e Caldeiraria", "categoria": "Caldeiraria Média-Pesada & Usinagem", "cidade_bairro": "Sorocaba (Iporanga / Zona Industrial)", "endereco": "Av. Fernando Stecca, 563 - Iporanga, Sorocaba - SP, 18087-149", "telefone": "(15) 3218-1218 / (15) 3218-1174", "whatsapp_raw": "551532181218", "maps": "https://www.google.com/maps/search/?api=1&query=Valmetal+Usinagem+Caldeiraria+Av+Fernando+Stecca+563+Sorocaba", "email": "contato via telefone", "site": "Inexistente / Sem site próprio", "gargalo": "Estar em uma das principais avenidas do Iporanga (Fernando Stecca) sem ter site oficial próprio; impossibilidade de compradores visualizarem fotos de caldeiraria pesada, soldas qualificadas e pontes rolantes; perda de grandes demandas industriais da região para fornecedores de Campinas e Piracicaba.", "pilares": "Pilar 01 (Site Corporativo com Memorial Descritivo de Máquinas) + Pilar 04 (Domínio Oficial .com.br) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 50.000 - R$ 300.000 / projeto", "roi": "1 projeto de reforma ou fabricação de estrutura de caldeiraria pesada paga múltiplos anos de estrutura comercial digital.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Valmetal, tudo bem? Estar localizado na Av. Fernando Stecca no Iporanga é um privilégio logístico enorme. No entanto, compradores e gerentes de manutenção de indústrias químicas, alimentícias e de mineração que pesquisam caldeiraria e usinagem na Zona Industrial não encontram o site oficial da Valmetal com as capacidades de solda e conformação. Estruturamos a vitrine corporativa de vocês em poucos dias. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá equipe da Valmetal! Passando para saber se o responsável técnico ou comercial conseguiu ver a mensagem sobre a vitrine fabril da Valmetal.", "script_fup_2": "Oi Valmetal! Grandes indústrias da Fernando Stecca contratam serviços de caldeiraria todo mês. Ter o portal com especificações de solda (MIG/TIG/Arco Submerso) atrai esses contratos diretamente. Vamos alinhar?", "script_fup_3": "Olá Valmetal! Encerro meu contato por aqui. Fica o convite aberto para quando decidirem colocar a fábrica em destaque digital. Ótimos negócios!", "notas": "Ponto de passagem obrigatório no Iporanga. Falta site e portfólio de caldeiraria."}, {"id": "ind_04", "data": "16/09/2026", "nome": "F.I. Caldeiraria & Corte Laser", "categoria": "Corte a Laser, Plasma & Caldeiraria", "cidade_bairro": "Sorocaba (Iporanga)", "endereco": "Rua Dr. Alvim Teixeira Aguiar, 729 - Iporanga, Sorocaba - SP, 18087-190", "telefone": "(15) 3228-1559", "whatsapp_raw": "551532281559", "maps": "https://www.google.com/maps/search/?api=1&query=FI+Caldeiraria+Corte+Laser+Rua+Dr+Alvim+Teixeira+Aguiar+729+Sorocaba", "email": "contato no site", "site": "http://ficortelaser.com.br (tecnologia antiga)", "gargalo": "Site com carregamento truncado e sem protocolo de segurança SSL ativo (HTTP inseguro); ausência de botão rápido para envio de arquivos de corte (DXF, DWG) pelo WhatsApp de engenharia; ficha do Maps com poucas fotos do parque fabril e mesas de corte.", "pilares": "Pilar 01 (Renovação da Landing Page Industrial com upload de DXF/DWG) + Pilar 04 (Blindagem SSL) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 25.000 - R$ 120.000", "roi": "Aumentar em 20% a velocidade de cotação de chapas cortadas fecha negócios antes que o cliente orce em concorrentes.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da F.I. Corte Laser e Caldeiraria! Analisando as empresas do Iporanga, vimos a capacidade de corte e conformação de vocês. No entanto, o site atual opera em HTTP sem SSL seguro e não tem um canal expresso para o projetista anexar arquivos DXF/DWG direto no WhatsApp da engenharia. Eliminando esse atrito, o volume de cotações fechadas dispara. Vale batermos um papo de 5 min com o gerente comercial hoje?", "script_fup_1": "Olá time da F.I. Corte Laser! Conseguiram ver a sugestão sobre o botão de cotação expressa de arquivos DXF?", "script_fup_2": "Oi F.I.! Projetistas mecânicos têm pressa: quem responde o orçamento com preço do quilo cortado em menos de 2h fecha o pedido. Podemos automatizar essa entrada para vocês.", "script_fup_3": "Olá pessoal da F.I.! Para não sobrecarregar sua rotina, encerro meus contatos. Sucesso na produção e até breve!", "notas": "Corte laser exige envio de arquivos DXF/DWG. O site precisa de canal ágil de engenharia."}, {"id": "ind_05", "data": "16/09/2026", "nome": "Lucio Caldeiraria & Montagens Industriais", "categoria": "Caldeiraria Pesada & Montagem de Campo", "cidade_bairro": "Sorocaba (Iporanga / Zona Industrial)", "endereco": "Av. Georg Schaffler, 1931 - Iporanga, Sorocaba - SP, 18087-175", "telefone": "(15) 3325-4611", "whatsapp_raw": "551533254611", "maps": "https://www.google.com/maps/search/?api=1&query=Lucio+Caldeiraria+Montagens+Industriais+Av+Georg+Schaffler+1931+Sorocaba", "email": "contato@luciomontagens.com.br", "site": "http://luciomontagens.com.br", "gargalo": "Ficha do Google Maps completamente abandonada, sem fotos das montagens pesadas e tubulações industriais; ausência de Tour Virtual 360° do galpão de fabricação para comprovar capacidade operacional a diretores de engenharia.", "pilares": "Pilar 02 (Google Maps com Tour Virtual 360° do Galpão Fabril R$ 450) + Pilar 01 (Catálogo Digital de Obras Industriais Realizadas)", "ticket": "R$ 60.000 - R$ 400.000 / obra", "roi": "1 única montagem industrial ou ampliação de linha produtiva paga a assessoria da Vocação por 4 anos.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Lucio Caldeiraria & Montagens, tudo bem? A fábrica de vocês na Georg Schaffler suporta obras de grande porte. Porém, a presença digital no Google Maps está apagada e não mostra as pontes rolantes, os laudos de soldagem e os tanques montados. Compradores industriais de outras cidades que não podem visitar a fábrica fisicamente contratam quem tem Tour 360° e prova social validada. Conseguimos estruturar isso em 7 dias. Vale 5 minutinhos para conversarmos hoje?", "script_fup_1": "Olá time da Lucio Montagens! Passando para saber se o responsável comercial viu a sugestão do Tour 360° e prova técnica no Google.", "script_fup_2": "Oi Lucio Caldeiraria! Gerentes de planta industrial exigem comprovação visual de estrutura antes de convidar para licitações e tomadas de preço privadas. Podemos posicionar a empresa com autoridade máxima.", "script_fup_3": "Olá diretoria da Lucio Montagens! Encerro meus contatos por aqui. Desejo sucesso nas obras e fico à total disposição. Abraços!", "notas": "Obras pesadas exigem prova técnica visual. Tour 360° do galpão é o maior acelerador."}, {"id": "ind_06", "data": "16/09/2026", "nome": "Ômega Usinagem", "categoria": "Usinagem CNC & Dispositivos de Fixação", "cidade_bairro": "Sorocaba (Éden / Zona Industrial)", "endereco": "Rua Daniel da Purificação Vitorino, 60, Galpão 5 - Éden, Sorocaba - SP, 18103-087", "telefone": "(15) 3325-3324", "whatsapp_raw": "551533253324", "maps": "https://www.google.com/maps/search/?api=1&query=Omega+Usinagem+Rua+Daniel+da+Purificacao+Vitorino+60+Eden+Sorocaba", "email": "contato@omegausinagem.com.br", "site": "http://omegausinagem.com.br", "gargalo": "Site institucional sem certificado de segurança SSL ativado (alerta vermelho no navegador); falta de SEO industrial para termos de alta demanda na Zona Industrial de Sorocaba; ausência de galeria de dispositivos especiais usinados.", "pilares": "Pilar 04 (Blindagem de Segurança SSL) + Pilar 01 (Renovação da Vitrine de Dispositivos Especiais) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 35.000 - R$ 160.000", "roi": "1 pacote de dispositivos de controle ou usinagem seriada cobre o custo total de governança e reposicionamento digital.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá pessoal da Ômega Usinagem, tudo bem? Notamos a precisão dos serviços de vocês no Éden. No entanto, identificamos que o site institucional está sem o certificado SSL ativo (o Google Chrome emite aviso de 'Não Seguro' para quem tenta acessar de redes corporativas). Multinacionais com firewall corporativo simplesmente bloqueiam o acesso ao site de vocês. Conseguimos resolver essa blindagem técnica e reativar a autoridade da empresa imediatamente. Vale falarmos 5 minutos hoje?", "script_fup_1": "Olá time da Ômega Usinagem! Conseguiram ver o aviso sobre o bloqueio de segurança SSL que afeta computadores de multinacionais?", "script_fup_2": "Oi Ômega! Evitar que compradores industriais recebam tela vermelha de bloqueio de segurança salva negociações em andamento. É um ajuste rápido de implementar.", "script_fup_3": "Olá Ômega Usinagem! Encerro meu contato para respeitar sua rotina. Ficamos à disposição caso queiram blindar a presença digital da fábrica. Sucesso!", "notas": "Firewalls de multinacionais barram sites sem SSL. Risco real de perda de clientes corporativos."}, {"id": "ind_07", "data": "16/09/2026", "nome": "Rolfer Metalúrgica", "categoria": "Metalurgia Industrial & Conformação", "cidade_bairro": "Sorocaba (Éden / Zona Industrial)", "endereco": "Rua Nathália Orejana, 275 - Éden, Sorocaba - SP, 18103-085", "telefone": "(15) 3228-3030", "whatsapp_raw": "551532283030", "maps": "https://www.google.com/maps/search/?api=1&query=Rolfer+Metalurgica+Rua+Nathalia+Orejana+275+Eden+Sorocaba", "email": "contato telefônico", "site": "Inexistente / Sem site indexado", "gargalo": "Ausência total de presença digital oficial na internet; empresa metalúrgica sólida no Éden mas 100% invisível no Google; compradores novos que chegam à região de Sorocaba não conseguem descobrir a existência da fábrica.", "pilares": "Pilar 01 (Criação de Sede Digital Corporativa) + Pilar 04 (Domínio & E-mails Oficiais) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 40.000 - R$ 180.000", "roi": "1 cliente industrial captado pelo Google Maps na Zona Industrial garante faturamento recorrente para o ano inteiro.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Rolfer Metalúrgica, tudo bem? A Rolfer tem tradição no Éden, mas hoje quem pesquisa por fornecedores metalúrgicos na Zona Industrial de Sorocaba no Google simplesmente não encontra o catálogo e a estrutura de vocês. Novos gerentes de compras assumem fábricas vizinhas toda semana e buscam fornecedores locais pela internet. Criamos a sede digital da Rolfer e posicionamos sua fábrica no topo do Google Maps em 7 dias. Vale 5 minutos para conversarmos hoje?", "script_fup_1": "Olá equipe da Rolfer! Conseguiram ver o recado sobre abrir as portas da empresa para novas cotações via Google Maps?", "script_fup_2": "Oi Rolfer Metalúrgica! Estar invisível no Google faz o dinheiro das empresas do Éden ir para fornecedores de fora de Sorocaba. Podemos mudar isso rapidamente.", "script_fup_3": "Olá Rolfer! Finalizo por aqui para não tomar seu tempo. Estaremos à disposição caso queiram posicionar a fábrica no digital. Um abraço!", "notas": "Tradição no Éden mas zero presença online. Potencial imenso de captação local."}, {"id": "ind_08", "data": "16/09/2026", "nome": "JVR Metalmecânica", "categoria": "Usinagem de Grande Porte & Caldeiraria", "cidade_bairro": "Sorocaba (Parque Industrial Prestes / Éden)", "endereco": "Rua Marianto da Rosa Carvalho, 125 - Éden, Sorocaba - SP, 18103-085", "telefone": "(15) 3228-3971", "whatsapp_raw": "551532283971", "maps": "https://www.google.com/maps/search/?api=1&query=JVR+Metalmecanica+Rua+Marianto+da+Rosa+Carvalho+125+Eden+Sorocaba", "email": "contato@jvrusinagem.com.br", "site": "http://jvrusinagem.com.br", "gargalo": "Site com apresentação institucional estática dos anos 2010; falta de detalhamento do diâmetro e curso máximo das usinagens de grande porte; sem Tour 360° para mostrar a capacidade dos tornos verticais e mandrilhadoras.", "pilares": "Pilar 01 (Modernização do Portal com Especificações Técnicas de Grande Porte) + Pilar 02 (Google Maps R$ 450 com Tour 360°)", "ticket": "R$ 50.000 - R$ 250.000", "roi": "Usinagem pesada opera com alta margem. 1 único eixo ou carcaça usinada cobre todo o investimento anual da assessoria.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da JVR Metalmecânica! Usinagem de peças de grande porte é uma raridade e um ativo estratégico em Sorocaba. Porém, compradores de usinas, mineradoras e papel/celulose precisam ver a capacidade das mandrilhadoras e tornos verticais em fotos de alta definição e Tour 360° antes de mandar o caminhão com a peça bruta. Podemos transformar seu site e Google Maps no cartão de visitas definitivo de grande porte. Vale batermos um papo de 5 min hoje?", "script_fup_1": "Olá time da JVR Metalmecânica! Conseguiram avaliar a ideia de destacar o parque de máquinas de grande porte no digital?", "script_fup_2": "Oi JVR! Quem precisa usinar peças pesadas busca capacidade confirmada. Mostrar seu parque fabril em detalhes acelera a homologação em multinacionais.", "script_fup_3": "Olá diretoria da JVR! Para não interferir na operação da fábrica, encerro meus contatos. Sucesso nas usinagens pesadas!", "notas": "Usinagem pesada tem ticket altíssimo. Faltam fotos de máquinas e especificações de curso/diâmetro."}, {"id": "ind_09", "data": "16/09/2026", "nome": "Techmax Usinagem", "categoria": "Usinagem CNC & Tornearia Fina", "cidade_bairro": "Sorocaba (Iporanga)", "endereco": "Rua Manoel Dom Hidalgo, 122 - Iporanga, Sorocaba - SP, 18087-185", "telefone": "(15) 99615-2259", "whatsapp_raw": "5515996152259", "maps": "https://www.google.com/maps/search/?api=1&query=Techmax+Usinagem+Rua+Manoel+Dom+Hidalgo+122+Iporanga+Sorocaba", "email": "contato@techmaxusinagem.ind.br", "site": "http://techmaxusinagem.ind.br", "gargalo": "Falta de captação ativa via Google Search para termos de alta intenção comercial no Iporanga; ficha no Google Maps com baixíssima densidade de avaliações corporativas; ausência de formulário com cálculo preliminar de lote de peças.", "pilares": "Tráfego de Busca Ativa Google Ads B2B + Pilar 02 (Google Maps R$ 450 com Prova de Qualidade ISO) + Otimização de Conversão Mobile", "ticket": "R$ 30.000 - R$ 110.000", "roi": "Colocar anúncios para quem pesquisa 'usinagem CNC Iporanga' garante entrada contínua de lotes industriais na fábrica.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe Techmax Usinagem, tudo bem? Acompanho a precisão técnica de vocês no Iporanga. Notamos que muitas empresas vizinhas na Zona Industrial estão terceirizando lotes de torneamento CNC fora de Sorocaba simplesmente porque não encontram a Techmax no topo das buscas do Google. Com uma campanha de busca ativa direcionada a diretores de compras de Sorocaba, a fábrica preenche os turnos ociosos com contratos rentáveis. Vale vermos como funciona em 5 minutos hoje?", "script_fup_1": "Olá time da Techmax! Passando para saber se o responsável comercial conseguiu ver a proposta de captação de lotes CNC via Google.", "script_fup_2": "Oi Techmax! Manter centros de usinagem rodando com lotes seriados é o objetivo de toda gerência. O Google é o canal mais rápido para captar essas ordens de compra.", "script_fup_3": "Olá Techmax Usinagem! Para não tomar seu tempo, encerro meu contato. Fico à disposição quando quiserem acelerar os contratos B2B. Abraços!", "notas": "Fábrica moderna no Iporanga que pode captar muito mais tráfego direto do Google."}, {"id": "ind_10", "data": "16/09/2026", "nome": "Usisol Indústria Metalúrgica", "categoria": "Torneamento & Fresamento CNC, Componentes", "cidade_bairro": "Sorocaba (Éden / Zona Industrial)", "endereco": "Rua Henrique Manasses, 152 - Éden, Sorocaba - SP, 18103-080", "telefone": "(15) 3223-2126", "whatsapp_raw": "551532232126", "maps": "https://www.google.com/maps/search/?api=1&query=Usisol+Industria+Metalurgica+Rua+Henrique+Manasses+152+Eden+Sorocaba", "email": "contato@usisol.ind.br", "site": "http://usisol.ind.br", "gargalo": "Site com tecnologia antiga não responsivo para celulares e tablets; sem catálogo de tolerâncias micrométricas e materiais atendidos (inox, ligas especiais, alumínio aeronáutico); compradores exigentes não encontram laudos de controle tridimensional.", "pilares": "Pilar 01 (Modernização do Portal Responsivo com Aba de Metrologia & Qualidade) + Pilar 04 (Blindagem SSL) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 40.000 - R$ 170.000", "roi": "1 pacote de peças usinadas em ligas nobres fecha com faturamento superior a R$ 80k e margem excelente.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Usisol Metalúrgica! Vocês têm capacidade comprovada em fresamento e torneamento técnico. Porém, quem acessa o site de vocês hoje pelo celular encontra uma página sem adaptação para telas modernas e sem destaque para o controle de qualidade e tolerâncias dimensionais. Compradores industriais decidem a homologação técnica pela solidez da vitrine digital. Podemos colocar o portal de vocês no mesmo patamar de precisão da fábrica. Vale batermos um papo de 5 min hoje?", "script_fup_1": "Olá equipe da Usisol! Conseguiram ver o recado sobre a modernização mobile do catálogo técnico da empresa?", "script_fup_2": "Oi Usisol! Destacar sua sala de metrologia e equipamentos de medição no site é o que garante contratos com indústrias automotivas e de óleo & gás. Faz sentido vermos isso?", "script_fup_3": "Olá Usisol Metalúrgica! Encerro meus contatos para não atrapalhar seu dia. Sucesso na produção e até breve!", "notas": "Falta mostrar sala de metrologia e medição tridimensional no site para passar confiança máxima."}, {"id": "ind_11", "data": "16/09/2026", "nome": "Metapac Estruturas Metálicas", "categoria": "Estruturas Metálicas, Galpões & Mezaninos", "cidade_bairro": "Sorocaba (Parque São Bento / Zona Norte)", "endereco": "Sorocaba - SP (Atendimento a polos industriais)", "telefone": "(15) 98808-4044 / (15) 98801-6901", "whatsapp_raw": "5515988084044", "maps": "https://www.google.com/maps/search/?api=1&query=Metapac+Estruturas+Metalicas+Sorocaba", "email": "contato comercial", "site": "Inexistente / Sem site próprio", "gargalo": "Fabrica galpões industriais de R$ 100k a R$ 500k+, mas opera sem site institucional próprio com domínio .com.br; ausência de ARTs e catálogo de obras executadas em PDF para engenheiros civis e investidores imobiliários; depende exclusivamente de boca a boca.", "pilares": "Pilar 01 (Site Catálogo de Galpões e Coberturas Industriais) + Pilar 04 (Domínio & E-mail Corporativo) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 80.000 - R$ 600.000 / galpão", "roi": "1 único galpão ou mezanino industrial fechado traz margem bruta superior a R$ 70k, pagando a assessoria e anos de divulgação.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe Metapac, tudo bem? Construir galpões e estruturas metálicas pesadas exige passar confiança inabalável para o investidor. Notamos que vocês ainda não possuem um portal oficial (.com.br) expondo as fotos das obras entregues, laudos de ART e cálculo estrutural. Quem vai investir R$ 200k ou R$ 400k num galpão pesquisa a idoneidade técnica da empresa no Google. Conseguimos estruturar a presença corporativa da Metapac em poucos dias. Vale uma conversa de 5 min com quem responde pelas vendas?", "script_fup_1": "Olá time Metapac Estruturas! Passando para saber se viram a proposta sobre o catálogo corporativo de galpões e mezaninos.", "script_fup_2": "Oi Metapac! Investidores que compram áreas na Zona Industrial buscam quem entrega a chave na mão. Ter site corporativo profissional garante você na mesa de negociação dessas grandes obras.", "script_fup_3": "Olá Metapac! Encerro meu contato para não tomar seu tempo. Estaremos à disposição quando quiserem expandir a captação de grandes obras. Sucesso!", "notas": "Ticket gigantesco (galpões metálicos). Falta site corporativo para provar solidez a investidores."}, {"id": "ind_12", "data": "16/09/2026", "nome": "Fortsteel Estruturas Metálicas e Pré-Moldados", "categoria": "Estruturas Metálicas & Pré-Moldados de Concreto", "cidade_bairro": "Sorocaba (Aparecidinha)", "endereco": "Aparecidinha, Sorocaba - SP", "telefone": "(15) 98826-5319", "whatsapp_raw": "5515988265319", "maps": "https://www.google.com/maps/search/?api=1&query=Fortsteel+Estruturas+Metalicas+Pre-Moldados+Aparecidinha+Sorocaba", "email": "contato via redes", "site": "Inexistente / Sem site próprio", "gargalo": "Fábrica e pátio com capacidade para estruturas mistas (aço e concreto), porém invisível nas buscas orgânicas de construtoras e incorporadoras de Sorocaba; sem ficha estruturada no Google Maps para o polo de Aparecidinha.", "pilares": "Pilar 01 (Site Vitrine de Obras Industriais) + Pilar 04 (Domínio Oficial .com.br) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 90.000 - R$ 700.000", "roi": "1 fechamento de barracão ou centro logístico na Castelinho paga múltiplos anos de toda a estrutura comercial da empresa.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Fortsteel, tudo bem? A combinação de pré-moldados e estrutura metálica é a solução mais procurada por quem constrói centros logísticos e galpões no eixo Castelinho/Aparecidinha. No entanto, quem pesquisa por fabricantes locais no Google não encontra o catálogo técnico da Fortsteel. Criamos a sede digital da empresa e colocamos sua fábrica no topo do Google Maps em 7 dias. Vale batermos um papo rápido de 5 minutos hoje para alinhar essa captação?", "script_fup_1": "Olá time Fortsteel! Conseguiram avaliar a ideia de captar construtoras e investidores logísticos pelo Google?", "script_fup_2": "Oi Fortsteel! O polo logístico de Aparecidinha está em expansão acelerada. Estar posicionado no Google garante que as construtoras cotem direto com sua fábrica antes de ir a São Paulo.", "script_fup_3": "Olá Fortsteel! Para não sobrecarregar sua rotina, encerro por aqui. Fico à disposição para quando quiserem acelerar as vendas institucionais. Abraços!", "notas": "Polo logístico de Aparecidinha/Castelinho em franca expansão. Falta vitrine técnica."}, {"id": "ind_13", "data": "16/09/2026", "nome": "RPS Caldeiraria e Usinagem", "categoria": "Caldeiraria Pesada, Tanques & Montagem Mecânica", "cidade_bairro": "Sorocaba (Aparecidinha)", "endereco": "Av. Dr. Antônio de Souza Netto, 585 - Aparecidinha, Sorocaba - SP, 18087-210", "telefone": "(15) 3325-2297", "whatsapp_raw": "551533252297", "maps": "https://www.google.com/maps/search/?api=1&query=RPS+Caldeiraria+Av+Dr+Antonio+de+Souza+Netto+585+Aparecidinha+Sorocaba", "email": "contato@rpscaldeiraria.com.br", "site": "http://rpscaldeiraria.com.br", "gargalo": "Parque fabril robusto e com equipamentos pesados, mas site sem otimização mobile moderna e sem certificado de segurança SSL forçado; falta de Tour Virtual 360° do galpão de caldeiraria para auditorias de compradores remotos.", "pilares": "Pilar 02 (Google Maps R$ 450 com Tour Virtual 360° do Galpão Fabril) + Pilar 04 (Blindagem SSL) + Pilar 01 (Modernização do Portal)", "ticket": "R$ 70.000 - R$ 450.000", "roi": "1 fabricação de tanque industrial ou silo de armazenamento viabiliza com sobras a reformulação completa de imagem corporativa.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da RPS Caldeiraria! A estrutura fabril de vocês em Aparecidinha tem porte para atender as maiores indústrias do Brasil. No entanto, notamos que o site da empresa ainda oscila na segurança SSL e o Google Maps não conta com o Tour Virtual 360° do pátio e das pontes rolantes. Compradores corporativos que contratam caldeiraria pesada exigem segurança e evidência visual de capacidade antes de enviar o edital de concorrência. Podemos blindar sua presença digital em poucos dias. Vale uma conversa técnica de 5 min hoje?", "script_fup_1": "Olá equipe da RPS Caldeiraria! Conseguiram ver o apontamento sobre o Tour 360° e a blindagem SSL para editais e cotações?", "script_fup_2": "Oi RPS Caldeiraria! Facilitar que auditores e diretores de compras façam um tour virtual pelo seu pátio acelera a homologação em multinacionais sem necessidade de visita presencial imediata.", "script_fup_3": "Olá RPS Caldeiraria! Encerro meu contato para não tomar seu tempo. Estaremos à disposição quando decidirem fortalecer o posicionamento digital da fábrica. Abraços!", "notas": "Tanques industriais e silos de armazenamento. Excelente perfil para Tour 360° fabril."}, {"id": "ind_14", "data": "16/09/2026", "nome": "JALD Laser Indústria Metalúrgica", "categoria": "Corte a Laser de Tubos e Chapas & Dobra CNC", "cidade_bairro": "Sorocaba (Cajuru do Sul / Zona Industrial)", "endereco": "R. Srg. Francisco Rodrigues da Rosa, 299 - Cajuru do Sul, Sorocaba - SP, 18105-025", "telefone": "(15) 3500-6902 / (15) 3500-6903", "whatsapp_raw": "551535006902", "maps": "https://www.google.com/maps/search/?api=1&query=JALD+Laser+Rua+Srg+Francisco+Rodrigues+da+Rosa+299+Cajuru+Sorocaba", "email": "contato@jaldlaser.com.br", "site": "http://jaldlaser.com.br", "gargalo": "Capacidade de corte a laser de tubos (diferencial raro no mercado), mas sem campanhas de busca ativa no Google Ads; site institucional estático sem estimador de corte ou botão de cotação expressa pelo WhatsApp.", "pilares": "Tráfego de Busca Ativa Google Ads para 'Corte a Laser Tubos Sorocaba' + Pilar 01 (Página de Conversão com envio de projetos) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 30.000 - R$ 140.000", "roi": "Corte a laser de tubos atrai indústrias de móveis, maquinário agrícola e fitness; 2 contratos novos cobrem o ano inteiro de tráfego pago.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da JALD Laser, tudo bem? Corte a laser de tubos e perfis é um diferencial técnico escasso na região de Sorocaba e Campinas. No entanto, muitas indústrias metalmecânicas não sabem que vocês possuem essa tecnologia porque o Google não entrega seu site quando alguém pesquisa por esses termos específicos. Com uma estratégia de busca ativa e conversão de projetos em DWG/DXF, a JALD atrai as melhores ordens de corte do estado. Vale batermos um papo de 5 min hoje?", "script_fup_1": "Olá time da JALD Laser! Passando para saber se conseguiram avaliar a ideia de dominar as buscas por corte a laser de tubos no Google.", "script_fup_2": "Oi JALD Laser! Quem precisa cortar tubos com encaixes perfeitos paga ticket alto sem pechinchar. Podemos colocar sua fábrica no topo do Google quando esse cliente pesquisar.", "script_fup_3": "Olá JALD Laser! Finalizo meus contatos por aqui para não atrapalhar seu expediente. Sucesso na produção!", "notas": "Corte a laser de tubos é um nicho de altíssimo valor agregado e pouca concorrência direta."}, {"id": "ind_15", "data": "16/09/2026", "nome": "Luplastic Indústria e Comércio de Plásticos", "categoria": "Injeção Plástica Técnica & Moldes", "cidade_bairro": "Votorantim (Jardim Ana Cláudia / Divisa com Sorocaba)", "endereco": "Rua Sebastiana Nunes, 389 - Jardim Ana Cláudia, Votorantim - SP, 18115-390", "telefone": "(15) 3032-5650", "whatsapp_raw": "551530325650", "maps": "https://www.google.com/maps/search/?api=1&query=Luplastic+Industria+Comercio+Plasticos+Rua+Sebastiana+Nunes+389+Votorantim", "email": "contato via telefone", "site": "Inexistente / Sem site oficial", "gargalo": "Fábrica de injeção plástica sem site próprio nem catálogo digital de injetoras (tonelagem de fechamento) e materiais processados (PP, PA66, ABS, POM); perda de concorrências para injetoras da Grande São Paulo.", "pilares": "Pilar 01 (Catálogo Digital de Injeção Plástica & Injetoras) + Pilar 04 (Domínio Oficial .com.br) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 45.000 - R$ 220.000 / lote", "roi": "Injeção de peças plásticas trabalha com lotes de dezenas de milhares de unidades. 1 molde rodando paga o investimento completo.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Luplastic, tudo bem? Empresas de injeção plástica técnica em Sorocaba e Votorantim têm grande oportunidade de atender os polos eletroeletrônico e automotivo da região. Porém, quem busca fornecedores de injeção no Google não encontra o site da Luplastic com as capacidades das injetoras e materiais trabalhados. Criamos a sede digital da Luplastic e posicionamos sua fábrica no Google Maps em 7 dias. Vale batermos um papo rápido de 5 minutos hoje com quem cuida de novos negócios?", "script_fup_1": "Olá equipe da Luplastic! Conseguiram ver a mensagem sobre captar novos moldes e lotes de injeção plástica pelo Google?", "script_fup_2": "Oi Luplastic! Montadoras e indústrias de linha branca preferem injetores locais para evitar fretes caros de São Paulo. Ter seu site técnico ativo capta essas demandas na hora.", "script_fup_3": "Olá Luplastic! Encerro meus contatos para respeitar sua rotina fabril. Fico à disposição quando quiserem acelerar as vendas corporativas. Abraços!", "notas": "Injeção plástica em Votorantim. Falta catálogo de injetoras e tonelagem de fechamento."}, {"id": "ind_16", "data": "16/09/2026", "nome": "Inj-Tamp Indústria de Plásticos", "categoria": "Injeção de Tampas, Embalagens & Componentes Plásticos", "cidade_bairro": "Sorocaba (Iporanga)", "endereco": "Estrada do Recanto Bom Gosto, 251 - Iporanga, Sorocaba - SP, 18087-170", "telefone": "(15) 3218-1404", "whatsapp_raw": "551532181404", "maps": "https://www.google.com/maps/search/?api=1&query=Inj-Tamp+Industria+Plasticos+Estrada+Recanto+Bom+Gosto+251+Sorocaba", "email": "contato comercial", "site": "Inexistente / Sem site próprio", "gargalo": "Fábrica focada em tampas e peças plásticas mas sem vitrine na web; empresas químicas, cosméticas e alimentícias que compram milhões de tampas não conseguem cotar online; ausência de fotos de linhas automatizadas.", "pilares": "Pilar 01 (Site Catálogo de Linhas de Embalagens e Tampas) + Pilar 04 (Domínio & E-mail Corporativo) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 40.000 - R$ 250.000 / contrato anual", "roi": "Contratos de fornecimento de tampas e fechos operam em alta escala. 1 cliente anual cobre múltiplos anos de estrutura Vocação.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Inj-Tamp, tudo bem? O mercado de embalagens plásticas e tampas exige catálogo técnico com ficha dimensional e tipo de rosca/fechamento. Notamos que vocês ainda não possuem um catálogo oficial online para compradores de indústrias cosméticas, alimentícias e saneantes consultarem. Podemos estruturar a vitrine digital da Inj-Tamp e automatizar o recebimento de pedidos de cotação em poucos dias. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá time da Inj-Tamp! Passando para saber se viram a proposta de estruturação do catálogo digital de embalagens.", "script_fup_2": "Oi Inj-Tamp! Compradores de indústrias químicas compram em escala de milhões. Ter catálogo técnico acessível online é o primeiro filtro de seleção que eles aplicam.", "script_fup_3": "Olá Inj-Tamp! Finalizo por aqui para não atrapalhar seu expediente. Desejo excelentes negócios e fico à disposição!", "notas": "Fábrica de tampas e peças de alta tiragem. Falta catálogo digital com ficha técnica."}, {"id": "ind_17", "data": "16/09/2026", "nome": "Global Engenharia & Montagem Industrial (Globalemi)", "categoria": "Corte a Laser, Dobra CNC & Montagem Eletromecânica", "cidade_bairro": "Sorocaba (Iporanga / Zona Industrial)", "endereco": "Av. Fernando Stecca, 491 - Iporanga, Sorocaba - SP, 18087-149", "telefone": "(15) 3218-1258 / (11) 99989-0221", "whatsapp_raw": "551532181258", "maps": "https://www.google.com/maps/search/?api=1&query=Globalemi+Global+Engenharia+Av+Fernando+Stecca+491+Sorocaba", "email": "contato@globalemi.com.br", "site": "http://globalemi.com.br", "gargalo": "Site institucional com layout estático sem foco em conversão; falta de certificações e selos de conformidade em destaque; ficha no Google Maps com poucas fotos de painéis e estruturas entregues.", "pilares": "Pilar 01 (Reformulação do Portal de Engenharia com Foco em Homologação) + Pilar 02 (Google Maps R$ 450 com Fotos Técnicas) + Tráfego Google Ads", "ticket": "R$ 50.000 - R$ 280.000", "roi": "1 projeto de montagem ou linha de conformação eletromecânica paga 3 anos de assessoria digital completa.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá diretoria da Globalemi, tudo bem? A atuação integrada de corte a laser, dobra e montagem industrial na Fernando Stecca é um diferencial forte. Porém, o site institucional atual não valoriza a robustez da engenharia e as montagens já realizadas para grandes plantas. Compradores industriais de fora do estado decidem a cotação pela qualidade visual do portal. Podemos elevar a autoridade digital da Globalemi em poucos dias. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá time da Globalemi! Conseguiram ver o apontamento sobre a modernização do portal de engenharia e corte?", "script_fup_2": "Oi Globalemi! Apresentar fotos de painéis e conjuntos montados em alta definição passa muito mais segurança para gerentes de projetos industriais. Vamos alinhar?", "script_fup_3": "Olá Globalemi! Encerro meu contato para não tomar seu tempo. Estaremos à disposição quando quiserem fortalecer a presença digital da empresa. Abraços!", "notas": "Forte capacidade em engenharia e corte na Fernando Stecca. Falta modernizar a vitrine."}, {"id": "ind_18", "data": "16/09/2026", "nome": "AC Metais Corte e Conformação", "categoria": "Corte a Laser, Oxicorte & Conformação de Chapas", "cidade_bairro": "Sorocaba (Iporanga)", "endereco": "Rua Anuar Dequech, 272 - Iporanga, Sorocaba - SP, 18087-155", "telefone": "(15) 3228-5667", "whatsapp_raw": "551532285667", "maps": "https://www.google.com/maps/search/?api=1&query=AC+Metais+Corte+Laser+Rua+Anuar+Dequech+272+Sorocaba", "email": "contato via telefone", "site": "Inexistente / Sem site próprio", "gargalo": "Opera sem site oficial; não divulga espessuras máximas de corte (chapa fina, média e grossa) nem tipos de aço em estoque (carbono, inox, hardox); compradores de Sorocaba cotam com revendas de aço distantes por falta de canal direto.", "pilares": "Pilar 01 (Site Catálogo com Tabela de Espessuras de Corte e Aços em Estoque) + Pilar 04 (Domínio Oficial .com.br) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 35.000 - R$ 150.000", "roi": "Captar fabricantes de implementos agrícolas e transportadores para corte de chapas grossas gera receita diária sem intermediários.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da AC Metais, tudo bem? Vimos a estrutura de corte e conformação de vocês no Iporanga. Mas quem busca por corte de chapas de aço em Sorocaba hoje no Google não encontra o site da AC Metais informando a espessura máxima de corte e os tipos de materiais que vocês têm em estoque. Quem precisa de corte de urgência fecha com quem responde primeiro na internet. Criamos a vitrine corporativa da AC Metais em poucos dias. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá time da AC Metais! Conseguiram ver a sugestão sobre a tabela de espessuras de corte no Google?", "script_fup_2": "Oi AC Metais! Projetistas mecânicos precisam saber se a máquina de vocês corta 1/2 polegada, 1 polegada ou inox antes de mandar o desenho. Ter isso no site poupa tempo e atrai pedidos fechados.", "script_fup_3": "Olá AC Metais! Finalizo por aqui para não atrapalhar sua produção. Sucesso nos cortes e até logo!", "notas": "Falta tabela de espessuras máximas e tipos de aço cortados (inox, carbono, hardox)."}, {"id": "ind_19", "data": "16/09/2026", "nome": "Usilins Indústria Mecânica", "categoria": "Usinagem de Precisão & Manutenção Mecânica", "cidade_bairro": "Sorocaba (Éden / Av. Iporanga)", "endereco": "Av. Iporanga, 135 - Éden, Sorocaba - SP, 18087-000", "telefone": "(15) 3316-3770 / (15) 99771-2591", "whatsapp_raw": "5515997712591", "maps": "https://www.google.com/maps/search/?api=1&query=Usilins+Industria+Mecanica+Av+Iporanga+135+Eden+Sorocaba", "email": "contato@usilins.com.br", "site": "http://usilins.com.br", "gargalo": "Site com carregamento pesado e layout que não valoriza o parque de máquinas; falta de Tour Virtual 360° do galpão de usinagem; compradores corporativos não encontram botão direto para WhatsApp de engenharia de aplicação.", "pilares": "Pilar 02 (Google Maps R$ 450 com Tour Virtual 360°) + Pilar 01 (Renovação da Vitrine com Botão Direto para Engenharia de Aplicação)", "ticket": "R$ 35.000 - R$ 160.000", "roi": "1 pacote de usinagem de recuperação de redutores ou eixos de grande porte paga a assessoria com folga.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Usilins, tudo bem? A presença de vocês na Av. Iporanga é um ponto estratégico na Zona Industrial. Porém, o site atual não transmite a precisão do parque de usinagem e o Google Maps está sem o Tour Virtual 360° do galpão. Para gerentes de manutenção que precisam de recuperação de peças ou usinagem de emergência, ver a fábrica em 360° e ter o WhatsApp da engenharia na primeira dobra é decisivo para fechar. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá time da Usilins! Passando para saber se o responsável comercial conseguiu ver o recado sobre o Tour 360° e canal de engenharia.", "script_fup_2": "Oi Usilins! Quando uma linha de produção quebra em Sorocaba, a gerência pesquisa no Google quem tem máquina para usinar a peça no mesmo dia. Estar no topo é captar esses chamados de alto valor.", "script_fup_3": "Olá Usilins! Encerro meu contato por aqui para não atrapalhar seu expediente. Ficamos à disposição quando quiserem fortalecer seu canal digital. Abraços!", "notas": "Parque mecânico na Av. Iporanga. Excelente para Tour 360° e atendimento de emergência fabril."}, {"id": "ind_20", "data": "16/09/2026", "nome": "EPCO Laser Soluções Industriais", "categoria": "Corte a Laser, Jato d'Água & Conformação de Precisão", "cidade_bairro": "Sorocaba (Região Central / Industrial)", "endereco": "R. Professor Luís de Campos, 115 - Sorocaba - SP, 18025-050", "telefone": "(15) 3026-0052", "whatsapp_raw": "551530260052", "maps": "https://www.google.com/maps/search/?api=1&query=EPCO+Laser+Solucoes+Industriais+Sorocaba", "email": "contato@epcolaser.com.br", "site": "http://epcolaser.com.br", "gargalo": "Tecnologia rara de corte com jato d'água (que corta qualquer material sem deformação térmica), mas muito mal comunicada no digital; site sem protocolo seguro HTTPS moderno; ficha do Google Maps sem destaque para o corte térmico zero.", "pilares": "Pilar 01 (Landing Page Técnica Especializada em Jato d'Água e Corte a Frio) + Pilar 04 (Blindagem SSL) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 30.000 - R$ 130.000", "roi": "Corte por jato d'água (para titânio, borracha, mármore e aços especiais) tem margem altíssima por falta de fornecedores regionais.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da EPCO Laser, tudo bem? O corte por jato d'água é uma das tecnologias mais nobres da indústria porque corta materiais sem zona termicamente afetada (sem empenar ou alterar as propriedades do aço). No entanto, indústrias aeroespaciais, químicas e montadoras de Sorocaba e Campinas muitas vezes não sabem que vocês possuem jato d'água localmente porque o site não tem essa ênfase técnica e o Google Maps está apagado. Podemos transformar essa tecnologia em uma fonte de cotações de alta margem. Vale 5 minutos hoje para conversarmos?", "script_fup_1": "Olá time da EPCO Laser! Conseguiram ver a sugestão sobre o posicionamento exclusivo do corte por jato d'água?", "script_fup_2": "Oi EPCO Laser! Quem precisa de corte a frio em titânio, plásticos técnicos ou ligas nobres não encontra opções no interior de SP. Ter essa vitrine no Google atrai clientes sem concorrência por preço.", "script_fup_3": "Olá EPCO Laser! Para não tomar seu tempo, encerro por aqui. Fica o convite aberto para quando decidirem potencializar o digital da empresa. Sucesso!", "notas": "Jato d'água é um diferencial tecnológico quase exclusivo na região. Margem brutal."}];
+
+let leads = rawLeads.map(lead => {
+    const savedStatus = localStorage.getItem('status_ind_' + lead.id);
+    if (savedStatus) {
+        lead.status_crm = savedStatus;
+    }
+    return lead;
+});
+
+function renderTable(data) {
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    
+    if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 40px; color: #64748b;">Nenhuma indústria encontrada com os filtros selecionados.</td></tr>';
+        return;
+    }
+    
+    data.forEach(lead => {
+        const tr = document.createElement('tr');
+        
+        let statusClass = 'status-novo';
+        if (lead.status_crm === 'Mensagem Enviada') statusClass = 'status-enviada';
+        else if (lead.status_crm === 'Diagnóstico Agendado') statusClass = 'status-agendado';
+        else if (lead.status_crm === 'Proposta em Aberto') statusClass = 'status-proposta';
+        else if (lead.status_crm === 'Fechado') statusClass = 'status-fechado';
+        else if (lead.status_crm === 'Sem Interesse') statusClass = 'status-recusado';
+        
+        let priorityClass = 'priority-alta';
+        if (lead.prioridade === 'Crítica') priorityClass = 'priority-critica';
+        
+        const waLink = "https://wa.me/" + lead.whatsapp_raw + "?text=" + encodeURIComponent(lead.script_inicial);
+        
+        tr.innerHTML = `
+            <td class="col-id">${lead.id}</td>
+            <td>
+                <div class="lead-name">${lead.nome}</div>
+                <div class="lead-category">⚙️ ${lead.categoria}</div>
+                <div class="lead-address">📍 ${lead.cidade_bairro}</div>
+                <div class="links-row">
+                    <a href="${lead.maps}" target="_blank" class="link-mini">🗺️ Maps</a>
+                    ${lead.site.startsWith('http') ? `<a href="${lead.site}" target="_blank" class="link-mini">🌐 Site</a>` : `<span style="color:#94a3b8; font-size:11px;">🚫 Sem site</span>`}
+                    <span style="color:#64748b; font-size:11px;">📞 ${lead.telefone}</span>
+                </div>
+            </td>
+            <td>
+                <select class="status-select ${statusClass}" onchange="updateLeadStatus('${lead.id}', this.value, this)">
+                    <option value="Novo Lead" ${lead.status_crm === 'Novo Lead' ? 'selected' : ''}>Novo Lead</option>
+                    <option value="Mensagem Enviada" ${lead.status_crm === 'Mensagem Enviada' ? 'selected' : ''}>Mensagem Enviada</option>
+                    <option value="Diagnóstico Agendado" ${lead.status_crm === 'Diagnóstico Agendado' ? 'selected' : ''}>Diag. Agendado</option>
+                    <option value="Proposta em Aberto" ${lead.status_crm === 'Proposta em Aberto' ? 'selected' : ''}>Proposta Aberta</option>
+                    <option value="Fechado" ${lead.status_crm === 'Fechado' ? 'selected' : ''}>Fechado 🎉</option>
+                    <option value="Sem Interesse" ${lead.status_crm === 'Sem Interesse' ? 'selected' : ''}>Sem Interesse</option>
+                </select>
+            </td>
+            <td>
+                <span class="priority-badge ${priorityClass}">${lead.prioridade}</span>
+            </td>
+            <td>
+                <div class="gargalo-text">${lead.gargalo}</div>
+            </td>
+            <td>
+                <div class="pilares-tag">${lead.pilares}</div>
+            </td>
+            <td>
+                <div class="ticket-box">💼 ${lead.ticket}</div>
+                <div class="roi-text">💡 ${lead.roi}</div>
+            </td>
+            <td>
+                <div class="actions-cell">
+                    <a href="${waLink}" target="_blank" class="btn-action btn-wa" title="Abrir WhatsApp com o script industrial">
+                        <span>💬</span> WhatsApp Direto
+                    </a>
+                    <button class="btn-action btn-script" onclick="openModal('${lead.id}')">
+                        <span>📋</span> Ver Scripts (4)
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function updateLeadStatus(id, newStatus, selectEl) {
+    localStorage.setItem('status_ind_' + id, newStatus);
+    const lead = leads.find(l => l.id === id);
+    if (lead) lead.status_crm = newStatus;
+    
+    selectEl.className = 'status-select';
+    if (newStatus === 'Novo Lead') selectEl.classList.add('status-novo');
+    else if (newStatus === 'Mensagem Enviada') selectEl.classList.add('status-enviada');
+    else if (newStatus === 'Diagnóstico Agendado') selectEl.classList.add('status-agendado');
+    else if (newStatus === 'Proposta em Aberto') selectEl.classList.add('status-proposta');
+    else if (newStatus === 'Fechado') selectEl.classList.add('status-fechado');
+    else if (newStatus === 'Sem Interesse') selectEl.classList.add('status-recusado');
+    
+    showToast('Status atualizado para: ' + newStatus);
+}
+
+function filterTable() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const status = document.getElementById('statusFilter').value;
+    const priority = document.getElementById('priorityFilter').value;
+    const region = document.getElementById('regionFilter').value;
+    
+    const filtered = leads.filter(lead => {
+        const matchesSearch = lead.nome.toLowerCase().includes(search) ||
+                              lead.cidade_bairro.toLowerCase().includes(search) ||
+                              lead.categoria.toLowerCase().includes(search) ||
+                              lead.gargalo.toLowerCase().includes(search) ||
+                              lead.telefone.includes(search);
+                              
+        const matchesStatus = (status === 'TODOS') || (lead.status_crm === status);
+        const matchesPriority = (priority === 'TODOS') || (lead.prioridade === priority);
+        const matchesRegion = (region === 'TODOS') || (lead.cidade_bairro.toLowerCase().includes(region.toLowerCase()) || lead.endereco.toLowerCase().includes(region.toLowerCase()));
+        
+        return matchesSearch && matchesStatus && matchesPriority && matchesRegion;
+    });
+    
+    renderTable(filtered);
+}
+
+function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('statusFilter').value = 'TODOS';
+    document.getElementById('priorityFilter').value = 'TODOS';
+    document.getElementById('regionFilter').value = 'TODOS';
+    renderTable(leads);
+}
+
+function openModal(id) {
+    const lead = leads.find(l => l.id === id);
+    if (!lead) return;
+    
+    document.getElementById('modalTitle').innerText = 'Scripts Outbound — ' + lead.nome;
+    document.getElementById('modalScriptInicial').innerText = lead.script_inicial;
+    document.getElementById('modalScriptFup1').innerText = lead.script_fup_1;
+    document.getElementById('modalScriptFup2').innerText = lead.script_fup_2;
+    document.getElementById('modalScriptFup3').innerText = lead.script_fup_3;
+    
+    document.getElementById('scriptModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('scriptModal').style.display = 'none';
+}
+
+function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('Script copiado com sucesso!');
+    });
+}
+
+function showToast(msg) {
+    const toast = document.getElementById('toastMessage');
+    toast.innerText = msg;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 2600);
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('scriptModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+renderTable(leads);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+@echo off\r\nstart "" "Análise de Presença Digital e Posicionamento de Marca  The Blond.pdf"\r\nstart "" "Análise de Presença Digital e Posicionamento de Marca  The Blond.html"\r\nstart "" "dossie-interno-the-blond-15991138333.html"

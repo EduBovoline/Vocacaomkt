@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — Marido de Aluguel — Reparos e Manutenção Residencial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .lead-desc { color: var(--text-dim); font-size: 0.92rem; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .data-value { font-size: 0.88rem; font-weight: 600; color: var(--text-white); word-break: break-all; }
+    .data-value a { color: var(--accent); text-decoration: none; }
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .flaws-list { display: flex; flex-direction: column; gap: 12px; }
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .flaw-title { font-size: 0.92rem; font-weight: 700; color: #ff8585; font-family: var(--font-display); }
+    .flaw-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .roi-desc { font-size: 0.88rem; color: var(--text-white); line-height: 1.6; }
+    .offer-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .offer-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Nível: Tier 2</span>
+      </div>
+      <h1 class="lead-name">Marido de Aluguel — Reparos e Manutenção Residencial</h1>
+      <p class="lead-desc">Serviços de Manutenção Residencial, Elétrica, Hidráulica & Reparos — Rua Fausto Rodrigues de Oliveira, Parque São Bento, Sorocaba/SP</p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp / Telefone</span>
+          <div class="data-value"><a href="https://wa.me/contato" target="_blank">Não informado na ficha</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram</span>
+          <div class="data-value"><a href="https://instagram.com/Não informado / Sem perfil ativo" target="_blank">Não informado / Sem perfil ativo</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Site / Domínio</span>
+          <div class="data-value">Não possui</div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Status do Site</span>
+          <div class="data-value">Ausente (Sem site ou vitrine digital oficial)</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+    <div class="flaw-item">
+      <div class="flaw-title">1. Inexistência de Site Oficial e Vitrine Digital</div>
+      <div class="flaw-desc">O cliente de maior poder aquisitivo (condomínios fechados, casas de médio e alto padrão da Zona Norte e região) exige ver um site profissional antes de permitir a entrada do profissional na residência. A falta de site barra serviços de alto valor.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">2. Apresentação Amadora e Genérica no Google</div>
+      <div class="flaw-desc">A ficha cadastrada como 'Marido de aluguel' não demonstra a gama de especialidades técnicas (elétrica, hidráulica, alvenaria, pintura, instalações), passando a imagem de 'faz-tudo sem garantia'.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">3. Perda de Orçamentos Rápidos no WhatsApp</div>
+      <div class="flaw-desc">Sem uma página rápida onde o cliente possa clicar no serviço desejado e já abrir o WhatsApp com a mensagem pré-configurada, o cliente desiste e chama quem atende com mais agilidade.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">4. Falta de Prova Social e Galeria de Antes e Depois</div>
+      <div class="flaw-desc">Em serviços manuais, fotos de serviços bem acabados vendem por si só. A ausência de um site com galeria de alta qualidade impede a valorização do preço cobrado pelo serviço.</div>
+    </div>
+  
+      </div>
+      <div class="roi-box">
+        <div class="roi-title">Matemática Comercial de Retorno (ROI do Site Próprio)</div>
+        <div class="roi-desc">O investimento no desenvolvimento de um site oficial de alta conversão pela Vocação fica entre R$ 1.200 e R$ 1.800. No setor de manutenção residencial, um único serviço de reforma elétrica, instalação completa de padrão, troca de encanamento ou pintura de cômodos custa entre R$ 500 e R$ 1.000. **Apenas 2 a 3 serviços fechados através do site já pagam 100% do projeto**, gerando faturamento recorrente para a empresa durante todo o ano.</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Pilar 01 — Site Oficial / Vitrine Digital de Alta Conversão</strong></td>
+      <td>Construção de site profissional sob medida com foco em conversão mobile (baseado nos mais altos padrões visuais e tecnológicos da Vocação): carregamento instantâneo, catálogo detalhado de serviços (elétrica, hidráulica, reparos, reformas), fotos de alta qualidade, garantias de serviço e botão inteligente de WhatsApp para orçamentos.</td>
+      <td class="offer-price">R$ 1.200 a R$ 1.800 (Parcelamento facilitado)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Pilar 04 — Registro de Domínio Próprio & E-mails Corporativos</strong></td>
+      <td>Registro do domínio oficial (.com.br) e blindagem de presença digital, garantindo pré-visualização impecável nas conversas de WhatsApp ao enviar o link aos clientes.</td>
+      <td class="offer-price">Incluso no projeto do Site</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Pilar 02 — Presença Local no Google Maps (Cross-sell Estratégico)</strong></td>
+      <td>Revisão e otimização completa da ficha do Google Maps, incluindo o novo site oficial cadastrado, categorias de serviços, fotos dos trabalhos e botão de WhatsApp.</td>
+      <td class="offer-price">R$ 450 (Taxa única / 7 dias)</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e sem Bajulação)</h2>
+      
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 1: Abordagem via WhatsApp (Foco em Venda do Site Profissional)</span>
+        <button class="copy-btn" onclick="copyText('script-wa')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-wa">Olá, tudo bem? Aqui é da Vocação Comunicação, de Sorocaba.
+
+Estava analisando o perfil de vocês no Google Maps na região do Parque São Bento e notei que quem precisa de marido de aluguel ou reparos residenciais não encontra um site oficial com a lista completa dos serviços que vocês fazem (elétrica, hidráulica, instalações), fotos de trabalhos realizados e garantias de atendimento.
+
+Hoje, clientes de casas e condomínios que pagam mais caro por serviços de manutenção só fecham com quem passa total segurança online através de uma vitrine oficial.
+
+Nós preparamos um diagnóstico rápido em PDF mostrando a importância de ter um site próprio de alta conversão para dobrar o fechamento dos seus orçamentos. Um site desses se paga com apenas 2 ou 3 serviços realizados.
+
+Posso enviar o PDF aqui para você dar uma olhada?</div>
+      
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 2: Contato Telefônico / Apresentação Comercial Direta</span>
+        <button class="copy-btn" onclick="copyText('script-phone')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-phone">Olá, boa tarde! Gostaria de falar 2 minutos com o responsável pelos orçamentos e serviços da empresa.
+
+Meu nome é [Seu Nome], da Vocação Comunicação aqui de Sorocaba. Nós desenvolvemos sites e presenças digitais de alto padrão para prestadores de serviços da cidade.
+
+Fizemos um levantamento na Zona Norte e vimos que muitas pessoas procuram marido de aluguel e eletricista no Google, mas acabam deixando de fechar ou contratando empresas mais caras simplesmente porque encontram um site oficial estruturado, com fotos de antes e depois e garantias de atendimento.
+
+Nós montamos uma proposta para estruturar o site oficial da sua empresa, rápido no celular e preparado para fechar orçamentos no WhatsApp todos os dias. Tenho um material de 2 minutos explicando como funciona. Posso te enviar pelo WhatsApp para você avaliar?</div>
+      
+    </div>
+  
+    </section>
+  </div>
+</body>
+</html>

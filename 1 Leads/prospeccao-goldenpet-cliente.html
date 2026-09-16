@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Presença & Comunicação — Golden Pet Estética</title>
+    <!-- Fontes do Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E5B910;          /* Dourado Vocação */
+            --color-accent-soft: #fcf9eb;     /* Dourado suave */
+            --color-accent-hover: #d1a50a;
+            --color-primary: #061B28;         /* Grafite profundo azul-petróleo */
+            --color-primary-light: #0d2a3d;
+            --color-bg: #fafaf8;              /* Off-white quente */
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-muted: #5a625f;
+            --color-border: #e2e8e5;
+            
+            --color-positive: #0B5E47;        /* Verde esmeralda */
+            --color-negative: #9b2335;        /* Vermelho */
+            --color-opportunity: #1d4e89;     /* Azul */
+            --color-warning: #c17f24;         /* Laranja */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--color-primary);
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header Premium */
+        header {
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 35px 30px;
+            border-radius: 12px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-left: 6px solid var(--color-accent);
+        }
+
+        .header-left .badge-header {
+            background-color: rgba(229, 185, 16, 0.15);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .header-left h1 {
+            color: #ffffff;
+            font-size: 2rem;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        .header-left p {
+            color: #d1d8db;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .header-left .header-contact {
+            margin-top: 6px;
+            display: inline-flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            font-family: 'Geist Mono', monospace;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.06);
+            padding: 10px 18px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .header-right .brand-text {
+            text-align: right;
+        }
+
+        .header-right .brand-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+        }
+
+        .header-right .brand-sub {
+            font-size: 0.7rem;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Manifesto */
+        .manifesto-box {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 28px 30px;
+            margin-bottom: 35px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        .manifesto-quote {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            line-height: 1.4;
+            margin-bottom: 8px;
+        }
+
+        .manifesto-quote span {
+            color: var(--color-accent);
+            text-shadow: 0 0 1px rgba(0,0,0,0.1);
+        }
+
+        .manifesto-sub {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Grid Métricas */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 22px;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .metric-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 6px;
+        }
+
+        .metric-value.gold { color: var(--color-accent); }
+        .metric-value.green { color: var(--color-positive); }
+
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Pilares Section */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 3px;
+            background: var(--color-accent);
+            border-radius: 2px;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+            gap: 22px;
+            margin-bottom: 45px;
+        }
+
+        @media (max-width: 768px) {
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pillar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .pillar-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--color-primary);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .status-ausente { background: #ffebee; color: var(--color-negative); border: 1px solid #ffcdd2; }
+        .status-fraco { background: #fff3e0; color: var(--color-warning); border: 1px solid #ffe0b2; }
+        .status-mediano { background: #e3f2fd; color: var(--color-opportunity); border: 1px solid #bbdefb; }
+        .status-bom, .status-otimo { background: #e8f5e9; color: var(--color-positive); border: 1px solid #c8e6c9; }
+
+        .pillar-status-desc {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .pillar-value-box {
+            background: var(--color-accent-soft);
+            border-left: 3px solid var(--color-accent);
+            padding: 12px 14px;
+            border-radius: 0 6px 6px 0;
+            margin-top: auto;
+        }
+
+        .pillar-value-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #8c710a;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .pillar-value-text {
+            font-size: 0.85rem;
+            color: #4a401a;
+            line-height: 1.45;
+        }
+
+        /* Seção Especial Impressão Gráfica */
+        .print-section {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 32px 30px;
+            margin-bottom: 45px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .print-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+        }
+
+        .print-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .print-tag {
+            background: rgba(229, 185, 16, 0.15);
+            color: #8c710a;
+            border: 1px solid rgba(229, 185, 16, 0.4);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .print-intro {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .print-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 24px;
+        }
+
+        .print-card {
+            background: #fafaf8;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s ease;
+        }
+
+        .print-card:hover {
+            border-color: var(--color-accent);
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .print-card-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .print-card-spec {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .print-card-price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-positive);
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .print-card-price span {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            font-weight: 500;
+        }
+
+        .print-banner-spotlight {
+            background: linear-gradient(135deg, rgba(229, 185, 16, 0.12) 0%, rgba(6, 27, 40, 0.04) 100%);
+            border: 1px solid rgba(229, 185, 16, 0.5);
+            border-radius: 8px;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .print-spotlight-text h4 {
+            font-size: 1.05rem;
+            color: var(--color-primary);
+            margin-bottom: 3px;
+        }
+
+        .print-spotlight-text p {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .print-spotlight-price {
+            text-align: right;
+        }
+
+        .print-spotlight-price .big-val {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .print-spotlight-price .big-val em {
+            font-style: normal;
+            color: #8c710a;
+        }
+
+        .print-spotlight-price .sub-val {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Tabela Competitiva */
+        .competitors-box {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 26px;
+            margin-bottom: 45px;
+            overflow-x: auto;
+        }
+
+        .competitors-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+
+        .competitors-table th {
+            background: #f4f6f5;
+            color: var(--color-primary);
+            padding: 12px 14px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .competitors-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+        }
+
+        .badge-strong { background: #e8f5e9; color: var(--color-positive); padding: 3px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
+        .badge-medium { background: #e3f2fd; color: var(--color-opportunity); padding: 3px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
+
+        .competitor-note {
+            margin-top: 14px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        /* CTA Vocação */
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-bottom: 45px;
+            border-top: 4px solid var(--color-accent);
+        }
+
+        .cta-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .cta-desc {
+            color: #d1d8db;
+            font-size: 1rem;
+            max-width: 700px;
+            margin: 0 auto 26px auto;
+            line-height: 1.6;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-accent);
+            color: var(--color-primary);
+            text-decoration: none;
+            padding: 15px 32px;
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: transform 0.2s, background-color 0.2s;
+            box-shadow: 0 4px 15px rgba(229, 185, 16, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            transform: scale(1.03);
+            background: #edd047;
+        }
+
+        /* Rodapé Editorial */
+        footer {
+            border-top: 1px solid var(--color-border);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Header Premium -->
+    <header>
+        <div class="header-left">
+            <span class="badge-header">Diagnóstico & Ganhos de Valor</span>
+            <h1>Golden Pet Estética</h1>
+            <p>Estética Animal, Banho & Tosa • Rua Joaquim Ferreira Barbosa, 315, Vila Gabriel, Sorocaba/SP</p>
+            <div class="header-contact">
+                <span>Telefone: (15) 3019-3409</span>
+                <span>•</span>
+                <span>Horário: Seg a Sex 08h-18h | Sáb 08h-13h</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="brand-text">
+                <span class="brand-name">Vocação</span>
+                <span class="brand-sub">Comunicação & Marketing</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="32" height="32" fill="none">
+              <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#E5B910" />
+              <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+            </svg>
+        </div>
+    </header>
+
+    <!-- Manifesto da Confiança -->
+    <div class="manifesto-box">
+        <div class="manifesto-quote">"Sua empresa <span>já é confiável</span> no mundo real. Online e no ponto físico, ela precisa refletir essa mesma excelência."</div>
+        <p class="manifesto-sub">A presença digital e a comunicação visual não são vaidade: são a estrutura que garante a decisão imediata do tutor que pesquisa ou passa em frente ao seu espaço.</p>
+    </div>
+
+    <!-- Métricas de Impacto -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-value gold">97%</div>
+            <div class="metric-label">pesquisam no Google antes de entrar em contato ou levar o pet</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">4.2s</div>
+            <div class="metric-label">é o tempo médio para o cliente decidir se a estética passa confiança</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value">84%</div>
+            <div class="metric-label">são influenciados pela clareza de serviços na fachada física e na vitrine</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-value green">2.8x</div>
+            <div class="metric-label">mais propensão a fechar com quem tem presença unificada (digital + ponto físico)</div>
+        </div>
+    </div>
+
+    <!-- Os 4 Pilares de Presença Digital -->
+    <h2 class="section-title">Diagnóstico dos 4 Pilares Estruturais</h2>
+    <div class="pillars-grid">
+        
+        <!-- Pilar 1 -->
+        <div class="pillar-card">
+            <div>
+                <div class="pillar-header">
+                    <h3 class="pillar-title">01. Site Profissional & Agendamento</h3>
+                    <span class="status-badge status-ausente">Ausente</span>
+                </div>
+                <p class="pillar-status-desc">Sem página oficial ou link de agendamento online para apresentar pacotes mensais, tosa na tesoura, hidratações e diferenciais de cuidado com os pets.</p>
+            </div>
+            <div class="pillar-value-box">
+                <div class="pillar-value-title">O Valor da Transformação</div>
+                <p class="pillar-value-text">Uma estrutura independente 24h que funciona como a sede oficial do seu negócio. Explica de imediato quem é você, atrai clientes qualificados prontos para agendar e aumenta sua conversão em até 2.8x.</p>
+            </div>
+        </div>
+
+        <!-- Pilar 2 -->
+        <div class="pillar-card">
+            <div>
+                <div class="pillar-header">
+                    <h3 class="pillar-title">02. Presença Local (Google Maps)</h3>
+                    <span class="status-badge status-bom">Bom</span>
+                </div>
+                <p class="pillar-status-desc">Ponto estabelecido e reconhecido na Vila Gabriel, com ótima aceitação dos tutores da região. Oportunidade de enriquecer com fotos recentes do espaço, catálogo de serviços e posts semanais de antes/depois.</p>
+            </div>
+            <div class="pillar-value-box">
+                <div class="pillar-value-title">O Valor da Transformação</div>
+                <p class="pillar-value-text">Sua vitrine de alta intenção. Estar otimizado no topo das pesquisas de mapas da Vila Gabriel capta os moradores do bairro no exato momento da busca, evitando que procurem concorrentes por falta de fotos ou detalhes.</p>
+            </div>
+        </div>
+
+        <!-- Pilar 3 -->
+        <div class="pillar-card">
+            <div>
+                <div class="pillar-header">
+                    <h3 class="pillar-title">03. Redes Sociais Organizadas</h3>
+                    <span class="status-badge status-fraco">Fraco</span>
+                </div>
+                <p class="pillar-status-desc">Sem canal ativo padronizado com identidade visual coesa. Oportunidade de estruturar perfil profissional com destaques explicativos (serviços, cuidados, valores, tabela de tamanhos e link direto do WhatsApp).</p>
+            </div>
+            <div class="pillar-value-box">
+                <div class="pillar-value-title">O Valor da Transformação</div>
+                <p class="pillar-value-text">O cartão de visitas moderno. Bio clara, destaques refinados e fotos com boa iluminação garantem que qualquer pessoa que clique no seu perfil sinta segurança imediata em deixar seu pet aos seus cuidados.</p>
+            </div>
+        </div>
+
+        <!-- Pilar 4 -->
+        <div class="pillar-card">
+            <div>
+                <div class="pillar-header">
+                    <h3 class="pillar-title">04. Domínio & Governança Própria</h3>
+                    <span class="status-badge status-ausente">Ausente</span>
+                </div>
+                <p class="pillar-status-desc">Sem domínio próprio .com.br registrado para blindar a marca Golden Pet Estética e centralizar todos os pontos de contato.</p>
+            </div>
+            <div class="pillar-value-box">
+                <div class="pillar-value-title">O Valor da Transformação</div>
+                <p class="pillar-value-text">Sua segurança digital e governança. Ter e-mail profissional e um domínio próprio registrado em seu nome transmite a solidez de uma empresa estabelecida e livre de dependência exclusiva de plataformas de terceiros.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Seção Especial de Impressão Gráfica -->
+    <h2 class="section-title">Comunicação Visual & Suporte de Impressão Gráfica</h2>
+    <div class="print-section">
+        <div class="print-header">
+            <div>
+                <span class="print-tag">Do Digital ao Ponto Físico</span>
+                <h3 style="font-size: 1.35rem; color: var(--color-primary);">Comunicação Integrada para o seu Banho & Tosa</h3>
+            </div>
+        </div>
+
+        <p class="print-intro">
+            A excelência do atendimento presencial da <strong>Golden Pet Estética</strong> na Vila Gabriel ganha ainda mais força quando alinhada a materiais gráficos de alto padrão. A Vocação cuida de toda a pré-impressão técnica, ajuste de perfis de cor, conferência de sangria e entrega direta no seu endereço — sem você precisar perder tempo em balcão de gráfica.
+        </p>
+
+        <!-- Grade de Materiais Chave -->
+        <div class="print-grid">
+            
+            <div class="print-card">
+                <div>
+                    <div class="print-card-title">Wind Banner Completo</div>
+                    <div class="print-card-spec">Kit completo com haste e base para calçada na Rua Joaquim Ferreira Barbosa. Alta visibilidade para motoristas e pedestres.</div>
+                </div>
+                <div class="print-card-price">R$ 229 <span>/ kit</span></div>
+            </div>
+
+            <div class="print-card">
+                <div>
+                    <div class="print-card-title">Cartões de Agendamento</div>
+                    <div class="print-card-spec">500 un em Couché fosco com laminação. Ideal para cartões de retorno, fidelidade e lembrete de vacinas/banhos.</div>
+                </div>
+                <div class="print-card-price">R$ 169 <span>/ 500 un</span></div>
+            </div>
+
+            <div class="print-card">
+                <div>
+                    <div class="print-card-title">Folhetos Promocionais</div>
+                    <div class="print-card-spec">500 un A5 em Couché brilho. Divulgação direcionada de pacotes mensais nos condomínios e residências vizinhas.</div>
+                </div>
+                <div class="print-card-price">R$ 149 <span>/ 500 un</span></div>
+            </div>
+
+            <div class="print-card">
+                <div>
+                    <div class="print-card-title">Adesivos em Vinil</div>
+                    <div class="print-card-spec">Corte especial para rotulagem de produtos, brindes pós-tosa, lacres de pacotes e identificação de caixas de transporte.</div>
+                </div>
+                <div class="print-card-price">R$ 65 <span>/ folha A4</span></div>
+            </div>
+
+        </div>
+
+        <!-- Destaque Banner em Lona por m² -->
+        <div class="print-banner-spotlight">
+            <div class="print-spotlight-text">
+                <h4>🎯 Banners em Lona 340g para Fachada e Recepção</h4>
+                <p>Impressão fotográfica de alta definição, acabamento com bastão e cordão ou ilhós. Perfeito para tabela de preços, pacotes de banho e promoções sazonais.</p>
+            </div>
+            <div class="print-spotlight-price">
+                <div class="big-val">R$ 97<em>/m²</em></div>
+                <div class="sub-val">Lona 340g (até 1m²)</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Análise Competitiva -->
+    <h2 class="section-title">Espaço Competitivo na Região</h2>
+    <div class="competitors-box">
+        <table class="competitors-table">
+            <thead>
+                <tr>
+                    <th>Empresa</th>
+                    <th>Site Próprio</th>
+                    <th>Google Maps</th>
+                    <th>Instagram</th>
+                    <th>Classificação</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+        <tr>
+            <td style="font-weight: 600; color: var(--color-primary);">Auforia Pet Center</td>
+            <td>Sim</td>
+            <td>4.7 ★</td>
+            <td>Forte</td>
+            <td><span class="badge badge-strong">Forte</span></td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight: 600; color: var(--color-primary);">Pet Star Estética (Maria do Carmo)</td>
+            <td>Não</td>
+            <td>4.7 ★</td>
+            <td>Fraco</td>
+            <td><span class="badge badge-medium">Mediana</span></td>
+        </tr>
+        
+        <tr>
+            <td style="font-weight: 600; color: var(--color-primary);">Don Estética Animal</td>
+            <td>Não</td>
+            <td>4.9 ★</td>
+            <td>Mediano</td>
+            <td><span class="badge badge-medium">Mediana</span></td>
+        </tr>
+        
+            </tbody>
+        </table>
+        <p class="competitor-note">💡 <strong>Oportunidade de Protagonismo:</strong> Ao unificar os 4 pilares digitais com uma comunicação física impecável (banners, fachada e materiais de apoio), a <strong>Golden Pet Estética</strong> conquista a liderança de preferência na Vila Gabriel e bairros adjacentes.</p>
+    </div>
+
+    <!-- CTA de Parceria -->
+    <div class="cta-section">
+        <h2 class="cta-title">Vamos estruturar sua presença e comunicação?</h2>
+        <p class="cta-desc">Sem propostas empurradas e sem enrolação. A Vocação implementa a estrutura digital e os materiais gráficos que o seu negócio precisa para transmitir toda a credibilidade e carinho que você já entrega no cuidado com os pets.</p>
+        <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20diagn%C3%B3stico%20da%20Golden%20Pet%20Est%C3%A9tica%20e%20quero%20falar%20sobre%20presen%C3%A7a%20digital%20e%20impress%C3%A3o" target="_blank" class="btn-whatsapp">
+            Falar com um Especialista da Vocação
+        </a>
+    </div>
+
+    <!-- Rodapé Editorial -->
+    <footer>
+        <div class="footer-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="28" height="28" fill="none">
+              <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#061B28" />
+              <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#fafaf8" />
+            </svg>
+            <div>
+                <strong>Vocação Comunicação & Marketing</strong><br>
+                <span>Estrutura antes do marketing. Confiança antes do tráfego.</span>
+            </div>
+        </div>
+        <div class="footer-links">
+            <a href="https://vocacao.digital" target="_blank">vocacao.digital</a>
+            <a href="https://vocacao.digital/impressao" target="_blank">Impressão Gráfica</a>
+            <a href="https://instagram.com/vocacao.digital" target="_blank">@vocacao.digital</a>
+            <a href="https://wa.me/5515981512083" target="_blank">(15) 98151-2083</a>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

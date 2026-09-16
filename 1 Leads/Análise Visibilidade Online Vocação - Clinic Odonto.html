@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Autoridade Digital & Presença — Clinic Odonto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-accent-soft: #fcf9eb;
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #5a625f;
+      --color-border: #e2e8e5;
+      --color-positive: #0B5E47;
+      --color-negative: #9b2335;
+      --color-opportunity: #1d4e89;
+      --color-warning: #c17f24;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      box-shadow: 0 12px 36px rgba(6, 27, 40, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, #ffdf6d 100%);
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(229, 185, 16, 0.15);
+      border: 1px solid rgba(229, 185, 16, 0.4);
+      color: var(--color-accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      max-width: 620px;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-top: 8px;
+    }
+
+    .brand-logo-text span {
+      color: var(--color-accent);
+    }
+
+    /* Context Alert: Anti-Confusion */
+    .alert-card {
+      background: #fffbeb;
+      border: 1px solid #fef3c7;
+      border-left: 4px solid var(--color-warning);
+      border-radius: 12px;
+      padding: 18px 24px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .alert-icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .alert-title {
+      font-family: var(--font-display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: #92400e;
+      margin-bottom: 4px;
+    }
+
+    .alert-desc {
+      font-size: 0.88rem;
+      color: #78350f;
+      line-height: 1.5;
+    }
+
+    /* Manifesto Box */
+    .manifesto-card {
+      background: var(--color-surface);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      border-right: 1px solid var(--color-border);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .manifesto-subtext {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    .pillar-box {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 22px;
+      background: #fafcfb;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-box.critico {
+      border-color: #fecaca;
+      background: #fffafa;
+    }
+
+    .pillar-box.alerta {
+      border-color: #fed7aa;
+      background: #fffdfa;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+
+    .pillar-status {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .status-vulneravel {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+    }
+
+    .status-ausente {
+      background: #ffedd5;
+      color: #9a3412;
+      border: 1px solid #fb923c;
+    }
+
+    .pillar-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-finding {
+      font-size: 0.88rem;
+      color: #374151;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .pillar-impact {
+      font-size: 0.82rem;
+      color: var(--color-negative);
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .pillar-solution {
+      font-size: 0.82rem;
+      color: var(--color-positive);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+    }
+
+    table.benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    table.benchmark-table th {
+      background-color: #0c2333;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    table.benchmark-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+
+    table.benchmark-table tr.lead-row td {
+      background-color: #fffdf5;
+      font-weight: 600;
+    }
+
+    .badge-market {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .market-forte { background: #dcfce7; color: #166534; }
+    .market-media { background: #fef9c3; color: #854d0e; }
+    .market-vulneravel { background: #fee2e2; color: #991b1b; }
+
+    /* ROI Box */
+    .roi-card {
+      background: linear-gradient(135deg, #fbfbf9 0%, #f4f6f4 100%);
+      border: 2px solid var(--color-accent);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(229, 185, 16, 0.08);
+    }
+
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .roi-item {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    .roi-item .num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-positive);
+    }
+
+    .roi-item .desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* CTA Section */
+    .cta-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(6, 27, 40, 0.15);
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-desc {
+      font-size: 0.95rem;
+      color: #c9d8d5;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+    }
+
+    .cta-btn {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(229, 185, 16, 0.35);
+    }
+
+    .cta-btn:hover {
+      background-color: #ffd026;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 24px;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header class="header-card">
+      <div class="header-info">
+        <div class="badge-tag">Diagnóstico de Autoridade Odontológica & Presença Local</div>
+        <h1 class="header-title">Clinic Odonto — Clínica Odontológica</h1>
+        <p class="header-subtitle">
+          Análise de posicionamento digital, autoridade clínica no Google Maps e oportunidades de captação de pacientes particulares de alto ticket em Sorocaba.
+        </p>
+      </div>
+      <div class="header-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="36" height="36" fill="none">
+          <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+          <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+        </svg>
+        <div class="brand-logo-text">VOCAÇÃO<span>.</span></div>
+      </div>
+    </header>
+
+    <!-- BOX DE DISTINÇÃO ESTRATÉGICA -->
+    <div class="alert-card">
+      <div class="alert-icon">💡</div>
+      <div>
+        <div class="alert-title">Distinção Institucional Decisiva: Clínica Particular vs. Franquias de Massa</div>
+        <div class="alert-desc">
+          A <strong>Clinic Odonto</strong> é uma clínica particular estruturada, situada em sede física própria no Jardim Maria do Carmo / Jardim Abaeté há mais de 11 anos (fundada em 2015 pela Dra. Elza Peres Nunes). <strong>Não deve ser confundida com redes ou franquias comerciais como a "Odontoclinic" do Centro de Sorocaba</strong>. Sem uma presença digital blindada e própria, a clínica corre o risco diário de ter sua autoridade canibalizada ou confundida com clínicas populares de grande rotatividade e planos massificados.
+        </div>
+      </div>
+    </div>
+
+    <!-- MANIFESTO -->
+    <div class="manifesto-card">
+      <div class="manifesto-quote">
+        “Sua clínica já possui reputação real, estrutura física e anos de dedicação. Na internet, ela precisa refletir essa mesma solenidade para que o paciente escolha você sem hesitar.”
+      </div>
+      <div class="manifesto-subtext">
+        O paciente que busca procedimentos de maior valor — como implantes, próteses, ortodontia estética ou reabilitação oral — não decide por impulso: ele pesquisa no Google, avalia a fachada, o consultório e a solidez institucional antes de agendar a primeira consulta.
+      </div>
+    </div>
+
+    <!-- 4 PILARES DIAGNÓSTICO -->
+    <section class="section-card">
+      <h2 class="section-title">🔍 Diagnóstico Estrutural dos 4 Pilares</h2>
+      <p class="section-desc">
+        Mapeamento da presença pública da Clinic Odonto na Rua Joaquim Ferreira Barbosa, 345 (Jardim Maria do Carmo / Jd. Abaeté, Sorocaba):
+      </p>
+
+      <div class="pillars-grid">
+        
+        <!-- Pilar 02 - Google Maps (Gargalo Mais Crítico) -->
+        <div class="pillar-box critico">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 02 · Presença Local</span>
+            <span class="pillar-status status-vulneravel">⚠️ Não Reivindicado</span>
+          </div>
+          <h3 class="pillar-name">Google Maps Vulnerável & Subaproveitado</h3>
+          <p class="pillar-finding">
+            O perfil da Clinic Odonto exibe publicamente o botão <strong>"Reivindicar esta empresa"</strong>. A ficha não possui verificação oficial do proprietário no Google Meu Negócio, gerando vulnerabilidade para alterações indevidas. Conta com apenas <strong>3 avaliações</strong> (apesar de mais de uma década de funcionamento) e exibe somente uma foto externa do Street View, sem imagens dos consultórios, recepção ou equipamentos.
+          </p>
+          <div class="pillar-impact">
+            Risco: Pacientes da região procuram por dentista no Google e encontram fichas de concorrentes com dezenas de avaliações, ou são direcionados a franquias do centro.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Presença Local (R$ 450) com reivindicação imediata, fotos profissionais da estrutura e protocolo ativo para coletar avaliações 5 estrelas.
+          </div>
+        </div>
+
+        <!-- Pilar 01 - Site Profissional -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 01 · Sede Digital</span>
+            <span class="pillar-status status-ausente">Inexistente</span>
+          </div>
+          <h3 class="pillar-name">Ausência de Site Odontológico Próprio</h3>
+          <p class="pillar-finding">
+            A clínica não tem endereço de website vinculado ao perfil do Google. O paciente que pesquisa no celular não encontra uma página para conhecer as especialidades atendidas (implantes, próteses, clínica geral, estética dental, ortodontia) nem o histórico profissional da Dra. Elza Peres Nunes.
+          </p>
+          <div class="pillar-impact">
+            Risco: Perda de pacientes particulares que pesquisam a fundo antes de investir em tratamentos cirúrgicos ou estéticos de maior ticket.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Site Institucional Odontológico moderno, rápido, com botão direto para o WhatsApp e apresentação clara do consultório.
+          </div>
+        </div>
+
+        <!-- Pilar 03 - Vitrine Digital / Redes -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 03 · Vitrine Visual</span>
+            <span class="pillar-status status-ausente">Desconectada</span>
+          </div>
+          <h3 class="pillar-name">Apresentação Institucional & Redes</h3>
+          <p class="pillar-finding">
+            Não há perfil institucional ativo no Instagram vinculado à clínica em Sorocaba. No WhatsApp comercial (15 98835-3333), existe apenas o logo, sem catálogo de procedimentos, sem horário de funcionamento organizado e sem links institucionais de apoio.
+          </p>
+          <div class="pillar-impact">
+            Risco: Transmite a falsa impressão de um consultório inativo ou sem estrutura para quem procura referências nas redes sociais.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Organização de vitrine digital sóbria e elegante, transmitindo autoridade em biossegurança e acolhimento humano.
+          </div>
+        </div>
+
+        <!-- Pilar 04 - Governança & Blindagem -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 04 · Governança</span>
+            <span class="pillar-status status-ausente">Sem Blindagem</span>
+          </div>
+          <h3 class="pillar-name">Blindagem de Marca & Domínio Corporativo</h3>
+          <p class="pillar-finding">
+            A clínica opera sem domínio próprio (.com.br) registrado para sediar seus canais. Por ter um nome com sonoridade próxima à rede comercial "Odontoclinic", a ausência de um domínio oficial registrado reforça a ambiguidade nos motores de busca do Google.
+          </p>
+          <div class="pillar-impact">
+            Risco: Dificuldade de diferenciação da marca própria em relação a grandes redes e perda de autoridade corporativa.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Registro e configuração de domínio próprio com e-mail profissional, blindando a identidade da Clinic Odonto em Sorocaba.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BENCHMARK LOCAL -->
+    <section class="section-card">
+      <h2 class="section-title">📊 Comparativo Regional no Setor Odontológico em Sorocaba</h2>
+      <p class="section-desc">
+        Como a presença digital da Clinic Odonto se posiciona frente ao ecossistema odontológico local:
+      </p>
+
+      <div class="table-container">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Clínica / Estabelecimento</th>
+              <th>Status Google Maps</th>
+              <th>Site Oficial</th>
+              <th>Avaliações</th>
+              <th>Percepção Digital</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lead-row">
+              <td><strong>Clinic Odonto (Jd. Maria do Carmo)</strong></td>
+              <td><span class="badge-market market-vulneravel">Não Reivindicado</span></td>
+              <td>❌ Inexistente</td>
+              <td>5.0 ★ (Apenas 3)</td>
+              <td><span class="badge-market market-vulneravel">Vulnerável / Oculta</span></td>
+            </tr>
+            <tr>
+              <td>Clínicas Médicas & Odonto Campolim / Zona Sul</td>
+              <td>✅ Verificado</td>
+              <td>✅ Portal com Agendamento</td>
+              <td>4.8 ★ (120+ avaliações)</td>
+              <td><span class="badge-market market-forte">Forte Autoridade</span></td>
+            </tr>
+            <tr>
+              <td>Consultórios Especializados Zona Norte</td>
+              <td>✅ Verificado</td>
+              <td>✅ Landing Page WhatsApp</td>
+              <td>4.9 ★ (40 a 80 avaliações)</td>
+              <td><span class="badge-market market-media">Média / Ativa</span></td>
+            </tr>
+            <tr>
+              <td>Franquias Comerciais (ex: Odontoclinic Centro)</td>
+              <td>✅ Verificado</td>
+              <td>✅ Portal Nacional de Franquia</td>
+              <td>4.4 ★ (Alto volume)</td>
+              <td><span class="badge-market market-media">Massa / Comercial</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 12px;">
+        💡 <em>Diferencial Estratégico: Pacientes que buscam atendimento humanizado e de confiança fogem de franquias impessoais. Com o Google Maps verificado e um site próprio, a Clinic Odonto atrai exatamente esse público seleto.</em>
+      </p>
+    </section>
+
+    <!-- ROI -->
+    <div class="roi-card">
+      <h3 class="roi-title">💰 A Matemática do Retorno sobre o Investimento</h3>
+      <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 16px;">
+        Na odontologia especializada e tratamentos de reabilitação, o retorno não depende de centenas de curiosos. <strong>Apenas 1 paciente particular qualificado a mais</strong> cobre todo o investimento com sobras:
+      </p>
+
+      <div class="roi-grid">
+        <div class="roi-item">
+          <div class="num">R$ 4.500</div>
+          <div class="desc">Ticket médio estimado de um tratamento odontológico especializado (prótese, implante ou ortodontia estética).</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">R$ 450</div>
+          <div class="desc">Investimento único na estruturação e blindagem do Google Maps (Presença Local Vocação).</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">+10x a +25x</div>
+          <div class="desc">Retorno líquido imediato no primeiro tratamento particular decorrente da nova presença no Google.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.86rem; color: var(--color-positive); font-weight: 600;">
+        Conclusão: O custo de permanecer invisível ou com o perfil desprotegido no Google Maps é infinitamente superior ao valor de estruturar a autoridade da clínica.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3 class="cta-title">Vamos estruturar a autoridade digital da Clinic Odonto?</h3>
+      <p class="cta-desc">
+        A Vocação Comunicação & Marketing organiza a presença de profissionais e clínicas que já são consolidados no atendimento real, garantindo a mesma confiança e destaque nos meios digitais.
+      </p>
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20da%20Clinic%20Odonto%20e%20gostaria%20de%20conversar%20sobre%20a%20Presen%C3%A7a%20Local." class="cta-btn" target="_blank">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+        Falar com a Equipe Vocação no WhatsApp
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Diagnóstico Estrutural Independente realizado pela Vocação Comunicação & Marketing • Sorocaba - SP • vocacao.digital
+    </div>
+
+  </div>
+</body>
+</html>

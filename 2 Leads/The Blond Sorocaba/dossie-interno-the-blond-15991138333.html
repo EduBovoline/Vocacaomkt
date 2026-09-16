@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — The Blond Sorocaba</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    /* Top Bar */
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+
+    .lead-desc {
+      color: var(--text-dim);
+      font-size: 0.92rem;
+    }
+
+    /* Info Grid */
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .data-value {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-white);
+      word-break: break-all;
+    }
+
+    .data-value a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Flaws List */
+    .flaws-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .flaw-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #ff8585;
+      font-family: var(--font-display);
+    }
+
+    .flaw-desc {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    /* Financial ROI */
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .roi-desc {
+      font-size: 0.88rem;
+      color: var(--text-white);
+      line-height: 1.6;
+    }
+
+    /* Strategy & Offers */
+    .offer-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      margin-top: 10px;
+    }
+
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .offer-table td {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    .offer-price {
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* Scripts */
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: var(--accent-hover);
+    }
+
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Prioridade: Alta (Lead Qualificado)</span>
+      </div>
+      <h1 class="lead-name">The Blond Sorocaba (Lounge & Hair Spa)</h1>
+      <p class="lead-desc">Salão de beleza de alto padrão no Jardim Portal da Colina com forte presença no Instagram e gargalo crítico de infraestrutura digital.</p>
+
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp Comercial</span>
+          <div class="data-value"><a href="https://wa.me/5515991138333" target="_blank">(15) 99113-8333</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Endereço</span>
+          <div class="data-value">Rua Luís Pessuti, 183 — Jd. Portal da Colina</div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram Principal</span>
+          <div class="data-value"><a href="https://www.instagram.com/theblondsorocaba" target="_blank">@theblondsorocaba (15,9k)</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Sub-Perfil (Hair Spa)</span>
+          <div class="data-value"><a href="https://www.instagram.com/oasishairspasorocaba" target="_blank">@oasishairspasorocaba</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Domínio Registrado</span>
+          <div class="data-value"><a href="https://theblond.com.br" target="_blank">theblond.com.br (Abandonado)</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Link Atual da Bio</span>
+          <div class="data-value">encurtador.com.br/sXAH (Linktree -> Drive)</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Vulnerabilidades Técnicas Cruas -->
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+        <div class="flaw-item">
+          <div class="flaw-title">1. Quebra de Luxo na Jornada da Cliente (Drive na Bio)</div>
+          <div class="flaw-desc">
+            O salão atende público de altíssimo poder aquisitivo no Portal da Colina/Campolim cobrando R$ 500 a R$ 2.500 em serviços. Porém, ao clicar na bio do Instagram, a cliente cai num Linktree e é redirecionada para uma pasta crua do Google Drive para ler tabelas de preços em PDF. Isso destrói o posicionamento de luxo.
+          </div>
+        </div>
+
+        <div class="flaw-item">
+          <div class="flaw-title">2. Domínio Próprio Subutilizado e Amador (theblond.com.br)</div>
+          <div class="flaw-desc">
+            O salão possui o domínio <em>theblond.com.br</em>, mas ele foi construído em um template genérico antigo cujo título na aba do navegador é literalmente <strong>"Página inicial"</strong>. Não há SEO, não há menção ao Oasis Hair Spa, e o site nem sequer é linkado nas redes sociais ou no Google Maps.
+          </div>
+        </div>
+
+        <div class="flaw-item">
+          <div class="flaw-title">3. Perda de Clientes de Busca Ativa no Google Maps</div>
+          <div class="flaw-desc">
+            Mulheres de alta renda recém-chegadas a condomínios fechados e ao Campolim pesquisam por "especialista em mechas sorocaba" ou "hair spa sorocaba" no Google. Sem um portal integrado e ficha otimizada com catálogo de serviços e fotos institucionais, o The Blond perde espaço para salões como o Me. Hair Salon.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ROI -->
+      <div class="roi-box">
+        <div class="roi-title">Matemática Comercial de ROI para Abordagem</div>
+        <div class="roi-desc">
+          O ticket de mechas, mega hair e rituais de spa capilar varia entre R$ 600 e R$ 2.500. Com a estrutura digital própria e o alinhamento da presença no Google Maps, a captação de <strong>apenas 1 a 2 novas clientes por mês</strong> paga com folga todo o investimento e gera lucro líquido recorrente para o salão.
+        </div>
+      </div>
+    </section>
+
+    <!-- Estratégia de Oferta Vocação -->
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pilar 01 — Site / Lounge Digital de Luxo</strong></td>
+            <td>Substituir o Google Drive por uma vitrine premium (Mechas + Oasis Hair Spa) conectada ao WhatsApp VIP.</td>
+            <td class="offer-price">R$ 1.200 a R$ 1.800 (Projeto)</td>
+          </tr>
+          <tr>
+            <td><strong>Pilar 02 — Otimização Google Maps de Alta Intenção</strong></td>
+            <td>Catálogo oficial de serviços, fotos em alta resolução e palavras-chave de Sorocaba Sul. Produto de entrada rápida.</td>
+            <td class="offer-price">R$ 450 (Único em 7 dias)</td>
+          </tr>
+          <tr>
+            <td><strong>Pilar 04 — Blindagem de theblond.com.br</strong></td>
+            <td>Ativação do domínio oficial, e-mails institucionais e certificado de segurança.</td>
+            <td class="offer-price">Incluso no Projeto do Site</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Scripts de Abordagem Sem Bajulação -->
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e Prontos para Envio)</h2>
+
+      <!-- Opção 1: WhatsApp -->
+      <div class="script-box">
+        <div class="script-header">
+          <span class="script-name">Opção 1 — WhatsApp Comercial (Recomendado)</span>
+          <button class="copy-btn" onclick="copyText('script_wa')">Copiar Script</button>
+        </div>
+        <div class="script-text" id="script_wa">Olá, tudo bem?
+
+Eduardo aqui, da Vocação Comunicação em Sorocaba.
+
+Estava analisando a presença digital do The Blond aqui no Portal da Colina e notei um ponto que vocês podem ajustar rápido:
+
+Vocês já possuem o domínio theblond.com.br ativo na internet, mas ele hoje está com um layout genérico antigo e nem sequer é utilizado na bio do Instagram — onde colocaram um Linktree que joga a cliente numa pasta crua do Google Drive para ver preços e serviços.
+
+Para um salão com 16 mil seguidoras e ticket de alto padrão, essa quebra de experiência faz vocês perderem agendamentos de clientes que buscam por mechas ou hair spa no Google e no Campolim.
+
+Preparei um diagnóstico objetivo mostrando como reestruturar o theblond.com.br em uma vitrine de alto luxo integrada ao WhatsApp e alinhar a ficha do Google Maps. Se fizer sentido dar uma olhada, posso te mandar o PDF por aqui?</div>
+        <a href="https://wa.me/5515991138333" class="btn-wa-direct" target="_blank">
+          <span>Abrir conversa no WhatsApp: (15) 99113-8333</span>
+        </a>
+      </div>
+
+      <!-- Opção 2: Direct do Instagram -->
+      <div class="script-box">
+        <div class="script-header">
+          <span class="script-name">Opção 2 — Direct do Instagram (@theblondsorocaba)</span>
+          <button class="copy-btn" onclick="copyText('script_ig')">Copiar Script</button>
+        </div>
+        <div class="script-text" id="script_ig">Olá! Tudo bem?
+
+Eduardo por aqui, da Vocação Comunicação em Sorocaba.
+
+Acompanho os trabalhos de mechas e o espaço Oasis de vocês aqui na região do Portal da Colina.
+
+Fiz uma análise da presença online do salão e vi que vocês já possuem o domínio theblond.com.br no ar, mas ele está com layout antigo e não é usado na bio — onde hoje a cliente cai num Google Drive para consultar preços.
+
+Para o público A/B que vocês atendem no Campolim, modernizar o theblond.com.br para uma vitrine de alto luxo com concierge VIP no WhatsApp eleva muito a conversão e capta quem pesquisa no Google.
+
+Preparei um material com essa avaliação para vocês. Quem é a pessoa responsável pela gestão comercial ou marketing do salão para eu enviar?</div>
+      </div>
+
+    </section>
+
+  </div>
+
+</body>
+</html>

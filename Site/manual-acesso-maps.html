@@ -1,0 +1,906 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Como liberar acesso ao Google Maps — Vocação</title>
+  <meta name="description" content="Passo a passo rápido para conceder acesso de administrador ao seu Perfil de Empresa no Google Maps com total segurança." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --chalk-white: #F8F9F9;
+      --obsidian-black: #061B28;
+      --citron-yellow: #E5B910;
+      --citron-hover: #CCA30B;
+      --sterling-silver: #B8BFC3;
+      --emerald-accent: #0B5E47;
+      --emerald-soft: #e8f4ef;
+      
+      --bg: #F8F9F9;
+      --bg-card: #FFFFFF;
+      --ink: #061B28;
+      --ink-muted: #526370;
+      --line: rgba(184, 191, 195, 0.4);
+      --border-focus: #061B28;
+      --shadow-sm: 0 2px 8px rgba(6, 27, 40, 0.05);
+      --shadow-md: 0 8px 24px rgba(6, 27, 40, 0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+
+      --display: "Poppins", sans-serif;
+      --body: "Montserrat", sans-serif;
+      --mono: "Geist Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Bar / Header */
+    header {
+      background: var(--obsidian-black);
+      color: #fff;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 2px solid var(--citron-yellow);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand-logo img {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+    }
+    .brand-tag {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--citron-yellow);
+      background: rgba(229, 185, 16, 0.15);
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    /* Container Principal */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 5rem;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #EAF4EE;
+      color: var(--emerald-accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(11, 94, 71, 0.2);
+    }
+    .hero-badge svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+    h1 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      color: var(--obsidian-black);
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* Segurança Banner */
+    .security-banner {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--emerald-accent);
+      border-radius: var(--radius-sm);
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .security-icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      background: var(--emerald-soft);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--emerald-accent);
+    }
+    .security-content h4 {
+      font-family: var(--display);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--obsidian-black);
+      margin-bottom: 4px;
+    }
+    .security-content p {
+      font-size: 0.88rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* E-mail Box Para Cópia */
+    .email-box-card {
+      background: var(--obsidian-black);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 1.6rem 1.8rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .email-box-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 140px;
+      height: 100%;
+      background: radial-gradient(circle, rgba(229,185,16,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .email-box-title {
+      font-family: var(--display);
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--citron-yellow);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .email-box-desc {
+      font-size: 0.88rem;
+      color: var(--sterling-silver);
+      margin-bottom: 1rem;
+    }
+    .email-copy-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .email-display {
+      flex: 1;
+      min-width: 240px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-family: var(--mono);
+      font-size: 1.05rem;
+      color: #fff;
+      font-weight: 500;
+      user-select: all;
+    }
+    .btn-copy {
+      background: var(--citron-yellow);
+      color: var(--obsidian-black);
+      border: none;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-copy:hover {
+      background: var(--citron-hover);
+      transform: translateY(-1px);
+    }
+    .btn-copy.copied {
+      background: var(--emerald-accent);
+      color: #fff;
+    }
+
+    /* Tabs de Navegação */
+    .method-tabs {
+      display: flex;
+      background: #EAEFF2;
+      padding: 6px;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      gap: 6px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      background: transparent;
+      font-family: var(--display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink-muted);
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active {
+      background: #FFFFFF;
+      color: var(--obsidian-black);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Tab Panes */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    .tab-pane.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Card de Passo a Passo */
+    .step-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 20px;
+      transition: border-color 0.2s;
+    }
+    .step-card:hover {
+      border-color: var(--sterling-silver);
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: var(--obsidian-black);
+      color: var(--citron-yellow);
+      font-family: var(--display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-info {
+      flex: 1;
+    }
+    .step-info h3 {
+      font-family: var(--display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--obsidian-black);
+      margin-bottom: 6px;
+    }
+    .step-info p {
+      color: var(--ink-muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .step-info p strong {
+      color: var(--obsidian-black);
+    }
+
+    /* Visual Hint / Mockup Mini */
+    .visual-hint {
+      background: #F4F6F7;
+      border: 1px dashed #CAD2D7;
+      border-radius: var(--radius-sm);
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .badge-google {
+      background: #fff;
+      border: 1px solid #dcdcdc;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #333;
+    }
+    .dots-menu {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: #fff;
+      border: 1px solid #d3d3d3;
+      border-radius: 4px;
+      font-weight: 900;
+      font-size: 1.1rem;
+      line-height: 1;
+    }
+
+    /* Método Alternativo - Aprovação Direta */
+    .direct-request-box {
+      background: #FAFBFB;
+      border: 2px dashed #B8BFC3;
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    .direct-request-box h3 {
+      font-family: var(--display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--obsidian-black);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .direct-request-box p {
+      color: var(--ink-muted);
+      font-size: 0.93rem;
+      margin-bottom: 1rem;
+    }
+
+    /* O que precisamos além do acesso */
+    .assets-needed {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .assets-needed h3 {
+      font-family: var(--display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--obsidian-black);
+      margin-bottom: 12px;
+    }
+    .assets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 1.2rem;
+    }
+    .asset-item {
+      background: #F8F9F9;
+      border: 1px solid #E2E6E8;
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+    }
+    .asset-item h5 {
+      font-family: var(--display);
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--obsidian-black);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .asset-item p {
+      font-size: 0.84rem;
+      color: var(--ink-muted);
+    }
+
+    /* FAQ de Dúvidas Comuns */
+    .faq-section {
+      margin-top: 3.5rem;
+    }
+    .faq-title {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--obsidian-black);
+    }
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+    .faq-q {
+      padding: 16px 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--obsidian-black);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+    .faq-a {
+      padding: 0 20px 18px 20px;
+      color: var(--ink-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* CTA WhatsApp Suporte */
+    .cta-support {
+      margin-top: 3.5rem;
+      background: var(--obsidian-black);
+      color: #fff;
+      border-radius: var(--radius);
+      padding: 2.2rem;
+      text-align: center;
+    }
+    .cta-support h3 {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+    .cta-support p {
+      color: var(--sterling-silver);
+      font-size: 0.95rem;
+      max-width: 500px;
+      margin: 0 auto 1.5rem;
+    }
+    .btn-whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 28px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .btn-whatsapp:hover {
+      background: #1ebc59;
+      transform: translateY(-2px);
+    }
+    .btn-whatsapp svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1.25rem;
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      border-top: 1px solid var(--line);
+      margin-top: 4rem;
+    }
+
+    /* Responsivo */
+    @media (max-width: 600px) {
+      .step-card {
+        flex-direction: column;
+        gap: 12px;
+        padding: 1.3rem;
+      }
+      .step-num {
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+      }
+      .email-copy-group {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn-copy {
+        justify-content: center;
+      }
+      .method-tabs {
+        flex-direction: column;
+      }
+    }
+
+    /* Impressão / PDF */
+    @media print {
+      header, .btn-copy, .method-tabs, .cta-support, footer {
+        display: none !important;
+      }
+      .container {
+        padding: 0;
+        max-width: 100%;
+      }
+      .step-card, .email-box-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="header-inner">
+      <a href="https://vocacao.digital" class="brand-logo" target="_blank" rel="noopener">
+        <img src="logo-vocacao-white.png" alt="Vocação Comunicação & Marketing" onerror="this.style.display='none'" />
+        <span style="font-family: var(--display); font-weight: 700; font-size: 1.1rem; letter-spacing: -0.01em;">VOCAÇÃO</span>
+      </a>
+      <span class="brand-tag">Presença Local</span>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <!-- Hero -->
+    <div class="hero">
+      <div class="hero-badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Passo a passo oficial • Google Maps
+      </div>
+      <h1>Como liberar o acesso da sua ficha</h1>
+      <p class="hero-sub">
+        Para estruturarmos e otimizarmos a presença da sua empresa no Google, você só precisa nos adicionar como <strong>Administrador</strong>. Leva menos de 2 minutos.
+      </p>
+    </div>
+
+    <!-- Banner de Segurança & Controle -->
+    <div class="security-banner">
+      <div class="security-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+      <div class="security-content">
+        <h4>Você continua no controle total da sua conta</h4>
+        <p>
+          O perfil da empresa continua 100% no seu nome como <strong>Proprietário Principal</strong>. O acesso de <em>Administrador</em> nos dá permissão apenas técnica para organizar fotos, atualizar horários, ajustar categorias e responder mensagens. Você pode remover nosso acesso a qualquer momento.
+        </p>
+      </div>
+    </div>
+
+    <!-- Caixa de Cópia do E-mail -->
+    <div class="email-box-card">
+      <div class="email-box-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        E-mail da Vocação para convite
+      </div>
+      <p class="email-box-desc">Copie o endereço abaixo para colar no campo de convite do Google:</p>
+      <div class="email-copy-group">
+        <div class="email-display" id="vocacaoEmail">vocacao.digital@gmail.com</div>
+        <button class="btn-copy" id="btnCopyEmail" onclick="copyEmail()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span id="btnText">Copiar E-mail</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Navegação por Abas (Computador vs Celular) -->
+    <div class="method-tabs">
+      <button class="tab-btn active" onclick="setTab('pc', this)">
+        💻 No Computador (Recomendado)
+      </button>
+      <button class="tab-btn" onclick="setTab('mobile', this)">
+        📱 No Celular (Google Maps)
+      </button>
+    </div>
+
+    <!-- CONTEÚDO: Computador -->
+    <div id="tab-pc" class="tab-pane active">
+      <div class="step-list">
+        
+        <!-- Passo 1 -->
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <h3>Abra o Google e pesquise por "meu negócio"</h3>
+            <p>
+              No navegador (Google Chrome), certifique-se de estar conectado com o mesmo <strong>e-mail do Google (Gmail)</strong> que administra a empresa. Depois, pesquise no Google: <span class="badge-google">meu negócio</span> ou digite o <strong>nome exato da sua empresa</strong>.
+            </p>
+            <div class="visual-hint">
+              <span>💡</span>
+              <span>Você verá um painel com a frase: <strong>"Seu perfil comercial no Google"</strong>.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <h3>Acesse as configurações do perfil</h3>
+            <p>
+              Ao lado do nome da empresa (no canto superior direito do painel de controle), clique no menu de <strong>três pontinhos verticais</strong> <span class="dots-menu">⋮</span> e depois em:
+            </p>
+            <div class="visual-hint">
+              <span>⚙️</span>
+              <span>Clique em: <strong>Configurações do Perfil da Empresa</strong></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <h3>Abra a opção "Pessoas e acesso"</h3>
+            <p>
+              Na janela que se abrir, clique na primeira opção: <strong>Pessoas e acesso</strong> (ou <em>Gerenciadores</em>). Em seguida, clique no botão azul <strong>Adicionar</strong> (ou no ícone <strong>+</strong>).
+            </p>
+          </div>
+        </div>
+
+        <!-- Passo 4 -->
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-info">
+            <h3>Insira o e-mail da Vocação e confirme</h3>
+            <p>
+              No campo de endereço de e-mail, cole: <strong>vocacao.digital@gmail.com</strong>.<br>
+              Em "Função" (ou nível de acesso), selecione a opção <strong>Administrador</strong>.<br>
+              Por fim, clique no botão azul <strong>Convidar</strong>.
+            </p>
+            <div class="visual-hint" style="background: #EAF4EE; border-color: #B2D8C6;">
+              <span>✅</span>
+              <span><strong>Pronto!</strong> Nós receberemos o convite automaticamente e já daremos início aos trabalhos.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CONTEÚDO: Celular -->
+    <div id="tab-mobile" class="tab-pane">
+      <div class="step-list">
+        
+        <!-- Passo 1 Celular -->
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-info">
+            <h3>Abra o aplicativo Google Maps</h3>
+            <p>
+              No seu smartphone (Android ou iPhone), abra o app <strong>Google Maps</strong>. Certifique-se de que a sua foto de perfil no canto superior direito é a da conta Google dona da empresa.
+            </p>
+          </div>
+        </div>
+
+        <!-- Passo 2 Celular -->
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-info">
+            <h3>Toque no seu Perfil da Empresa</h3>
+            <p>
+              Toque na sua <strong>foto de perfil</strong> (canto superior direito) e selecione a opção <strong>"Seu Perfil da Empresa"</strong> (ou pesquise o nome da empresa e toque em "Você administra este perfil").
+            </p>
+          </div>
+        </div>
+
+        <!-- Passo 3 Celular -->
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-info">
+            <h3>Vá nos 3 pontinhos e "Pessoas e acesso"</h3>
+            <p>
+              Toque nos <strong>três pontinhos verticais</strong> <span class="dots-menu">⋮</span> no topo da tela &gt; <strong>Configurações do Perfil da Empresa</strong> &gt; <strong>Pessoas e acesso</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Passo 4 Celular -->
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-info">
+            <h3>Adicionar novo administrador</h3>
+            <p>
+              Toque em <strong>Adicionar</strong>, digite <strong>vocacao.digital@gmail.com</strong>, escolha a função <strong>Administrador</strong> e toque em <strong>Convidar</strong>.
+            </p>
+            <div class="visual-hint" style="background: #EAF4EE; border-color: #B2D8C6;">
+              <span>✅</span>
+              <span>Finalizado! Assim que aceitarmos, confirmamos pelo WhatsApp.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Alternativa: Método de 1 Clique (Solicitação Direta pela Vocação) -->
+    <div class="direct-request-box">
+      <h3>
+        <span>⚡</span> Quer ainda mais facilidade? (Método em 1 Clique)
+      </h3>
+      <p>
+        Se preferir não navegar pelos menus, <strong>a própria Vocação pode enviar a solicitação diretamente para o seu e-mail</strong>.
+      </p>
+      <p style="color: var(--ink); font-weight: 500;">
+        Como funciona: nós solicitamos o gerenciamento aqui do nosso painel &rarr; Você recebe um e-mail oficial do Google com o assunto <em>"Vocação solicitou gerenciamento do seu perfil"</em> &rarr; Você só abre a mensagem e clica no botão azul <strong>"Aprovar"</strong>.
+      </p>
+      <p style="font-size: 0.88rem; color: var(--ink-muted); margin-bottom: 0;">
+        Se desejar esse método, basta avisar pelo WhatsApp que já enviamos o pedido para você!
+      </p>
+    </div>
+
+    <!-- O que nos enviar em seguida -->
+    <div class="assets-needed">
+      <h3>📸 O que você já pode ir separando para o perfil:</h3>
+      <p style="color: var(--ink-muted); font-size: 0.92rem;">
+        Enquanto cuidamos da parte técnica e das categorias estratégicas, você já pode nos encaminhar pelo WhatsApp os materiais que tiver disponíveis:
+      </p>
+      <div class="assets-grid">
+        <div class="asset-item">
+          <h5>🏢 Fachada e Entrada</h5>
+          <p>Fotos nítidas da frente da loja, fachada e ponto comercial de dia.</p>
+        </div>
+        <div class="asset-item">
+          <h5>🛋️ Ambiente Interno</h5>
+          <p>Fotos do espaço de atendimento, balcão, recepção ou instalações.</p>
+        </div>
+        <div class="asset-item">
+          <h5>🏷️ Produtos / Serviços</h5>
+          <p>Fotos de trabalhos realizados, prateleiras, cardápios ou tratamentos.</p>
+        </div>
+        <div class="asset-item">
+          <h5>⏰ Horários & Telefones</h5>
+          <p>Confirmação de horários de funcionamento, WhatsApp e telefone fixo.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dúvidas Frequentes -->
+    <div class="faq-section">
+      <h3 class="faq-title">Dúvidas Frequentes</h3>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>A Vocação terá controle total da minha conta do Google?</span>
+          <span>▼</span>
+        </div>
+        <div class="faq-a">
+          <strong>Não.</strong> Você continuará sendo o <em>Proprietário Principal</em>. O acesso de Administrador permite apenas gerenciar informações da ficha comercial, sem qualquer acesso aos seus e-mails pessoais, fotos particulares ou outros serviços da sua conta Google.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>E se eu não lembrar qual e-mail foi usado para criar o perfil?</span>
+          <span>▼</span>
+        </div>
+        <div class="faq-a">
+          Não se preocupe! Fale conosco pelo WhatsApp. Nós podemos localizar a ficha no Google Maps e orientar qual e-mail está associado ou fazer o processo de recuperação de propriedade junto ao Google.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Posso remover o acesso da agência depois?</span>
+          <span>▼</span>
+        </div>
+        <div class="faq-a">
+          <strong>Sim, a qualquer momento.</strong> O controle é inteiramente seu. Após concluirmos a estruturação ou ao fim do contrato, você pode revogar o acesso pelo mesmo menu com um clique.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span>Quanto tempo leva para as atualizações aparecerem no Google?</span>
+          <span>▼</span>
+        </div>
+        <div class="faq-a">
+          A maioria das alterações (fotos, horários, telefone e descrição) é aplicada entre algumas horas e 24h. Algumas edições de categorias ou endereço podem passar por uma breve revisão de segurança do Google.
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA de Ajuda no WhatsApp -->
+    <div class="cta-support">
+      <h3>Ficou com alguma dúvida no processo?</h3>
+      <p>Nossa equipe te auxilia em tempo real pelo WhatsApp para liberar o acesso em 1 minuto.</p>
+      <a href="https://wa.me/5515998150499?text=Ol%C3%A1%2C%20estou%20com%20uma%20d%C3%BAvida%20para%20liberar%20o%20acesso%20do%20Google%20Maps" class="btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.38-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.71 4.3 3.8 2.53 1.09 2.53.73 2.99.69.45-.04 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.17-.48-.29z"/></svg>
+        Falar com o Especialista no WhatsApp
+      </a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>© Vocação Comunicação & Marketing — Estrutura antes do marketing. Confiança antes do tráfego.</p>
+  </footer>
+
+  <script>
+    // Alternar Abas PC / Celular
+    function setTab(tab, btn) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      document.getElementById('tab-' + tab).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    // Copiar E-mail para Área de Transferência
+    function copyEmail() {
+      const email = document.getElementById('vocacaoEmail').innerText.trim();
+      navigator.clipboard.writeText(email).then(() => {
+        const btn = document.getElementById('btnCopyEmail');
+        const text = document.getElementById('btnText');
+        btn.classList.add('copied');
+        text.innerText = 'Copiado com Sucesso!';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          text.innerText = 'Copiar E-mail';
+        }, 3000);
+      }).catch(err => {
+        alert('E-mail: ' + email);
+      });
+    }
+  </script>
+</body>
+</html>

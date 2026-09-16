@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Autoridade Médica & Presença Digital — Dra. Thaísa Motta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-accent-soft: #fcf9eb;
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #5a625f;
+      --color-border: #e2e8e5;
+      --color-positive: #0B5E47;
+      --color-negative: #9b2335;
+      --color-opportunity: #1d4e89;
+      --color-warning: #c17f24;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 36px 16px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 42px 36px;
+      border-radius: 16px;
+      margin-bottom: 26px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      box-shadow: 0 12px 36px rgba(6, 27, 40, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, #ffdf6d 100%);
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(229, 185, 16, 0.15);
+      border: 1px solid rgba(229, 185, 16, 0.4);
+      color: var(--color-accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      font-size: 0.96rem;
+      color: #cbd5e1;
+      max-width: 660px;
+      line-height: 1.5;
+    }
+
+    .header-meta {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.84rem;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-top: 8px;
+    }
+
+    .brand-logo-text span {
+      color: var(--color-accent);
+    }
+
+    /* Manifesto */
+    .manifesto-card {
+      background: var(--color-surface);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      border-right: 1px solid var(--color-border);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+
+    .manifesto-subtext {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Pillars */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 20px;
+    }
+
+    .pillar-box {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      background: #fafcfb;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-box.critico {
+      border-color: #fecaca;
+      background: #fffafa;
+    }
+
+    .pillar-box.alerta {
+      border-color: #fed7aa;
+      background: #fffdfa;
+    }
+
+    .pillar-box.destaque {
+      border-color: #cbd5e1;
+      background: #f8fafc;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+
+    .pillar-status {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .status-vulneravel {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+    }
+
+    .status-desatualizado {
+      background: #ffedd5;
+      color: #9a3412;
+      border: 1px solid #fb923c;
+    }
+
+    .status-oportunidade {
+      background: #dbeafe;
+      color: #1e40af;
+      border: 1px solid #93c5fd;
+    }
+
+    .pillar-name {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-finding {
+      font-size: 0.88rem;
+      color: #374151;
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .pillar-impact {
+      font-size: 0.82rem;
+      color: var(--color-negative);
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .pillar-solution {
+      font-size: 0.82rem;
+      color: var(--color-positive);
+      font-weight: 600;
+      margin-top: 6px;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+    }
+
+    table.benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    table.benchmark-table th {
+      background-color: #0c2333;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    table.benchmark-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+
+    table.benchmark-table tr.lead-row td {
+      background-color: #fffdf5;
+      font-weight: 600;
+    }
+
+    .badge-market {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .market-forte { background: #dcfce7; color: #166534; }
+    .market-media { background: #fef9c3; color: #854d0e; }
+    .market-vulneravel { background: #fee2e2; color: #991b1b; }
+
+    /* ROI Box */
+    .roi-card {
+      background: linear-gradient(135deg, #fbfbf9 0%, #f4f6f4 100%);
+      border: 2px solid var(--color-accent);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(229, 185, 16, 0.08);
+    }
+
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .roi-item {
+      background: #ffffff;
+      padding: 18px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    .roi-item .num {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--color-positive);
+    }
+
+    .roi-item .desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    /* CTA Section */
+    .cta-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(6, 27, 40, 0.15);
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-desc {
+      font-size: 0.95rem;
+      color: #c9d8d5;
+      max-width: 640px;
+      margin: 0 auto 24px auto;
+    }
+
+    .cta-btn {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(229, 185, 16, 0.35);
+    }
+
+    .cta-btn:hover {
+      background-color: #ffd026;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 24px;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header class="header-card">
+      <div class="header-info">
+        <div class="badge-tag">Diagnóstico de Autoridade Médica & Presença Digital</div>
+        <h1 class="header-title">Consultório de Geriatria Dra. Thaísa Motta</h1>
+        <p class="header-subtitle">
+          Análise de posicionamento institucional, alinhamento de autoridade no Google Maps e estratégias de atração para pacientes particulares e famílias de alto padrão em Sorocaba.
+        </p>
+        <div class="header-meta">
+          <span>📍 Ed. Torre Sul, Sala 72 — Parque Campolim</span>
+          <span>🩺 CRM-SP 133.363 · SBGG · UNIFESP/EPM</span>
+        </div>
+      </div>
+      <div class="header-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="36" height="36" fill="none">
+          <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+          <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+        </svg>
+        <div class="brand-logo-text">VOCAÇÃO<span>.</span></div>
+      </div>
+    </header>
+
+    <!-- MANIFESTO -->
+    <div class="manifesto-card">
+      <div class="manifesto-quote">
+        “Sua excelência clínica e formação acadêmica pela UNIFESP são indiscutíveis. No digital, o seu consultório no Campolim precisa transmitir esse mesmo nível de sobriedade e prestígio para as famílias dos pacientes.”
+      </div>
+      <div class="manifesto-subtext">
+        Na geriatria particular, quem pesquisa e decide o agendamento quase sempre são os filhos (adultos de 40 a 60 anos, com alto poder aquisitivo no Campolim e condomínios fechados). Eles buscam segurança, clareza científica no tratamento da dor e envelhecimento ativo — e esperam encontrar um portal médico moderno, não uma página com estética dos anos 2010.
+      </div>
+    </div>
+
+    <!-- 4 PILARES DIAGNÓSTICO -->
+    <section class="section-card">
+      <h2 class="section-title">🔍 Diagnóstico Estrutural dos 4 Pilares de Presença Médica</h2>
+      <p class="section-desc">
+        Mapeamento da presença digital da Dra. Thaísa Segura da Motta Rosa no Edifício Torre Sul (Parque Campolim, Sorocaba):
+      </p>
+
+      <div class="pillars-grid">
+        
+        <!-- Pilar 01 - Site Médico -->
+        <div class="pillar-box alerta">
+          <div>
+            <div class="pillar-header">
+              <span class="pillar-num">Pilar 01 · Sede Digital</span>
+              <span class="pillar-status status-desatualizado">Estética Defasada (Anos 2010)</span>
+            </div>
+            <h3 class="pillar-name">Site Institucional em Descompasso com a Autoridade</h3>
+            <p class="pillar-finding">
+              O site atual (<code>drathaisa.com.br</code>) foi construído há mais de uma década (desenvolvimento antigo em PHP). Apresenta um layout em tons azul-bebê pastel, tipografia cursiva infantilizada e fotos genéricas de banco de imagens de idosos dando "joinha" — uma linguagem que estereotipa a velhice e enfraquece o peso científico de uma preceptora da UNIFESP especialista em dor osteoarticular.
+            </p>
+          </div>
+          <div>
+            <div class="pillar-impact">
+              Impacto: Dissonância visual entre a alta reputação médica real e a primeira impressão digital do consultório.
+            </div>
+            <div class="pillar-solution">
+              Solução Vocação: Redesign Institucional contemporâneo, focado em Longevidade Ativa, Medicina da Dor e canal ágil de contato para os familiares no WhatsApp.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 02 - Google Maps vs Doctoralia -->
+        <div class="pillar-box critico">
+          <div>
+            <div class="pillar-header">
+              <span class="pillar-num">Pilar 02 · Presença Local</span>
+              <span class="pillar-status status-vulneravel">Abismo de Prova Social</span>
+            </div>
+            <h3 class="pillar-name">Google Maps Subaproveitado (7 Reviews vs. 319 no Doctoralia)</h3>
+            <p class="pillar-finding">
+              No Doctoralia, a Dra. Thaísa possui expressivas <strong>319 opiniões positivas</strong>. Porém, no Google Maps — que é a principal ferramenta onde os filhos pesquisam <em>"geriatra campolim sorocaba"</em> pelo celular —, o consultório conta com apenas <strong>7 avaliações</strong> (nota 4.6). Quem pesquisa pelo Google não enxerga a gigantesca prova social acumulada na carreira da médica.
+            </p>
+          </div>
+          <div>
+            <div class="pillar-impact">
+              Impacto: Perda de relevância no algoritmo de busca local do Google para outros consultórios e clínicas do Campolim.
+            </div>
+            <div class="pillar-solution">
+              Solução Vocação: Estruturação ética de transposição da autoridade para o Google Maps, com protocolo de convite pós-consulta alinhado às normas do CFM.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 03 - Redes & Posicionamento -->
+        <div class="pillar-box destaque">
+          <div>
+            <div class="pillar-header">
+              <span class="pillar-num">Pilar 03 · Vitrine Institucional</span>
+              <span class="pillar-status status-oportunidade">Solenidade & Longevidade</span>
+            </div>
+            <h3 class="pillar-name">Posicionamento Ético sem Pressão de "Virar Blogueira"</h3>
+            <p class="pillar-finding">
+              Médicos renomados não precisam (e não devem) infantilizar sua prática fazendo danças ou vídeos diários para redes sociais. A geriatria de alto padrão exige sobriedade: um posicionamento focado em esclarecimento sobre polifarmácia, prevenção da osteoporose, alívio da dor e preservação da autonomia.
+            </p>
+          </div>
+          <div>
+            <div class="pillar-impact">
+              Oportunidade: Estabelecer a Dra. Thaísa como a voz médica definitiva em envelhecimento ativo e dor crônica em Sorocaba.
+            </div>
+            <div class="pillar-solution">
+              Solução Vocação: Linha editorial institucional refinada, em estrita conformidade com a Resolução CFM 2.336/2023.
+            </div>
+          </div>
+        </div>
+
+        <!-- Pilar 04 - Governança Corporativa -->
+        <div class="pillar-box alerta">
+          <div>
+            <div class="pillar-header">
+              <span class="pillar-num">Pilar 04 · Governança</span>
+              <span class="pillar-status status-desatualizado">E-mail Amador no WhatsApp</span>
+            </div>
+            <h3 class="pillar-name">Uso de @yahoo no WhatsApp Comercial</h3>
+            <p class="pillar-finding">
+              No perfil oficial do WhatsApp Business do consultório consta publicamente o e-mail <code>thaisa.motta@yahoo.com.br</code>. Embora o domínio <code>drathaisa.com.br</code> já exista, a comunicação externa ainda carrega um servidor pessoal gratuito, transmitindo improviso para secretárias, convênios e pacientes particulares de alto poder aquisitivo.
+            </p>
+          </div>
+          <div>
+            <div class="pillar-impact">
+              Impacto: Quebra da percepção de governança corporativa em um endereço nobre como o Edifício Torre Sul.
+            </div>
+            <div class="pillar-solution">
+              Solução Vocação: Configuração profissional de e-mails corporativos (<code>contato@drathaisa.com.br</code>) com hospedagem segura e blindagem DNS.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BENCHMARK LOCAL -->
+    <section class="section-card">
+      <h2 class="section-title">📊 Comparativo Regional de Autoridade Médica no Campolim</h2>
+      <p class="section-desc">
+        Como o consultório se posiciona frente aos principais polos de especialidades clínicas em Sorocaba:
+      </p>
+
+      <div class="table-container">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Especialista / Clínica</th>
+              <th>Localização</th>
+              <th>Presença Google Maps</th>
+              <th>Design do Portal</th>
+              <th>Avaliação de Autoridade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lead-row">
+              <td><strong>Dra. Thaísa Motta (Geriatria)</strong></td>
+              <td>Ed. Torre Sul (Campolim)</td>
+              <td><span class="badge-market market-vulneravel">4.6 ★ (Apenas 7)</span></td>
+              <td>⚠️ Datado (Anos 2010)</td>
+              <td><span class="badge-market market-media">Alta Clínica / Fraca Digital</span></td>
+            </tr>
+            <tr>
+              <td>Clínicas Médicas Integradas Campolim</td>
+              <td>Av. Antônio Carlos Comitre</td>
+              <td>✅ 4.8 ★ (80 a 150 avaliações)</td>
+              <td>✅ Moderno e Responsivo</td>
+              <td><span class="badge-market market-forte">Forte</span></td>
+            </tr>
+            <tr>
+              <td>Geriatras e Clínicos Zona Sul / Centro</td>
+              <td>Sorocaba / Votorantim</td>
+              <td>✅ 4.7 ★ (30 a 60 avaliações)</td>
+              <td>⚠️ Landing page padrão</td>
+              <td><span class="badge-market market-media">Média</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 12px;">
+        💡 <em>Diferencial Competitivo: A Dra. Thaísa possui formação superior à grande maioria dos concorrentes (UNIFESP + SBGG + Dor). Bastará modernizar o site e destravar as avaliações no Google Maps para que ela se torne a referência isolada de geriatria no Campolim.</em>
+      </p>
+    </section>
+
+    <!-- ROI -->
+    <div class="roi-card">
+      <h3 class="roi-title">💰 A Matemática do Retorno em Consultório Médico Particular</h3>
+      <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 16px;">
+        Diferente de especialidades cirúrgicas pontuais, a geriatria é uma medicina de <strong>acompanhamento contínuo e alto LTV (Life Time Value)</strong>. A família que encontra segurança no profissional mantém o acompanhamento por anos:
+      </p>
+
+      <div class="roi-grid">
+        <div class="roi-item">
+          <div class="num">R$ 600 a R$ 900</div>
+          <div class="desc">Valor médio de uma consulta geriátrica ampla inicial particular no Campolim.</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">R$ 3.500 / ano</div>
+          <div class="desc">LTV estimado de um paciente particular acompanhado com retornos e exames periódicos.</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">1 Único Paciente</div>
+          <div class="desc">Basta um único novo paciente particular conquistado na região para pagar com folga toda a infraestrutura digital.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.86rem; color: var(--color-positive); font-weight: 600;">
+        Conclusão: Manter um site datado de 2014 e 7 avaliações no Maps custa muito mais caro em pacientes particulares não captados do que o investimento de modernização da Vocação.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3 class="cta-title">Vamos elevar a presença digital do consultório ao padrão UNIFESP?</h3>
+      <p class="cta-desc">
+        A Vocação Comunicação & Marketing estrutura a presença de médicos e clínicas de alto valor, unindo sobriedade institucional, conformidade com o CFM e captura qualificada de pacientes particulares.
+      </p>
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20do%20consult%C3%B3rio%20da%20Dra.%20Tha%C3%ADsa%20Motta%20e%20gostaria%20de%20conversar%20sobre%20a%20estrutura%20digital." class="cta-btn" target="_blank">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+        Falar com a Equipe Vocação no WhatsApp
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Diagnóstico Estrutural de Autoridade Médica realizado pela Vocação Comunicação & Marketing • Sorocaba - SP • vocacao.digital
+    </div>
+
+  </div>
+</body>
+</html>

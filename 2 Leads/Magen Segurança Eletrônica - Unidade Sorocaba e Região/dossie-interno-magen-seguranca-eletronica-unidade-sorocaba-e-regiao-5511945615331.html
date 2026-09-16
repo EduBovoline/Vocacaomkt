@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — Magen Segurança Eletrônica - Unidade Sorocaba e Região</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .lead-desc { color: var(--text-dim); font-size: 0.92rem; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .data-value { font-size: 0.88rem; font-weight: 600; color: var(--text-white); word-break: break-all; }
+    .data-value a { color: var(--accent); text-decoration: none; }
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .flaws-list { display: flex; flex-direction: column; gap: 12px; }
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .flaw-title { font-size: 0.92rem; font-weight: 700; color: #ff8585; font-family: var(--font-display); }
+    .flaw-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .roi-desc { font-size: 0.88rem; color: var(--text-white); line-height: 1.6; }
+    .offer-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .offer-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Nível: Tier 2</span>
+      </div>
+      <h1 class="lead-name">Magen Segurança Eletrônica - Unidade Sorocaba e Região</h1>
+      <p class="lead-desc">Segurança Eletrônica, CFTV & Controle de Acesso — Rua Elizei Neves, Horto Florestal Villagio, Sorocaba/SP</p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp / Telefone</span>
+          <div class="data-value"><a href="https://wa.me/5511945615331" target="_blank">(11) 94561-5331</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram</span>
+          <div class="data-value"><a href="https://instagram.com/magen.seg" target="_blank">@magen.seg</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Site / Domínio</span>
+          <div class="data-value"><a href="https://magenseg.com/" target="_blank">https://magenseg.com/</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Status do Site</span>
+          <div class="data-value">Ativo, porém datado (GoDaddy Builder 2024 / Defasado em relação a referências modernas)</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+    <div class="flaw-item">
+      <div class="flaw-title">1. Site GoDaddy Datado de 2024 e Visual Ultrapassado</div>
+      <div class="flaw-desc">O site em magenseg.com estampa explicitamente o copyright de 2024 gerado pelo GoDaddy Builder. A interface não possui hierarquia visual moderna, as imagens da galeria têm legendas informais ('01/15 Plugada na rede!') e a tipografia em blocos brancos e azuis planos denota projeto abandonado ou feito sem design profissional.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">2. Defasagem Estética Direta em Relação aos Benchmarks Atuais</div>
+      <div class="flaw-desc">Enquanto soluções modernas desenvolvidas pela Vocação como Safety First (https://safetyfirst-vocacao.vercel.app/) trazem atmosfera dark de engenharia, tipografia de alta precisão (Space Grotesk + Manrope) e velocidade instantânea, e Maçã d'Amor (https://ma-a-d-amor.vercel.app/) entrega microinterações fluidas, o site da Magen parece uma página amadora do início da década passada.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">3. Ficha do Google Maps em Sorocaba sem Tracionamento Local</div>
+      <div class="flaw-desc">A unidade cadastrada no Horto Florestal Villagio (Rua Elizei Neves) tem baixa visibilidade orgânica. Não há volume de avaliações positivas de condomínios da região para sustentar autoridade perante novos síndicos que pesquisam no Google Maps.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">4. Inexistência de Funil Consultivo e Segmentação de Orçamento</div>
+      <div class="flaw-desc">O cliente que entra no site não encontra cálculo de pontos de CFTV, checklist de segurança para condomínios ou botão segmentado. Todo o peso do atendimento cai em um WhatsApp genérico, sem qualificação prévia do porte da demanda.</div>
+    </div>
+  
+      </div>
+      <div class="roi-box">
+        <div class="roi-title">Matemática Comercial de Retorno (ROI) para Segurança Eletrônica</div>
+        <div class="roi-desc">O ticket de uma instalação padrão de CFTV e controle de acesso para condomínio ou empresa em Sorocaba varia entre R$ 8.000 e R$ 45.000, além dos contratos mensais de monitoramento (R$ 600 a R$ 2.500/mês). Um ÚNICO contrato adicional fechado por conta da credibilidade renovada do site e da ficha do Google paga de 5x a 10x todo o investimento do Vocação Update.</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Pilar Principal: Vocação Update (Modernização Expressa)</strong></td>
+      <td>Migração completa da estrutura de magenseg.com para uma interface moderna de alta performance (inspirada no benchmark Safety First), com carregamento instantâneo, design dark corporativo e funil para WhatsApp em até 5 dias úteis sem tirar a equipe da rotina.</td>
+      <td class="offer-price">R$ 1.450 a R$ 1.850 (Taxa única / Entrega em 5 dias)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Pilar Aceleração: Estruturação & SEO Local no Google Maps</strong></td>
+      <td>Otimização completa da ficha da Unidade Sorocaba (Horto Florestal): categorização técnica, fotos geolocalizadas de projetos, catálogo de serviços e estratégia de avaliações 5 estrelas para captura de buscas ativas de síndicos e gestores.</td>
+      <td class="offer-price">R$ 450 (Taxa única / 7 dias)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Combo Estratégico: Blindagem Digital Magen (Update + Maps)</strong></td>
+      <td>Entrega integrada do novo site corporativo de alta conversão + perfil no Google Maps posicionado na região de Sorocaba para dominar as buscas locais.</td>
+      <td class="offer-price">R$ 1.800 a R$ 2.100 (Condição Estratégica Fechada)</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e sem Bajulação)</h2>
+      
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 1: Abordagem Direta WhatsApp — Foco em Vocação Update (Sem Bajulação)</span>
+        <button class="copy-btn" onclick="copyText('script-wa-magen')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-wa-magen">Olá, tudo bem? Aqui é o Edu da Vocação Comunicação & Marketing em Sorocaba.
+
+Estava analisando a presença da Magen na região de Sorocaba e vi que vocês estão com a unidade registrada aqui no Horto Florestal, além da operação em SP.
+
+Fizemos um diagnóstico técnico do site de vocês (magenseg.com) e identificamos um ponto crítico: o site atual está em um construtor básico do GoDaddy datado de 2024, sem funil segmentado para condomínios e indústrias, e visualmente defasado em relação ao nível de engenharia que vocês entregam em campo.
+
+Nós criamos uma solução chamada Vocação Update (vocacao.digital/vocacao-update): pegamos toda a base que vocês já têm no site atual e entregamos uma versão corporativa nova, ultrarrápida e alinhada ao que há de mais moderno em segurança patrimonial — exatamente como estruturamos no projeto Safety First (safetyfirst-vocacao.vercel.app).
+
+Montamos um relatório executivo de 1 página comparando o site atual com as oportunidades para Sorocaba e região. Posso enviar o PDF aqui para vocês avaliarem?</div>
+      <a href="https://wa.me/5511945615331?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20o%20Edu%20da%20Voca%C3%A7%C3%A3o%20Comunica%C3%A7%C3%A3o%20%26%20Marketing%20em%20Sorocaba.%0A%0AEstava%20analisando%20a%20presen%C3%A7a%20da%20Magen%20na%20regi%C3%A3o%20de%20Sorocaba%20e%20vi%20que%20voc%C3%AAs%20est%C3%A3o%20com%20a%20unidade%20registrada%20aqui%20no%20Horto%20Florestal%2C%20al%C3%A9m%20da%20opera%C3%A7%C3%A3o%20em%20SP.%0A%0AFizemos%20um%20diagn%C3%B3stico%20t%C3%A9cnico%20do%20site%20de%20voc%C3%AAs%20(magenseg.com)%20e%20identificamos%20um%20ponto%20cr%C3%ADtico%3A%20o%20site%20atual%20est%C3%A1%20em%20um%20construtor%20b%C3%A1sico%20do%20GoDaddy%20datado%20de%202024%2C%20sem%20funil%20segmentado%20para%20condom%C3%ADnios%20e%20ind%C3%BAstrias%2C%20e%20visualmente%20defasado%20em%20rela%C3%A7%C3%A3o%20ao%20n%C3%ADvel%20de%20engenharia%20que%20voc%C3%AAs%20entregam%20em%20campo.%0A%0AN%C3%B3s%20criamos%20uma%20solu%C3%A7%C3%A3o%20chamada%20Voca%C3%A7%C3%A3o%20Update%20(vocacao.digital%2Fvocacao-update)%3A%20pegamos%20toda%20a%20base%20que%20voc%C3%AAs%20j%C3%A1%20t%C3%AAm%20no%20site%20atual%20e%20entregamos%20uma%20vers%C3%A3o%20corporativa%20nova%2C%20ultrarr%C3%A1pida%20e%20alinhada%20ao%20que%20h%C3%A1%20de%20mais%20moderno%20em%20seguran%C3%A7a%20patrimonial%20%E2%80%94%20exatamente%20como%20estruturamos%20no%20projeto%20Safety%20First%20(safetyfirst-vocacao.vercel.app).%0A%0AMontamos%20um%20relat%C3%B3rio%20executivo%20de%201%20p%C3%A1gina%20comparando%20o%20site%20atual%20com%20as%20oportunidades%20para%20Sorocaba%20e%20regi%C3%A3o.%20Posso%20enviar%20o%20PDF%20aqui%20para%20voc%C3%AAs%20avaliarem%3F" class="btn-wa-direct" target="_blank">Abrir WhatsApp Direct</a>
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 2: Abordagem Instagram Direct (@magen.seg)</span>
+        <button class="copy-btn" onclick="copyText('script-ig-magen')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-ig-magen">Fala pessoal da Magen, tudo bem? Acompanho a expansão de vocês aqui na região de Sorocaba.
+
+Notamos que o site oficial de vocês (magenseg.com) ainda está rodando no formato antigo de 2024 do GoDaddy, o que causa um contraste grande com a tecnologia de CFTV e automação que vocês instalam no dia a dia.
+
+Desenvolvemos recentemente a modernização da Safety First (safetyfirst-vocacao.vercel.app) através do nosso modelo Vocação Update (vocacao.digital/vocacao-update), que atualiza sites corporativos em 5 dias sem burocracia.
+
+Geramos um diagnóstico técnico da presença da Magen em Sorocaba. Onde fica melhor enviar o PDF para vocês darem uma olhada, aqui pelo Direct ou no WhatsApp da diretoria?</div>
+      
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 3: Roteiro de Áudio Consultivo (60 a 90 segundos)</span>
+        <button class="copy-btn" onclick="copyText('script-audio-magen')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-audio-magen">"Fala pessoal da Magen, aqui é o Edu da Vocação em Sorocaba. Tô passando uma mensagem rápida porque vi a expansão da unidade de vocês aqui perto do Horto Florestal e dei uma olhada no site magenseg.com. Cara, sendo bem direto e técnico: vocês trabalham com equipamentos de ponta, mas o site de vocês ainda tá naquele construtor antigo do GoDaddy de 2024. Hoje, o síndico ou diretor de empresa que busca segurança quer ver uma interface tecnológica rápida, com calculadora ou formulário consultivo na hora, no nível do que a gente fez na Safety First (safetyfirst-vocacao.vercel.app). Nós criamos o Vocação Update exatamente pra isso: em 5 dias a gente resgata o conteúdo de vocês e entrega o site no padrão de 2026, pronto pra converter pro WhatsApp. Preparei um relatório técnico em PDF de 1 página com esses pontos. Vou te mandar o arquivo aqui pra você ver sem compromisso, beleza? Um abraço!"</div>
+      
+    </div>
+  
+    </section>
+  </div>
+</body>
+</html>

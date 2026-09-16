@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Comercial Interno — Clinic Odonto (Sorocaba)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-bg: #0e1417;
+      --color-surface: #161f24;
+      --color-surface-card: #1c272e;
+      --color-border: #293842;
+      --color-text: #e2e8f0;
+      --color-text-muted: #94a3b8;
+      --color-positive: #10b981;
+      --color-negative: #ef4444;
+      --color-warning: #f59e0b;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      background: rgba(229, 185, 16, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header-meta {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .info-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .info-sub {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    /* Important Warning Box */
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-left: 4px solid var(--color-warning);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+    }
+
+    .warning-title {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--color-warning);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .warning-text {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+
+    /* Sections */
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 26px 30px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-surface-card);
+    }
+
+    .tech-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .badge-alert {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--color-negative);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .badge-opp {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--color-positive);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* Strategy Cards */
+    .strategy-card {
+      background: var(--color-surface-card);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+    }
+
+    .strategy-title {
+      font-weight: 700;
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .strategy-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    /* Scripts */
+    .script-box {
+      background: #090d0f;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 14px;
+      position: relative;
+    }
+
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1c272e;
+    }
+
+    .script-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .script-text {
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      line-height: 1.6;
+      white-space: pre-line;
+      font-style: italic;
+    }
+
+    .btn-copy {
+      background: var(--color-surface-card);
+      color: #ffffff;
+      border: 1px solid var(--color-border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+    }
+
+    .btn-copy:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header class="header-card">
+      <div>
+        <span class="header-tag">Uso Interno Exclusivo · Vocação Comunicação & Marketing</span>
+        <h1 class="header-title">Dossiê Estratégico: Clinic Odonto</h1>
+        <div class="header-meta">Lead Regional Sorocaba · Clínica Odontológica Particular (11+ Anos)</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-positive); font-weight: 700;">PRIORIDADE: ALTA</span>
+        <div style="font-size: 0.8rem; color: var(--color-text-muted);">Entrada Rápida: Pilar 02 (R$ 450)</div>
+      </div>
+    </header>
+
+    <!-- ALERTA COMERCIAL CRÍTICO -->
+    <div class="warning-box">
+      <div class="warning-title">⚠️ DIRETRIZ CRUCIAL DA EQUIPE COMERCIAL: NÃO CONFUNDIR COM ODONTOCLINIC</div>
+      <div class="warning-text">
+        <strong>Atenção máxima:</strong> A <em>Clinic Odonto</em> (Jd. Maria do Carmo / Jd. Abaeté) <strong>não tem relação alguma com a franquia comercial Odontoclinic do Centro de Sorocaba</strong>. Trata-se de uma clínica particular estabelecida desde 2015 pela Dra. Elza Peres Nunes. Este é o nosso maior trunfo de abordagem: mostrar que a falta de presença própria faz a clínica particular ser confundida com franquias de convênio do centro ou perder pacientes que pesquisam o nome dela no Google!
+      </div>
+    </div>
+
+    <!-- INFO CARDS -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">WhatsApp Comercial</div>
+        <div class="info-value">(15) 98835-3333</div>
+        <div class="info-sub">Canal oficial de atendimento</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Sede Própria / Endereço</div>
+        <div class="info-value">Jd. Maria do Carmo / Abaeté</div>
+        <div class="info-sub">R. Joaquim Ferreira Barbosa, 345 - Sorocaba</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Sócia / Responsável</div>
+        <div class="info-value">Dra. Elza Peres Nunes</div>
+        <div class="info-sub">Fundação: Março/2015 (11 anos)</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Status Google Maps</div>
+        <div class="info-value" style="color: var(--color-negative);">Não Reivindicado</div>
+        <div class="info-sub">Apenas 3 avaliações públicas</div>
+      </div>
+    </div>
+
+    <!-- DIAGNÓSTICO TÉCNICO CRU -->
+    <section class="section-card">
+      <h2 class="section-title">🛑 Diagnóstico Técnico Cru (Gargalos Reais)</h2>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <span class="badge-alert">RISCO GRAVE</span>
+          <div>
+            <strong>Perfil no Google Maps Não Reivindicado:</strong> O botão "Reivindicar esta empresa" está público. Qualquer usuário ou concorrente pode propor alterações maliciosas de horário, telefone ou localização. Sem a propriedade confirmada, o Google rebaixa o ranqueamento local.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-alert">PROVA SOCIAL NULA</span>
+          <div>
+            <strong>Apenas 3 avaliações em 11 anos de consultório:</strong> Uma clínica com mais de uma década de história certamente já atendeu milhares de pacientes. Essa autoridade está 100% invisível online porque nunca houve um processo de coleta de avaliações 5 estrelas.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-alert">INVISIBILIDADE</span>
+          <div>
+            <strong>Sem site próprio (.com.br):</strong> O perfil do Google não possui link de site. Pacientes que buscam por tratamentos de ticket mais elevado (implantes, próteses, alinhadores) não encontram informações sobre a equipe, estrutura e diferenciais técnicos.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-alert">SEM IMAGENS DO CONSULTÓRIO</span>
+          <div>
+            <strong>Apenas 1 foto de rua do Street View:</strong> Não há fotos dos consultórios odontológicos, dos equipamentos modernos, da autoclave/esterilização ou da recepção. Na área da saúde, higiene visual e modernidade são pré-requisitos para fechar orçamentos de valor.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-opp">OPORTUNIDADE</span>
+          <div>
+            <strong>Posição Estratégica na Zona Norte:</strong> Localizada em prédio de esquina imponente no Jardim Maria do Carmo / Jardim Abaeté. Uma simples organização do Google Maps e um site direto para WhatsApp colocam a Clinic Odonto no topo das buscas da região.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PLANO DE OFERTAS VOCAÇÃO -->
+    <section class="section-card">
+      <h2 class="section-title">🎯 Esteira de Ofertas & Estratégia Comercial</h2>
+      
+      <div class="strategy-card">
+        <div class="strategy-title">1. Oferta de Entrada Imediata: Pilar 02 — Presença Local (R$ 450 - Entrega em 7 dias)</div>
+        <div class="strategy-desc">
+          Reivindicar a titularidade da ficha no Google Meu Negócio, incluir categorias precisas ("Clínica Odontológica", "Dentista", "Implantodontista"), subir fotos profissionais e iluminadas dos consultórios e recepção, e ativar o script de solicitação de avaliações para pacientes antigos. ROI imediato com risco zero.
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-title">2. Projeto Principal: Pilar 01 (Site Odontológico) + Pilar 04 (Domínio Próprio)</div>
+        <div class="strategy-desc">
+          Criação de site institucional sóbrio e humanizado com foco em conversão no WhatsApp. Blindagem com domínio oficial (ex: <code>clinicodontosorocaba.com.br</code>) e e-mail profissional, separando categoricamente a clínica de qualquer franquia popular.
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-title">3. Aceleração Recorrente: Tráfego Pago no Google Ads (Busca Ativa)</div>
+        <div class="strategy-desc">
+          Campanhas no Google Ads para moradores da Zona Norte buscando "dentista sorocaba maria do carmo", "implante dentario zona norte sorocaba" e "protese dentaria sorocaba", captando apenas pacientes particulares decididos.
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS DE ABORDAGEM -->
+    <section class="section-card">
+      <h2 class="section-title">💬 Scripts de Abordagem WhatsApp (Sem Jargão)</h2>
+      <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 12px;">
+        Alinhados com a premissa de abertura da Vocação: <em>"Eu estava mapeando empresas do seu setor aqui na região..."</em>
+      </p>
+
+      <!-- Opção A: Foco na Dra. Elza / Direção -->
+      <div class="script-box">
+        <div class="script-header">
+          <span class="script-tag">OPÇÃO A · ALERTA AMIGÁVEL SOBRE MAPS & CONFUSÃO DE MARCA (RECOMENDADA)</span>
+          <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_a').innerText); alert('Script copiado!');">Copiar</button>
+        </div>
+        <div class="script-text" id="script_a">Olá, Dra. Elza! Tudo bem?
+
+Eu estava mapeando clínicas e consultórios aqui na região de Sorocaba e encontrei a Clinic Odonto na Joaquim Ferreira Barbosa.
+
+Te mandei uma mensagem rápida porque reparei num detalhe importante no perfil de vocês no Google Maps: a ficha da clínica ainda está com aquele botão público de "Reivindicar esta empresa".
+
+Isso acontece quando a propriedade ainda não foi verificada oficialmente pelo proprietário. Além de deixar a página desprotegida, faz o Google esconder o consultório nas buscas locais e gera o risco de pacientes confundirem a clínica de vocês com redes do centro, como a Odontoclinic.
+
+A gente trabalha organizando a presença de clínicas aqui em Sorocaba. Se você quiser que a gente te ajude a verificar o perfil oficial, colocar fotos bonitas do consultório e ativar avaliações dos seus pacientes, me dá um toque por aqui!</div>
+      </div>
+
+      <!-- Opção B: Para Secretária / Recepção -->
+      <div class="script-box" style="margin-top: 18px;">
+        <div class="script-header">
+          <span class="script-tag">OPÇÃO B · CONSULTIVA PARA A RECEPÇÃO / FILTRO</span>
+          <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_b').innerText); alert('Script copiado!');">Copiar</button>
+        </div>
+        <div class="script-text" id="script_b">Boa tarde! Tudo bem?
+
+Estava mapeando estabelecimentos da área da saúde aqui em Sorocaba e vi o consultório da Clinic Odonto no Jardim Maria do Carmo.
+
+Queria só dar um toque importante para a Dra. Elza ou para a coordenação da clínica: a ficha de vocês no Google Maps ainda não foi verificada pelo proprietário (aparece aquele botão de "Reivindicar empresa") e tá sem o site oficial cadastrado.
+
+Isso faz a clínica perder muitas consultas de novos pacientes que procuram dentista no bairro todos os dias no Google.
+
+A gente ajuda consultórios aqui da cidade a resolver isso rápido em 7 dias. Você poderia encaminhar esse recado para a doutora ou para quem cuida dessa parte aí? Se ela quiser ver como funciona, é só me chamar por aqui.</div>
+      </div>
+
+    </section>
+
+  </div>
+</body>
+</html>

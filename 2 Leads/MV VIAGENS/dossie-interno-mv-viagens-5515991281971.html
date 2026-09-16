@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — MV VIAGENS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .lead-desc { color: var(--text-dim); font-size: 0.92rem; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .data-value { font-size: 0.88rem; font-weight: 600; color: var(--text-white); word-break: break-all; }
+    .data-value a { color: var(--accent); text-decoration: none; }
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .flaws-list { display: flex; flex-direction: column; gap: 12px; }
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .flaw-title { font-size: 0.92rem; font-weight: 700; color: #ff8585; font-family: var(--font-display); }
+    .flaw-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .roi-desc { font-size: 0.88rem; color: var(--text-white); line-height: 1.6; }
+    .offer-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .offer-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Nível: Tier 2</span>
+      </div>
+      <h1 class="lead-name">MV VIAGENS</h1>
+      <p class="lead-desc">Agência de Viagens, Fretamento & Excursões — Rua Laurival Antunes, 16, Jardim Paulista, Sorocaba/SP</p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp / Telefone</span>
+          <div class="data-value"><a href="https://wa.me/5515991281971" target="_blank">(15) 99128-1971</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram</span>
+          <div class="data-value"><a href="https://instagram.com/mvviagens.sorocaba" target="_blank">@mvviagens.sorocaba</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Site / Domínio</span>
+          <div class="data-value">Não possui</div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Status do Site</span>
+          <div class="data-value">Ausente (Empresa formal CNPJ 48.744.901 sem site institucional)</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+    <div class="flaw-item">
+      <div class="flaw-title">1. Empresa formal sem site próprio de pacotes</div>
+      <div class="flaw-desc">A agência possui CNPJ ativo desde 2022 mas não tem portal institucional, gerando desconfiança de clientes novos.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">2. Dependência de PDFs e conversas manuais no WhatsApp</div>
+      <div class="flaw-desc">Passageiros não têm um link bonito para compartilhar com amigos e família para montar grupos de viagem.</div>
+    </div>
+  
+      </div>
+      <div class="roi-box">
+        <div class="roi-title">Matemática Comercial de Retorno (ROI)</div>
+        <div class="roi-desc">Em turismo de excursão e fretamento, a margem de 1 único grupo fechado (10 a 20 assentos ou um pacote familiar de resort) varia de R$ 2.500 a R$ 6.000 de lucro, pagando todo o desenvolvimento do site oficial e gerando ativo permanente de vendas.</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Pilar 01: Site / Vitrine Oficial de Viagens e Excursões</strong></td>
+      <td>Portal moderno com agenda de próximas saídas, roteiros detalhados, galeria de fotos de viagens anteriores, depoimentos e botão de reserva no WhatsApp.</td>
+      <td class="offer-price">R$ 1.450 a R$ 1.850 (Taxa única)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Pilar 02: Presença & Autoridade no Google Maps</strong></td>
+      <td>Estruturação da ficha da agência com foco em termos de busca ('agência de viagens sorocaba', 'excursão rodoviária sorocaba') e automação de avaliações de passageiros.</td>
+      <td class="offer-price">R$ 450 (Taxa única / 7 dias)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Combo Decolagem Turismo (Site + Maps)</strong></td>
+      <td>Solução completa de autoridade comercial para colocar a agência no mesmo patamar estético de grandes operadoras.</td>
+      <td class="offer-price">R$ 1.800 a R$ 2.100 (Condição Fechada)</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e sem Bajulação)</h2>
+      
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 1: Abordagem WhatsApp Direta — MV Viagens (Sem Bajulação)</span>
+        <button class="copy-btn" onclick="copyText('script-wa-mv')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-wa-mv">Olá, tudo bem? Aqui é o Edu da Vocação Comunicação & Marketing em Sorocaba.
+
+Estava analisando agências de turismo e fretamento aqui de Sorocaba e localizei a ficha da MV Viagens no Jardim Paulista.
+
+Identifiquei um ponto crítico comercial: vocês têm CNPJ registrado desde 2022, mas ainda não possuem um site oficial com a agenda de viagens e roteiros cadastrados. Hoje, com o excesso de golpes na internet, as famílias desconfiam de comprar pacotes quando não encontram um portal oficial com fotos dos grupos e contrato claro.
+
+Nós desenvolvemos vitrines digitais para agências de turismo que aumentam em mais de 70% o fechamento de assentos, além de organizar a ficha no Google Maps para atrair clientes de toda Sorocaba.
+
+Fiz um diagnóstico executivo de 1 página sobre a MV Viagens. Posso enviar o PDF aqui para vocês avaliarem?</div>
+      <a href="https://wa.me/5515991281971?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20o%20Edu%20da%20Voca%C3%A7%C3%A3o%20Comunica%C3%A7%C3%A3o%20%26%20Marketing%20em%20Sorocaba.%0A%0AEstava%20analisando%20ag%C3%AAncias%20de%20turismo%20e%20fretamento%20aqui%20de%20Sorocaba%20e%20localizei%20a%20ficha%20da%20MV%20Viagens%20no%20Jardim%20Paulista.%0A%0AIdentifiquei%20um%20ponto%20cr%C3%ADtico%20comercial%3A%20voc%C3%AAs%20t%C3%AAm%20CNPJ%20registrado%20desde%202022%2C%20mas%20ainda%20n%C3%A3o%20possuem%20um%20site%20oficial%20com%20a%20agenda%20de%20viagens%20e%20roteiros%20cadastrados.%20Hoje%2C%20com%20o%20excesso%20de%20golpes%20na%20internet%2C%20as%20fam%C3%ADlias%20desconfiam%20de%20comprar%20pacotes%20quando%20n%C3%A3o%20encontram%20um%20portal%20oficial%20com%20fotos%20dos%20grupos%20e%20contrato%20claro.%0A%0AN%C3%B3s%20desenvolvemos%20vitrines%20digitais%20para%20ag%C3%AAncias%20de%20turismo%20que%20aumentam%20em%20mais%20de%2070%25%20o%20fechamento%20de%20assentos%2C%20al%C3%A9m%20de%20organizar%20a%20ficha%20no%20Google%20Maps%20para%20atrair%20clientes%20de%20toda%20Sorocaba.%0A%0AFiz%20um%20diagn%C3%B3stico%20executivo%20de%201%20p%C3%A1gina%20sobre%20a%20MV%20Viagens.%20Posso%20enviar%20o%20PDF%20aqui%20para%20voc%C3%AAs%20avaliarem%3F" class="btn-wa-direct" target="_blank">Abrir WhatsApp Direct</a>
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 2: Abordagem Instagram Direct</span>
+        <button class="copy-btn" onclick="copyText('script-ig-mv')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-ig-mv">Fala pessoal da MV Viagens, tudo bem? Acompanho o trabalho de vocês com excursões e viagens aqui em Sorocaba.
+
+Notamos que vocês ainda não têm um site oficial com a agenda de viagens e roteiros detalhados, concentrando tudo em mensagens soltas. Ter um portal próprio com o CNPJ exposto e itinerários das próximas saídas acelera o fechamento de famílias e grupos corporativos.
+
+Montamos um diagnóstico rápido com oportunidades de presença digital para a MV Viagens. Querem que eu mande o PDF de 1 página por aqui ou preferem no WhatsApp?</div>
+      
+    </div>
+  
+    </section>
+  </div>
+</body>
+</html>

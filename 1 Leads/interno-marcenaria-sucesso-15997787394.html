@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Comercial Interno — Marcenaria Sucesso (Sorocaba)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-bg: #0e1417;
+      --color-surface: #161f24;
+      --color-surface-card: #1c272e;
+      --color-border: #293842;
+      --color-text: #e2e8f0;
+      --color-text-muted: #94a3b8;
+      --color-positive: #10b981;
+      --color-negative: #ef4444;
+      --color-warning: #f59e0b;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .header-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      background: rgba(229, 185, 16, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .header-meta {
+      color: var(--color-text-muted);
+      font-size: 0.88rem;
+    }
+
+    /* Info Grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .info-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+
+    .info-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .info-sub {
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    /* Sections */
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 26px 30px;
+      margin-bottom: 24px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tech-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--color-surface-card);
+    }
+
+    .tech-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .badge-alert {
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--color-negative);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .badge-opp {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--color-positive);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    /* Strategy Cards */
+    .strategy-card {
+      background: var(--color-surface-card);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 14px;
+    }
+
+    .strategy-title {
+      font-weight: 700;
+      color: var(--color-accent);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .strategy-desc {
+      font-size: 0.88rem;
+      color: #cbd5e1;
+    }
+
+    /* Scripts */
+    .script-box {
+      background: #090d0f;
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 14px;
+      position: relative;
+    }
+
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1c272e;
+    }
+
+    .script-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-accent);
+      font-weight: 600;
+    }
+
+    .script-text {
+      font-size: 0.9rem;
+      color: #f1f5f9;
+      line-height: 1.6;
+      white-space: pre-line;
+      font-style: italic;
+    }
+
+    .btn-copy {
+      background: var(--color-surface-card);
+      color: #ffffff;
+      border: 1px solid var(--color-border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: var(--font-mono);
+    }
+
+    .btn-copy:hover {
+      background: var(--color-accent);
+      color: var(--color-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header class="header-card">
+      <div>
+        <span class="header-tag">Uso Interno Exclusivo · Vocação Comunicação & Marketing</span>
+        <h1 class="header-title">Dossiê Estratégico: Marcenaria Sucesso</h1>
+        <div class="header-meta">Lead Regional Sorocaba · Móveis Planejados Sob Medida</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-positive); font-weight: 700;">PRIORIDADE: ALTA</span>
+        <div style="font-size: 0.8rem; color: var(--color-text-muted);">Entrada Rápida: Pilar 02 (R$ 450)</div>
+      </div>
+    </header>
+
+    <!-- INFO CARDS -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-label">WhatsApp Comercial</div>
+        <div class="info-value">(15) 99778-7394</div>
+        <div class="info-sub">Contato direto do marceneiro/proprietário</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Localização da Fábrica</div>
+        <div class="info-value">Jd. Hungares / V. Mineirão</div>
+        <div class="info-sub">R. Firmino Mineli, 259 - Sorocaba/SP</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Ticket Médio Estimado</div>
+        <div class="info-value">R$ 15k a R$ 40k</div>
+        <div class="info-sub">Ambientes residenciais planejados</div>
+      </div>
+      <div class="info-card">
+        <div class="info-label">Status Google Maps</div>
+        <div class="info-value" style="color: var(--color-negative);">Não Reivindicado</div>
+        <div class="info-sub">Vulnerabilidade grave de segurança</div>
+      </div>
+    </div>
+
+    <!-- DIAGNÓSTICO TÉCNICO CRU -->
+    <section class="section-card">
+      <h2 class="section-title">🛑 Diagnóstico Técnico Cru (Gargalos Reais)</h2>
+      <ul class="tech-list">
+        <li class="tech-item">
+          <span class="badge-alert">RISCO GRAVE</span>
+          <div>
+            <strong>Perfil no Google Maps sem verificação de propriedade:</strong> O link do perfil exibe o botão <em>"Reivindicar esta empresa"</em>. Qualquer concorrente pode tentar solicitar o controle do perfil ou sugerir mudanças cadastrais prejudiciais.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-alert">INVISÍVEL</span>
+          <div>
+            <strong>Sem site ou catálogo na internet:</strong> O campo de website no Google está em branco. Quem busca pela empresa no celular não encontra catálogo ou fotos de qualidade.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-alert">AMADORISMO</span>
+          <div>
+            <strong>Fotos desqualificadas no perfil público:</strong> Há apenas uma foto de celular mostrando uma cozinha modesta com geladeira cheia de ímãs. Isso desvaloriza a percepção de marcenaria de fino acabamento para clientes de classe média/alta.
+          </div>
+        </li>
+        <li class="tech-item">
+          <span class="badge-opp">OPORTUNIDADE</span>
+          <div>
+            <strong>Falta de concorrência forte no bairro imediato:</strong> Se reivindicada e otimizada com a categoria correta ("Marcenaria", "Loja de Móveis Planejados") e avaliações 5 estrelas, a oficina domina facilmente as buscas na Zona Norte de Sorocaba.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- PLANO DE OFERTAS VOCAÇÃO -->
+    <section class="section-card">
+      <h2 class="section-title">🎯 Esteira de Ofertas & Estratégia Comercial</h2>
+      
+      <div class="strategy-card">
+        <div class="strategy-title">1. Oferta de Entrada Imediata: Pilar 02 — Presença Local (R$ 450 - Entrega em 7 dias)</div>
+        <div class="strategy-desc">
+          Reivindicar a propriedade no Google Meu Negócio, passar pelo processo de verificação com selo, categorizar corretamente ("Marcenaria" / "Loja de Móveis Planejados"), subir fotos tratadas com iluminação correta dos móveis entregues e ativar rotina de avaliações 5 estrelas. Oferta irresistível pelo valor baixo e risco zero.
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-title">2. Projeto Principal: Pilar 01 (Site / Catálogo Mobile) + Pilar 04 (Domínio Próprio)</div>
+        <div class="strategy-desc">
+          Desenvolvimento de página institucional rápida com galeria de ambientes (cozinhas, dormitórios, banheiros) integrada ao WhatsApp comercial, com domínio próprio registrado (.com.br) para tirar o ar de improviso.
+        </div>
+      </div>
+
+      <div class="strategy-card">
+        <div class="strategy-title">3. Aceleração Recorrente: Tráfego Pago Google Ads Regional</div>
+        <div class="strategy-desc">
+          Campanhas de busca ativa no Google Ads para palavras-chave de intenção de compra na Zona Norte e bairros vizinhos de Sorocaba, direcionando clientes com plantas prontas para orçamento.
+        </div>
+      </div>
+    </section>
+
+    <!-- SCRIPTS DE ABORDAGEM -->
+    <section class="section-card">
+      <h2 class="section-title">💬 Scripts de Abordagem WhatsApp (Sem Jargão)</h2>
+      <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 12px;">
+        Alinhados com a premissa de abertura: <em>"Eu estava mapeando empresas do seu setor aqui na região..."</em>
+      </p>
+
+      <!-- Opção A: Foco no Google Maps Não Reivindicado (Recomendado) -->
+      <div class="script-box">
+        <div class="script-header">
+          <span class="script-tag">OPÇÃO A · ALERTA AMIGÁVEL SOBRE O MAPS (RECOMENDADA)</span>
+          <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_a').innerText); alert('Script copiado!');">Copiar</button>
+        </div>
+        <div class="script-text" id="script_a">Olá, tudo bem?
+
+Eu estava mapeando empresas do seu setor aqui na região de Sorocaba e encontrei a Marcenaria Sucesso na Firmino Mineli.
+
+Te mandei mensagem porque reparei num detalhe importante no Google Maps de vocês: a ficha da oficina está com aquele botão "Reivindicar esta empresa".
+
+Isso acontece quando o perfil ainda não foi verificado pelo dono. Além de deixar a empresa vulnerável, faz o Google não mostrar vocês no topo pra quem pesquisa por móveis planejados aqui perto.
+
+A gente trabalha organizando a presença de marcenarias aqui na cidade. Se você quiser que a gente te ajude a verificar e deixar o perfil 100% oficial com fotos boas dos móveis, me dá um toque por aqui.</div>
+      </div>
+
+      <!-- Opção B: Direta e Curta -->
+      <div class="script-box" style="margin-top: 18px;">
+        <div class="script-header">
+          <span class="script-tag">OPÇÃO B · DIRETA E ULTRA CURTA</span>
+          <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_b').innerText); alert('Script copiado!');">Copiar</button>
+        </div>
+        <div class="script-text" id="script_b">Boa tarde! Tudo bem?
+
+Estava mapeando empresas do seu setor aqui em Sorocaba e vi a Marcenaria Sucesso no Jardim Hungares.
+
+Só te chamei para dar um toque: a ficha de vocês no Google Maps ainda não foi confirmada pelo proprietário (aparece "reivindicar empresa") e tá sem site oficial.
+
+Isso faz vocês perderem clientes que pesquisam por marcenaria no bairro todos os dias. 
+
+A gente resolve isso rápido por aqui. Se quiser ver como funciona, me avisa que te explico.</div>
+      </div>
+
+    </section>
+
+  </div>
+</body>
+</html>

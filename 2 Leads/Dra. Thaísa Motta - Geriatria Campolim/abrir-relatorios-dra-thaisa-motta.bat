@@ -1,0 +1,1 @@
+@echo off\r\nstart "" "Análise de Presença Digital e Autoridade Médica  Dra. Thaísa Motta.pdf"\r\nstart "" "Análise de Presença Digital e Autoridade Médica  Dra. Thaísa Motta.html"\r\nstart "" "dossie-interno-dra-thaisa-motta-15981795025.html"

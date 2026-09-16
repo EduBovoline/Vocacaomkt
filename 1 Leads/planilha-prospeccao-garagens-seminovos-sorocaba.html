@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Prospecção Outbound — Garagens de Seminovos & Revendas | Vocação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E5B910;
+            --color-accent-soft: #fcf9eb;
+            --color-accent-hover: #cfa50a;
+            --color-primary: #061B28;
+            --color-primary-light: #0c2b3f;
+            --color-bg: #f4f6f8;
+            --color-surface: #ffffff;
+            --color-text: #1a202c;
+            --color-text-muted: #5a6578;
+            --color-border: #e2e8f0;
+            
+            --color-positive: #059669;
+            --color-positive-bg: #ecfdf5;
+            --color-negative: #dc2626;
+            --color-negative-bg: #fef2f2;
+            --color-warning: #d97706;
+            --color-warning-bg: #fffbeb;
+            --color-info: #0284c7;
+            --color-info-bg: #f0f9ff;
+            --color-purple: #7c3aed;
+            --color-purple-bg: #f5f3ff;
+            
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(6,27,40,0.12);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: 24px 20px;
+            font-size: 13.5px;
+        }
+        
+        .container {
+            max-width: 1750px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER VOCAÇÃO */
+        header.vocacao-header {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+            color: #ffffff;
+            padding: 26px 32px;
+            border-radius: var(--radius-lg);
+            border-bottom: 4px solid var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        
+        .brand-logo-badge {
+            background: rgba(229, 185, 16, 0.12);
+            border: 1.5px solid var(--color-accent);
+            padding: 10px 14px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .brand-logo-badge svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--color-accent);
+        }
+        
+        .header-title-wrap h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.3px;
+            margin-bottom: 4px;
+        }
+        
+        .header-title-wrap p {
+            font-size: 13px;
+            color: #cbd5e1;
+            max-width: 820px;
+        }
+        
+        .header-badges {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+        }
+        
+        .badge-tag {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+        
+        .badge-tag.accent {
+            background: rgba(229, 185, 16, 0.2);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+        }
+        
+        .badge-tag.cold {
+            background: rgba(2, 132, 199, 0.25);
+            color: #7dd3fc;
+            border: 1px solid #38bdf8;
+        }
+        
+        .badge-tag.white {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+        
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12.5px;
+            font-weight: 600;
+            padding: 9px 16px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+        .btn-accent:hover {
+            background-color: var(--color-accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .btn-outline-white {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline-white:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: #ffffff;
+        }
+
+        /* KPI STATS ROW */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+        
+        .stat-card {
+            background: var(--color-surface);
+            padding: 18px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--color-accent);
+        }
+        
+        .stat-card.stat-blue::before { background: var(--color-info); }
+        .stat-card.stat-green::before { background: var(--color-positive); }
+        .stat-card.stat-red::before { background: var(--color-negative); }
+        .stat-card.stat-purple::before { background: var(--color-purple); }
+        
+        .stat-label {
+            font-size: 12px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1.2;
+        }
+        
+        .stat-sub {
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+
+        /* FILTER PANEL */
+        .filter-panel {
+            background: var(--color-surface);
+            padding: 16px 20px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 10px 14px 10px 38px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--color-primary);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-muted);
+            pointer-events: none;
+        }
+        
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .filter-select {
+            padding: 9px 14px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--color-border);
+            font-size: 12.5px;
+            font-family: 'Montserrat', sans-serif;
+            background: #ffffff;
+            color: var(--color-text);
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .filter-select:focus {
+            border-color: var(--color-primary);
+        }
+
+        /* TABLE WRAPPER */
+        .table-card {
+            background: var(--color-surface);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        table.crm-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            min-width: 1380px;
+        }
+        
+        th {
+            background: #f8fafc;
+            color: var(--color-text-muted);
+            font-size: 11.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            padding: 12px 14px;
+            border-bottom: 2px solid var(--color-border);
+            white-space: nowrap;
+            user-select: none;
+        }
+        
+        td {
+            padding: 14px;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+            font-size: 13px;
+        }
+        
+        tr:hover td {
+            background-color: #fafbfc;
+        }
+        
+        /* COLUMN STYLES */
+        .col-id {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .lead-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .lead-category {
+            font-size: 11px;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        
+        .lead-address {
+            font-size: 11.5px;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        .status-select {
+            padding: 5px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid transparent;
+            cursor: pointer;
+            outline: none;
+            font-family: 'Montserrat', sans-serif;
+            display: inline-block;
+        }
+        
+        .status-novo { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+        .status-enviada { background: var(--color-info-bg); color: var(--color-info); border-color: #bae6fd; }
+        .status-agendado { background: var(--color-warning-bg); color: var(--color-warning); border-color: #fde68a; }
+        .status-proposta { background: var(--color-purple-bg); color: var(--color-purple); border-color: #ddd6fe; }
+        .status-fechado { background: var(--color-positive-bg); color: var(--color-positive); border-color: #a7f3d0; }
+        .status-recusado { background: var(--color-negative-bg); color: var(--color-negative); border-color: #fecaca; }
+        
+        .priority-badge {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+        .priority-critica { background: var(--color-negative-bg); color: var(--color-negative); border: 1px solid #fecaca; }
+        .priority-alta { background: var(--color-warning-bg); color: var(--color-warning); border: 1px solid #fde68a; }
+        .priority-media { background: var(--color-info-bg); color: var(--color-info); border: 1px solid #bae6fd; }
+        
+        .gargalo-text {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.45;
+            max-width: 320px;
+        }
+        
+        .pilares-tag {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--color-primary);
+            background: #eef2f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 4px;
+            line-height: 1.35;
+        }
+        
+        .ticket-box {
+            font-family: 'Geist Mono', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+        
+        .roi-text {
+            font-size: 11px;
+            color: var(--color-positive);
+            font-weight: 500;
+            line-height: 1.3;
+            max-width: 200px;
+        }
+        
+        .actions-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            min-width: 150px;
+        }
+        
+        .btn-action {
+            padding: 6px 10px;
+            border-radius: var(--radius-sm);
+            font-size: 11.5px;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+            background: #ffffff;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.15s;
+            text-decoration: none;
+            color: var(--color-text);
+        }
+        
+        .btn-action:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+        
+        .btn-action.btn-wa {
+            background: #25D366;
+            color: #ffffff;
+            border-color: #22bf5b;
+        }
+        .btn-action.btn-wa:hover {
+            background: #1eb956;
+            color: #ffffff;
+        }
+        
+        .btn-action.btn-script {
+            background: var(--color-accent-soft);
+            color: #856404;
+            border-color: #ffeeba;
+        }
+        .btn-action.btn-script:hover {
+            background: #fff3cd;
+        }
+        
+        .links-row {
+            display: flex;
+            gap: 8px;
+            font-size: 11px;
+            margin-top: 4px;
+        }
+        
+        .link-mini {
+            color: var(--color-info);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+        .link-mini:hover {
+            text-decoration: underline;
+        }
+        
+        /* MODAL DE SCRIPTS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 27, 40, 0.65);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            backdrop-filter: blur(3px);
+            padding: 20px;
+        }
+        
+        .modal-box {
+            background: #ffffff;
+            width: 100%;
+            max-width: 760px;
+            max-height: 90vh;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .modal-header {
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--color-accent);
+        }
+        
+        .modal-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+        }
+        
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 22px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        
+        .modal-body {
+            padding: 22px 24px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        
+        .script-block {
+            background: #f8fafc;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+        }
+        
+        .script-block-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .script-tag {
+            font-family: 'Geist Mono', monospace;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+        }
+        
+        .script-text {
+            font-size: 12.5px;
+            color: #1e293b;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            background: #ffffff;
+            padding: 12px;
+            border-radius: var(--radius-sm);
+            border: 1px solid #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn-copy {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-copy:hover {
+            background: var(--color-accent-hover);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--color-primary);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--color-accent);
+            box-shadow: var(--shadow-lg);
+            font-weight: 600;
+            font-size: 13px;
+            display: none;
+            z-index: 2000;
+        }
+        
+        footer.vocacao-footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--color-text-muted);
+            padding: 16px 0;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- HEADER VOCACAO -->
+    <header class="vocacao-header">
+        <div class="header-brand">
+            <div class="brand-logo-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="header-title-wrap">
+                <div class="header-badges">
+                    <span class="badge-tag accent">Vocacao Outbound 2027</span>
+                    <span class="badge-tag cold">❄️ Oportunidade Dia de Frio</span>
+                    <span class="badge-tag white">Nicho: Garagens de Seminovos</span>
+                    <span class="badge-tag white">Praca: Sorocaba & Votorantim</span>
+                </div>
+                <h1>CRM & Mineração Outbound — Lojas de Veículos & Seminovos</h1>
+                <p>Mapeamento de 15 alvos estratégicos com pátios ociosos pelo clima frio. Scripts personalizados de abordagem focados na dor de carros parados, Tour Virtual 360° e conversão de estoque online.</p>
+            </div>
+        </div>
+        
+        <div class="header-actions">
+            <a href="Planilha_Prospeccao_Garagens_Seminovos_Sorocaba.csv" download class="btn btn-accent">
+                📥 Baixar Planilha CSV (Excel)
+            </a>
+            <button onclick="window.print()" class="btn btn-outline-white">
+                🖨️ Imprimir / Salvar PDF
+            </button>
+        </div>
+    </header>
+
+    <!-- STATS ROW -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-label">Total de Garagens Mapeadas</div>
+            <div class="stat-value" id="stat-total">15</div>
+            <div class="stat-sub">Sorocaba (14) e Votorantim (1)</div>
+        </div>
+        <div class="stat-card stat-red">
+            <div class="stat-label">Gargalos Críticos / Sem Site Seguro</div>
+            <div class="stat-value" id="stat-criticas">6</div>
+            <div class="stat-sub">Sem SSL, site quebrado ou 100% refém de terceiros</div>
+        </div>
+        <div class="stat-card stat-blue">
+            <div class="stat-label">Ticket Médio de Venda do Carro</div>
+            <div class="stat-value">R$ 55.000</div>
+            <div class="stat-sub">Margem média do lojista: R$ 5k a R$ 9k por carro</div>
+        </div>
+        <div class="stat-card stat-green">
+            <div class="stat-label">Taxa de Cobertura Vocação</div>
+            <div class="stat-value">1 Carro</div>
+            <div class="stat-sub">1 única venda cobre toda a consultoria anual</div>
+        </div>
+    </div>
+
+    <!-- FILTER PANEL -->
+    <div class="filter-panel">
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Buscar por loja, bairro, avenida, telefone ou gargalo..." onkeyup="filterTable()">
+        </div>
+        <div class="filter-group">
+            <select id="statusFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todos os Status CRM</option>
+                <option value="Novo Lead">Novo Lead</option>
+                <option value="Mensagem Enviada">Mensagem Enviada</option>
+                <option value="Diagnóstico Agendado">Diagnóstico Agendado</option>
+                <option value="Proposta em Aberto">Proposta em Aberto</option>
+                <option value="Fechado">Fechado</option>
+                <option value="Sem Interesse">Sem Interesse</option>
+            </select>
+            
+            <select id="priorityFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todas as Prioridades</option>
+                <option value="Crítica">Prioridade Crítica</option>
+                <option value="Alta">Prioridade Alta</option>
+                <option value="Média-Alta">Prioridade Média-Alta</option>
+            </select>
+            
+            <select id="regionFilter" class="filter-select" onchange="filterTable()">
+                <option value="TODOS">Todas as Regiões</option>
+                <option value="Campolim">Campolim (Zona Sul)</option>
+                <option value="General Carneiro">General Carneiro</option>
+                <option value="Ipanema">Av. Ipanema (Zona Norte)</option>
+                <option value="Armando Pannunzio">Armando Pannunzio / Z. Oeste</option>
+                <option value="Votorantim">Votorantim</option>
+                <option value="Santa Rosália">Santa Rosália</option>
+            </select>
+            
+            <button onclick="resetFilters()" class="btn-action" style="padding: 9px 12px;">Limpar Filtros</button>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <div class="table-responsive">
+            <table class="crm-table" id="crmTable">
+                <thead>
+                    <tr>
+                        <th style="width: 70px;">ID</th>
+                        <th style="width: 250px;">Empresa / Polo</th>
+                        <th style="width: 140px;">Status CRM</th>
+                        <th style="width: 100px;">Prioridade</th>
+                        <th style="width: 320px;">Gargalo Digital & Diagnóstico</th>
+                        <th style="width: 220px;">Pilares Recomendados</th>
+                        <th style="width: 160px;">Ticket & ROI</th>
+                        <th style="width: 160px;">Ações Rápidas</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="vocacao-footer">
+        Vocação Comunicação & Marketing — Inteligência Comercial Outbound & Estratégia de Presença Digital © 2026. Todos os direitos reservados.
+    </footer>
+</div>
+
+<!-- MODAL SCRIPTS -->
+<div class="modal-overlay" id="scriptModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="modalTitle">Scripts de Abordagem — Empresa</h3>
+            <button class="modal-close" onclick="closeModal()">×</button>
+        </div>
+        <div class="modal-body">
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">❄️ Script Inicial — Gancho de Dia Frio (WhatsApp)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptInicial')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptInicial"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">⏱️ Follow-up 1 (+24h - Checagem Leve)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup1')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup1"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">📊 Follow-up 2 (+48h - Estatística Google Maps)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup2')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup2"></div>
+            </div>
+            
+            <div class="script-block">
+                <div class="script-block-header">
+                    <span class="script-tag">🚪 Follow-up 3 (Break-up / Saída Elegante)</span>
+                    <button class="btn-copy" onclick="copyText('modalScriptFup3')">Copiar Script</button>
+                </div>
+                <div class="script-text" id="modalScriptFup3"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toastMessage">Texto copiado para a área de transferência!</div>
+
+<script>
+const rawLeads = [{"id": "lead_car_01", "data": "16/09/2026", "nome": "Maxima Automóveis", "categoria": "Garagem Multimarcas & Seminovos Selecionados", "cidade_bairro": "Sorocaba (Parque Campolim)", "endereco": "Av. Antônio Carlos Comitre, 311 - Parque Campolim, Sorocaba - SP, 18047-620", "telefone": "(15) 98121-6869", "whatsapp_raw": "5515981216869", "maps": "https://www.google.com/maps/search/?api=1&query=Maxima+Automoveis+Av+Antonio+Carlos+Comitre+311+Campolim+Sorocaba", "email": "contato@maximaautomoveis.com.br", "site": "https://www.maximaautomoveis.com.br", "gargalo": "Localização nobre na Comitre com custo de m² elevado, mas ausência de Tour Virtual 360° no Google Maps do showroom/pátio; dependência de tráfego físico e portais de terceiros. Site precisa de velocidade aprimorada e chamada direta para WhatsApp de plantão.", "pilares": "Pilar 02 (Google Maps Otimizado + Tour Virtual 360° do Showroom R$ 450) + Pilar 01 (Vitrine Digital Rápida de Estoque)", "ticket": "R$ 60.000 - R$ 180.000", "roi": "1 único carro vendido no mês (margem de R$ 5.000 a R$ 10.000) paga múltiplos anos de presença digital e Google Maps com folga total.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Maxima Automóveis, tudo bem? Passei aqui pela Comitre e reparei como dias frios e nublados costumam esvaziar o pátio da loja. Quando o cliente não vem até a avenida, ele fica no celular pesquisando no Google. Notamos que a loja de vocês está sem o Tour Virtual 360° no Google Maps e o site pode carregar muito mais rápido no celular para quem busca seminovos no Campolim. Temos um modelo que coloca compradores qualificados direto no WhatsApp dos seus vendedores, mesmo em dias sem movimento de calçada. Vale 5 minutinhos para vermos isso hoje enquanto o showroom está mais tranquilo?", "script_fup_1": "Olá equipe da Maxima Automóveis, tudo bem? Imagino que a rotina aí nas negociações esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a experiência digital e o Google Maps de vocês no Campolim. Conseguiram dar uma olhada rápida?", "script_fup_2": "Oi Maxima Automóveis! Passando para compartilhar um dado rápido: aqui na Zona Sul de Sorocaba, mais de 72% dos compradores de seminovos de ticket mais alto iniciam a busca pelo Google Maps antes de ir à loja física. Ter o Tour 360° e vitrine rápida faz toda a diferença para o cliente escolher vocês e não a concessionária vizinha. Faz sentido alinharmos 5 minutos sobre isso?", "script_fup_3": "Olá equipe da Maxima Automóveis! Para não ser inconveniente, encerro meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital, o Google Maps e a atração de leads de alto valor para a loja, fico à disposição. Um abraço e ótimas vendas!", "notas": "Excelente alvo no Campolim. Loja física de alto padrão com potencial imediato para Tour 360°."}, {"id": "lead_car_02", "data": "16/09/2026", "nome": "Állus Veículos", "categoria": "Garagem Multimarcas & Seminovos", "cidade_bairro": "Sorocaba (Vila Lucy / General Carneiro)", "endereco": "Av. General Carneiro, 515 - Vila Lucy, Sorocaba - SP, 18043-003", "telefone": "(15) 99666-0707", "whatsapp_raw": "5515996660707", "maps": "https://www.google.com/maps/search/?api=1&query=Allus+Veiculos+Av+General+Carneiro+515+Sorocaba", "email": "contato@allusveiculos.com.br", "site": "https://allusveiculos.com.br", "gargalo": "Ficha do Google Maps subotimizada para termos de alta intenção comercial no polo da General Carneiro; falta de captura imediata com botão flutuante de simulação de financiamento sem entrada via WhatsApp.", "pilares": "Pilar 02 (Otimização Google Maps R$ 450) + Tráfego de Busca Ativa Google Ads + Botões de Conversão WhatsApp", "ticket": "R$ 45.000 - R$ 120.000", "roi": "Comprar ou financiar 1 seminovo traz retorno de margem bruta de R$ 4.000 a R$ 7.000, cobrindo o setup em 48 horas.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Állus Veículos, tudo bem? Dias frios como hoje costumam desacelerar o movimento de pedestres na General Carneiro. O comprador hoje está no sofá pesquisando 'seminovos com laudo e garantia sorocaba'. Notamos que a ficha de vocês no Google Maps pode dominar o topo das buscas da avenida e puxar simulações de crédito direto pro WhatsApp. Vale batermos um papo rápido de 5 minutos hoje para ativar essa máquina de atração?", "script_fup_1": "Olá equipe da Állus Veículos, tudo bem? Só passando para saber se vocês conseguiram avaliar a ideia sobre a captação de clientes da General Carneiro via Google Maps e WhatsApp.", "script_fup_2": "Oi Állus Veículos! Sabia que a maioria dos clientes que buscam carros na General Carneiro pesquisa no Google antes de sair de casa? Se sua ficha estiver otimizada com fotos recentes e selo de garantia, o cliente já desce com destino certo na sua loja. Podemos estruturar isso essa semana.", "script_fup_3": "Olá pessoal da Állus! Para não tomar seu tempo, encerro meu contato. Caso queiram acelerar as vendas via Google Maps e busca ativa, contem com a Vocação. Sucesso nas vendas!", "notas": "Polo automotivo da General Carneiro. Oportunidade forte para captação local."}, {"id": "lead_car_03", "data": "16/09/2026", "nome": "Ômega Veículos", "categoria": "Revenda Tradicional & Multimarcas (35+ anos)", "cidade_bairro": "Sorocaba (Cerrado / General Carneiro)", "endereco": "Av. General Carneiro, 1351 - Cerrado, Sorocaba - SP, 18043-000", "telefone": "(15) 98828-2828 / (15) 3034-5050", "whatsapp_raw": "5515988282828", "maps": "https://www.google.com/maps/search/?api=1&query=Omega+Veiculos+Av+General+Carneiro+1351+Sorocaba", "email": "contato@omegaveiculos.net", "site": "http://www.omegaveiculos.net", "gargalo": "Mais de 35 anos de tradição em Sorocaba, porém site antigo em domínio .net sem SSL seguro forçado; passa impressão de empresa desatualizada para quem pesquisa do smartphone; fotos sem qualidade HD.", "pilares": "Pilar 04 (Domínio Oficial .com.br & Blindagem SSL) + Pilar 01 (Vitrine Digital de Estoque Moderna) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 40.000 - R$ 110.000", "roi": "A tradição de 35 anos aliada a um site moderno dobra a taxa de conversão online, gerando de 3 a 5 vendas adicionais por mês.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Ômega Veículos, tudo bem? São mais de 35 anos de história impecável em Sorocaba! Mas reparei num detalhe crítico: quem busca pelo estoque no celular hoje encontra o site antigo sem certificado de segurança SSL e sem a velocidade que o comprador de hoje exige. Em dias frios como hoje, a vitrine digital é o seu pátio aberto 24h. Conseguimos modernizar a presença de vocês e blindar a autoridade da Ômega em poucos dias. Vale uma conversa rápida hoje?", "script_fup_1": "Olá equipe da Ômega Veículos! Passando rapidamente para saber se vocês viram o apontamento sobre o certificado SSL e a modernização do catálogo digital da Ômega.", "script_fup_2": "Oi Ômega Veículos! Clientes mais jovens que buscam primeiro ou segundo carro no Google desconfiam de sites antigos ou sem segurança verde no navegador. Atualizar essa vitrine é questão de dias e o retorno em vendas é imediato. Vamos alinhar?", "script_fup_3": "Olá Ômega Veículos! Deixo aqui meus contatos finais. Estaremos sempre à disposição para valorizar a tradição da Ômega no ambiente digital. Abraços!", "notas": "Mais de 3 décadas de mercado. O site .net sem SSL é a maior dor técnica."}, {"id": "lead_car_04", "data": "16/09/2026", "nome": "Cabral Multimarcas", "categoria": "Mega Loja Multimarcas & Feirões", "cidade_bairro": "Sorocaba (Vila Nova Sorocaba / Eixo Ipanema)", "endereco": "Av. Ipanema, 595 - Vila Nova Sorocaba, Sorocaba - SP, 18070-671", "telefone": "(15) 98838-3838 / (15) 3211-6577", "whatsapp_raw": "5515988383838", "maps": "https://www.google.com/maps/search/?api=1&query=Cabral+Multimarcas+Av+Ipanema+595+Sorocaba", "email": "contato@cabralmultimarcas.com.br", "site": "https://cabralmultimarcas.com.br", "gargalo": "Alto volume de carros e eventos com feirões, porém perda massiva de tráfego mobile por dispersão: formulários genéricos no site ao invés de direcionamento inteligente para corretores de plantão no WhatsApp. Falta de Tour 360° do feirão no Google Maps.", "pilares": "Landing Pages de Feirão com Roteamento WhatsApp + Tour 360° do Pátio + Otimização de Google Maps (Pilar 02)", "ticket": "R$ 35.000 - R$ 95.000", "roi": "Reduzir a perda de leads em 15% representa mais de 10 veículos vendidos por mês em operações de alto volume.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe Cabral Multimarcas, tudo bem? Sabemos da força dos feirões e do estoque gigante de vocês em Sorocaba. Notamos que quem acessa o site pelo celular ainda precisa preencher cadastros longos em vez de cair direto no WhatsApp do vendedor livre. Em dias frios ou chuvosos, quando o pátio fica mais quieto, transformar visitantes online em conversas no WhatsApp é o que bate a meta da semana. Vale vermos como estruturar esse roteamento direto?", "script_fup_1": "Olá time da Cabral Multimarcas! Conseguiram ver o recado sobre a automação de direcionamento de leads de feirão para os vendedores?", "script_fup_2": "Oi Cabral! Um teste simples de roteamento direto no WhatsApp pode dobrar o volume de simulações de financiamento abertas pelos seus consultores. Faz sentido testarmos no próximo lote?", "script_fup_3": "Olá Cabral Multimarcas! Para não sobrecarregar sua rotina, encerro por aqui. Ficamos à disposição para potencializar seus feirões quando for oportuno. Grande abraço!", "notas": "Mega revenda com alto fluxo e potencial de roteamento de leads para vendedores."}, {"id": "lead_car_05", "data": "16/09/2026", "nome": "Rio Branco Veículos", "categoria": "Revenda Multimarcas & Utilitários", "cidade_bairro": "Sorocaba (Vila Angélica / Eixo Ipanema)", "endereco": "Av. Ipanema, 921 - Vila Angélica, Sorocaba - SP, 18070-671", "telefone": "(15) 99113-9360 / (15) 3388-8209", "whatsapp_raw": "5515991139360", "maps": "https://www.google.com/maps/search/?api=1&query=Rio+Branco+Veiculos+Av+Ipanema+921+Sorocaba", "email": "contato via redes", "site": "Inexistente / Dependente de Facebook e Portais", "gargalo": "Não possui site próprio com domínio institucional; é 100% refém de portais de classificados onde concorre lado a lado pelo menor preço; não capta dados nem constrói autoridade de marca própria.", "pilares": "Pilar 01 (Site & Catálogo Próprio de Seminovos) + Pilar 04 (Domínio Próprio Registrado) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 35.000 - R$ 85.000", "roi": "Economizar mensalidades de portais terceiros e fechar 1 venda direta pelo site próprio paga toda a infraestrutura anual da Vocação.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Rio Branco Veículos, tudo bem? Passei pela Av. Ipanema e vi os carros no pátio. Em dias frios como hoje, quem quer trocar de carro pesquisa no Google em casa. Notamos que vocês não têm um site próprio com domínio oficial (.com.br) e dependem 100% de portais de terceiros, onde o cliente vê o carro de vocês e mais 50 concorrentes na mesma tela. Criamos a sua vitrine digital exclusiva para reter 100% dos interessados. Vale 5 minutinhos hoje?", "script_fup_1": "Olá equipe da Rio Branco Veículos! Conseguiram ver minha mensagem sobre ter a vitrine própria da loja sem depender só de portais?", "script_fup_2": "Oi Rio Branco! Ter domínio próprio e site mobile rápido passa muito mais segurança para o banco e para o comprador final na hora de financiar. Podemos colocar isso no ar em 7 dias.", "script_fup_3": "Olá Rio Branco Veículos! Encerro meu contato por aqui. Se desejarem estruturar a presença digital definitiva da loja, estamos à disposição. Sucesso!", "notas": "Dependência severa de classificados. Dor urgente de ter vitrine proprietária."}, {"id": "lead_car_06", "data": "16/09/2026", "nome": "Nexmotors Veículos", "categoria": "Seminovos Selecionados & Zona Oeste", "cidade_bairro": "Sorocaba (Jardim Vera Cruz / Armando Pannunzio)", "endereco": "Av. Dr. Armando Pannunzio, 1087 - Jardim Vera Cruz, Sorocaba - SP, 18025-000", "telefone": "(15) 97407-4344 / (15) 3329-4990", "whatsapp_raw": "5515974074344", "maps": "https://www.google.com/maps/search/?api=1&query=Nexmotors+Veiculos+Av+Armando+Pannunzio+1087+Sorocaba", "email": "contato@nexmotors.com.br", "site": "http://nexmotors.com.br", "gargalo": "Excelente ponto comercial na Armando Pannunzio, mas o site peca em velocidade mobile e não tem integração com vídeos dos carros em formato vertical (Reels/Shorts); ficha do Maps precisa de avaliações estratégicas e fotos em 360°.", "pilares": "Pilar 01 (Vitrine com Vídeos Verticais dos Veículos) + Pilar 02 (Google Maps & Tour 360° R$ 450) + Tráfego de Busca Ativa", "ticket": "R$ 50.000 - R$ 130.000", "roi": "A margem de venda de 1 SUV seminovo (R$ 6.000+) financia todo o ecossistema e atrai clientes com poder de compra da Zona Oeste e Votorantim.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá pessoal da Nexmotors, tudo bem? A localização de vocês na Armando Pannunzio é estratégica para captar quem vem da Zona Oeste e Votorantim. Porém, em dias frios como hoje, o tráfego da avenida não entra na loja: o comprador pesquisa no Google. Notamos que o site de vocês ainda roda em HTTP inseguro e não explora vídeos dinâmicos dos carros. Com uma vitrine rápida com tour em vídeo e Google Maps reforçado, as propostas no WhatsApp aumentam imediatamente. Vamos bater um papo de 5 min hoje?", "script_fup_1": "Olá time Nexmotors! Passando para saber se conseguiram avaliar a ideia dos vídeos dinâmicos e da blindagem de segurança do site.", "script_fup_2": "Oi Nexmotors! Compradores de SUVs e sedãs médios adoram ver detalhes do interior em vídeo antes de agendar o test-drive. Estruturar isso na sua vitrine é rápido e dobra a taxa de agendamento.", "script_fup_3": "Olá Nexmotors! Para não incomodar, finalizo meus contatos. Ficamos à disposição quando quiserem acelerar as vendas digitais. Ótimos negócios!", "notas": "Corredor nobre da Zona Oeste com clientes de bom poder aquisitivo."}, {"id": "lead_car_07", "data": "16/09/2026", "nome": "Brasil Car Multimarcas", "categoria": "Multimarcas & Revenda com 2 Unidades", "cidade_bairro": "Sorocaba (Jardim Simus / Vila Aeroporto)", "endereco": "R. Dr. Américo Figueiredo (Jd. Simus) / Av. Adão Pereira de Camargo (Vila Aeroporto), Sorocaba - SP", "telefone": "(15) 99278-9291 / (15) 3142-5241", "whatsapp_raw": "5515992789291", "maps": "https://www.google.com/maps/search/?api=1&query=Brasil+Car+Multimarcas+Americo+Figueiredo+Sorocaba", "email": "contato@brasilcarsorocaba.com.br", "site": "http://brasilcarsorocaba.com.br", "gargalo": "Duas lojas físicas na cidade, mas o site não possui HTTPS seguro ativo (gerando aviso de 'Não Seguro'); estoque descentralizado e experiência do usuário no celular truncada; perde clientes para garagens que respondem em menos de 1 minuto.", "pilares": "Pilar 04 (Blindagem SSL & Segurança) + Pilar 01 (Catálogo Unificado de Estoque) + Pilar 02 (Google Maps das duas unidades)", "ticket": "R$ 30.000 - R$ 75.000", "roi": "Eliminar o aviso de site inseguro destrava até 40% de contatos que antes abandonavam a página por receio.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe Brasil Car, tudo bem? Duas lojas em Sorocaba mostram a força do negócio de vocês! Mas notamos um problema urgente: ao acessar o site pelo celular, o navegador dá o aviso vermelho de 'Não Seguro' porque o certificado SSL está inativo. Isso assusta quem vai financiar R$ 40k ou R$ 50k. Conseguimos blindar o site de vocês e unificar os estoques das duas lojas em uma vitrine mobile veloz. Podemos alinhar isso em 5 minutos hoje?", "script_fup_1": "Olá time da Brasil Car! Conseguiram ver o aviso sobre a falha de SSL no site de vocês?", "script_fup_2": "Oi Brasil Car! O alerta de 'Não Seguro' faz o cliente desconfiar antes mesmo de dar bom dia no WhatsApp. Resolver isso é imediato e protege suas vendas.", "script_fup_3": "Olá Brasil Car Multimarcas! Encerro meu contato para não tomar seu tempo. Estamos à disposição caso queiram blindar o site das lojas. Sucesso!", "notas": "Duas unidades físicas, mas o site em HTTP não seguro queima a confiança."}, {"id": "lead_car_08", "data": "16/09/2026", "nome": "GC Veículos", "categoria": "Seminovos Selecionados & Bairro Nobre", "cidade_bairro": "Sorocaba (Jardim Santa Rosália)", "endereco": "Rua Porphyrio Loureiro, 115 - Jardim Santa Rosália, Sorocaba - SP, 18090-000", "telefone": "(15) 3519-3800 / (15) 99862-7455", "whatsapp_raw": "5515998627455", "maps": "https://www.google.com/maps/search/?api=1&query=GC+Veiculos+Rua+Porphyrio+Loureiro+115+Santa+Rosalia+Sorocaba", "email": "contato@gcveiculos.com.br", "site": "http://gcveiculos.com.br", "gargalo": "Localização nobre no Santa Rosália, mas sem presença imersiva no Google Maps (sem Tour 360°); site com foco estático que não evidencia a garantia e laudo cautelar aprovado logo na primeira dobra.", "pilares": "Pilar 02 (Google Maps de Alta Autoridade & Tour 360° R$ 450) + Pilar 01 (Página com Selo de Procedência & Laudo Cautelar)", "ticket": "R$ 55.000 - R$ 140.000", "roi": "Transmitir extrema confiança e laudo aprovado atrai compradores exigentes que pagam ticket maior sem pechinchar.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da GC Veículos, tudo bem? Estar no Santa Rosália traz clientes com excelente poder de compra. No entanto, em dias frios como hoje, o comprador prefere pesquisar o estoque na internet antes de ir até a loja. Notamos que o site de vocês não destaca o laudo cautelar e a garantia na primeira tela, e o Google Maps está sem o Tour Virtual 360°. Conseguimos colocar a loja de vocês em destaque máximo no Google em 7 dias. Vale 5 minutinhos para vermos isso hoje?", "script_fup_1": "Olá equipe da GC Veículos! Conseguiram ver o recado sobre o Tour 360° e o selo de laudo cautelar para os clientes do Santa Rosália?", "script_fup_2": "Oi GC Veículos! A transparência com laudo e fotos 360° é o maior diferencial para fechar seminovos acima de R$ 70k rapidamente. Podemos conversar 5 minutos?", "script_fup_3": "Olá GC Veículos! Finalizo meus contatos por aqui. Desejo excelentes negociações e fico à disposição caso precisem de inteligência digital. Abraços!", "notas": "Bairro nobre tradicional de Sorocaba com clientela exigente."}, {"id": "lead_car_09", "data": "16/09/2026", "nome": "Flamil Veículos", "categoria": "Garagem Tradicional (Fundada em 1989 - 37 anos)", "cidade_bairro": "Sorocaba (Vila Angélica / Eixo Ipanema)", "endereco": "Av. Ipanema, 1531 - Vila Angélica, Sorocaba - SP, 18070-671", "telefone": "(15) 98121-8484 / (15) 3231-3009", "whatsapp_raw": "5515981218484", "maps": "https://www.google.com/maps/search/?api=1&query=Flamil+Veiculos+Av+Ipanema+1531+Sorocaba", "email": "contato@flamilveiculos.com.br", "site": "http://flamilveiculos.com.br", "gargalo": "37 anos de credibilidade que não transparecem no site atual (código antigo e sem SSL); poucas fotos modernas do showroom no Maps; novas gerações de compradores que não conhecem o histórico da loja fecham com concorrentes mais digitais.", "pilares": "Pilar 01 (Modernização do Catálogo Digital de 37 Anos) + Pilar 02 (Google Maps R$ 450 com Prova Social de Tradição)", "ticket": "R$ 35.000 - R$ 90.000", "roi": "Reativar a autoridade histórica atrai filhos e netos de antigos clientes, gerando negócios recorrentes sem custo de mídia pesada.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Flamil Veículos, tudo bem? Fundada em 1989, a Flamil tem uma história que pouquíssimas lojas em Sorocaba possuem. Mas hoje, o jovem que pesquisa no Google para comprar o primeiro carro ou trocar o seminovo não encontra essa história contada com autoridade moderna no site e no Maps. Podemos transformar esses 37 anos de confiança em uma vitrine digital impecável que gera contatos diários no WhatsApp. Vale bater um papo de 5 min hoje?", "script_fup_1": "Olá time da Flamil Veículos! Passando para saber se viram o recado sobre modernizar o catálogo digital e destacar os 37 anos de tradição.", "script_fup_2": "Oi Flamil! Enquanto concorrentes novos gastam fortunas em anúncios tentando passar confiança, vocês já têm a história pronta. Só precisamos colocar essa credibilidade no Google. Faz sentido falarmos?", "script_fup_3": "Olá Flamil Veículos! Respeitando seu tempo, encerro por aqui. Fica o convite aberto para quando quiserem atualizar a presença digital da loja. Sucesso!", "notas": "Uma das lojas mais antigas da Zona Norte. Autoridade gigantesca mal explorada no digital."}, {"id": "lead_car_10", "data": "16/09/2026", "nome": "Select Veículos Votorantim", "categoria": "Seminovos Multimarcas Votorantim", "cidade_bairro": "Votorantim (Centro)", "endereco": "Rua Segundo Lopes Carmona, 199 - Centro, Votorantim - SP, 18110-060", "telefone": "(15) 98802-0059", "whatsapp_raw": "5515988020059", "maps": "https://www.google.com/maps/search/?api=1&query=Select+Veiculos+Rua+Segundo+Lopes+Carmona+199+Votorantim", "email": "contato via redes", "site": "Inexistente / Dependente de Facebook e Portais", "gargalo": "Não possui site institucional nem domínio registrado .com.br; presença vulnerável dependendo apenas de página no Facebook e portais de anúncios; perda de tráfego de busca no Google quando alguém pesquisa por carros em Votorantim.", "pilares": "Pilar 01 (Site Catálogo Oficial) + Pilar 04 (Domínio & E-mail Corporativo) + Pilar 02 (Presença Local Google Maps R$ 450)", "ticket": "R$ 35.000 - R$ 80.000", "roi": "Ser a revenda nº 1 de Votorantim no Google Maps e ter site próprio capta os moradores da cidade antes que eles se desloquem até Sorocaba.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Select Veículos, tudo bem? Quem mora em Votorantim prefere comprar na própria cidade se encontrar uma revenda de confiança. Mas hoje, quem pesquisa por 'loja de carros em Votorantim' no Google quase não encontra a Select porque vocês não têm site próprio oficial (.com.br). Criamos a vitrine digital definitiva da Select e posicionamos sua loja no topo do Google Maps em 7 dias. Vale 5 minutinhos hoje para vermos como reter os clientes de Votorantim?", "script_fup_1": "Olá time da Select Veículos! Conseguiram ver a mensagem sobre captar os compradores locais de Votorantim pelo Google?", "script_fup_2": "Oi Select Veículos! Ter site próprio faz o cliente de Votorantim comprar com vocês em vez de pegar a pista para Sorocaba. Podemos resolver isso rápido.", "script_fup_3": "Olá Select Veículos! Finalizo meus contatos por aqui. Desejo ótimos negócios e fico à disposição caso precisem de apoio em presença digital. Abraços!", "notas": "Alvo em Votorantim. Domínio local fácil de conquistar no Google Maps."}, {"id": "lead_car_11", "data": "16/09/2026", "nome": "KS Motors", "categoria": "Garagem Multimarcas & Eixo Washington Luiz", "cidade_bairro": "Sorocaba (Jardim Emília / Washington Luiz)", "endereco": "Av. Washington Luiz, 866 - Jardim Emília, Sorocaba - SP, 18031-000", "telefone": "(15) 99629-7002 / (15) 3318-2050", "whatsapp_raw": "5515996297002", "maps": "https://www.google.com/maps/search/?api=1&query=KS+Motors+Av+Washington+Luiz+866+Sorocaba", "email": "contato@ksmotors.com.br", "site": "Inexistente ou oscilante / Perfis em Classificados", "gargalo": "Avenida de altíssimo prestígio entre o Centro e a Zona Sul, mas presença digital restrita a plataformas de terceiros; ficha do Maps sem diferenciação visual e sem tour do pátio para quem quer ver os carros antes de sair de casa.", "pilares": "Pilar 02 (Google Maps R$ 450 + Fotos de Alta Resolução) + Pilar 01 (Vitrine Digital Própria com WhatsApp de Financiamento)", "ticket": "R$ 40.000 - R$ 115.000", "roi": "1 venda de seminovo intermediário (R$ 5.000 de margem) cobre o pacote de presença e sobra para investimento em anúncios locais.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da KS Motors, tudo bem? A Washington Luiz é um dos corredores mais nobres de Sorocaba. No entanto, em dias frios como hoje, o fluxo de calçada diminui e quem vai comprar veículo pesquisa pelo smartphone. Notamos que a presença de vocês está dispersa em portais e falta uma vitrine digital própria rápida conectada ao WhatsApp. Podemos estruturar isso para vocês em poucos dias. Vale uma conversa rápida de 5 minutos hoje?", "script_fup_1": "Olá time da KS Motors! Conseguiram ver o recado sobre a vitrine própria e a captação no eixo da Washington Luiz?", "script_fup_2": "Oi KS Motors! Estar na Washington Luiz dá autoridade, mas ter a vitrine no bolso do cliente converte muito mais. Vamos trocar uma ideia rápida de 5 min?", "script_fup_3": "Olá KS Motors! Para não tomar seu tempo, encerro meus contatos. Ficamos à disposição caso queiram acelerar o digital da loja. Sucesso!", "notas": "Localização excelente entre Centro e Zona Sul."}, {"id": "lead_car_12", "data": "16/09/2026", "nome": "Thijuca Veículos", "categoria": "Revenda Multimarcas & Financiamento Facilitado", "cidade_bairro": "Sorocaba (Vila Nova Sorocaba / Ipanema)", "endereco": "Av. Ipanema, 1932 - Vila Nova Sorocaba, Sorocaba - SP, 18070-671", "telefone": "(15) 3223-1454 / (15) 99788-1454", "whatsapp_raw": "5515997881454", "maps": "https://www.google.com/maps/search/?api=1&query=Thijuca+Veiculos+Av+Ipanema+1932+Sorocaba", "email": "contato@thijucaveiculos.com.br", "site": "http://thijucaveiculos.com.br", "gargalo": "Site sem protocolo de segurança HTTPS configurado; ausência de simulação de financiamento rápida via WhatsApp na página inicial; fotos de estoque escuras que não valorizam os detalhes da lataria nos dias nublados.", "pilares": "Pilar 01 (Renovação da Vitrine com Botão de Simulação Instantânea) + Pilar 04 (Blindagem SSL) + Pilar 02 (Google Maps)", "ticket": "R$ 30.000 - R$ 70.000", "roi": "Aumentar as simulações de crédito em 20% converte diretamente em mais aprovações bancárias e contratos assinados.", "prioridade": "Média-Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da Thijuca Veículos, tudo bem? Vimos o estoque variado de vocês na Av. Ipanema. Notamos que o site atual ainda não tem o selo de segurança HTTPS e não tem um botão direto para o cliente simular o financiamento sem entrada pelo WhatsApp. Em dias frios como hoje, facilitar a simulação pelo celular traz dezenas de fichas aprovadas sem o cliente precisar pisar na loja primeiro. Vale alinharmos 5 minutinhos hoje sobre isso?", "script_fup_1": "Olá time Thijuca Veículos! Passando para saber se viram a proposta sobre o botão de simulação de crédito express no WhatsApp.", "script_fup_2": "Oi Thijuca! Quem busca seminovo popular quer saber se aprova a ficha na hora. Conectar isso no site dobra as conversas com os vendedores. Quer ver um modelo?", "script_fup_3": "Olá Thijuca Veículos! Encerro meus contatos por aqui para não atrapalhar seu dia. Um abraço e ótimos negócios!", "notas": "Foco em crédito e financiamento ágil na Zona Norte."}, {"id": "lead_car_13", "data": "16/09/2026", "nome": "J&B Veículos", "categoria": "Garagem Multimarcas & Utilitários", "cidade_bairro": "Sorocaba (Jardim Planalto / Ipanema)", "endereco": "Av. Ipanema, 2278 - Jardim Planalto, Sorocaba - SP, 18071-801", "telefone": "(15) 99674-5406", "whatsapp_raw": "5515996745406", "maps": "https://www.google.com/maps/search/?api=1&query=JB+Veiculos+Av+Ipanema+2278+Sorocaba", "email": "contato@jebveiculos.com.br", "site": "http://jebveiculos.com.br", "gargalo": "Ponto de grande visibilidade no extremo norte da Av. Ipanema, mas site com carregamento lento no 4G; ausência de Tour 360° do pátio para que clientes de cidades vizinhas (Porto Feliz, Iperó, Araçoiaba) conheçam o estoque à distância.", "pilares": "Pilar 02 (Google Maps Regionalizado + Tour 360° R$ 450) + Pilar 01 (Site Otimizado para Mobile/4G)", "ticket": "R$ 35.000 - R$ 85.000", "roi": "Atrair compradores da região metropolitana que viajam já decididos a fechar o negócio.", "prioridade": "Média-Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe da J&B Veículos, tudo bem? A localização de vocês no final da Ipanema é ponto de passagem obrigatório para quem vem de cidades vizinhas. Mas muitas vezes o cliente de fora não sabe exatamente o que tem no pátio antes de vir. Com uma vitrine rápida e o Tour 360° no Google Maps, ele 'entra' na loja pelo celular e já chega no WhatsApp negociando. Vale batermos um papo rápido de 5 min hoje?", "script_fup_1": "Olá time da J&B Veículos! Conseguiram avaliar a ideia do Tour 360° para atrair clientes da região metropolitana?", "script_fup_2": "Oi J&B! Clientes de cidades vizinhas adoram fazer um tour virtual no estoque antes de pegar a estrada. Isso acelera o fechamento.", "script_fup_3": "Olá J&B Veículos! Para respeitar sua rotina, encerro por aqui. Ficamos à disposição para quando quiserem expandir a presença online. Abraços!", "notas": "Atrai clientes da região metropolitana no eixo norte."}, {"id": "lead_car_14", "data": "16/09/2026", "nome": "Cobel Multimarcas", "categoria": "Multimarcas Tradicional & Centro Expandido", "cidade_bairro": "Sorocaba (Vila Carvalho / Comendador Oeterer)", "endereco": "Rua Comendador Oeterer e Região - Vila Carvalho, Sorocaba - SP", "telefone": "(15) 99762-1100 / (15) 3232-1100", "whatsapp_raw": "5515997621100", "maps": "https://www.google.com/maps/search/?api=1&query=Cobel+Multimarcas+Sorocaba", "email": "contato via classificados", "site": "Inexistente / Anúncios em Portais", "gargalo": "Ausência completa de canal digital proprietário; clientes encontram a loja apenas se passarem na porta ou caírem em portais concorridos; perde autoridade para lojas recém-abertas com marketing agressivo.", "pilares": "Pilar 01 (Criação de Sede Digital Própria) + Pilar 04 (Registro de Domínio .com.br) + Pilar 02 (Google Maps R$ 450)", "ticket": "R$ 35.000 - R$ 80.000", "roi": "1 venda realizada pelo canal próprio sem pagar comissão para portais terceiros já paga a infraestrutura da Vocação.", "prioridade": "Crítica", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá pessoal da Cobel Multimarcas, tudo bem? Vimos que vocês são tradicionais na região da Vila Carvalho, mas quem pesquisa pelo nome da Cobel no Google não encontra uma vitrine digital própria (.com.br) com os carros e a história da loja. Em dias frios, quando a rua fica vazia, o comprador está pesquisando no celular. Criamos a sede digital da Cobel e deixamos seu Google Maps no topo das buscas locais. Vale 5 minutinhos hoje para conversarmos?", "script_fup_1": "Olá equipe da Cobel Multimarcas! Conseguiram ver minha mensagem sobre criar o site próprio da Cobel?", "script_fup_2": "Oi Cobel! Ter site próprio reduz a dependência de portais de classificados e constrói a marca de vocês para os próximos 10 anos. Vamos alinhar?", "script_fup_3": "Olá Cobel Multimarcas! Encerro meu contato por aqui. Sucesso nos negócios e contem conosco quando quiserem dar esse passo digital!", "notas": "Polo tradicional da Comendador Oeterer."}, {"id": "lead_car_15", "data": "16/09/2026", "nome": "Megga Motors Sorocaba", "categoria": "Seminovos Selecionados & Utilitários", "cidade_bairro": "Sorocaba (Vila Lucy / General Carneiro)", "endereco": "Av. General Carneiro - Vila Lucy, Sorocaba - SP", "telefone": "(15) 99182-3030", "whatsapp_raw": "5515991823030", "maps": "https://www.google.com/maps/search/?api=1&query=Megga+Motors+Av+General+Carneiro+Sorocaba", "email": "contato@meggamotors.com.br", "site": "http://www.meggamotors.com.br", "gargalo": "Forte concorrência na General Carneiro; depende de anúncios pontuais sem uma esteira orgânica sólida no Google Maps; não explora o potencial de vídeos e prova social de clientes retirando o veículo com a chave na mão.", "pilares": "Pilar 02 (Google Maps com Prova Social de Entrega) + Tráfego de Alta Intenção no Google Ads + Tour 360°", "ticket": "R$ 45.000 - R$ 110.000", "roi": "Destacar-se na avenida mais competitiva da cidade e desviar 2 vendas da concorrência por mês gera mais de R$ 12.000 em lucro líquido novo.", "prioridade": "Alta", "status_crm": "Novo Lead", "status_fup": "Pendente", "script_inicial": "Olá equipe Megga Motors, tudo bem? A General Carneiro é uma verdadeira guerra de revendas. Quem ganha a venda hoje é quem captura o cliente antes dele sair de casa, principalmente em dias frios como hoje. Notamos que o Google Maps e a vitrine de vocês podem receber vídeos de prova social com a entrega das chaves e o Tour 360° do pátio, gerando confiança instantânea. Podemos bater um papo rápido de 5 min hoje para mostrar esse modelo?", "script_fup_1": "Olá time Megga Motors! Passando para saber se viram a ideia sobre os vídeos de prova social e Tour 360° para vencer a concorrência da General.", "script_fup_2": "Oi Megga Motors! Mostrar clientes reais pegando a chave no pátio é o gatilho mais forte para desviar clientes das lojas vizinhas da avenida. Faz sentido conversarmos?", "script_fup_3": "Olá Megga Motors! Finalizo por aqui para não tomar seu tempo. Estamos à disposição para quando quiserem dominar a busca na General Carneiro. Sucesso!", "notas": "Concorrência ferrenha na General Carneiro. Vídeos de entrega geram alto impacto."}];
+
+let leads = rawLeads.map(lead => {
+    const savedStatus = localStorage.getItem('status_' + lead.id);
+    if (savedStatus) {
+        lead.status_crm = savedStatus;
+    }
+    return lead;
+});
+
+function renderTable(data) {
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    
+    if (data.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding: 40px; color: #64748b;">Nenhum lead encontrado com os filtros selecionados.</td></tr>';
+        return;
+    }
+    
+    data.forEach(lead => {
+        const tr = document.createElement('tr');
+        
+        let statusClass = 'status-novo';
+        if (lead.status_crm === 'Mensagem Enviada') statusClass = 'status-enviada';
+        else if (lead.status_crm === 'Diagnóstico Agendado') statusClass = 'status-agendado';
+        else if (lead.status_crm === 'Proposta em Aberto') statusClass = 'status-proposta';
+        else if (lead.status_crm === 'Fechado') statusClass = 'status-fechado';
+        else if (lead.status_crm === 'Sem Interesse') statusClass = 'status-recusado';
+        
+        let priorityClass = 'priority-alta';
+        if (lead.prioridade === 'Crítica') priorityClass = 'priority-critica';
+        else if (lead.prioridade === 'Média-Alta') priorityClass = 'priority-media';
+        
+        const waLink = "https://wa.me/" + lead.whatsapp_raw + "?text=" + encodeURIComponent(lead.script_inicial);
+        
+        tr.innerHTML = `
+            <td class="col-id">${lead.id}</td>
+            <td>
+                <div class="lead-name">${lead.nome}</div>
+                <div class="lead-category">${lead.categoria}</div>
+                <div class="lead-address">📍 ${lead.cidade_bairro}</div>
+                <div class="links-row">
+                    <a href="${lead.maps}" target="_blank" class="link-mini">🗺️ Maps</a>
+                    ${lead.site.startsWith('http') ? `<a href="${lead.site}" target="_blank" class="link-mini">🌐 Site</a>` : `<span style="color:#94a3b8; font-size:11px;">🚫 Sem site</span>`}
+                    <span style="color:#64748b; font-size:11px;">📞 ${lead.telefone}</span>
+                </div>
+            </td>
+            <td>
+                <select class="status-select ${statusClass}" onchange="updateLeadStatus('${lead.id}', this.value, this)">
+                    <option value="Novo Lead" ${lead.status_crm === 'Novo Lead' ? 'selected' : ''}>Novo Lead</option>
+                    <option value="Mensagem Enviada" ${lead.status_crm === 'Mensagem Enviada' ? 'selected' : ''}>Mensagem Enviada</option>
+                    <option value="Diagnóstico Agendado" ${lead.status_crm === 'Diagnóstico Agendado' ? 'selected' : ''}>Diag. Agendado</option>
+                    <option value="Proposta em Aberto" ${lead.status_crm === 'Proposta em Aberto' ? 'selected' : ''}>Proposta Aberta</option>
+                    <option value="Fechado" ${lead.status_crm === 'Fechado' ? 'selected' : ''}>Fechado 🎉</option>
+                    <option value="Sem Interesse" ${lead.status_crm === 'Sem Interesse' ? 'selected' : ''}>Sem Interesse</option>
+                </select>
+            </td>
+            <td>
+                <span class="priority-badge ${priorityClass}">${lead.prioridade}</span>
+            </td>
+            <td>
+                <div class="gargalo-text">${lead.gargalo}</div>
+            </td>
+            <td>
+                <div class="pilares-tag">${lead.pilares}</div>
+            </td>
+            <td>
+                <div class="ticket-box">🚗 ${lead.ticket}</div>
+                <div class="roi-text">💡 ${lead.roi}</div>
+            </td>
+            <td>
+                <div class="actions-cell">
+                    <a href="${waLink}" target="_blank" class="btn-action btn-wa" title="Abrir WhatsApp com o script inicial">
+                        <span>💬</span> WhatsApp Direto
+                    </a>
+                    <button class="btn-action btn-script" onclick="openModal('${lead.id}')">
+                        <span>📋</span> Ver Scripts (4)
+                    </button>
+                </div>
+            </td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+function updateLeadStatus(id, newStatus, selectEl) {
+    localStorage.setItem('status_' + id, newStatus);
+    const lead = leads.find(l => l.id === id);
+    if (lead) lead.status_crm = newStatus;
+    
+    selectEl.className = 'status-select';
+    if (newStatus === 'Novo Lead') selectEl.classList.add('status-novo');
+    else if (newStatus === 'Mensagem Enviada') selectEl.classList.add('status-enviada');
+    else if (newStatus === 'Diagnóstico Agendado') selectEl.classList.add('status-agendado');
+    else if (newStatus === 'Proposta em Aberto') selectEl.classList.add('status-proposta');
+    else if (newStatus === 'Fechado') selectEl.classList.add('status-fechado');
+    else if (newStatus === 'Sem Interesse') selectEl.classList.add('status-recusado');
+    
+    showToast('Status atualizado para: ' + newStatus);
+}
+
+function filterTable() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const status = document.getElementById('statusFilter').value;
+    const priority = document.getElementById('priorityFilter').value;
+    const region = document.getElementById('regionFilter').value;
+    
+    const filtered = leads.filter(lead => {
+        const matchesSearch = lead.nome.toLowerCase().includes(search) ||
+                              lead.cidade_bairro.toLowerCase().includes(search) ||
+                              lead.endereco.toLowerCase().includes(search) ||
+                              lead.gargalo.toLowerCase().includes(search) ||
+                              lead.telefone.includes(search);
+                              
+        const matchesStatus = (status === 'TODOS') || (lead.status_crm === status);
+        const matchesPriority = (priority === 'TODOS') || (lead.prioridade === priority);
+        const matchesRegion = (region === 'TODOS') || (lead.cidade_bairro.toLowerCase().includes(region.toLowerCase()) || lead.endereco.toLowerCase().includes(region.toLowerCase()));
+        
+        return matchesSearch && matchesStatus && matchesPriority && matchesRegion;
+    });
+    
+    renderTable(filtered);
+}
+
+function resetFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('statusFilter').value = 'TODOS';
+    document.getElementById('priorityFilter').value = 'TODOS';
+    document.getElementById('regionFilter').value = 'TODOS';
+    renderTable(leads);
+}
+
+function openModal(id) {
+    const lead = leads.find(l => l.id === id);
+    if (!lead) return;
+    
+    document.getElementById('modalTitle').innerText = 'Scripts Outbound — ' + lead.nome;
+    document.getElementById('modalScriptInicial').innerText = lead.script_inicial;
+    document.getElementById('modalScriptFup1').innerText = lead.script_fup_1;
+    document.getElementById('modalScriptFup2').innerText = lead.script_fup_2;
+    document.getElementById('modalScriptFup3').innerText = lead.script_fup_3;
+    
+    document.getElementById('scriptModal').style.display = 'flex';
+}
+
+function closeModal() {
+    document.getElementById('scriptModal').style.display = 'none';
+}
+
+function copyText(elementId) {
+    const text = document.getElementById(elementId).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        showToast('Script copiado com sucesso!');
+    });
+}
+
+function showToast(msg) {
+    const toast = document.getElementById('toastMessage');
+    toast.innerText = msg;
+    toast.style.display = 'block';
+    setTimeout(() => {
+        toast.style.display = 'none';
+    }, 2600);
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('scriptModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
+
+renderTable(leads);
+</script>
+
+</body>
+</html>

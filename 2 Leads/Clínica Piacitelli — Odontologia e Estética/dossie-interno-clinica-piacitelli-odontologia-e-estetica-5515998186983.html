@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — Clínica Piacitelli — Odontologia e Estética</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .lead-desc { color: var(--text-dim); font-size: 0.92rem; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .data-value { font-size: 0.88rem; font-weight: 600; color: var(--text-white); word-break: break-all; }
+    .data-value a { color: var(--accent); text-decoration: none; }
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .flaws-list { display: flex; flex-direction: column; gap: 12px; }
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .flaw-title { font-size: 0.92rem; font-weight: 700; color: #ff8585; font-family: var(--font-display); }
+    .flaw-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .roi-desc { font-size: 0.88rem; color: var(--text-white); line-height: 1.6; }
+    .offer-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .offer-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Nível: Tier 3</span>
+      </div>
+      <h1 class="lead-name">Clínica Piacitelli — Odontologia e Estética</h1>
+      <p class="lead-desc">Odontologia Especializada, Dentística & Harmonização Orofacial — Prédio OFFICE, Av. Antônio Carlos Comitre, 540 - Sala 112 (11º andar), Parque Campolim, Sorocaba - SP, 18047-620</p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp / Telefone</span>
+          <div class="data-value"><a href="https://wa.me/5515998186983" target="_blank">(15) 99818-6983</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram</span>
+          <div class="data-value"><a href="https://instagram.com/clinicapiacitelli" target="_blank">@clinicapiacitelli</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Site / Domínio</span>
+          <div class="data-value">Não possui</div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Status do Site</span>
+          <div class="data-value">Oportunidade de Criação da Nova Sede Digital</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+    <div class="flaw-item">
+      <div class="flaw-title">1. A Dor Real da Clínica: A Roda Viva dos Convênios vs. Custo do Prédio Office</div>
+      <div class="flaw-desc">A clínica ainda atende convênios com remunerações defasadas e carências que geram atritos com os pacientes. Uma sala de alto padrão no 11º andar do Prédio Office tem custo operacional que exige foco em tratamentos particulares de maior valor (R$ 1.500 a R$ 5.000). A estruturação da presença digital e do Google Maps é a única via sustentável para atrair pacientes particulares do próprio Campolim.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">2. A Barreira Invisível: A Insegurança em Edifícios Comerciais</div>
+      <div class="flaw-desc">Pacientes de alta renda têm receio de subir em prédios comerciais sem saber com antecedência o que encontrarão. A oferta do Tour 360° (Street View Indoor da sala 112) resolve exatamente essa objeção: ela encanta a Dra. Luana (que tem orgulho da sala que montou) e quebra a insegurança do paciente particular.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">3. A Apresentação Comercial do Site: 'Novo, Moderno e Fluido' (Zero Jargão)</div>
+      <div class="flaw-desc">Para a Dra. Luana, nunca usar jargões como 'scroll world', 'frameworks' ou termos técnicos. A linguagem que fecha contrato é: 'um site novo, moderno e imersivo, onde o paciente navega pelo seu consultório e pelos tratamentos como numa visita guiada visual, sem textos chatos e com padrão estético de grandes marcas'.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">4. Estrutura Societária e Poder de Decisão</div>
+      <div class="flaw-desc">A Dra. Luana Piacitelli é a proprietária única do CNPJ e decisora absoluta. A outra profissional presente apenas aluga/subloca a cadeira. Todo o alinhamento de escopo, valores e fechamento deve ser mantido diretamente com a Dra. Luana.</div>
+    </div>
+  
+      </div>
+      <div class="roi-box">
+        <div class="roi-title">A Equação Comercial de Retorno (ROI) para Alto Ticket Odontológico</div>
+        <div class="roi-desc">O ticket de um único tratamento particular especializado (Endodontia guiada de R$ 1.200 a R$ 1.800, ou protocolo de Dentística/Harmonização de R$ 1.500 a R$ 4.500) já cobre integralmente o Plano 1 ou grande parte dos Planos 2 e 3 da Vocação. Atrair 2 a 3 pacientes particulares a mais por mês através da visibilidade no Campolim representa um faturamento adicional de R$ 40.000 a R$ 80.000 no ano para o consultório.</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Plano 1 — Essencial Campolim (Presença no Maps & Sede Digital)</strong></td>
+      <td>Migração completa da ficha Google Maps para a Av. Comitre 540 + Domínio clinicapiacitelli.com.br + Site Institucional Elegante e Responsivo + E-mails profissionais protegidos.</td>
+      <td class="offer-price">R$ 1.650 a R$ 2.200 (Taxa única)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Plano 2 — Autoridade 360° no Prédio Office (Recomendado)</strong></td>
+      <td>Tudo do Plano 1 + Sessão Fotográfica e Tour Virtual 360° oficial (Google Street View Indoor) da sala 112 + Integração interativa no site e no Maps para quebrar qualquer hesitação do paciente.</td>
+      <td class="offer-price">R$ 2.800 a R$ 3.500 (Taxa única)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Plano 3 — Ecossistema Boutique Imersivo Completo</strong></td>
+      <td>Tudo do Plano 2 + Site Imersivo e Fluido com apresentação visual contínua das especialidades (Dentística, Endodontia e Harmonização) + Gestão de Tráfego de Busca Ativa no Google Ads no Campolim.</td>
+      <td class="offer-price">Setup R$ 4.500 a R$ 6.000 + R$ 1.200/mês de gestão</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e sem Bajulação)</h2>
+      
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 1 — Envio do PDF no WhatsApp (Agradável, Leve e Elegante)</span>
+        <button class="copy-btn" onclick="copyText('script-whatsapp-agradavel')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-whatsapp-agradavel">Olá, Dra. Luana! Tudo bem?
+
+Aqui é o Eduardo, estive aí na consulta hoje cedo.
+
+Conforme conversamos, preparei o diagnóstico que montamos na Vocação sobre a presença digital da clínica aqui no Campolim.
+
+Fizemos um material bem visual e direto, mostrando como a clínica está posicionada perante os consultórios vizinhos da Comitre e as oportunidades para valorizar o espaço de vocês no 11º andar do Prédio Office — incluindo a possibilidade de um Tour 360° para o paciente conhecer o consultório por dentro antes de agendar, e um site novo, moderno e imersivo para apresentar a dedicação de vocês em estética, canal e harmonização.
+
+Dá uma olhada com calma quando sua rotina permitir e me avisa o que achou!</div>
+      <a href="https://wa.me/5515998186983?text=Ol%C3%A1%2C%20Dra.%20Luana%21%20Tudo%20bem%3F%20Aqui%20%C3%A9%20o%20Eduardo%2C%20estive%20a%C3%AD%20na%20consulta%20hoje%20cedo." class="btn-wa-direct" target="_blank">Abrir WhatsApp Direct</a>
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 2 — Roteiro para a Conversa de Alinhamento (Quando ela responder)</span>
+        <button class="copy-btn" onclick="copyText('script-conversa-alinhamento')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-conversa-alinhamento">COMO CONDUZIR A CONVERSA:
+
+1. O ELOGIO SINCERO AO ESPAÇO FÍSICO:
+"Dra. Luana, quando estive aí no consultório, percebi o quanto o espaço é bonito, moderno e acolhedor. Dá pra sentir o capricho no 11º andar do Prédio Office. A nossa ideia na Vocação é fazer com que quem pesquisa no Google sinta exatamente essa mesma experiência antes de agendar."
+
+2. APRESENTANDO O TIPO DE SITE (SEM JARGÃO):
+"O tipo de site que desenvolvemos não é aquele site antigo cheio de textos longos que ninguém lê. É uma página nova, moderna e imersiva: conforme a pessoa mexe no celular, ela é conduzida por uma apresentação visual linda da clínica — compreendendo a segurança de um canal sem dor, a harmonia da estética dental e o equilíbrio da harmonização facial."
+
+3. O TOUR 360°:
+"Junto com isso, colocamos no Google e no site o Tour 360° do consultório. A pessoa 'caminha' pela recepção e pela cadeira nova no celular. Quem mora ou trabalha no Campolim adora ver onde está indo, e isso destrói qualquer receio de subir no prédio."
+
+4. OFERECENDO OS 3 CAMINHOS:
+"A gente tem desde a estruturação essencial do Google Maps com site elegante (Plano 1), até o projeto com o Tour 360° completo da sala (Plano 2), ou o ecossistema imersivo com atração de pacientes (Plano 3). Vamos bater um papo de 15 minutos para ver qual deles encaixa melhor no momento de vocês?"</div>
+      
+    </div>
+  
+    </section>
+  </div>
+</body>
+</html>

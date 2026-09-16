@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Interno de Prospecção — Luis Carlos e Fatima Sanches (Luis Fagus)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E5B910;
+            --color-primary: #1a2226;
+            --color-bg: #f4f6f8;
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-muted: #5a625f;
+            --color-border: #dce2e6;
+            --color-positive: #0B5E47;
+            --color-negative: #9b2335;
+            --color-opportunity: #1d4e89;
+            --color-warning: #c17f24;
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+            --font-mono: 'Geist Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.6;
+            padding: 32px 16px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Header Corporativo Interno */
+        .internal-header {
+            background: #12181b;
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 8px solid var(--color-accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .internal-tag {
+            background: rgba(229, 185, 16, 0.2);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: var(--font-mono);
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .internal-header h1 {
+            color: #ffffff;
+            font-size: 1.8rem;
+            margin-bottom: 4px;
+            font-family: var(--font-display);
+        }
+
+        .internal-header p {
+            color: #a4b3bc;
+            font-size: 0.95rem;
+        }
+
+        /* Card Section */
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 26px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 2px solid #f0f2f4;
+            padding-bottom: 10px;
+            font-family: var(--font-display);
+            color: var(--color-primary);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: #f8fafb;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border-left: 4px solid var(--color-accent);
+        }
+
+        .info-label {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: var(--color-primary);
+        }
+
+        .badge-alert {
+            background: rgba(239, 68, 68, 0.15);
+            color: var(--color-negative);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: var(--font-mono);
+            white-space: nowrap;
+        }
+
+        .tech-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .tech-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.9rem;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f0f2f4;
+        }
+
+        .tech-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Offers Table */
+        .offers-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin-top: 14px;
+        }
+
+        .offers-table th {
+            background-color: #1a2226;
+            color: #ffffff;
+            padding: 10px 14px;
+            text-align: left;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            text-transform: uppercase;
+        }
+
+        .offers-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        /* Script Box */
+        .script-box {
+            background: #0d1316;
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 14px;
+            border: 1px solid #28373f;
+        }
+
+        .script-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #1f2b31;
+        }
+
+        .script-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .script-text {
+            font-size: 0.9rem;
+            color: #e2e8f0;
+            line-height: 1.6;
+            white-space: pre-line;
+            font-style: italic;
+        }
+
+        .btn-copy {
+            background: #1c272e;
+            color: #ffffff;
+            border: 1px solid #33444f;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            font-family: var(--font-mono);
+        }
+
+        .btn-copy:hover {
+            background: var(--color-accent);
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- HEADER INTERNO -->
+        <div class="internal-header">
+            <div>
+                <span class="internal-tag">Uso Interno Exclusivo · Equipe Vocação</span>
+                <h1>Dossiê Comercial: Luis Carlos e Fatima Sanches</h1>
+                <p>Segmento: Cabeleireiro / Salão de Beleza · Vila Odin / Sorocaba · Instagram: @luisfagus</p>
+            </div>
+            <div>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-accent); font-weight: 700;">PRIORIDADE: MÉDIA/ALTA</span>
+                <div style="font-size: 0.8rem; color: #a4b3bc;">Entrada: Presença Local (R$ 450)</div>
+            </div>
+        </div>
+
+        <!-- INFO CARDS -->
+        <div class="card">
+            <div class="card-title">📌 Dados Gerais do Lead</div>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Nome Fantasia Maps</div>
+                    <div class="info-value">Luis Carlos e Fatima Sanches</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Perfil Instagram</div>
+                    <div class="info-value">@luisfagus (Luis Fagus)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Endereço</div>
+                    <div class="info-value">R. Luzerne P. de Arruda, 170</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Bairro / Região</div>
+                    <div class="info-value">Vila Odin / Vila Gabriel, Sorocaba</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Telefone no Maps</div>
+                    <div class="info-value" style="color: var(--color-negative);">Ausente (Sem Telefone)</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Canal de Contato Inicial</div>
+                    <div class="info-value">Direct Instagram (@luisfagus)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAGNÓSTICO CRU -->
+        <div class="card">
+            <div class="card-title">🛑 Diagnóstico Técnico Cru (Gargalos Reais)</div>
+            <ul class="tech-list">
+                <li class="tech-item">
+                    <span class="badge-alert">GRAVÍSSIMO</span>
+                    <div>
+                        <strong>Sem telefone cadastrado no Google Maps:</strong> O cliente que busca por "cabeleireiro vila odin" no celular encontra o ponto no mapa, mas não tem como ligar nem mandar mensagem. O botão "Ligar" não existe na ficha.
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <span class="badge-alert">VULNERÁVEL</span>
+                    <div>
+                        <strong>Ficha pública não reivindicada:</strong> Exibe o botão "Reivindicar esta empresa". Qualquer terceiro pode sugerir alteração de local ou encerramento da atividade.
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <span class="badge-alert">ERRO DE GRAFIA</span>
+                    <div>
+                        <strong>Erro ortográfico no título:</strong> Está escrito "Cabelereiros" (com erro) em vez de "Cabeleireiros". O algoritmo do Google pune a correspondência exata para quem pesquisa da forma correta.
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <span class="badge-alert">ZERO PROVA SOCIAL</span>
+                    <div>
+                        <strong>0 avaliações no perfil:</strong> Nenhuma cliente avaliou o serviço no Google. Transmite insegurança para quem não conhece a reputação física do salão.
+                    </div>
+                </li>
+                <li class="tech-item">
+                    <span class="badge-alert">DESCONEXÃO DE MARCA</span>
+                    <div>
+                        <strong>Ruptura de identidade:</strong> No Maps está "Luis Carlos e Fatima Sanches", no Instagram está "@luisfagus - Luis Fagus | Especialista em Cabelos". Falta padronizar o nome comercial para consolidar a autoridade.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- PRIORIZAÇÃO DE OFERTAS -->
+        <div class="card">
+            <div class="card-title">🎯 Esteira de Ofertas & Tabela de Investimento</div>
+            <table class="offers-table">
+                <thead>
+                    <tr>
+                        <th>Solução Vocação</th>
+                        <th>Tipo</th>
+                        <th>Investimento</th>
+                        <th>Justificativa Comercial</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Pilar 02 — Presença Local (Google Maps)</strong></td>
+                        <td>Entrada Imediata (7 dias)</td>
+                        <td><strong>R$ 450 (Único)</strong></td>
+                        <td>Reivindicar a ficha, corrigir a grafia para "Cabeleireiros", cadastrar telefone/WhatsApp comercial, fotos profissionais e rotina de avaliações.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pilar 01 — Site / Mini-Página de Agendamento</strong></td>
+                        <td>Estrutural</td>
+                        <td><strong>Sob Consulta</strong></td>
+                        <td>Criar vitrine de procedimentos capilares com fotos dos cabelos do Instagram e botão direto para WhatsApp.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Design Avulso / Padronização Visual</strong></td>
+                        <td>Sob Demanda</td>
+                        <td><strong>Sob Consulta</strong></td>
+                        <td>Alinhamento da marca visual unindo Google Maps e Instagram.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SCRIPTS DE ABORDAGEM -->
+        <div class="card">
+            <div class="card-title">💬 Scripts de Abordagem Comercial</div>
+            <p style="font-size: 0.88rem; color: var(--color-text-muted); margin-bottom: 12px;">
+                Como o Google Maps está sem telefone, o canal primário recomendado é o <strong>Direct do Instagram (@luisfagus)</strong>:
+            </p>
+
+            <!-- Script A: Instagram Direct -->
+            <div class="script-box">
+                <div class="script-header">
+                    <span class="script-tag">OPÇÃO A · DIRECT DO INSTAGRAM @LUISFAGUS (RECOMENDADA)</span>
+                    <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_ig').innerText); alert('Copiado!');">Copiar</button>
+                </div>
+                <div class="script-text" id="script_ig">Olá, Luis! Tudo bem?
+
+Sou o Eduardo da Vocação Comunicação, aqui de Sorocaba. Estava acompanhando seus trabalhos aqui no Instagram, muito capricho nos cabelos!
+
+Te mandei uma mensagem porque fui pesquisar o salão de vocês no Google Maps na Vila Odin (Rua Luzerne P. de Arruda) e reparei num detalhe urgente: a ficha de vocês está sem número de telefone cadastrado e com aquele botão de "Reivindicar esta empresa".
+
+Isso significa que quando uma cliente do bairro procura por cabeleireiro no Google, ela até vê a casa de vocês, mas não tem como ligar nem chamar no WhatsApp para agendar.
+
+A gente trabalha organizando a presença de salões e profissionais aqui na cidade. Se você quiser que a gente te ajude a verificar a ficha oficial, colocar o botão de WhatsApp e organizar as fotos para atrair clientes do bairro, me dá um toque por aqui!</div>
+            </div>
+
+            <!-- Script B: Presencial / Rápido -->
+            <div class="script-box" style="margin-top: 18px;">
+                <div class="script-header">
+                    <span class="script-tag">OPÇÃO B · ABORDAGEM PRESENCIAL OU WHATSAPP (QUANDO OBTIDO)</span>
+                    <button class="btn-copy" onclick="navigator.clipboard.writeText(document.getElementById('script_zap').innerText); alert('Copiado!');">Copiar</button>
+                </div>
+                <div class="script-text" id="script_zap">Boa tarde, Luis Carlos / Fatima! Tudo bem?
+
+Eu estava mapeando os estabelecimentos aqui da Vila Odin e passei pela frente do salão na Rua Luzerne.
+
+Reparei que no Google Maps o perfil de vocês ainda não foi verificado pelo dono e está sem telefone cadastrado. Quem pesquisa por cabeleireiro aqui perto não consegue falar com vocês.
+
+A gente organiza a ficha no Google com fotos dos cabelos e botão direto para o seu WhatsApp em 7 dias. Posso te explicar rapidinho como funciona?</div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

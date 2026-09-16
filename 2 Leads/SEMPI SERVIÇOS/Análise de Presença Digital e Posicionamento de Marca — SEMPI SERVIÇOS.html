@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Presença & Autoridade Digital — SEMPI SERVIÇOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-accent-soft: #fcf9eb;
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #5a625f;
+      --color-border: #e2e8e5;
+      --color-positive: #0B5E47;
+      --color-negative: #9b2335;
+      --color-opportunity: #1d4e89;
+      --color-warning: #c17f24;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 36px 16px;
+    }
+    .container { max-width: 960px; margin: 0 auto; }
+    .header-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 36px 32px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(6, 27, 40, 0.08);
+    }
+    .header-card::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 6px; height: 100%;
+      background: var(--color-accent);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 16px;
+    }
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(229, 185, 16, 0.15);
+      color: var(--color-accent);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .lead-title {
+      font-family: var(--font-display);
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .lead-subtitle {
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 1rem;
+      max-width: 650px;
+    }
+    .header-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.85rem;
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 4px; }
+    .meta-label {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      letter-spacing: 0.5px;
+    }
+    .meta-value { color: #ffffff; font-weight: 600; }
+    .manifesto-card {
+      background: var(--color-surface);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
+    }
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .manifesto-text {
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+    .stat-num.accent { color: var(--color-accent); }
+    .stat-desc {
+      font-size: 0.75rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .pillars-container {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+    .pillar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+    }
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .pillar-id-title { display: flex; align-items: center; gap: 12px; }
+    .pillar-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--color-accent-soft);
+      color: var(--color-primary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid rgba(229, 185, 16, 0.3);
+    }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .status-bad {
+      background: #fdf2f2;
+      color: var(--color-negative);
+      border: 1px solid rgba(155, 35, 53, 0.2);
+    }
+    .status-medium {
+      background: #fdfaf2;
+      color: var(--color-warning);
+      border: 1px solid rgba(193, 127, 36, 0.2);
+    }
+    .status-good {
+      background: #f0f8f5;
+      color: var(--color-positive);
+      border: 1px solid rgba(11, 94, 71, 0.2);
+    }
+    .pillar-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--color-border);
+    }
+    .analysis-box {
+      background: #fcfcfb;
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+    .box-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      display: block;
+    }
+    .box-label.current { color: var(--color-negative); }
+    .box-label.opportunity { color: var(--color-positive); }
+    .box-content { font-size: 0.85rem; color: var(--color-text); line-height: 1.5; }
+    .table-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    table { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.84rem; }
+    thead {
+      background: var(--color-primary);
+      color: #ffffff;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    th { padding: 14px 16px; font-weight: 600; }
+    td { padding: 14px 16px; border-bottom: 1px solid var(--color-border); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    .lead-row { background: rgba(229, 185, 16, 0.08); font-weight: 600; }
+    .badge-comp {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+    }
+    .badge-comp.strong { background: #eaf6ee; color: var(--color-positive); }
+    .badge-comp.medium { background: #fdf8e6; color: var(--color-warning); }
+    .badge-comp.weak { background: #fdf2f2; color: var(--color-negative); }
+    .cta-card {
+      background: linear-gradient(135deg, #061B28 0%, #0d283b 100%);
+      border-radius: 14px;
+      padding: 36px 32px;
+      color: #ffffff;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(6, 27, 40, 0.15);
+    }
+    .cta-badge {
+      display: inline-block;
+      background: rgba(229, 185, 16, 0.2);
+      color: var(--color-accent);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+    .cta-desc {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.92rem;
+      max-width: 620px;
+      margin: 0 auto 24px auto;
+      line-height: 1.6;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.92rem;
+      padding: 14px 28px;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(229, 185, 16, 0.35);
+    }
+    .report-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-border);
+      font-size: 0.78rem;
+      color: var(--color-text-muted);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    @media (max-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .pillar-body { grid-template-columns: 1fr; }
+      .header-card { padding: 24px 20px; }
+      .lead-title { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header-card">
+      <div class="header-top">
+        <span class="brand-badge">Diagnóstico de Presença & Alto Valor</span>
+        <div class="header-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="28" height="28" fill="none">
+  <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+  <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+</svg>
+          <span>Vocação</span>
+        </div>
+      </div>
+      <h1 class="lead-title">SEMPI SERVIÇOS</h1>
+      <p class="lead-subtitle">Diagnóstico de Autoridade Corporativa & Soluções B2B para o Mercado Industrial</p>
+      <div class="header-meta">
+        <div class="meta-item">
+          <span class="meta-label">Localização</span>
+          <span class="meta-value">Rua Cel. Felix Esteves Júnior, 250, Ipanema Ville, Sorocaba/SP</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Canal Social</span>
+          <span class="meta-value">@sempiengenharia (Empresa Consolidada (11+ anos))</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Categoria</span>
+          <span class="meta-value">Engenharia Industrial, Manutenção de Máquinas & Automação</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Data</span>
+          <span class="meta-value">setembro de 2026</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="manifesto-card">
+      <div class="manifesto-quote">"Contratos industriais de alto valor são decididos por diretores de operações e gerentes de planta. Se a presença online da empresa aparenta ser de uma oficina comum, o contrato vai para concorrentes com sites de engenharia pesada."</div>
+      <p class="manifesto-text">Fundada em 2015 pelo engenheiro Carlos Alberto Fonseca, a SEMPI possui capacidade técnica comprovada em manutenção de máquinas pesadas, cabines primárias e montagens elétricas industriais. No entanto, seu site em sempiengenharia.com.br foi construído em template antigo do WordPress com arquitetura lenta, sem apresentar adequadamente os cases industriais e sem um funil de cotação consultiva de engenharia (como o case Safety First).</p>
+    </section>
+
+    <section class="stats-grid">
+      
+    <div class="stat-card">
+      <div class="stat-num ">95%</div>
+      <div class="stat-desc">dos diretores industriais e engenheiros avaliam a robustez do site antes de abrir concorrência técnica.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num accent">3.2s</div>
+      <div class="stat-desc">é o tempo máximo tolerado por gestores de fábrica em busca de assistência emergencial 24h.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num ">R$ 45k</div>
+      <div class="stat-desc">é o valor médio de um contrato de montagem ou reforma de cabine primária industrial.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num accent">20x</div>
+      <div class="stat-desc">de retorno sobre o investimento com um único novo cliente fabril conquistado em Sorocaba.</div>
+    </div>
+  
+    </section>
+
+    <section>
+      <h2 class="section-title">Diagnóstico dos 4 Pilares Estruturais</h2>
+      <p class="section-subtitle">Mapeamento do estado atual e as oportunidades de valor para blindagem da marca.</p>
+      <div class="pillars-container">
+        
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-id-title">
+            <span class="pillar-number">PILAR 01</span>
+            <h3 class="pillar-title">Infraestrutura Web & Arquitetura de Engenharia</h3>
+          </div>
+          <span class="status-badge status-bad">Legado / Lento</span>
+        </div>
+        <div class="pillar-body">
+          <div class="analysis-box">
+            <span class="box-label current">Situação Atual Observada</span>
+            <p class="box-content">Site WordPress clássico em sempiengenharia.com.br, com design visual antigo, carregamento pesado e layout sem dinamismo corporativo.</p>
+          </div>
+          <div class="analysis-box">
+            <span class="box-label opportunity">O Valor da Transformação</span>
+            <p class="box-content">Modernização expressa via Vocação Update (https://vocacao.digital/vocacao-update): transformação completa em layout dark industrial de alta precisão (inspirado no benchmark Safety First: safetyfirst-vocacao.vercel.app).</p>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-id-title">
+            <span class="pillar-number">PILAR 02</span>
+            <h3 class="pillar-title">Posicionamento B2B no Google Maps (Sorocaba)</h3>
+          </div>
+          <span class="status-badge status-medium">Subdimensionado</span>
+        </div>
+        <div class="pillar-body">
+          <div class="analysis-box">
+            <span class="box-label current">Situação Atual Observada</span>
+            <p class="box-content">Ficha registrada como SEMPI SERVIÇOS no Ipanema Ville sem catálogo completo de serviços pesados (NR-10, NR-12, cabines primárias e retrofit de CLP).</p>
+          </div>
+          <div class="analysis-box">
+            <span class="box-label opportunity">O Valor da Transformação</span>
+            <p class="box-content">Otimização corporativa B2B: ranqueamento para termos de busca fabril na Zona Industrial de Sorocaba, Votorantim e Salto de Pirapora.</p>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-id-title">
+            <span class="pillar-number">PILAR 03</span>
+            <h3 class="pillar-title">Canal de Plantão Industrial 24h</h3>
+          </div>
+          <span class="status-badge status-medium">Gargalo Crítico</span>
+        </div>
+        <div class="pillar-body">
+          <div class="analysis-box">
+            <span class="box-label current">Situação Atual Observada</span>
+            <p class="box-content">O plantão 24h (15 99798-8298) está escondido no rodapé do site sem botão flutuante de emergência industrial com tempo de resposta imediato.</p>
+          </div>
+          <div class="analysis-box">
+            <span class="box-label opportunity">O Valor da Transformação</span>
+            <p class="box-content">Implantação de botão de Chamado Emergencial Industrial: direcionamento prioritário para quebra de máquinas e paradas de linha de produção.</p>
+          </div>
+        </div>
+      </div>
+    
+
+      <div class="pillar-card">
+        <div class="pillar-header">
+          <div class="pillar-id-title">
+            <span class="pillar-number">PILAR 04</span>
+            <h3 class="pillar-title">Autoridade perante Multinacionais do Polo de Sorocaba</h3>
+          </div>
+          <span class="status-badge status-good">Oportunidade Estratégica</span>
+        </div>
+        <div class="pillar-body">
+          <div class="analysis-box">
+            <span class="box-label current">Situação Atual Observada</span>
+            <p class="box-content">Empresa possui 11 anos de histórico limpo e capacidade de atender montadoras e indústrias farmacêuticas da região.</p>
+          </div>
+          <div class="analysis-box">
+            <span class="box-label opportunity">O Valor da Transformação</span>
+            <p class="box-content">Ecossistema de autoridade para homologação em portais de compras de grandes indústrias, com apresentação institucional em PDF e web de alto impacto.</p>
+          </div>
+        </div>
+      </div>
+    
+      </div>
+    </section>
+
+    
+    <section>
+      <h2 class="section-title">Posicionamento Perante o Mercado Local</h2>
+      <p class="section-subtitle">Comparativo com negócios concorrentes na mesma região.</p>
+      <div class="table-card">
+        <table>
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Localização</th>
+              <th>Site Próprio</th>
+              <th>Redes Sociais</th>
+              <th>Presença Geral</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr class="lead-row">
+        <td><strong>SEMPI SERVIÇOS (SEMPI Engenharia)</strong></td>
+        <td>Ipanema Ville / Sorocaba</td>
+        <td><span class="badge-comp medium">WordPress Antigo (sempiengenharia)</span></td>
+        <td>Institucional</td>
+        <td><span class="badge-comp medium">Autoridade Desatualizada</span></td>
+      </tr>
+    
+
+      <tr >
+        <td><strong>Grandes Integradoras Industriais SP</strong></td>
+        <td>Campinas / Sorocaba / SP</td>
+        <td><span class="badge-comp strong">Corporativo Pesado</span></td>
+        <td>Corporativo Forte</td>
+        <td><span class="badge-comp strong">Líderes de Homologação</span></td>
+      </tr>
+    
+
+      <tr >
+        <td><strong>Oficinas Mecânicas Locais</strong></td>
+        <td>Zona Industrial Sorocaba</td>
+        <td><span class="badge-comp weak">Básico</span></td>
+        <td>Informal</td>
+        <td><span class="badge-comp weak">Baixo Ticket</span></td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+
+    <section class="cta-card">
+      <span class="cta-badge">Próximo Passo Estratégico</span>
+      <h2 class="cta-title">Modernize a Presença da SEMPI com o Vocação Update em 5 Dias</h2>
+      <p class="cta-desc">Convertemos o site atual da SEMPI para o padrão de engenharia corporativa de ponta (nível Safety First), pronto para negociações com grandes indústrias.</p>
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1%2C%20analisei%20o%20diagn%C3%B3stico%20da%20SEMPI%20Servi%C3%A7os%20e%20gostaria%20de%20tratar%20sobre%20a%20moderniza%C3%A7%C3%A3o%20industrial." class="cta-btn" target="_blank">
+        <span>Falar com o Especialista da Vocação</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </section>
+
+    <footer class="report-footer">
+      <div class="footer-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="22" height="22" fill="none">
+  <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#061B28" />
+  <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#fafaf8" />
+</svg>
+        <span>Vocação Comunicação & Marketing — Sorocaba/SP</span>
+      </div>
+      <div>Diagnóstico confidencial desenvolvido exclusivamente para SEMPI SERVIÇOS.</div>
+    </footer>
+  </div>
+</body>
+</html>

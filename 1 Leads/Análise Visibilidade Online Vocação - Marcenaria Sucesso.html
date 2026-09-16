@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico de Autoridade Digital & Presença — Marcenaria Sucesso</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-accent-soft: #fcf9eb;
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #5a625f;
+      --color-border: #e2e8e5;
+      --color-positive: #0B5E47;
+      --color-negative: #9b2335;
+      --color-opportunity: #1d4e89;
+      --color-warning: #c17f24;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      box-shadow: 0 12px 36px rgba(6, 27, 40, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, #ffdf6d 100%);
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(229, 185, 16, 0.15);
+      border: 1px solid rgba(229, 185, 16, 0.4);
+      color: var(--color-accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      max-width: 620px;
+    }
+
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+    }
+
+    .brand-logo-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-top: 8px;
+    }
+
+    .brand-logo-text span {
+      color: var(--color-accent);
+    }
+
+    /* Manifesto Box */
+    .manifesto-card {
+      background: var(--color-surface);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 12px;
+      padding: 24px 30px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      border-right: 1px solid var(--color-border);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .manifesto-subtext {
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-desc {
+      font-size: 0.92rem;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+    }
+
+    /* Pillars Grid */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+    }
+
+    .pillar-box {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 22px;
+      background: #fafcfb;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pillar-box.critico {
+      border-color: #fecaca;
+      background: #fffafa;
+    }
+
+    .pillar-box.alerta {
+      border-color: #fed7aa;
+      background: #fffdfa;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+
+    .pillar-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-text-muted);
+    }
+
+    .pillar-status {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .status-vulneravel {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #f87171;
+    }
+
+    .status-ausente {
+      background: #ffedd5;
+      color: #9a3412;
+      border: 1px solid #fb923c;
+    }
+
+    .pillar-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .pillar-finding {
+      font-size: 0.88rem;
+      color: #374151;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .pillar-impact {
+      font-size: 0.82rem;
+      color: var(--color-negative);
+      font-weight: 600;
+      padding-top: 8px;
+      border-top: 1px dashed var(--color-border);
+    }
+
+    .pillar-solution {
+      font-size: 0.82rem;
+      color: var(--color-positive);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 16px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+    }
+
+    table.benchmark-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      text-align: left;
+    }
+
+    table.benchmark-table th {
+      background-color: #0c2333;
+      color: #ffffff;
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 12px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    table.benchmark-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: middle;
+    }
+
+    table.benchmark-table tr.lead-row td {
+      background-color: #fffdf5;
+      font-weight: 600;
+    }
+
+    .badge-market {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      display: inline-block;
+    }
+
+    .market-forte { background: #dcfce7; color: #166534; }
+    .market-media { background: #fef9c3; color: #854d0e; }
+    .market-vulneravel { background: #fee2e2; color: #991b1b; }
+
+    /* ROI Box */
+    .roi-card {
+      background: linear-gradient(135deg, #fbfbf9 0%, #f4f6f4 100%);
+      border: 2px solid var(--color-accent);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(229, 185, 16, 0.08);
+    }
+
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 14px;
+    }
+
+    .roi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .roi-item {
+      background: #ffffff;
+      padding: 16px;
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+    }
+
+    .roi-item .num {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-positive);
+    }
+
+    .roi-item .desc {
+      font-size: 0.82rem;
+      color: var(--color-text-muted);
+      margin-top: 4px;
+    }
+
+    /* CTA Section */
+    .cta-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(6, 27, 40, 0.15);
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .cta-desc {
+      font-size: 0.95rem;
+      color: #c9d8d5;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+    }
+
+    .cta-btn {
+      background-color: var(--color-accent);
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(229, 185, 16, 0.35);
+    }
+
+    .cta-btn:hover {
+      background-color: #ffd026;
+      transform: translateY(-2px);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 24px;
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <!-- HEADER -->
+    <header class="header-card">
+      <div class="header-info">
+        <div class="badge-tag">Diagnóstico de Autoridade Digital & Presença Local</div>
+        <h1 class="header-title">Marcenaria Sucesso — Móveis Planejados</h1>
+        <p class="header-subtitle">
+          Análise de visibilidade online, posicionamento no Google Maps e oportunidades de captação de clientes de maior ticket em Sorocaba e região.
+        </p>
+      </div>
+      <div class="header-brand">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="36" height="36" fill="none">
+          <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+          <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+        </svg>
+        <div class="brand-logo-text">VOCAÇÃO<span>.</span></div>
+      </div>
+    </header>
+
+    <!-- MANIFESTO -->
+    <div class="manifesto-card">
+      <div class="manifesto-quote">
+        “Sua marcenaria já entrega qualidade no acabamento real. No digital, ela precisa transmitir esse mesmo nível de autoridade para o cliente fechar sem medo.”
+      </div>
+      <div class="manifesto-subtext">
+        Quem vai investir R$ 20 mil, R$ 40 mil ou R$ 80 mil em móveis sob medida não compra por impulso: ele pesquisa no Google, analisa as fotos e busca sinais de solidez antes de agendar uma visita técnica.
+      </div>
+    </div>
+
+    <!-- 4 PILARES DIAGNÓSTICO -->
+    <section class="section-card">
+      <h2 class="section-title">🔍 Diagnóstico Estrutural dos 4 Pilares</h2>
+      <p class="section-desc">
+        Avaliamos a infraestrutura pública da Marcenaria Sucesso na Rua Firmino Mineli, 259 (Jardim Hungares / Vila Mineirão, Sorocaba):
+      </p>
+
+      <div class="pillars-grid">
+        
+        <!-- Pilar 02 - Maps (Gargalo Mais Crítico) -->
+        <div class="pillar-box critico">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 02 · Presença Local</span>
+            <span class="pillar-status status-vulneravel">⚠️ Não Reivindicado</span>
+          </div>
+          <h3 class="pillar-name">Google Maps Vulnerável & Abandonado</h3>
+          <p class="pillar-finding">
+            O perfil no Google Maps exibe publicamente o botão <strong>"Reivindicar esta empresa"</strong>. Isso significa que a propriedade não foi verificada pelo dono, deixando a ficha sujeita a alterações indevidas ou bloqueios. A categoria cadastrada é apenas "Marceneiro" (genérica) e há apenas uma foto vertical amadora de celular.
+          </p>
+          <div class="pillar-impact">
+            Risco: Perda total de novos clientes que pesquisam por marcenarias em Sorocaba e insegurança no perfil.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Presença Local (R$ 450) com reivindicação imediata, fotos tratadas e selo oficial em 7 dias.
+          </div>
+        </div>
+
+        <!-- Pilar 01 - Site -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 01 · Sede Digital</span>
+            <span class="pillar-status status-ausente">Inexistente</span>
+          </div>
+          <h3 class="pillar-name">Ausência de Catálogo Digital / Site</h3>
+          <p class="pillar-finding">
+            A empresa não possui link de site vinculado ao perfil. Quando o morador da Zona Norte ou de condomínios próximos busca por cozinhas planejadas, não encontra uma galeria oficial para conferir acabamentos em MDF, espessuras e ferragens.
+          </p>
+          <div class="pillar-impact">
+            Risco: Dependência 100% exclusiva de indicação de conhecidos, sem captação ativa de novos orçamentos.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Site Profissional leve e focado em WhatsApp, destacando projetos entregues em Sorocaba.
+          </div>
+        </div>
+
+        <!-- Pilar 03 - Redes -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 03 · Vitrine Visual</span>
+            <span class="pillar-status status-ausente">Desconectada</span>
+          </div>
+          <h3 class="pillar-name">Apresentação Visual & Portfólio</h3>
+          <p class="pillar-finding">
+            A foto atual na internet mostra uma cozinha simples com geladeira e ímãs domésticos. Falta uma apresentação profissional dos móveis em si: fotos com boa iluminação, detalhes de puxadores, iluminação em LED embutida e gavetas amortecidas.
+          </p>
+          <div class="pillar-impact">
+            Risco: O cliente compara a foto com a vitrine de lojas maiores e deduz erroneamente que o trabalho é amador.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Organização de vitrine digital que valoriza o capricho técnico da marcenaria sob medida.
+          </div>
+        </div>
+
+        <!-- Pilar 04 - Governança -->
+        <div class="pillar-box alerta">
+          <div class="pillar-header">
+            <span class="pillar-num">Pilar 04 · Governança</span>
+            <span class="pillar-status status-ausente">Sem Domínio</span>
+          </div>
+          <h3 class="pillar-name">Domínio & Identidade Corporativa</h3>
+          <p class="pillar-finding">
+            Sem registro de domínio próprio (.com.br) e sem canal de atendimento unificado institucional. O contato ocorre unicamente pelo número de celular (15) 99778-7394 sem marca registrada na web.
+          </p>
+          <div class="pillar-impact">
+            Risco: Falta de proteção de marca e perda de orçamentos corporativos e comerciais.
+          </div>
+          <div class="pillar-solution">
+            Solução Vocação: Blindagem de marca com registro próprio e e-mail institucional oficial.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- BENCHMARK LOCAL -->
+    <section class="section-card">
+      <h2 class="section-title">📊 Comparativo Regional em Sorocaba</h2>
+      <p class="section-desc">
+        Como a presença digital da Marcenaria Sucesso se posiciona frente aos concorrentes que disputam clientes na mesma praça:
+      </p>
+
+      <div class="table-container">
+        <table class="benchmark-table">
+          <thead>
+            <tr>
+              <th>Empresa</th>
+              <th>Status Google Maps</th>
+              <th>Site Próprio</th>
+              <th>Avaliações</th>
+              <th>Percepção Digital</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="lead-row">
+              <td><strong>Marcenaria Sucesso</strong></td>
+              <td><span class="badge-market market-vulneravel">Não Reivindicado</span></td>
+              <td>❌ Inexistente</td>
+              <td>0 / Quase nulas</td>
+              <td><span class="badge-market market-vulneravel">Vulnerável</span></td>
+            </tr>
+            <tr>
+              <td>MDM Marcenaria (Éden)</td>
+              <td>✅ Verificado</td>
+              <td>✅ marcenariamdm.com.br</td>
+              <td>4.8 ★ (Ativo)</td>
+              <td><span class="badge-market market-forte">Forte</span></td>
+            </tr>
+            <tr>
+              <td>Mendes Marcenaria (Vila Santana)</td>
+              <td>✅ Verificado</td>
+              <td>✅ mendesmarcenaria.com.br</td>
+              <td>4.7 ★ (Tradição)</td>
+              <td><span class="badge-market market-media">Média</span></td>
+            </tr>
+            <tr>
+              <td>Marcenaria Mantovani (Jd. Simus)</td>
+              <td>✅ Verificado</td>
+              <td>✅ Site próprio</td>
+              <td>4.6 ★ (25 anos)</td>
+              <td><span class="badge-market market-media">Média</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 12px;">
+        💡 <em>Nota: A Marcenaria Sucesso pode rapidamente superar concorrentes locais estruturando apenas o Google Maps e um catálogo mobile elegante.</em>
+      </p>
+    </section>
+
+    <!-- ROI -->
+    <div class="roi-card">
+      <h3 class="roi-title">💰 A Matemática do Retorno sobre o Investimento</h3>
+      <p style="font-size: 0.92rem; color: var(--color-text); margin-bottom: 16px;">
+        Em marcenaria sob medida, você não precisa de centenas de curiosos ligando. Basta <strong>um único cliente qualificado a mais</strong> para pagar toda a infraestrutura com lucro:
+      </p>
+
+      <div class="roi-grid">
+        <div class="roi-item">
+          <div class="num">R$ 25.000</div>
+          <div class="desc">Ticket médio estimado de uma cozinha ou dormitório planejado em Sorocaba.</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">R$ 450</div>
+          <div class="desc">Investimento único na estruturação do Google Maps (Presença Local Vocação).</div>
+        </div>
+        <div class="roi-item">
+          <div class="num">+55x</div>
+          <div class="desc">Retorno sobre o investimento gerado com o fechamento de apenas 1 projeto conquistado.</div>
+        </div>
+      </div>
+      <p style="font-size: 0.86rem; color: var(--color-positive); font-weight: 600;">
+        Conclusão: O custo de permanecer invisível ou com ficha não reivindicada é ordens de grandeza maior do que o custo de se organizar.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h3 class="cta-title">Vamos organizar a presença digital da Marcenaria Sucesso?</h3>
+      <p class="cta-desc">
+        A Vocação Comunicação & Marketing estrutura a presença de pequenas e médias empresas que são excelentes no que fazem, mas precisam refletir essa mesma confiança na internet.
+      </p>
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20da%20Marcenaria%20Sucesso%20e%20gostaria%20de%20conversar%20sobre%20a%20Presen%C3%A7a%20Local." class="cta-btn" target="_blank">
+        <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592z"/></svg>
+        Falar com a Equipe Vocação no WhatsApp
+      </a>
+    </div>
+
+    <div class="footer-note">
+      Diagnóstico Estrutural Independente realizado pela Vocação Comunicação & Marketing • Sorocaba - SP • vocacao.digital
+    </div>
+
+  </div>
+</body>
+</html>

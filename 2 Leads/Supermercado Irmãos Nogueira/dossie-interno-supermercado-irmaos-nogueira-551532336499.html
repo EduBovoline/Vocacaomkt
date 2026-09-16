@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossiê Interno de Inteligência Comercial — Supermercado Irmãos Nogueira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f171c;
+      --card-dark: #16222a;
+      --card-inner: #1c2b35;
+      --accent: #E5B910;
+      --accent-hover: #f0c524;
+      --text-white: #f5f7f8;
+      --text-dim: #9aa8b2;
+      --danger: #e65c5c;
+      --success: #2bc48a;
+      --warning: #f0ad4e;
+      --border: rgba(255, 255, 255, 0.08);
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding: 32px 16px;
+    }
+    .container { max-width: 980px; margin: 0 auto; }
+    .header {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 28px 24px;
+      margin-bottom: 24px;
+    }
+    .header-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .confidential-tag {
+      background: rgba(230, 92, 92, 0.15);
+      color: var(--danger);
+      border: 1px solid rgba(230, 92, 92, 0.3);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .meta-tag {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .lead-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      margin-bottom: 6px;
+    }
+    .lead-desc { color: var(--text-dim); font-size: 0.92rem; }
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .data-item {
+      background: var(--card-inner);
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .data-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .data-value { font-size: 0.88rem; font-weight: 600; color: var(--text-white); word-break: break-all; }
+    .data-value a { color: var(--accent); text-decoration: none; }
+    .section-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .flaws-list { display: flex; flex-direction: column; gap: 12px; }
+    .flaw-item {
+      background: var(--card-inner);
+      border-left: 3px solid var(--danger);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .flaw-title { font-size: 0.92rem; font-weight: 700; color: #ff8585; font-family: var(--font-display); }
+    .flaw-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
+    .roi-box {
+      background: rgba(229, 185, 16, 0.08);
+      border: 1px solid rgba(229, 185, 16, 0.25);
+      border-radius: 10px;
+      padding: 20px;
+      margin-top: 14px;
+    }
+    .roi-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .roi-desc { font-size: 0.88rem; color: var(--text-white); line-height: 1.6; }
+    .offer-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
+    .offer-table th {
+      background: var(--card-inner);
+      color: var(--accent);
+      text-align: left;
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .offer-table td { padding: 12px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .offer-price { font-family: var(--font-mono); font-weight: 700; color: var(--accent); }
+    .script-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+    .script-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .script-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .copy-btn {
+      background: var(--accent);
+      color: #061B28;
+      border: none;
+      border-radius: 4px;
+      padding: 4px 10px;
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .script-text {
+      font-size: 0.86rem;
+      color: #e2e8e5;
+      white-space: pre-wrap;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      background: rgba(0, 0, 0, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      border: 1px dashed rgba(255, 255, 255, 0.15);
+    }
+    .btn-wa-direct {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #061B28;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 8px 14px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+  <script>
+    function copyText(id) {
+      const text = document.getElementById(id).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Script copiado com sucesso!');
+      });
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-badge-row">
+        <span class="confidential-tag">Uso Interno — Vocação Comercial</span>
+        <span class="meta-tag">Nível: Tier 1</span>
+      </div>
+      <h1 class="lead-name">Supermercado Irmãos Nogueira</h1>
+      <p class="lead-desc">Supermercado & Açougue de Bairro — Rua Angelina Pelizari Costa, 246 - Vila Mineirão, Sorocaba/SP</p>
+      <div class="data-grid">
+        <div class="data-item">
+          <span class="data-label">WhatsApp / Telefone</span>
+          <div class="data-value"><a href="https://wa.me/551532336499" target="_blank">(15) 3233-6499</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Instagram</span>
+          <div class="data-value"><a href="https://instagram.com/Não possui perfil ativo" target="_blank">Não possui perfil ativo</a></div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Site / Domínio</span>
+          <div class="data-value">Não possui</div>
+        </div>
+        <div class="data-item">
+          <span class="data-label">Status do Site</span>
+          <div class="data-value">Ausente (Sem vitrine digital)</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-card">
+      <h2 class="card-title">Gargalos Críticos Identificados</h2>
+      <div class="flaws-list">
+        
+    <div class="flaw-item">
+      <div class="flaw-title">1. Ficha no Google Maps Desatualizada e Crua</div>
+      <div class="flaw-desc">O perfil está como 'Irmãos Nogueira' sem palavra-chave de supermercado, sem fotos dos setores de alta margem (açougue e padaria/hortifruti) e sem horários verificados.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">2. Falta de Canal Direto de WhatsApp</div>
+      <div class="flaw-desc">O cliente que pesquisa no celular só encontra telefone fixo. Hoje, o consumidor do bairro quer praticidade para pedir uma entrega ou conferir preço de carne.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">3. Perda de Clientes para Grandes Redes do Próprio Bairro</div>
+      <div class="flaw-desc">A Rede Bom Lugar da Vila Mineirão explora encartes digitais e presença ativa. O Irmãos Nogueira tem a vantagem da proximidade e atendimento pessoal, mas não mostra isso online.</div>
+    </div>
+  
+
+    <div class="flaw-item">
+      <div class="flaw-title">4. Inexistência de Prova Social e Avaliações Recentes</div>
+      <div class="flaw-desc">Sem link direto ou QR Code de balcão incentivando avaliações 5 estrelas no Google, a pontuação fica estagnada e não transmite a confiança que a loja física possui.</div>
+    </div>
+  
+      </div>
+      <div class="roi-box">
+        <div class="roi-title">Matemática de Retorno do Investimento (ROI)</div>
+        <div class="roi-desc">O serviço de Presença Local da Vocação custa taxa única de R$ 450 (entregue em 7 dias). Em um supermercado/açougue, apenas 2 compras de feira ou churrasco de novos moradores que acharem a loja no Google Maps já pagam 100% do projeto.</div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Estratégia de Apresentação das Ofertas Vocação</h2>
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>Solução Vocação</th>
+            <th>Objetivo com o Lead</th>
+            <th>Investimento Sugerido</th>
+          </tr>
+        </thead>
+        <tbody>
+          
+    <tr>
+      <td><strong>Pilar 02 — Presença Local no Google Maps</strong></td>
+      <td>Reivindicação, otimização de nome, categorias de açougue/mercado, fotos tratadas dos setores, inclusão de WhatsApp de atendimento e QR Code de balcão para avaliações 5 estrelas.</td>
+      <td class="offer-price">R$ 450 (Taxa única / 7 dias)</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Design de Encarte Digital Semanal</strong></td>
+      <td>Template visual profissional para divulgação das ofertas semanais (Quarta do Hortifruti, Fim de Semana da Carne) para disparos no WhatsApp de clientes.</td>
+      <td class="offer-price">R$ 150 a R$ 300 / sob demanda</td>
+    </tr>
+  
+
+    <tr>
+      <td><strong>Pilar 01 — Vitrine Digital / Página de Contato & Horários</strong></td>
+      <td>Página rápida e responsiva para celular com localização na Vila Mineirão, catálogo de departamentos, tabela de horários e botão de delivery direto.</td>
+      <td class="offer-price">R$ 800 a R$ 1.200</td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section-card">
+      <h2 class="card-title">Scripts de Abordagem Comercial (Diretos e sem Bajulação)</h2>
+      
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 1: WhatsApp / Ligação Direta com o Proprietário ou Gerente</span>
+        <button class="copy-btn" onclick="copyText('script-wa')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-wa">Olá, tudo bem? Aqui é da Vocação Comunicação, somos de Sorocaba.
+
+Estava olhando o perfil do Supermercado Irmãos Nogueira no Google Maps e notei que quem pesquisa por mercado ou açougue aqui na Vila Mineirão encontra a ficha de vocês sem fotos dos setores frescos, sem horário atualizado e sem o botão direto para o WhatsApp.
+
+Enquanto isso, redes como o Bom Lugar do bairro acabam captando os novos moradores da região simplesmente porque aparecem primeiro no mapa.
+
+Nós preparamos um diagnóstico rápido em PDF mostrando como estruturar a ficha de vocês no Google para atrair clientes do bairro toda semana. Um ajuste desse custa taxa única de R$ 450 e se paga com duas compras de açougue no mês.
+
+Posso enviar o PDF do diagnóstico aqui para vocês darem uma olhada?</div>
+      <a href="https://wa.me/551532336499?text=Ol%C3%A1%2C%20tudo%20bem%3F%20Aqui%20%C3%A9%20da%20Voca%C3%A7%C3%A3o%2C%20de%20Sorocaba.%20Preparei%20um%20diagn%C3%B3stico%20r%C3%A1pido%20da%20presen%C3%A7a%20do%20Supermercado%20Irm%C3%A3os%20Nogueira%20no%20Google%20Maps.%20Posso%20enviar%20por%20aqui%3F" class="btn-wa-direct" target="_blank">Abrir WhatsApp Direct</a>
+    </div>
+  
+
+    <div class="script-box">
+      <div class="script-header">
+        <span class="script-name">Script 2: Abordagem Presencial no Balcão / Caixa com o Responsável</span>
+        <button class="copy-btn" onclick="copyText('script-visita')">Copiar Script</button>
+      </div>
+      <div class="script-text" id="script-visita">Olá, boa tarde! Gostaria de falar 2 minutos com o responsável pela loja ou com o proprietário.
+
+Meu nome é [Seu Nome], sou da Vocação Comunicação aqui em Sorocaba. A gente cuida da presença no Google de comércios locais tradicionais da cidade.
+
+Fizemos um levantamento da Vila Mineirão e vimos que muitos vizinhos novos buscam açougue e mercado no Google Maps e acabam caindo em grandes redes porque a ficha do Irmãos Nogueira está sem fotos do açougue, sem WhatsApp de pedidos e sem horários confirmados.
+
+Trouxe impresso um diagnóstico de 2 minutos mostrando exatamente como corrigir isso para os clientes da região chamarem vocês direto no WhatsApp. Com quem eu consigo deixar esse material para vocês avaliarem?</div>
+      
+    </div>
+  
+    </section>
+  </div>
+</body>
+</html>

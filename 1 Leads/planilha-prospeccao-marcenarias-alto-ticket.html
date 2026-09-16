@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM Prospecção & Follow-up Alto Ticket — Marcenarias & Planejados | Vocação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-accent: #E5B910;
+            --color-accent-soft: #fcf9eb;
+            --color-primary: #061B28;
+            --color-bg: #fafaf8;
+            --color-surface: #ffffff;
+            --color-text: #1a1a1a;
+            --color-text-muted: #5a625f;
+            --color-border: #e2e8e5;
+            --color-positive: #0B5E47;
+            --color-negative: #9b2335;
+            --color-opportunity: #1d4e89;
+            --color-warning: #c17f24;
+            
+            /* Status CRM colors */
+            --status-novo: #64748b;
+            --status-contato: #0284c7;
+            --status-reuniao: #d97706;
+            --status-proposta: #7c3aed;
+            --status-fechado: #059669;
+            --status-perdido: #dc2626;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: 1.5;
+            padding: 24px 16px;
+        }
+        .container {
+            max-width: 1680px;
+            margin: 0 auto;
+        }
+        header.vocacao-header {
+            background: linear-gradient(135deg, #061B28 0%, #0c2b3f 100%);
+            color: #ffffff;
+            padding: 26px 34px;
+            border-radius: 14px;
+            border-bottom: 4px solid var(--color-accent);
+            box-shadow: 0 10px 25px rgba(6, 27, 40, 0.15);
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .header-left h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+        .header-left p {
+            font-size: 13px;
+            color: #c9d8d5;
+            max-width: 860px;
+        }
+        .badges-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        .badge-vocacao {
+            background-color: rgba(229, 185, 16, 0.15);
+            color: var(--color-accent);
+            border: 1px solid var(--color-accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-family: 'Geist Mono', monospace;
+            display: inline-block;
+        }
+        .badge-leads-count {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            font-family: 'Geist Mono', monospace;
+            display: inline-block;
+        }
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .btn-header {
+            padding: 9px 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 12.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+        .btn-accent:hover {
+            background-color: #ffd026;
+            transform: translateY(-2px);
+        }
+        .btn-guide {
+            background-color: #0B5E47;
+            color: #ffffff;
+        }
+        .btn-guide:hover {
+            background-color: #0e7256;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .btn-outline:hover {
+            background-color: rgba(255,255,255,0.1);
+            border-color: #ffffff;
+        }
+
+        /* Pipeline Counter Bar */
+        .pipeline-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .pipeline-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 13px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .pipeline-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+        }
+        .pipeline-card.active {
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 2px var(--color-accent);
+        }
+        .pipeline-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+        }
+        .pipeline-card.novo::before { background: var(--status-novo); }
+        .pipeline-card.contato::before { background: var(--status-contato); }
+        .pipeline-card.reuniao::before { background: var(--status-reuniao); }
+        .pipeline-card.proposta::before { background: var(--status-proposta); }
+        .pipeline-card.fechado::before { background: var(--status-fechado); }
+        .pipeline-card.perdido::before { background: var(--status-perdido); }
+
+        .pipeline-card .stage-name {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            letter-spacing: 0.5px;
+        }
+        .pipeline-card .stage-count {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-top: 4px;
+        }
+
+        /* Filtros & Barra de Ferramentas */
+        .controls-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .controls-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .filter-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: var(--color-text-muted);
+            margin-right: 6px;
+        }
+        .filter-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-btn {
+            background: #f1f5f4;
+            border: 1px solid transparent;
+            padding: 6px 12px;
+            border-radius: 7px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--color-primary);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--color-primary);
+            color: #ffffff;
+        }
+        .filter-btn-date {
+            background: #eef4ff;
+            color: #1e40af;
+            border-color: #dbeafe;
+        }
+        .filter-btn-date.active, .filter-btn-date:hover {
+            background: #1e40af;
+            color: #ffffff;
+        }
+        .search-box {
+            flex: 1;
+            min-width: 260px;
+            position: relative;
+        }
+        .search-box input {
+            width: 100%;
+            padding: 8px 14px;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 13px;
+            font-family: inherit;
+        }
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            box-shadow: 0 0 0 3px rgba(229, 185, 16, 0.2);
+        }
+        .view-toggle {
+            display: flex;
+            gap: 4px;
+            background: #f1f5f4;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        .view-btn {
+            border: none;
+            background: transparent;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--color-primary);
+        }
+        .view-btn.active {
+            background: var(--color-surface);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+        }
+
+        /* TABELA CRM */
+        .table-wrapper {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+        }
+        table.crm-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12.5px;
+            min-width: 1400px;
+        }
+        table.crm-table th {
+            background-color: #0c2333;
+            color: #ffffff;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            padding: 12px 14px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border-bottom: 2px solid var(--color-accent);
+            white-space: nowrap;
+        }
+        table.crm-table td {
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+        }
+        table.crm-table tr:hover td {
+            background-color: #f8faf9;
+        }
+
+        .lead-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 13.5px;
+            color: var(--color-primary);
+            margin-bottom: 3px;
+        }
+        .lead-sub {
+            font-size: 11.5px;
+            color: var(--color-text-muted);
+        }
+
+        /* Links & Ações */
+        .action-cluster {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            min-width: 130px;
+        }
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+        .btn-maps {
+            background-color: #f0fdf4;
+            color: #166534;
+            border-color: #bbf7d0;
+        }
+        .btn-maps:hover {
+            background-color: #dcfce7;
+        }
+        .btn-wa {
+            background-color: #25D366;
+            color: #ffffff;
+        }
+        .btn-wa:hover {
+            background-color: #1eb857;
+            transform: translateY(-1px);
+        }
+        .btn-copy-script {
+            background-color: #f1f5f9;
+            color: #334155;
+            border-color: #cbd5e1;
+        }
+        .btn-copy-script:hover {
+            background-color: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        /* BLOCO DE FOLLOW-UP NA TABELA */
+        .fup-cell {
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .fup-select-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .fup-select {
+            width: 100%;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+            background: #ffffff;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .fup-select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+        .fup-buttons-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+        }
+        .btn-fup {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            padding: 5px 6px;
+            border-radius: 6px;
+            font-size: 10.5px;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.15s ease;
+        }
+        .btn-fup-1 {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-color: #bfdbfe;
+        }
+        .btn-fup-1:hover {
+            background-color: #1d4ed8;
+            color: #ffffff;
+        }
+        .btn-fup-2 {
+            background-color: #fffbeb;
+            color: #b45309;
+            border-color: #fde68a;
+        }
+        .btn-fup-2:hover {
+            background-color: #b45309;
+            color: #ffffff;
+        }
+        .btn-fup-3 {
+            background-color: #faf5ff;
+            color: #6b21a8;
+            border-color: #e9d5ff;
+        }
+        .btn-fup-3:hover {
+            background-color: #6b21a8;
+            color: #ffffff;
+        }
+        .btn-objections {
+            background-color: #fefce8;
+            color: #854d0e;
+            border-color: #fef08a;
+            font-size: 10.5px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #fef08a;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-top: 2px;
+            transition: all 0.2s;
+        }
+        .btn-objections:hover {
+            background-color: #fef08a;
+            transform: translateY(-1px);
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: 2px 7px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .badge-cat {
+            background: #eef4fc;
+            color: #1a4d8c;
+            border: 1px solid #c9defa;
+            font-family: 'Geist Mono', monospace;
+        }
+        .badge-date {
+            background: #eff6ff;
+            color: #1e40af;
+            border: 1px solid #bfdbfe;
+            font-family: 'Geist Mono', monospace;
+        }
+        .badge-prio-critica { background: #fde8e8; color: #9b2335; border: 1px solid #f8b4b4; }
+        .badge-prio-alta { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+        .badge-prio-media { background: #e0f2fe; color: #075985; border: 1px solid #bae6fd; }
+
+        /* Status Dropdown */
+        .status-select {
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            background-color: #ffffff;
+            font-family: inherit;
+            width: 100%;
+        }
+        .status-select:focus {
+            outline: none;
+            border-color: var(--color-accent);
+        }
+
+        /* Anotações no Lead */
+        .notes-area {
+            width: 100%;
+            min-height: 60px;
+            padding: 6px 8px;
+            font-size: 11.5px;
+            font-family: inherit;
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            resize: vertical;
+            background: #fdfdfd;
+        }
+        .notes-area:focus {
+            outline: none;
+            border-color: var(--color-accent);
+            background: #ffffff;
+        }
+
+        /* MODAL DE SUGESTÕES DE OBJEÇÕES */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(6, 27, 40, 0.65);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            backdrop-filter: blur(3px);
+        }
+        .modal-content {
+            background: #ffffff;
+            border-radius: 14px;
+            max-width: 780px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            border-top: 5px solid var(--color-accent);
+            padding: 24px 28px;
+            position: relative;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--color-border);
+            padding-bottom: 14px;
+            margin-bottom: 18px;
+        }
+        .modal-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-close-modal {
+            background: transparent;
+            border: none;
+            font-size: 22px;
+            font-weight: 700;
+            color: #94a3b8;
+            cursor: pointer;
+        }
+        .btn-close-modal:hover {
+            color: #0f172a;
+        }
+        .objection-card {
+            background: #f8faf9;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 14px 16px;
+            margin-bottom: 14px;
+            transition: all 0.2s;
+        }
+        .objection-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .objection-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #9b2335;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .objection-response {
+            background: #ffffff;
+            border-left: 3px solid #0B5E47;
+            padding: 10px 14px;
+            border-radius: 0 8px 8px 0;
+            font-size: 12.5px;
+            color: #1e293b;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+        .btn-copy-obj {
+            padding: 5px 12px;
+            background: #e2e8f0;
+            color: #334155;
+            border: none;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-copy-obj:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        /* Visualização Kanban */
+        .kanban-board {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+        .kanban-col {
+            background: #f4f6f5;
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 14px;
+            min-height: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .kanban-col-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-border);
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .kanban-card {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .kanban-card .k-title {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--color-primary);
+        }
+
+        footer.vocacao-footer {
+            text-align: center;
+            font-size: 12.5px;
+            color: var(--color-text-muted);
+            padding: 24px 0 12px 0;
+            border-top: 1px solid var(--color-border);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="vocacao-header">
+        <div class="header-left">
+            <div class="badges-row">
+                <div class="badge-vocacao">CRM de Prospecção & Inteligência Comercial Vocação</div>
+                <div class="badge-leads-count" id="totalLeadsBadge">Carregando leads...</div>
+            </div>
+            <h1>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="26" height="26" fill="none">
+                    <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+                    <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#061B28" />
+                </svg>
+                CRM Alto Ticket: Marcenarias & Planejados (Sorocaba e Região)
+            </h1>
+            <p>Funil completo com régua de follow-up automatizada, sugestões de contorno de objeções, links do Google Maps e disparos diretos no WhatsApp.</p>
+        </div>
+        <div class="header-actions">
+            <button class="btn-header btn-guide" onclick="openObjectionsModal()">
+                💡 Guia de Objeções Rápidas
+            </button>
+            <button class="btn-header btn-accent" onclick="exportUpdatedCSV()">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                Exportar CSV do CRM
+            </button>
+            <button class="btn-header btn-outline" onclick="resetCRMData()">
+                Resetar Filtros
+            </button>
+        </div>
+    </header>
+
+    <!-- Pipeline Stages Stats -->
+    <div class="pipeline-bar">
+        <div class="pipeline-card novo" onclick="filterStatus('Novo Lead')">
+            <div class="stage-name">1. Novo Lead</div>
+            <div class="stage-count" id="count_novo">0</div>
+        </div>
+        <div class="pipeline-card contato" onclick="filterStatus('Mensagem Enviada')">
+            <div class="stage-name">2. Mensagem Enviada</div>
+            <div class="stage-count" id="count_contato">0</div>
+        </div>
+        <div class="pipeline-card reuniao" onclick="filterStatus('Diagnóstico Agendado')">
+            <div class="stage-name">3. Diagnóstico Agendado</div>
+            <div class="stage-count" id="count_reuniao">0</div>
+        </div>
+        <div class="pipeline-card proposta" onclick="filterStatus('Proposta Apresentada')">
+            <div class="stage-name">4. Proposta Apresentada</div>
+            <div class="stage-count" id="count_proposta">0</div>
+        </div>
+        <div class="pipeline-card fechado" onclick="filterStatus('Fechado (Ganho)')">
+            <div class="stage-name">5. Fechado (Ganho 🏆)</div>
+            <div class="stage-count" id="count_fechado">0</div>
+        </div>
+        <div class="pipeline-card perdido" onclick="filterStatus('Sem Interesse')">
+            <div class="stage-name">6. Sem Interesse</div>
+            <div class="stage-count" id="count_perdido">0</div>
+        </div>
+    </div>
+
+    <!-- Barra de Controles e Filtros Dinâmicos -->
+    <div class="controls-card">
+        <!-- Linha 1: Filtros de Lote e Visualização -->
+        <div class="controls-row">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="filter-label">📅 Lote:</span>
+                <div class="filter-group" id="dateFilterGroup">
+                    <!-- Botões de data/lote gerados dinamicamente via JS -->
+                </div>
+            </div>
+            <div class="view-toggle">
+                <button class="view-btn active" id="btnTableView" onclick="switchView('table')">📋 Tabela</button>
+                <button class="view-btn" id="btnKanbanView" onclick="switchView('kanban')">📊 Kanban</button>
+            </div>
+        </div>
+
+        <!-- Linha 2: Filtros de Categoria e Barra de Pesquisa -->
+        <div class="controls-row">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="filter-label">🏷️ Categoria:</span>
+                <div class="filter-group" id="categoryFilterGroup">
+                    <!-- Botões de categoria gerados dinamicamente com contadores reais -->
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Pesquisar por nome, bairro, telefone, gargalo, lote ou anotação..." onkeyup="renderViews()">
+            </div>
+        </div>
+    </div>
+
+    <!-- VISUALIZAÇÃO TABELA CRM COM COLUNA DE FOLLOW-UP -->
+    <div class="table-wrapper" id="tableView">
+        <table class="crm-table">
+            <thead>
+                <tr>
+                    <th style="width: 140px;">Status do Funil</th>
+                    <th style="width: 220px;">Lead & Localização</th>
+                    <th style="width: 130px;">Conferência</th>
+                    <th style="width: 250px;">Gargalo & Solução Vocação</th>
+                    <th style="width: 280px;">Régua de Follow-up & Disparos WhatsApp</th>
+                    <th style="width: 130px;">Ticket & ROI</th>
+                    <th>Notas Comerciais (Salvas Automático)</th>
+                </tr>
+            </thead>
+            <tbody id="leadsTableBody">
+                <!-- Linhas renderizadas dinamicamente via JS -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- VISUALIZAÇÃO KANBAN CRM -->
+    <div class="kanban-board" id="kanbanView">
+        <div class="kanban-col" data-status="Novo Lead">
+            <div class="kanban-col-header">
+                <span>Novo Lead</span>
+                <span class="badge" id="k_count_novo">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_novo"></div>
+        </div>
+        <div class="kanban-col" data-status="Mensagem Enviada">
+            <div class="kanban-col-header">
+                <span>Mensagem Enviada</span>
+                <span class="badge" id="k_count_contato">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_contato"></div>
+        </div>
+        <div class="kanban-col" data-status="Diagnóstico Agendado">
+            <div class="kanban-col-header">
+                <span>Diagnóstico Agendado</span>
+                <span class="badge" id="k_count_reuniao">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_reuniao"></div>
+        </div>
+        <div class="kanban-col" data-status="Proposta Apresentada">
+            <div class="kanban-col-header">
+                <span>Proposta Apresentada</span>
+                <span class="badge" id="k_count_proposta">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_proposta"></div>
+        </div>
+        <div class="kanban-col" data-status="Fechado (Ganho)">
+            <div class="kanban-col-header">
+                <span>Fechado (Ganho 🏆)</span>
+                <span class="badge" id="k_count_fechado">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_fechado"></div>
+        </div>
+        <div class="kanban-col" data-status="Sem Interesse">
+            <div class="kanban-col-header">
+                <span>Sem Interesse</span>
+                <span class="badge" id="k_count_perdido">0</span>
+            </div>
+            <div class="kanban-cards" id="k_cards_perdido"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE QUEBRA DE OBJEÇÕES FREQUENTES -->
+    <div class="modal-overlay" id="objectionsModal" onclick="handleModalOverlayClick(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>💡 Sugestões de Respostas para Objeções de Marcenarias</h3>
+                <button class="btn-close-modal" onclick="closeObjectionsModal()">&times;</button>
+            </div>
+            
+            <div class="objection-card">
+                <div class="objection-title">
+                    <span>🛡️ Objeção 1: "Já tenho bastante cliente por indicação, não preciso de marketing"</span>
+                    <button class="btn-copy-obj" onclick="copyGenericText('obj1')">Copiar</button>
+                </div>
+                <div class="objection-response" id="text_obj1">"A indicação é o melhor cliente mesmo! A única diferença é que hoje quem é indicado abre o Google antes de ligar para ver se a empresa passa confiança. Nossa estrutura não é para inventar cliente curioso, e sim para garantir que você nunca perca quem já foi indicado por parecer desorganizado na internet."</div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-title">
+                    <span>💰 Objeção 2: "Quanto custa o serviço de vocês?"</span>
+                    <button class="btn-copy-obj" onclick="copyGenericText('obj2')">Copiar</button>
+                </div>
+                <div class="objection-response" id="text_obj2">"Temos estruturas de entrada a partir de R$ 450 (entregue em 7 dias) para deixar o Google Maps 100% oficial e verificado com fotos profissionais, até sites e catálogos completos de alta conversão. Quer que eu te mande um áudio de 2 minutos explicando qual faz mais sentido para a oficina de vocês?"</div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-title">
+                    <span>⏳ Objeção 3: "Estou na correria na fábrica agora / sem tempo"</span>
+                    <button class="btn-copy-obj" onclick="copyGenericText('obj3')">Copiar</button>
+                </div>
+                <div class="objection-response" id="text_obj3">"Sem problemas! Justamente por você estar na correria da entrega nós fazemos tudo chave na mão: você não perde horas criando conteúdo nem escrevendo nada, nossa equipe técnica faz todo o trabalho e você só aprova. Posso te chamar na sexta às 10h com calma?"</div>
+            </div>
+
+            <div class="objection-card">
+                <div class="objection-title">
+                    <span>🤝 Objeção 4: "Já tenho quem cuida das minhas redes sociais / agência"</span>
+                    <button class="btn-copy-obj" onclick="copyGenericText('obj4')">Copiar</button>
+                </div>
+                <div class="objection-response" id="text_obj4">"Perfeito! Mas veja: rede social chama a atenção, mas é a estrutura do Google Maps, site e e-mail profissional que fecha contratos de condomínio de R$ 50k+. Nosso trabalho não concorre com post de Instagram, nós blindamos a infraestrutura onde o cliente toma a decisão de compra."</div>
+            </div>
+
+            <div style="text-align: right; margin-top: 16px;">
+                <button class="btn-header btn-accent" onclick="closeObjectionsModal()">Fechar Guia</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="vocacao-footer">
+        <p><strong>Vocação Comunicação & Marketing</strong> • Infraestrutura de Autoridade para Negócios de Alto Ticket</p>
+        <p style="margin-top: 4px;">WhatsApp Comercial Vocação: (15) 98151-2083 | Sorocaba - SP | vocacao.digital</p>
+    </footer>
+</div>
+
+<script>
+    /* ==============================================================================
+       BASE DE LEADS DO CRM (36 LEADS ATUALIZADOS COM RÉGUA DE FOLLOW-UP E OBJEÇÕES)
+       ============================================================================== */
+    const INITIAL_LEADS = [
+  {
+    "id": "lead_01",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Ezklo Marcenaria Boutique",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Rua Pedro Molina, 123 - Parque Campolim, Sorocaba - SP, 18047-629",
+    "telefone_whatsapp": "(15) 99712-0678",
+    "whatsapp_raw": "5515997120678",
+    "email": "sorocaba@ezklo.com.br",
+    "site": "http://www.ezklo.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Ezklo+Marcenaria+Boutique+Rua+Pedro+Molina+123+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Site não seguro (HTTP sem SSL forçado na raiz), carregamento sem foco direto em conversão mobile imediata para clientes de condomínio.",
+    "diagnostico_pilares": "Pilar 01 (Site Rápido & Seguro SSL) + Google Ads busca ativa por 'marcenaria de luxo sorocaba'",
+    "ticket_medio_est": "R$ 45.000 - R$ 120.000",
+    "argumento_roi": "1 único fechamento de residência em condomínio (R$ 80k) paga 3 anos de assessoria digital Vocação.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá! Notei o trabalho refinado da Ezklo no Campolim. Identifiquei que o site de vocês ainda oscila no certificado de segurança SSL para quem busca pelo celular em condomínios da região. Podemos alinhar uma blindagem de 10 min para não perder leads de alto ticket?",
+    "status_crm": "Mensagem Enviada",
+    "notas": "Abordagem realizada.",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Ezklo Marcenaria Boutique, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Ezklo Marcenaria Boutique! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Parque Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Ezklo Marcenaria Boutique! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_02",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Mantovani",
+    "cidade_bairro": "Sorocaba (Jardim Simus)",
+    "endereco": "Rua Benedito Ferreira Teles, 242 (Showroom) / 920 (Fábrica) - Jardim Simus, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3202-9888 / (15) 3221-9435",
+    "whatsapp_raw": "5515320298881532219435",
+    "email": "moveismantovani@terra.com.br",
+    "site": "http://www.marcenariamantovani.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Mantovani+Rua+Benedito+Ferreira+Teles+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "E-mail corporativo amador (@terra.com.br) destrói a percepção de modernidade; site antigo sem adaptação mobile; ausência de Instagram ativo.",
+    "diagnostico_pilares": "Pilar 04 (Domínio & E-mail Corporativo @marcenariamantovani.com.br) + Pilar 01 (Novo Catálogo Digital) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 30.000 - R$ 90.000",
+    "argumento_roi": "Uma cozinha completa planejada de R$ 35k já cobre com folga a reformulação completa de infraestrutura digital.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá, equipe Mantovani! Sei da tradição de 25 anos impecável de vocês em Sorocaba. Notamos que um cliente que pesquisa hoje encontra um canal @terra.com.br e um site sem fotos em alta definição, o que faz os novos compradores de condomínios fecharem com lojas mais novas. Queremos blindar sua autoridade.",
+    "status_crm": "Diagnóstico Agendado",
+    "notas": "Visita presencial R. Benedito Ferreira Telles, 920 - Jardim Simus, Sorocaba - SP, 18055-270",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Marcenaria Mantovani, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Marcenaria Mantovani! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Jardim Simus), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Marcenaria Mantovani! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_03",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Florencio Marcenaria",
+    "cidade_bairro": "Sorocaba (Vila Progresso / Jd. Maria do Carmo)",
+    "endereco": "Av. Dr. Artur Bernardes, 1520 - Vila Progresso, Sorocaba - SP",
+    "telefone_whatsapp": "(11) 96153-4050",
+    "whatsapp_raw": "5511961534050",
+    "email": "contato no site",
+    "site": "https://www.florenciomarcenaria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Florencio+Marcenaria+Av+Dr+Artur+Bernardes+1520+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Telefone de contato com DDD 11 gerando atrito de confiança com clientes locais de Sorocaba; SEO local e Google Maps precisam de reforço de autoridade no Campolim/Zona Sul.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Tráfego Pago Google Ads regionalizado + Otimização de conversão no site",
+    "ticket_medio_est": "R$ 25.000 - R$ 70.000",
+    "argumento_roi": "Um apartamento planejado de R$ 30k viabiliza todo o investimento em tráfego de alta intenção.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Florêncio Marcenaria! Acompanho os projetos sob medida de vocês em Sorocaba. O portfólio é excelente, mas o contato com DDD 11 às vezes faz o morador de Sorocaba hesitar achando que vocês são de fora. Temos uma estratégia de autoridade local rápida para dobrar as chamadas no WhatsApp.",
+    "status_crm": "Sem Interesse",
+    "notas": "Não",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Florencio Marcenaria, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Florencio Marcenaria! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Vila Progresso / Jd. Maria do Carmo), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Florencio Marcenaria! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_04",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria SHZ",
+    "cidade_bairro": "Votorantim (Vila Vasques)",
+    "endereco": "R. José Carlos de Campos, 446 - Vila Vasques, Votorantim - SP, 18111-130",
+    "telefone_whatsapp": "(15) 99750-2210",
+    "whatsapp_raw": "5515997502210",
+    "email": "marcenariashz@gmail.com",
+    "site": "https://www.marcenariashz.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+SHZ+Jose+Carlos+de+Campos+446+Votorantim",
+    "presenca_digital": "",
+    "gargalo_critico": "Uso de e-mail amador @gmail.com no site institucional; Google Maps com baixa densidade de avaliações estratégicas de clientes de alto ticket.",
+    "diagnostico_pilares": "Pilar 04 (Governança & E-mail Corporativo) + Pilar 02 (Otimização Google Maps R$ 450) + Pilar 03 (Redes Organizadas)",
+    "ticket_medio_est": "R$ 20.000 - R$ 60.000",
+    "argumento_roi": "Um único closet ou dormitório planejado cobre 1 ano inteiro de governança digital da Vocação.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá pessoal da SHZ! Parabéns pelos acabamentos postados. Notei que no site oficial vocês ainda usam @gmail.com para contato comercial. Clientes de condomínios que investem R$ 40k desconfiam de e-mails gratuitos. Podemos configurar sua governança institucional em poucos dias.",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura de 2026",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Marcenaria SHZ, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Marcenaria SHZ! Passando para compartilhar um dado rápido: aqui na região de Votorantim (Vila Vasques), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Marcenaria SHZ! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_05",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Missão & Silva Marcenaria de Alto Padrão",
+    "cidade_bairro": "Itu / Região (Condomínios)",
+    "endereco": "Itu - SP (Atendimento sob agendamento em condomínios)",
+    "telefone_whatsapp": "(11) 91573-6479 / (11) 97032-2422",
+    "whatsapp_raw": "551191573647911970322422",
+    "email": "Não divulgado",
+    "site": "https://missao-silva.lovable.app",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Missao+Silva+Marcenaria+Alto+Padrao+Itu",
+    "presenca_digital": "",
+    "gargalo_critico": "Página hospedada em subdomínio genérico de aplicativo (.lovable.app) sem domínio próprio .com.br; passa imagem de amadorismo para quem vai fechar projeto de R$ 100k.",
+    "diagnostico_pilares": "Pilar 01 (Site Próprio de Alto Padrão) + Pilar 04 (Domínio Próprio Registrado .com.br e E-mail Corporativo) + Pilar 02 (Google Maps)",
+    "ticket_medio_est": "R$ 50.000 - R$ 150.000+",
+    "argumento_roi": "Um projeto em condomínio de luxo (ex: Terras de São José) ultrapassa R$ 100k. Não ter domínio próprio custa contratos milionários.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Missão & Silva! Os projetos de marcenaria autoral de vocês para condomínios são de altíssimo nível. Porém, notei que o site de vocês está num subdomínio temporário (.lovable.app). Um cliente do Terras de São José que vê isso questiona a solidez da empresa. Queremos estruturar a sede digital oficial de vocês.",
+    "status_crm": "Mensagem Enviada",
+    "notas": "Se responderem \"Como funciona?\" ou \"O que você sugere?\": 'A gente cria a estrutura definitiva de vocês: registra o domínio oficial da Missão & Silva (.com.br), passa o catálogo pra um site rápido e seguro e já amarra o Google Maps de vocês pra aparecer no topo quando pesquisarem por marcenaria alto padrão em Itu e condomínios. Coisa rápida de alinhar. Quer que eu te mande um áudio ou dê uma ligada de 3 minutos?'",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Missão & Silva Marcenaria de Alto Padrão, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Missão & Silva Marcenaria de Alto Padrão! Passando para compartilhar um dado rápido: aqui na região de Itu / Região (Condomínios), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Missão & Silva Marcenaria de Alto Padrão! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_06",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Oakhouse Marcenaria (RR Marcenaria)",
+    "cidade_bairro": "Sorocaba (Campolim e Região)",
+    "endereco": "Atendimento sob medida / Fábrica em Sorocaba",
+    "telefone_whatsapp": "(15) 99715-7075",
+    "whatsapp_raw": "5515997157075",
+    "email": "contato via rede",
+    "site": "http://www.rrmarcenaria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Oakhouse+Marcenaria+RR+Marcenaria+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Dispersão de marca entre nome fantasia (Oakhouse) e domínio antigo (RR Marcenaria); ausência de catálogo unificado de alta performance com carregamento ultra rápido.",
+    "diagnostico_pilares": "Pilar 01 (Unificação de Marca em Landing Page Premium) + Pilar 04 (Domínio Oficial Oakhouse) + Tráfego Google Ads focado em Sorocaba",
+    "ticket_medio_est": "R$ 30.000 - R$ 80.000",
+    "argumento_roi": "Basta 1 lead qualificado vindo da busca ativa do Google para pagar múltiplos projetos de design e catálogo.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá equipe da Oakhouse! O trabalho visual de vocês no Instagram é incrível. Notamos apenas que a experiência digital está dividida entre Oakhouse e RR Marcenaria no site antigo, o que confunde o cliente que pesquisa no Google. Podemos estruturar uma vitrine única de alta conversão?",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura de 2026",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Oakhouse Marcenaria (RR Marcenaria), tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Oakhouse Marcenaria (RR Marcenaria)! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Campolim e Região), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Oakhouse Marcenaria (RR Marcenaria)! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_07",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "MDM Marcenaria",
+    "cidade_bairro": "Sorocaba (Éden / Zona Industrial)",
+    "endereco": "Rua Tokuo Tsubaki / R. Luís Pereira de Andrade, 225 - Éden, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3325-1063 / (15) 99650-3634",
+    "whatsapp_raw": "55153325106315996503634",
+    "email": "contato@marcenariamdm.com.br",
+    "site": "https://www.marcenariamdm.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=MDM+Marcenaria+Sorocaba+Eden",
+    "presenca_digital": "",
+    "gargalo_critico": "Site institucional estático e sem estratégia de captação ativa para os bairros de maior renda de Sorocaba (Campolim, Santa Rosália, condomínios da ZS).",
+    "diagnostico_pilares": "Tráfego Pago (Google Ads alta intenção em bairros nobres) + Pilar 02 (Otimização do Perfil Google para atrair condomínios)",
+    "ticket_medio_est": "R$ 35.000 - R$ 100.000",
+    "argumento_roi": "Com 800m² de fábrica, a estrutura suporta volume. 2 novos contratos mensais de alto padrão geram mais de R$ 100k em faturamento novo.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá MDM Marcenaria! Sabemos da potência da fábrica de 800m² de vocês em Sorocaba. Vimos que sua presença digital pode atrair muito mais clientes finais dos condomínios do Campolim e Fazenda Alvorada via Google Ads segmentado. Gostariam de ver uma simulação de demanda?",
+    "status_crm": "Sem Interesse",
+    "notas": "setup recente",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da MDM Marcenaria, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi MDM Marcenaria! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Éden / Zona Industrial), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da MDM Marcenaria! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_08",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Mendes Marcenaria",
+    "cidade_bairro": "Sorocaba (Vila Santana)",
+    "endereco": "Rua José Antão, Vila Santana - Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3342-6799 / (15) 99167-0071",
+    "whatsapp_raw": "55153342679915991670071",
+    "email": "contato no site",
+    "site": "https://mendesmarcenaria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Mendes+Marcenaria+Rua+Jose+Antao+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Site institucional com baixa velocidade mobile; falta de destaque para projetos recentes em laca e iluminação em LED integrada.",
+    "diagnostico_pilares": "Pilar 01 (Modernização do Catálogo de Obras Entregues) + Pilar 02 (Google Maps R$ 450 com fotos profissionais)",
+    "ticket_medio_est": "R$ 25.000 - R$ 75.000",
+    "argumento_roi": "Um único cliente de reforma residencial paga com sobras o investimento de reposicionamento.",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Mendes Marcenaria! São mais de 20 anos de história e respeito em Sorocaba. Notamos que muitos novos moradores que chegam à cidade não encontram o histórico de vocês com o destaque que ele merece no Google Maps. Podemos ajustar isso em 7 dias com nosso plano de presença local.",
+    "status_crm": "Sem Interesse",
+    "notas": "Parece bem posicionado, não quero investir neste cliente agora.",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Mendes Marcenaria, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Mendes Marcenaria! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Vila Santana), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Mendes Marcenaria! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_09",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Sutil Marcenaria",
+    "cidade_bairro": "Votorantim / Sorocaba",
+    "endereco": "Atendimento Votorantim e região metropolitana",
+    "telefone_whatsapp": "(15) 98185-9590",
+    "whatsapp_raw": "5515981859590",
+    "email": "contato via site",
+    "site": "https://sutilmarcenaria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Sutil+Marcenaria+Votorantim+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Página única com pouca profundidade de prova social; falta de captação estruturada de arquitetos parceiros.",
+    "diagnostico_pilares": "Pilar 01 (Seção de Parceria com Arquitetos & Especificadores) + Pilar 02 (Google Maps) + Tráfego de Busca Ativa",
+    "ticket_medio_est": "R$ 30.000 - R$ 85.000",
+    "argumento_roi": "1 arquiteto parceiro captado traz em média 4 a 6 projetos de alto padrão ao ano (R$ 200k+ de faturamento recorrente).",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Sutil Marcenaria! Excelente posicionamento com arquitetos próprios. Vimos que podemos criar um canal digital dedicado para atrair escritórios de arquitetura e design de interiores em Sorocaba e Votorantim para parcerias contínuas. Faz sentido conversarmos?",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura recente",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Sutil Marcenaria, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Sutil Marcenaria! Passando para compartilhar um dado rápido: aqui na região de Votorantim / Sorocaba, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Sutil Marcenaria! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_10",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Di Zanini Marcenaria Criativa",
+    "cidade_bairro": "Itu / Região Metropolitana",
+    "endereco": "Itu - SP",
+    "telefone_whatsapp": "(11) 91228-9966",
+    "whatsapp_raw": "5511912289966",
+    "email": "comercialatendimento@dizanini.com.br",
+    "site": "http://dizanini.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Di+Zanini+Marcenaria+Criativa+Itu",
+    "presenca_digital": "",
+    "gargalo_critico": "Site sem certificado SSL ativado (http:// inseguro no navegador); perda de clientes exigentes que recebem aviso de 'Site Inseguro' ao tentar ver o portfólio.",
+    "diagnostico_pilares": "Pilar 01 (Blindagem de Segurança SSL e Renovação do Site) + Pilar 02 (Google Maps Regional) + Meta Ads com vídeos dos projetos",
+    "ticket_medio_est": "R$ 35.000 - R$ 110.000",
+    "argumento_roi": "Evitar que clientes de condomínios abandonem o site por aviso de navegador inseguro salva contratos de R$ 50k+.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Di Zanini! Os projetos autorais de vocês são fantásticos. Porém, ao abrir o site de vocês, o Google Chrome emite um aviso vermelho de 'Não Seguro' porque o certificado SSL não está ativo. Isso espanta clientes de condomínio na hora. Conseguimos resolver e blindar o site de vocês imediatamente.",
+    "status_crm": "Sem Interesse",
+    "notas": "estrutura forte, depois vemos isso",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Di Zanini Marcenaria Criativa, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Di Zanini Marcenaria Criativa! Passando para compartilhar um dado rápido: aqui na região de Itu / Região Metropolitana, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Di Zanini Marcenaria Criativa! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_11",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Harv Planejados",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Rua Horácio Cenci, 09 - Parque Campolim, Sorocaba - SP, 18047-800",
+    "telefone_whatsapp": "(15) 99772-9441 / (11) 98849-7114",
+    "whatsapp_raw": "551599772944111988497114",
+    "email": "Não listado publicamente",
+    "site": "Inexistente / Sem site indexado",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Harv+Planejados+Rua+Horacio+Cenci+09+Campolim+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Estar no coração do Campolim sem ter um site de referência faz a loja perder o cliente que pesquisa 'móveis planejados campolim' no Google à noite.",
+    "diagnostico_pilares": "Pilar 01 (Site Profissional e Vitrine Showroom) + Pilar 04 (Domínio & E-mail Corporativo) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 40.000 - R$ 120.000",
+    "argumento_roi": "O aluguel no Campolim é caríssimo. Não ter presença digital faz o metro quadrado da loja render menos da metade do seu potencial.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Harv Planejados! Estar na Rua Horácio Cenci no Campolim é um privilégio enorme. Mas hoje quem mora nos condomínios vizinhos e pesquisa por planejados no Google não encontra o site e portfólio oficial de vocês. Podemos estruturar a presença digital de vocês no mesmo nível do showroom físico.",
+    "status_crm": "Sem Interesse",
+    "notas": "nem existe, presença confusa, porém forte em outro nome de empresa",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Harv Planejados, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Harv Planejados! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Parque Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Harv Planejados! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_12",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Cast Select Móveis Planejados",
+    "cidade_bairro": "Sorocaba (Shopping Iguatemi Esplanada)",
+    "endereco": "Shopping Iguatemi Sorocaba - Av. Gisele Constantino, 1850",
+    "telefone_whatsapp": "(15) 99820-1691",
+    "whatsapp_raw": "5515998201691",
+    "email": "contato via site",
+    "site": "https://castselect.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Cast+Select+Moveis+Planejados+Iguatemi+Esplanada+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Custo por lead elevado no shopping físico; ausência de campanhas de Google Ads de fundo de funil focadas em condomínios de Sorocaba, Itu e Porto Feliz (Fazenda Boa Vista).",
+    "diagnostico_pilares": "Tráfego de Busca Ativa (Google Ads nobre) + Vídeos para Anúncios de Alto Impacto + Otimização de Perfil Google",
+    "ticket_medio_est": "R$ 60.000 - R$ 200.000+",
+    "argumento_roi": "Um único contrato de condomínio de luxo (R$ 150k) paga 1 ano inteiro de verba de tráfego pago gerenciado pela Vocação.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Cast Select! O showroom no Iguatemi traz grande visibilidade, mas os compradores de condomínios fechados (como Fazenda Boa Vista e Alphaville) muitas vezes buscam primeiro no Google antes de sair de casa. Temos um modelo de captação de busca ativa de luxo pronto para rodar com vocês.",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura recente e forte",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Cast Select Móveis Planejados, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Cast Select Móveis Planejados! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Shopping Iguatemi Esplanada), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Cast Select Móveis Planejados! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_13",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Celmar Campolim",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Av. Antônio Carlos Comitre, 1118 - Parque Campolim, Sorocaba - SP, 18047-620",
+    "telefone_whatsapp": "(15) 3293-3224 / (15) 99121-4679",
+    "whatsapp_raw": "55153293322415991214679",
+    "email": "contato@celmarcampolim.com.br",
+    "site": "https://www.celmarcampolim.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Celmar+Campolim+Av+Antonio+Carlos+Comitre+1118+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Experiência de galeria no site é fria (templates prontos); concorrência pesada com outras revendas na mesma avenida exigindo anúncios com vídeos e diferenciação de atendimento.",
+    "diagnostico_pilares": "Vídeos para Anúncios + Gestão Estratégica de Redes Sociais + Otimização contínua de Google Maps (avaliações 5 estrelas)",
+    "ticket_medio_est": "R$ 35.000 - R$ 90.000",
+    "argumento_roi": "Garantir que quem passa na Comitre decida entrar na Celmar e não na loja concorrente ao lado.",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Celmar Campolim! A presença de vocês na Comitre é um marco. Para neutralizar os concorrentes da mesma avenida que estão investindo pesado em tráfego, desenvolvemos criativos em vídeo focados na garantia de entrega e acabamento da Celmar para condomínios da região sul.",
+    "status_crm": "Novo Lead",
+    "notas": "",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Celmar Campolim, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Celmar Campolim! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Parque Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Celmar Campolim! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_14",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Criare Sorocaba",
+    "cidade_bairro": "Sorocaba (Campolim)",
+    "endereco": "Av. Antônio Carlos Comitre, 921 - Campolim, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3233-5594 / (15) 99185-0844",
+    "whatsapp_raw": "55153233559415991850844",
+    "email": "contato no site",
+    "site": "https://criaresorocaba.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Criare+Moveis+Planejados+Antonio+Carlos+Comitre+921+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Disputa acirrada de cliques no Google Ads; site local precisa de carregamento mais ágil e botão direto para WhatsApp de plantão de arquitetos.",
+    "diagnostico_pilares": "Otimização de Conversão em Landing Page + Tráfego Pago Google Ads com palavras negativas para evitar curiosos",
+    "ticket_medio_est": "R$ 35.000 - R$ 95.000",
+    "argumento_roi": "Reduzir o custo por lead qualificado em 30% já economiza milhares de reais na verba mensal da loja.",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Criare Sorocaba! Notamos suas campanhas ativas para o Campolim. Muitos cliques estão sendo gastos com pessoas buscando apenas 'móveis baratos'. Nossa assessoria filtra exclusivamente os termos de alto valor e condomínios para otimizar sua verba comercial.",
+    "status_crm": "Sem Interesse",
+    "notas": "estrutura completa",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Criare Sorocaba, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Criare Sorocaba! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Criare Sorocaba! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_15",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "MyBox Marcenaria Moderna Campolim",
+    "cidade_bairro": "Sorocaba (Jardim América / Campolim)",
+    "endereco": "Rua Sylvio Campolim, 664 - Jardim América, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3417-3500",
+    "whatsapp_raw": "551534173500",
+    "email": "contato da franquia",
+    "site": "https://www.myboxmarcenaria.com.br/lojas/sorocaba-campolim",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=MyBox+Marcenaria+Moderna+Rua+Sylvio+Campolim+664+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Página da loja é um subdiretório do portal nacional da franqueadora, sem autonomia para ofertas específicas ou campanhas personalizadas para Sorocaba.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450 com foco regionalizado) + Landing Page de Conversão Específica para a Unidade",
+    "ticket_medio_est": "R$ 25.000 - R$ 65.000",
+    "argumento_roi": "Uma landing page autônoma para a unidade converte o triplo de visitantes locais em comparação com o site genérico da matriz.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá MyBox Campolim! Excelente atuação em Sorocaba. Vemos que os leads que caem na página geral da franquia muitas vezes se dispersam. Com uma Landing Page própria da unidade conectada ao WhatsApp dos seus projetistas locais, a taxa de fechamento cresce significativamente.",
+    "status_crm": "Sem Interesse",
+    "notas": "Franquia estruturada",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da MyBox Marcenaria Moderna Campolim, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi MyBox Marcenaria Moderna Campolim! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Jardim América / Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da MyBox Marcenaria Moderna Campolim! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_16",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Impeccabile Móveis Planejados",
+    "cidade_bairro": "Itu / Região Metropolitana",
+    "endereco": "Itu - SP",
+    "telefone_whatsapp": "(11) 91064-0282 / (19) 98279-2513",
+    "whatsapp_raw": "551191064028219982792513",
+    "email": "contato via site",
+    "site": "https://impeccabileplanejados.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Impeccabile+Moveis+Planejados+Itu",
+    "presenca_digital": "",
+    "gargalo_critico": "Falta de captação regional integrada no eixo Itu-Sorocaba; perfil no Google Maps com poucas avaliações recentes validadas.",
+    "diagnostico_pilares": "Pilar 02 (Otimização do Google Maps R$ 450) + Pilar 03 (Redes Organizadas) + Tráfego Pago Google Ads regional",
+    "ticket_medio_est": "R$ 30.000 - R$ 80.000",
+    "argumento_roi": "Com 1 contrato fechado na região dos condomínios de Itu, a marcenaria cobre os custos de presença digital do semestre.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Impeccabile! Seus projetos sob medida têm alto valor estético. Porém, ao pesquisar por móveis planejados no eixo Itu-Sorocaba, a concorrência aparece na frente por ter mais avaliações estruturadas no Google Maps. Podemos colocar sua empresa no topo em 7 dias.",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura feita recentemente por https://easystartmkt.com.br/",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Impeccabile Móveis Planejados, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Impeccabile Móveis Planejados! Passando para compartilhar um dado rápido: aqui na região de Itu / Região Metropolitana, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Impeccabile Móveis Planejados! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_17",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Marmoraria Campolim",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Região do Parque Campolim, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 97404-0086",
+    "whatsapp_raw": "5515974040086",
+    "email": "contato comercial",
+    "site": "Sem site próprio estruturado",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marmoraria+Campolim+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Usa o nome do bairro mais nobre de Sorocaba (Campolim), mas não tem site institucional próprio para expor bancadas e ilhas gourmets em alta resolução.",
+    "diagnostico_pilares": "Pilar 01 (Site/Catálogo de Pedras Nobres) + Pilar 04 (Domínio & E-mail Corporativo) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 20.000 - R$ 70.000",
+    "argumento_roi": "Uma única ilha de cozinha em Dekton ou Quartzo de R$ 25k viabiliza todo o pacote de autoridade digital da Vocação.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Marmoraria Campolim! O nome de vocês carrega a marca do bairro mais nobre da cidade, mas quem busca pelo catálogo oficial das pedras e cubas esculpidas na internet não encontra um site à altura. Queremos criar o catálogo digital premium da Marmoraria Campolim.",
+    "status_crm": "Mensagem Enviada",
+    "notas": "Abordagem realizada.",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Marmoraria Campolim, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Marmoraria Campolim! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Parque Campolim), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Marmoraria Campolim! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_18",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Wbilino Conceito Mármores de Luxo",
+    "cidade_bairro": "Sorocaba",
+    "endereco": "Sorocaba - SP",
+    "telefone_whatsapp": "(15) 99121-0000 / Contato via site",
+    "whatsapp_raw": "5515991210000",
+    "email": "contato no site",
+    "site": "https://marmorariawbilinoconceito.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marmoraria+Wbilino+Conceito+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Site com carregamento pesado de imagens sem compressão web moderna; falta de automação de pré-qualificação no WhatsApp para filtrar curiosos.",
+    "diagnostico_pilares": "Pilar 01 (Otimização de Performance e Velocidade Mobile) + Tráfego de Busca Ativa Google Ads para Arquitetura",
+    "ticket_medio_est": "R$ 30.000 - R$ 90.000",
+    "argumento_roi": "Atrair escritórios de arquitetura parceiros que especificam bancadas e banheiros em dezenas de residências por ano.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá equipe Wbilino Conceito! Admiramos a sofisticação das pedras e do conceito de luxo de vocês. Vimos que o site pode carregar muito mais rápido no celular para quem acessa de condomínios. Além disso, podemos conectar uma esteira de captação de arquitetos especificadores.",
+    "status_crm": "Sem Interesse",
+    "notas": "Dados de relatório desencontrados. Apenas uma empresa com este nome em São Paulo, não encontrei nada em Sorocaba",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Wbilino Conceito Mármores de Luxo, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Wbilino Conceito Mármores de Luxo! Passando para compartilhar um dado rápido: aqui na região de Sorocaba, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Wbilino Conceito Mármores de Luxo! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_19",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Grupo Granimar Superfícies Nobres",
+    "cidade_bairro": "Sorocaba & Região",
+    "endereco": "Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3228-0000 / Contato via site",
+    "whatsapp_raw": "551532280000",
+    "email": "contato@grupogranimar.com.br",
+    "site": "https://grupogranimar.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Grupo+Granimar+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Excelente produto técnico, mas comunicação no Google Maps e redes com pouca ênfase na exclusividade de licenciamento oficial dessas marcas nobres.",
+    "diagnostico_pilares": "Pilar 02 (Google Maps com Destaque de Autoridade Dekton/Neolith) + Gestão de Redes Sociais com Foco em Arquitetos + Tráfego Google Ads",
+    "ticket_medio_est": "R$ 40.000 - R$ 130.000",
+    "argumento_roi": "Um projeto corporativo ou residencial com Dekton passa de R$ 50 mil. O retorno é imediato no primeiro contrato captado.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Granimar! Trabalhar com Dekton e Neolith coloca vocês no topo da pirâmide em Sorocaba. Podemos amplificar esse selo de exclusividade no Google Maps e nas redes para que todo cliente de condomínio saiba que vocês são o ponto oficial dessas marcas na região.",
+    "status_crm": "Sem Interesse",
+    "notas": "Estrutura montada",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Grupo Granimar Superfícies Nobres, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Grupo Granimar Superfícies Nobres! Passando para compartilhar um dado rápido: aqui na região de Sorocaba & Região, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Grupo Granimar Superfícies Nobres! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_20",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Marmoraria Santos",
+    "cidade_bairro": "Sorocaba",
+    "endereco": "Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3202-6261 / (15) 98818-0072",
+    "whatsapp_raw": "55153202626115988180072",
+    "email": "contato no site",
+    "site": "https://marmorariasantossorocaba.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marmoraria+Santos+Sorocaba",
+    "presenca_digital": "",
+    "gargalo_critico": "Site com layout antigo dos anos 2010; falta de integração direta com WhatsApp para orçamentos de plantas em PDF.",
+    "diagnostico_pilares": "Pilar 01 (Modernização do Site com envio de plantas por WhatsApp) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 15.000 - R$ 50.000",
+    "argumento_roi": "Facilitar o envio de projetos em PDF pelo WhatsApp direto do site triplica o volume de orçamentos técnicos fechados.",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Marmoraria Santos! A solidez de vocês em Sorocaba é indiscutível. No entanto, o site atual não permite que o cliente de condomínio envie a planta baixa ou o projeto da marcenaria direto no WhatsApp para cotação rápida. Queremos modernizar essa experiência em poucos dias.",
+    "status_crm": "Novo Lead",
+    "notas": "",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Marmoraria Santos, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Marmoraria Santos! Passando para compartilhar um dado rápido: aqui na região de Sorocaba, a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Marmoraria Santos! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_21",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Sucesso - Móveis Planejados",
+    "cidade_bairro": "Sorocaba (Jardim Hungares / Vila Mineirão)",
+    "endereco": "R. Firmino Mineli, 259 - Jardim Hungares, Sorocaba - SP, 18075-700",
+    "telefone_whatsapp": "(15) 99778-7394",
+    "whatsapp_raw": "5515997787394",
+    "email": "Sem e-mail listado",
+    "site": "Inexistente / Sem site no Google Maps",
+    "maps_link": "https://maps.app.goo.gl/68yapEbLdJixaKSm9",
+    "presenca_digital": "",
+    "gargalo_critico": "Perfil do Google Maps vulnerável e não verificado; fotos amadoras com geladeira e ímãs; sem site ou catálogo digital.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local R$ 450 - Reivindicação & Fotos) + Pilar 01 (Site Catálogo Mobile)",
+    "ticket_medio_est": "R$ 15.000 - R$ 40.000",
+    "argumento_roi": "Um único projeto residencial de R$ 20k paga 44x o investimento do Pilar 02 (R$ 450).",
+    "prioridade_comercial": "Alta (Entrada imediata com Pilar 02)",
+    "script_abordagem": "Olá, tudo bem?\n\nEu estava mapeando empresas do seu setor aqui na região de Sorocaba e encontrei a Marcenaria Sucesso na Firmino Mineli.\n\nTe mandei mensagem porque reparei num detalhe importante no Google Maps de vocês: a ficha da oficina está com aquele botão 'Reivindicar esta empresa'.\n\nIsso acontece quando o perfil ainda não foi verificado pelo dono. Além de deixar a empresa vulnerável, faz o Google não mostrar vocês no topo pra quem pesquisa por móveis planejados aqui perto.\n\nA gente trabalha organizando a presença de marcenarias aqui na cidade. Se você quiser que a gente te ajude a verificar e deixar o perfil 100% oficial com fotos boas dos móveis, me dá um toque por aqui.",
+    "status_crm": "Novo Lead",
+    "notas": "Ficha não reivindicada no Maps. Contato direto celular (15) 99778-7394.",
+    "data_inclusao": "08/09/2026",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe da Marcenaria Sucesso - Móveis Planejados, tudo bem? Imagino que a rotina aí na produção esteja corrida! Só passando para saber se conseguiram ver minha mensagem anterior sobre a presença digital e o Google Maps de vocês. Conseguiram dar uma olhada rápida?",
+    "fup_2": "Oi Marcenaria Sucesso - Móveis Planejados! Passando para compartilhar um dado rápido: aqui na região de Sorocaba (Jardim Hungares / Vila Mineirão), a entrega de novos condomínios está acelerando a busca por marcenarias de alto padrão. Quando alguém pesquisa no Google, a primeira impressão define se o cliente chama você ou o concorrente. Faz sentido alinharmos 5 minutinhos sobre isso?",
+    "fup_3": "Olá equipe da Marcenaria Sucesso - Móveis Planejados! Para não ser inconveniente, estou encerrando meus contatos por aqui. Se em algum momento fizer sentido blindar a presença digital e a autoridade da empresa para atrair clientes de maior ticket, fico à total disposição. Um abraço e ótimos negócios!"
+  },
+  {
+    "id": "lead_22",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Domke (Domke Móveis Planejados)",
+    "cidade_bairro": "Sorocaba (Região Central / Zona Oeste)",
+    "endereco": "Sorocaba - SP (Atendimento Sorocaba, Votorantim e Região)",
+    "telefone_whatsapp": "(15) 98813-7613",
+    "whatsapp_raw": "5515988137613",
+    "email": "contato@domkemoveisplanejados.com.br",
+    "site": "https://domkemoveisplanejados.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Domke+Moveis+Planejados+Sorocaba",
+    "presenca_digital": "Site ativo, porém com pouca tração de depoimentos e fotos de alto padrão no Google Maps.",
+    "gargalo_critico": "Google Maps com poucas avaliações recentes de condomínios fechados e site sem destaque para parcerias com arquitetos.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Pilar 01 (Catálogo Digital de Obras Entregues)",
+    "ticket_medio_est": "R$ 25.000 - R$ 75.000",
+    "argumento_roi": "1 ambiente completo (R$ 30k) já cobre anos de investimento em posicionamento local.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Domke Marcenaria! Acompanho os trabalhos sob medida de vocês em Sorocaba. Notamos que quem busca por marcenaria de qualidade no Google muitas vezes não vê as avaliações e o portfólio completo da Domke no Maps logo no primeiro clique. Podemos estruturar isso em 7 dias com nosso plano de Presença Local?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Domke! Sei que o dia a dia na fábrica é intenso. Só queria saber se vocês conseguiram ver a mensagem que enviei sobre o destaque no Google Maps para clientes de condomínios?",
+    "fup_2": "Oi pessoal da Domke! Muitos clientes de novos empreendimentos em Sorocaba estão buscando marcenarias pelo celular. Deixar a ficha 100% otimizada dobra os contatos no WhatsApp. Querem ver como funciona?",
+    "fup_3": "Olá equipe Domke! Pra não incomodar, este é meu último contato. Se decidirem estruturar a presença no Google Maps e atrair orçamentos maiores, vocês têm meu contato direto aqui. Abraço e sucesso!",
+    "notas": "Excelente marcenaria tradicional, ótimo fit para produto de entrada R$ 450."
+  },
+  {
+    "id": "lead_23",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Artesanal Sorocaba & Votorantim",
+    "cidade_bairro": "Sorocaba / Votorantim (Pq. Bela Vista)",
+    "endereco": "Av. Gisele Constantino, 1548 / Rod. Raimundo Antunes Soares, 2270",
+    "telefone_whatsapp": "(15) 3242-4194 / (15) 3357-9346",
+    "whatsapp_raw": "551532424194",
+    "email": "contato no site",
+    "site": "https://marcenariaartesanal.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Artesanal+Av+Gisele+Constantino+1548+Sorocaba",
+    "presenca_digital": "Empresa sólida com duas unidades físicas, porém canais digitais dispersos e sem botão direto de WhatsApp ágil.",
+    "gargalo_critico": "Dois endereços físicos dividem a relevância local no Google Maps; falta de botão flutuante ágil de WhatsApp de plantão de arquitetos.",
+    "diagnostico_pilares": "Pilar 02 (Unificação e Otimização Google Maps R$ 450) + Pilar 01 (Landing Page Mobile de Alta Conversão)",
+    "ticket_medio_est": "R$ 30.000 - R$ 90.000",
+    "argumento_roi": "Apenas 1 cliente de condomínio fechado (R$ 50k) paga 10x todo o reposicionamento digital.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Marcenaria Artesanal! Estar na Gisele Constantino e em Votorantim é um ponto estratégico gigante. Porém, vimos que as fichas no Google Maps estão dividindo cliques e faltam botões diretos de WhatsApp para orçamentos rápidos de plantas. Queremos blindar a presença de vocês.",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe Artesanal! Tudo bem? Passando para checar se conseguiram avaliar nossa sugestão sobre a unificação do Google Maps de Sorocaba e Votorantim.",
+    "fup_2": "Oi pessoal! Quem circula pela Gisele Constantino muitas vezes pesquisa no Maps antes de visitar a loja. Podemos garantir que a Marcenaria Artesanal apareça em primeiro lugar com fotos profissionais. Faz sentido uma rápida conversa?",
+    "fup_3": "Olá Marcenaria Artesanal! Encerro meus contatos por aqui para não sobrecarregar. Ficamos à disposição quando quiserem acelerar as captações pelo Google. Um abraço!",
+    "notas": "Pontos físicos de alto fluxo, muito potencial de conversão local."
+  },
+  {
+    "id": "lead_24",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Florense Campolim",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Av. Antônio Carlos Comitre, 1297 - Parque Campolim, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3233-9000",
+    "whatsapp_raw": "551532339000",
+    "email": "sorocaba@florense.com.br",
+    "site": "https://www.florense.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Florense+Campolim+Antonio+Carlos+Comitre+1297+Sorocaba",
+    "presenca_digital": "Marca premium global com showroom de luxo na Comitre, mas com pouca captação ativa regionalizada no Google Ads para condomínios satélites.",
+    "gargalo_critico": "Marca depende do portal nacional; ausência de tráfego de busca local hiper-segmentado para Fazenda Boa Vista, Vila Real e condomínios de Itu/Porto Feliz.",
+    "diagnostico_pilares": "Tráfego de Busca Ativa Google Ads de Luxo + Vídeos Comerciais de Alto Impacto para Condomínios Fechados",
+    "ticket_medio_est": "R$ 80.000 - R$ 300.000+",
+    "argumento_roi": "1 único contrato de residência completa em condomínio de luxo ultrapassa R$ 150k. Retorno astronômico para assessoria comercial.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá equipe Florense Campolim! A imponência da loja na Comitre é referência. Notamos que muitos compradores de condomínios fechados de Porto Feliz e Itu pesquisam ativamente no Google e nem sempre encontram o plantão direto do showroom de Sorocaba. Desenvolvemos campanhas de busca ativa de luxo sob medida para vocês.",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá time Florense! Tudo bem? Conseguiram dar uma olhada na nossa proposta sobre a captação de clientes de condomínios fechados pelo Google Ads?",
+    "fup_2": "Olá! Apenas um complemento: identificamos mais de 1.400 buscas mensais de alto padrão na região metropolitana por mobiliário sob medida de luxo que estão indo para concorrentes. Podemos apresentar um raio-x de 10 min?",
+    "fup_3": "Olá Florense Campolim! Para não ser insistente, encerro este contato. Se a diretoria quiser abrir um canal exclusivo de captação de projetos de luxo, nossos contatos estão salvos aqui. Ótimas vendas!",
+    "notas": "Showroom topo de pirâmide. Foco em tráfego de alto padrão e vídeos."
+  },
+  {
+    "id": "lead_25",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Todeschini Sorocaba",
+    "cidade_bairro": "Sorocaba (Campolim / Barão de Tatuí)",
+    "endereco": "Av. Barão de Tatuí, 1166 - Jardim Vergueiro / Campolim, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 99128-7563 / (15) 3232-0811",
+    "whatsapp_raw": "5515991287563",
+    "email": "contato@todeschinisorocaba.com.br",
+    "site": "https://www.todeschinisorocaba.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Todeschini+Barao+de+Tatui+1166+Sorocaba",
+    "presenca_digital": "Forte presença institucional, porém disputa acirrada de cliques com outras lojas do mesmo grupo na região.",
+    "gargalo_critico": "Necessidade contínua de blindagem de avaliações no Google Maps e campanhas com criativos em vídeo reais da equipe de montagem.",
+    "diagnostico_pilares": "Pilar 02 (Gestão de Prova Social Google Maps R$ 450) + Vídeos de Autoridade para Tráfego Pago",
+    "ticket_medio_est": "R$ 40.000 - R$ 130.000",
+    "argumento_roi": "Basta 1 projeto de apartamento ou sobrado planejado para financiar 1 ano inteiro de gestão de tráfego e mídia.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Todeschini Sorocaba! O showroom na Barão de Tatuí é impecável. Notamos que muitos clientes comparam vocês com as lojas da Comitre direto no Google Maps. Temos uma estratégia de blindagem de reputação 5 estrelas e vídeos de projetos entregues para aumentar a taxa de visitação.",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Todeschini! Conseguiram avaliar nosso diagnóstico de presença local e posicionamento no Maps frente aos concorrentes da Comitre?",
+    "fup_2": "Oi pessoal! Produzir vídeos curtos das casas prontas gera 3x mais fechamentos de clientes exigentes. Temos esse formato validado para Sorocaba. Querem conhecer?",
+    "fup_3": "Olá time Todeschini! Deixo aqui meu abraço e encerro meus contatos. Conte conosco quando decidirem fortalecer ainda mais as captações no digital!",
+    "notas": "Showroom conceituado, equipe atenta ao WhatsApp."
+  },
+  {
+    "id": "lead_26",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Dell Anno Campolim",
+    "cidade_bairro": "Sorocaba (Parque Campolim)",
+    "endereco": "Av. Antônio Carlos Comitre, 1423 - Parque Campolim, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 3211-1228",
+    "whatsapp_raw": "551532111228",
+    "email": "comercial@dellannocampolim.com.br",
+    "site": "Inexistente página local própria / apenas diretório",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Dell+Anno+Antonio+Carlos+Comitre+1423+Campolim+Sorocaba",
+    "presenca_digital": "Marca tradicional de grife, mas sem autonomia digital para a unidade de Sorocaba.",
+    "gargalo_critico": "Não possui landing page própria focada nos condomínios de Sorocaba, dispersando o lead no portal geral da matriz.",
+    "diagnostico_pilares": "Pilar 01 (Landing Page Exclusiva da Unidade Campolim) + Pilar 02 (Google Maps R$ 450 com tour virtual)",
+    "ticket_medio_est": "R$ 45.000 - R$ 140.000",
+    "argumento_roi": "Uma landing page própria retém leads locais que hoje se perdem no site nacional da franqueadora.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Dell Anno Campolim! A loja na Comitre tem uma localização nobre. Porém, hoje os clientes locais que buscam 'planejados campolim' no Google caem no site institucional genérico da marca e não têm atendimento imediato dos seus consultores em Sorocaba. Podemos criar uma vitrine exclusiva para a unidade de vocês.",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá equipe Dell Anno! Tudo bem? Só confirmando se viram a proposta de uma vitrine digital própria para os consultores aqui do Campolim.",
+    "fup_2": "Oi pessoal! Criar um canal direto para os moradores do Campolim e Alphaville reduz o custo por lead e acelera o agendamento de projetos. Topam 10 minutos de bate-papo?",
+    "fup_3": "Olá Dell Anno! Para não incomodar mais, encerro meus envios. Desejo ótimos negócios e continuo à disposição caso queiram estruturar a vitrine local!",
+    "notas": "Excelente marca, precisa de independência digital local."
+  },
+  {
+    "id": "lead_27",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Joiner",
+    "cidade_bairro": "Sorocaba",
+    "endereco": "Atendimento Sorocaba e Condomínios",
+    "telefone_whatsapp": "(15) 99777-0410",
+    "whatsapp_raw": "5515997770410",
+    "email": "contato@marcenariajoiner.com",
+    "site": "https://marcenariajoiner.com",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Joiner+Sorocaba",
+    "presenca_digital": "Site ativo, porém com pouca profundidade de prova social e sem funil estruturado para arquitetos.",
+    "gargalo_critico": "Falta de captação ativa estruturada de escritórios de arquitetura e design de interiores parceiros.",
+    "diagnostico_pilares": "Pilar 01 (Seção de Parceria com Arquitetos & Especificadores) + Tráfego de Busca Ativa Google Ads",
+    "ticket_medio_est": "R$ 25.000 - R$ 70.000",
+    "argumento_roi": "Um arquiteto parceiro traz de 3 a 5 projetos residenciais por ano (R$ 150k+ recorrentes).",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Marcenaria Joiner! O acabamento técnico de vocês é muito refinado. Vimos que podemos criar um canal digital voltado especificamente para atrair escritórios de arquitetura de Sorocaba para parcerias contínuas de especificação. Faz sentido conversarmos 5 minutos?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Joiner! Tudo bem? Passando para saber se conseguiram avaliar a ideia de captação de arquitetos especificadores?",
+    "fup_2": "Oi pessoal da Joiner! Arquitetos buscam marcenarias confiáveis com catálogo ágil em PDF/WhatsApp. Podemos estruturar esse material para vocês em poucos dias.",
+    "fup_3": "Olá Marcenaria Joiner! Encerro meus contatos por aqui para respeitar o tempo de vocês. Muito sucesso nos projetos!",
+    "notas": "Foco em parcerias B2B com arquitetos e decoradores."
+  },
+  {
+    "id": "lead_28",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Harmoniza Marcenaria",
+    "cidade_bairro": "Sorocaba",
+    "endereco": "Atendimento Sorocaba e Região",
+    "telefone_whatsapp": "(15) 98807-5675",
+    "whatsapp_raw": "5515988075675",
+    "email": "contato@marcenariaharmoniza.com.br",
+    "site": "https://www.marcenariaharmoniza.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Harmoniza+Marcenaria+Sorocaba",
+    "presenca_digital": "Site institucional estático; baixa visibilidade orgânica no Google Maps para quem pesquisa na Zona Sul.",
+    "gargalo_critico": "Google Maps não otimizado para os termos mais buscados; ausência de catálogo interativo no WhatsApp.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Pilar 01 (Catálogo Mobile Rápido)",
+    "ticket_medio_est": "R$ 20.000 - R$ 65.000",
+    "argumento_roi": "O plano de R$ 450 se paga com o lucro dos primeiros parafusos e ferragens de um único ambiente planejado.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Harmoniza Marcenaria! Muito bacana o conceito dos móveis de vocês. Porém, hoje quem pesquisa por 'marcenaria sorocaba' no Google Maps encontra vários concorrentes na frente por falta de otimização básica da sua ficha. Podemos colocar vocês no topo em 7 dias com nosso plano de Presença Local?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Harmoniza! Conseguiram ver minha mensagem anterior sobre o plano de R$ 450 para colocar a ficha de vocês no topo do Google Maps?",
+    "fup_2": "Oi equipe Harmoniza! O Google Maps é a vitrine que mais gera chamadas no WhatsApp para marcenarias hoje em Sorocaba. Topam ver como funciona?",
+    "fup_3": "Olá Harmoniza Marcenaria! Encerro os contatos por aqui. Caso queiram reestruturar a presença no Maps mais para frente, estamos à disposição!",
+    "notas": "Excelente fit para o produto de entrada de R$ 450."
+  },
+  {
+    "id": "lead_29",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Peniel",
+    "cidade_bairro": "Sorocaba (Jardim Luciana Maria)",
+    "endereco": "Rua Emília Faro Marins, 358 - Jardim Luciana Maria, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 98176-8851",
+    "whatsapp_raw": "5515981768851",
+    "email": "Sem e-mail informado",
+    "site": "Inexistente / Sem site no Google Maps",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Peniel+Emilia+Faro+Marins+358+Sorocaba",
+    "presenca_digital": "Oficina ativa e elogiada pelos clientes locais, mas sem nenhuma infraestrutura digital oficial.",
+    "gargalo_critico": "Não possui site oficial nem catálogo digital; perfil no Google Maps com fotos amadoras e sem dados de contato padronizados.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Pilar 01 (Site Catálogo Mobile) + Pilar 04 (Domínio Próprio)",
+    "ticket_medio_est": "R$ 15.000 - R$ 45.000",
+    "argumento_roi": "Um único armário ou cozinha planejada (R$ 20k) paga 44 vezes o pacote de entrada de R$ 450.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Marcenaria Peniel! Tudo bem? Vi que vocês fazem um trabalho honesto e caprichado na Emília Faro Marins. Mas reparei que a presença digital de vocês no Google está quase invisível e sem fotos profissionais dos móveis entregues. Isso faz clientes de condomínios desconfiarem. A gente organiza isso em 7 dias por R$ 450. Quer ver como fica?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Peniel! Tudo bem? Conseguiram dar uma olhada na mensagem? É sobre organizar a ficha de vocês no Google para receber mais chamadas no WhatsApp.",
+    "fup_2": "Oi pessoal! Muitos moradores da região norte e leste buscam marcenarias pelo Google. Com o perfil oficial verificado, vocês passam na frente da concorrência.",
+    "fup_3": "Olá Marcenaria Peniel! Para não atrapalhar a rotina da oficina, encerro este contato. Se quiserem modernizar a presença digital depois, é só me chamar. Sucesso!",
+    "notas": "Caso clássico da tese Vocação: oficina excelente, presença digital zerada. Entrada perfeita no Pilar 02 R$ 450."
+  },
+  {
+    "id": "lead_30",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Gradual",
+    "cidade_bairro": "Votorantim (Centro e Bairros)",
+    "endereco": "Votorantim - SP",
+    "telefone_whatsapp": "(15) 99185-9181",
+    "whatsapp_raw": "5515991859181",
+    "email": "Não informado",
+    "site": "Inexistente / Sem site",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Gradual+Votorantim",
+    "presenca_digital": "Atendimento tradicional, presença digital inexistente; dependente exclusivo de boca a boca.",
+    "gargalo_critico": "Sem presença oficial na internet; perde as centenas de novos moradores que chegam nos condomínios de Votorantim.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Pilar 04 (Domínio & E-mail Corporativo)",
+    "ticket_medio_est": "R$ 18.000 - R$ 50.000",
+    "argumento_roi": "Basta 1 indicação que pesquisar no Google e fechar por ver a empresa organizada para cobrir todo o custo.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá equipe da Marcenaria Gradual! Sei que em marcenaria a indicação é o canal mais forte, mas hoje todo novo morador de condomínio em Votorantim dá um Google antes de ligar. Sem perfil oficial verificado, a empresa perde vendas na largada. A Vocação organiza o Google Maps de vocês em 7 dias por R$ 450. Faz sentido?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Marcenaria Gradual! Conseguiram ver a mensagem sobre a verificação e otimização do Google Maps em Votorantim?",
+    "fup_2": "Oi pessoal! Não precisa pagar mensalidade cara nem fazer post todo dia. O plano de R$ 450 deixa a ficha oficial no ar para sempre. Querem ver exemplos?",
+    "fup_3": "Olá Marcenaria Gradual! Deixo meus contatos salvos aqui e encerro por enquanto. Boas vendas e muito sucesso na produção!",
+    "notas": "Lead puro para o manifesto: 'Sua empresa já é confiável, online ela precisa parecer'."
+  },
+  {
+    "id": "lead_31",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Almeida Santos",
+    "cidade_bairro": "Votorantim / Sorocaba",
+    "endereco": "Votorantim - SP",
+    "telefone_whatsapp": "(15) 99611-0032",
+    "whatsapp_raw": "5515996110032",
+    "email": "Não informado",
+    "site": "Inexistente",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Almeida+Santos+Votorantim",
+    "presenca_digital": "Sem site ou ficha profissional no Maps; comunicação informal.",
+    "gargalo_critico": "Ausência de prova social organizada online; clientes de maior poder aquisitivo hesitam por falta de referências digitais.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local Google Maps R$ 450) + Pilar 03 (Redes Sociais Organizadas)",
+    "ticket_medio_est": "R$ 20.000 - R$ 55.000",
+    "argumento_roi": "Evitar que um único cliente feche com outra marcenaria por receio de amadorismo salva dezenas de milhares de reais.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Marcenaria Almeida Santos! A qualidade técnica da marcenaria sob medida de vocês é excelente, mas quem busca o nome de vocês na internet hoje não encontra um perfil oficial estruturado. A Vocação ajuda marcenarias a transmitirem toda a confiança que já têm no mundo real. Podemos conversar 5 minutos?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Almeida Santos! Tudo bem? Conseguiram dar uma olhada na proposta de organização da presença online da marcenaria?",
+    "fup_2": "Oi! Apenas para lembrar: deixar o perfil arrumado no Google Maps custa apenas R$ 450 e fica pronto em 7 dias. Podemos rodar essa semana?",
+    "fup_3": "Olá Almeida Santos! Encerro meu contato por aqui. Quando quiserem profissionalizar a imagem digital, contem comigo. Um abraço!",
+    "notas": "Marcenaria com trabalho manual de qualidade precisando de imagem digital."
+  },
+  {
+    "id": "lead_32",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Marcenaria Decorart",
+    "cidade_bairro": "Votorantim",
+    "endereco": "Votorantim - SP",
+    "telefone_whatsapp": "(15) 97403-7920",
+    "whatsapp_raw": "5515974037920",
+    "email": "Não informado",
+    "site": "Inexistente",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Marcenaria+Decorart+Votorantim",
+    "presenca_digital": "Sem presença institucional estruturada; depende exclusivamente de contatos diretos.",
+    "gargalo_critico": "Total vulnerabilidade digital; sem controle da ficha no Maps e sem canal de portfólio acessível.",
+    "diagnostico_pilares": "Pilar 02 (Presença Local R$ 450) + Pilar 01 (Landing Page Catálogo)",
+    "ticket_medio_est": "R$ 18.000 - R$ 48.000",
+    "argumento_roi": "1 ambiente pequeno fechado cobre 30 vezes o valor da Presença Local Vocação.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Decorart! Tudo bem? Vi que vocês atendem projetos sob medida na região de Votorantim e Sorocaba. Notamos que um cliente que busca pela Decorart no Google não encontra suas melhores obras e fotos de entregas. A gente resolve isso em 7 dias deixando tudo oficial e verificado. Querem ver como funciona?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Decorart! Tudo em ordem? Conseguiram ver a sugestão para colocar o portfólio oficial de vocês no topo do Google?",
+    "fup_2": "Oi equipe Decorart! Essa semana estamos estruturando a presença de outras marcenarias aqui da região. Querem aproveitar a mesma esteira?",
+    "fup_3": "Olá Decorart! Deixo registrado meu abraço e encerro meus contatos. Sucesso na produção!",
+    "notas": "Excelente oportunidade para fechamento rápido de Pilar 02."
+  },
+  {
+    "id": "lead_33",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Marcenaria Autoral & Alto Padrão",
+    "nome": "Confiança Marcenaria de Alto Padrão",
+    "cidade_bairro": "Indaiatuba / Região (Condomínios)",
+    "endereco": "Indaiatuba - SP (Atendimento Eixo Indaiatuba, Salto e Sorocaba)",
+    "telefone_whatsapp": "(19) 99528-6187",
+    "whatsapp_raw": "5519995286187",
+    "email": "contato@confiancamarcenaria.com.br",
+    "site": "https://confiancamarcenaria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Confianca+Marcenaria+Indaiatuba",
+    "presenca_digital": "Site ativo e bom posicionamento para condomínios, mas necessita de captação ativa regionalizada.",
+    "gargalo_critico": "Dispersão de leads orgânicos; falta de campanhas de busca ativa no Google Ads para moradores de condomínios recém-entregues.",
+    "diagnostico_pilares": "Tráfego Pago Google Ads Fundo de Funil + Pilar 02 (Otimização Google Maps de Alta Autoridade)",
+    "ticket_medio_est": "R$ 35.000 - R$ 110.000",
+    "argumento_roi": "Projetos em condomínios de Indaiatuba passam de R$ 60 mil facilmente. 1 lead fecha o semestre.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá Confiança Marcenaria! Os projetos de vocês em condomínios têm um padrão estético admirável. Identificamos que a demanda por marcenaria de luxo no eixo Indaiatuba-Sorocaba cresceu 40% este ano e vocês podem captar os maiores orçamentos com campanhas de busca ativa no Google. Podemos bater um papo rápido?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá time Confiança Marcenaria! Tudo bem? Só confirmando se conseguiram dar uma olhada na nossa proposta de captação de condomínios?",
+    "fup_2": "Oi pessoal! Temos dados atualizados sobre o volume de buscas de residências fechadas que estão escapando para São Paulo. Querem ver os números?",
+    "fup_3": "Olá Confiança Marcenaria! Encerro aqui meus contatos para não incomodar. Conte com a Vocação caso decidam acelerar os canais digitais. Abraço!",
+    "notas": "Empresa madura, ticket muito alto, busca parceiro sério de tráfego e autoridade."
+  },
+  {
+    "id": "lead_34",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Lojas & Estúdios de Planejados",
+    "nome": "Galmare Planejados",
+    "cidade_bairro": "Itu (Centro e Condomínios)",
+    "endereco": "Itu - SP (Atendimento Região Metropolitana)",
+    "telefone_whatsapp": "(11) 94026-2796",
+    "whatsapp_raw": "5511940262796",
+    "email": "contato@galmareplanejados.com.br",
+    "site": "https://galmareplanejados.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Galmare+Planejados+Itu",
+    "presenca_digital": "Site ativo com portfólio visual, mas com lentidão mobile e pouca integração de atendimento imediato.",
+    "gargalo_critico": "Carregamento pesado no celular; falta de esteira estruturada de orçamentos e agendamento pelo WhatsApp.",
+    "diagnostico_pilares": "Pilar 01 (Otimização Mobile de Velocidade) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 30.000 - R$ 90.000",
+    "argumento_roi": "Acelerar o site evita que 40% dos visitantes abandonem a página antes de chamar no WhatsApp.",
+    "prioridade_comercial": "Média-Alta",
+    "script_abordagem": "Olá Galmare Planejados! Os ambientes assinados por vocês em Itu são lindíssimos. Mas notamos que o site demora mais de 5 segundos para carregar no celular dos clientes de condomínios, o que gera abandono. Queremos deixar o site de vocês voando baixo e amarrado com o Google Maps. Topam ver uma prévia?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Galmare! Tudo bem? Passando para checar se viram nosso toque sobre a velocidade mobile do site de vocês.",
+    "fup_2": "Oi equipe Galmare! Cada segundo a menos no carregamento aumenta as chamadas no WhatsApp em 25%. Conseguimos ajustar isso sem refazer o site do zero.",
+    "fup_3": "Olá Galmare Planejados! Para respeitar o tempo de vocês, encerro meus envios. Desejo excelentes projetos e vendas!",
+    "notas": "Projetos bonitos, site pesado precisando de otimização de velocidade."
+  },
+  {
+    "id": "lead_35",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Comagra Marmoraria & Superfícies Nobres",
+    "cidade_bairro": "Sorocaba (Vila Lucy / Jd. Simus)",
+    "endereco": "Av. Doutor Luiz Mendes de Almeida, 1653 - Sorocaba - SP",
+    "telefone_whatsapp": "(15) 97405-9117 / (15) 3221-4033",
+    "whatsapp_raw": "5515974059117",
+    "email": "contato@marmorariacomagra.com.br",
+    "site": "https://www.marmorariacomagra.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Comagra+Marmoraria+Luiz+Mendes+de+Almeida+1653+Sorocaba",
+    "presenca_digital": "Marmoraria tradicional com amplo galpão, mas catálogo digital desatualizado para pedras sintéticas e Dekton.",
+    "gargalo_critico": "Site antigo sem fotos em altíssima resolução de bancadas e ilhas gourmets de luxo; comunicação pouco atraente para arquitetos.",
+    "diagnostico_pilares": "Pilar 01 (Novo Catálogo Digital de Rochas & Superfícies) + Pilar 02 (Google Maps R$ 450) + Tráfego de Busca Ativa",
+    "ticket_medio_est": "R$ 20.000 - R$ 80.000",
+    "argumento_roi": "Uma única ilha esculpida em Calacatta ou Dekton (R$ 30k) viabiliza toda a assessoria digital da Vocação.",
+    "prioridade_comercial": "Alta",
+    "script_abordagem": "Olá equipe Comagra Marmoraria! A solidez de vocês na Luiz Mendes de Almeida é indiscutível. Mas hoje os clientes de condomínios que compram Dekton e Quartzo buscam catálogos digitais sofisticados no celular antes de pedir cotação. Podemos modernizar a vitrine digital da Comagra para fechar mais obras de luxo?",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Comagra! Tudo em ordem? Conseguiram dar uma olhada na mensagem sobre o catálogo moderno de superfícies nobres?",
+    "fup_2": "Oi pessoal da Comagra! Os arquitetos de Sorocaba preferem indicar marmorarias com catálogo online limpo e prático. Temos esse modelo pronto para rodar com vocês.",
+    "fup_3": "Olá Comagra Marmoraria! Encerro aqui meus contatos para não atrapalhar a rotina. Grande abraço e muito sucesso nas obras!",
+    "notas": "Galpão tradicional com capacidade instalada excelente, catálogo precisa de upgrade estético."
+  },
+  {
+    "id": "lead_36",
+    "data_inclusao": "09/09/2026",
+    "categoria": "Correlacionados de Alto Ticket (Marmorarias)",
+    "nome": "Real Marmoraria",
+    "cidade_bairro": "Sorocaba (Vila Hortência)",
+    "endereco": "R. Cel. Nogueira Padilha, 2056 - Vila Hortência, Sorocaba - SP",
+    "telefone_whatsapp": "(15) 98147-0308 / (15) 3227-6023",
+    "whatsapp_raw": "5515981470308",
+    "email": "contato@realmarmoraria.com.br",
+    "site": "https://realmarmoraria.com.br",
+    "maps_link": "https://www.google.com/maps/search/?api=1&query=Real+Marmoraria+Cel+Nogueira+Padilha+2056+Sorocaba",
+    "presenca_digital": "Empresa tradicional na Nogueira Padilha, mas site sem certificado SSL válido emitindo aviso de segurança no Google Chrome.",
+    "gargalo_critico": "Aviso de site não seguro assusta clientes de alto padrão; fotos do Google Maps com pouca produção técnica.",
+    "diagnostico_pilares": "Pilar 01 (Blindagem de Segurança SSL e Renovação do Site) + Pilar 02 (Google Maps R$ 450)",
+    "ticket_medio_est": "R$ 15.000 - R$ 60.000",
+    "argumento_roi": "Evitar que clientes de condomínios fechem a aba por causa do aviso 'Não Seguro' do navegador salva orçamentos de R$ 40k+.",
+    "prioridade_comercial": "Crítica",
+    "script_abordagem": "Olá Real Marmoraria! A tradição de vocês na Nogueira Padilha é muito respeitada. Porém, ao abrir o site de vocês no celular, o navegador emite um aviso vermelho de 'Site Inseguro' por falta de certificado SSL ativo. Isso faz o cliente de condomínio sair na hora e ir para o concorrente. Conseguimos blindar o site de vocês imediatamente!",
+    "status_crm": "Novo Lead",
+    "status_fup": "Pendente",
+    "fup_1": "Olá Real Marmoraria! Tudo bem? Passando para checar se viram o alerta sobre o certificado de segurança do site de vocês.",
+    "fup_2": "Oi pessoal! Blindar o SSL e arrumar o Google Maps custa muito pouco e evita perder orçamentos grandes toda semana. Podemos resolver isso ainda hoje?",
+    "fup_3": "Olá Real Marmoraria! Deixo registrado meu contato e encerro por aqui. Desejo sucesso nas vendas e estou à disposição se precisarem!",
+    "notas": "Vulnerabilidade técnica crítica no SSL do site. Argumento de autoridade imbatível."
+  }
+];
+
+    const STORAGE_KEY = 'vocacao_crm_marcenarias_v1';
+
+    let leads = [];
+    let currentCategory = 'todos';
+    let currentStatusFilter = 'todos';
+    let currentDateFilter = 'todos';
+    let currentView = 'table';
+
+    function initCRM() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            try {
+                const savedData = JSON.parse(stored);
+                leads = INITIAL_LEADS.map(initLead => {
+                    const match = savedData.find(s => s.id === initLead.id);
+                    if (match) {
+                        return {
+                            ...initLead,
+                            status_crm: match.status_crm || initLead.status_crm,
+                            status_fup: match.status_fup || initLead.status_fup || 'Pendente',
+                            notas: match.notas !== undefined ? match.notas : initLead.notas
+                        };
+                    }
+                    return initLead;
+                });
+            } catch(e) {
+                leads = [...INITIAL_LEADS];
+            }
+        } else {
+            leads = [...INITIAL_LEADS];
+        }
+        
+        document.getElementById('totalLeadsBadge').innerText = `${leads.length} Leads Mapeados`;
+        renderFilterControls();
+        renderViews();
+    }
+
+    function saveCRM() {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(leads.map(l => ({
+            id: l.id,
+            status_crm: l.status_crm,
+            status_fup: l.status_fup,
+            notas: l.notas
+        }))));
+        updatePipelineCounts();
+    }
+
+    function updateLeadStatus(id, newStatus) {
+        const lead = leads.find(l => l.id === id);
+        if (lead) {
+            lead.status_crm = newStatus;
+            saveCRM();
+            renderViews();
+        }
+    }
+
+    function updateLeadFup(id, newFup) {
+        const lead = leads.find(l => l.id === id);
+        if (lead) {
+            lead.status_fup = newFup;
+            // Se mudou para FUP enviado ou respondeu, atualiza status comercial automaticamente
+            if (newFup.includes('Enviado') && lead.status_crm === 'Novo Lead') {
+                lead.status_crm = 'Mensagem Enviada';
+            } else if (newFup.includes('Respondeu') && (lead.status_crm === 'Novo Lead' || lead.status_crm === 'Mensagem Enviada')) {
+                lead.status_crm = 'Diagnóstico Agendado';
+            }
+            saveCRM();
+            renderViews();
+        }
+    }
+
+    function updateLeadNotes(id, text) {
+        const lead = leads.find(l => l.id === id);
+        if (lead) {
+            lead.notas = text;
+            saveCRM();
+        }
+    }
+
+    function updatePipelineCounts() {
+        const counts = {
+            'Novo Lead': 0,
+            'Mensagem Enviada': 0,
+            'Diagnóstico Agendado': 0,
+            'Proposta Apresentada': 0,
+            'Fechado (Ganho)': 0,
+            'Sem Interesse': 0
+        };
+        leads.forEach(l => {
+            if (counts[l.status_crm] !== undefined) {
+                counts[l.status_crm]++;
+            } else {
+                counts['Novo Lead']++;
+            }
+        });
+        document.getElementById('count_novo').innerText = counts['Novo Lead'];
+        document.getElementById('count_contato').innerText = counts['Mensagem Enviada'];
+        document.getElementById('count_reuniao').innerText = counts['Diagnóstico Agendado'];
+        document.getElementById('count_proposta').innerText = counts['Proposta Apresentada'];
+        document.getElementById('count_fechado').innerText = counts['Fechado (Ganho)'];
+        document.getElementById('count_perdido').innerText = counts['Sem Interesse'];
+
+        // Kanban counts
+        document.getElementById('k_count_novo').innerText = counts['Novo Lead'];
+        document.getElementById('k_count_contato').innerText = counts['Mensagem Enviada'];
+        document.getElementById('k_count_reuniao').innerText = counts['Diagnóstico Agendado'];
+        document.getElementById('k_count_proposta').innerText = counts['Proposta Apresentada'];
+        document.getElementById('k_count_fechado').innerText = counts['Fechado (Ganho)'];
+        document.getElementById('k_count_perdido').innerText = counts['Sem Interesse'];
+    }
+
+    function renderFilterControls() {
+        // 1. Lotes por Data
+        const dates = Array.from(new Set(leads.map(l => l.data_inclusao || '08/09/2026'))).sort().reverse();
+        const dateContainer = document.getElementById('dateFilterGroup');
+        dateContainer.innerHTML = '';
+
+        const allDateBtn = document.createElement('button');
+        allDateBtn.className = `filter-btn filter-btn-date ${currentDateFilter === 'todos' ? 'active' : ''}`;
+        allDateBtn.innerText = `Todos os Lotes (${leads.length})`;
+        allDateBtn.onclick = () => filterDate('todos', allDateBtn);
+        dateContainer.appendChild(allDateBtn);
+
+        dates.forEach(d => {
+            const count = leads.filter(l => (l.data_inclusao || '08/09/2026') === d).length;
+            const btn = document.createElement('button');
+            btn.className = `filter-btn filter-btn-date ${currentDateFilter === d ? 'active' : ''}`;
+            btn.innerText = `📅 ${d} (${count})`;
+            btn.onclick = () => filterDate(d, btn);
+            dateContainer.appendChild(btn);
+        });
+
+        // 2. Categorias Dinâmicas
+        const categoryMap = {};
+        leads.forEach(l => {
+            const shortCat = l.categoria.includes('(') ? l.categoria.split('(')[0].trim() : l.categoria.trim();
+            categoryMap[shortCat] = (categoryMap[shortCat] || 0) + 1;
+        });
+
+        const catContainer = document.getElementById('categoryFilterGroup');
+        catContainer.innerHTML = '';
+
+        const allCatBtn = document.createElement('button');
+        allCatBtn.className = `filter-btn ${currentCategory === 'todos' ? 'active' : ''}`;
+        allCatBtn.innerText = `Todas (${leads.length})`;
+        allCatBtn.onclick = () => filterCategory('todos', allCatBtn);
+        catContainer.appendChild(allCatBtn);
+
+        Object.keys(categoryMap).sort().forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = `filter-btn ${currentCategory === cat ? 'active' : ''}`;
+            btn.innerText = `${cat} (${categoryMap[cat]})`;
+            btn.onclick = () => filterCategory(cat, btn);
+            catContainer.appendChild(btn);
+        });
+    }
+
+    function filterDate(date, btnElement) {
+        currentDateFilter = date;
+        document.querySelectorAll('.filter-btn-date').forEach(b => b.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+        renderViews();
+    }
+
+    function filterCategory(cat, btnElement) {
+        currentCategory = cat;
+        document.querySelectorAll('#categoryFilterGroup .filter-btn').forEach(b => b.classList.remove('active'));
+        if (btnElement) btnElement.classList.add('active');
+        renderViews();
+    }
+
+    function filterStatus(status) {
+        currentStatusFilter = status;
+        document.querySelectorAll('.pipeline-card').forEach(c => c.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+        renderViews();
+    }
+
+    function switchView(view) {
+        currentView = view;
+        if (view === 'table') {
+            document.getElementById('tableView').style.display = 'block';
+            document.getElementById('kanbanView').style.display = 'none';
+            document.getElementById('btnTableView').classList.add('active');
+            document.getElementById('btnKanbanView').classList.remove('active');
+        } else {
+            document.getElementById('tableView').style.display = 'none';
+            document.getElementById('kanbanView').style.display = 'grid';
+            document.getElementById('btnTableView').classList.remove('active');
+            document.getElementById('btnKanbanView').classList.add('active');
+        }
+        renderViews();
+    }
+
+    function renderViews() {
+        updatePipelineCounts();
+        const searchVal = document.getElementById('searchInput').value.toLowerCase();
+
+        const filtered = leads.filter(l => {
+            const leadDate = l.data_inclusao || '08/09/2026';
+            const matchDate = currentDateFilter === 'todos' || leadDate === currentDateFilter;
+            
+            const shortCat = l.categoria.includes('(') ? l.categoria.split('(')[0].trim() : l.categoria.trim();
+            const matchCat = currentCategory === 'todos' || shortCat === currentCategory || l.categoria.includes(currentCategory);
+            
+            const matchStatus = currentStatusFilter === 'todos' || l.status_crm === currentStatusFilter;
+            
+            const matchSearch = l.nome.toLowerCase().includes(searchVal) ||
+                                l.cidade_bairro.toLowerCase().includes(searchVal) ||
+                                l.telefone_whatsapp.toLowerCase().includes(searchVal) ||
+                                (l.notas && l.notas.toLowerCase().includes(searchVal)) ||
+                                (l.status_fup && l.status_fup.toLowerCase().includes(searchVal)) ||
+                                (l.data_inclusao && l.data_inclusao.includes(searchVal)) ||
+                                l.gargalo_critico.toLowerCase().includes(searchVal);
+
+            return matchDate && matchCat && matchStatus && matchSearch;
+        });
+
+        // Render Table
+        const tbody = document.getElementById('leadsTableBody');
+        tbody.innerHTML = '';
+
+        filtered.forEach((lead) => {
+            const tr = document.createElement('tr');
+            
+            const prioClass = lead.prioridade_comercial.includes('Crítica') ? 'badge-prio-critica' : 
+                             (lead.prioridade_comercial.includes('Alta') ? 'badge-prio-alta' : 'badge-prio-media');
+
+            const leadDate = lead.data_inclusao || '08/09/2026';
+            const fupStatus = lead.status_fup || 'Pendente';
+
+            // WhatsApp URLs for each cadence step
+            const waInitialUrl = `https://wa.me/${lead.whatsapp_raw}?text=${encodeURIComponent(lead.script_abordagem)}`;
+            const waFup1Url = `https://wa.me/${lead.whatsapp_raw}?text=${encodeURIComponent(lead.fup_1)}`;
+            const waFup2Url = `https://wa.me/${lead.whatsapp_raw}?text=${encodeURIComponent(lead.fup_2)}`;
+            const waFup3Url = `https://wa.me/${lead.whatsapp_raw}?text=${encodeURIComponent(lead.fup_3)}`;
+
+            tr.innerHTML = `
+                <td>
+                    <select class="status-select" onchange="updateLeadStatus('${lead.id}', this.value)">
+                        <option value="Novo Lead" ${lead.status_crm === 'Novo Lead' ? 'selected' : ''}>⚪ Novo Lead</option>
+                        <option value="Mensagem Enviada" ${lead.status_crm === 'Mensagem Enviada' ? 'selected' : ''}>🔵 Msg Enviada</option>
+                        <option value="Diagnóstico Agendado" ${lead.status_crm === 'Diagnóstico Agendado' ? 'selected' : ''}>🟡 Diag. Agendado</option>
+                        <option value="Proposta Apresentada" ${lead.status_crm === 'Proposta Apresentada' ? 'selected' : ''}>🟣 Proposta</option>
+                        <option value="Fechado (Ganho)" ${lead.status_crm === 'Fechado (Ganho)' ? 'selected' : ''}>🟢 Fechado 🏆</option>
+                        <option value="Sem Interesse" ${lead.status_crm === 'Sem Interesse' ? 'selected' : ''}>🔴 Sem Interesse</option>
+                    </select>
+                    <div style="margin-top: 6px; display:flex; gap:4px; flex-wrap:wrap;">
+                        <span class="badge ${prioClass}">${lead.prioridade_comercial}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="lead-title">${lead.nome}</div>
+                    <div class="lead-sub">📍 ${lead.cidade_bairro}</div>
+                    <div style="font-size: 11px; color: #718096; margin-top: 2px;">${lead.endereco}</div>
+                    <div style="margin-top: 5px; display: flex; gap: 4px; flex-wrap: wrap;">
+                        <span class="badge badge-cat">${lead.categoria.split('(')[0].trim()}</span>
+                        <span class="badge badge-date">📅 ${leadDate}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="action-cluster">
+                        <a href="${lead.maps_link}" target="_blank" class="btn-action btn-maps" title="Abrir ficha oficial no Google Maps">
+                            🗺️ Google Maps
+                        </a>
+                        ${lead.site && lead.site.startsWith('http') ? `<a href="${lead.site}" target="_blank" class="btn-action" style="background:#f1f5f9; color:#1e293b; border-color:#cbd5e1;">🌐 Site Oficial</a>` : '<span style="font-size:10.5px; color:#94a3b8;">Sem site</span>'}
+                    </div>
+                </td>
+                <td>
+                    <div style="color: #9b2335; font-weight: 600; font-size: 11.5px; margin-bottom: 3px;">
+                        ⚠️ ${lead.gargalo_critico}
+                    </div>
+                    <div style="color: var(--color-primary); font-size: 11.5px; font-weight: 600; margin-bottom: 3px;">
+                        💡 ${lead.diagnostico_pilares}
+                    </div>
+                    <div style="font-size: 10.5px; color: #64748b;">
+                        ${lead.presenca_digital}
+                    </div>
+                </td>
+                <td>
+                    <div class="fup-cell">
+                        <div class="fup-select-row">
+                            <span style="font-size:10px; font-weight:700; color:#64748b; text-transform:uppercase;">Etapa:</span>
+                            <select class="fup-select" onchange="updateLeadFup('${lead.id}', this.value)">
+                                <option value="Pendente" ${fupStatus === 'Pendente' ? 'selected' : ''}>⚪ Pendente</option>
+                                <option value="1º Contato Enviado" ${fupStatus === '1º Contato Enviado' ? 'selected' : ''}>🔵 1º Contato Enviado</option>
+                                <option value="FUP 1 Enviado (48h)" ${fupStatus === 'FUP 1 Enviado (48h)' ? 'selected' : ''}>🟡 FUP 1 Enviado (48h)</option>
+                                <option value="FUP 2 Enviado (4 dias)" ${fupStatus === 'FUP 2 Enviado (4 dias)' ? 'selected' : ''}>🟠 FUP 2 Enviado (4d)</option>
+                                <option value="FUP 3 Enviado (7 dias)" ${fupStatus === 'FUP 3 Enviado (7 dias)' ? 'selected' : ''}>🟣 FUP 3 Enviado (7d)</option>
+                                <option value="Respondeu / Conversando" ${fupStatus === 'Respondeu / Conversando' ? 'selected' : ''}>🟢 Respondeu / Conversa</option>
+                            </select>
+                        </div>
+                        <div class="fup-buttons-grid">
+                            <a href="${waInitialUrl}" target="_blank" class="btn-action btn-wa" title="Disparar 1º Contato Personalizado">
+                                💬 1º Contato
+                            </a>
+                            <a href="${waFup1Url}" target="_blank" class="btn-fup btn-fup-1" title="Disparar Follow-up 1 (Quebra de Vácuo 48h)">
+                                🔄 FUP 1 (48h)
+                            </a>
+                            <a href="${waFup2Url}" target="_blank" class="btn-fup btn-fup-2" title="Disparar Follow-up 2 (Insight Oportunidade 4d)">
+                                📈 FUP 2 (4d)
+                            </a>
+                            <a href="${waFup3Url}" target="_blank" class="btn-fup btn-fup-3" title="Disparar Follow-up 3 (Break-up Elegante 7d)">
+                                🚪 FUP 3 (7d)
+                            </a>
+                        </div>
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:2px;">
+                            <button class="btn-objections" onclick="openObjectionsModal()">
+                                💡 Ver Objeções
+                            </button>
+                            <button class="btn-action btn-copy-script" style="padding:3px 6px; font-size:10px;" onclick="copyScriptText('${lead.id}')">
+                                📋 Copiar 1º Script
+                            </button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div style="font-weight: 700; color: var(--color-positive); font-size: 12.5px;">
+                        ${lead.ticket_medio_est}
+                    </div>
+                    <div style="font-size: 10.5px; color: #64748b; margin-top: 3px;">
+                        ${lead.argumento_roi}
+                    </div>
+                </td>
+                <td>
+                    <textarea class="notes-area" placeholder="Ex: Chamei em 09/09, pediu retorno na sexta..." onchange="updateLeadNotes('${lead.id}', this.value)">${lead.notas || ''}</textarea>
+                </td>
+            `;
+            tbody.appendChild(tr);
+        });
+
+        // Render Kanban
+        const kanbanContainers = {
+            'Novo Lead': document.getElementById('k_cards_novo'),
+            'Mensagem Enviada': document.getElementById('k_cards_contato'),
+            'Diagnóstico Agendado': document.getElementById('k_cards_reuniao'),
+            'Proposta Apresentada': document.getElementById('k_cards_proposta'),
+            'Fechado (Ganho)': document.getElementById('k_cards_fechado'),
+            'Sem Interesse': document.getElementById('k_cards_perdido')
+        };
+
+        Object.values(kanbanContainers).forEach(c => c.innerHTML = '');
+
+        filtered.forEach(lead => {
+            const targetCol = kanbanContainers[lead.status_crm] || kanbanContainers['Novo Lead'];
+            const card = document.createElement('div');
+            card.className = 'kanban-card';
+            card.innerHTML = `
+                <div class="k-title">${lead.nome}</div>
+                <div style="font-size: 11px; color: #64748b;">📍 ${lead.cidade_bairro}</div>
+                <div style="font-size: 11px; font-weight: 700; color: var(--color-positive);">${lead.ticket_medio_est}</div>
+                <div style="display:flex; gap: 4px; margin-top: 4px;">
+                    <a href="${lead.maps_link}" target="_blank" class="btn-action btn-maps" style="padding:3px 6px; font-size:10px;">Maps</a>
+                    <a href="https://wa.me/${lead.whatsapp_raw}?text=${encodeURIComponent(lead.script_abordagem)}" target="_blank" class="btn-action btn-wa" style="padding:3px 6px; font-size:10px;">WhatsApp</a>
+                </div>
+                <div style="font-size:10px; font-weight:600; color:#3b82f6; margin-top:4px;">FUP: ${lead.status_fup || 'Pendente'}</div>
+                <select class="status-select" style="width: 100%; margin-top: 4px; font-size: 11px; padding: 3px;" onchange="updateLeadStatus('${lead.id}', this.value)">
+                    <option value="Novo Lead" ${lead.status_crm === 'Novo Lead' ? 'selected' : ''}>Novo Lead</option>
+                    <option value="Mensagem Enviada" ${lead.status_crm === 'Mensagem Enviada' ? 'selected' : ''}>Msg Enviada</option>
+                    <option value="Diagnóstico Agendado" ${lead.status_crm === 'Diagnóstico Agendado' ? 'selected' : ''}>Diag. Agendado</option>
+                    <option value="Proposta Apresentada" ${lead.status_crm === 'Proposta Apresentada' ? 'selected' : ''}>Proposta</option>
+                    <option value="Fechado (Ganho)" ${lead.status_crm === 'Fechado (Ganho)' ? 'selected' : ''}>Fechado 🏆</option>
+                    <option value="Sem Interesse" ${lead.status_crm === 'Sem Interesse' ? 'selected' : ''}>Sem Interesse</option>
+                </select>
+            `;
+            targetCol.appendChild(card);
+        });
+    }
+
+    function copyScriptText(id) {
+        const lead = leads.find(l => l.id === id);
+        if (lead) {
+            navigator.clipboard.writeText(lead.script_abordagem).then(() => {
+                alert(`Script inicial copiado para ${lead.nome}!\n\n"${lead.script_abordagem}"`);
+            });
+        }
+    }
+
+    function copyGenericText(elementId) {
+        const el = document.getElementById('text_' + elementId);
+        if (el) {
+            navigator.clipboard.writeText(el.innerText).then(() => {
+                alert("Sugestão de resposta copiada com sucesso para a área de transferência!");
+            });
+        }
+    }
+
+    function openObjectionsModal() {
+        document.getElementById('objectionsModal').style.display = 'flex';
+    }
+
+    function closeObjectionsModal() {
+        document.getElementById('objectionsModal').style.display = 'none';
+    }
+
+    function handleModalOverlayClick(e) {
+        if (e.target.id === 'objectionsModal') {
+            closeObjectionsModal();
+        }
+    }
+
+    function exportUpdatedCSV() {
+        const headers = [
+            "ID", "Data Lote", "Nome da Empresa", "Status CRM Funil", "Status Follow-up", "Categoria / Nicho", "Cidade / Bairro", 
+            "Endereço Físico", "Telefone / WhatsApp", "Link Google Maps", "E-mail de Contato", 
+            "Site Atual", "Gargalo Crítico", "Pilares Recomendados", "Ticket Médio", "ROI", 
+            "Prioridade", "Script Inicial", "Script FUP 1", "Script FUP 2", "Script FUP 3", "Notas / Observações Comerciais"
+        ];
+        
+        let csvContent = "\uFEFF" + headers.join(";") + "\n";
+        
+        leads.forEach(l => {
+            const row = [
+                l.id,
+                `"${(l.data_inclusao || '08/09/2026').replace(/"/g, '""')}"`,
+                `"${l.nome.replace(/"/g, '""')}"`,
+                `"${(l.status_crm || '').replace(/"/g, '""')}"`,
+                `"${(l.status_fup || 'Pendente').replace(/"/g, '""')}"`,
+                `"${l.categoria.replace(/"/g, '""')}"`,
+                `"${l.cidade_bairro.replace(/"/g, '""')}"`,
+                `"${l.endereco.replace(/"/g, '""')}"`,
+                `"${l.telefone_whatsapp.replace(/"/g, '""')}"`,
+                `"${l.maps_link.replace(/"/g, '""')}"`,
+                `"${l.email.replace(/"/g, '""')}"`,
+                `"${(l.site || '').replace(/"/g, '""')}"`,
+                `"${l.gargalo_critico.replace(/"/g, '""')}"`,
+                `"${l.diagnostico_pilares.replace(/"/g, '""')}"`,
+                `"${l.ticket_medio_est.replace(/"/g, '""')}"`,
+                `"${l.argumento_roi.replace(/"/g, '""')}"`,
+                `"${l.prioridade_comercial.replace(/"/g, '""')}"`,
+                `"${l.script_abordagem.replace(/"/g, '""')}"`,
+                `"${(l.fup_1 || '').replace(/"/g, '""')}"`,
+                `"${(l.fup_2 || '').replace(/"/g, '""')}"`,
+                `"${(l.fup_3 || '').replace(/"/g, '""')}"`,
+                `"${(l.notas || '').replace(/"/g, '""')}"`
+            ];
+            csvContent += row.join(";") + "\n";
+        });
+
+        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("download", `CRM_Marcenarias_Sorocaba_Com_Followups_${new Date().toISOString().slice(0,10)}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    function resetCRMData() {
+        currentCategory = 'todos';
+        currentStatusFilter = 'todos';
+        currentDateFilter = 'todos';
+        document.getElementById('searchInput').value = '';
+        renderFilterControls();
+        document.querySelectorAll('.pipeline-card').forEach(c => c.classList.remove('active'));
+        renderViews();
+    }
+
+    window.onload = initCRM;
+</script>
+</body>
+</html>
