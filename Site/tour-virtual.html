@@ -32,6 +32,8 @@
 <meta name="twitter:card" content="summary" />
 <meta name="theme-color" content="#E5B910" />
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 <style>
 /* Estilos específicos do Tour Virtual */
 .hero-badge-360 {
@@ -63,25 +65,29 @@
   100% { transform: scale(0.9); opacity: 0.8; }
 }
 
-/* 360 Simulator Container */
+/* 360 Simulator Container Ultra-Premium */
 .tour-viewer-card {
-  background: var(--obsidian-black);
-  border-radius: 20px;
+  background: #040d14;
+  border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(6, 27, 40, 0.35);
-  border: 1px solid rgba(184, 191, 195, 0.25);
+  box-shadow: 0 30px 60px -15px rgba(6, 27, 40, 0.5), 0 0 0 1px rgba(229, 185, 16, 0.25);
   margin-top: 40px;
   position: relative;
 }
 .tour-viewer-header {
-  padding: 14px 20px;
-  background: rgba(255, 255, 255, 0.04);
+  padding: 14px 22px;
+  background: rgba(10, 25, 37, 0.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #fff;
   font-size: 13px;
+  flex-wrap: wrap;
+  gap: 10px;
+  z-index: 20;
+  position: relative;
 }
 .tour-viewer-header .loc-info {
   display: flex;
@@ -90,13 +96,18 @@
 }
 .loc-pin {
   color: var(--accent);
-  font-size: 16px;
+  font-size: 18px;
+  animation: bounce-pin 2s infinite ease-in-out;
+}
+@keyframes bounce-pin {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
 }
 .tour-viewer-canvas-wrap {
   position: relative;
   width: 100%;
-  height: 480px;
-  background: #020b12;
+  height: 520px;
+  background: #02070b;
   cursor: grab;
   user-select: none;
   overflow: hidden;
@@ -109,78 +120,254 @@
   height: 100%;
   display: block;
 }
+
+/* Loading Overlay */
+.tour-loader-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 13, 20, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  z-index: 30;
+  transition: opacity 0.4s ease, visibility 0.4s;
+  pointer-events: none;
+}
+.tour-loader-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.tour-spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid rgba(229, 185, 16, 0.2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Instruções flutuantes */
 .tour-overlay-instructions {
   position: absolute;
   top: 18px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(6, 27, 40, 0.75);
-  backdrop-filter: blur(8px);
+  background: rgba(6, 27, 40, 0.85);
+  backdrop-filter: blur(10px);
   color: #fff;
   font-size: 12.5px;
   font-family: var(--mono);
-  padding: 6px 16px;
+  padding: 8px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(229, 185, 16, 0.4);
   pointer-events: none;
   display: flex;
   align-items: center;
   gap: 8px;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
+  z-index: 15;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
+
+/* Barra de Ferramentas e Cenas */
 .tour-controls-bar {
   position: absolute;
-  bottom: 16px;
+  bottom: 18px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(6, 27, 40, 0.85);
-  backdrop-filter: blur(10px);
+  background: rgba(6, 27, 40, 0.9);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 30px;
-  padding: 6px 14px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 0 1px rgba(229, 185, 16, 0.2);
+  border-radius: 40px;
+  padding: 6px 10px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  z-index: 10;
+  gap: 8px;
+  z-index: 20;
+  max-width: 95%;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .tour-btn {
   background: transparent;
   border: none;
-  color: #fff;
-  font-size: 12px;
-  padding: 6px 12px;
+  color: #c5ced4;
+  font-size: 12.5px;
+  font-family: var(--display);
+  font-weight: 500;
+  padding: 7px 14px;
   border-radius: 20px;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
-.tour-btn:hover, .tour-btn.active {
+.tour-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+.tour-btn.active {
   background: var(--accent);
   color: var(--obsidian-black);
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(229, 185, 16, 0.35);
 }
-.tour-hotspot-pin {
-  position: absolute;
-  transform: translate(-50%, -50%);
+.tour-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 2px;
+}
+.tour-icon-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(229, 185, 16, 0.9);
-  border: 2px solid #fff;
-  box-shadow: 0 0 15px rgba(229, 185, 16, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  animation: pulse-pin 2s infinite;
-  z-index: 5;
+  transition: all 0.2s;
+  font-size: 13px;
 }
-@keyframes pulse-pin {
-  0% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(229, 185, 16, 0.7); }
-  70% { transform: translate(-50%, -50%) scale(1.1); box-shadow: 0 0 0 12px rgba(229, 185, 16, 0); }
-  100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 0 rgba(229, 185, 16, 0); }
+.tour-icon-btn:hover {
+  background: var(--accent);
+  color: var(--obsidian-black);
+  border-color: var(--accent);
+}
+
+/* Hotspots 3D em Perspectiva */
+.tour-hotspots-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+.tour-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.tour-hotspot:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.hotspot-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(229, 185, 16, 0.95);
+  border: 2px solid #fff;
+  box-shadow: 0 0 20px rgba(229, 185, 16, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #061b28;
+  font-weight: 800;
+  font-size: 14px;
+  position: relative;
+}
+.hotspot-icon-wrap::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 2px solid rgba(229, 185, 16, 0.7);
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+@keyframes pulse-ring {
+  0% { transform: scale(0.7); opacity: 1; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+.hotspot-label-pill {
+  background: rgba(6, 27, 40, 0.9);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(229, 185, 16, 0.4);
+  color: #fff;
+  font-family: var(--display);
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+/* Card Detalhe do Hotspot */
+.hotspot-detail-card {
+  position: absolute;
+  bottom: 78px;
+  left: 20px;
+  max-width: 330px;
+  background: rgba(6, 27, 40, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 185, 16, 0.5);
+  border-radius: 16px;
+  padding: 16px 18px;
+  color: #fff;
+  z-index: 25;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.55);
+  transform: translateY(10px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hotspot-detail-card.is-active {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+.hotspot-detail-card .badge-cat {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  display: block;
+}
+.hotspot-detail-card h5 {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+  color: #fff;
+}
+.hotspot-detail-card p {
+  font-size: 12.5px;
+  color: #c5ced4;
+  line-height: 1.45;
+  margin: 0;
+}
+.hotspot-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px;
+}
+.hotspot-close-btn:hover {
+  color: #fff;
 }
 
 /* Stats Grid */
@@ -468,7 +655,6 @@
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
           </a>
           <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Tour%20Virtual%20360%20da%20Voca%C3%A7%C3%A3o" class="btn btn-ghost magnet">Falar no WhatsApp</a>
-          <a href="treinamento-tour-virtual" class="btn btn-ghost" style="border-style: dashed; font-size: 13px;" title="Área exclusiva para a equipe técnica da Vocação">Manual da Equipe</a>
         </div>
       </div>
       <div>
@@ -479,32 +665,65 @@
       </div>
     </div>
 
-    <!-- 360 SIMULATOR INTERATIVO -->
+    <!-- 360 SIMULATOR INTERATIVO ULTRA-REALISTA -->
     <div class="tour-viewer-card reveal" data-d="5" id="tour-demo">
       <div class="tour-viewer-header">
         <div class="loc-info">
           <span class="loc-pin">📍</span>
-          <strong>Experiência Interativa 360° — Vocação Imersiva</strong>
-          <span style="opacity: 0.6; font-size: 11px;">[Ambiente 01: Hall de Recepção Premium]</span>
+          <strong>Simulador 360° Vocação</strong>
+          <span id="sceneBadge" style="color: var(--accent); font-size: 11.5px; font-family: var(--mono); background: rgba(229,185,16,0.12); padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(229,185,16,0.3);">[Ambiente 01: Clínica Médica & Estética]</span>
         </div>
-        <div style="font-family: var(--mono); font-size: 11px; color: var(--accent);">
-          ● ARRASTE PARA GIRAR 360°
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <span style="font-family: var(--mono); font-size: 11px; color: #a0aec0; display: flex; align-items: center; gap: 6px;">
+            <span style="width: 7px; height: 7px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
+            5.6K ULTRA DEFINIÇÃO
+          </span>
+          <button class="tour-icon-btn" onclick="toggleFullScreen()" title="Tela Cheia" aria-label="Tela Cheia">⛶</button>
         </div>
       </div>
 
       <div class="tour-viewer-canvas-wrap" id="canvasWrap">
         <canvas id="tourCanvas"></canvas>
-        <div class="tour-overlay-instructions" id="tourTip">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-3 3-3-3M9 9l3-3 3 3M15 9l3 3-3 3M9 15l-3-3 3-3"/></svg>
-          Clique e arraste em qualquer direção para navegar em 360°
+
+        <!-- Loading Spinner Overlay -->
+        <div class="tour-loader-overlay" id="tourLoader">
+          <div class="tour-spinner"></div>
+          <span style="font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.05em;">CARREGANDO PANORAMA 360°...</span>
         </div>
 
-        <!-- Controles Interativos -->
+        <!-- Hotspots 3D Container -->
+        <div class="tour-hotspots-container" id="hotspotsContainer"></div>
+
+        <!-- Card Flutuante de Detalhes do Hotspot -->
+        <div class="hotspot-detail-card" id="hotspotDetailCard">
+          <button class="hotspot-close-btn" onclick="closeHotspotCard()">&times;</button>
+          <span class="badge-cat" id="cardCategory">DIFERENCIAL DE ALTO VALOR</span>
+          <h5 id="cardTitle">Balcão em Mármore & Iluminação Quente</h5>
+          <p id="cardDesc">Acabamento refinado que transmite autoridade e higiene instantânea para quem busca tratamentos no Google Maps.</p>
+        </div>
+
+        <!-- Dica de Interação -->
+        <div class="tour-overlay-instructions" id="tourTip">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 15l-3 3-3-3M9 9l3-3 3 3M15 9l3 3-3 3M9 15l-3-3 3-3"/></svg>
+          Clique e arraste em 360° para explorar o ambiente
+        </div>
+
+        <!-- Controles Interativos Inferiores -->
         <div class="tour-controls-bar">
-          <button class="tour-btn active" onclick="switchScene(0)">Recepção</button>
-          <button class="tour-btn" onclick="switchScene(1)">Consultório / Espaço</button>
-          <button class="tour-btn" onclick="switchScene(2)">Showroom / Salão</button>
-          <button class="tour-btn" id="btnAutoRotate" onclick="toggleAutoRotate()">Pausar Rotação</button>
+          <button class="tour-btn active" id="tabScene0" onclick="switchScene(0)">
+            <span>🩺</span> Clínica &amp; Estética
+          </button>
+          <button class="tour-btn" id="tabScene1" onclick="switchScene(1)">
+            <span>🪵</span> Marcenaria &amp; Showroom
+          </button>
+          <button class="tour-btn" id="tabScene2" onclick="switchScene(2)">
+            <span>✂️</span> Salão &amp; Beauty Studio
+          </button>
+          <div class="tour-divider"></div>
+          <button class="tour-icon-btn" id="btnAutoRotate" onclick="toggleAutoRotate()" title="Pausar / Retomar Rotação">⏸</button>
+          <button class="tour-icon-btn" onclick="zoomIn()" title="Aproximar (+)">＋</button>
+          <button class="tour-icon-btn" onclick="zoomOut()" title="Afastar (-)">－</button>
+          <button class="tour-icon-btn" onclick="resetView()" title="Resetar Posição">🧭</button>
         </div>
       </div>
     </div>
@@ -828,8 +1047,8 @@
         Agendar pelo WhatsApp
         <svg class="btn-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
       </a>
-      <a href="treinamento-tour-virtual" class="btn btn-ghost" style="color: #fff; border-color: rgba(255,255,255,0.3);">
-        Acessar Manual Operacional
+      <a href="#tour-demo" class="btn btn-ghost" style="color: #fff; border-color: rgba(255,255,255,0.3);">
+        Testar Simulador 360°
       </a>
     </div>
   </div>
@@ -862,11 +1081,11 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contato &amp; Equipe</h5>
+        <h5>Contato &amp; Propostas</h5>
         <ul>
           <li><a href="https://wa.me/5515981512083">WhatsApp <span class="arrow">↗</span></a></li>
           <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
-          <li><a href="treinamento-tour-virtual">Manual da Equipe <span class="arrow">↗</span></a></li>
+          <li><a href="portfolio">Casos Reais <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -895,229 +1114,438 @@
 <script>
   window.__TWEAKS__ = { "accent": "#E5B910", "palette": "warm", "displayFont": "Poppins", "bodyFont": "Montserrat", "grain": true };
 
-  // 360 Canvas Simulator
+  // =========================================================================
+  // SIMULADOR 360° ULTRA-REALISTA DA VOCAÇÃO (THREE.JS WEBGL + HOTSPOTS 3D)
+  // =========================================================================
   (function() {
     const canvas = document.getElementById('tourCanvas');
     const wrap = document.getElementById('canvasWrap');
-    const ctx = canvas.getContext('2d');
+    const loader = document.getElementById('tourLoader');
     const tip = document.getElementById('tourTip');
+    const sceneBadge = document.getElementById('sceneBadge');
+    const hotspotsContainer = document.getElementById('hotspotsContainer');
+    const detailCard = document.getElementById('hotspotDetailCard');
+    const cardCat = document.getElementById('cardCategory');
+    const cardTitle = document.getElementById('cardTitle');
+    const cardDesc = document.getElementById('cardDesc');
+    const btnAutoRotate = document.getElementById('btnAutoRotate');
 
-    let width = 0;
-    let height = 0;
-    let isDragging = false;
-    let startX = 0;
-    let startY = 0;
-    let yaw = 0; // horizontal angle
-    let pitch = 0; // vertical angle
-    let targetYaw = 0;
-    let targetPitch = 0;
-    let autoRotate = true;
-    let currentScene = 0;
-
-    const scenes = [
-      { name: "Recepção Premium", color1: "#0a1926", color2: "#193549", accent: "#E5B910", details: "Balcão em Mármore & Iluminação Quente" },
-      { name: "Consultório & Atendimento", color1: "#0f2331", color2: "#20415a", accent: "#10b981", details: "Ambiente Estéril & Equipamentos" },
-      { name: "Showroom & Lounge", color1: "#121d28", color2: "#2b3b4a", accent: "#f59e0b", details: "Mobiliário Alto Padrão & Acabamentos" }
+    const SCENES = [
+      {
+        id: 0,
+        name: "[Ambiente 01: Clínica Médica & Estética]",
+        image: "img/tour360-recepcao-clinica.jpg",
+        initialLon: 175,
+        initialLat: 0,
+        hotspots: [
+          {
+            lat: -4,
+            lon: 175,
+            icon: "✦",
+            label: "Balcão em Mármore & Iluminação",
+            category: "PADRÃO E HOSPITALIDADE",
+            title: "Recepção com Iluminação Zenital",
+            description: "Acabamento de altíssimo padrão com lâminas de mármore e luz quente, transmitindo sofisticação e conforto ao paciente logo na entrada."
+          },
+          {
+            lat: 2,
+            lon: 228,
+            icon: "🌿",
+            label: "Jardim de Inverno & Lounge",
+            category: "EXPERIÊNCIA DO PACIENTE",
+            title: "Lounge Humanizado de Espera",
+            description: "Ambiente biofílico que reduz a ansiedade pré-consulta e aumenta em mais de 100% o tempo médio de visita virtual no Google Maps."
+          },
+          {
+            lat: 1,
+            lon: 110,
+            icon: "🩺",
+            label: "Consultório & Atendimento",
+            category: "BLINDAGEM & CONFIANÇA",
+            title: "Salas Clínicas Integradas",
+            description: "Acesso privativo aos consultórios com isolamento acústico e equipamentos médicos de última geração expostos com transparência."
+          }
+        ]
+      },
+      {
+        id: 1,
+        name: "[Ambiente 02: Marcenaria & Showroom]",
+        image: "img/tour360-marcenaria-showroom.jpg",
+        initialLon: 190,
+        initialLat: -2,
+        hotspots: [
+          {
+            lat: -2,
+            lon: 185,
+            icon: "🪵",
+            label: "Ilha Gourmet & Painel Nobre",
+            category: "ALTO PADRÃO SOB MEDIDA",
+            title: "Cozinha Conceito em Madeira Maciça",
+            description: "Showroom projetado para encantar arquitetos e clientes exigentes, com detalhes de ferragens importadas e acabamento impecável."
+          },
+          {
+            lat: -10,
+            lon: 130,
+            icon: "📐",
+            label: "Mesa de Especificação Técnica",
+            category: "PARCERIAS & ARQUITETURA",
+            title: "Espaço do Especificador & Mostruário",
+            description: "Área reservada para arquitetos e designers escolherem padrões de lâminas, pedras e ferragens para projetos de alto valor."
+          },
+          {
+            lat: 6,
+            lon: 240,
+            icon: "🛋️",
+            label: "Living com Vista para o Verde",
+            category: "AMBIENTAÇÃO IMERSIVA",
+            title: "Integração Interna & Externa",
+            description: "Apresenta como os móveis sob medida dialogam com a arquitetura contemporânea e iluminação natural."
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "[Ambiente 03: Salão & Beauty Studio]",
+        image: "img/tour360-salao-beauty.jpg",
+        initialLon: 180,
+        initialLat: 2,
+        hotspots: [
+          {
+            lat: 0,
+            lon: 180,
+            icon: "✂️",
+            label: "Bancadas de Visagismo Iluminadas",
+            category: "ESTÉTICA & LUXO",
+            title: "Estações de Atendimento com LED Cênico",
+            description: "Espelhos redondos com iluminação profissional ideal para fotos, maquiagem e colorimetria sem distorção de cores."
+          },
+          {
+            lat: 22,
+            lon: 180,
+            icon: "☀️",
+            label: "Cúpula Zenital Panorâmica",
+            category: "ARQUITETURA BOUTIQUE",
+            title: "Luz Natural & Estrutura Industrial",
+            description: "O teto abobadado traz iluminação difusa exuberante, quebrando a objeção de ambientes escuros ou claustrofóbicos."
+          },
+          {
+            lat: -4,
+            lon: 245,
+            icon: "☕",
+            label: "Recepção & Coffee Bar",
+            category: "HOSPITALIDADE PREMIUM",
+            title: "Boas-vindas Personalizada",
+            description: "Recepção aconchegante com lounge para clientes desfrutarem de cafés especiais antes do horário agendado."
+          }
+        ]
+      }
     ];
 
-    function resize() {
-      width = wrap.clientWidth;
-      height = wrap.clientHeight;
-      canvas.width = width;
-      canvas.height = height;
+    let currentSceneIdx = 0;
+    let autoRotate = true;
+    let isUserInteracting = false;
+    let onPointerDownPointerX = 0, onPointerDownPointerY = 0;
+    let onPointerDownLon = 0, onPointerDownLat = 0;
+    let lon = 175, lat = 0;
+    let targetLon = 175, targetLat = 0;
+    let fov = 75;
+    let targetFov = 75;
+
+    let scene, camera, renderer, sphereMesh, textureLoader;
+    const texturesCache = {};
+
+    function initThree() {
+      if (!window.THREE) {
+        console.warn("Three.js não carregou, mantendo fallback");
+        return;
+      }
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(fov, wrap.clientWidth / wrap.clientHeight, 1, 1100);
+      camera.target = new THREE.Vector3(0, 0, 0);
+
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, powerPreference: "high-performance" });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      renderer.setSize(wrap.clientWidth, wrap.clientHeight);
+
+      // Inverted Sphere Geometry for equirectangular panorama
+      const geometry = new THREE.SphereGeometry(500, 60, 40);
+      geometry.scale(-1, 1, 1);
+
+      textureLoader = new THREE.TextureLoader();
+
+      const material = new THREE.MeshBasicMaterial();
+      sphereMesh = new THREE.Mesh(geometry, material);
+      scene.add(sphereMesh);
+
+      // Nadir disk marker to hide the tripod hole cleanly with Vocação logo
+      const nadirCanvas = document.createElement('canvas');
+      nadirCanvas.width = 512;
+      nadirCanvas.height = 512;
+      const nctx = nadirCanvas.getContext('2d');
+      nctx.fillStyle = "rgba(6, 27, 40, 0.95)";
+      nctx.beginPath();
+      nctx.arc(256, 256, 240, 0, Math.PI * 2);
+      nctx.fill();
+      nctx.strokeStyle = "#E5B910";
+      nctx.lineWidth = 8;
+      nctx.stroke();
+      nctx.fillStyle = "#E5B910";
+      nctx.font = "bold 34px Montserrat, sans-serif";
+      nctx.textAlign = "center";
+      nctx.fillText("VOCAÇÃO 360°", 256, 235);
+      nctx.fillStyle = "#ffffff";
+      nctx.font = "20px 'Geist Mono', monospace";
+      nctx.fillText("TRIPÉ REMOVIDO COM SUCESSO", 256, 275);
+      nctx.fillStyle = "#94a3b8";
+      nctx.font = "16px Montserrat, sans-serif";
+      nctx.fillText("PADRÃO GOOGLE STREET VIEW TRUSTED", 256, 310);
+
+      const nadirTexture = new THREE.CanvasTexture(nadirCanvas);
+      const nadirMaterial = new THREE.MeshBasicMaterial({ map: nadirTexture, transparent: true });
+      const nadirGeo = new THREE.CircleGeometry(110, 32);
+      const nadirMesh = new THREE.Mesh(nadirGeo, nadirMaterial);
+      nadirMesh.rotation.x = -Math.PI / 2;
+      nadirMesh.position.y = -490;
+      scene.add(nadirMesh);
+
+      loadScene(0);
+
+      window.addEventListener('resize', onWindowResize);
+      addInteractionListeners();
+      animate();
     }
-    window.addEventListener('resize', resize);
-    resize();
 
-    // Mouse / Touch events
-    wrap.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      autoRotate = false;
-      document.getElementById('btnAutoRotate').textContent = "Retomar Rotação";
-      tip.style.opacity = '0';
-    });
+    function loadScene(idx) {
+      currentSceneIdx = idx;
+      const sc = SCENES[idx];
+      if (sceneBadge) sceneBadge.textContent = sc.name;
+      if (loader) loader.classList.remove('hidden');
+      closeHotspotCard();
 
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      startX = e.clientX;
-      startY = e.clientY;
-      targetYaw += dx * 0.005;
-      targetPitch += dy * 0.005;
-      targetPitch = Math.max(-0.6, Math.min(0.6, targetPitch));
-    });
+      targetLon = sc.initialLon;
+      targetLat = sc.initialLat;
+      lon = targetLon;
+      lat = targetLat;
 
-    window.addEventListener('mouseup', () => { isDragging = false; });
-
-    // Touch
-    wrap.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
-        isDragging = true;
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        autoRotate = false;
-        document.getElementById('btnAutoRotate').textContent = "Retomar Rotação";
-        tip.style.opacity = '0';
-      }
-    }, { passive: true });
-
-    window.addEventListener('touchmove', (e) => {
-      if (!isDragging || e.touches.length !== 1) return;
-      const dx = e.touches[0].clientX - startX;
-      const dy = e.touches[0].clientY - startY;
-      startX = e.touches[0].clientX;
-      startY = e.touches[0].clientY;
-      targetYaw += dx * 0.007;
-      targetPitch += dy * 0.007;
-      targetPitch = Math.max(-0.6, Math.min(0.6, targetPitch));
-    }, { passive: true });
-
-    window.addEventListener('touchend', () => { isDragging = false; });
-
-    window.toggleAutoRotate = function() {
-      autoRotate = !autoRotate;
-      const btn = document.getElementById('btnAutoRotate');
-      btn.textContent = autoRotate ? "Pausar Rotação" : "Retomar Rotação";
-    };
-
-    window.switchScene = function(idx) {
-      currentScene = idx;
-      const buttons = document.querySelectorAll('.tour-controls-bar .tour-btn');
-      buttons.forEach((b, i) => {
-        if (i === idx) b.classList.add('active');
-        else if (i < 3) b.classList.remove('active');
-      });
-      targetYaw += 0.5; // transição suave
-    };
-
-    function draw() {
-      if (autoRotate) {
-        targetYaw += 0.002;
-      }
-      yaw += (targetYaw - yaw) * 0.08;
-      pitch += (targetPitch - pitch) * 0.08;
-
-      const sc = scenes[currentScene];
-
-      // Fundo gradiente simulando ambiente 360
-      const grad = ctx.createRadialGradient(
-        width / 2 + Math.sin(yaw) * (width * 0.4),
-        height / 2 + pitch * height,
-        20,
-        width / 2,
-        height / 2,
-        width * 0.8
-      );
-      grad.addColorStop(0, sc.color2);
-      grad.addColorStop(1, sc.color1);
-
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, width, height);
-
-      // Grid tridimensional de perspectiva em 360°
-      ctx.save();
-      ctx.strokeStyle = "rgba(255, 255, 255, 0.07)";
-      ctx.lineWidth = 1;
-
-      const horizonY = height / 2 + pitch * (height * 0.8);
-
-      // Linhas de perspectiva verticais cilíndricas
-      const numColumns = 24;
-      for (let i = 0; i < numColumns; i++) {
-        const colAngle = (i / numColumns) * Math.PI * 2 + yaw;
-        const screenX = (width / 2) + Math.tan(Math.atan2(Math.sin(colAngle), Math.cos(colAngle))) * (width * 0.45);
-        if (Math.cos(colAngle) > 0) {
-          ctx.beginPath();
-          ctx.moveTo(screenX, 0);
-          ctx.lineTo(screenX, height);
-          ctx.stroke();
+      // Update tabs UI
+      for (let i = 0; i < 3; i++) {
+        const tab = document.getElementById('tabScene' + i);
+        if (tab) {
+          if (i === idx) tab.classList.add('active');
+          else tab.classList.remove('active');
         }
       }
 
-      // Linha do horizonte nivelada
-      ctx.strokeStyle = "rgba(229, 185, 16, 0.35)";
-      ctx.setLineDash([6, 6]);
-      ctx.beginPath();
-      ctx.moveTo(0, horizonY);
-      ctx.lineTo(width, horizonY);
-      ctx.stroke();
-      ctx.setLineDash([]);
-
-      // Desenho de elementos no ambiente simulado (Mobiliário, Arandelas, Janela)
-      const objAngle1 = 0.4 + yaw;
-      if (Math.cos(objAngle1) > 0) {
-        const x1 = (width / 2) + Math.tan(Math.atan2(Math.sin(objAngle1), Math.cos(objAngle1))) * (width * 0.4);
-        const y1 = horizonY + 20;
-
-        // Card flutuante simulando elemento de arquitetura
-        ctx.fillStyle = "rgba(6, 27, 40, 0.85)";
-        ctx.strokeStyle = sc.accent;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.roundRect(x1 - 80, y1 - 40, 160, 80, 10);
-        ctx.fill();
-        ctx.stroke();
-
-        ctx.fillStyle = "#fff";
-        ctx.font = "bold 13px Montserrat, sans-serif";
-        ctx.textAlign = "center";
-        ctx.fillText(sc.name, x1, y1 - 12);
-
-        ctx.fillStyle = sc.accent;
-        ctx.font = "11px 'Geist Mono', monospace";
-        ctx.fillText("5.6K RESOLUÇÃO", x1, y1 + 10);
-
-        ctx.fillStyle = "#B8BFC3";
-        ctx.font = "10px Montserrat, sans-serif";
-        ctx.fillText(sc.details, x1, y1 + 25);
+      if (texturesCache[sc.image]) {
+        sphereMesh.material.map = texturesCache[sc.image];
+        sphereMesh.material.needsUpdate = true;
+        createHotspotElements(sc.hotspots);
+        setTimeout(() => { if (loader) loader.classList.add('hidden'); }, 150);
+      } else {
+        textureLoader.load(
+          sc.image,
+          function(texture) {
+            texture.minFilter = THREE.LinearFilter;
+            texturesCache[sc.image] = texture;
+            sphereMesh.material.map = texture;
+            sphereMesh.material.needsUpdate = true;
+            createHotspotElements(sc.hotspots);
+            setTimeout(() => { if (loader) loader.classList.add('hidden'); }, 200);
+          },
+          undefined,
+          function(err) {
+            console.error("Erro ao carregar textura 360", err);
+            if (loader) loader.classList.add('hidden');
+          }
+        );
       }
-
-      // Hotspot interativo simulado
-      const pinAngle = -0.6 + yaw;
-      if (Math.cos(pinAngle) > 0) {
-        const px = (width / 2) + Math.tan(Math.atan2(Math.sin(pinAngle), Math.cos(pinAngle))) * (width * 0.4);
-        const py = horizonY - 40;
-
-        ctx.beginPath();
-        ctx.arc(px, py, 14, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(229, 185, 16, 0.9)";
-        ctx.fill();
-        ctx.strokeStyle = "#fff";
-        ctx.lineWidth = 2;
-        ctx.stroke();
-
-        ctx.fillStyle = "#061B28";
-        ctx.font = "bold 12px sans-serif";
-        ctx.textAlign = "center";
-        ctx.fillText("i", px, py + 4);
-
-        ctx.fillStyle = "rgba(255,255,255,0.9)";
-        ctx.font = "11px 'Geist Mono', monospace";
-        ctx.fillText("PONTO DE INTERESSE", px, py + 26);
-      }
-
-      // Simulação do Nadir limpo (Vocação Logo no chão)
-      const nadirY = height - 35;
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.beginPath();
-      ctx.ellipse(width / 2, nadirY, 60, 20, 0, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.strokeStyle = "rgba(229, 185, 16, 0.4)";
-      ctx.stroke();
-
-      ctx.fillStyle = "#B8BFC3";
-      ctx.font = "10px 'Geist Mono', monospace";
-      ctx.textAlign = "center";
-      ctx.fillText("NADIR 100% LIMPO (VOCAÇÃO)", width / 2, nadirY + 4);
-
-      ctx.restore();
-
-      requestAnimationFrame(draw);
     }
-    requestAnimationFrame(draw);
+
+    // Criar elementos DOM para os hotspots na tela
+    function createHotspotElements(hotspots) {
+      if (!hotspotsContainer) return;
+      hotspotsContainer.innerHTML = '';
+      if (!hotspots) return;
+
+      hotspots.forEach((h, i) => {
+        const el = document.createElement('div');
+        el.className = 'tour-hotspot';
+        el.dataset.idx = i;
+        el.innerHTML = `
+          <div class="hotspot-icon-wrap">${h.icon}</div>
+          <div class="hotspot-label-pill">${h.label}</div>
+        `;
+        el.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openHotspotCard(h);
+        });
+        hotspotsContainer.appendChild(el);
+      });
+    }
+
+    function openHotspotCard(h) {
+      if (!detailCard) return;
+      cardCat.textContent = h.category;
+      cardTitle.textContent = h.title;
+      cardDesc.textContent = h.description;
+      detailCard.classList.add('is-active');
+    }
+
+    window.closeHotspotCard = function() {
+      if (detailCard) detailCard.classList.remove('is-active');
+    };
+
+    function updateHotspotsPositions() {
+      const sc = SCENES[currentSceneIdx];
+      if (!sc || !sc.hotspots || !camera || !hotspotsContainer) return;
+
+      const hotspotElements = hotspotsContainer.children;
+      const width = wrap.clientWidth;
+      const height = wrap.clientHeight;
+
+      for (let i = 0; i < sc.hotspots.length; i++) {
+        const h = sc.hotspots[i];
+        const el = hotspotElements[i];
+        if (!el) continue;
+
+        // Converter spherical lat/lon to 3D vector coordinates
+        const phi = THREE.MathUtils.degToRad(90 - h.lat);
+        const theta = THREE.MathUtils.degToRad(h.lon);
+
+        const pos = new THREE.Vector3(
+          500 * Math.sin(phi) * Math.cos(theta),
+          500 * Math.cos(phi),
+          500 * Math.sin(phi) * Math.sin(theta)
+        );
+
+        // Projetar para 2D na tela
+        const screenPos = pos.clone().project(camera);
+
+        // Se estiver atrás da câmera
+        if (screenPos.z > 1) {
+          el.style.display = 'none';
+        } else {
+          el.style.display = 'flex';
+          const x = (screenPos.x * 0.5 + 0.5) * width;
+          const y = (-(screenPos.y * 0.5) + 0.5) * height;
+          el.style.left = x + 'px';
+          el.style.top = y + 'px';
+        }
+      }
+    }
+
+    function addInteractionListeners() {
+      wrap.addEventListener('pointerdown', (e) => {
+        if (e.target.closest('.tour-controls-bar') || e.target.closest('.hotspot-detail-card') || e.target.closest('.tour-icon-btn')) return;
+        isUserInteracting = true;
+        onPointerDownPointerX = e.clientX;
+        onPointerDownPointerY = e.clientY;
+        onPointerDownLon = targetLon;
+        onPointerDownLat = targetLat;
+        if (tip) tip.style.opacity = '0';
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if (!isUserInteracting) return;
+        targetLon = (onPointerDownPointerX - e.clientX) * 0.16 + onPointerDownLon;
+        targetLat = (e.clientY - onPointerDownPointerY) * 0.16 + onPointerDownLat;
+        targetLat = Math.max(-85, Math.min(85, targetLat));
+      });
+
+      window.addEventListener('pointerup', () => {
+        isUserInteracting = false;
+      });
+
+      // Zoom via Mouse Wheel
+      wrap.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        targetFov += e.deltaY * 0.05;
+        targetFov = Math.max(40, Math.min(95, targetFov));
+      }, { passive: false });
+    }
+
+    function onWindowResize() {
+      if (!camera || !renderer) return;
+      camera.aspect = wrap.clientWidth / wrap.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(wrap.clientWidth, wrap.clientHeight);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      if (autoRotate && !isUserInteracting) {
+        targetLon += 0.08;
+      }
+
+      // Suavização / Inércia
+      lon += (targetLon - lon) * 0.1;
+      lat += (targetLat - lat) * 0.1;
+      lat = Math.max(-85, Math.min(85, lat));
+
+      if (Math.abs(camera.fov - targetFov) > 0.05) {
+        camera.fov += (targetFov - camera.fov) * 0.1;
+        camera.updateProjectionMatrix();
+      }
+
+      const phi = THREE.MathUtils.degToRad(90 - lat);
+      const theta = THREE.MathUtils.degToRad(lon);
+
+      camera.target.x = 500 * Math.sin(phi) * Math.cos(theta);
+      camera.target.y = 500 * Math.cos(phi);
+      camera.target.z = 500 * Math.sin(phi) * Math.sin(theta);
+
+      camera.lookAt(camera.target);
+      renderer.render(scene, camera);
+
+      updateHotspotsPositions();
+    }
+
+    // Ações públicas para os botões da barra
+    window.switchScene = function(idx) {
+      loadScene(idx);
+    };
+
+    window.toggleAutoRotate = function() {
+      autoRotate = !autoRotate;
+      if (btnAutoRotate) {
+        btnAutoRotate.textContent = autoRotate ? "⏸" : "▶";
+        btnAutoRotate.title = autoRotate ? "Pausar Rotação" : "Retomar Rotação";
+      }
+    };
+
+    window.zoomIn = function() {
+      targetFov = Math.max(40, targetFov - 12);
+    };
+
+    window.zoomOut = function() {
+      targetFov = Math.min(95, targetFov + 12);
+    };
+
+    window.resetView = function() {
+      const sc = SCENES[currentSceneIdx];
+      targetLon = sc.initialLon;
+      targetLat = sc.initialLat;
+      targetFov = 75;
+    };
+
+    window.toggleFullScreen = function() {
+      const el = document.getElementById('tour-demo');
+      if (!document.fullscreenElement) {
+        if (el.requestFullscreen) el.requestFullscreen();
+        else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    };
+
+    // Inicialização
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initThree);
+    } else {
+      initThree();
+    }
   })();
 </script>
 <script src="motion.js"></script>
