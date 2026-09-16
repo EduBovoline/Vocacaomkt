@@ -57,8 +57,8 @@
 | Lead / Empresa | Bairro / Região | Contato | Gargalo Crítico | Script / Oferta |
 | :--- | :--- | :--- | :--- | :--- |
 | **Marcenaria Sucesso** | Jd. Hungares / V. Mineirão | (15) 99778-7394 | Perfil no Google Maps **NÃO REIVINDICADO** e sem site | Pilar Presença Local (R$ 450). Script de alerta sobre risco de roubo de perfil. |
-| **Magen Segurança** | Sorocaba e Região | Dossiê na pasta `2 Leads` | Presença desatualizada e sem tração local | Pilar Modernização Web + Google Maps Corporativo. |
-| **Clínica Piacitelli** | Sorocaba | Dossiê na pasta `2 Leads` | Captação digital dispersa para odontologia e estética | Posicionamento Local de Alta Percepção de Valor. |
+| **Magen Segurança** | Sorocaba e Região | (11) 94561-5331 | 🟢 **DISPARO ENVIADO HOJE (16/09)** | Aguardando resposta do diretor sobre o Vocação Update. |
+| **Clínica Piacitelli** | Sorocaba | WhatsApp | 🟢 **EM CONVERSA ATIVA** | Negociação em andamento pelo Edu (bloqueado para disparos frios). |
 | **Dra. Thaísa Motta** | Pq. Campolim | Dossiê na pasta `2 Leads` | Sem blindagem de buscas para Geriatria no Campolim | Google Maps Autoridade Médica + Landing Page de Agendamento. |
 | **The Blond Sorocaba** | Sorocaba | Dossiê na pasta `2 Leads` | Catálogo e agendamento dependente exclusivamente do Instagram | Catálogo Web Interativo + Ficha Local Otimizada. |
 | **SEMPI Serviços** | Sorocaba | (15) 99798-8298 | Facilities sem página moderna de captação de condomínios | Apresentação institucional B2B e captação ativa. |
@@ -129,4 +129,5 @@ Todas as bases contam com versão em **CSV** para planilhas e **HTML Interativo*
 1. **Chatbot de Vendas & Triagem:** Estruturar o bot oficial da Vocação no WhatsApp para qualificar leads que chegam pelo site e direcionar para o tipo de serviço certo.
 2. **Disparo Agendado de Follow-up:** Cadência automática de lembretes (D+2, D+5) para leads que visualizaram o dossiê e não responderam.
 3. **Robô de Backup Automático:** Backup zip diário das pastas de clientes e repositórios sincronizado com a nuvem.
+
 

@@ -8,6 +8,12 @@ import time
 from pathlib import Path
 
 LEADS_DIR = Path(r"C:\Vocação 2027\QG Vocação 2027 do zero\2 Leads")
+# Leads que já estão ativos / em conversa e NUNCA devem receber abordagem fria
+LEADS_ATIVOS_IGNORAR = [
+    "Clínica Piacitelli",
+    "Espaço Naturê",
+    "Safety First"
+]
 
 def sanitize_phone(phone_str):
     if not phone_str:
@@ -50,6 +56,8 @@ def analyze_leads():
 
     for item in sorted(LEADS_DIR.iterdir()):
         if not item.is_dir():
+            continue
+        if any(ativo.lower() in item.name.lower() for ativo in LEADS_ATIVOS_IGNORAR):
             continue
         
         lead_name = item.name
@@ -130,5 +138,6 @@ if __name__ == "__main__":
                 time.sleep(10)
         else:
             print("Triagem concluída. Pronto para execução.")
+
 
 
