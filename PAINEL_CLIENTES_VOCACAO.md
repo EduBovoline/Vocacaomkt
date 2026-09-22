@@ -1,4 +1,4 @@
-﻿# 🏢 PAINEL MESTRE DE CLIENTES, ESTEIRA & OPERAÇÃO — VOCAÇÃO DIGITAL 2027
+# 🏢 PAINEL MESTRE DE CLIENTES, ESTEIRA & OPERAÇÃO — VOCAÇÃO DIGITAL 2027
 > **Última Atualização Geral:** 16/09/2026  
 > **Responsável Estratégico & Comercial:** Edu Bovoline / Anty  
 > **Status do Site Oficial:** 🌐 [vocacao.digital](https://vocacao.digital) — 100% Online, Responsivo e com Cases Reais.
@@ -118,16 +118,16 @@ Todas as bases contam com versão em **CSV** para planilhas e **HTML Interativo*
 
 ---
 
-## 🤖 8. O QUE JÁ ESTÁ AUTOMATIZADO & O QUE PODEMOS AUTOMATIZAR
+## 🤖 8. O QUE JÁ ESTÁ AUTOMATIZADO & ECOSSISTEMA SELF-HOSTED
+ 
+### ✅ Ferramentas Locais Ativas & Prontas para Uso:
+1. **Twenty CRM (`http://localhost:3000`):** Pipeline comercial, empresas, contatos e oportunidades com notas dos dossiês da Vocação.
+2. **OpenSEO (`http://localhost:3001`):** Alternativa open-source ao Semrush/Ahrefs para pesquisa de palavras-chave, análise de concorrentes e auditorias técnicas.
+3. **SerpBear (`http://localhost:5000`):** Monitor de posições diárias de palavras-chave no Google para sites de clientes (Login: `admin` / Senha: `vocacao2027`).
+4. **Geração de Dossiês de Prospecção:** Skill `vocacao-prospeccao` que consome links do Maps e cria relatórios em PDF, HTML e dossiê interno.
+5. **Abordagem via WhatsApp em 1 Clique:** Planilhas interativas em HTML (`1 Leads/`) com link direto para WhatsApp Web.
 
-### ✅ Já Automatizado:
-1. **Geração de Dossiês de Prospecção:** Skill `vocacao-prospeccao` que consome links do Maps e cria relatórios em PDF, HTML e dossiê interno com um único comando.
-2. **Abordagem via WhatsApp em 1 Clique:** Planilhas interativas em HTML (`1 Leads/`) com link direto que abre a conversa no WhatsApp Web já com a mensagem personalizada pronta.
-3. **Questionário de Onboarding de Clientes:** Página web que colhe todas as informações do negócio sem necessidade de reuniões cansativas de briefing.
-
-### 🚀 Oportunidades Próximas de Automação:
-1. **Chatbot de Vendas & Triagem:** Estruturar o bot oficial da Vocação no WhatsApp para qualificar leads que chegam pelo site e direcionar para o tipo de serviço certo.
-2. **Disparo Agendado de Follow-up:** Cadência automática de lembretes (D+2, D+5) para leads que visualizaram o dossiê e não responderam.
-3. **Robô de Backup Automático:** Backup zip diário das pastas de clientes e repositórios sincronizado com a nuvem.
-
-
+### 🚀 Oportunidades Próximas de Expansão:
+1. **Documenso:** Assinatura digital de contratos direto no celular do cliente.
+2. **N8N:** Automações conectando formulários do site ao Twenty CRM.
+3. **Evolution API:** Robô WhatsApp 24h para qualificação de leads.

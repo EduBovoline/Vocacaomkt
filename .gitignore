@@ -18,6 +18,12 @@ Desktop.ini
 # Relatórios internos — nunca subir ao Git
 Prospects/
 site_novo_temp/
+.env
+*.env
+twenty-crm/.env
+openseo/.env
+serpbear/.env
+
 *.zip
 
 # Pastas de Leads e Catálogos
