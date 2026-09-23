@@ -5,15 +5,20 @@ echo   PAUSANDO ECOSSISTEMA VOCACAO DIGITAL 2027
 echo ========================================================
 echo.
 
-echo [1/3] Parando SerpBear...
-cd /d "%~dp0serpbear"
+echo [1/4] Finalizando Auto-Responder...
+taskkill /f /fi "WINDOWTITLE eq AutoResponder-Vocacao*" >nul 2>&1
+
+echo [2/4] Parando WhatsApp & n8n Stack...
+cd /d "D:\Funnel vendas objeção\local_stack"
 "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
 
-echo [2/3] Parando OpenSEO...
+echo [3/4] Parando SerpBear e OpenSEO...
+cd /d "%~dp0serpbear"
+"C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
 cd /d "%~dp0openseo"
 "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
 
-echo [3/3] Parando Twenty CRM...
+echo [4/4] Parando Twenty CRM...
 cd /d "%~dp0twenty-crm"
 "C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
 

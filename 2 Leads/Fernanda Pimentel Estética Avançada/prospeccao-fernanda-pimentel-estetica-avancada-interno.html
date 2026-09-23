@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Fernanda Pimentel Estética Avançada — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;
+    --color-accent: #0B5E47;
+    --color-accent-soft: #e8f4ef;
+    --color-bg: #f5f4ef;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #e2e8e5;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #1b2421;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Fernanda Pimentel Estética Avançada — Sorocaba, SP</div>
+    <div class="header-sub">Contato: Dra. Fernanda Pimentel · (15) 99696-3197 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        <strong>Fernanda Pimentel Estética Avançada</strong> é um lead de alto padrão localizado no endereço mais nobre de Sorocaba (Av. Comitre no Campolim). Oferece tratamentos de alta tecnologia (Ultraformer, Fotona, Harmonização e Botox) com ticket médio de R$ 1.500 a R$ 3.500 por sessão. O gargalo crítico detectado é a <strong>ausência de uma vitrine digital oficial</strong>: a clínica opera sem site institucional próprio, dependendo exclusivamente do aplicativo Fresha e do Instagram. Pacientes de alta renda pesquisam no Google antes de injetar substâncias no rosto e acabam sendo captadas pela concorrência direta do bairro (como a Clínica Gabriela HOF). A abordagem deve focar na perda de clientes do Campolim pela falta de site próprio e credibilidade online.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Meu Negócio</div>
+        <span class="badge badge-mediano">Mediano</span>
+      </div>
+      <div class="canal-desc">Ficha criada no Google Maps com endereço na Comitre 510, sala 102. Faltam fotos profissionais do consultório, catálogo completo de tecnologias e Tour Virtual 360°.</div>
+      <div class="canal-impact">⚠️ Paciente que busca no mapa não consegue ver o padrão da clínica por dentro e encontra link externo do Fresha em vez de site próprio.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Institucional</div>
+        <span class="badge badge-fraco">Ausente</span>
+      </div>
+      <div class="canal-desc">Inexistência de site com domínio corporativo (ex: clinicapimentel.com.br). O link principal aponta para plataforma de agendamento genérica Fresha.</div>
+      <div class="canal-impact">🚨 CRÍTICO: Perda direta de autoridade para procedimentos de R$ 2.000+. A paciente não encontra credenciais, diferenciais das máquinas nem artigos sobre segurança.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">Perfil ativo no Instagram com postagens de protocolos, estética facial e fotos em clínica. Comunicação visual existente mas com quebra de funil na bio.</div>
+      <div class="canal-impact">O Instagram gera atração, mas a conversão é fraturada porque direciona para o aplicativo Fresha onde o paciente vê outros profissionais.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">WhatsApp Comercial</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">WhatsApp Business ativo no (15) 99696-3197. Principal canal de fechamento e conversão de consultas.</div>
+      <div class="canal-impact">O canal funciona bem para quem já decidiu chamar; o desafio é alimentar esse WhatsApp com pacientes vindas da busca ativa no Google.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> Estética avançada no Campolim é uma das buscas locais de maior ticket em Sorocaba. A paciente busca 'Ultraformer Campolim', 'Harmonização Sorocaba', 'Botox Campolim'. Se a clínica não possui site oficial com domínio corporativo, o paciente assume que a clínica é amadora ou opta pela concorrente vizinha que possui estrutura completa.
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Fernanda Pimentel Estética</strong></td>
+      <td>Presente (Mediano)</td>
+      <td>❌ Ausente (Usa Fresha)</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-mediano">Gargalo de Autoridade</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Clínica Gabriela HOF</strong></td>
+      <td>5,0★ Estruturado</td>
+      <td>✅ clinicagabrielahof.com.br</td>
+      <td>Forte</td>
+      <td><span class="badge badge-otimo">Presença Forte</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Estética Kirei Campolim</strong></td>
+      <td>4,8★ Campolim</td>
+      <td>❌ Ausente (Fresha)</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-mediano">Presença Mediana</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Oligoflora Campolim</strong></td>
+      <td>4,7★ Estruturado</td>
+      <td>✅ Rede Nacional</td>
+      <td>Forte</td>
+      <td><span class="badge badge-otimo">Presença Forte</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> A Dra. Fernanda Pimentel possui equipamentos de primeira linha (Fotona e Ultraformer) que superam a maioria dos concorrentes de bairro. A criação de uma Vitrine Digital de Autoridade com Tour Virtual 360° posiciona a clínica de imediato no mesmo nível das grandes marcas do Campolim.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Nobre no Campolim</strong> — Instalada na Av. Antônio Carlos Comitre, 510 — o polo de saúde e estética mais valorizado da região.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Tecnologia de Ponta (Fotona & Ultraformer)</strong> — Aparelhos consagrados no mercado internacional, que justificam tickets elevados por atendimento.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Portfólio de Procedimentos em Alta</strong> — Foco em Harmonização Facial, Botox e Rejuvenescimento, nicho com alta procura e recorrência anual.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Canal de WhatsApp Comercial Estabelecido</strong> — Agilidade de resposta e atendimento direto já em operação.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de Site Próprio com Domínio Corporativo</div>
+      <div class="fraqueza-detail">A clínica não possui site oficial institucional. Pacientes do Campolim que pesquisam no Google para validar credenciais não encontram nada além de diretórios externos. Isso corrói a percepção de clínica premium.</div>
+      <span class="impacto-tag impacto-alto">Impacto Alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Fuga de Pacientes no Agendador Externo</div>
+      <div class="fraqueza-detail">O link da bio do Instagram aponta para o Fresha. O aplicativo lista centenas de clínicas concorrentes a um clique de distância da paciente.</div>
+      <span class="impacto-tag impacto-alto">Impacto Alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Google Maps sem Tour Virtual 360° e Imagens de Bastidores</div>
+      <div class="fraqueza-detail">Ficha básica no Google Meu Negócio que não explora a autoridade do endereço na Av. Comitre 510. Falta selo de verificação e passeio imersivo.</div>
+      <span class="impacto-tag impacto-medio">Impacto Médio</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">E-mail Profissional Ausente</div>
+      <div class="fraqueza-detail">Ausência de e-mail institucional corporativo com domínio próprio para contato com fornecedores e pacientes VIP.</div>
+      <span class="impacto-tag impacto-baixo">Impacto Baixo</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Vitrine Digital de Autoridade (Site Institucional) (R$ 1.800,00)</div>
+        <div class="servico-just">Construção de site de luxo, mobile-first, com domínio próprio, destacando tecnologias (Ultraformer, Fotona), apresentação da Dra. Fernanda e botão direto para o WhatsApp. Elimina o 'luxury disconnect' e corta dependência do Fresha.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Tour Virtual 360° Oficial (Google Street View) (R$ 600 a R$ 900)</div>
+        <div class="servico-just">Mapeamento em 360° em alta definição da clínica (recepção, sala 102 e consultório) integrado ao Google Maps e incorporado na nova vitrine digital. Gera 2x mais conversão de consultas.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">Otimização & Blindagem Google Maps (R$ 450,00)</div>
+        <div class="servico-just">Ajuste completo de categorias, serviços de estética avançada e palavras-chave de intenção de busca para dominar Sorocaba/Campolim.</div>
+        <span class="urgencia-tag urgencia-media">Urgência Média</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">"Olá Fernanda, tudo bem? Analisei a presença digital da sua clínica no Campolim e notei algo importante: vocês oferecem procedimentos de altíssimo padrão como Ultraformer e Fotona, mas quem pesquisa pelo seu espaço no Google encontra apenas o link do aplicativo Fresha e não uma vitrine médica institucional com a autoridade que o endereço de vocês na Comitre merece. Enquanto isso, clínicas vizinhas na região estão captando essas pacientes de alto ticket. Posso te enviar um diagnóstico visual de 2 minutos mostrando exatamente como corrigir isso?"</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Reconhece o valor e sofisticação das tecnologias reais dela (Ultraformer e Fotona), aponta a falha técnica concreta (Fresha em vez de site), cita o endereço de prestígio (Comitre/Campolim) e oferece ajuda sem pressão agressiva de venda.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Confirmar se a Dra. Fernanda atua sozinha no consultório ou possui equipe multidisciplinar de esteticistas associadas.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Confirmar se a clínica possui domínio já registrado em seu nome ou se será necessário registrar do zero.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps</span>
+      <span>Perfil 'Fernanda Pimentel Estética Avançada' — Av. Antônio Carlos Comitre, 510, sala 102, Sorocaba.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Redes Sociais</span>
+      <span>Instagram oficial (@drafernandapimentel) e Facebook da clínica com confirmação de endereço e procedimentos.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Diretórios</span>
+      <span>Cadastro de agendamento Fresha e diretório Sorocaba Fácil.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Concorrência</span>
+      <span>Clínica Gabriela HOF (Av. Gisele Constantino, 1548), Estética Kirei e Oligoflora Campolim.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

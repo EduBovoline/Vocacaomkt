@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Disparador Comercial Vocação 2027</title>
+    <style>
+        :root { --whatsapp: #25d366; --dark: #0f172a; --card-bg: #1e293b; --text: #f8fafc; --text-muted: #94a3b8; --border: #334155; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background: var(--dark); color: var(--text); padding: 30px 20px; }
+        .container { max-width: 960px; margin: 0 auto; }
+        header { margin-bottom: 25px; border-bottom: 1px solid var(--border); padding-bottom: 15px; }
+        h1 { font-size: 22px; color: #fff; }
+        p.subtitle { color: var(--text-muted); font-size: 14px; margin-top: 5px; }
+        .section-title { font-size: 17px; margin: 25px 0 15px; color: #38bdf8; display: flex; align-items: center; gap: 8px; }
+        .leads-grid { display: flex; flex-direction: column; gap: 12px; }
+        .lead-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 16px; display: grid; grid-template-columns: 220px 1fr 180px; gap: 15px; align-items: center; transition: all 0.2s; }
+        .lead-card.sent { opacity: 0.4; background: #131c2c; }
+        .lead-info h3 { font-size: 15px; color: #fff; margin-bottom: 4px; }
+        .lead-meta { font-size: 12px; color: var(--text-muted); }
+        .lead-preview { font-size: 13px; color: #cbd5e1; background: rgba(0,0,0,0.25); padding: 10px; border-radius: 6px; border-left: 3px solid #2563eb; max-height: 85px; overflow-y: auto; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; cursor: pointer; text-align: center; }
+        .btn-wa { background: #25d366; color: #000; }
+        .btn-wa:hover { background: #22c35e; }
+        .btn-email { background: #3b82f6; color: #fff; }
+        .btn-email:hover { background: #2563eb; }
+        .check-toggle { margin-top: 6px; display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-muted); cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Disparador Direto — Sem Bajulação (WhatsApp & Zoho Mail)</h1>
+            <p class="subtitle">Abordagem honesta, sóbria e focada em gargalos técnicos de compras industriais. Clique para abrir a conversa ou email preenchido.</p>
+        </header>
+
+        <h2 class="section-title">📱 Fila WhatsApp Web (5 Contatos)</h2>
+        <div class="leads-grid">
+            <!-- Techmax -->
+            <div class="lead-card" id="card-1">
+                <div class="lead-info"><h3>Techmax Usinagem</h3><div class="lead-meta">📍 Iporanga<br>📞 (15) 99615-2259</div></div>
+                <div class="lead-preview">"Olá! Sou o Edu, da Vocação aqui de Sorocaba. Trabalho com posicionamento comercial para indústrias da região. Notei que a Techmax não aparece quando compradores buscam usinagem no Iporanga no Google..."</div>
+                <div>
+                    <a class="btn btn-wa" target="_blank" onclick="markDone('card-1')" href="https://web.whatsapp.com/send?phone=5515996152259&text=Ol%C3%A1!%20Sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20de%20Sorocaba.%20Trabalho%20com%20posicionamento%20comercial%20para%20ind%C3%BAstrias%20da%20regi%C3%A3o.%20Notei%20que%20a%20Techmax%20n%C3%A3o%20aparece%20quando%20compradores%20buscam%20usinagem%20no%20Iporanga%20no%20Google.%20Temos%20uma%20estrutura%20r%C3%A1pida%20para%20colocar%20voc%C3%AAs%20direto%20na%20rota%20de%20cota%C3%A7%C3%A3o%20dessas%20empresas.%20Quem%20cuida%20da%20%C3%A1rea%20comercial%20por%20a%C3%AD%20para%20conversarmos%205%20minutos%3F">Abrir WhatsApp</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-1', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Metapac -->
+            <div class="lead-card" id="card-2">
+                <div class="lead-info"><h3>Metapac Estruturas</h3><div class="lead-meta">📍 São Bento<br>📞 (15) 98808-4044</div></div>
+                <div class="lead-preview">"Olá! Sou o Edu, da Vocação aqui de Sorocaba. Fazemos a estruturação comercial de empresas técnicas. Vi que a Metapac atua com galpões e estruturas, mas ainda não tem portal próprio com catálogo de obras..."</div>
+                <div>
+                    <a class="btn btn-wa" target="_blank" onclick="markDone('card-2')" href="https://web.whatsapp.com/send?phone=5515988084044&text=Ol%C3%A1!%20Sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20de%20Sorocaba.%20Fazemos%20a%20estrutura%C3%A7%C3%A3o%20comercial%20de%20empresas%20t%C3%A9cnicas.%20Vi%20que%20a%20Metapac%20atua%20com%20galp%C3%B5es%20e%20estruturas%2C%20mas%20ainda%20n%C3%A3o%20tem%20portal%20pr%C3%B3prio%20com%20cat%C3%A1logo%20de%20obras%20e%20laudos.%20Hoje%20investidores%20e%20construtoras%20pesquisam%20isso%20antes%20de%20fechar.%20Vale%20uma%20conversa%20r%C3%A1pida%20de%205%20minutos%20com%20o%20respons%C3%A1vel%20comercial%3F">Abrir WhatsApp</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-2', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Fortsteel -->
+            <div class="lead-card" id="card-3">
+                <div class="lead-info"><h3>Fortsteel Estruturas</h3><div class="lead-meta">📍 Aparecidinha<br>📞 (15) 98826-5319</div></div>
+                <div class="lead-preview">"Olá! Sou o Edu, da Vocação aqui de Sorocaba. Atendemos indústrias da região com presença técnica e captação de projetos. O polo logístico de Aparecidinha está em expansão e hoje a Fortsteel..."</div>
+                <div>
+                    <a class="btn btn-wa" target="_blank" onclick="markDone('card-3')" href="https://web.whatsapp.com/send?phone=5515988265319&text=Ol%C3%A1!%20Sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20de%20Sorocaba.%20Atendemos%20ind%C3%BAstrias%20da%20regi%C3%A3o%20com%20presen%C3%A7a%20t%C3%A9cnica%20e%20capta%C3%A7%C3%A3o%20de%20projetos.%20O%20polo%20log%C3%ADstico%20de%20Aparecidinha%20est%C3%A1%20em%20expans%C3%A3o%20e%20hoje%20a%20Fortsteel%20n%C3%A3o%20tem%20cat%C3%A1logo%20oficial%20indexado%20para%20construtoras%20cotarem%20direto.%20Quem%20responde%20pelo%20comercial%20da%20empresa%20para%20falarmos%205%20minutos%3F">Abrir WhatsApp</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-3', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Globalemi -->
+            <div class="lead-card" id="card-4">
+                <div class="lead-info"><h3>Globalemi Engenharia</h3><div class="lead-meta">📍 Iporanga<br>📞 (11) 99989-0221</div></div>
+                <div class="lead-preview">"Olá! Sou o Edu, da Vocação aqui em Sorocaba. Estruturamos a presença comercial e técnica de indústrias. Vi a operação de vocês na Fernando Stecca, mas o site atual não destaca os projetos..."</div>
+                <div>
+                    <a class="btn btn-wa" target="_blank" onclick="markDone('card-4')" href="https://web.whatsapp.com/send?phone=5511999890221&text=Ol%C3%A1!%20Sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20em%20Sorocaba.%20Estruturamos%20a%20presen%C3%A7a%20comercial%20e%20t%C3%A9cnica%20de%20ind%C3%BAstrias.%20Vi%20a%20opera%C3%A7%C3%A3o%20de%20voc%C3%AAs%20na%20Fernando%20Stecca%2C%20mas%20o%20site%20atual%20n%C3%A3o%20destaca%20os%20projetos%20e%20montagens%20para%20homologa%C3%A7%C3%A3o%20de%20novos%20clientes.%20Quem%20cuida%20dos%20novos%20neg%C3%B3cios%20por%20a%C3%AD%20para%20batermos%20um%20papo%20de%205%20minutos%3F">Abrir WhatsApp</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-4', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Usilins -->
+            <div class="lead-card" id="card-5">
+                <div class="lead-info"><h3>Usilins Indústria</h3><div class="lead-meta">📍 Éden<br>📞 (15) 99771-2591</div></div>
+                <div class="lead-preview">"Olá! Sou o Edu, da Vocação aqui de Sorocaba. Trabalho com posicionamento digital para empresas metalmecânicas. Quem busca serviços de usinagem na Av. Iporanga hoje não encontra o canal direto de engenharia..."</div>
+                <div>
+                    <a class="btn btn-wa" target="_blank" onclick="markDone('card-5')" href="https://web.whatsapp.com/send?phone=5515997712591&text=Ol%C3%A1!%20Sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20de%20Sorocaba.%20Trabalho%20com%20posicionamento%20digital%20para%20empresas%20metalmec%C3%A2nicas.%20Quem%20busca%20servi%C3%A7os%20de%20usinagem%20na%20Av.%20Iporanga%20hoje%20n%C3%A3o%20encontra%20o%20canal%20direto%20de%20engenharia%20nem%20a%20estrutura%20da%20f%C3%A1brica%20no%20Google.%20Vale%205%20minutos%20com%20o%20respons%C3%A1vel%20comercial%20para%20mostrar%20como%20resolvemos%20isso%3F">Abrir WhatsApp</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-5', this.checked)"> Enviado</label>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">✉️ Fila E-mail Corporativo (Zoho Mail - 9 Leads)</h2>
+        <div class="leads-grid">
+            <!-- Usimarks -->
+            <div class="lead-card" id="card-6">
+                <div class="lead-info"><h3>Usimarks Usinagem</h3><div class="lead-meta">📍 Éden<br>✉️ usimarks.escritorio@gmail.com</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Canal institucional e homologação de fornecedor — Usimarks<br>"Olá, sou o Edu, da Vocação em Sorocaba. Atuamos na estruturação comercial de indústrias da região. Identifiquei que o contato de vocês ainda utiliza @gmail.com e não há site corporativo com parque de máquinas..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-6')" href="mailto:usimarks.escritorio@gmail.com?subject=Canal%20institucional%20e%20homologa%C3%A7%C3%A3o%20de%20fornecedor%20%E2%80%94%20Usimarks&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0AAtuamos%20na%20estrutura%C3%A7%C3%A3o%20comercial%20de%20ind%C3%BAstrias%20da%20regi%C3%A3o.%20Identifiquei%20que%20o%20canal%20de%20contato%20de%20voc%C3%AAs%20ainda%20utiliza%20%40gmail.com%20e%20a%20empresa%20n%C3%A3o%20possui%20site%20pr%C3%B3prio%20com%20o%20parque%20de%20m%C3%A1quinas.%0A%0ADepartamentos%20de%20compras%20de%20multinacionais%20exigem%20dom%C3%ADnio%20pr%C3%B3prio%20e%20cat%C3%A1logo%20fabril%20na%20primeira%20triagem%20de%20fornecedores.%20Temos%20um%20modelo%20r%C3%A1pido%20para%20resolver%20isso.%0A%0AQuem%20responde%20pela%20diretoria%20comercial%20para%20falarmos%205%20minutos%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o%20Comunica%C3%A7%C3%A3o%20%26%20Marketing">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-6', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Ferus -->
+            <div class="lead-card" id="card-7">
+                <div class="lead-info"><h3>Ferus Usinagem</h3><div class="lead-meta">📍 Zona Industrial<br>✉️ guimaservic@terra.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Canal de cotação e presença industrial — Ferus Usinagem<br>"Olá, sou o Edu, da Vocação aqui de Sorocaba. Analisando fornecedores do polo metalmecânico, vi que o e-mail comercial de vocês utiliza @terra.com.br..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-7')" href="mailto:guimaservic@terra.com.br?subject=Canal%20de%20cota%C3%A7%C3%A3o%20e%20presen%C3%A7a%20industrial%20%E2%80%94%20Ferus%20Usinagem&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20aqui%20de%20Sorocaba.%0A%0AAnalisando%20fornecedores%20do%20polo%20metalmec%C3%A2nico%2C%20vi%20que%20o%20e-mail%20comercial%20de%20voc%C3%AAs%20utiliza%20%40terra.com.br%20e%20a%20f%C3%A1brica%20n%C3%A3o%20possui%20vitrine%20t%C3%A9cnica%20com%20capacidade%20e%20toler%C3%A2ncias.%0A%0ACompradores%20industriais%20priorizam%20fornecedores%20com%20canal%20direto%20e%20homologado.%20Vale%20uma%20conversa%20r%C3%A1pida%20de%205%20minutos%20com%20o%20respons%C3%A1vel%20por%20novos%20neg%C3%B3cios%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-7', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Lucio Caldeiraria -->
+            <div class="lead-card" id="card-8">
+                <div class="lead-info"><h3>Lucio Caldeiraria</h3><div class="lead-meta">📍 Georg Schaffler<br>✉️ contato@luciomontagens.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Comprovação técnica e Tour 360° do galpão — Lucio Montagens<br>"Olá, sou o Edu, da Vocação em Sorocaba. Trabalhamos com posicionamento técnico para empresas de caldeiraria e montagem. Notamos que o Google Maps da empresa não tem registros visuais das pontes rolantes..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-8')" href="mailto:contato@luciomontagens.com.br?subject=Comprova%C3%A7%C3%A3o%20t%C3%A9cnica%20e%20Tour%20360%C2%B0%20do%20galp%C3%A3o%20%E2%80%94%20Lucio%20Montagens&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0ATrabalhamos%20com%20posicionamento%20t%C3%A9cnico%20para%20empresas%20de%20caldeiraria%20e%20montagem.%20Notamos%20que%20o%20Google%20Maps%20da%20empresa%20n%C3%A3o%20tem%20registros%20visuais%20das%20pontes%20rolantes%20e%20montagens%20pesadas.%0A%0APara%20clientes%20de%20fora%20de%20Sorocaba%2C%20comprovar%20a%20capacidade%20com%20Tour%20360%C2%B0%20e%20laudos%20acelera%20a%20homologa%C3%A7%C3%A3o%20sem%20visita%20presencial.%20Vale%20falarmos%205%20minutos%20hoje%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-8', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Ômega Usinagem -->
+            <div class="lead-card" id="card-9">
+                <div class="lead-info"><h3>Ômega Usinagem</h3><div class="lead-meta">📍 Éden<br>✉️ contato@omegausinagem.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Alerta técnico: ausência de SSL no site da Ômega Usinagem<br>"Olá, sou o Edu, da Vocação em Sorocaba. Notifiquei um ponto crítico no site institucional de vocês: está sem certificado de segurança SSL ativo, o que faz o Chrome emitir aviso de 'Não Seguro'..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-9')" href="mailto:contato@omegausinagem.com.br?subject=Alerta%20t%C3%A9cnico%3A%20aus%C3%AAncia%20de%20SSL%20no%20site%20da%20%C3%94mega%20Usinagem&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0ANotifiquei%20um%20ponto%20cr%C3%ADtico%20no%20site%20institucional%20de%20voc%C3%AAs%3A%20est%C3%A1%20sem%20certificado%20de%20seguran%C3%A7a%20SSL%20ativo%2C%20o%20que%20faz%20o%20Chrome%20emitir%20aviso%20de%20'N%C3%A3o%20Seguro'.%0A%0ARedes%20e%20firewalls%20de%20multinacionais%20costumam%20bloquear%20o%20acesso%20de%20compradores%20a%20sites%20nessa%20condi%C3%A7%C3%A3o.%20Resolvemos%20isso%20em%2024h.%20Com%20quem%20posso%20falar%205%20minutos%20sobre%20esse%20ajuste%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-9', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- JVR Metalmecânica -->
+            <div class="lead-card" id="card-10">
+                <div class="lead-info"><h3>JVR Metalmecânica</h3><div class="lead-meta">📍 Prestes / Éden<br>✉️ contato@jvrusinagem.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Vitrine técnica de usinagem de grande porte — JVR<br>"Olá, sou o Edu, da Vocação em Sorocaba. Auxiliamos indústrias metalmecânicas a captar demandas qualificadas. A usinagem de grande porte é um diferencial forte na região..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-10')" href="mailto:contato@jvrusinagem.com.br?subject=Vitrine%20t%C3%A9cnica%20de%20usinagem%20de%20grande%20porte%20%E2%80%94%20JVR&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0AAuxiliamos%20ind%C3%BAstrias%20metalmec%C3%A2nicas%20a%20captar%20demandas%20qualificadas.%20A%20usinagem%20de%20grande%20porte%20%C3%A9%20um%20diferencial%20forte%20na%20regi%C3%A3o%2C%20mas%20o%20portal%20atual%20n%C3%A3o%20exp%C3%B5e%20o%20curso%20m%C3%A1ximo%20das%20m%C3%A1quinas%20nem%20as%20capacidades%20das%20mandrilhadoras.%0A%0APodemos%20organizar%20essa%20vitrine%20t%C3%A9cnica%20para%20atrair%20cota%C3%A7%C3%B5es%20diretas.%20Vale%20bater%20um%20papo%20r%C3%A1pido%20de%205%20minutos%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-10', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- Usisol -->
+            <div class="lead-card" id="card-11">
+                <div class="lead-info"><h3>Usisol Metalúrgica</h3><div class="lead-meta">📍 Éden<br>✉️ contato@usisol.ind.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Apresentação mobile e controle de qualidade — Usisol<br>"Olá, sou o Edu, da Vocação em Sorocaba. Vi que o site da Usisol precisa de adaptação para celulares e falta destacar os equipamentos de medição e controle de qualidade..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-11')" href="mailto:contato@usisol.ind.br?subject=Apresenta%C3%A7%C3%A3o%20mobile%20e%20controle%20de%20qualidade%20%E2%80%94%20Usisol&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0AVi%20que%20o%20site%20da%20Usisol%20precisa%20de%20adapta%C3%A7%C3%A3o%20para%20celulares%20e%20falta%20destacar%20os%20equipamentos%20de%20medi%C3%A7%C3%A3o%20e%20controle%20de%20qualidade%20para%20homologa%C3%A7%C3%A3o%20t%C3%A9cnica.%0A%0ACompradores%20industriais%20exigem%20isso%20antes%20de%20enviar%20desenhos%20para%20or%C3%A7amento.%20Quem%20cuida%20da%20%C3%A1rea%20comercial%20para%20vermos%20isso%20em%205%20minutos%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-11', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- RPS Caldeiraria -->
+            <div class="lead-card" id="card-12">
+                <div class="lead-info"><h3>RPS Caldeiraria</h3><div class="lead-meta">📍 Aparecidinha<br>✉️ contato@rpscaldeiraria.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Validação de capacidade fabril e Tour 360° — RPS Caldeiraria<br>"Olá, sou o Edu, da Vocação em Sorocaba. Estruturamos o posicionamento de empresas de caldeiraria pesada. O site de vocês oscila na segurança SSL e a ficha do Maps não mostra o galpão em 360°..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-12')" href="mailto:contato@rpscaldeiraria.com.br?subject=Valida%C3%A7%C3%A3o%20de%20capacidade%20fabril%20e%20Tour%20360%C2%B0%20%E2%80%94%20RPS%20Caldeiraria&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0AEstruturamos%20o%20posicionamento%20de%20empresas%20de%20caldeiraria%20pesada.%20O%20site%20de%20voc%C3%AAs%20oscila%20na%20seguran%C3%A7a%20SSL%20e%20a%20ficha%20do%20Maps%20n%C3%A3o%20mostra%20a%20estrutura%20do%20galp%C3%A3o%20e%20pontes%20rolantes%20em%20360%C2%B0.%0A%0APara%20diretores%20de%20compras%20distantes%2C%20essa%20comprova%C3%A7%C3%A3o%20visual%20%C3%A9%20decisiva.%20Vale%20falarmos%205%20minutos%20com%20a%20diretoria%20comercial%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-12', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- JALD Laser -->
+            <div class="lead-card" id="card-13">
+                <div class="lead-info"><h3>JALD Laser</h3><div class="lead-meta">📍 Cajuru do Sul<br>✉️ contato@jaldlaser.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Demanda por corte a laser de tubos — JALD Laser<br>"Olá, sou o Edu, da Vocação em Sorocaba. Corte a laser de tubos é um serviço escasso na região, mas hoje quem busca no Google não encontra o canal direto da JALD com envio rápido de arquivos..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-13')" href="mailto:contato@jaldlaser.com.br?subject=Demanda%20por%20corte%20a%20laser%20de%20tubos%20%E2%80%94%20JALD%20Laser&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0ACorte%20a%20laser%20de%20tubos%20%C3%A9%20um%20servi%C3%A7o%20escasso%20na%20regi%C3%A3o%2C%20mas%20hoje%20quem%20busca%20especificamente%20por%20isso%20no%20Google%20n%C3%A3o%20encontra%20o%20canal%20direto%20da%20JALD%20com%20envio%20r%C3%A1pido%20de%20arquivos%20DWG%2FDXF.%0A%0ATemos%20um%20formato%20para%20colocar%20essa%20demanda%20direto%20no%20WhatsApp%20de%20voc%C3%AAs.%20Vale%20conversarmos%205%20minutos%20hoje%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-13', this.checked)"> Enviado</label>
+                </div>
+            </div>
+
+            <!-- EPCO Laser -->
+            <div class="lead-card" id="card-14">
+                <div class="lead-info"><h3>EPCO Laser</h3><div class="lead-meta">📍 Iporanga<br>✉️ contato@epcolaser.com.br</div></div>
+                <div class="lead-preview"><b>Assunto:</b> Canal de cotação expressa DXF/DWG — EPCO Laser<br>"Olá, sou o Edu, da Vocação em Sorocaba. Trabalhamos com processos comerciais para o setor de corte e conformação. Identifiquei que a entrada de projetos técnicos da EPCO pode ser agilizada..."</div>
+                <div>
+                    <a class="btn btn-email" target="_blank" onclick="markDone('card-14')" href="mailto:contato@epcolaser.com.br?subject=Canal%20de%20cota%C3%A7%C3%A3o%20expressa%20DXF%2FDWG%20%E2%80%94%20EPCO%20Laser&body=Ol%C3%A1%2C%20sou%20o%20Edu%2C%20da%20Voca%C3%A7%C3%A3o%20em%20Sorocaba.%0A%0ATrabalhamos%20com%20processos%20comerciais%20para%20o%20setor%20de%20corte%20e%20conforma%C3%A7%C3%A3o.%20Identifiquei%20que%20a%20entrada%20de%20projetos%20t%C3%A9cnicos%20da%20EPCO%20pode%20ser%20agilizada%20com%20um%20canal%20expresso%20para%20desenhistas%20e%20projetistas%20enviarem%20arquivos%20direto%20para%20or%C3%A7amento.%0A%0AVale%20uma%20conversa%20de%205%20minutos%20com%20a%20ger%C3%AAncia%20comercial%3F%0A%0AAtenciosamente%2C%0AEdu%20Bovoline%0AVoca%C3%A7%C3%A3o">Abrir E-mail</a>
+                    <label class="check-toggle"><input type="checkbox" onchange="toggle('card-14', this.checked)"> Enviado</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggle(id, val) { document.getElementById(id).classList.toggle('sent', val); }
+        function markDone(id) { setTimeout(() => { const el = document.getElementById(id); el.querySelector('input').checked = true; toggle(id, true); }, 800); }
+    </script>
+</body>
+</html>
