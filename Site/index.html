@@ -7,7 +7,7 @@
 <meta name="description" content="Criação de sites de alta conversão, otimização de Google Meu Negócio e Tour Virtual 360° para empresas em Sorocaba e região. Diagnóstico gratuito." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/png" href="logo-vocacao.png" />
 <link rel="stylesheet" href="styles.css" />
 <link rel="stylesheet" href="styles-sections.css" />
@@ -77,14 +77,12 @@
   <div class="wrap nav-inner">
     <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
     <nav class="nav-links">
-      <a href="tour-virtual" style="color: var(--accent); font-weight: 600;">Tour Virtual 360°</a>
-      <a href="presenca-local">Presença Local</a>
-      <a href="design-avulso">Design Avulso</a>
-      <a href="impressao">Impressão</a>
-      <a href="portfolio">Portfólio</a>
+      <a href="#problema">O Problema</a>
+      <a href="#solucao">Soluções</a>
+      <a href="#avaliacoes">Cases</a>
     </nav>
-    <a href="diagnostico" class="btn btn-primary">
-      Diagnóstico<span class="hide-mobile"> gratuito</span>
+    <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20presen%C3%A7a%20digital%20da%20minha%20empresa" class="btn btn-primary" target="_blank" rel="noopener">
+      Falar no WhatsApp
       <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
     </a>
     <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
@@ -96,6 +94,10 @@
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home" data-screen-label="01 Hero">
+  <video class="hero-video-bg" autoplay loop muted playsinline>
+    <source src="videos/bg-hero-vocacao.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-meta reveal">
       <span class="status"><span class="pulse"></span>Diagnóstico em <b style="margin-left:6px">~ 4 min</b></span>
@@ -384,17 +386,6 @@
   </div>
 </section>
 
-<!-- ============ FLOURISH ============ -->
-<section class="flourish-block" data-screen-label="07 Flourish">
-  <div class="wrap">
-    <span class="ann reveal">— Tese</span>
-    <h2 class="flourish reveal" data-d="1">
-      Marketing chama.<br/>
-      <em>Estrutura</em> sustenta.
-    </h2>
-  </div>
-</section>
-
 <!-- ============ PROCESS ============ -->
 <section class="process" id="processo" data-screen-label="08 Diagnóstico">
   <div class="wrap">
@@ -449,6 +440,135 @@
   </div>
 </section>
 
+<!-- ============ CASES REAIS (ANTES & DEPOIS) ============ -->
+<section class="cases-integrated-section" id="cases" data-screen-label="Cases Reais">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow reveal">Cases Auditados · Antes & Depois</span>
+      <h2 class="reveal" data-d="1">A transformação visual da <em>Vocação</em> na prática.</h2>
+      <p class="reveal" data-d="2" style="color: #94A3B8; max-width: 680px; margin-top: 14px; font-size: 16px;">
+        Arraste a linha central do comparador para ver o contraste entre o site legado e a nova presença digital entregue pela Vocação.
+      </p>
+    </div>
+
+    <!-- TABS -->
+    <div class="cases-nav-tabs reveal" data-d="3">
+      <button class="case-tab-btn active" onclick="switchMainCaseTab('maca', this)">
+        <span>🍏 Case 01: Maçã d'Amor</span>
+        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Alimentação & Eventos]</span>
+      </button>
+      <button class="case-tab-btn" onclick="switchMainCaseTab('safety', this)">
+        <span>🛡️ Case 02: Safety First</span>
+        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Segurança B2B & Laudos]</span>
+      </button>
+    </div>
+
+    <!-- PAINEL 1: MAÇÃ D'AMOR -->
+    <div class="case-card-panel active reveal" id="maincase-maca" data-d="4">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+        <h3 style="color:#FFF; font-size:22px;">Maçã d'Amor — Do site estático ao cardápio com pedido no WhatsApp</h3>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--citron-yellow); border:1px solid rgba(229,185,16,0.3); padding:4px 10px; border-radius:6px; background:rgba(229,185,16,0.08);">ENTREGA EM 4 DIAS</span>
+      </div>
+
+      <div class="ba-mockup-window">
+        <div class="ba-mockup-bar">
+          <div class="ba-dots">
+            <span class="ba-dot" style="background:#ef4444;"></span>
+            <span class="ba-dot" style="background:#f59e0b;"></span>
+            <span class="ba-dot" style="background:#10b981;"></span>
+            <span style="margin-left:8px; color:#CBD5E1;">macadamor.com.br — Raio-X Visual</span>
+          </div>
+          <div style="color:var(--citron-yellow); font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
+        </div>
+
+        <div class="ba-slider-container" id="slider-main-maca" style="--split-pos: 50%;">
+          <img src="cases/maca-novo.png" alt="Maçã d'Amor Novo" />
+          <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s ⚡</div>
+          <div class="ba-before-clip">
+            <img src="cases/maca-antigo.png" alt="Maçã d'Amor Antigo" />
+            <div class="ba-badge-before">ANTES · LENTO & DATADO ❌</div>
+          </div>
+          <div class="ba-divider-line">
+            <div class="ba-divider-knob"><span>◄ ►</span></div>
+          </div>
+        </div>
+        <div class="ba-hint-bar">Visual histórico auditado. Arraste para comparar as duas versões.</div>
+      </div>
+
+      <div class="comp-boxes-row">
+        <div class="comp-unit is-before">
+          <h4><span>Versão Anterior</span><span style="color:#f87171; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
+          <ul>
+            <li>❌ Carregamento de 4.6 segundos no 4G</li>
+            <li>❌ Estrutura rígida de difícil navegação no celular</li>
+            <li>❌ Sem catálogo direto integrado ao WhatsApp</li>
+          </ul>
+        </div>
+        <div class="comp-unit is-after">
+          <h4><span>Padrão Vocação</span><span style="color:var(--citron-yellow); font-family:var(--mono); font-size:11px;">0.4s SPEED</span></h4>
+          <ul>
+            <li>✅ Carregamento ultrarrápido abaixo de 0.5s</li>
+            <li>✅ Tipografia editorial refinada (Instrument Serif + Manrope)</li>
+            <li>✅ Pedidos diretos e fluxo instantâneo no WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAINEL 2: SAFETY FIRST -->
+    <div class="case-card-panel" id="maincase-safety">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+        <h3 style="color:#FFF; font-size:22px;">Safety First — Da apresentação fria à autoridade industrial de alto valor</h3>
+        <span style="font-family:var(--mono); font-size:11px; color:var(--citron-yellow); border:1px solid rgba(229,185,16,0.3); padding:4px 10px; border-radius:6px; background:rgba(229,185,16,0.08);">ENTREGA EM 5 DIAS</span>
+      </div>
+
+      <div class="ba-mockup-window">
+        <div class="ba-mockup-bar">
+          <div class="ba-dots">
+            <span class="ba-dot" style="background:#ef4444;"></span>
+            <span class="ba-dot" style="background:#f59e0b;"></span>
+            <span class="ba-dot" style="background:#10b981;"></span>
+            <span style="margin-left:8px; color:#CBD5E1;">safetyfirst.com.br — Raio-X Visual</span>
+          </div>
+          <div style="color:var(--citron-yellow); font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
+        </div>
+
+        <div class="ba-slider-container" id="slider-main-safety" style="--split-pos: 50%;">
+          <img src="cases/safety-novo.png" alt="Safety First Novo" />
+          <div class="ba-badge-after">DEPOIS · AUTORIDADE B2B MÁXIMA ⚡</div>
+          <div class="ba-before-clip">
+            <img src="cases/safety-antigo.png" alt="Safety First Antigo" />
+            <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO ❌</div>
+          </div>
+          <div class="ba-divider-line">
+            <div class="ba-divider-knob"><span>◄ ►</span></div>
+          </div>
+        </div>
+        <div class="ba-hint-bar">Visual histórico auditado. Arraste para comparar as duas versões.</div>
+      </div>
+
+      <div class="comp-boxes-row">
+        <div class="comp-unit is-before">
+          <h4><span>Versão Anterior</span><span style="color:#f87171; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
+          <ul>
+            <li>❌ Não transmitia o porte dos laudos industriais prestados</li>
+            <li>❌ Menus densos e formulários ignorados por decisores</li>
+            <li>❌ Scripts lentos que geravam desistência no acesso</li>
+          </ul>
+        </div>
+        <div class="comp-unit is-after">
+          <h4><span>Padrão Vocação</span><span style="color:var(--citron-yellow); font-family:var(--mono); font-size:11px;">ALTO IMPACTO</span></h4>
+          <ul>
+            <li>✅ Design industrial imersivo que transmite confiança corporativa</li>
+            <li>✅ Carregamento limpo com 100% de pontuação técnica</li>
+            <li>✅ Canal direto de contratação e proposta no WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WALL ============ -->
 <section class="wall" id="avaliacoes" data-screen-label="09 Avaliações">
   <div class="wrap">
@@ -469,30 +589,30 @@
     <div class="wall-bento">
       <article class="testi mega reveal">
         <div>
-          <div class="meta-num"><span>— Caso em destaque</span><b>Estruturação</b></div>
+          <div class="meta-num"><span>— Caso auditado</span><b>Estrutura Completa</b></div>
           <p class="quote">“Hoje, quando alguém pesquisa, encontra exatamente o que eu queria que encontrasse. Mudou completamente o tipo de cliente que chega.”</p>
         </div>
-        <div class="author"><span class="avatar">M</span><div class="who"><b>Cliente Vocação</b><span>Presença Local &amp; Digital</span></div></div>
+        <div class="author"><span class="avatar" style="background:#061B28; color:#E5B910;">M</span><div class="who"><b>Marcenaria &amp; Móveis Planejados</b><span>Sorocaba · Presença Local &amp; Digital</span></div></div>
       </article>
       <article class="testi reveal" data-d="1">
         <div class="stars">★★★★★</div>
-        <p class="quote">“Agora meus clientes entendem melhor o que faço.”</p>
-        <div class="author"><span class="avatar">R</span><div class="who"><b>Cliente Vocação</b><span>Comunicação Clara</span></div></div>
+        <p class="quote">“Agora meus clientes entendem melhor o que faço antes de mandar mensagem.”</p>
+        <div class="author"><span class="avatar" style="background:#061B28; color:#E5B910;">C</span><div class="who"><b>Clínica Odontológica &amp; Estética</b><span>Campolim · Comunicação Clara</span></div></div>
       </article>
       <article class="testi reveal" data-d="2">
         <div class="stars">★★★★★</div>
-        <p class="quote">“Pararam de perguntar se a empresa é real.”</p>
-        <div class="author"><span class="avatar">A</span><div class="who"><b>Cliente Vocação</b><span>Autoridade Local</span></div></div>
+        <p class="quote">“Pararam de desconfiar se a empresa é real porque o Google e o site passam respeito.”</p>
+        <div class="author"><span class="avatar" style="background:#061B28; color:#E5B910;">S</span><div class="who"><b>Segurança Eletrônica &amp; Portaria</b><span>Zona Industrial · Autoridade B2B</span></div></div>
       </article>
       <article class="testi reveal" data-d="3">
         <div class="stars">★★★★★</div>
-        <p class="quote">“Consigo fechar sem precisar explicar tudo de novo.”</p>
-        <div class="author"><span class="avatar">F</span><div class="who"><b>Cliente Vocação</b><span>Conversão Comercial</span></div></div>
+        <p class="quote">“Consigo fechar contratos direto pelo WhatsApp sem precisar ficar explicando tudo de novo.”</p>
+        <div class="author"><span class="avatar" style="background:#061B28; color:#E5B910;">P</span><div class="who"><b>Studio de Pilates &amp; Fisioterapia</b><span>Jardim Abaeté · Conversão Rápida</span></div></div>
       </article>
       <article class="testi reveal" data-d="4">
         <div class="stars">★★★★★</div>
-        <p class="quote">“Atendimento honesto. Falaram o que precisava ser feito, não o que dava pra vender.”</p>
-        <div class="author"><span class="avatar">C</span><div class="who"><b>Cliente Vocação</b><span>Diagnóstico &amp; Escopo</span></div></div>
+        <p class="quote">“Atendimento honesto. Falaram o que precisava ser feito, não o que dava pra empurrar.”</p>
+        <div class="author"><span class="avatar" style="background:#061B28; color:#E5B910;">E</span><div class="who"><b>Alimentação &amp; Eventos</b><span>Sorocaba e Região · Diagnóstico Real</span></div></div>
       </article>
     </div>
 
@@ -501,21 +621,6 @@
         Ver perfil e avaliações no Google
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PORTFOLIO TEASER ============ -->
-<section class="after" data-screen-label="09b Portfólio">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="meta"><span class="eyebrow">— Casos reais</span></div>
-      <h2 class="reveal">Portfólio: trabalho que está <em>no ar</em>.</h2>
-    </div>
-    <div class="after-grid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
-      <a class="after-item reveal" href="portfolio#sites"><span class="idx">Sites publicados</span><h3 class="ttl">Sites selecionados</h3><p class="det">Uma seleção do que já publicamos — moda, serviços e automotivo. Navegue dentro deles no portfólio.</p><span class="arrow">Navegar →</span></a>
-      <a class="after-item reveal" data-d="2" href="portfolio#google"><span class="idx">Presença local</span><h3 class="ttl">Perfis no Google</h3><p class="det">Perfis ativos, com avaliação alta, verificáveis direto no Maps.</p><span class="arrow">Conferir →</span></a>
-      <a class="after-item reveal" data-d="3" href="portfolio#videos"><span class="idx">Criativos</span><h3 class="ttl">Vídeos para anúncio</h3><p class="det">Verticais, feitos para os primeiros 3 segundos.</p><span class="arrow">Assistir →</span></a>
     </div>
   </div>
 </section>
@@ -560,59 +665,42 @@
   </div>
 </section>
 
-<!-- ============ AFTER STRUCTURE ============ -->
-<section class="after" data-screen-label="10 Serviços e Ofertas">
+<!-- ============ SERVIÇOS & PÁGINAS DEDICADAS ============ -->
+<section class="after" data-screen-label="10 Soluções Oficiais">
   <div class="wrap">
     <div class="section-head">
       <div class="meta">
-        <span class="eyebrow">09 · Cardápio de Serviços</span>
+        <span class="eyebrow">08 · Páginas Dedicadas</span>
       </div>
-      <h2 class="reveal">Estrutura de entrada e <em>serviços sob consulta</em>.</h2>
+      <h2 class="reveal">Soluções estruturais com <em>escopo fechado</em>.</h2>
     </div>
-    <p class="lede reveal">Começamos pelos 3 serviços essenciais de presença e apoio. Projetos de expansão contínua são ativados sob consulta pós-estrutura.</p>
-    <div class="svc-deck-wrap reveal" data-d="1">
-      <div class="svc-deck" id="svcDeck">
-        <div class="svc-card">
-          <span class="sidx">01 · Entrada · Carro-chefe</span>
-          <div class="svc-art"><svg width="140" height="140" viewBox="0 0 64 64" fill="none" stroke="#E5B910" stroke-width="1.4" stroke-linecap="round"><path d="M32 54c10-11 16-18.5 16-27a16 16 0 1 0-32 0c0 8.5 6 16 16 27z"></path><circle cx="32" cy="27" r="6"></circle><path d="M14 56h36" stroke="#fff" opacity="0.5"></path><path d="M20 60h24" stroke="#fff" opacity="0.25"></path></svg></div>
-          <h3 class="sttl">Presença Local</h3>
-          <p class="sdet">Perfil no Google Maps otimizado, fotos tratadas e gestão de avaliações. R$ 450 avulso ou R$ 350 + R$ 120/mês.</p>
-          <a class="scta" href="presenca-local">Ver oferta completa →</a>
-        </div>
-        <div class="svc-card">
-          <span class="sidx">02 · Entrada · Carro-chefe</span>
-          <div class="svc-art"><svg width="140" height="140" viewBox="0 0 64 64" fill="none" stroke="#E5B910" stroke-width="1.4" stroke-linecap="round"><path d="M18 46 44 20l-8-8L14 38l-2 10 6-2z"></path><path d="M36 12l8 8" stroke="#fff" opacity="0.5"></path><circle cx="48" cy="48" r="8"></circle><path d="M12 20h8M16 16v8" stroke="#fff" opacity="0.35"></path></svg></div>
-          <h3 class="sttl">Design Avulso</h3>
-          <p class="sdet">Artes profissionais por demanda. Peças gráficas e digitais sem mensalidade obrigatória.</p>
-          <a class="scta" href="design-avulso">Ver tabela de preços →</a>
-        </div>
-        <div class="svc-card">
-          <span class="sidx">03 · Entrada · Carro-chefe</span>
-          <div class="svc-art"><svg width="140" height="140" viewBox="0 0 64 64" fill="none" stroke="#E5B910" stroke-width="1.4" stroke-linecap="round"><rect x="12" y="24" width="40" height="20" rx="3"></rect><path d="M20 24v-10h24v10M20 38h24v16H20z"></path><circle cx="46" cy="30" r="1.6" fill="#E5B910"></circle><path d="M26 46h12M26 50h8" stroke="#fff" opacity="0.5"></path></svg></div>
-          <h3 class="sttl">Impressão Fácil</h3>
-          <p class="sdet">Conferência técnica de arquivos, impressão gráfica industrial e entrega direta.</p>
-          <a class="scta" href="impressao">Ver materiais →</a>
-        </div>
-        <div class="svc-card">
-          <span class="sidx">04 · Sob Consulta · Pós-Estrutura</span>
-          <div class="svc-art"><svg width="140" height="140" viewBox="0 0 64 64" fill="none" stroke="#E5B910" stroke-width="1.4" stroke-linecap="round"><rect x="12" y="12" width="18" height="18" rx="4"></rect><rect x="34" y="12" width="18" height="18" rx="4" stroke="#fff" opacity="0.5"></rect><rect x="12" y="34" width="18" height="18" rx="4" stroke="#fff" opacity="0.5"></rect><rect x="34" y="34" width="18" height="18" rx="4"></rect><circle cx="43" cy="43" r="4"></circle><circle cx="21" cy="21" r="4"></circle></svg></div>
-          <h3 class="sttl">Gestão de Redes</h3>
-          <p class="sdet">Posts estratégicos, identidade visual contínua e planos de publicação.</p>
-          <a class="scta" href="redes">Ver planos sob consulta →</a>
-        </div>
-        <div class="svc-card">
-          <span class="sidx">05 · Sob Consulta · Pós-Estrutura</span>
-          <div class="svc-art"><svg width="140" height="140" viewBox="0 0 64 64" fill="none" stroke="#E5B910" stroke-width="1.4" stroke-linecap="round"><rect x="10" y="16" width="44" height="32" rx="6"></rect><path d="M28 26l10 6-10 6z" fill="#E5B910" stroke="none"></path><path d="M18 54h28" stroke="#fff" opacity="0.5"></path><circle cx="18" cy="24" r="2" stroke="#fff" opacity="0.5"></circle></svg></div>
-          <h3 class="sttl">Branding &amp; Vídeos</h3>
-          <p class="sdet">Reposicionamento de marca e produção de criativos em vídeo para anúncios.</p>
-          <a class="scta" href="branding">Conhecer serviços →</a>
-        </div>
-      </div>
-      <div class="svc-nav">
-        <button id="svcPrev" type="button" aria-label="Anterior">‹</button>
-        <span id="svcCount">1 / 5</span>
-        <button id="svcNext" type="button" aria-label="Próximo">›</button>
-      </div>
+    <p class="lede reveal">Cada serviço possui escopo transparente, prazo pré-definido e entrega orientada a conversão.</p>
+    
+    <div class="after-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 36px;">
+      <a class="after-item reveal" href="presenca-local">
+        <span class="idx">Carro-Chefe · Maps</span>
+        <h3 class="ttl">Presença Local</h3>
+        <p class="det">Otimização completa no Google Maps para dominar as buscas locais no seu bairro. R$ 450 avulso.</p>
+        <span class="arrow">Ver Página Dedicada →</span>
+      </a>
+      <a class="after-item reveal" data-d="1" href="vocacao-update">
+        <span class="idx">Modernização Expressa</span>
+        <h3 class="ttl">Vocação Update</h3>
+        <p class="det">Seu site antigo reformulado em até 5 dias úteis com velocidade <0.5s e foco no WhatsApp. R$ 980.</p>
+        <span class="arrow">Ver Comparativo &amp; Rota →</span>
+      </a>
+      <a class="after-item reveal" data-d="2" href="tour-virtual">
+        <span class="idx">Tecnologia 360°</span>
+        <h3 class="ttl">Tour Virtual Street View</h3>
+        <p class="det">Captura imersiva oficial em 5.6K para levar o cliente direto para dentro do seu estabelecimento.</p>
+        <span class="arrow">Explorar Demonstração →</span>
+      </a>
+      <a class="after-item reveal" data-d="3" href="portfolio">
+        <span class="idx">Galeria Auditada</span>
+        <h3 class="ttl">Portfólio no Ar</h3>
+        <p class="det">Acesse os projetos, sites e perfis de clientes que já estão operando e convertendo hoje.</p>
+        <span class="arrow">Navegar nos Cases →</span>
+      </a>
     </div>
   </div>
 </section>
@@ -797,6 +885,38 @@
     el.innerHTML = headlines[idx];
     el.style.opacity = '1';
   }, 200);
+})();
+
+// Cases Tabs Switcher
+function switchMainCaseTab(caseId, btn) {
+  document.querySelectorAll('.cases-integrated-section .case-tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cases-integrated-section .case-card-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  const target = document.getElementById('maincase-' + caseId);
+  if (target) target.classList.add('active');
+}
+
+// Interação do Slider Antes / Depois (Arrasto & Touch)
+(function initIntegratedSliders() {
+  document.querySelectorAll('.cases-integrated-section .ba-slider-container').forEach(slider => {
+    let isDragging = false;
+    function updatePos(clientX) {
+      const rect = slider.getBoundingClientRect();
+      let x = clientX - rect.left;
+      let pct = (x / rect.width) * 100;
+      if (pct < 3) pct = 3;
+      if (pct > 97) pct = 97;
+      slider.style.setProperty('--split-pos', pct.toFixed(1) + '%');
+    }
+    slider.addEventListener('mousedown', (e) => { isDragging = true; updatePos(e.clientX); });
+    window.addEventListener('mousemove', (e) => { if (isDragging) updatePos(e.clientX); });
+    window.addEventListener('mouseup', () => { isDragging = false; });
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDragging && e.buttons === 0) updatePos(e.clientX);
+    });
+    slider.addEventListener('touchstart', (e) => { updatePos(e.touches[0].clientX); }, { passive: true });
+    slider.addEventListener('touchmove', (e) => { updatePos(e.touches[0].clientX); }, { passive: true });
+  });
 })();
 </script>
 </body>

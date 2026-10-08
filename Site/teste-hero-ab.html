@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste A/B: Atmosfera do Hero — Vocação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --chalk-white: #F8F9F9;
+    --obsidian-black: #061B28;
+    --citron-yellow: #E5B910;
+    --sterling-silver: #B8BFC3;
+    --display: "Instrument Serif", Georgia, serif;
+    --body: "Manrope", sans-serif;
+    --mono: "Geist Mono", monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--body);
+    background: #02070B;
+    color: #F8F9F9;
+    padding-bottom: 80px;
+  }
+
+  /* BARRA FIXA DE CONTROLE DO TESTE A/B */
+  .ab-switcher-bar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(6, 27, 40, 0.92);
+    border: 1px solid rgba(229, 185, 16, 0.45);
+    padding: 8px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(16px);
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  }
+  .ab-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--citron-yellow);
+    font-weight: 700;
+    margin-right: 6px;
+    letter-spacing: 0.1em;
+  }
+  .ab-btn {
+    background: transparent;
+    border: 1px solid rgba(184, 191, 195, 0.25);
+    color: #CBD5E1;
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-family: var(--body);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ab-btn.active {
+    background: var(--citron-yellow);
+    color: var(--obsidian-black);
+    border-color: var(--citron-yellow);
+    font-weight: 700;
+  }
+
+  .view-panel {
+    display: none;
+    min-height: 100vh;
+    animation: fadeIn 0.3s ease;
+  }
+  .view-panel.active { display: block; }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ==========================================================================
+     OPÇÃO A: LIGHT MESH VIDEO (CHALK WHITE VIVO COM VÍDEO SUAVE)
+     ========================================================================== */
+  .hero-option-a {
+    background: var(--chalk-white);
+    color: var(--obsidian-black);
+    position: relative;
+    padding: 140px 24px 100px;
+    overflow: hidden;
+  }
+  .hero-video-bg-a {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.22;
+    filter: saturate(1.2) contrast(1.1);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .hero-overlay-a {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 75% 20%, rgba(229, 185, 16, 0.14), transparent 60%),
+                linear-gradient(180deg, rgba(248, 249, 249, 0.75) 0%, rgba(248, 249, 249, 0.94) 100%);
+    pointer-events: none;
+  }
+
+  /* ==========================================================================
+     OPÇÃO B: DARK OBSIDIAN CINEMATIC (ALTO IMPACTO E CONTRASTE)
+     ========================================================================== */
+  .hero-option-b {
+    background: var(--obsidian-black);
+    color: var(--chalk-white);
+    position: relative;
+    padding: 140px 24px 100px;
+    overflow: hidden;
+    border-bottom: 2px solid rgba(229, 185, 16, 0.25);
+  }
+  .hero-video-bg-b {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.40;
+    mix-blend-mode: screen;
+    pointer-events: none;
+  }
+  .hero-overlay-b {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 70% 30%, rgba(229, 185, 16, 0.18), transparent 55%),
+                linear-gradient(180deg, rgba(6, 27, 40, 0.85) 0%, rgba(6, 27, 40, 0.96) 100%);
+    pointer-events: none;
+  }
+
+  /* ELEMENTOS INTERNOS DO HERO (COMUM ÀS DUAS OPÇÕES) */
+  .hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+  }
+  .hero-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .status-tag {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    border-radius: 999px;
+  }
+  .hero-option-a .status-tag {
+    background: rgba(6, 27, 40, 0.06);
+    border: 1px solid rgba(6, 27, 40, 0.15);
+    color: #243542;
+  }
+  .hero-option-b .status-tag {
+    background: rgba(229, 185, 16, 0.1);
+    border: 1px solid rgba(229, 185, 16, 0.35);
+    color: var(--citron-yellow);
+  }
+
+  .hero-headline {
+    font-family: var(--display);
+    font-size: clamp(48px, 6.8vw, 104px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    max-width: 18ch;
+    margin-bottom: 30px;
+  }
+  .hero-headline em {
+    color: var(--citron-yellow);
+    font-style: italic;
+  }
+
+  .hero-split-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 50px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .hero-split-grid { grid-template-columns: 1fr; gap: 30px; }
+  }
+
+  .hero-lede {
+    font-size: clamp(17px, 1.5vw, 21px);
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .hero-option-a .hero-lede { color: #3A4B56; }
+  .hero-option-b .hero-lede { color: #A3B8C2; }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .btn-main {
+    background: var(--citron-yellow);
+    color: var(--obsidian-black);
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    box-shadow: 0 4px 18px -4px rgba(229, 185, 16, 0.45);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-ghost-opt {
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(184, 191, 195, 0.35);
+  }
+  .hero-option-a .btn-ghost-opt { color: var(--obsidian-black); }
+  .hero-option-b .btn-ghost-opt { color: var(--chalk-white); }
+
+  .hero-aside-card {
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .hero-option-a .hero-aside-card {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(184, 191, 195, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  }
+  .hero-option-b .hero-aside-card {
+    background: rgba(12, 30, 45, 0.85);
+    border: 1px solid rgba(184, 191, 195, 0.2);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  }
+  .aside-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(184, 191, 195, 0.15);
+    font-size: 13.5px;
+  }
+  .aside-row:last-child { border-bottom: none; }
+  .aside-row span { opacity: 0.7; }
+  .aside-row b { font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- BARRA DE SELEÇÃO A / B -->
+<div class="ab-switcher-bar">
+  <span class="ab-tag">TESTE A/B HERO</span>
+  <button class="ab-btn active" onclick="setHero('a', this)">Opção A: Light Vivo (Mesh)</button>
+  <button class="ab-btn" onclick="setHero('b', this)">Opção B: Dark Obsidian (Impacto)</button>
+</div>
+
+<!-- ==========================================================================
+     OPÇÃO A: LIGHT VIVO COM MOTION MESH NO FUNDO
+     ========================================================================== -->
+<div class="view-panel active" id="view-a">
+  <section class="hero-option-a">
+    <video class="hero-video-bg-a" autoplay loop muted playsinline>
+      <source src="videos/vocacao-motion.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay-a"></div>
+
+    <div class="hero-content">
+      <div class="hero-meta-row">
+        <span class="status-tag">● Diagnóstico Rápido em ~ 4 min</span>
+        <span style="font-family:var(--mono); font-size:12px; opacity:0.6;">Vocação · Edição 2026/2027</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Seu próximo cliente <em>está pesquisando agora.</em><br>
+        Ele vai achar você — ou o concorrente.
+      </h1>
+
+      <div class="hero-split-grid">
+        <div>
+          <p class="hero-lede">
+            Quem procura sua empresa hoje não entende bem o que você faz, encontra informações desencontradas — e escolhe quem parece mais organizado.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5515981512083" class="btn-main">Falar no WhatsApp →</a>
+            <a href="#solucoes" class="btn-ghost-opt">Conhecer as Soluções</a>
+          </div>
+        </div>
+
+        <div class="hero-aside-card">
+          <div class="aside-row"><span>Atendimento</span><b>Sorocaba, Região & Brasil</b></div>
+          <div class="aside-row"><span>Foco</span><b>PMEs · Local & 360°</b></div>
+          <div class="aside-row"><span>Avaliação Google</span><b>5,0 ★★★★★</b></div>
+          <div class="aside-row"><span>Compromisso</span><b>Sem proposta empurrada</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==========================================================================
+     OPÇÃO B: DARK OBSIDIAN COM VÍDEO E CITRON YELLOW VIBRANTE
+     ========================================================================== -->
+<div class="view-panel" id="view-b">
+  <section class="hero-option-b">
+    <video class="hero-video-bg-b" autoplay loop muted playsinline>
+      <source src="videos/vocacao-motion.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay-b"></div>
+
+    <div class="hero-content">
+      <div class="hero-meta-row">
+        <span class="status-tag">● Diagnóstico Rápido em ~ 4 min</span>
+        <span style="font-family:var(--mono); font-size:12px; color:var(--citron-yellow);">Vocação · Edição 2026/2027</span>
+      </div>
+
+      <h1 class="hero-headline">
+        Seu próximo cliente <em>está pesquisando agora.</em><br>
+        Ele vai achar você — ou o concorrente.
+      </h1>
+
+      <div class="hero-split-grid">
+        <div>
+          <p class="hero-lede">
+            Quem procura sua empresa hoje não entende bem o que você faz, encontra informações desencontradas — e escolhe quem parece mais organizado.
+          </p>
+          <div class="hero-actions">
+            <a href="https://wa.me/5515981512083" class="btn-main">Falar no WhatsApp →</a>
+            <a href="#solucoes" class="btn-ghost-opt">Conhecer as Soluções</a>
+          </div>
+        </div>
+
+        <div class="hero-aside-card">
+          <div class="aside-row"><span>Atendimento</span><b>Sorocaba, Região & Brasil</b></div>
+          <div class="aside-row"><span>Foco</span><b>PMEs · Local & 360°</b></div>
+          <div class="aside-row"><span>Avaliação Google</span><b style="color:var(--citron-yellow);">5,0 ★★★★★</b></div>
+          <div class="aside-row"><span>Compromisso</span><b>Sem proposta empurrada</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+function setHero(opt, btn) {
+  document.querySelectorAll('.ab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.view-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('view-' + opt).classList.add('active');
+}
+</script>
+
+</body>
+</html>
