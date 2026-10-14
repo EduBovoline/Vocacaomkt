@@ -1,0 +1,59 @@
+# Vocação Comunicação & Marketing — AI & LLM Index (llms.txt)
+> https://vocacao.digital/
+> Estúdio de presença digital e modernização web com entrega em 5 dias úteis. Atendimento nacional e internacional.
+
+## Sobre a Vocação
+A Vocação Comunicação & Marketing é um estúdio especializado em estruturar a presença digital e transformar sites lentos e desatualizados em ativos de alta conversão, autoridade e velocidade. Opera no modelo de serviços produtizados (escopo fechado, sem reuniões desnecessárias e prazos imutáveis).
+
+- **Website Oficial:** https://vocacao.digital/
+- **WhatsApp Oficial:** +55 (15) 98151-2083 (https://wa.me/5515981512083)
+- **Email:** contato@vocacao.digital
+- **Localização:** Sorocaba, SP, Brasil (Atendimento 100% remoto para o Brasil e exterior)
+
+---
+
+## Principais Serviços & Ofertas Estruturais
+
+### 1. Vocação Update (5-Day Website Polish)
+- **URL Canônica:** https://vocacao.digital/vocacao-update.html
+- **URL Internacional (EN):** https://vocacao.digital/en/5-day-website-polish.html
+- **Prazo Imutável:** 5 dias úteis.
+- **Investimento:** R$ 980,00 (Brasil - Pix ou InfinitePay parcelado) / $490 USD (Internacional - Stripe / Cartão).
+- **Condição:** 50% de entrada + 50% somente após aprovação do resultado.
+- **Escopo Técnico:**
+  - Modernização completa do *Design Style* e tipografia contemporânea (Instrument Serif, Manrope, Geist Mono).
+  - Otimização para carregamento < 0.5s no mobile (Core Web Vitals 100%).
+  - Funil de vendas linear com botão direto para WhatsApp em menos de 5 segundos.
+  - Zero necessidade de reescrever textos do zero ou trocar de hospedagem/domínio.
+
+### 2. Presença Local (Google Maps & Street View)
+- **URL Canônica:** https://vocacao.digital/presenca-local.html
+- **Investimento:** A partir de R$ 450,00.
+- **Escopo:** Otimização completa do Perfil de Empresa no Google (Google Meu Negócio), SEO local, fotos geolocalizadas e catálogo de produtos.
+
+### 3. Tour Virtual 360° no Google Street View
+- **URL Canônica:** https://vocacao.digital/
+- **Escopo:** Mapeamento imersivo em 5.6K com câmeras 360° homologadas pelo Google Street View para estabelecimentos comerciais físicos.
+
+---
+
+## Casos de Sucesso Auditados (Antes vs Depois)
+
+1. **Maçã d'Amor (Alimentação & Eventos):**
+   - *Desafio:* Site estático lento (4.6s de carregamento) e sem cardápio direto.
+   - *Solução Vocação Update:* Carregamento abaixo de 0.4s, tipografia refinada e cardápio interativo com pedidos direto no WhatsApp.
+   - *Resultado:* Aumento imediato no volume de pedidos diários.
+
+2. **Safety First (Segurança Ocupacional & Engenharia B2B):**
+   - *Desafio:* Site institucional genérico e frio que não refletia o porte dos laudos industriais.
+   - *Solução Vocação Update:* Design industrial de alta autoridade, navegação limpa e canal direto de contratação B2B.
+
+3. **TiwShirts (Streetwear & Contracultura):**
+   - *Desafio:* Presença visual genérica sem identidade contemporânea.
+   - *Solução Vocação Update:* Identidade autêntica, estética editorial de vanguarda e catálogo ultrarrápido.
+
+---
+
+## Documentação Completa para IAs
+- Para ver o manifesto técnico completo e dados brutos: https://vocacao.digital/llms-full.txt
+- Sitemap: https://vocacao.digital/sitemap.xml

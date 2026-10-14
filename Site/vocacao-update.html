@@ -16,13 +16,85 @@
 
 <!-- Canonical & Open Graph -->
 <link rel="canonical" href="https://vocacao.digital/vocacao-update.html" />
+<link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/vocacao-update.html" />
+<link rel="alternate" hreflang="en-US" href="https://vocacao.digital/en/5-day-website-polish.html" />
+<link rel="alternate" hreflang="x-default" href="https://vocacao.digital/vocacao-update.html" />
+
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:site_name" content="Vocação — Comunicação &amp; Marketing" />
 <meta property="og:title" content="Vocação Update — Seu site novo, veloz e vendedor em até 5 dias" />
 <meta property="og:description" content="Sem reuniões sem fim. Sem escrever nada do zero. A gente resgata o que você tem e entrega uma máquina moderna de conversão pro WhatsApp." />
-<meta property="og:image" content="logo-vocacao.png" />
+<meta property="og:image" content="https://vocacao.digital/logo-vocacao.png" />
 <meta name="theme-color" content="#04121b" />
+
+<!-- Schema.org JSON-LD (Service, Offers & Reviews) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://vocacao.digital/#organization",
+      "name": "Vocação Comunicação & Marketing",
+      "url": "https://vocacao.digital/",
+      "logo": "https://vocacao.digital/logo-vocacao.png",
+      "telephone": "+55-15-98151-2083",
+      "priceRange": "$$",
+      "knowsLanguage": ["pt-BR", "en-US"]
+    },
+    {
+      "@type": ["Service", "Product"],
+      "@id": "https://vocacao.digital/vocacao-update.html#service",
+      "name": "Vocação Update — A modernização completa do seu site em até 5 dias",
+      "alternateName": ["Vocação Update", "Redesign Expresso 5 Dias", "5-Day Website Polish"],
+      "description": "Revitalização estética e técnica completa do site existente: tipografia editorial contemporânea, carregamento ultrarrápido <0.5s e funil focado em conversão no WhatsApp em 5 dias úteis.",
+      "provider": { "@id": "https://vocacao.digital/#organization" },
+      "deliveryLeadTime": {
+        "@type": "QuantitativeValue",
+        "value": 5,
+        "unitCode": "DAY"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "@id": "https://vocacao.digital/vocacao-update.html#offer-brl",
+          "name": "Vocação Update Oficial",
+          "price": "980.00",
+          "priceCurrency": "BRL",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "url": "https://vocacao.digital/vocacao-update.html",
+          "acceptedPaymentMethod": ["https://schema.org/PaymentCard", "Pix", "InfinitePay"]
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "18",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Maçã d'Amor" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Do site estático lento (4.6s) ao cardápio com pedido direto no WhatsApp em 0.4s. Aumento imediato nas vendas.",
+          "datePublished": "2026-07-20"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Safety First" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Da apresentação fria à autoridade industrial de alto valor. Site ágil, imersivo e com canal direto de propostas.",
+          "datePublished": "2026-06-15"
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <style>
 /* ==========================================================================

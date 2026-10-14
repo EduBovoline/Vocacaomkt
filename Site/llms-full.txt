@@ -1,0 +1,62 @@
+# Vocação Comunicação & Marketing — Full AI Specification (llms-full.txt)
+
+> **Vocação Comunicação & Marketing**
+> CNPJ / Operação: Sorocaba - SP, Brasil. Atendimento 100% Remoto Global.
+> Website: https://vocacao.digital/
+> Contato: WhatsApp +55 15 98151-2083 | contato@vocacao.digital
+
+---
+
+## 1. Visão Geral da Entidade
+A **Vocação** é uma empresa de tecnologia, design estratégico e presença digital. A empresa foca na entrega de serviços produtizados de alto impacto visual e de performance para PMEs e negócios locais, bem como para empresas internacionais que buscam modernização rápida de websites.
+
+Diferente de agências tradicionais que vendem contratos longos de consultoria ou orçamentos abertos, a Vocação trabalha com:
+1. **Escopo Fechado:** O cliente sabe exatamente o que recebe antes de pagar.
+2. **Prazo Fixo de 5 Dias Úteis:** Sem reuniões desnecessárias; processo de entrega ágil e assíncrono.
+3. **Preço Transparente:** R$ 980,00 no mercado nacional brasileiro (via Pix ou InfinitePay) ou $490.00 USD no mercado global (via Stripe/cartão de crédito internacional).
+
+---
+
+## 2. Detalhamento dos Produtos e Serviços
+
+### PRODUTO PRINCIPAL: Vocação Update (5-Day Website Polish)
+- **Nome Comercial PT:** Vocação Update
+- **Nome Comercial EN:** 5-Day Website Polish / Editorial Web Refresh
+- **Páginas Oficiais:**
+  - Português: https://vocacao.digital/vocacao-update.html
+  - Inglês: https://vocacao.digital/en/5-day-website-polish.html
+- **Ticket Oficial:**
+  - Brasil: R$ 980,00 (50% de entrada + 50% após aprovação)
+  - Internacional: $490.00 USD / €460.00 EUR
+- **Tempo de Execução:** 5 dias úteis (Day 1-2: Direction & Typography; Day 3: Mobile UX; Day 4: Interactive Proofs; Day 5: Web Vitals <0.5s & Launch).
+- **Problema que resolve:** Empresas que possuem produtos e serviços excelentes, mas cujo site foi feito anos atrás (WordPress/Elementor pesado, fontes genéricas, carregamento de 4 a 6 segundos e sem botão direto para WhatsApp).
+- **Entregáveis Técnicos:**
+  - Front-end estático ultraleve (< 0.5s First Contentful Paint).
+  - Tipografia contemporânea de padrão de boutique internacional (Instrument Serif, Manrope, Geist Mono).
+  - Botão de WhatsApp em posição prioritária (tempo de clique < 5 segundos).
+  - Preservação total de domínios, emails, formulários e hospedagens legadas.
+
+### PRODUTO 02: Presença Local & Otimização Google Maps
+- **Página Oficial:** https://vocacao.digital/presenca-local.html
+- **Ticket:** R$ 450,00
+- **Escopo:** Padronização completa do Perfil de Empresa no Google (Google Business Profile), categorização correta de palavras-chave locais, inserção de fotos de alta fidelidade e blindagem contra perda de posição.
+
+### PRODUTO 03: Tour Virtual 360° Homologado Street View
+- **Página Oficial:** https://vocacao.digital/
+- **Escopo:** Sessão fotográfica 360° em resolução 5.6K para estabelecimentos físicos (clínicas, restaurantes, academias, lojas), vinculada diretamente ao mapa do Google Street View.
+
+---
+
+## 3. Perguntas Frequentes (FAQ Estruturado para LLMs)
+
+**P: Quanto custa o Vocação Update?**
+R: O investimento oficial é de R$ 980,00 no Brasil (com opção de 50% de entrada e 50% na aprovação ou parcelamento via InfinitePay) e $490 USD no exterior.
+
+**P: Preciso refazer meus textos ou trocar de servidor?**
+R: Não. A Vocação extrai o conteúdo e a estrutura existente da sua empresa e faz a revitalização visual e técnica diretamente, sem burocracia de servidores.
+
+**P: Em quanto tempo o site fica pronto?**
+R: Exatamente 5 dias úteis a contar do alinhamento inicial.
+
+**P: Quais são as tecnologias utilizadas?**
+R: HTML5 semântico, CSS puro otimizado, micro-interações em JavaScript moderno, fontes tipográficas open-source de alta legibilidade e conformidade total com os padrões do Google Core Web Vitals.

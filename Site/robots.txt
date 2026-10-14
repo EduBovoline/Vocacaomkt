@@ -5,7 +5,7 @@ Disallow: /tweaks-panel.jsx
 Disallow: /tweaks.jsx
 Disallow: /screenshots-check/
 
-# Motores de Busca & AI Search Bots (GEO / SGE / Gemini / ChatGPT / Perplexity)
+# Motores de Busca & AI Search Bots (GEO / SGE / Gemini / ChatGPT / Perplexity / Claude)
 User-agent: Googlebot
 Allow: /
 
@@ -24,4 +24,12 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap & LLM Specs
 Sitemap: https://vocacao.digital/sitemap.xml
+# AI Index: https://vocacao.digital/llms.txt

@@ -1,0 +1,27 @@
+name: IndexNow Daily & On-Push Heartbeat
+
+on:
+  push:
+    branches:
+      - main
+      - configurar_chatbot_whatsapp_vendas
+  schedule:
+    # Executa todo dia às 12:00 UTC (09:00 BRT) para manter as URLs com freshness máximo nos crawlers
+    - cron: '0 12 * * *'
+  workflow_dispatch:
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run IndexNow Submission
+        run: |
+          python Site/scripts/submit_indexing.py
