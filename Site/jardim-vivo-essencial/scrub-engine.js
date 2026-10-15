@@ -202,32 +202,16 @@ function mountScrollWorld(container, config) {
     // and simply cross-dissolve as you scroll. No scrubbed video motion, no decode cost.
     if (reduce || s.loading || !s.clip) return;
     s.loading = true;
-    // Serve the lighter mobile encode on phones when one was provided.
     const url = (isMobile() && s.clipM) ? s.clipM : s.clip;
-    const attachVideo = (src, isBlob) => {
-      const v = document.createElement('video');
-      v.className = 'sw-scene__video';
-      v.muted = true; v.playsInline = true; v.preload = 'auto';
-      v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-      v.src = src;
-      v.addEventListener('loadedmetadata', () => { s.ready = true; read(); });
-      v.addEventListener('seeked', () => { s.el.classList.add('has-clip'); }, { once: true });
-      v.addEventListener('loadeddata', () => { try { v.pause(); } catch (e) {} if (userReady) primeVideo(v); });
-      s.el.appendChild(v); s.video = v; s.hasClip = true;
-    };
-
-    if (window.location.protocol === 'file:') {
-      attachVideo(url, false);
-      return;
-    }
-
-    fetch(url).then(r => r.ok ? r.blob() : Promise.reject(new Error('404')))
-      .then(blob => {
-        attachVideo(URL.createObjectURL(blob), true);
-      }).catch(() => {
-        // Fallback to direct src if fetch was blocked by CORS or relative path
-        attachVideo(url, false);
-      });
+    const v = document.createElement('video');
+    v.className = 'sw-scene__video';
+    v.muted = true; v.playsInline = true; v.preload = 'auto';
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+    v.src = url;
+    v.addEventListener('loadedmetadata', () => { s.ready = true; read(); });
+    v.addEventListener('seeked', () => { s.el.classList.add('has-clip'); }, { once: true });
+    v.addEventListener('loadeddata', () => { try { v.pause(); } catch (e) {} if (userReady) primeVideo(v); });
+    s.el.appendChild(v); s.video = v; s.hasClip = true;
   }
 
   function read() {
