@@ -1,0 +1,15 @@
+{
+  "name": "Jardim Vivo Essencial — Guia das 7 Ervas",
+  "short_name": "Jardim Vivo",
+  "start_url": "/jardim-vivo-essencial",
+  "display": "standalone",
+  "background_color": "#101A11",
+  "theme_color": "#253C22",
+  "icons": [
+    {
+      "src": "assets/logo-imago.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
