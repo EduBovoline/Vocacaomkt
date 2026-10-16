@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Presença Digital — Anequini Soares Dermatologia</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;         /* Escuro profundo verde-grafite Vocação */
+    --color-accent: #0B5E47;          /* Verde Esmeralda Vocação */
+    --color-accent-soft: #e8f4ef;     /* Verde sutil */
+    --color-bg: #fafaf8;              /* Off-white quente editorial */
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #e2e8e5;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-warning: #c17f24;
+    --color-gold: #c69214;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14.5px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* DIAGRAMAÇÃO & QUEBRA DE PÁGINAS CONTROLADA */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  @media print {
+    body { background: #ffffff; }
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+      padding-top: 10px;
+    }
+    .header { padding: 36px 32px 30px !important; }
+    .section { padding-top: 24px !important; }
+    .channel-card, .force-card, .opp-item, .comp-table, .stat-card, .intro-card {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    .cta-section {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      padding: 36px 30px !important;
+    }
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--color-primary);
+    color: white;
+    padding: 48px 40px 40px;
+    border-radius: 14px;
+    margin-bottom: 24px;
+    position: relative;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .vocacao-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .vocacao-name {
+    font-family: 'Fraunces', serif;
+    font-size: 13.5px;
+    color: #ffffff;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .header-label {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent-soft);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    font-weight: 400;
+    line-height: 1.18;
+    margin-bottom: 6px;
+    color: #ffffff;
+  }
+  .header-title em { font-style: italic; color: #a4dbc9; }
+  .header-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+    margin-top: 10px;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; }
+  .section { padding: 28px 0 0; }
+  .section-label {
+    font-size: 10.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  /* INTRO CARD */
+  .intro-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 22px 26px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .intro-card strong { color: var(--color-primary); }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .stat-desc { font-size: 11.5px; color: var(--color-text-muted); line-height: 1.4; }
+
+  /* CHANNEL GRID */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .channel-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .channel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .channel-icon-wrap {
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+  }
+  .channel-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 6px; }
+  .channel-note { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+
+  /* BADGES */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: var(--color-negative); }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  /* COMP TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; }
+  .comp-table thead th { background: var(--color-primary); color: white; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 11.5px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr:last-child { border-bottom: none; }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); }
+  .comp-table tbody td { padding: 11px 14px; vertical-align: middle; }
+
+  /* FORCES GRID */
+  .forces-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+  .force-card { background: var(--color-surface); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: 8px; padding: 16px 18px; }
+  .force-icon-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .force-title { font-weight: 600; font-size: 13.5px; color: var(--color-primary); }
+  .force-desc { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+
+  /* OPPORTUNITY ITEMS */
+  .opp-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-negative);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .opp-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--color-border); line-height: 1; flex-shrink: 0; margin-top: 2px; }
+  .opp-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .opp-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary);
+    border-radius: 12px;
+    padding: 38px 36px;
+    text-align: center;
+    margin-top: 24px;
+    border-top: 3px solid var(--color-accent);
+  }
+  .cta-section .cta-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-soft); margin-bottom: 10px; font-weight: 700; }
+  .cta-section h2 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; color: white; margin-bottom: 10px; line-height: 1.25; }
+  .cta-section h2 em { font-style: italic; color: #a4dbc9; }
+  .cta-section p { color: rgba(255,255,255,0.7); font-size: 13.5px; max-width: 500px; margin: 0 auto 24px; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 10px; margin-top: 28px; text-align: center; }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: 14px; color: var(--color-primary); margin-bottom: 2px; }
+  .footer-tag { font-size: 11px; color: var(--color-text-muted); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="vocacao-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="28" height="28" fill="none">
+  <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+  <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#0B5E47" />
+</svg>
+      <div class="vocacao-name">Vocação Comunicação & Marketing</div>
+    </div>
+    <div class="header-label">Diagnóstico de Presença & Autoridade Digital</div>
+    <h1 class="header-title">Anequini Soares Dermatologia · <em>Sorocaba</em></h1>
+    <div class="header-sub">Documento elaborado para avaliação de posicionamento de alto valor · Setembro de 2026</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- INTRODUÇÃO & ESTATÍSTICAS -->
+  <div class="section">
+    <div class="section-label">01 / Introdução & Contexto de Mercado</div>
+    <h2 class="section-title">O Ponto de Partida</h2>
+    <div class="intro-card">
+      <p>A <strong>Anequini Soares Dermatologia</strong> possui estrutura física de excelência e oferta de alto valor reconhecida por seus clientes. No entanto, hoje existe um descompasso entre a qualidade real dos serviços entregues e a percepção gerada nos canais digitais. Este diagnóstico mapeia com exatidão onde sua empresa está forte e onde concorrentes da mesma região estão captando oportunidades que deveriam ser suas.</p>
+    </div>
+    <div class="stats-grid">
+      
+    <div class="stat-card">
+      <div class="stat-num">97%</div>
+      <div class="stat-desc">Pesquisam online a reputação do estabelecimento antes de fechar consulta.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">4,2s</div>
+      <div class="stat-desc">Tempo médio de julgamento para decidir se a empresa transmite segurança digital.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">2,8x</div>
+      <div class="stat-desc">Mais propensão a contratar empresas com presença online organizada e profissional.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-desc">Do investimento no ecossistema se paga logo com 1 ou 2 novos clientes de alto ticket.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: DIAGNÓSTICO & CONCORRENTES -->
+  <div class="page-break"></div>
+
+  <div class="section">
+    <div class="section-label">02 / Diagnóstico por Canal</div>
+    <h2 class="section-title">Como sua clínica é vista hoje</h2>
+    <div class="channel-grid">
+      
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <span class="badge badge-mediano">Mediano</span>
+        </div>
+        <div class="channel-name">Google Maps</div>
+        <div class="channel-note">Ficha com ótima nota (4.9 estrelas), porém sem Tour 360° no Street View para mostrar a recepção e consultórios.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <span class="badge badge-gargalo">Gargalo</span>
+        </div>
+        <div class="channel-name">Site Oficial</div>
+        <div class="channel-note">Site institucional tradicional sem vitrine de alta velocidade e sem botão direto de WhatsApp nos tratamentos.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+          <span class="badge badge-forte">Ativo</span>
+        </div>
+        <div class="channel-name">Instagram</div>
+        <div class="channel-note">Perfil médico ativo (@anequinisoaresdermatologia) com excelente autoridade em dermatologia clínica.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
+          <span class="badge badge-forte">Ativo</span>
+        </div>
+        <div class="channel-name">WhatsApp</div>
+        <div class="channel-note">Atendimento receptivo e ágil pelo WhatsApp oficial (15) 99746-6183.</div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">03 / Nicho & Concorrência Local</div>
+    <h2 class="section-title">O Cenário no Parque Campolim</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Posição Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Anequini Soares</strong></td>
+      <td>🟡 Mediano</td>
+      <td>🟡 Desatualizado</td>
+      <td>🟢 Ativo</td>
+      <td><span class="badge badge-gargalo">Gargalo</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Dra. Mariana Tocci</strong></td>
+      <td>🟢 Otimizado</td>
+      <td>✅ Autoridade</td>
+      <td>🟢 Forte</td>
+      <td><span class="badge badge-forte">Competitiva</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Clínicas Campolim</strong></td>
+      <td>🟢 Forte</td>
+      <td>✅ Portal Próprio</td>
+      <td>🟢 Ativo</td>
+      <td><span class="badge badge-forte">Referência</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PÁGINA 3: FORÇAS, GARGALOS & CTA -->
+  <div class="page-break"></div>
+
+  <div class="section">
+    <div class="section-label">04 / Ativos Valiosos</div>
+    <h2 class="section-title">Suas Forças no Mundo Real</h2>
+    <div class="forces-grid">
+      
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Localização Nobre no Campolim</span>
+      </div>
+      <div class="force-desc">Espaço aconchegante e de fácil acesso na Rua Francisco Neves, ponto nobre de Sorocaba.</div>
+    </div>
+  
+
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Corpo Clínico Especializado</span>
+      </div>
+      <div class="force-desc">Equipe de médicas dermatologistas com sólida formação e credibilidade consolidada.</div>
+    </div>
+  
+
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Reputação Impecável</span>
+      </div>
+      <div class="force-desc">Avaliações orgânicas altamente positivas destacando o atendimento humano e assertivo.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">05 / Gargalos Críticos</div>
+    <h2 class="section-title">Onde sua clínica perde pacientes hoje</h2>
+    <div class="opp-list">
+      
+    <div class="opp-item">
+      <div class="opp-num">01</div>
+      <div class="opp-body">
+        <div class="opp-title">Ausência de Tour Virtual 360°</div>
+        <div class="opp-desc">Pacientes particulares que pesquisam no Google Maps não conseguem 'entrar' virtualmente na clínica antes de decidir.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">02</div>
+      <div class="opp-body">
+        <div class="opp-title">Dispersão nas Buscas Locais</div>
+        <div class="opp-desc">Quem pesquisa por procedimentos dermatológicos no Campolim cai em concorrentes com SEO local mais agressivo.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">03</div>
+      <div class="opp-body">
+        <div class="opp-title">Vitrine Digital de Conversão Rápida</div>
+        <div class="opp-desc">Falta uma página rápida onde o paciente escolhe o procedimento e já cai no WhatsApp com mensagem personalizada.</div>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-label">Próximo Passo Estratégico</div>
+    <h2>Alinhe sua presença digital à <em>qualidade real</em> do seu espaço.</h2>
+    <p>A Vocação cuida de toda a organização da presença online da sua clínica — do site institucional à blindagem no Google Maps e Tour Virtual 360°.</p>
+    <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20Anequini%20Soares%20Dermatologia%20e%20gostaria%20de%20falar%20sobre%20a%20presen%C3%A7a%20digital%20com%20a%20Voca%C3%A7%C3%A3o." class="cta-btn" target="_blank">Falar com a Vocação no WhatsApp</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">Vocação Comunicação & Marketing</div>
+    <div class="footer-tag">Estratégia · Presença Digital · Autoridade Local</div>
+  </footer>
+
+</div>
+</body>
+</html>

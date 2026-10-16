@@ -1,0 +1,373 @@
+{
+  "contacted": [
+    {
+      "id": "fa859b80-e85e-4787-941a-cbce24278775",
+      "name": "BodyBe Sorocaba",
+      "phone": "(15) 99850-0008",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 5,
+      "last_contact_date": "23/09/2026 13:16"
+    },
+    {
+      "id": "fa859b80-e85e-4787-941a-cbce24278775",
+      "name": "BodyBe Sorocaba",
+      "phone": "(15) 99850-0008",
+      "stage": "SCREENING",
+      "city": "Sorocaba",
+      "total_msgs": 5,
+      "last_contact_date": "23/09/2026 13:16"
+    },
+    {
+      "id": "fa859b80-e85e-4787-941a-cbce24278775",
+      "name": "BodyBe Sorocaba",
+      "phone": "(15) 99850-0008",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 5,
+      "last_contact_date": "23/09/2026 13:16"
+    },
+    {
+      "id": "fa859b80-e85e-4787-941a-cbce24278775",
+      "name": "BodyBe Sorocaba",
+      "phone": "(15) 99850-0008",
+      "stage": "SCREENING",
+      "city": "Sorocaba",
+      "total_msgs": 5,
+      "last_contact_date": "23/09/2026 13:16"
+    },
+    {
+      "id": "2a08f49c-18f8-416d-9612-3586f48fe0e7",
+      "name": "Clínica de Estética Silhouette",
+      "phone": "5515996225544",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:04"
+    },
+    {
+      "id": "1c39d4a6-51cb-45cf-999b-47f11a4c4367",
+      "name": "Clínica de Psicologia & Terapias Rosália",
+      "phone": "5515998124010",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:00"
+    },
+    {
+      "id": "283a91f9-db18-424a-99db-d38fb75956a9",
+      "name": "Clínica Dr. Marcos Dental",
+      "phone": "5515997123344",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:34"
+    },
+    {
+      "id": "ba161a14-0fbe-45d1-b13a-7a11f0c7bfc8",
+      "name": "Clínica Paes Pilates & Fisio",
+      "phone": "5515991767971",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 2,
+      "last_contact_date": "30/09/2026 11:09"
+    },
+    {
+      "id": "15e19c83-7eab-4287-a54d-2f3e7715dac3",
+      "name": "Consultório de Psicologia & Família",
+      "phone": "5515981336622",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:44"
+    },
+    {
+      "id": "f9720d4b-e4b0-45dd-8232-a48d1c308626",
+      "name": "Consultório Veterinário Brasil Animal",
+      "phone": "5515998335522",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 2,
+      "last_contact_date": "30/09/2026 13:15"
+    },
+    {
+      "id": "d8dbac01-a83a-4656-b3d0-145006d2a267",
+      "name": "Deniane Almeida Fisiovet",
+      "phone": "5515996841434",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:14"
+    },
+    {
+      "id": "2f1fb152-27db-4876-b318-d307dd9bd436",
+      "name": "Dra. Camila Odontologia e Estética",
+      "phone": "5515991448855",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:40"
+    },
+    {
+      "id": "09b8e204-cfba-4f48-b774-a6864712b694",
+      "name": "Escola de Música Notas de Ouro",
+      "phone": "5515996118833",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:29"
+    },
+    {
+      "id": "6a7561c1-9c3b-485e-8857-f7242c6f5455",
+      "name": "Espaço Bella Donna Santa Rosália",
+      "phone": "5515997443322",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:58"
+    },
+    {
+      "id": "72c15154-830a-4f44-8095-1b484f6e0015",
+      "name": "Espaço Estética & Sobrancelhas Mary",
+      "phone": "5515996113377",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 2,
+      "last_contact_date": "30/09/2026 12:53"
+    },
+    {
+      "id": "b8e66c2a-a97c-4719-8f99-8714472de004",
+      "name": "Espaço Movimento Pilates Clássico",
+      "phone": "5515981223300",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:30"
+    },
+    {
+      "id": "0bf74cb8-6ec3-4be6-b3dc-ed15c7895a48",
+      "name": "Espaço Reab Postural & RPG",
+      "phone": "5515997812030",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:04"
+    },
+    {
+      "id": "306b64a1-4482-49ae-b972-c1b02bbf9c38",
+      "name": "Espaço Zen Terapias & Pilates",
+      "phone": "5515981559944",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:44"
+    },
+    {
+      "id": "c0e16348-f4e7-453c-810f-942d92e0615a",
+      "name": "Instituto Postura & Movimento",
+      "phone": "5515997334411",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:39"
+    },
+    {
+      "id": "d9621157-1fec-4a2f-b7f8-4994c4f68e8a",
+      "name": "Lava Rápido & Estética Automotiva Brasil",
+      "phone": "5515996442200",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 2,
+      "last_contact_date": "30/09/2026 13:09"
+    },
+    {
+      "id": "9e0a6359-c19a-4bb8-a761-510193b35d30",
+      "name": "Med Cor Sorocaba",
+      "phone": "(15) 99198-4736",
+      "stage": "MEETING",
+      "city": "Sorocaba",
+      "total_msgs": 3,
+      "last_contact_date": "23/09/2026 16:46"
+    },
+    {
+      "id": "b7545d7e-e0ea-4e7f-86ab-0a868685b783",
+      "name": "Pure Pilates Santa Rosália",
+      "phone": "5515998104400",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:21"
+    },
+    {
+      "id": "dbe07d92-386d-4ec4-a1b7-991e8be666e6",
+      "name": "Rô Ferreira Estética",
+      "phone": "5515991166474",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:53"
+    },
+    {
+      "id": "51e5e5be-5641-49ec-b135-40bc82f46805",
+      "name": "Serralheria & Estruturas Brasilândia",
+      "phone": "5515991884422",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 13:54"
+    },
+    {
+      "id": "a876b892-0d0c-40d0-a327-0832d973a2ea",
+      "name": "Studio Vital Pilates & Yoga",
+      "phone": "5515996551200",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 11:35"
+    },
+    {
+      "id": "838cccc4-baf0-456c-86d1-b98126fc6632",
+      "name": "Vet Care Saúde Animal",
+      "phone": "5515981722170",
+      "stage": "NEW",
+      "city": "Sorocaba",
+      "total_msgs": 1,
+      "last_contact_date": "30/09/2026 12:09"
+    }
+  ],
+  "virgin": [
+    {
+      "id": "6c1ef1d0-5a70-4e12-b8b9-191f39d2782a",
+      "name": "Auto Elétrica & Baterias Brasilândia",
+      "phone": "5515991557788",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "51ad331e-8d0e-4cd4-a57b-671a80391fbe",
+      "name": "Boutique Animal Estética Pet",
+      "phone": "5515991332211",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "6e4dbadc-74e7-4bb7-b21b-adbb8d96af1c",
+      "name": "Cast Select Móveis Planejados",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "aac84ab2-9591-490e-bc43-bff54f409892",
+      "name": "Choperia & Espetaria Santa Rosália",
+      "phone": "5515997339900",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "f6de4eb7-d2ba-4f4e-9fdf-579ffa55b0c1",
+      "name": "Clínica Personalyze",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "b1fa7f54-b3f9-4f56-8430-a9106df9e524",
+      "name": "Dra. Cauane Guelfi Estética Avançada",
+      "phone": "5515996411220",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "2578b16e-03e9-433f-8e95-0793fea0c71f",
+      "name": "Espaço Divas Cabelo & Estética",
+      "phone": "5515991225588",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "92195078-a6bb-473d-979b-f33e141152e6",
+      "name": "Instituto Krion Fisioterapia e Pilates",
+      "phone": "",
+      "stage": "SCREENING",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "f2f4c782-57f2-4601-82d9-2401be776a7b",
+      "name": "Jardim Vivo Essencial",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Recife"
+    },
+    {
+      "id": "f2f4c782-57f2-4601-82d9-2401be776a7b",
+      "name": "Jardim Vivo Essencial",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Recife"
+    },
+    {
+      "id": "5223ed9c-2d70-48e8-9ee8-539201c0414a",
+      "name": "Marcenaria Brasil Móveis Planejados",
+      "phone": "5515997558811",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "5d79436f-d9ef-4f6b-a75c-e2c0834e1ccf",
+      "name": "Microvita Pilates Sorocaba",
+      "phone": "",
+      "stage": "SCREENING",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "bfc17dc9-276c-4945-a636-f553b7cafea2",
+      "name": "Moto Peças & Oficina Brasilândia",
+      "phone": "5515997226611",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "91bf0c80-0481-468c-97fe-d7aecc89af6e",
+      "name": "Pilates Mamy Baby",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "19937a4b-cf7b-4de7-8174-6ff5e76651e7",
+      "name": "Quiro&Cia Centro de Quiropraxia",
+      "phone": "",
+      "stage": "NEW",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "99087919-a319-4b26-b16b-5ffb2b595ebc",
+      "name": "Revitae Pilates e Fisioterapia",
+      "phone": "",
+      "stage": "SCREENING",
+      "city": "Sorocaba, SP"
+    },
+    {
+      "id": "ac51bc73-a0b3-453d-8963-9616b21721af",
+      "name": "Safety First Engenharia",
+      "phone": "+55 15 99123-4567",
+      "stage": "CUSTOMER",
+      "city": "São paulo"
+    },
+    {
+      "id": "99a5226d-95d7-457a-81e9-b2d47a88bc7e",
+      "name": "Sem Limites Studio Pilates",
+      "phone": "5515997230411",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    },
+    {
+      "id": "bb19a367-10db-4d20-aa96-2b6e2d70fc1a",
+      "name": "Studio Corpo & Mente Pilates",
+      "phone": "5515991442100",
+      "stage": "NEW",
+      "city": "Sorocaba"
+    }
+  ]
+}

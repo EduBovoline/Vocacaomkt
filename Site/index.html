@@ -48,12 +48,12 @@
   {"@type":["Organization","LocalBusiness","ProfessionalService"],"@id":"https://vocacao.digital/#organization","name":"Vocação Comunicação & Marketing","alternateName":"Vocação","url":"https://vocacao.digital/","logo":{"@type":"ImageObject","url":"https://vocacao.digital/logo-vocacao.png","width":512,"height":512},"image":"https://vocacao.digital/logo-vocacao.png","description":"A Vocação organiza a presença digital de PMEs para transmitir confiança antes de investir em marketing. Criação de sites profissionais, Tour Virtual 360° e presença no Google em Sorocaba e região.","telephone":"+55-15-98151-2083","address":{"@type":"PostalAddress","addressLocality":"Sorocaba","addressRegion":"SP","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-23.5015,"longitude":-47.4526},"areaServed":[{"@type":"City","name":"Sorocaba"},{"@type":"City","name":"Votorantim"},{"@type":"Country","name":"Brasil"}],"knowsLanguage":"pt-BR","priceRange":"R$ 450 – R$ 5.000","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"}],"sameAs":["https://wa.me/5515981512083","https://share.google/Pn6GF0P0kFkoMPHhM"],"contactPoint":{"@type":"ContactPoint","telephone":"+55-15-98151-2083","contactType":"customer service","availableLanguage":"Portuguese"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","bestRating":"5","worstRating":"1","ratingCount":"12"}},
   {"@type":"WebSite","@id":"https://vocacao.digital/#website","url":"https://vocacao.digital/","name":"Vocação — Comunicação & Marketing","publisher":{"@id":"https://vocacao.digital/#organization"},"inLanguage":"pt-BR"},
   {"@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"Quanto tempo leva o diagnóstico?","acceptedAnswer":{"@type":"Answer","text":"Em geral, poucos minutos. Você responde algumas perguntas e em até 1 dia útil retornamos com uma análise clara."}},
-    {"@type":"Question","name":"Vou ser empurrado para fechar contrato?","acceptedAnswer":{"@type":"Answer","text":"Não. Diagnóstico é diagnóstico — não é venda disfarçada."}},
-    {"@type":"Question","name":"Vocês fazem só site ou também redes e anúncios?","acceptedAnswer":{"@type":"Answer","text":"Começamos pelo básico: site, Google, redes e domínio. Depois oferecemos gestão de redes, tráfego pago, branding e vídeos."}},
-    {"@type":"Question","name":"Já tenho site. Preciso refazer tudo?","acceptedAnswer":{"@type":"Answer","text":"Nem sempre. No diagnóstico avaliamos o que já existe. Às vezes basta organizar e ajustar."}},
-    {"@type":"Question","name":"Atendem só na minha cidade?","acceptedAnswer":{"@type":"Answer","text":"Atendemos PMEs em todo o Brasil. Reuniões online e processo 100% remoto."}},
-    {"@type":"Question","name":"E quanto custa?","acceptedAnswer":{"@type":"Answer","text":"O diagnóstico é gratuito. O investimento depende do seu cenário e é apresentado com escopo e prazo."}}
+    {"@type":"Question","name":"Quanto tempo leva o diagnóstico?","acceptedAnswer":{"@type":"Answer","text":"Em geral, poucos minutos. Analisamos sua presença no Google Maps e seu site atual e retornamos em até 1 dia útil com o raio-x visual."}},
+    {"@type":"Question","name":"Vou ser empurrado para fechar contrato mensal?","acceptedAnswer":{"@type":"Answer","text":"Não. Trabalhamos com escopo fechado, preço fixo transparente e zero mensalidade obrigatória."}},
+    {"@type":"Question","name":"Qual a diferença entre o Vocação Start e o Vocação Update?","acceptedAnswer":{"@type":"Answer","text":"O Vocação Start (R$ 850, 7 dias) é para empresas que ainda não têm site próprio e precisam de Google Maps otimizado + Vitrine Digital rápida. O Vocação Update (R$ 980, 5 dias) é para empresas que já têm um site antigo ou lento e querem modernizá-lo para carregar em menos de 0.5s sem precisar reescrever textos."}},
+    {"@type":"Question","name":"Já tenho site. Preciso refazer tudo do zero?","acceptedAnswer":{"@type":"Answer","text":"Não. Com o Vocação Update (R$ 980), aproveitamos seus textos, domínio e estrutura atual e renovamos 100% do visual e da velocidade mobile em 5 dias úteis."}},
+    {"@type":"Question","name":"Como funciona o pagamento?","acceptedAnswer":{"@type":"Answer","text":"50% de entrada no início e os outros 50% somente após você ver e aprovar tudo funcionando no ar (via Pix ou parcelado na InfinitePay)."}},
+    {"@type":"Question","name":"Quanto custa cada solução?","acceptedAnswer":{"@type":"Answer","text":"Presença no Google Maps: R$ 450 | Tour Virtual 360° Street View: R$ 650 | Vocação Start (Maps + Vitrine One-Page): R$ 850 | Combo Maps + Tour 360°: R$ 950 | Vocação Update (Reforma de Site em 5 dias): R$ 980."}}
   ]}
 ]}
 </script>
@@ -66,7 +66,8 @@
 <nav class="side-index" id="sideIndex" aria-label="Índice de seções">
   <a href="#home" data-label="Início" data-section="home"></a>
   <a href="#problema" data-label="O problema" data-section="problema"></a>
-  <a href="#solucao" data-label="Pilares" data-section="solucao"></a>
+  <a href="#solucao" data-label="Esteira & Preços" data-section="solucao"></a>
+  <a href="#cases" data-label="Antes & Depois" data-section="cases"></a>
   <a href="#processo" data-label="Diagnóstico" data-section="processo"></a>
   <a href="#avaliacoes" data-label="Avaliações" data-section="avaliacoes"></a>
   <a href="#faq" data-label="FAQ" data-section="faq"></a>
@@ -75,11 +76,13 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
+    <a href="index.html" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
     <nav class="nav-links">
-      <a href="#problema">O Problema</a>
-      <a href="#solucao">Soluções</a>
-      <a href="#avaliacoes">Cases</a>
+      <a href="vocacao-start.html">Vocação Start</a>
+      <a href="vocacao-update.html">Vocação Update</a>
+      <a href="presenca-local.html">Google Maps</a>
+      <a href="tour-virtual.html">Tour 360°</a>
+      <a href="portfolio.html">Portfólio</a>
     </nav>
     <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20a%20presen%C3%A7a%20digital%20da%20minha%20empresa" class="btn btn-primary" target="_blank" rel="noopener">
       Falar no WhatsApp
@@ -100,9 +103,9 @@
   <div class="hero-overlay"></div>
   <div class="wrap">
     <div class="hero-meta reveal">
-      <span class="status"><span class="pulse"></span>Diagnóstico em <b style="margin-left:6px">~ 4 min</b></span>
-      <span class="eyebrow">Vocação · Comunicação &amp; Marketing</span>
-      <span class="hero-meta-time">Edição <b>2026</b> · Atualizado hoje</span>
+      <span class="status"><span class="pulse"></span>Entrega travada em <b style="margin-left:6px">5 a 7 dias úteis</b></span>
+      <span class="eyebrow">Vocação · Engenharia de Presença Digital</span>
+      <span class="hero-meta-time">Escopo Fechado · <b>Zero Mensalidade</b></span>
     </div>
 
     <h1 class="reveal" data-d="1" id="hero-headline">Seu próximo cliente <em style="color:#E5B910">está pesquisando agora.</em><br/>Ele vai achar você — ou o concorrente.</h1>
@@ -110,22 +113,22 @@
     <div class="hero-grid">
       <div>
         <p class="hero-lede reveal" data-d="2">
-          Quem procura sua empresa hoje não entende bem o que você faz, encontra informações desencontradas — e escolhe quem parece mais organizado.
+          Estancamos a perda de clientes no Google Maps e no celular em até 7 dias úteis — sem reuniões intermináveis, sem pedir textos do zero e com pagamento 50/50 após aprovação.
         </p>
         <div class="hero-ctas reveal" data-d="3">
-          <a href="diagnostico" class="btn btn-primary magnet">
-            Quero meu diagnóstico
+          <a href="#solucao" class="btn btn-primary magnet">
+            Ver Soluções &amp; Preços
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
           </a>
-          <a href="https://wa.me/5515981512083?text=Quero%20falar%20sobre%20presença%20digital" class="btn btn-ghost magnet">Falar no WhatsApp</a>
+          <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20receber%20o%20diagn%C3%B3stico%20da%20minha%20empresa" class="btn btn-ghost magnet">Pedir Diagnóstico no WhatsApp</a>
         </div>
       </div>
 
       <aside class="hero-aside reveal" data-d="4">
-        <div class="row"><span>Atendimento</span><b>Sorocaba, Região &amp; Brasil</b></div>
-        <div class="row"><span>Foco</span><b>PMEs · Local &amp; 360°</b></div>
-        <div class="row"><span>Avaliação Google</span><b>5,0 ★</b></div>
-        <div class="row"><span>Compromisso</span><b>Sem proposta empurrada</b></div>
+        <div class="row"><span>Vocação Start</span><b>R$ 850 · Maps + Vitrine (7 dias)</b></div>
+        <div class="row"><span>Vocação Update</span><b>R$ 980 · Reforma de Site (5 dias)</b></div>
+        <div class="row"><span>Presença no Maps</span><b>R$ 450 · Blindagem Local</b></div>
+        <div class="row"><span>Garantia 50/50</span><b>50% entrada · 50% após aprovar</b></div>
       </aside>
     </div>
   </div>
@@ -260,88 +263,89 @@
   </div>
 </section>
 
-<!-- ============ PILLARS ============ -->
-<section class="pillars" id="solucao" data-screen-label="05 Pilares">
+<!-- ============ PILLARS / ESTEIRA DE OFERTAS ============ -->
+<section class="pillars" id="solucao" data-screen-label="05 Soluções & Preços">
   <div class="wrap">
     <div class="section-head">
       <div class="meta">
-        <span class="eyebrow">03 · O que entregamos</span>
+        <span class="eyebrow">03 · Soluções de Escopo Fechado</span>
       </div>
-      <h2 class="reveal">A gente organiza o básico que sua empresa precisa <em>ter</em>.</h2>
+      <h2 class="reveal">Escolha exatamente o que o seu momento <em>exige</em>.</h2>
     </div>
 
     <p class="lede reveal" style="margin-bottom:60px;">
-      Quatro pilares de presença digital, pensados para a realidade de pequenas e médias empresas brasileiras.
+      Sem orçamentos abertos, sem reuniões intermináveis e sem mensalidade obrigatória. Você paga 50% na entrada e os outros 50% somente após aprovar tudo no ar.
     </p>
 
     <div class="pillars-grid">
-      <article class="pillar reveal" data-d="1">
-        <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+      <a class="pillar reveal" data-d="1" href="vocacao-start.html" style="display:flex; flex-direction:column; text-decoration:none; color:inherit; border-color: rgba(229, 185, 16, 0.55);">
+        <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="#E5B910" stroke-width="1.4">
           <rect x="3" y="6" width="26" height="20" rx="2"></rect>
           <path d="M3 11h26M7 17h10M7 21h6"></path>
         </svg>
-        <span class="pillar-idx">Pilar 01</span>
-        <h3 class="pillar-title">Site Profissional</h3>
-        <p class="pillar-desc">Explica claramente quem você é, o que faz e como o cliente pode entrar em contato — sem rodeios.</p>
-        <div class="pillar-mark"><span class="line"></span>Clareza · Confiança</div>
-      </article>
+        <span class="pillar-idx" style="color:#E5B910; font-weight:700;">Carro-Chefe · Para quem não tem site</span>
+        <h3 class="pillar-title">Vocação Start — R$ 850</h3>
+        <p class="pillar-desc"><b>Google Maps Otimizado + Vitrine Digital One-Page</b> ultrarrápida com botão direto pro WhatsApp. Puxamos suas informações e entregamos tudo pronto em <b>7 dias úteis</b>.</p>
+        <div class="pillar-mark" style="color:#E5B910;"><span class="line" style="background:#E5B910;"></span>Ver Vocação Start (7 dias) →</div>
+      </a>
 
-      <a class="pillar reveal" data-d="2" href="presenca-local" style="display:flex; flex-direction:column; text-decoration:none; color:inherit;">
+      <a class="pillar reveal" data-d="2" href="vocacao-update.html" style="display:flex; flex-direction:column; text-decoration:none; color:inherit;">
+        <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M16 3l12 6v8c0 7-5 11-12 13C9 28 4 24 4 17V9l12-6z"></path>
+          <path d="M11 16l4 4 7-7"></path>
+        </svg>
+        <span class="pillar-idx">Modernização · Para quem já tem site</span>
+        <h3 class="pillar-title">Vocação Update — R$ 980</h3>
+        <p class="pillar-desc">Reforma completa do seu site antigo ou lento para carregar em <b>menos de 0.5s</b> no celular, com visual editorial e foco no WhatsApp — sem precisar reescrever textos.</p>
+        <div class="pillar-mark"><span class="line"></span>Ver Vocação Update (5 dias) →</div>
+      </a>
+
+      <a class="pillar reveal" data-d="3" href="presenca-local.html" style="display:flex; flex-direction:column; text-decoration:none; color:inherit;">
         <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
           <circle cx="16" cy="16" r="12"></circle>
           <path d="M4 16h24M16 4c4 4 4 20 0 24M16 4c-4 4-4 20 0 24"></path>
         </svg>
-        <span class="pillar-idx">Pilar 02 · Presença Local</span>
-        <h3 class="pillar-title">Google Bem Configurado</h3>
-        <p class="pillar-desc">Quem procura sua empresa no bairro encontra perfil otimizado, fotos tratadas e avaliações no topo do mapa.</p>
-        <div class="pillar-mark"><span class="line"></span>Ver Presença Local (R$ 450) →</div>
+        <span class="pillar-idx">Entrada Rápida · Google Meu Negócio</span>
+        <h3 class="pillar-title">Presença no Maps — R$ 450</h3>
+        <p class="pillar-desc">Reivindicação no seu nome, categorias corretas, fotos tratadas e blindagem da ficha para quem pesquisa no seu bairro encontrar você primeiro.</p>
+        <div class="pillar-mark"><span class="line"></span>Ver Presença Local (48h a 7d) →</div>
       </a>
 
-      <article class="pillar reveal" data-d="3">
+      <a class="pillar reveal" data-d="4" href="tour-virtual.html" style="display:flex; flex-direction:column; text-decoration:none; color:inherit;">
         <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
           <rect x="5" y="5" width="22" height="22" rx="6"></rect>
           <circle cx="16" cy="16" r="5"></circle>
           <circle cx="22" cy="10" r="1.4" fill="currentColor"></circle>
         </svg>
-        <span class="pillar-idx">Pilar 03</span>
-        <h3 class="pillar-title">Redes Organizadas</h3>
-        <p class="pillar-desc">Mesmo sem postar todos os dias, sua empresa não parece abandonada nem improvisada nas redes.</p>
-        <div class="pillar-mark"><span class="line"></span>Bio · Capa · Destaques</div>
-      </article>
-
-      <article class="pillar reveal" data-d="4">
-        <svg class="icon" width="44" height="44" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
-          <path d="M16 3l12 6v8c0 7-5 11-12 13C9 28 4 24 4 17V9l12-6z"></path>
-          <path d="M11 16l4 4 7-7"></path>
-        </svg>
-        <span class="pillar-idx">Pilar 04</span>
-        <h3 class="pillar-title">Domínio &amp; Hospedagem</h3>
-        <p class="pillar-desc">Tudo no nome da sua empresa, sem improviso, sem e-mail @gmail e sem aparência amadora.</p>
-        <div class="pillar-mark"><span class="line"></span>Sob seu controle</div>
-      </article>
+        <span class="pillar-idx">Imersão 5.6K · Google Street View</span>
+        <h3 class="pillar-title">Combo Maps + 360° — R$ 950</h3>
+        <p class="pillar-desc">Otimização completa da ficha do Google + captura presencial em 360° publicada no Street View oficial (ou Tour 360° avulso por R$ 650).</p>
+        <div class="pillar-mark"><span class="line"></span>Explorar Tour 360° →</div>
+      </a>
     </div>
 
-    <!-- Destaque Tour Virtual 360 -->
-    <a class="tour-feature-card reveal" href="tour-virtual" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; background:var(--bg-2); border:1px solid rgba(229, 185, 16, 0.45); padding:24px 30px; border-radius:var(--radius); margin-top:36px; text-decoration:none; color:inherit;">
-      <div style="flex:1 1 300px;">
+    <!-- Trava de Exclusividade de Bairro + Tour 360 -->
+    <div class="tour-feature-card reveal" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:20px; background:var(--bg-2); border:1px solid rgba(229, 185, 16, 0.45); padding:24px 30px; border-radius:var(--radius); margin-top:36px;">
+      <div style="flex:1 1 340px;">
         <span style="display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:11px; font-weight:700; color:var(--obsidian-black); background:var(--accent); padding:4px 10px; border-radius:999px; margin-bottom:10px; text-transform:uppercase; letter-spacing:0.04em;">
-          Tecnologia 360° · Interativa
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Trava de Exclusividade de Bairro
         </span>
-        <h3 style="margin:0 0 8px; font-size:clamp(19px,2.2vw,24px); color:var(--ink); font-weight:600;">Tour Virtual 360° no Google Maps &amp; Site</h3>
-        <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.5;">Traga o cliente para dentro do seu espaço antes de sair de casa. Conheça nossa captura em 5.6K oficial e navegue no player interativo em tempo real.</p>
+        <h3 style="margin:0 0 8px; font-size:clamp(19px,2.2vw,24px); color:var(--ink); font-weight:600;">1 Empresa por Segmento em Cada Bairro</h3>
+        <p style="margin:0; font-size:14px; color:var(--ink-2); line-height:1.5;">Como fazemos otimização regional no Google Maps, não atendemos dois concorrentes diretos no mesmo bairro para não dividir o topo das buscas locais.</p>
       </div>
-      <div style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:14px; color:var(--obsidian-black); background:var(--accent); padding:12px 22px; border-radius:999px; white-space:nowrap;">
-        Ver Demonstração 360°
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20consultar%20a%20disponibilidade%20do%20meu%20bairro%20e%20segmento" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:14px; color:var(--obsidian-black); background:var(--accent); padding:12px 22px; border-radius:999px; white-space:nowrap; text-decoration:none;">
+        Consultar Disponibilidade do Bairro
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
-      </div>
-    </a>
+      </a>
+    </div>
 
     <div class="pillars-foot">
       <p class="closing reveal">
-        Não é sobre aparecer mais.<br/>É sobre <em>parecer confiável</em>.
+        Não é sobre aparecer mais.<br/>É sobre <em>converter quem já te procura</em>.
       </p>
-      <a href="#processo" class="btn btn-ghost">
-        Ver como começamos
+      <a href="#cases" class="btn btn-ghost">
+        Ver Antes &amp; Depois real
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"></path></svg>
       </a>
     </div>
@@ -431,7 +435,7 @@
     </div>
 
     <div class="process-cta reveal">
-      <a href="diagnostico" class="btn btn-primary">
+      <a href="diagnostico.html" class="btn btn-primary">
         Começar meu diagnóstico
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
       </a>
@@ -454,12 +458,12 @@
     <!-- TABS -->
     <div class="cases-nav-tabs reveal" data-d="3">
       <button class="case-tab-btn active" onclick="switchMainCaseTab('maca', this)">
-        <span>🍏 Case 01: Maçã d'Amor</span>
-        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Alimentação & Eventos]</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M9 12l2 2 4-4"/></svg> Case 01: Maçã d'Amor</span>
+        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Alimentação &amp; Eventos]</span>
       </button>
       <button class="case-tab-btn" onclick="switchMainCaseTab('safety', this)">
-        <span>🛡️ Case 02: Safety First</span>
-        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Segurança B2B & Laudos]</span>
+        <span style="display:inline-flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Case 02: Safety First</span>
+        <span style="font-family:var(--mono); font-size:11px; opacity:0.8;">[Segurança B2B &amp; Laudos]</span>
       </button>
     </div>
 
@@ -473,9 +477,9 @@
       <div class="ba-mockup-window">
         <div class="ba-mockup-bar">
           <div class="ba-dots">
-            <span class="ba-dot" style="background:#ef4444;"></span>
-            <span class="ba-dot" style="background:#f59e0b;"></span>
-            <span class="ba-dot" style="background:#10b981;"></span>
+            <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+            <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+            <span class="ba-dot" style="background:#E5B910;"></span>
             <span style="margin-left:8px; color:#CBD5E1;">macadamor.com.br — Raio-X Visual</span>
           </div>
           <div style="color:var(--citron-yellow); font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
@@ -483,10 +487,10 @@
 
         <div class="ba-slider-container" id="slider-main-maca" style="--split-pos: 50%;">
           <img src="cases/maca-novo.png" alt="Maçã d'Amor Novo" />
-          <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s ⚡</div>
+          <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s</div>
           <div class="ba-before-clip">
             <img src="cases/maca-antigo.png" alt="Maçã d'Amor Antigo" />
-            <div class="ba-badge-before">ANTES · LENTO & DATADO ❌</div>
+            <div class="ba-badge-before">ANTES · LENTO &amp; DATADO</div>
           </div>
           <div class="ba-divider-line">
             <div class="ba-divider-knob"><span>◄ ►</span></div>
@@ -497,19 +501,19 @@
 
       <div class="comp-boxes-row">
         <div class="comp-unit is-before">
-          <h4><span>Versão Anterior</span><span style="color:#f87171; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
+          <h4><span>Versão Anterior</span><span style="color:#94a3b8; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
           <ul>
-            <li>❌ Carregamento de 4.6 segundos no 4G</li>
-            <li>❌ Estrutura rígida de difícil navegação no celular</li>
-            <li>❌ Sem catálogo direto integrado ao WhatsApp</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Carregamento de 4.6 segundos no 4G</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Estrutura rígida de difícil navegação no celular</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Sem catálogo direto integrado ao WhatsApp</li>
           </ul>
         </div>
         <div class="comp-unit is-after">
           <h4><span>Padrão Vocação</span><span style="color:var(--citron-yellow); font-family:var(--mono); font-size:11px;">0.4s SPEED</span></h4>
           <ul>
-            <li>✅ Carregamento ultrarrápido abaixo de 0.5s</li>
-            <li>✅ Tipografia editorial refinada (Instrument Serif + Manrope)</li>
-            <li>✅ Pedidos diretos e fluxo instantâneo no WhatsApp</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Carregamento ultrarrápido abaixo de 0.5s</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Tipografia editorial refinada (Instrument Serif + Manrope)</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Pedidos diretos e fluxo instantâneo no WhatsApp</li>
           </ul>
         </div>
       </div>
@@ -525,9 +529,9 @@
       <div class="ba-mockup-window">
         <div class="ba-mockup-bar">
           <div class="ba-dots">
-            <span class="ba-dot" style="background:#ef4444;"></span>
-            <span class="ba-dot" style="background:#f59e0b;"></span>
-            <span class="ba-dot" style="background:#10b981;"></span>
+            <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+            <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+            <span class="ba-dot" style="background:#E5B910;"></span>
             <span style="margin-left:8px; color:#CBD5E1;">safetyfirst.com.br — Raio-X Visual</span>
           </div>
           <div style="color:var(--citron-yellow); font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
@@ -535,10 +539,10 @@
 
         <div class="ba-slider-container" id="slider-main-safety" style="--split-pos: 50%;">
           <img src="cases/safety-novo.png" alt="Safety First Novo" />
-          <div class="ba-badge-after">DEPOIS · AUTORIDADE B2B MÁXIMA ⚡</div>
+          <div class="ba-badge-after">DEPOIS · AUTORIDADE B2B MÁXIMA</div>
           <div class="ba-before-clip">
             <img src="cases/safety-antigo.png" alt="Safety First Antigo" />
-            <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO ❌</div>
+            <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO</div>
           </div>
           <div class="ba-divider-line">
             <div class="ba-divider-knob"><span>◄ ►</span></div>
@@ -549,19 +553,19 @@
 
       <div class="comp-boxes-row">
         <div class="comp-unit is-before">
-          <h4><span>Versão Anterior</span><span style="color:#f87171; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
+          <h4><span>Versão Anterior</span><span style="color:#94a3b8; font-family:var(--mono); font-size:11px;">LEGADO</span></h4>
           <ul>
-            <li>❌ Não transmitia o porte dos laudos industriais prestados</li>
-            <li>❌ Menus densos e formulários ignorados por decisores</li>
-            <li>❌ Scripts lentos que geravam desistência no acesso</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Não transmitia o porte dos laudos industriais prestados</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Menus densos e formulários ignorados por decisores</li>
+            <li><span style="color:#64748b;margin-right:6px;">—</span> Scripts lentos que geravam desistência no acesso</li>
           </ul>
         </div>
         <div class="comp-unit is-after">
           <h4><span>Padrão Vocação</span><span style="color:var(--citron-yellow); font-family:var(--mono); font-size:11px;">ALTO IMPACTO</span></h4>
           <ul>
-            <li>✅ Design industrial imersivo que transmite confiança corporativa</li>
-            <li>✅ Carregamento limpo com 100% de pontuação técnica</li>
-            <li>✅ Canal direto de contratação e proposta no WhatsApp</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Design industrial imersivo que transmite confiança corporativa</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Carregamento limpo com 100% de pontuação técnica</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> Canal direto de contratação e proposta no WhatsApp</li>
           </ul>
         </div>
       </div>
@@ -638,28 +642,28 @@
 
     <div class="faq-list">
       <div class="faq-item">
-        <button class="faq-q" type="button">Quanto tempo leva o diagnóstico?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Em geral, poucos minutos. Você responde algumas perguntas e em até 1 dia útil retornamos com uma análise clara do que está atrapalhando sua presença digital.</div></div>
+        <button class="faq-q" type="button">Qual a diferença entre o Vocação Start (R$ 850) e o Vocação Update (R$ 980)?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;">O <b>Vocação Start (R$ 850 · 7 dias)</b> é para empresas que ainda não têm site próprio (ou usam só Instagram/Linktree): entregamos sua ficha do Google Maps otimizada + uma Vitrine Digital One-Page ultrarrápida. Já o <b>Vocação Update (R$ 980 · 5 dias)</b> é para empresas que já têm um site antigo ou lento e querem modernizá-lo para carregar em menos de 0.5s sem precisar reescrever textos.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">Vou ser empurrado pra fechar contrato?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Não. Se for o caso, apresentamos um plano. Caso contrário, dizemos isso. Diagnóstico é diagnóstico — não é venda disfarçada.</div></div>
+        <button class="faq-q" type="button">Vou precisar participar de reuniões longas ou escrever textos do zero?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;">Não. Nós mesmos extraímos e organizamos as informações que sua empresa já possui no Google, Instagram ou site atual. Você só valida o resultado pronto no celular.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">Vocês fazem só site ou também redes e anúncios?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Começamos pelo básico: site, Google, redes e domínio. Depois que sua estrutura está pronta, oferecemos gestão de redes, tráfego pago, branding e vídeos para anúncios.</div></div>
+        <button class="faq-q" type="button">Existe mensalidade obrigatória ou fidelidade?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;">Não. Todas as nossas entregas possuem escopo fechado e pagamento único pelo projeto. A estrutura é sua.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">Já tenho site. Preciso refazer tudo?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Nem sempre. No diagnóstico avaliamos o que já existe. Às vezes basta organizar e ajustar — outras vezes, faz mais sentido recomeçar. Falamos a verdade.</div></div>
+        <button class="faq-q" type="button">Como funciona o pagamento 50/50?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;">Você investe 50% de entrada para iniciarmos a execução (ex: R$ 425 no Vocação Start) e só quita os 50% finais depois de conferir e aprovar tudo funcionando no ar, via Pix ou cartão parcelado na InfinitePay.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">Atendem só na minha cidade?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">Atendemos pequenas e médias empresas em todo o Brasil. Reuniões online e processo 100% remoto quando necessário.</div></div>
+        <button class="faq-q" type="button">Como funciona a Trava de Exclusividade de Bairro?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;">Como fazemos otimização regional no Google Maps, só atendemos 1 empresa por segmento específico em cada bairro para não gerar concorrência entre nossos próprios clientes nas buscas locais.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q" type="button">E quanto custa?<span class="plus" aria-hidden="true"></span></button>
-        <div class="faq-a"><div style="padding-top:6px;">O diagnóstico é gratuito. O investimento de execução depende do seu cenário e é apresentado de forma clara, com escopo e prazo, só depois da análise.</div></div>
+        <button class="faq-q" type="button">Qual é a tabela completa de preços e prazos?<span class="plus" aria-hidden="true"></span></button>
+        <div class="faq-a"><div style="padding-top:6px;"><b>Presença no Maps:</b> R$ 450 (48h a 7 dias) · <b>Tour Virtual 360° Avulso:</b> R$ 650 (3 a 5 dias) · <b>Vocação Start (Maps + Vitrine):</b> R$ 850 (7 dias) · <b>Combo Maps + Tour 360°:</b> R$ 950 (7 dias) · <b>Vocação Update (Reforma de Site):</b> R$ 980 (5 dias).</div></div>
       </div>
     </div>
   </div>
@@ -670,35 +674,35 @@
   <div class="wrap">
     <div class="section-head">
       <div class="meta">
-        <span class="eyebrow">08 · Páginas Dedicadas</span>
+        <span class="eyebrow">08 · Esteira Oficial</span>
       </div>
       <h2 class="reveal">Soluções estruturais com <em>escopo fechado</em>.</h2>
     </div>
-    <p class="lede reveal">Cada serviço possui escopo transparente, prazo pré-definido e entrega orientada a conversão.</p>
+    <p class="lede reveal">Preço fixo transparente, prazo travado em contrato e entrega orientada a conversão no WhatsApp.</p>
     
     <div class="after-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); margin-top: 36px;">
-      <a class="after-item reveal" href="presenca-local">
-        <span class="idx">Carro-Chefe · Maps</span>
-        <h3 class="ttl">Presença Local</h3>
-        <p class="det">Otimização completa no Google Maps para dominar as buscas locais no seu bairro. R$ 450 avulso.</p>
+      <a class="after-item reveal" href="vocacao-start.html">
+        <span class="idx">Carro-Chefe · 7 Dias</span>
+        <h3 class="ttl">Vocação Start · R$ 850</h3>
+        <p class="det">Google Maps Otimizado + Vitrine Digital One-Page com botão direto de WhatsApp para quem ainda não tem site.</p>
         <span class="arrow">Ver Página Dedicada →</span>
       </a>
-      <a class="after-item reveal" data-d="1" href="vocacao-update">
-        <span class="idx">Modernização Expressa</span>
-        <h3 class="ttl">Vocação Update</h3>
-        <p class="det">Seu site antigo reformulado em até 5 dias úteis com velocidade <0.5s e foco no WhatsApp. R$ 980.</p>
+      <a class="after-item reveal" data-d="1" href="vocacao-update.html">
+        <span class="idx">Modernização · 5 Dias</span>
+        <h3 class="ttl">Vocação Update · R$ 980</h3>
+        <p class="det">Seu site antigo reformulado em 5 dias úteis com velocidade &lt;0.5s, padrão editorial e foco no WhatsApp.</p>
         <span class="arrow">Ver Comparativo &amp; Rota →</span>
       </a>
-      <a class="after-item reveal" data-d="2" href="tour-virtual">
-        <span class="idx">Tecnologia 360°</span>
-        <h3 class="ttl">Tour Virtual Street View</h3>
-        <p class="det">Captura imersiva oficial em 5.6K para levar o cliente direto para dentro do seu estabelecimento.</p>
-        <span class="arrow">Explorar Demonstração →</span>
+      <a class="after-item reveal" data-d="2" href="presenca-local.html">
+        <span class="idx">Google Maps · 48h a 7d</span>
+        <h3 class="ttl">Presença Local · R$ 450</h3>
+        <p class="det">Blindagem e otimização completa da ficha no Google Maps (ou R$ 950 no Combo com Tour Virtual 360° Street View).</p>
+        <span class="arrow">Ver Página Dedicada →</span>
       </a>
-      <a class="after-item reveal" data-d="3" href="portfolio">
+      <a class="after-item reveal" data-d="3" href="portfolio.html">
         <span class="idx">Galeria Auditada</span>
         <h3 class="ttl">Portfólio no Ar</h3>
-        <p class="det">Acesse os projetos, sites e perfis de clientes que já estão operando e convertendo hoje.</p>
+        <p class="det">Acesse os projetos, sites e vitrines de clientes que já estão operando e convertendo hoje.</p>
         <span class="arrow">Navegar nos Cases →</span>
       </a>
     </div>
@@ -711,15 +715,15 @@
   <span class="bigcta-ring r2"></span>
   <span class="bigcta-ring"></span>
   <div class="wrap" style="position:relative; z-index:2;">
-    <span class="eyebrow reveal">08 · Próximo passo</span>
+    <span class="eyebrow reveal">09 · Próximo passo</span>
     <h2 class="reveal" data-d="1">Sua empresa já é confiável.<br/>Está na hora de ela <em>parecer</em>.</h2>
-    <p class="reveal" data-d="2">Descubra se sua presença digital ajuda — ou se faz o cliente escolher outro.</p>
+    <p class="reveal" data-d="2">Descubra se sua presença digital ajuda — ou se faz o cliente escolher o concorrente do seu bairro.</p>
     <div class="btn-row reveal" data-d="3">
-      <a href="diagnostico" class="btn btn-primary">
-        Quero meu diagnóstico
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20receber%20o%20diagn%C3%B3stico%20da%20minha%20empresa" class="btn btn-primary" target="_blank" rel="noopener">
+        Pedir Diagnóstico no WhatsApp
         <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
       </a>
-      <a href="https://wa.me/5515981512083?text=Quero%20falar%20sobre%20presença%20digital" class="btn btn-ghost">Falar no WhatsApp</a>
+      <a href="diagnostico.html" class="btn btn-ghost">Preencher Diagnóstico Rápido</a>
     </div>
   </div>
 </section>
@@ -729,41 +733,41 @@
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="/" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
-        <p class="lede">A Vocação ajuda empresas a organizarem sua presença digital para transmitir confiança antes de investir em marketing.</p>
+        <a href="index.html" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
+        <p class="lede">Engenharia de presença digital com escopo fechado, entrega em 5 a 7 dias úteis e foco total em conversão no Google Maps e WhatsApp.</p>
       </div>
       <div class="footer-col">
-        <h5>Ofertas Diretas</h5>
+        <h5>Esteira Oficial</h5>
         <ul>
-          <li><a href="presenca-local">Presença Local</a></li>
-          <li><a href="design-avulso">Design Avulso</a></li>
-          <li><a href="impressao">Impressão Gráfica</a></li>
+          <li><a href="vocacao-start.html">Vocação Start</a></li>
+          <li><a href="vocacao-update.html">Vocação Update</a></li>
+          <li><a href="presenca-local.html">Presença no Maps</a></li>
+          <li><a href="tour-virtual.html">Tour Virtual 360°</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Marketing &amp; Escala</h5>
+        <h5>Provas &amp; Cases</h5>
         <ul>
-          <li><a href="redes">Gestão de Redes <span class="arrow">↗</span></a></li>
-          <li><a href="trafego">Tráfego Pago <span class="arrow">↗</span></a></li>
-          <li><a href="branding">Branding <span class="arrow">↗</span></a></li>
-          <li><a href="video">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
+          <li><a href="index.html#cases">Comparativo Antes &amp; Depois</a></li>
+          <li><a href="portfolio.html">Portfólio no Ar <span class="arrow">↗</span></a></li>
+          <li><a href="en/5-day-website-polish.html">Global / EN <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contato</h5>
+        <h5>Contato Direto</h5>
         <ul>
-          <li><a href="https://wa.me/5515981512083">WhatsApp <span class="arrow">↗</span></a></li>
-          <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
-          <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM">Google <span class="arrow">↗</span></a></li>
+          <li><a href="https://wa.me/5515981512083">WhatsApp Comercial <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico.html">Diagnóstico Gratuito <span class="arrow">↗</span></a></li>
+          <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM">Avaliações Google <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Empresa</h5>
+        <h5>Operação</h5>
         <ul>
-          <li><a href="portfolio">Portfólio</a></li>
+          <li>Sorocaba · SP &amp; Brasil</li>
           <li>(15) 98151-2083</li>
-          <li>Brasil · PT-BR</li>
-          <li>Atendimento remoto</li>
+          <li>Escopo 100% Fechado</li>
+          <li>Pagamento 50/50</li>
         </ul>
       </div>
     </div>

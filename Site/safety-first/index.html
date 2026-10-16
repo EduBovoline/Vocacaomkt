@@ -1,0 +1,2048 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  
+  <!-- Primary Meta Tags -->
+  <title>Safety First — Engenharia, Laudos & Gestão Integrada em Segurança do Trabalho</title>
+  <meta name="title" content="Safety First — Engenharia, Laudos & Gestão Integrada em Segurança do Trabalho" />
+  <meta name="description" content="Protegendo vidas e blindando empresas. Consultoria completa em SST, Laudos Técnicos (PGR, LTCAT, SPDA), Treinamentos de Brigada e Gestão e-Social com tecnologia e precisão de engenharia." />
+  <meta name="theme-color" content="#0B131C" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512x512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png" />
+
+  <!-- Open Graph / Facebook / WhatsApp Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Safety First — Engenharia, Laudos & Gestão Integrada em SST" />
+  <meta property="og:description" content="Protegendo vidas e blindando empresas. Consultoria completa em SST, Laudos Técnicos (PGR, LTCAT, SPDA), Treinamentos de Brigada e Gestão e-Social." />
+  <meta property="og:image" content="assets/images/og-preview.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name" content="Safety First" />
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Safety First — Engenharia, Laudos & Gestão Integrada em SST" />
+  <meta name="twitter:description" content="Protegendo vidas e blindando empresas. Consultoria completa em SST, Laudos Técnicos, Treinamentos de Brigada e e-Social." />
+  <meta name="twitter:image" content="assets/images/og-preview.png" />
+
+  <!-- Schema.org Rich Snippet -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Safety First",
+    "description": "Engenharia, Laudos Técnicos e Gestão Integrada em Segurança e Saúde no Trabalho.",
+    "telephone": "+5515999999999",
+    "email": "contato@safetyfirst.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "serviceType": [
+      "Laudos Técnicos PGR e LTCAT",
+      "Treinamentos de Brigada de Incêndio",
+      "Gestão e-Social SST",
+      "Laudo Elétrico NR-10 e SPDA",
+      "Adequação de Máquinas NR-12"
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts: Space Grotesk & Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       THEME & DESIGN SYSTEM: High-End Corporate Industrial Blueprint
+       ========================================================================== */
+    :root {
+      --bg: #0B131C;
+      --bg-surface: #0F1B27;
+      --bg-card: #142332;
+      --bg-card-hover: #182B3D;
+      --border: rgba(223, 232, 236, 0.12);
+      --border-hover: rgba(0, 122, 255, 0.45);
+      --ink: #FFFFFF;
+      --ink-soft: #A3B8C2;
+      --ink-muted: #6C8290;
+      
+      /* Cores Oficiais da Identidade Visual */
+      --brand-blue: #0076FF;
+      --brand-blue-hover: #0062D6;
+      --brand-green: #00C882;
+      --brand-green-hover: #00A86B;
+      --brand-gradient: linear-gradient(135deg, #0076FF 0%, #00C882 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #1A84FF 0%, #17D693 100%);
+      
+      --teal: #16B6A0;
+      --teal-glow: rgba(22, 182, 160, 0.25);
+      
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Manrope', -apple-system, sans-serif;
+      --container-w: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--bg);
+      line-height: 1.6;
+      width: 100%;
+    }
+
+    /* Grid de fundo de engenharia sutil */
+    .blueprint-grid-overlay {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== */
+    .sf-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: rgba(11, 19, 28, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .sf-header__inner {
+      max-width: var(--container-w);
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .sf-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .sf-logo__icon-img {
+      height: 36px;
+      width: auto;
+      filter: drop-shadow(0 0 10px rgba(0, 118, 255, 0.35));
+      transition: transform 0.25s ease;
+    }
+
+    .sf-logo:hover .sf-logo__icon-img {
+      transform: scale(1.06);
+    }
+
+    .sf-logo__wordmark-img {
+      height: 22px;
+      width: auto;
+      filter: brightness(1.1);
+    }
+
+    .sf-nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .sf-nav a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .sf-nav a:hover {
+      color: #fff;
+    }
+
+    /* Mobile Hamburger Menu */
+    .sf-hamburger-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .sf-mobile-drawer {
+      position: fixed;
+      top: 61px;
+      left: 0;
+      right: 0;
+      background: rgba(11, 19, 28, 0.98);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      display: none;
+      flex-direction: column;
+      gap: 18px;
+      z-index: 998;
+      backdrop-filter: blur(20px);
+    }
+
+    .sf-mobile-drawer.is-open {
+      display: flex;
+    }
+
+    .sf-mobile-drawer a {
+      color: #DFE8EC;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ==========================================================================
+       SISTEMA DE BOTÕES DE ALTA CONVERSÃO & CONFIANÇA (Executive Grade)
+       ========================================================================== */
+    .btn-exec {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 24px;
+      font-family: var(--font-display);
+      font-size: 14.5px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      border-radius: 12px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid transparent;
+      line-height: 1.2;
+    }
+
+    .btn-exec--primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 20px rgba(0, 118, 255, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-exec--primary:hover {
+      background: var(--brand-gradient-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 118, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      color: #FFFFFF;
+    }
+
+    .btn-exec--whatsapp {
+      background: #25D366;
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-exec--whatsapp:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.45);
+      color: #FFFFFF;
+    }
+
+    .btn-exec--glass {
+      background: rgba(255, 255, 255, 0.05);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn-exec--glass:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+      color: #FFFFFF;
+    }
+
+    .btn-icon-svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       SCROLL-WORLD 3D VIDEO SCRUB ENGINE
+       ========================================================================== */
+    .scroll-world-track {
+      position: relative;
+      height: 520vh;
+      z-index: 2;
+    }
+
+    .scroll-world-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      height: 100dvh;
+      width: 100%;
+      overflow: hidden;
+      background: #0B131C;
+    }
+
+    .scroll-video-container {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .scroll-video-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.02);
+      filter: contrast(1.05) brightness(0.95);
+    }
+
+    .scroll-video-overlay {
+      position: absolute;
+      inset: 0;
+      background: 
+        linear-gradient(90deg, rgba(11, 19, 28, 0.92) 0%, rgba(11, 19, 28, 0.65) 35%, rgba(11, 19, 28, 0.15) 70%, transparent 100%),
+        linear-gradient(180deg, rgba(11, 19, 28, 0.4) 0%, transparent 25%, transparent 75%, rgba(11, 19, 28, 0.85) 100%);
+    }
+
+    .scroll-progress-bar {
+      position: absolute;
+      top: 61px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      z-index: 20;
+    }
+
+    .scroll-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--brand-gradient);
+      box-shadow: 0 0 10px rgba(0, 118, 255, 0.5);
+      transition: width 0.05s linear;
+    }
+
+    .scroll-text-layer {
+      position: absolute;
+      inset: 0;
+      max-width: var(--container-w);
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    .scroll-card {
+      position: absolute;
+      left: clamp(20px, 5vw, 64px);
+      width: min(520px, 90vw);
+      opacity: 0;
+      transform: translateY(30px);
+      pointer-events: none;
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+
+    .scroll-card.is-active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .scroll-card__num {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .scroll-card__num::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--brand-blue);
+    }
+
+    .scroll-card__eyebrow {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(0, 118, 255, 0.15);
+      border: 1px solid rgba(0, 118, 255, 0.35);
+      color: #389BFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      backdrop-filter: blur(6px);
+    }
+
+    .scroll-card__eyebrow.green {
+      background: rgba(0, 200, 130, 0.15);
+      border-color: rgba(0, 200, 130, 0.35);
+      color: var(--brand-green);
+    }
+
+    .scroll-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 4vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      color: #FFFFFF;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.85);
+    }
+
+    .scroll-card__body {
+      font-size: clamp(14px, 1.25vw, 16.5px);
+      line-height: 1.55;
+      color: #DFE8EC;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.9);
+    }
+
+    .scroll-card__tags {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+
+    .scroll-card__tags li {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 6px;
+      background: rgba(11, 19, 28, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #DFE8EC;
+      backdrop-filter: blur(8px);
+    }
+
+    .scroll-dots {
+      position: absolute;
+      right: clamp(16px, 3vw, 40px);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      z-index: 20;
+    }
+
+    .scroll-dot-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .scroll-dot-label {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(15, 27, 39, 0.9);
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 118, 255, 0.3);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .scroll-dot-item:hover .scroll-dot-label,
+    .scroll-dot-item.is-active .scroll-dot-label {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-dot-circle {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .scroll-dot-item.is-active .scroll-dot-circle {
+      background: var(--brand-blue);
+      transform: scale(1.6);
+      box-shadow: 0 0 12px var(--brand-blue);
+    }
+
+    .scroll-indicator-cue {
+      position: absolute;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--ink-soft);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+
+    .scroll-mouse-icon {
+      width: 18px;
+      height: 28px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .scroll-mouse-wheel {
+      width: 3px;
+      height: 5px;
+      background: var(--brand-green);
+      border-radius: 2px;
+      position: absolute;
+      left: 50%;
+      top: 5px;
+      transform: translateX(-50%);
+      animation: wheelMove 1.6s infinite ease-in-out;
+    }
+
+    @keyframes wheelMove {
+      0% { opacity: 0; top: 5px; }
+      40% { opacity: 1; }
+      100% { opacity: 0; top: 15px; }
+    }
+
+    /* ==========================================================================
+       SEÇÕES INSTITUCIONAIS
+       ========================================================================== */
+    .sf-section {
+      position: relative;
+      z-index: 10;
+      padding: clamp(60px, 8vw, 100px) 24px;
+      max-width: var(--container-w);
+      margin: 0 auto;
+      content-visibility: auto;
+    }
+
+    .sf-section--dark {
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      max-width: 100%;
+      padding-left: clamp(20px, 5vw, 60px);
+      padding-right: clamp(20px, 5vw, 60px);
+    }
+
+    .sf-section__inner {
+      max-width: var(--container-w);
+      margin: 0 auto;
+    }
+
+    .sf-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(0, 118, 255, 0.1);
+      border: 1px solid rgba(0, 118, 255, 0.28);
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #389BFF;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .sf-tag--green {
+      background: rgba(0, 200, 130, 0.1);
+      border-color: rgba(0, 200, 130, 0.3);
+      color: var(--brand-green);
+    }
+
+    .sf-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 3.8vw, 42px);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .sf-desc {
+      font-size: clamp(15px, 1.2vw, 17px);
+      color: var(--ink-soft);
+      max-width: 720px;
+      margin-bottom: 36px;
+    }
+
+    .sf-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .sf-stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .sf-stat-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .sf-stat-card__val {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .sf-stat-card__val span {
+      color: var(--brand-green);
+    }
+
+    .sf-stat-card__label {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+    }
+
+    .sf-services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .sf-service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(24px, 3vw, 32px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sf-service-card:hover {
+      border-color: var(--brand-blue);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 118, 255, 0.18);
+      transform: translateY(-6px);
+    }
+
+    .sf-service-icon-box {
+      width: 68px;
+      height: 68px;
+      border-radius: 16px;
+      background: rgba(11, 19, 28, 0.9);
+      border: 1px solid rgba(0, 118, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sf-service-card:hover .sf-service-icon-box {
+      transform: scale(1.08) translateY(-2px);
+      border-color: var(--brand-green);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 200, 130, 0.25);
+    }
+
+    .sf-service-icon-img {
+      width: 54px;
+      height: 54px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.6));
+    }
+
+    .sf-service-card__title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .sf-service-card__desc {
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+
+    .sf-service-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 14px;
+    }
+
+    .sf-service-card__list li {
+      font-size: 13px;
+      color: #C0CFD8;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sf-service-card__list li::before {
+      content: '✔';
+      color: var(--brand-green);
+      font-size: 12px;
+    }
+
+    .sf-service-card__link {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #389BFF;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap 0.2s;
+    }
+
+    .sf-service-card__link:hover {
+      gap: 10px;
+      color: #FFFFFF;
+    }
+
+    /* Interativo: Diagnóstico de Risco SST */
+    .sf-calc-box {
+      background: linear-gradient(135deg, #0F1B27 0%, #152433 100%);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(24px, 4vw, 44px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+
+    .sf-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .sf-form-group {
+      margin-bottom: 18px;
+    }
+
+    .sf-form-group label {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #DFE8EC;
+    }
+
+    .sf-select, .sf-input {
+      width: 100%;
+      padding: 13px 16px;
+      background: #0B131C;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: 15px; /* Evita zoom automático no iOS */
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .sf-select:focus, .sf-input:focus {
+      border-color: var(--brand-blue);
+    }
+
+    .sf-calc-result {
+      background: #0B131C;
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 24px;
+    }
+
+    .sf-calc-result__title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: var(--brand-green);
+      margin-bottom: 12px;
+    }
+
+    /* FAQ */
+    .sf-faq-list {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .sf-faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .sf-faq-item.active {
+      border-color: var(--brand-blue);
+    }
+
+    .sf-faq-q {
+      padding: 20px 22px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      font-family: var(--font-display);
+      font-size: 16.5px;
+      font-weight: 600;
+    }
+
+    .sf-faq-icon {
+      font-size: 20px;
+      color: var(--brand-blue);
+      transition: transform 0.3s;
+    }
+
+    .sf-faq-item.active .sf-faq-icon {
+      transform: rotate(45deg);
+      color: var(--brand-green);
+    }
+
+    .sf-faq-a {
+      padding: 0 22px 20px;
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .sf-faq-item.active .sf-faq-a {
+      display: block;
+    }
+
+    /* ==========================================================================
+       SEÇÃO DE CONVERSÃO & PROPOSTA (100% Ajustada para Mobile & Desktop)
+       ========================================================================== */
+    .sf-conversion-hub {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
+      align-items: flex-start;
+      background: linear-gradient(135deg, rgba(15, 27, 39, 0.95) 0%, rgba(20, 35, 50, 0.95) 100%);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 56px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sf-trust-badges {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0 28px;
+    }
+
+    .sf-trust-badge {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #DFE8EC;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .sf-trust-badge span {
+      flex: 1;
+    }
+
+    .sf-trust-badge-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 7px;
+      background: rgba(0, 200, 130, 0.12);
+      border: 1px solid rgba(0, 200, 130, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-green);
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .sf-lead-form {
+      background: #0B131C;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: clamp(20px, 3.5vw, 32px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      width: 100%;
+    }
+
+    .sf-lead-form__title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .sf-lead-form__subtitle {
+      font-size: 13px;
+      color: var(--ink-soft);
+      margin-bottom: 18px;
+    }
+
+    .sf-lead-form .sf-form-group {
+      margin-bottom: 12px;
+    }
+
+    .sf-lead-form label {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #C0CFD8;
+      margin-bottom: 5px;
+    }
+
+    .sf-lead-form input, .sf-lead-form select {
+      padding: 12px 14px;
+      font-size: 15px; /* iOS Safari Friendly */
+    }
+
+    /* Footer */
+    .sf-footer {
+      border-top: 1px solid var(--border);
+      background: #070D13;
+      padding: 56px 24px 28px;
+    }
+
+    .sf-footer__inner {
+      max-width: var(--container-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .sf-footer__brand p {
+      color: var(--ink-soft);
+      font-size: 13.5px;
+      margin-top: 12px;
+      max-width: 320px;
+    }
+
+    .sf-footer__col h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .sf-footer__col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .sf-footer__col a {
+      color: var(--ink-muted);
+      text-decoration: none;
+      font-size: 13.5px;
+      transition: color 0.2s;
+    }
+
+    .sf-footer__col a:hover {
+      color: var(--brand-blue);
+    }
+
+    .sf-footer__bottom {
+      max-width: var(--container-w);
+      margin: 0 auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--ink-muted);
+      font-size: 12.5px;
+    }
+
+    /* ==========================================================================
+       WHATSAPP FLUTUANTE EXECUTIVO
+       ========================================================================== */
+    .sf-whatsapp-widget {
+      position: fixed;
+      bottom: max(20px, env(safe-area-inset-bottom) + 12px);
+      right: max(20px, env(safe-area-inset-right) + 12px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .sf-whatsapp-tooltip {
+      background: rgba(15, 27, 39, 0.95);
+      color: #FFFFFF;
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.3s ease;
+    }
+
+    .sf-whatsapp-tooltip-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #25D366;
+      box-shadow: 0 0 8px #25D366;
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 7px rgba(37, 211, 102, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .sf-whatsapp-btn-circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.45);
+      color: #fff;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sf-whatsapp-widget:hover .sf-whatsapp-btn-circle {
+      transform: scale(1.08);
+      box-shadow: 0 10px 32px rgba(37, 211, 102, 0.65);
+    }
+
+    /* ==========================================================================
+       MEDIA QUERIES PARA MOBILE & TABLET (100% RESPONSIVO & SEM CORTES)
+       ========================================================================== */
+    @media (max-width: 960px) {
+      .sf-conversion-hub {
+        grid-template-columns: 1fr;
+        padding: 28px 20px;
+        gap: 32px;
+        border-radius: 20px;
+      }
+      .sf-conversion-hub .btn-exec--whatsapp {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 16px;
+        font-size: 14px;
+        text-align: center;
+      }
+      .sf-conversion-hub div[style*="max-width:380px"] {
+        max-width: 100% !important;
+      }
+      .sf-calc-grid {
+        grid-template-columns: 1fr;
+      }
+      .sf-footer__inner {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .sf-nav, .sf-header .btn-exec {
+        display: none;
+      }
+      .sf-hamburger-btn {
+        display: block;
+      }
+      /* Cards sobre o vídeo no mobile: muito mais leves, transparentes e sem moldura escura pesada */
+      .scroll-card {
+        left: 20px;
+        right: 20px;
+        width: auto;
+        bottom: max(28px, env(safe-area-inset-bottom) + 16px);
+        top: auto;
+        transform: translateY(20px);
+        background: transparent;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        backdrop-filter: none;
+      }
+      .scroll-card__title {
+        font-size: clamp(22px, 5.5vw, 28px);
+        line-height: 1.15;
+        margin-bottom: 10px;
+        text-shadow: 0 2px 14px rgba(0,0,0,0.9), 0 0 25px rgba(11,19,28,0.9);
+      }
+      .scroll-card__body {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 14px;
+        color: #DFE8EC;
+        text-shadow: 0 2px 10px rgba(0,0,0,0.95);
+        max-width: 95%;
+      }
+      .scroll-card__tags {
+        margin-bottom: 16px;
+      }
+      .scroll-card__tags li {
+        background: rgba(11, 19, 28, 0.65);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+      .scroll-dots {
+        right: 8px;
+        gap: 12px;
+      }
+      .scroll-dot-label {
+        display: none;
+      }
+      .scroll-indicator-cue {
+        display: none;
+      }
+      .sf-whatsapp-tooltip {
+        display: none;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .sf-footer__inner {
+        grid-template-columns: 1fr;
+      }
+      .sf-footer__bottom {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+      }
+      .sf-services-grid {
+        grid-template-columns: 1fr;
+      }
+      .sf-stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .sf-trust-badge {
+        font-size: 13px;
+      }
+      .sf-lead-form {
+        padding: 20px 16px;
+      }
+    }
+  </style>
+<style id="hide-pf-scroll">html, body, * { scrollbar-width: none !important; -ms-overflow-style: none !important; } ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }</style></head>
+<body>
+
+  <!-- Overlay Blueprint Grid -->
+  <div class="blueprint-grid-overlay"></div>
+
+  <!-- Header Fixo com Logotipo Oficial & Menu Mobile -->
+  <header class="sf-header">
+    <div class="sf-header__inner">
+      <a href="#top" class="sf-logo">
+        <img src="assets/images/logo-icon.png" alt="Safety First Ícone" class="sf-logo__icon-img" width="36" height="36" />
+        <img src="assets/images/logo-wordmark.png" alt="Safety First" class="sf-logo__wordmark-img" width="140" height="22" />
+      </a>
+      
+      <!-- Desktop Nav -->
+      <nav class="sf-nav">
+        <a href="#quem-somos">Quem Somos</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#diagnostico">Diagnóstico</a>
+        <a href="#faq">Dúvidas</a>
+      </nav>
+      
+      <a href="#orcamento" class="btn-exec btn-exec--primary">
+        <span>Solicitar Proposta</span>
+        <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+      </a>
+
+      <!-- Hamburger Toggle Mobile -->
+      <button class="sf-hamburger-btn" onclick="toggleMobileMenu()" aria-label="Abrir Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="sf-mobile-drawer" id="mobileDrawer">
+      <a href="#top" onclick="closeMobileMenu()">Início</a>
+      <a href="#quem-somos" onclick="closeMobileMenu()">Quem Somos</a>
+      <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
+      <a href="#diagnostico" onclick="closeMobileMenu()">Diagnóstico SST</a>
+      <a href="#faq" onclick="closeMobileMenu()">Perguntas Frequentes</a>
+      <a href="#orcamento" class="btn-exec btn-exec--primary" style="margin-top: 10px; justify-content: center;" onclick="closeMobileMenu()">
+        <span>Solicitar Proposta Comercial</span>
+      </a>
+    </div>
+  </header>
+
+  <div id="top"></div>
+
+  <!-- =========================================================================
+       HERO VISUAL: VIDEO SCRUB COM TEXTOS ALTERNANDO
+       ========================================================================= -->
+  <div class="scroll-world-track" id="world">
+    <div class="scroll-world-sticky">
+      
+      <!-- Vídeo Master de Fundo com Poster WebP para carregamento instantâneo -->
+      <div class="scroll-video-container">
+        <video 
+          id="scrubVideo" 
+          class="scroll-video-bg" 
+          preload="auto" 
+          muted 
+          playsinline 
+          poster="assets/stills/scene1.webp"
+          src="assets/vid/safety_world_master.mp4">
+        </video>
+        <div class="scroll-video-overlay"></div>
+      </div>
+
+      <!-- Barra de Progresso Superior -->
+      <div class="scroll-progress-bar">
+        <div class="scroll-progress-fill" id="scrollProgress"></div>
+      </div>
+
+      <!-- Camada dos 6 Textos Alternantes -->
+      <div class="scroll-text-layer">
+        
+        <!-- CARD 1 -->
+        <article class="scroll-card is-active" id="card-0">
+          <div class="scroll-card__num">01 / 06</div>
+          <span class="scroll-card__eyebrow">01 — Prevenção na Origem</span>
+          <h1 class="scroll-card__title">Acesso Seguro & Gestão de EPIs</h1>
+          <p class="scroll-card__body">Controle biométrico de entrada com verificação automática de capacitação e fornecimento de EPIs antes do acesso à planta fabril.</p>
+          <ul class="scroll-card__tags">
+            <li>Controle de Acesso</li>
+            <li>EPI / NR-06</li>
+            <li>Inspeção Diária</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary">
+            <span>Avaliar Minha Empresa</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </article>
+
+        <!-- CARD 2 -->
+        <article class="scroll-card" id="card-1">
+          <div class="scroll-card__num">02 / 06</div>
+          <span class="scroll-card__eyebrow green">02 — Capacitação Humana</span>
+          <h2 class="scroll-card__title">Brigada de Incêndio & Resgate</h2>
+          <p class="scroll-card__body">Treinamentos dinâmicos de combate a sinistros, primeiros socorros e rotas de fuga que preparam colaboradores para agir com precisão.</p>
+          <ul class="scroll-card__tags">
+            <li>Brigada NR-23</li>
+            <li>Primeiros Socorros</li>
+            <li>Evacuação Rápida</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary">
+            <span>Agendar Treinamento</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </article>
+
+        <!-- CARD 3 -->
+        <article class="scroll-card" id="card-2">
+          <div class="scroll-card__num">03 / 06</div>
+          <span class="scroll-card__eyebrow">03 — Segurança Operacional</span>
+          <h2 class="scroll-card__title">Proteção de Máquinas NR-12</h2>
+          <p class="scroll-card__body">Adequação física com sensores óticos, cortinas de luz, botoeiras de emergência e enclausuramentos que protegem o operador sem travar a linha.</p>
+          <ul class="scroll-card__tags">
+            <li>Engenharia NR-12</li>
+            <li>Linhas de Vida</li>
+            <li>Zero Acidentes</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary">
+            <span>Adequar Maquinário</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </article>
+
+        <!-- CARD 4 -->
+        <article class="scroll-card" id="card-3">
+          <div class="scroll-card__num">04 / 06</div>
+          <span class="scroll-card__eyebrow green">04 — Medições Científicas</span>
+          <h2 class="scroll-card__title">Laudos Técnicos PGR & LTCAT</h2>
+          <p class="scroll-card__body">Avaliações quantitativas de ruído, calor térmico, iluminação, vibração e agentes químicos com equipamentos calibrados pelo INMETRO.</p>
+          <ul class="scroll-card__tags">
+            <li>PGR / NR-01</li>
+            <li>LTCAT Previdenciário</li>
+            <li>Laudo SPDA / NR-10</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary">
+            <span>Emitir Laudos Técnicos</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </article>
+
+        <!-- CARD 5 -->
+        <article class="scroll-card" id="card-4">
+          <div class="scroll-card__num">05 / 06</div>
+          <span class="scroll-card__eyebrow">05 — Gestão Digital</span>
+          <h2 class="scroll-card__title">Sincronização e-Social SST</h2>
+          <p class="scroll-card__body">Envio estruturado dos eventos S-2210, S-2220 e S-2240 diretamente à Receita Federal, blindando a empresa contra autuações tributárias.</p>
+          <ul class="scroll-card__tags">
+            <li>Eventos S-2210 / S-2220 / S-2240</li>
+            <li>Zero Multas</li>
+            <li>Normas ISO 45001</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary">
+            <span>Sincronizar e-Social</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </article>
+
+        <!-- CARD 6 -->
+        <article class="scroll-card" id="card-5">
+          <div class="scroll-card__num">06 / 06</div>
+          <span class="scroll-card__eyebrow green">06 — O Resultado</span>
+          <h2 class="scroll-card__title">Sua Empresa 100% Segura</h2>
+          <p class="scroll-card__body">Transforme a Segurança do Trabalho em vantagem competitiva, valorização da marca empregadora e tranquilidade jurídica.</p>
+          <ul class="scroll-card__tags">
+            <li>Conformidade Total</li>
+            <li>Selo Safety First</li>
+            <li>Equipe Protegida</li>
+          </ul>
+          <div style="display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="#orcamento" class="btn-exec btn-exec--primary">
+              <span>Solicitar Proposta Comercial</span>
+              <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+            </a>
+            <a href="#servicos" class="btn-exec btn-exec--glass">Ver Todos os Serviços</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Navegação Lateral por Dots -->
+      <nav class="scroll-dots">
+        <button class="scroll-dot-item is-active" onclick="jumpToScene(0)" aria-label="Ir para cena 1">
+          <span class="scroll-dot-label">01 Checkpoint</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+        <button class="scroll-dot-item" onclick="jumpToScene(1)" aria-label="Ir para cena 2">
+          <span class="scroll-dot-label">02 Treinamentos</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+        <button class="scroll-dot-item" onclick="jumpToScene(2)" aria-label="Ir para cena 3">
+          <span class="scroll-dot-label">03 Chão de Fábrica</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+        <button class="scroll-dot-item" onclick="jumpToScene(3)" aria-label="Ir para cena 4">
+          <span class="scroll-dot-label">04 Laudos & Higiene</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+        <button class="scroll-dot-item" onclick="jumpToScene(4)" aria-label="Ir para cena 5">
+          <span class="scroll-dot-label">05 e-Social Cloud</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+        <button class="scroll-dot-item" onclick="jumpToScene(5)" aria-label="Ir para cena 6">
+          <span class="scroll-dot-label">06 Blindagem Total</span>
+          <span class="scroll-dot-circle"></span>
+        </button>
+      </nav>
+
+      <!-- Scroll Cue -->
+      <div class="scroll-indicator-cue" id="scrollCue">
+        <div class="scroll-mouse-icon">
+          <div class="scroll-mouse-wheel"></div>
+        </div>
+        <span>ROLE PARA NAVEGAR</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       SEÇÃO QUEM SOMOS & STATS
+       ========================================================================= -->
+  <section id="quem-somos" class="sf-section">
+    <div class="sf-tag">01 — Engenharia de Precisão</div>
+    <h2 class="sf-title">Segurança do Trabalho que Impulsiona Resultados</h2>
+    <p class="sf-desc">
+      A <strong>Safety First</strong> nasceu da união entre vasta experiência técnica e a necessidade do mercado por uma assessoria ágil, ética e focada em conformidade integral. Transformamos obrigações legais em eficiência operacional e proteção real às vidas que movem o seu negócio.
+    </p>
+
+    <div class="sf-stats-grid">
+      <div class="sf-stat-card">
+        <div class="sf-stat-card__val">100<span>%</span></div>
+        <div class="sf-stat-card__label">Conformidade com Normas Regulamentadoras (NRs) e e-Social</div>
+      </div>
+      <div class="sf-stat-card">
+        <div class="sf-stat-card__val">+500</div>
+        <div class="sf-stat-card__label">Empresas e plantas industriais atendidas com sucesso</div>
+      </div>
+      <div class="sf-stat-card">
+        <div class="sf-stat-card__val">Zero</div>
+        <div class="sf-stat-card__label">Inconformidades e multas trabalhistas para nossos clientes</div>
+      </div>
+      <div class="sf-stat-card">
+        <div class="sf-stat-card__val">24<span>/7</span></div>
+        <div class="sf-stat-card__label">Monitoramento técnico e suporte em auditorias fiscais</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO SERVIÇOS DETALHADOS COM OS ÍCONES 3D OFICIAIS DA MARCA
+       ========================================================================= -->
+  <section id="servicos" class="sf-section--dark">
+    <div class="sf-section__inner sf-section">
+      <div class="sf-tag sf-tag--green">02 — Soluções Integradas</div>
+      <h2 class="sf-title">Engenharia, Laudos & Gestão de Risco</h2>
+      <p class="sf-desc">
+        Atendimento completo e modular para indústrias, comércios, construção civil e corporações em conformidade com as exigências do MTE e Previdência Social.
+      </p>
+
+      <div class="sf-services-grid">
+        
+        <!-- Serviço 1: Treinamentos (Ícone 3D Extintor) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-treinamento.webp" alt="Treinamentos e Capacitações" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Treinamentos e Capacitações</h3>
+            <p class="sf-service-card__desc">Formação prática e teórica para capacitar colaboradores e atender todas as NRs vigentes com certificação imediata.</p>
+            <ul class="sf-service-card__list">
+              <li>Brigada de Incêndio (NR-23)</li>
+              <li>Primeiros Socorros & RCP (NR-07)</li>
+              <li>Trabalho em Altura (NR-35) e Espaço Confinado (NR-33)</li>
+              <li>Operação Segura de Empilhadeiras e Pontes Rolantes (NR-11)</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Contratar Treinamento →</a>
+        </div>
+
+        <!-- Serviço 2: Programas e Laudos SST (Ícone 3D Prancheta) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-laudos.webp" alt="Programas e Laudos SST" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Programas e Laudos SST</h3>
+            <p class="sf-service-card__desc">Documentação técnica com rigor metodológico, medições quantitativas e respaldo jurídico contra autuações.</p>
+            <ul class="sf-service-card__list">
+              <li>PGR — Programa de Gerenciamento de Riscos (NR-01)</li>
+              <li>LTCAT — Laudo Técnico das Condições Ambientais</li>
+              <li>Laudo de Insalubridade e Periculosidade (NR-15 e 16)</li>
+              <li>AET — Análise Ergonômica do Trabalho (NR-17)</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Solicitar Laudo →</a>
+        </div>
+
+        <!-- Serviço 3: Engenharia Elétrica & SPDA (Ícone 3D Raio) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-eletrica.webp" alt="Engenharia Elétrica e SPDA" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Engenharia Elétrica & SPDA</h3>
+            <p class="sf-service-card__desc">Inspeção, medição e adequação de sistemas elétricos e proteção contra descargas atmosféricas.</p>
+            <ul class="sf-service-card__list">
+              <li>Laudo de Instalações Elétricas (NR-10)</li>
+              <li>Laudo de Para-raios e SPDA (NBR 5419)</li>
+              <li>Termografia Elétrica com câmera infravermelha</li>
+              <li>Prontuário de Instalações Elétricas (PIE)</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Agendar Medição →</a>
+        </div>
+
+        <!-- Serviço 4: Gestão e-Social SST (Ícone 3D Capacete/EPI) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-esocial.webp" alt="Gestão e-Social SST" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Gestão e-Social SST</h3>
+            <p class="sf-service-card__desc">Envio ágil e monitoramento contínuo dos eventos de Segurança e Saúde do Trabalho para o portal do Governo.</p>
+            <ul class="sf-service-card__list">
+              <li>Evento S-2210: Comunicação de Acidente de Trabalho (CAT)</li>
+              <li>Evento S-2220: Monitoramento da Saúde do Trabalhador (ASO)</li>
+              <li>Evento S-2240: Condições Ambientais e Fatores de Risco</li>
+              <li>Auditoria contínua de inconsistências tributárias/FAP</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Sincronizar e-Social →</a>
+        </div>
+
+        <!-- Serviço 5: Consultoria em Normas ISO (Ícone 3D Globo/Sustentabilidade) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-iso.webp" alt="Consultoria em Normas ISO" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Consultoria em Normas ISO</h3>
+            <p class="sf-service-card__desc">Implementação e auditoria interna de sistemas de gestão integrados com padrões internacionais de qualidade.</p>
+            <ul class="sf-service-card__list">
+              <li>ISO 45001: Sistema de Gestão de Saúde e Segurança</li>
+              <li>ISO 9001: Gestão da Qualidade e Processos</li>
+              <li>ISO 14001: Gestão Ambiental Corporativa</li>
+              <li>Preparação para auditorias de certificadoras</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Consultar ISOs →</a>
+        </div>
+
+        <!-- Serviço 6: Acessibilidade & Libras (Ícone 3D Parceria/Handshake) -->
+        <div class="sf-service-card">
+          <div>
+            <div class="sf-service-icon-box">
+              <img src="assets/images/icons/icon-acessibilidade.webp" alt="Acessibilidade e Libras" class="sf-service-icon-img" loading="lazy" width="58" height="58" />
+            </div>
+            <h3 class="sf-service-card__title">Acessibilidade & Libras</h3>
+            <p class="sf-service-card__desc">Inclusão acessível e treinamentos especializados de comunicação para ambientes corporativos e industriais.</p>
+            <ul class="sf-service-card__list">
+              <li>Capacitação e tradução técnica em Libras</li>
+              <li>Adequação de sinalização para PCD</li>
+              <li>Cultura inclusiva em Segurança do Trabalho</li>
+              <li>Atendimento às diretrizes de conformidade social</li>
+            </ul>
+          </div>
+          <a href="#orcamento" class="sf-service-card__link">Saber Mais →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO DIAGNÓSTICO INTERATIVO DE CONFORMIDADE
+       ========================================================================= -->
+  <section id="diagnostico" class="sf-section">
+    <div class="sf-calc-box">
+      <div class="sf-calc-grid">
+        <div>
+          <div class="sf-tag">Simulador Rápido</div>
+          <h2 class="sf-title" style="font-size: clamp(24px, 3.5vw, 32px);">Diagnóstico de Obrigatoriedades SST</h2>
+          <p class="sf-desc" style="font-size:14.5px; margin-bottom:20px;">
+            Descubra em segundos quais laudos, programas e eventos do e-Social sua empresa precisa manter atualizados para evitar multas.
+          </p>
+
+          <div class="sf-form-group">
+            <label for="calc-setor">Setor de Atuação da Empresa:</label>
+            <select id="calc-setor" class="sf-select" onchange="calcularDiagnostico()">
+              <option value="industria">Indústria / Metalurgia / Manufatura</option>
+              <option value="construcao">Construção Civil / Reformas</option>
+              <option value="servicos">Serviços / Escritórios / Corporativo</option>
+              <option value="saude">Clínicas / Laboratórios / Saúde</option>
+              <option value="comercio">Comércio / Logística / Armazéns</option>
+            </select>
+          </div>
+
+          <div class="sf-form-group">
+            <label for="calc-colab">Número Aproximado de Colaboradores:</label>
+            <select id="calc-colab" class="sf-select" onchange="calcularDiagnostico()">
+              <option value="1-10">1 a 10 funcionários</option>
+              <option value="11-50">11 a 50 funcionários</option>
+              <option value="51-200">51 a 200 funcionários</option>
+              <option value="200+">Mais de 200 funcionários</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sf-calc-result">
+          <div class="sf-calc-result__title" id="diag-titulo">Laudos Obrigatórios Identificados</div>
+          <ul class="sf-service-card__list" id="diag-lista" style="border:none; padding:0; margin-bottom:20px;">
+            <li>PGR (Programa de Gerenciamento de Riscos - NR 01)</li>
+            <li>PCMSO (Programa de Controle Médico de Saúde Ocupacional)</li>
+            <li>LTCAT (Laudo Técnico das Condições Ambientais)</li>
+            <li>Envio Automático dos Eventos S-2220 e S-2240 (e-Social)</li>
+            <li>Laudo de Instalações Elétricas e SPDA (NR 10)</li>
+            <li>Treinamento de CIPA / Designado e Brigada de Incêndio</li>
+          </ul>
+          <a href="#orcamento" class="btn-exec btn-exec--primary" style="width:100%;">
+            <span>Solicitar Proposta para este Perfil</span>
+            <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO FAQ
+       ========================================================================= -->
+  <section id="faq" class="sf-section">
+    <div style="text-align:center; margin-bottom:44px;">
+      <div class="sf-tag">03 — Esclarecimentos</div>
+      <h2 class="sf-title">Perguntas Frequentes</h2>
+      <p class="sf-desc" style="margin: 0 auto;">Tudo o que sua empresa precisa saber sobre regularização em SST e e-Social.</p>
+    </div>
+
+    <div class="sf-faq-list">
+      <div class="sf-faq-item active">
+        <div class="sf-faq-q" onclick="toggleFaq(this)">
+          <span>Qual a diferença entre PGR e LTCAT?</span>
+          <span class="sf-faq-icon">+</span>
+        </div>
+        <div class="sf-faq-a">
+          O <strong>PGR (NR-01)</strong> é um programa focado na prevenção contínua, identificando perigos e traçando planos de ação para mitigar riscos no ambiente de trabalho. Já o <strong>LTCAT</strong> é um laudo previdenciário que atesta se o colaborador tem direito à Aposentadoria Especial, servindo como base técnica obrigatória para o preenchimento do evento S-2240 do e-Social.
+        </div>
+      </div>
+
+      <div class="sf-faq-item">
+        <div class="sf-faq-q" onclick="toggleFaq(this)">
+          <span>O que acontece se minha empresa não enviar os eventos de SST ao e-Social?</span>
+          <span class="sf-faq-icon">+</span>
+        </div>
+        <div class="sf-faq-a">
+          A falta ou atraso no envio dos eventos S-2210 (CAT), S-2220 (ASO) e S-2240 (Condições Ambientais) gera multas automáticas aplicadas pela Receita Federal e MTE, que podem variar de R$ 400 a mais de R$ 181.000 por trabalhador irregular, além de gerar passivos trabalhistas futuros.
+        </div>
+      </div>
+
+      <div class="sf-faq-item">
+        <div class="sf-faq-q" onclick="toggleFaq(this)">
+          <span>Com que frequência os laudos e treinamentos devem ser renovados?</span>
+          <span class="sf-faq-icon">+</span>
+        </div>
+        <div class="sf-faq-a">
+          O PGR deve ser revisado a cada 2 anos (ou a cada 3 anos para empresas com certificações ISO 45001) ou sempre que houver modificações nos processos de trabalho. Já os treinamentos possuem periodicidades específicas definidas pelas respectivas Normas Regulamentadoras (geralmente anual ou bienal).
+        </div>
+      </div>
+
+      <div class="sf-faq-item">
+        <div class="sf-faq-q" onclick="toggleFaq(this)">
+          <span>A Safety First atende empresas em outras cidades e estados?</span>
+          <span class="sf-faq-icon">+</span>
+        </div>
+        <div class="sf-faq-a">
+          Sim! A Safety First atende clientes com unidades em diversas regiões do Brasil, oferecendo tanto vistorias técnicas presenciais (com instrumentos calibrados pelo INMETRO) quanto gestão digital remota integrada ao e-Social.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       SEÇÃO ORÇAMENTO / CONVERSÃO DE ALTA CONFIANÇA
+       ========================================================================= -->
+  <section id="orcamento" class="sf-section--dark">
+    <div class="sf-section__inner sf-section">
+      
+      <div class="sf-conversion-hub">
+        
+        <!-- Coluna 1: Autoridade Técnica e Atendimento Direto -->
+        <div>
+          <div class="sf-tag sf-tag--green">Atendimento Corporativo</div>
+          <h2 class="sf-title" style="font-size: clamp(22px, 3.2vw, 36px); margin-bottom: 14px;">
+            Pronto para Blindar sua Empresa e Proteger sua Equipe?
+          </h2>
+          <p class="sf-desc" style="font-size: 14.5px; margin-bottom: 18px;">
+            Fale diretamente com os engenheiros da Safety First. Elaboramos um plano técnico sob medida com valores transparentes, prazos rigorosos e total respaldo jurídico.
+          </p>
+
+          <!-- Selos de Credibilidade -->
+          <div class="sf-trust-badges">
+            <div class="sf-trust-badge">
+              <div class="sf-trust-badge-icon">✓</div>
+              <span>Responsáveis Técnicos com Registro Ativo no <strong>CREA/SP</strong></span>
+            </div>
+            <div class="sf-trust-badge">
+              <div class="sf-trust-badge-icon">✓</div>
+              <span>Laudos e Programas 100% Conformes com <strong>NRs, MTE e e-Social</strong></span>
+            </div>
+            <div class="sf-trust-badge">
+              <div class="sf-trust-badge-icon">✓</div>
+              <span>Instrumentos de Medição Calibrados pela <strong>Rede Brasileira de Calibração (RBC)</strong></span>
+            </div>
+          </div>
+
+          <!-- Botões Executivos de Contato Direto -->
+          <div style="display:flex; flex-direction:column; gap:10px; width:100%;">
+            <a href="https://wa.me/5515999999999?text=Olá!%20Gostaria%20de%20solicitar%20uma%20proposta%20técnica%20de%20SST%20com%20a%20Safety%20First." target="_blank" class="btn-exec btn-exec--whatsapp" style="padding: 14px 18px; font-size: 14.5px; width:100%;">
+              <svg class="btn-icon-svg" style="width:20px; height:20px;" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.473 1.328 4.98l-1.41 5.158 5.289-1.388c1.452.793 3.093 1.25 4.793 1.25 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/></svg>
+              <span>Falar com Engenheiro no WhatsApp</span>
+            </a>
+            <div style="font-size: 11.5px; color: var(--ink-muted); text-align: center;">
+              Tempo médio de resposta técnica: <strong>5 minutos</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Formulário Integrado de Proposta Rápida -->
+        <div class="sf-lead-form">
+          <div class="sf-lead-form__title">Solicitar Proposta Formal</div>
+          <div class="sf-lead-form__subtitle">Receba o diagnóstico preliminar e proposta orçamentária para a sua empresa.</div>
+
+          <form id="leadForm" onsubmit="enviarPropostaForm(event)">
+            <div class="sf-form-group">
+              <label for="lead-nome">Seu Nome / Cargo:</label>
+              <input type="text" id="lead-nome" class="sf-input" placeholder="Ex: Carlos Silva — Gerente de RH" required />
+            </div>
+
+            <div class="sf-form-group">
+              <label for="lead-empresa">Nome da Empresa & Cidade:</label>
+              <input type="text" id="lead-empresa" class="sf-input" placeholder="Ex: Indústria Metalúrgica ABC — Sorocaba/SP" required />
+            </div>
+
+            <div class="sf-form-group">
+              <label for="lead-contato">WhatsApp ou E-mail Corporativo:</label>
+              <input type="text" id="lead-contato" class="sf-input" placeholder="(15) 99999-9999 ou contato@empresa.com.br" required />
+            </div>
+
+            <div class="sf-form-group">
+              <label for="lead-interesse">Serviço de Maior Interesse:</label>
+              <select id="lead-interesse" class="sf-select">
+                <option value="Laudos PGR e LTCAT">Programas & Laudos SST (PGR, LTCAT, Insalubridade)</option>
+                <option value="Gestão e-Social SST">Gestão e Envio e-Social SST (S-2210, S-2220, S-2240)</option>
+                <option value="Treinamentos de Brigada e NRs">Treinamentos e Brigada de Incêndio (NR-23, NR-35)</option>
+                <option value="Adequação de Máquinas NR-12">Laudos e Adequação de Máquinas NR-12</option>
+                <option value="Laudo Elétrico NR-10 e SPDA">Engenharia Elétrica & SPDA (NR-10)</option>
+                <option value="Assessoria Completa SST">Assessoria Mensal Completa SST</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn-exec btn-exec--primary" style="width: 100%; padding: 13px; margin-top: 8px;">
+              <span>Enviar e Receber Proposta</span>
+              <svg class="btn-icon-svg" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+            </button>
+            <div style="font-size: 11.5px; color: var(--ink-muted); text-align: center; margin-top: 8px;">
+              🔒 Seus dados estão protegidos. Não enviamos spam.
+            </div>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       FOOTER COM LOGOTIPO OFICIAL
+       ========================================================================= -->
+  <footer class="sf-footer">
+    <div class="sf-footer__inner">
+      <div class="sf-footer__brand">
+        <a href="#top" class="sf-logo" style="margin-bottom: 12px;">
+          <img src="assets/images/logo-full.png" alt="Safety First Logo Completo" style="max-height: 48px; width: auto;" loading="lazy" width="160" height="48" />
+        </a>
+        <p>Assessoria e Engenharia especializada em Saúde, Segurança do Trabalho e Gestão de Riscos Ocupacionais.</p>
+      </div>
+
+      <div class="sf-footer__col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#top">Início</a></li>
+          <li><a href="#quem-somos">Quem Somos</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diagnostico">Simulador</a></li>
+          <li><a href="#faq">Dúvidas Frequentes</a></li>
+        </ul>
+      </div>
+
+      <div class="sf-footer__col">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">PGR & LTCAT</a></li>
+          <li><a href="#servicos">Brigada de Incêndio</a></li>
+          <li><a href="#servicos">Gestão e-Social SST</a></li>
+          <li><a href="#servicos">Engenharia Elétrica & SPDA</a></li>
+          <li><a href="#servicos">Consultoria ISOs</a></li>
+        </ul>
+      </div>
+
+      <div class="sf-footer__col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="tel:+5515999999999">(15) 99999-9999</a></li>
+          <li><a href="mailto:contato@safetyfirst.com.br">contato@safetyfirst.com.br</a></li>
+          <li><span style="color:var(--ink-muted); font-size:13.5px;">São Paulo — SP</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sf-footer__bottom">
+      <div>© 2027 Safety First — Todos os direitos reservados.</div>
+      <div>Desenvolvido por Vocação Comunicação & Marketing.</div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       WHATSAPP FLUTUANTE EXECUTIVO
+       ========================================================================= -->
+  <a href="https://wa.me/5515999999999?text=Olá!%20Vim%20pelo%20site%20da%20Safety%20First%20e%20gostaria%20de%20um%20diagnóstico%20de%20SST." target="_blank" class="sf-whatsapp-widget" title="Fale com um Engenheiro no WhatsApp">
+    <div class="sf-whatsapp-tooltip">
+      <div class="sf-whatsapp-tooltip-dot"></div>
+      <span>Engenharia Online</span>
+    </div>
+    <div class="sf-whatsapp-btn-circle">
+      <svg class="btn-icon-svg" style="width:26px; height:26px;" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-10.416c-5.518 0-10 4.482-10 10 0 1.761.458 3.473 1.328 4.98l-1.41 5.158 5.289-1.388c1.452.793 3.093 1.25 4.793 1.25 5.518 0 10-4.482 10-10s-4.482-10-10-10z"/></svg>
+    </div>
+  </a>
+
+  <!-- =========================================================================
+       ENGINE JAVASCRIPT: CONTROLE PRECISO DE VÍDEO E ALTERNÂNCIA DE TEXTOS
+       ========================================================================= -->
+  <script>
+    (function() {
+      const track = document.getElementById('world');
+      const video = document.getElementById('scrubVideo');
+      const progressBar = document.getElementById('scrollProgress');
+      const scrollCue = document.getElementById('scrollCue');
+      const cards = document.querySelectorAll('.scroll-card');
+      const dotButtons = document.querySelectorAll('.scroll-dot-item');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const numScenes = cards.length;
+
+      let targetProgress = 0;
+      let currentProgress = 0;
+      let videoDuration = 8.0;
+      let isSeeking = false;
+      let videoReady = false;
+
+      video.addEventListener('loadedmetadata', function() {
+        videoDuration = video.duration || 8.0;
+        videoReady = true;
+      });
+
+      if (video.readyState >= 1) {
+        videoDuration = video.duration || 8.0;
+        videoReady = true;
+      }
+
+      video.pause();
+
+      function updateScroll() {
+        const rect = track.getBoundingClientRect();
+        const trackHeight = track.offsetHeight - window.innerHeight;
+        
+        if (trackHeight <= 0) return;
+
+        let progress = -rect.top / trackHeight;
+        progress = Math.max(0, Math.min(1, progress));
+        targetProgress = progress;
+
+        if (progressBar) {
+          progressBar.style.width = (progress * 100) + '%';
+        }
+
+        if (scrollCue) {
+          scrollCue.style.opacity = progress > 0.05 ? '0' : '1';
+        }
+      }
+
+      function renderLoop() {
+        currentProgress += (targetProgress - currentProgress) * 0.14;
+
+        if (video && (videoReady || video.duration)) {
+          const dur = video.duration || videoDuration;
+          const targetTime = currentProgress * dur;
+          
+          if (!isSeeking && Math.abs(video.currentTime - targetTime) > 0.02) {
+            isSeeking = true;
+            video.currentTime = targetTime;
+          }
+        }
+
+        let activeIndex = Math.floor(currentProgress * numScenes);
+        if (activeIndex >= numScenes) activeIndex = numScenes - 1;
+        if (activeIndex < 0) activeIndex = 0;
+
+        cards.forEach((card, idx) => {
+          if (idx === activeIndex) {
+            card.classList.add('is-active');
+          } else {
+            card.classList.remove('is-active');
+          }
+        });
+
+        dotButtons.forEach((dot, idx) => {
+          if (idx === activeIndex) {
+            dot.classList.add('is-active');
+          } else {
+            dot.classList.remove('is-active');
+          }
+        });
+
+        requestAnimationFrame(renderLoop);
+      }
+
+      video.addEventListener('seeked', function() {
+        isSeeking = false;
+      });
+
+      window.addEventListener('scroll', updateScroll, { passive: true });
+      window.addEventListener('resize', updateScroll);
+
+      updateScroll();
+      requestAnimationFrame(renderLoop);
+
+      window.jumpToScene = function(sceneIndex) {
+        const trackHeight = track.offsetHeight - window.innerHeight;
+        const targetScrollTop = track.offsetTop + (sceneIndex / (numScenes - 1)) * trackHeight;
+        window.scrollTo({
+          top: targetScrollTop,
+          behavior: 'smooth'
+        });
+      };
+
+      window.toggleFaq = function(header) {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      };
+
+      window.toggleMobileMenu = function() {
+        if (mobileDrawer) {
+          mobileDrawer.classList.toggle('is-open');
+        }
+      };
+
+      window.closeMobileMenu = function() {
+        if (mobileDrawer) {
+          mobileDrawer.classList.remove('is-open');
+        }
+      };
+
+      window.calcularDiagnostico = function() {
+        const setor = document.getElementById('calc-setor').value;
+        const colab = document.getElementById('calc-colab').value;
+        const lista = document.getElementById('diag-lista');
+        const titulo = document.getElementById('diag-titulo');
+
+        let itens = [
+          'PGR (Programa de Gerenciamento de Riscos - NR 01)',
+          'PCMSO (Controle Médico de Saúde Ocupacional - NR 07)',
+          'LTCAT (Laudo das Condições Ambientais de Trabalho)',
+          'Eventos S-2220 e S-2240 do e-Social'
+        ];
+
+        if (setor === 'industria' || setor === 'construcao') {
+          itens.push('Laudo de Adequação de Máquinas (NR-12)');
+          itens.push('Treinamento de Trabalho em Altura (NR-35)');
+          itens.push('Laudo de Instalações Elétricas e SPDA (NR-10 / NBR 5419)');
+        }
+
+        if (setor === 'saude') {
+          itens.push('Plano de Gerenciamento de Resíduos de Saúde (PGRSS)');
+          itens.push('Laudo de Riscos Biológicos e Químicos (NR-32)');
+        }
+
+        if (colab === '51-200' || colab === '200+') {
+          itens.push('Comissão Interna de Prevenção de Acidentes (CIPA Formal)');
+          itens.push('Formação Completa de Brigada de Incêndio (NR-23)');
+        } else {
+          itens.push('Designado de CIPA com Treinamento Obrigatório');
+        }
+
+        titulo.textContent = `Laudos Obrigatórios para ${setor.toUpperCase()} (${colab} colaboradores):`;
+        lista.innerHTML = itens.map(item => `<li>✔ ${item}</li>`).join('');
+      };
+
+      window.enviarPropostaForm = function(e) {
+        e.preventDefault();
+        const nome = document.getElementById('lead-nome').value;
+        const empresa = document.getElementById('lead-empresa').value;
+        const contato = document.getElementById('lead-contato').value;
+        const interesse = document.getElementById('lead-interesse').value;
+
+        const msg = `*Solicitação de Proposta Técnica — Safety First*%0A%0A` +
+                    `👤 *Nome/Cargo:* ${encodeURIComponent(nome)}%0A` +
+                    `🏢 *Empresa:* ${encodeURIComponent(empresa)}%0A` +
+                    `📞 *Contato:* ${encodeURIComponent(contato)}%0A` +
+                    `📋 *Interesse Principal:* ${encodeURIComponent(interesse)}`;
+
+        window.open(`https://wa.me/5515999999999?text=${msg}`, '_blank');
+      };
+    })();
+  </script>
+</body>
+</html>
+

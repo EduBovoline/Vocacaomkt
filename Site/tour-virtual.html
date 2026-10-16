@@ -613,15 +613,13 @@
 <!-- NAV -->
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+    <a href="index.html" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
     <nav class="nav-links">
-      <a href="tour-virtual" style="color: var(--accent); font-weight: 600;">Tour Virtual 360°</a>
-      <a href="presenca-local">Presença Local</a>
-      <a href="design-avulso">Design Avulso</a>
-      <a href="impressao">Impressão</a>
-      <a href="redes">Redes</a>
-      <a href="trafego">Tráfego</a>
-      <a href="portfolio">Portfólio</a>
+      <a href="vocacao-start.html">Vocação Start</a>
+      <a href="vocacao-update.html">Vocação Update</a>
+      <a href="presenca-local.html">Google Maps</a>
+      <a href="tour-virtual.html" style="color: var(--accent); font-weight: 600;">Tour 360°</a>
+      <a href="portfolio.html">Portfólio</a>
     </nav>
     <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20para%20Tour%20Virtual%20360" class="btn btn-primary magnet">
       Agendar Captação
@@ -633,7 +631,7 @@
 <!-- HERO -->
 <section class="lhero" style="padding-top: 140px; padding-bottom: 80px;">
   <div class="wrap">
-    <span class="crumb reveal"><a href="/" class="back-home">Vocação</a><span class="sep"></span>Novos Serviços</span>
+    <span class="crumb reveal"><a href="index.html" class="back-home">Vocação</a><span class="sep"></span>Tour Virtual 360°</span>
 
     <div class="hero-badge-360 reveal" data-d="1">
       <span class="badge-dot"></span>
@@ -669,7 +667,7 @@
     <div class="tour-viewer-card reveal" data-d="5" id="tour-demo">
       <div class="tour-viewer-header">
         <div class="loc-info">
-          <span class="loc-pin">📍</span>
+          <span class="loc-pin" style="display:inline-flex;align-items:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
           <strong>Simulador 360° Vocação</strong>
           <span id="sceneBadge" style="color: var(--accent); font-size: 11.5px; font-family: var(--mono); background: rgba(229,185,16,0.12); padding: 3px 10px; border-radius: 20px; border: 1px solid rgba(229,185,16,0.3);">[Ambiente 01: Clínica Médica & Estética]</span>
         </div>
@@ -711,19 +709,24 @@
         <!-- Controles Interativos Inferiores -->
         <div class="tour-controls-bar">
           <button class="tour-btn active" id="tabScene0" onclick="switchScene(0)">
-            <span>🩺</span> Clínica &amp; Estética
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Clínica &amp; Estética
           </button>
           <button class="tour-btn" id="tabScene1" onclick="switchScene(1)">
-            <span>🪵</span> Marcenaria &amp; Showroom
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+            Marcenaria &amp; Showroom
           </button>
           <button class="tour-btn" id="tabScene2" onclick="switchScene(2)">
-            <span>✂️</span> Salão &amp; Beauty Studio
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><line x1="20" y1="4" x2="8.12" y2="15.88"/><line x1="14.47" y1="14.48" x2="20" y2="20"/><line x1="8.12" y1="8.12" x2="12" y2="12"/></svg>
+            Salão &amp; Beauty Studio
           </button>
           <div class="tour-divider"></div>
           <button class="tour-icon-btn" id="btnAutoRotate" onclick="toggleAutoRotate()" title="Pausar / Retomar Rotação">⏸</button>
           <button class="tour-icon-btn" onclick="zoomIn()" title="Aproximar (+)">＋</button>
           <button class="tour-icon-btn" onclick="zoomOut()" title="Afastar (-)">－</button>
-          <button class="tour-icon-btn" onclick="resetView()" title="Resetar Posição">🧭</button>
+          <button class="tour-icon-btn" onclick="resetView()" title="Resetar Posição">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+          </button>
         </div>
       </div>
     </div>
@@ -775,7 +778,7 @@
       <!-- Card 1 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🩺</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
           <h4>Clínicas Médicas &amp; Odontologia</h4>
           <p>Pacientes avaliam higiene, conforto e tecnologia antes de agendar. Mostre salas de atendimento limpas, recepção humanizada e equipamentos modernos.</p>
         </div>
@@ -785,7 +788,7 @@
       <!-- Card 2 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🐾</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
           <h4>Pet Shops &amp; Clínicas Veterinárias</h4>
           <p>Tutores são extremamente exigentes com o local onde deixam seus pets. Mostre o espaço de banho e tosa envidraçado, consultórios e hotelzinho sem pontos cegos.</p>
         </div>
@@ -795,7 +798,7 @@
       <!-- Card 3 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🎉</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
           <h4>Buffets, Festas &amp; Eventos</h4>
           <p>Mães e casais querem ver a disposição das mesas, iluminação, brinquedoteca e área gourmet antes de visitar. Feche contratos mais rápido direto pelo WhatsApp.</p>
         </div>
@@ -805,7 +808,7 @@
       <!-- Card 4 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🍽️</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" y1="2" x2="6" y2="4"/><line x1="10" y1="2" x2="10" y2="4"/><line x1="14" y1="2" x2="14" y2="4"/></svg></div>
           <h4>Restaurantes, Bares &amp; Cafés</h4>
           <p>O ambiente é responsável por metade da decisão de um jantar ou almoço de negócios. Mostre o clima, mesas acolhedoras e área externa no Maps.</p>
         </div>
@@ -815,7 +818,7 @@
       <!-- Card 5 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🛋️</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
           <h4>Marcenarias &amp; Showrooms de Luxo</h4>
           <p>Negócios de alto ticket vendem detalhes e requinte. Permita que arquitetos e clientes finais explorem acabamentos, mostruários e sofisticação em 360°.</p>
         </div>
@@ -825,7 +828,7 @@
       <!-- Card 6 -->
       <div class="sector-card">
         <div>
-          <div class="sector-icon">🎓</div>
+          <div class="sector-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l8-4v18"/><path d="M19 21V11l-6-4"/></svg></div>
           <h4>Escolas, Creches &amp; Faculdades</h4>
           <p>Pais decidem matrículas pela segurança e infraestrutura. Mostre pátio, salas de aula ventiladas, laboratórios e quadras de esportes com transparência total.</p>
         </div>
@@ -903,12 +906,12 @@
           <div class="pricing-cond">Pagamento único · Sem mensalidade do Google</div>
         </div>
         <ul class="pricing-features">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>6 nós de captura 360°</strong> (cômodos principais)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Publicação oficial no <strong>Google Street View</strong></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Vinculação direta ao <strong>Perfil da Empresa no Google</strong></li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Remoção de tripé (nadir 100% limpo)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Conexão de setas de navegação passo a passo</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Sessão ágil (30 a 40 minutos no local)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>6 nós de captura 360°</strong> (cômodos principais)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Publicação oficial no <strong>Google Street View</strong></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Vinculação direta ao <strong>Perfil da Empresa no Google</strong></li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Remoção de tripé (nadir 100% limpo)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Conexão de setas de navegação passo a passo</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Sessão ágil (30 a 40 minutos no local)</li>
         </ul>
         <a href="https://wa.me/5515981512083?text=Quero%20contratar%20o%20Tour%20Essencial%20Maps%20(R$%20750)" class="btn btn-ghost magnet" style="justify-content: center;">Escolher Essencial</a>
       </div>
@@ -922,12 +925,12 @@
           <div class="pricing-cond">Pagamento único · Parcelamento disponível</div>
         </div>
         <ul class="pricing-features">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>14 nós de captura 360°</strong> (amplo percurso)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Publicação no <strong>Google Street View</strong> + Perfil Google</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Embed responsivo pronto</strong> para o site da empresa</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Nadir com Logo da sua empresa</strong> ou da Vocação</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Bônus: 10 Fotos Estáticas em Alta Resolução</strong> extraídas do 360° para redes sociais</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> QR Code exclusivo para balcão e materiais impressos</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>14 nós de captura 360°</strong> (amplo percurso)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Publicação no <strong>Google Street View</strong> + Perfil Google</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Embed responsivo pronto</strong> para o site da empresa</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Nadir com Logo da sua empresa</strong> ou da Vocação</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Bônus: 10 Fotos Estáticas em Alta Resolução</strong> extraídas do 360° para redes sociais</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> QR Code exclusivo para balcão e materiais impressos</li>
         </ul>
         <a href="https://wa.me/5515981512083?text=Quero%20contratar%20o%20Tour%20Pro%20Maps%20+%20Web%20(R$%201.450)" class="btn btn-primary magnet" style="justify-content: center;">Escolher Tour Pro</a>
       </div>
@@ -941,12 +944,12 @@
           <div class="pricing-cond">Sob medida · Consulte opções para múltiplas unidades</div>
         </div>
         <ul class="pricing-features">
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>25 nós de captura 360°</strong> (cobertura total)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Player Web Personalizado</strong> com menu de ambientes</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Hotspots Interativos Clicáveis:</strong> Chamar no WhatsApp, abrir cardápio, fotos e vídeos pop-up</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Integração com Google Street View + Google Perfil</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Compatibilidade com óculos de Realidade Virtual (VR)</li>
-          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Relatório de métricas de visualização</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Até <strong>25 nós de captura 360°</strong> (cobertura total)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Player Web Personalizado</strong> com menu de ambientes</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> <strong>Hotspots Interativos Clicáveis:</strong> Chamar no WhatsApp, abrir cardápio, fotos e vídeos pop-up</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Integração com Google Street View + Google Perfil</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Compatibilidade com óculos de Realidade Virtual (VR)</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Relatório de métricas de visualização</li>
         </ul>
         <a href="https://wa.me/5515981512083?text=Quero%20contratar%20o%20Tour%20Premium%20Imersivo%20(R$%202.600)" class="btn btn-ghost magnet" style="justify-content: center;">Escolher Premium</a>
       </div>
@@ -1054,54 +1057,53 @@
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER OFICIAL PADRONIZADO -->
 <footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
-        <p class="lede">A Vocação ajuda empresas a organizarem sua presença digital para transmitir confiança antes de investir em marketing.</p>
+        <a href="index.html" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+        <p class="lede">Engenharia de presença digital e conversão local. Entregamos em 5 a 7 dias úteis, sem mensalidades e com pagamento 50% somente após aprovação no ar.</p>
       </div>
       <div class="footer-col">
-        <h5>Ofertas Diretas</h5>
+        <h5>Esteira Oficial</h5>
         <ul>
-          <li><a href="tour-virtual" style="color: var(--accent);">Tour Virtual 360° <span class="arrow">★</span></a></li>
-          <li><a href="presenca-local">Presença Local</a></li>
-          <li><a href="design-avulso">Design Avulso</a></li>
-          <li><a href="impressao">Impressão Gráfica</a></li>
+          <li><a href="vocacao-start.html">Vocação Start <span class="arrow">★</span></a></li>
+          <li><a href="vocacao-update.html">Vocação Update <span class="arrow">↗</span></a></li>
+          <li><a href="presenca-local.html">Presença no Maps <span class="arrow">↗</span></a></li>
+          <li><a href="tour-virtual.html" style="color: var(--accent);">Tour Virtual 360° <span class="arrow">★</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Marketing &amp; Escala</h5>
+        <h5>Provas &amp; Cases</h5>
         <ul>
-          <li><a href="redes">Gestão de Redes <span class="arrow">↗</span></a></li>
-          <li><a href="trafego">Tráfego Pago <span class="arrow">↗</span></a></li>
-          <li><a href="branding">Branding <span class="arrow">↗</span></a></li>
-          <li><a href="video">Vídeos para Anúncios <span class="arrow">↗</span></a></li>
+          <li><a href="portfolio.html">Portfólio no Ar <span class="arrow">↗</span></a></li>
+          <li><a href="safety-first/index.html" target="_blank">Case Safety First <span class="arrow">↗</span></a></li>
+          <li><a href="maca-de-amor/index.html" target="_blank">Case Maçã d'Amor <span class="arrow">↗</span></a></li>
+          <li><a href="en/index.html">Global / EN <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Contato &amp; Propostas</h5>
+        <h5>Contato Direto</h5>
         <ul>
-          <li><a href="https://wa.me/5515981512083">WhatsApp <span class="arrow">↗</span></a></li>
-          <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
-          <li><a href="portfolio">Casos Reais <span class="arrow">↗</span></a></li>
+          <li><a href="https://wa.me/5515981512083" target="_blank">WhatsApp Comercial <span class="arrow">↗</span></a></li>
+          <li><a href="index.html#contato">Solicitar Proposta <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Empresa</h5>
+        <h5>Operação</h5>
         <ul>
-          <li><a href="portfolio">Portfólio</a></li>
           <li>(15) 98151-2083</li>
-          <li>Sorocaba/SP · Brasil</li>
-          <li>Atendimento presencial &amp; remoto</li>
+          <li>Sorocaba &amp; Votorantim / SP</li>
+          <li>Atendimento Nacional &amp; Global</li>
+          <li>Entrega travada em 5 a 7 dias</li>
         </ul>
       </div>
     </div>
     <div class="footer-mark">Vocação<span class="dot">.</span></div>
     <div class="footer-bottom">
       <span>© 2026 Vocação · Comunicação &amp; Marketing</span>
-      <span>Trabalho feito com critério, padrão e responsabilidade.</span>
+      <span>Engenharia de Conversão Local · Zero Mensalidades</span>
     </div>
   </div>
 </footer>
@@ -1150,7 +1152,7 @@
           {
             lat: 2,
             lon: 228,
-            icon: "🌿",
+            icon: "✦",
             label: "Jardim de Inverno & Lounge",
             category: "EXPERIÊNCIA DO PACIENTE",
             title: "Lounge Humanizado de Espera",
@@ -1159,7 +1161,7 @@
           {
             lat: 1,
             lon: 110,
-            icon: "🩺",
+            icon: "✦",
             label: "Consultório & Atendimento",
             category: "BLINDAGEM & CONFIANÇA",
             title: "Salas Clínicas Integradas",
@@ -1177,7 +1179,7 @@
           {
             lat: -2,
             lon: 185,
-            icon: "🪵",
+            icon: "✦",
             label: "Ilha Gourmet & Painel Nobre",
             category: "ALTO PADRÃO SOB MEDIDA",
             title: "Cozinha Conceito em Madeira Maciça",
@@ -1186,7 +1188,7 @@
           {
             lat: -10,
             lon: 130,
-            icon: "📐",
+            icon: "✦",
             label: "Mesa de Especificação Técnica",
             category: "PARCERIAS & ARQUITETURA",
             title: "Espaço do Especificador & Mostruário",
@@ -1195,7 +1197,7 @@
           {
             lat: 6,
             lon: 240,
-            icon: "🛋️",
+            icon: "✦",
             label: "Living com Vista para o Verde",
             category: "AMBIENTAÇÃO IMERSIVA",
             title: "Integração Interna & Externa",
@@ -1213,7 +1215,7 @@
           {
             lat: 0,
             lon: 180,
-            icon: "✂️",
+            icon: "✦",
             label: "Bancadas de Visagismo Iluminadas",
             category: "ESTÉTICA & LUXO",
             title: "Estações de Atendimento com LED Cênico",
@@ -1222,7 +1224,7 @@
           {
             lat: 22,
             lon: 180,
-            icon: "☀️",
+            icon: "✦",
             label: "Cúpula Zenital Panorâmica",
             category: "ARQUITETURA BOUTIQUE",
             title: "Luz Natural & Estrutura Industrial",
@@ -1231,7 +1233,7 @@
           {
             lat: -4,
             lon: 245,
-            icon: "☕",
+            icon: "✦",
             label: "Recepção & Coffee Bar",
             category: "HOSPITALIDADE PREMIUM",
             title: "Boas-vindas Personalizada",

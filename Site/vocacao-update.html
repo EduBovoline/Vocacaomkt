@@ -181,7 +181,6 @@ body.is-scroll-world {
   width: min(48vw, 560px) !important;
   left: clamp(24px, 5.5vw, 84px) !important;
   top: 50% !important;
-  transform: translateY(-50%) !important;
   max-height: calc(100vh - 140px) !important;
   display: flex !important;
   flex-direction: column !important;
@@ -790,25 +789,6 @@ body.is-scroll-world {
 <div class="post-world-container" id="cases">
   <div class="post-world-inner">
     
-    <!-- SIMULADOR EXPRESSO -->
-    <div class="url-simulator-box">
-      <span class="sec-tag">SIMULADOR DE MODERNIZAÇÃO EXPRESSA</span>
-      <h3 style="font-family:'Poppins',sans-serif;font-size:22px;color:#fff;margin:0 0 8px;">
-        Descubra como o seu site fica no padrão Vocação Update
-      </h3>
-      <p style="color:#a0aec0;font-size:14.5px;margin:0 0 16px;">
-        Digite o endereço do seu site atual. Nós analisamos a estrutura e preparamos a rota de modernização para 5 dias:
-      </p>
-      
-      <form class="url-input-group" onsubmit="event.preventDefault(); dispararWhatsAppUpdate();">
-        <input type="text" id="siteUrlInput" class="url-input-field" placeholder="ex: www.minhaempresa.com.br" required />
-        <button type="submit" class="btn-update-cta">
-          Quero meu site novo em 5d
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
-    </div>
-
     <!-- CASES AUDITADOS (MAÇÃ D'AMOR & SAFETY FIRST) -->
     <div>
       <span class="sec-tag">PROVA REAL E AUDITADA</span>
@@ -820,12 +800,12 @@ body.is-scroll-world {
       <!-- CASES TABS -->
       <div class="cases-nav-tabs">
         <button class="case-tab-btn active" onclick="switchCaseTab('maca', this)">
-          <span>🍏 Case 01: Maçã d'Amor</span>
-          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[Alimentação & Eventos]</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v4M9 12l2 2 4-4"/></svg> Case 01: Maçã d'Amor</span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[Alimentação &amp; Eventos]</span>
         </button>
         <button class="case-tab-btn" onclick="switchCaseTab('safety', this)">
-          <span>🛡️ Case 02: Safety First</span>
-          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[B2B & Segurança do Trabalho]</span>
+          <span style="display:inline-flex;align-items:center;gap:8px;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Case 02: Safety First</span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;opacity:0.8;">[B2B &amp; Segurança do Trabalho]</span>
         </button>
       </div>
 
@@ -845,9 +825,9 @@ body.is-scroll-world {
         <div class="ba-mockup-window">
           <div class="ba-mockup-bar">
             <div class="ba-dots">
-              <span class="ba-dot" style="background:#ef4444;"></span>
-              <span class="ba-dot" style="background:#f59e0b;"></span>
-              <span class="ba-dot" style="background:#10b981;"></span>
+              <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+              <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+              <span class="ba-dot" style="background:#E5B910;"></span>
               <span style="margin-left:10px;color:#cbd5e1;font-weight:600;">macadamor.com.br — Raio-X Visual Comparativo</span>
             </div>
             <div style="color:var(--sw-accent);font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
@@ -856,12 +836,12 @@ body.is-scroll-world {
           <div class="ba-slider-container" id="slider-maca" style="--split-pos: 50%;">
             <!-- NOVO VOCAÇÃO UPDATE (CAMADA BASE) -->
             <img src="cases/maca-novo.png" alt="Maçã d'Amor Novo - Vocação Update" />
-            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s ⚡</div>
+            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE 0.4s</div>
 
             <!-- ANTIGO (CAMADA REVELADA POR CORTE) -->
             <div class="ba-before-clip">
               <img src="cases/maca-antigo.png" alt="Maçã d'Amor Antigo" />
-              <div class="ba-badge-before">ANTES · SITE LENTO E DATADO ❌</div>
+              <div class="ba-badge-before">ANTES · SITE LENTO E DATADO</div>
             </div>
 
             <!-- DIVISOR COM KNOB -->
@@ -882,19 +862,19 @@ body.is-scroll-world {
             <div>
               <div class="comp-header">
                 <span class="comp-label">VERSÃO ANTIGA (ORIGINAL)</span>
-                <span class="metric-pill-tag bad">LENTO & DATADO</span>
+                <span class="metric-pill-tag bad">LENTO &amp; DATADO</span>
               </div>
               <div style="font-family:'Geist Mono',monospace;font-size:12px;color:#94a3b8;margin-bottom:14px;">
                 Domínio: macadamor.com.br (Original)
               </div>
               <ul class="comp-specs-list">
-                <li>❌ <b>Tempo de carregamento:</b> 4.6 segundos no 4G</li>
-                <li>❌ <b>Estrutura:</b> Layout rígido, difícil leitura no smartphone</li>
-                <li>❌ <b>Conversão:</b> O visitante precisava procurar contato ou formulário</li>
-                <li>❌ <b>Cardápio:</b> Fotos soltas sem fluxo direto de orçamento</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Tempo de carregamento:</b> 4.6 segundos no 4G</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Estrutura:</b> Layout rígido, difícil leitura no smartphone</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Conversão:</b> O visitante precisava procurar contato ou formulário</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Cardápio:</b> Fotos soltas sem fluxo direto de orçamento</li>
               </ul>
             </div>
-            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#f87171;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#94a3b8;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
               Diagnóstico: Alto índice de abandono antes de carregar no celular.
             </div>
           </div>
@@ -910,14 +890,14 @@ body.is-scroll-world {
                 Padrão Vocação Update entregue em 4 dias
               </div>
               <ul class="comp-specs-list">
-                <li>✅ <b>Velocidade:</b> Abre instantaneamente em menos de 0.5s</li>
-                <li>✅ <b>Mobile-First:</b> Experiência de aplicativo fluido para quem compra pelo celular</li>
-                <li>✅ <b>Catálogo Integrado:</b> O cliente escolhe os produtos e já abre o WhatsApp com o pedido montado</li>
-                <li>✅ <b>Zero dor de cabeça:</b> O cliente não precisou reescrever nada</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Velocidade:</b> Abre instantaneamente em menos de 0.5s</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Mobile-First:</b> Experiência de aplicativo fluido para quem compra pelo celular</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Catálogo Integrado:</b> O cliente escolhe os produtos e já abre o WhatsApp com o pedido montado</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Zero dor de cabeça:</b> O cliente não precisou reescrever nada</li>
               </ul>
             </div>
             <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20um%20Update%20estilo%20Maca%20do%20Amor%20no%20meu%20site" target="_blank" rel="noopener" class="comp-cta-button btn-vocacao">
-              Quero um Update assim para meu site 🚀
+              Quero um Update assim para meu site →
             </a>
           </div>
         </div>
@@ -939,9 +919,9 @@ body.is-scroll-world {
         <div class="ba-mockup-window">
           <div class="ba-mockup-bar">
             <div class="ba-dots">
-              <span class="ba-dot" style="background:#ef4444;"></span>
-              <span class="ba-dot" style="background:#f59e0b;"></span>
-              <span class="ba-dot" style="background:#10b981;"></span>
+              <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+              <span class="ba-dot" style="background:rgba(248,249,249,0.25);"></span>
+              <span class="ba-dot" style="background:#E5B910;"></span>
               <span style="margin-left:10px;color:#cbd5e1;font-weight:600;">safetyfirst.com.br — Raio-X Visual Comparativo</span>
             </div>
             <div style="color:var(--sw-accent);font-weight:700;">◄ ARRASTE OU PASSE O MOUSE ►</div>
@@ -950,12 +930,12 @@ body.is-scroll-world {
           <div class="ba-slider-container" id="slider-safety" style="--split-pos: 50%;">
             <!-- NOVO VOCAÇÃO UPDATE (CAMADA BASE) -->
             <img src="cases/safety-novo.png" alt="Safety First Novo - Vocação Update" />
-            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE ⚡ AUTORIDADE MÁXIMA</div>
+            <div class="ba-badge-after">DEPOIS · VOCAÇÃO UPDATE · AUTORIDADE MÁXIMA</div>
 
             <!-- ANTIGO (CAMADA REVELADA POR CORTE) -->
             <div class="ba-before-clip">
               <img src="cases/safety-antigo.png" alt="Safety First Antigo" />
-              <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO & LENTO ❌</div>
+              <div class="ba-badge-before">ANTES · INSTITUCIONAL FRIO &amp; LENTO</div>
             </div>
 
             <!-- DIVISOR COM KNOB -->
@@ -982,12 +962,12 @@ body.is-scroll-world {
                 Domínio: safetyfirst.com.br (Original)
               </div>
               <ul class="comp-specs-list">
-                <li>❌ <b>Percepção:</b> Não transmitia o tamanho e sofisticação dos serviços prestados</li>
-                <li>❌ <b>Navegação:</b> Menus densos e formulários ignorados pelos decisores</li>
-                <li>❌ <b>Velocidade:</b> Scripts pesados de temas prontos atrasando o carregamento</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Percepção:</b> Não transmitia o tamanho e sofisticação dos serviços prestados</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Navegação:</b> Menus densos e formulários ignorados pelos decisores</li>
+                <li><span style="color:#64748b;margin-right:6px;">—</span> <b>Velocidade:</b> Scripts pesados de temas prontos atrasando o carregamento</li>
               </ul>
             </div>
-            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#f87171;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
+            <div style="font-family:'Geist Mono',monospace;font-size:11.5px;color:#94a3b8;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);">
               Diagnóstico: Decisores B2B saíam sem solicitar proposta devido à lentidão e frieza.
             </div>
           </div>
@@ -1003,14 +983,14 @@ body.is-scroll-world {
                 Padrão Vocação Update entregue em 5 dias
               </div>
               <ul class="comp-specs-list">
-                <li>✅ <b>Posicionamento Premium:</b> Identidade industrial imersiva que impõe respeito perante grandes indústrias</li>
-                <li>✅ <b>Carregamento Relâmpago:</b> 100% de pontuação técnica em mobile</li>
-                <li>✅ <b>Funil Direto:</b> Contratação e laudos direcionados com um clique ao time comercial</li>
-                <li>✅ <b>Aprovação Imediata:</b> Concluído em 5 dias sem atrapalhar a rotina da empresa</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Posicionamento Premium:</b> Identidade industrial imersiva que impõe respeito perante grandes indústrias</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Carregamento Relâmpago:</b> 100% de pontuação técnica em mobile</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Funil Direto:</b> Contratação e laudos direcionados com um clique ao time comercial</li>
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2.5" style="vertical-align:-2px;margin-right:6px;"><polyline points="20 6 9 17 4 12"/></svg> <b>Aprovação Imediata:</b> Concluído em 5 dias sem atrapalhar a rotina da empresa</li>
               </ul>
             </div>
             <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20um%20Update%20estilo%20Safety%20First%20no%20meu%20site" target="_blank" rel="noopener" class="comp-cta-button btn-vocacao">
-              Quero um Update B2B para minha empresa 🛡️
+              Quero um Update B2B para minha empresa →
             </a>
           </div>
         </div>
@@ -1051,12 +1031,57 @@ body.is-scroll-world {
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer style="border-top:1px solid rgba(184, 191, 195, 0.15);padding:40px 24px;text-align:center;font-family:'Geist Mono',monospace;font-size:12px;color:#64748b;background:#030c14;">
-  <div style="margin-bottom:12px;">
-    <a href="/" style="color:#cbd5e1;text-decoration:none;font-weight:600;">VOCAÇÃO COMUNICAÇÃO &amp; MARKETING</a> · BRASIL
+<!-- ============ UNIFIED VOCAÇÃO FOOTER ============ -->
+<footer class="footer" style="position:relative;z-index:55;">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="index.html" class="brand"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="brand-logo" /> Vocação</a>
+        <p class="lede">Engenharia de presença digital com escopo fechado, entrega em 5 a 7 dias úteis e foco total em conversão no Google Maps e WhatsApp.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Esteira Oficial</h5>
+        <ul>
+          <li><a href="vocacao-start.html">Vocação Start</a></li>
+          <li><a href="vocacao-update.html">Vocação Update</a></li>
+          <li><a href="presenca-local.html">Presença no Maps</a></li>
+          <li><a href="tour-virtual.html">Tour Virtual 360°</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Provas &amp; Cases</h5>
+        <ul>
+          <li><a href="index.html#cases">Comparativo Antes &amp; Depois</a></li>
+          <li><a href="portfolio.html">Portfólio no Ar <span class="arrow">↗</span></a></li>
+          <li><a href="en/5-day-website-polish.html">Global / EN <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contato Direto</h5>
+        <ul>
+          <li><a href="https://wa.me/5515981512083" target="_blank" rel="noopener">WhatsApp Comercial <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico.html">Diagnóstico Gratuito <span class="arrow">↗</span></a></li>
+          <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM" target="_blank" rel="noopener">Avaliações Google <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Operação</h5>
+        <ul>
+          <li>Sorocaba · SP &amp; Brasil</li>
+          <li>(15) 98151-2083</li>
+          <li>Escopo 100% Fechado</li>
+          <li>Pagamento 50/50</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-mark">Vocação<span class="dot">.</span></div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Vocação · Comunicação &amp; Marketing</span>
+      <span>Trabalho feito com critério, padrão e responsabilidade.</span>
+    </div>
   </div>
-  <div>Vocação Update · Todos os direitos reservados. Design e Engenharia de Alta Precisão.</div>
 </footer>
 
 <!-- SCRIPTS: SCROLL-WORLD ENGINE & INTERATIVIDADE -->
@@ -1075,43 +1100,65 @@ body.is-scroll-world {
     el.addEventListener('mouseleave', () => reticle && reticle.classList.remove('active'));
   });
 
-  // MONTAGEM DO SCROLL-WORLD (A CÂMERA 3D VIAJANDO PELO SCROLL)
+  // MONTAGEM DO SCROLL-WORLD (CENAS COERENTES & PLATÔ DE LEITURA CONTÍNUO)
   mountScrollWorld(document.getElementById('world'), {
-    brand: { name: 'Vocação Update', href: '/' },
-    cta: { label: 'Pedir Update 5D', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Vocacao%20Update%20em%205%20dias' },
-    hint: 'role para sobrevoar o mundo 3d',
-    diveScroll: 1.8,
-    connScroll: 1.0,
+    brand: { name: 'Vocação', href: 'index.html' },
+    pageLinks: [
+      { label: 'Início', href: 'index.html' },
+      { label: 'Vocação Start', href: 'vocacao-start.html' },
+      { label: 'Vocação Update', href: 'vocacao-update.html', active: true },
+      { label: 'Presença no Maps', href: 'presenca-local.html' },
+      { label: 'Tour 360°', href: 'tour-virtual.html' },
+      { label: 'Portfólio', href: 'portfolio.html' }
+    ],
+    cta: { label: 'Pedir Vocação Update', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Vocacao%20Update%20em%205%20dias', target: '_blank' },
+    hint: 'role para ver a transformação',
+    diveScroll: 1.05,
+    connScroll: 0.5,
     atmosphere: true,
     sections: [
       {
-        id: 'operacao',
-        label: '01. A Máquina em Ação',
-        still: 'videos/update/signal-waves-poster.jpg',
-        clip: 'videos/update/signal-waves-scrub.mp4',
+        id: 'diagnostico',
+        label: '01. De 4.6s para 0.4s',
+        still: 'img/scenes/update-scene-1.jpg',
         accent: '#E5B910',
-        scroll: 2.2,
-        linger: 0.45,
-        eyebrow: 'PROTOCOLO VOCAÇÃO UPDATE · CICLO 5 DIAS',
-        title: 'A modernização completa do seu site em até 5 dias.',
-        body: 'A gente pega toda a estrutura do seu site atual, extrai as informações e entrega uma versão nova, ultrarrápida e pronta para vender no WhatsApp, sem você precisar perder tempo escrevendo nada do zero.',
-        tags: ['Zero Redação', 'Carregamento < 1s', 'Foco no WhatsApp']
+        scroll: 1.05,
+        eyebrow: 'VOCAÇÃO UPDATE · R$ 980 · ENTREGA EM 5 DIAS',
+        title: 'Seu site antigo está expulsando quem já decidiu comprar.',
+        body: 'Um site feito anos atrás demora de 4 a 6 segundos no 4G e esconde o botão de contato. Nós transformamos sua página atual em uma vitrine editorial que abre em menos de 0.5s e leva o cliente direto pro seu WhatsApp.',
+        tags: ['Carregamento < 0.5s', 'Mobile-First', 'R$ 980 (50/50)'],
+        cta: {
+          primary: { label: 'Ver Antes & Depois Real ↓', href: '#cases' },
+          secondary: { label: 'Pedir no WhatsApp', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20fazer%20o%20Vocacao%20Update%20do%20meu%20site%20em%205%20dias' }
+        }
       },
       {
         id: 'modular',
-        label: '02. Extração & Montagem',
-        still: 'videos/update/data-cartridges-poster.jpg',
-        clip: 'videos/update/data-cartridges-scrub.mp4',
+        label: '02. Zero Redação',
+        still: 'img/scenes/update-scene-2.jpg',
         accent: '#E5B910',
-        scroll: 2.4,
-        linger: 0.5,
-        eyebrow: 'ENGENHARIA INDUSTRIAL MODULAR',
-        title: 'Seu conteúdo resgatado e lapidado.',
-        body: 'Cada cartucho (estrutura, fotos, catálogo, ofertas) é extraído do site antigo e encaixado em um chassi moderno com velocidade máxima no 4G e 5G.',
-        tags: ['Snap Automático', 'Score 98+', 'Chave na Mão'],
+        scroll: 1.05,
+        eyebrow: 'ENGENHARIA SEM DOR DE CABEÇA',
+        title: 'Nós resgatamos seu conteúdo. Você não escreve nada do zero.',
+        body: 'Sem reuniões intermináveis e sem formulários gigantes. Nossa equipe extrai seus textos, fotos e serviços atuais, aplica direção de arte de padrão internacional e mantém seu domínio e e-mails intactos.',
+        tags: ['Zero Reuniões Longas', 'Mesmo Domínio & E-mails', 'Chave na Mão'],
+        cta: {
+          primary: { label: 'Ver Antes & Depois Real ↓', href: '#cases' }
+        }
+      },
+      {
+        id: 'conversao',
+        label: '03. Garantia 50/50',
+        still: 'img/scenes/start-scene-2.jpg',
+        accent: '#E5B910',
+        scroll: 1.05,
+        eyebrow: 'PAGAMENTO APÓS VALIDAÇÃO NO CELULAR',
+        title: 'Pronto em 5 dias úteis. Você valida no ar antes de quitar.',
+        body: 'Você inicia com 50% (R$ 490) e só paga os outros 50% depois de testar seu novo site voando no seu próprio celular. Um único contrato ou pedido novo já paga todo o investimento.',
+        tags: ['5 Dias Úteis', '50% Entrada · 50% na Aprovação', 'Pix ou InfinitePay'],
         cta: {
           primary: { label: 'Quero meu site novo em 5 dias', href: 'https://wa.me/5515981512083?text=Ol%C3%A1!%20Quero%20fazer%20o%20Vocacao%20Update%20do%20meu%20site%20em%205%20dias' },
-          secondary: { label: 'Ver Cases Reais ↓', href: '#cases' }
+          secondary: { label: 'Testar Cases Auditados ↓', href: '#cases' }
         }
       }
     ],

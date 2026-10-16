@@ -1,0 +1,155 @@
+[
+  {
+    "time": "09:05:10",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Clínica Russo Odontologia",
+    "phone": "551532331516",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:05:12",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Dr. Gaspar Martins da Silva",
+    "phone": "551532310205",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:05:14",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Consultório Especializado",
+    "phone": "551532348890",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:05:16",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Centro Clínico",
+    "phone": "551534188848",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:05:18",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Consultório Odontológico",
+    "phone": "551532321450",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:05:20",
+    "status": "failed",
+    "reason": "Telefone Fixo (Sem WhatsApp)",
+    "name": "Espaço Saúde Pereira da Silva",
+    "phone": "551532314411",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:08:55",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Studio Funcional Rosália Fitness",
+    "phone": "5515991887722",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "09:10:26",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Clínica Dermatológica Dra. Paula",
+    "phone": "5515996145520",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Update"
+  },
+  {
+    "time": "09:12:58",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Clínica LES Medicina",
+    "phone": "551532335772",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:01:19",
+    "status": "failed",
+    "reason": "Sem WhatsApp ou falha na API",
+    "name": "Personal Studio Santa Rosália",
+    "phone": "5515997116633",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:01:50",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Barbearia Tradicional Santa Rosália",
+    "phone": "5515991228899",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:02:21",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Ateliê da Beleza & Sobrancelhas",
+    "phone": "5515998337711",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:02:54",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Studio Nails & Beauty Santa Rosália",
+    "phone": "5515997661188",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:03:24",
+    "status": "failed",
+    "reason": "Sem WhatsApp ou falha na API",
+    "name": "Boutique Animal Estética Pet",
+    "phone": "5515991332211",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:03:55",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Empório Gourmet Santa Rosália",
+    "phone": "5515998221144",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:04:26",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Doce Encanto Confeitaria Fina",
+    "phone": "5515991554433",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "13:04:56",
+    "status": "failed",
+    "reason": "Sem WhatsApp ou falha na API",
+    "name": "Choperia & Espetaria Santa Rosália",
+    "phone": "5515997339900",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  }
+]

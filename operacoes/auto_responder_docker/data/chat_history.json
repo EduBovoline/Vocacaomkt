@@ -1,0 +1,630 @@
+{
+  "5511976035867": [
+    {
+      "role": "Lead (Gui)",
+      "text": "Legal, mas é padaria industrial, fazemos pão para toda região de sorocaba",
+      "at": "2026-09-30T13:42:40.987155"
+    },
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Opa Gui, excelente saber! Muda totalmente o cenário: vocês são indústria e distribuição regional B2B. Vocês atendem principalmente supermercados, minimercados, hotéis e restaurantes, ou fornecem também para padarias menores da região? E hoje a abertura de novos pontos e clientes é feita mais no boca a boca/motoristas na rua ou vocês já têm um time comercial ativo?",
+      "at": "2026-09-30T13:48:18"
+    },
+    {
+      "role": "Lead (Gui)",
+      "text": "Ah muita coisa pra responder, não tenho tempo. Falo com você depois m",
+      "at": "2026-09-30T13:51:10.381142"
+    },
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Imagino perfeitamente, Gui! A rotina de indústria é puxada mesmo. Fique super tranquilo. Quando tiver um respiro, me chama aqui ou conversamos com calma. Bom trabalho por aí!",
+      "at": "2026-09-30T13:52:00.129551"
+    }
+  ],
+  "5515998124010": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:00:08.944769"
+    }
+  ],
+  "5515997812030": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:04:09.646432"
+    }
+  ],
+  "5515991767971": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:09:46.821559"
+    },
+    {
+      "role": "Lead (Clínica Paes)",
+      "text": "Seja bem vindo a Clínica Paes!\nAgradecemos por escolher entrar em contato conosco. Você pode me contar um pouco mais sobre o que deseja melhorar ou o que te motivou a buscar nosso atendimento? Assim conseguimos entender melhor suas expectativas e oferecer um cuidado mais personalizado.",
+      "at": "2026-09-30T14:09:51.647138"
+    },
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Muito bom, Clínica Paes Pilates & Fisio. Área de saúde exige muita autoridade e confiança. Hoje a maior parte dos seus pacientes chega por indicação ou pelas buscas do Google?",
+      "at": "2026-09-30T14:20:01.739764"
+    }
+  ],
+  "5515998104400": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:21:18.706848"
+    }
+  ],
+  "5515981223300": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:30:56.918030"
+    }
+  ],
+  "5515996551200": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:35:56.901879"
+    }
+  ],
+  "5515997334411": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:39:59.556103"
+    }
+  ],
+  "5515981559944": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:44:03.235632"
+    }
+  ],
+  "5515991166474": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:53:47.168461"
+    }
+  ],
+  "5515997443322": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T11:58:30.849963"
+    }
+  ],
+  "5515996225544": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:04:12.746228"
+    }
+  ],
+  "5515981722170": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:09:50.746294"
+    }
+  ],
+  "5515996841434": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:14:17.693370"
+    },
+    {
+      "role": "Lead (Deniane Almeida VETERINÁRIA FISIOTERAPEUTA)",
+      "text": "✨Olá! Muito obrigada pelo seu contato!\nSou a Dra. Deniane Almeida médica veterinária fisioterapeuta com foco em medicina integrativa.\n\n📅 Meu horário de atendimento é de segunda a sexta, das 9h às 18h.\nMensagens enviadas fora desse horário serão respondidas no próximo dia útil.\n\n⚠️ Importante: não realizo atendimentos de urgência ou emergência.\nSe seu pet apresenta sinais como convulsões, vômitos, sangramentos ou dificuldade respiratória, por favor, leve-o imediatamente ao hospital veterinário mais próximo.\n\n💜 Agora, se o seu pet está com dificuldade para andar, claudicando, com dor crônica ou alterações neurológicas, ou precisa envelhecer bem, pode contar comigo!\nEsses são os casos que acolho com cuidado, dedicação e técnica.\n\nCom carinho,\nDra. Deniane Almeida – Veterinária Fisioterapeuta\n\n✨Transformando limitações em novos passos !!!",
+      "at": "2026-09-30T15:14:21.031323"
+    }
+  ],
+  "5515996118833": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:29:06.695164"
+    }
+  ],
+  "5515997123344": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:34:26.420154"
+    }
+  ],
+  "5515991448855": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:40:14.417441"
+    }
+  ],
+  "5515981336622": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:44:18.098756"
+    }
+  ],
+  "5515996113377": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T12:53:49.941769"
+    },
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T16:30:13.840255"
+    }
+  ],
+  "5515996442200": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T13:09:59.930837"
+    },
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T16:43:13.706307"
+    }
+  ],
+  "5515998335522": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T13:15:30.642653"
+    },
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T16:44:23.628328"
+    }
+  ],
+  "5515991884422": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-09-30T16:54:25.528717"
+    }
+  ],
+  "1807055946647698": [
+    {
+      "role": "Lead (Meta Business Agent)",
+      "text": "Olá! Para que eu possa facilitar o fechamento de novos negócios para a *Vocação*, você poderia me informar quais são os seus *métodos de pagamento* aceitos?\n\nSe você utiliza o *PIX*, pode me enviar as suas chaves por aqui? Ter essas informações salvas me permite ajudar seus clientes a concluir contratações de forma muito mais rápida!",
+      "at": "2026-10-01T13:05:06.124919"
+    }
+  ],
+  "5515996409494": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Google e notei um contraste: o espaço físico de vocês tem excelente padrão, mas quem pesquisa na nossa região não encontra uma apresentação visual rápida que transmita essa mesma autoridade imediata. Posso te enviar um diagnóstico visual mostrando como estruturar isso?",
+      "at": "2026-10-01T14:32:46.040401"
+    }
+  ],
+  "5515998500008": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a busca local da clínica na nossa região e notei um detalhe estratégico: quem pesquisa pelos seus tratamentos no Google acaba encontrando opções vizinhas antes de vocês por detalhes de otimização no Maps e ausência de canal direto rápido. Posso te enviar um resumo mostrando como posicionar a clínica como primeira escolha local?",
+      "at": "2026-10-01T14:39:38.731897"
+    },
+    {
+      "role": "Lead (BodyBe Sorocaba)",
+      "text": "Desejamos as boas-vindas a *BodyBe Sorocaba* 💙\n\nMuito obrigado por compartilhar sua análise!  \nPara propostas de serviços ou parcerias, envie seu material para sorocaba@bodybebrasil.com.br 💌\n\nPodemos ajudar em mais alguma coisa?",
+      "at": "2026-10-01T14:40:01.926517"
+    },
+    {
+      "role": "Lead (BodyBe Sorocaba)",
+      "text": "Agradecemos muito o envio do material e sua disponibilidade! 💙  \nVamos analisar sua proposta com atenção.\n\nDesejamos sucesso e nos colocamos à disposição caso queira conhecer nossos serviços. Tenha um ótimo dia! 😊",
+      "at": "2026-10-01T14:40:37.891072"
+    }
+  ],
+  "5515996683892": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no Google e notei um contraste: o espaço físico de vocês tem excelente padrão, mas quem pesquisa na nossa região não encontra uma apresentação visual rápida que transmita essa mesma autoridade imediata. Posso te enviar um diagnóstico visual mostrando como estruturar isso?",
+      "at": "2026-10-01T14:43:56.453252"
+    },
+    {
+      "role": "Lead (Instituto Stella Maris)",
+      "text": "Vou repassar a sua mensagem para a equipe responsável pela presença digital da clínica.",
+      "at": "2026-10-01T14:46:54.664600"
+    },
+    {
+      "role": "Lead (Instituto Stella Maris)",
+      "text": "Antes de tudo, poderia me dizer seu nome por favor?",
+      "at": "2026-10-01T14:47:05.339413"
+    },
+    {
+      "role": "Lead (Instituto Stella Maris)",
+      "text": "Boa tarde! Tudo bem? 😊 \nMeu nome é Débora e vou dar continuidade ao seu atendimento.\nDesculpe pela demora, estamos com um alto volume de mensagens.\n\nFicou com alguma dúvida sobre algum procedimento?",
+      "at": "2026-10-01T16:35:39.655918"
+    },
+    {
+      "role": "Lead (Instituto Stella Maris)",
+      "text": "Oi, vi sim",
+      "at": "2026-10-01T16:39:13.945183"
+    },
+    {
+      "role": "Lead (Instituto Stella Maris)",
+      "text": "Vou te passar o contato da Dra. Stella",
+      "at": "2026-10-01T16:39:25.994923"
+    }
+  ],
+  "5515997539318": [
+    {
+      "role": "Lead (Mova-se Pilates)",
+      "text": "Não precisa \nObrigada",
+      "at": "2026-10-01T15:24:33.394235"
+    },
+    {
+      "role": "Lead (Mova-se Pilates)",
+      "text": "Obrigada Igualmente",
+      "at": "2026-10-01T15:26:01.940302"
+    }
+  ],
+  "551530165548": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-01T16:13:00.619019"
+    },
+    {
+      "role": "Lead (Silvério Odontologia)",
+      "text": "Olá, como vai você? \nSeja muito bem vind@ a Silvério Odonto 💙\n\nPara iniciar nosso atendimento poderia nos informar:\n\n➡️ *Seu nome completo, data de nascimento e telefone para contato* \n\n*Consultas pelo convênio, informar qual é o convênio e enviar a numeração de carteirinha.*  \n\n⚠️ *Pedimos a paciência de até 24 horas* para um retorno, pois recebemos muitas mensagens diariamente, e são respondidas por ondem de envio.\n\n*ATENÇÃO: o atendimento somente inicia após os envios das informações pedidas acima*",
+      "at": "2026-10-01T16:13:04.108872"
+    },
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Olá! Sou o Eduardo, da Vocação Comunicação aqui de Sorocaba. Vi que vocês possuem um trabalho de excelência no Santa Rosália, mas quem pesquisa pelos seus serviços no Google ainda não encontra uma vitrine digital à altura para passar confiança de primeira. O meu trabalho aqui na cidade é justamente estruturar essa autoridade visual no Maps e no celular. Como é um assunto ligado à imagem da empresa, com quem posso falar sobre isso?",
+      "at": "2026-10-01T16:15:06.393990"
+    }
+  ],
+  "551533571363": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-01T16:13:01.451825"
+    },
+    {
+      "role": "Lead (Orodent Sta Rosalia)",
+      "text": "‎Orodent Santa Rosália agradece seu contato. \nPara agilizar seu atendimento nos informe seu nome e em que podemos ajudar  😁\n-  *Não ouvimos áudio e não atendemos ligações pelo Whatsapp*\n- *As mensagens são respondidas por ordem de chegada,caso mande mais mensagens sua conversa retorna ao final da fila*.",
+      "at": "2026-10-01T16:13:05.475543"
+    },
+    {
+      "role": "Lead (Orodent Sta Rosalia)",
+      "text": "Olá, Tudo bem?\nBem-vindo(a) ao atendimento virtual da *ORODENT SANTA ROSÁLIA*  😁\n\nEm caso de *URĜENCIA*, ligue para: (15) 33255178 ou (15) 33571363\n\nEnd. Avenida Pereira da Silva, 1631 – Santa Rosália\n\nVocê é nosso cliente?\n*1* - Sim\n*2* - Não \n*3* - Anúncio",
+      "at": "2026-10-01T16:13:06.754286"
+    },
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Olá! Sou o Eduardo, da Vocação Comunicação aqui de Sorocaba. Vi que vocês possuem um trabalho de excelência no Santa Rosália, mas quem pesquisa pelos seus serviços no Google ainda não encontra uma vitrine digital à altura para passar confiança de primeira. O meu trabalho aqui na cidade é justamente estruturar essa autoridade visual no Maps e no celular. Como é um assunto ligado à imagem da empresa, com quem posso falar sobre isso?",
+      "at": "2026-10-01T16:15:43.014919"
+    },
+    {
+      "role": "Lead (Orodent Sta Rosalia)",
+      "text": "Desculpe, não entendi. Por favor, digite uma das opções acima!",
+      "at": "2026-10-01T16:15:47.366109"
+    }
+  ],
+  "551530111204": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-01T16:28:19.956825"
+    }
+  ],
+  "551530313394": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Saúde & Estética no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-01T16:34:08.893832"
+    },
+    {
+      "role": "Lead (Fiscal Prestes Contabilidade)",
+      "text": "‎Fiscal Prestes Contabilidade agradece seu contato. Aguarde um instante que a Jô ou a Renata irá lhe atender",
+      "at": "2026-10-01T16:34:27.068451"
+    }
+  ],
+  "5511961534050": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá Florencio Marcenaria! Analisei a presença digital de vocês no Google e notei que a página atual ainda não está 100% acelerada no celular para quem busca serviços de alto padrão em Sorocaba e região. O trabalho da Vocação aqui na cidade é justamente modernizar essa estrutura mobile para converter mais visitantes em chamadas no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando os pontos prioritários? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-05T14:56:29.810433"
+    }
+  ],
+  "5511915736479": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá Missão & Silva Marcenaria de Alto Padrão! Analisei a presença digital de vocês no Google e notei que a página atual ainda não está 100% acelerada no celular para quem busca serviços de alto padrão em Sorocaba e região. O trabalho da Vocação aqui na cidade é justamente modernizar essa estrutura mobile para converter mais visitantes em chamadas no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando os pontos prioritários? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-05T14:56:31.155012"
+    }
+  ],
+  "5515992883434": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália (pertinho de vocês na Pereira da Silva). Vi o trabalho de excelência da Equilíbrio Saúde, mas notei que quem pesquisa pelas especialidades no Google pelo celular não encontra uma vitrine de agendamento ágil. Posso te enviar um diagnóstico visual de 2 minutos mostrando como transformar buscas locais em consultas? (Se preferir não receber, responda PARAR).",
+      "at": "2026-10-06T14:34:53.172287"
+    },
+    {
+      "role": "Lead (Equilíbrio Saúde Medicina Integrada)",
+      "text": "Olá! Boa tarde, como vai? Me chamo Manuella e vou dar início ao seu atendimento. \nVamos passar para o setor responsável e assim que possivel eles entram em contato.",
+      "at": "2026-10-06T17:22:14.788330"
+    },
+    {
+      "role": "Lead (Equilíbrio Saúde Medicina Integrada)",
+      "text": "Olá! Boa tarde, como vai? Me chamo Manuella e vou dar início ao seu atendimento. \nVamos passar o contato do setor responsável para conversarem melhor, é o 15 99721-6765 responsável Patrícia Guerra",
+      "at": "2026-10-06T17:24:30.616324"
+    },
+    {
+      "role": "Lead (Equilíbrio Saúde Medicina Integrada)",
+      "text": "Imagina!",
+      "at": "2026-10-06T20:03:18.662774"
+    }
+  ],
+  "5515997118853": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália. Vi o Studio Espaço Pilates na Pereira da Silva e notei que quem busca aulas de pilates na nossa região acaba caindo em anúncios patrocinados antes de encontrar vocês. O meu trabalho aqui no bairro é estruturar a presença mobile no Maps. Posso te mandar uma prévia visual de 2 minutos?",
+      "at": "2026-10-06T14:34:55.013883"
+    },
+    {
+      "role": "Lead (Aline Furlan)",
+      "text": "Pode sim Eduardo",
+      "at": "2026-10-06T15:05:55.150086"
+    }
+  ],
+  "5515988204559": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui da região de Santa Rosália. Vi o espaço Maju Vitalis na Mascarenhas Camelo e achei o conceito excelente. Quem pesquisa por terapias integrativas em Sorocaba hoje decide em menos de 5 segundos no celular. Posso te enviar um diagnóstico de 2 minutos para fortalecer sua presença local?",
+      "at": "2026-10-06T14:39:36.161258"
+    },
+    {
+      "role": "Lead (Dra. Marta Juçara Ozonioterapeuta)",
+      "text": "Oi bom dia",
+      "at": "2026-10-06T14:49:37.138595"
+    },
+    {
+      "role": "Lead (Dra. Marta Juçara Ozonioterapeuta)",
+      "text": "Tudo bem?",
+      "at": "2026-10-06T14:49:43.502464"
+    },
+    {
+      "role": "Lead (Dra. Marta Juçara Ozonioterapeuta)",
+      "text": "Sim",
+      "at": "2026-10-06T14:49:46.426297"
+    }
+  ],
+  "5515976039835": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália. Conheço a região da Daniel Paulo Verano Pontes e notei que a FISIOMUV tem um atendimento impecável, mas quem pesquisa fisioterapia no Google Maps muitas vezes não vê a estrutura completa de primeira. Posso te mandar uma análise visual rápida de 2 min?",
+      "at": "2026-10-06T14:44:25.262804"
+    },
+    {
+      "role": "Lead (None)",
+      "text": "Olá! Já conectei você com a proprietária para que ela possa analisar sua proposta e responder diretamente.",
+      "at": "2026-10-06T14:44:37.921416"
+    },
+    {
+      "role": "Lead (Fisiomuv)",
+      "text": "Ola não temos. Interesse no momento estamos migrando para outro país. Mas obrigada pelos eu tempo.",
+      "at": "2026-10-06T15:01:38.686516"
+    }
+  ],
+  "5515998629088": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália (pertinho de vocês na Nicolau Alonso Filho). Vi os produtos da Gold Outlet e reparei que vocês dependem quase que exclusivamente de redes sociais, enquanto quem busca ofertas no Google da nossa região não encontra um catálogo direto no Maps. Posso te enviar uma demonstração de 2 minutos?",
+      "at": "2026-10-06T14:48:48.324013"
+    }
+  ],
+  "5515997216765": [
+    {
+      "role": "Vocação (Eduardo)",
+      "text": "Olá Patrícia, bom dia! A Manuella me passou seu contato direto para falar sobre a Equilíbrio Saúde. Sou o Eduardo, da Vocação aqui de Santa Rosália (pertinho de vocês na Pereira da Silva). Preparei um diagnóstico visual de 2 minutos mostrando como transformar as buscas de medicina integrada no Google em consultas particulares. Posso te encaminhar por aqui para você dar uma olhada? (Se preferir não receber mensagens comerciais, responda PARAR).",
+      "at": "2026-10-07T11:11:40"
+    }
+  ],
+  "5515996111325": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália. Vi a Fino Faro na Rua Aparecida. Tutores da região costumam buscar banho e tosa no celular de última hora no Maps. Notamos um detalhe na presença mobile de vocês que pode aumentar os agendamentos semanais. Posso te mandar um diagnóstico de 2 minutos?",
+      "at": "2026-10-07T14:12:40.752191"
+    },
+    {
+      "role": "Lead (Pet Fino Faro)",
+      "text": "‎Pet Fino Faro agradece seu contato. Para agendamento de banho e ou tosa por favor informar a raça do seu 🐶ou🐱. Para produtos por favor nos informar o que precisa😉",
+      "at": "2026-10-07T14:12:43.276255"
+    },
+    {
+      "role": "Lead (Pet Fino Faro)",
+      "text": "‎Pet Fino Faro agradece seu contato. Para agendamento de banho e ou tosa por favor informar a raça do seu 🐶ou🐱. Para produtos por favor nos informar o que precisa😉",
+      "at": "2026-10-07T14:14:05.423204"
+    }
+  ],
+  "5515998461717": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui da Pereira da Silva. O Bella Parma é um clássico aqui em Santa Rosália, mas quem pesquisa pelo cardápio no celular muitas vezes tem dificuldade de ver as opções rápido antes de pedir no WhatsApp. Posso te mostrar um modelo de cardápio mobile veloz de 2 minutos?",
+      "at": "2026-10-07T14:18:31.241750"
+    },
+    {
+      "role": "Lead (Bella Parma Santa Rosalia)",
+      "text": "Prezados clientes,\n\nNão recebemos pedidos pelo WhatsApp. Como nossa maior demanda é por telefone e iFood, concentramos os pedidos nesses canais.\n\nO WhatsApp é utilizado principalmente para envio de comprovantes e o cardápio que se encontra em nosso catálogo!\n📞 (15) 3036-1717\n📞 (15) 99846-1717\n📞 (15) 3036-1279\n📞 (15) 3316-0289\n\nAgradecemos a compreensão!\nBella Parma",
+      "at": "2026-10-07T14:18:39.072047"
+    }
+  ],
+  "5515996064556": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui da região da Mascarenhas Camelo. Vi a tradição da Kikavest e reparei que quem visita o site pelo celular hoje encontra uma estrutura pesada. Podemos transformar sua vitrine numa experiência fluida de compra. Posso te enviar uma análise rápida de 2 minutos?",
+      "at": "2026-10-07T14:23:37.808354"
+    }
+  ],
+  "5515996937331": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui de Santa Rosália/Vila Santana. Vi os trabalhos impecáveis da Mega Make Hair na Mascarenhas Camelo. No Google Maps, muitas clientes que procuram salão de beleza no bairro acabam não vendo a tabela e portfólio de vocês de imediato. Posso te mandar uma prévia de 2 minutos?",
+      "at": "2026-10-07T14:27:46.006016"
+    },
+    {
+      "role": "Lead (Nátali Souza)",
+      "text": "Olá acho q enviou mensagem errada",
+      "at": "2026-10-07T14:34:47.126163"
+    }
+  ],
+  "5515997915853": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Olá! Sou o Eduardo, da Vocação aqui da região da Mascarenhas Camelo. Vi a loja do Arteliê e acho o trabalho de vocês incrível. Hoje quem busca presentes criativos no bairro pesquisa no Maps antes de sair de casa. Posso te enviar uma ideia de 2 minutos para colocar seus produtos na vitrine digital?",
+      "at": "2026-10-07T14:33:14.265595"
+    }
+  ],
+  "5515991887722": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na R Mascarenhas Camelo, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T12:08:55.664649"
+    }
+  ],
+  "5515996145520": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na Av Pereira da Silva, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T12:10:26.939619"
+    }
+  ],
+  "551532335772": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na R Maria Cinto de Biaggi, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T12:12:58.634129"
+    }
+  ],
+  "5515991228899": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na Av Pereira da Silva, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T13:01:50.568347"
+    }
+  ],
+  "5515998337711": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na R Nicolau Alonso Filho, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T13:02:21.368131"
+    },
+    {
+      "role": "Lead (Pedrogeremias)",
+      "text": "Opa",
+      "at": "2026-10-13T21:34:32.457374"
+    }
+  ],
+  "5515997661188": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na R Mascarenhas Camelo, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T13:02:54.272838"
+    }
+  ],
+  "5515998221144": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na Av Pereira da Silva, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T13:03:55.389991"
+    }
+  ],
+  "5515991554433": [
+    {
+      "role": "Vocação (Hook Prospecção)",
+      "text": "Oi, tudo bem? Aqui é o Eduardo, da Vocação aqui do Santa Rosália.\nVi a estrutura e o trabalho de vocês na R Mascarenhas Camelo, mas reparei que quem procura pelos serviços no Google aqui pelo celular não encontra uma página própria da empresa para passar confiança de primeira antes de chamar no WhatsApp.\nA gente estrutura essa vitrine profissional em 5 dias aqui na região. Quem cuida dessa parte digital com vocês?",
+      "at": "2026-10-08T13:04:26.137486"
+    }
+  ],
+  "558195152999": [
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Oi",
+      "at": "2026-10-08T20:01:30.666937"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Tenho que ver amigo. Eu prefiro ver lojas com o tema e oferecer. Só diminuir o trampo um pouco. Esperar o povo voltar pra campo aí tenho uns dias mais folgados",
+      "at": "2026-10-08T20:02:54.268589"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "🤣",
+      "at": "2026-10-13T21:36:09.620623"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Me manda a proposta de novo. Pro e-mail é melhor amigo",
+      "at": "2026-10-13T21:36:10.171217"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "andrerhandrade@gmail.com",
+      "at": "2026-10-13T21:36:10.725431"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Eu vou dividir no máximo de parcelas possíveis visse 🤣",
+      "at": "2026-10-13T21:36:11.294546"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Bundinha 🤸🏽‍♂️",
+      "at": "2026-10-14T13:11:51.909672"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Eu vi amigo",
+      "at": "2026-10-14T13:11:52.832110"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Só terminar um relatório e vejo",
+      "at": "2026-10-14T13:11:53.715085"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Vou ver agora",
+      "at": "2026-10-15T23:26:56.565747"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Passei a tarde dormindo. To lascado. Mais uma madrugada acordado eu acho 😅",
+      "at": "2026-10-15T23:27:29.771014"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Queria 😭",
+      "at": "2026-10-15T23:33:36.893861"
+    },
+    {
+      "role": "Lead (André 🙃)",
+      "text": "Vi por alto. Amanhã antes do trampo dou uma olhada melhor. Mas ameiiii..muito melhor do que aquele inlead tosco 😍",
+      "at": "2026-10-16T00:44:20.374396"
+    }
+  ],
+  "5515991985650": [
+    {
+      "role": "Lead (ADRIANA PONTILLO FIRMA DE ADVOGADOS)",
+      "text": "*Justa causa pode ser revertida? Veja quando a demissão é considerada injusta - DRA ADRIANA PONTILLO - Advogada Trabalhista*\nEntenda quando uma demissão por justa causa pode ser contestada, o que analisar nas provas e por que a reversão depende do caso concreto.\nhttps://pontilloadvocacia.com.br/justa-causa-pode-ser-revertida-veja-quando-a-demissao-e-considerada-injusta/",
+      "at": "2026-10-13T21:33:09.341703"
+    }
+  ]
+}

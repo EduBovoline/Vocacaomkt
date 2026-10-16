@@ -12,10 +12,12 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Logs
+# Logs & temp
 *.log
-
-# Relatórios internos — nunca subir ao Git
-Prospects/
-site_novo_temp/
 *.zip
+site_novo_temp/
+Prospects/
+.temp_leads/
+
+# Pipeline generation scripts & raw API responses
+**/scroll-world/scripts/

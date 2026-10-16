@@ -1,0 +1,36 @@
+services:
+  auto-responder:
+    build: .
+    container_name: vocacao-auto-responder
+    restart: unless-stopped
+    ports:
+      - "5680:5680"
+      - "8000:5680"
+    environment:
+      - EVOLUTION_API_URL=http://vocacao-evolution-api:8080
+      - INSTANCE_NAME=vocacao_comercial
+      - API_KEY=vocacao_update_secret_key_2026
+      - ADMIN_WHATSAPP=5515981512083
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - ZOHO_USER=${ZOHO_USER:-contato@vocacao.digital}
+      - ZOHO_PASSWORD=${ZOHO_PASSWORD:-HGA9SmwGmfhy}
+      - POSTGRES_CRM_HOST=twenty-db-1
+      - POSTGRES_CRM_PORT=5432
+      - POSTGRES_CRM_USER=postgres
+      - POSTGRES_CRM_PASSWORD=vocacao_segura_crm_2027
+      - POSTGRES_CRM_DB=twenty
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./data:/app/data
+      - ../2 Leads:/app/leads:ro
+      - ./main.py:/app/main.py
+      - ./templates:/app/templates
+    networks:
+      - local_stack_default
+      - twenty_default
+
+networks:
+  local_stack_default:
+    external: true
+  twenty_default:
+    external: true

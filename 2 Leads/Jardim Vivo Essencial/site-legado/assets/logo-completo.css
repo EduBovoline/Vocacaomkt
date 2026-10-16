@@ -1,0 +1,9 @@
+﻿@charset "UTF-8";
+@font-face { font-family:"Balgruf";font-variant:normal;font-weight:500;src:url("#FontID1") format(svg)}
+@font-face { font-family:"Corbel";font-variant:normal;font-weight:bold;src:url("#FontID0") format(svg)}
+.fil1 {fill:#163214}
+.fil0 {fill:#253C22}
+.fil2 {fill:#7C8C71}
+.fil3 {fill:white;fill-rule:nonzero}
+.fnt0 {font-weight:bold;font-size:1319.2px;font-family:'Corbel'}
+.fnt1 {font-weight:500;font-size:2923.08px;font-family:'Balgruf'}

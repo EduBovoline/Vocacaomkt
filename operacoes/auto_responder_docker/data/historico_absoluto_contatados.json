@@ -1,0 +1,918 @@
+{
+  "phones_last8": {
+    "97120678": {
+      "name": "Ezklo Marcenaria Boutique",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997120678"
+    },
+    "32029888": {
+      "name": "Marcenaria Mantovani",
+      "status": "Diagnóstico Agendado",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3202-9888 "
+    },
+    "32219435": {
+      "name": "Marcenaria Mantovani",
+      "status": "Diagnóstico Agendado",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (15) 3221-9435"
+    },
+    "61534050": {
+      "name": "Marcenaria",
+      "status": "Contatado Anteriormente",
+      "file": "Manual",
+      "phone": "961534050"
+    },
+    "97502210": {
+      "name": "Marcenaria SHZ",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99750-2210"
+    },
+    "15736479": {
+      "name": "Marcenaria",
+      "status": "Contatado Anteriormente",
+      "file": "Manual",
+      "phone": "915736479"
+    },
+    "70322422": {
+      "name": "Marcenaria",
+      "status": "Contatado Anteriormente",
+      "file": "Manual",
+      "phone": "970322422"
+    },
+    "97157075": {
+      "name": "Oakhouse Marcenaria (RR Marcenaria)",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99715-7075"
+    },
+    "33251063": {
+      "name": "MDM Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3325-1063 "
+    },
+    "96503634": {
+      "name": "MDM Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (15) 99650-3634"
+    },
+    "33426799": {
+      "name": "Mendes Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3342-6799 "
+    },
+    "91670071": {
+      "name": "Mendes Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (15) 99167-0071"
+    },
+    "81859590": {
+      "name": "{'lead_name': 'Sutil Marcenaria', 'bypassed_at': '2026-09-24T12:45:34.529184'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515981859590"
+    },
+    "12289966": {
+      "name": "Di Zanini Marcenaria Criativa",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 91228-9966"
+    },
+    "97729441": {
+      "name": "Harv Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99772-9441 "
+    },
+    "88497114": {
+      "name": "Harv Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (11) 98849-7114"
+    },
+    "98201691": {
+      "name": "{'lead_name': 'Cast Select Móveis Planejados', 'bypassed_at': '2026-09-28T17:34:47.699077'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515998201691"
+    },
+    "32335594": {
+      "name": "Criare Sorocaba",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3233-5594 "
+    },
+    "91850844": {
+      "name": "Criare Sorocaba",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (15) 99185-0844"
+    },
+    "34173500": {
+      "name": "MyBox Marcenaria Moderna Campolim",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3417-3500"
+    },
+    "10640282": {
+      "name": "Impeccabile Móveis Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 91064-0282 "
+    },
+    "82792513": {
+      "name": "Impeccabile Móveis Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": " (19) 98279-2513"
+    },
+    "74040086": {
+      "name": "Marmoraria Campolim",
+      "status": "Mensagem Enviada",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 97404-0086"
+    },
+    "91210000": {
+      "name": "Wbilino Conceito Mármores de Luxo",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99121-0000 "
+    },
+    "32280000": {
+      "name": "Grupo Granimar Superfícies Nobres",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3228-0000 "
+    },
+    "91984736": {
+      "name": "Med Cor Sorocaba",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "991984736"
+    },
+    "98500008": {
+      "name": "BodyBe Sorocaba",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "998500008"
+    },
+    "97935990": {
+      "name": "{'lead_name': 'Dr. João Gabriel Quiropraxia', 'bypassed_at': '2026-09-24T10:45:24.397888'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515997935990"
+    },
+    "91051888": {
+      "name": "{'lead_name': 'Prof. Dr. Danilo Armbrust', 'delivered_at': '2026-09-24T11:04:22.813375'}",
+      "status": "Histórico Ativo",
+      "file": "delivered_leads.json",
+      "phone": "5515991051888"
+    },
+    "98070877": {
+      "name": "{'lead_name': 'Microvita Pilates Sorocaba', 'bypassed_at': '2026-09-24T10:42:16.804917'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515998070877"
+    },
+    "99197395": {
+      "name": "{'lead_name': 'Karen (Proprietária Microvita)', 'delivered_at': '2026-09-24T12:07:49'}",
+      "status": "Histórico Ativo",
+      "file": "delivered_leads.json",
+      "phone": "5511999197395"
+    },
+    "92733623": {
+      "name": "{'lead_name': 'Revitae Pilates e Fisioterapia', 'bypassed_at': '2026-09-24T10:42:22.539418'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515992733623"
+    },
+    "81778421": {
+      "name": "{'lead_name': 'Quiro&Cia Centro de Quiropraxia', 'bypassed_at': '2026-09-24T11:07:30.675604'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515981778421"
+    },
+    "95152999": {
+      "name": "{'lead_name': 'André 🙃', 'delivered_at': '2026-09-28T14:24:22.838652'}",
+      "status": "Histórico Ativo",
+      "file": "delivered_leads.json",
+      "phone": "558195152999"
+    },
+    "98049147": {
+      "name": "{'lead_name': 'Pilates Mamy Baby', 'delivered_at': '2026-09-29T13:14:10.443929'}",
+      "status": "Histórico Ativo",
+      "file": "delivered_leads.json",
+      "phone": "5515998049147"
+    },
+    "96683892": {
+      "name": "Estética Stella Maris",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996683892"
+    },
+    "97539318": {
+      "name": "[{'role': 'Lead (Mova-se Pilates)', 'text': 'Não precisa \\nObrigada', 'at': '2026-10-01T15:24:33.394235'}, {'role': 'Lead (Mova-se Pilates)', 'text': 'Obrigada Igualmente', 'at': '2026-10-01T15:26:01.940302'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515997539318"
+    },
+    "76035867": {
+      "name": "[{'role': 'Lead (Gui)', 'text': 'Legal, mas é padaria industrial, fazemos pão para toda região de sorocaba', 'at': '2026-09-30T13:42:40.987155'}, {'role': 'Vocação (Eduardo)', 'text': 'Opa Gui, excelente saber! Muda totalmente o cenário: vocês são indústria e distribuição regional B2B. Vocês atendem principalmente supermercados, minimercados, hotéis e restaurantes, ou fornecem também para padarias menores da região? E hoje a abertura de novos pontos e clientes é feita mais no boca a boca/motoristas na rua ou vocês já têm um time comercial ativo?', 'at': '2026-09-30T13:48:18'}, {'role': 'Lead (Gui)', 'text': 'Ah muita coisa pra responder, não tenho tempo. Falo com você depois m', 'at': '2026-09-30T13:51:10.381142'}, {'role': 'Vocação (Eduardo)', 'text': 'Imagino perfeitamente, Gui! A rotina de indústria é puxada mesmo. Fique super tranquilo. Quando tiver um respiro, me chama aqui ou conversamos com calma. Bom trabalho por aí!', 'at': '2026-09-30T13:52:00.129551'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5511976035867"
+    },
+    "98124010": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:00:08.944769'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515998124010"
+    },
+    "97812030": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:04:09.646432'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515997812030"
+    },
+    "91767971": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:09:46.821559'}, {'role': 'Lead (Clínica Paes)', 'text': 'Seja bem vindo a Clínica Paes!\\nAgradecemos por escolher entrar em contato conosco. Você pode me contar um pouco mais sobre o que deseja melhorar ou o que te motivou a buscar nosso atendimento? Assim conseguimos entender melhor suas expectativas e oferecer um cuidado mais personalizado.', 'at': '2026-09-30T14:09:51.647138'}, {'role': 'Vocação (Eduardo)', 'text': 'Muito bom, Clínica Paes Pilates & Fisio. Área de saúde exige muita autoridade e confiança. Hoje a maior parte dos seus pacientes chega por indicação ou pelas buscas do Google?', 'at': '2026-09-30T14:20:01.739764'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515991767971"
+    },
+    "98104400": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:21:18.706848'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515998104400"
+    },
+    "81223300": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:30:56.918030'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515981223300"
+    },
+    "96551200": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:35:56.901879'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996551200"
+    },
+    "97334411": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:39:59.556103'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515997334411"
+    },
+    "81559944": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:44:03.235632'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515981559944"
+    },
+    "91166474": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:53:47.168461'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515991166474"
+    },
+    "97443322": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T11:58:30.849963'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515997443322"
+    },
+    "96225544": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:04:12.746228'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996225544"
+    },
+    "81722170": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:09:50.746294'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515981722170"
+    },
+    "96841434": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:14:17.693370'}, {'role': 'Lead (Deniane Almeida VETERINÁRIA FISIOTERAPEUTA)', 'text': '✨Olá! Muito obrigada pelo seu contato!\\nSou a Dra. Deniane Almeida médica veterinária fisioterapeuta com foco em medicina integrativa.\\n\\n📅 Meu horário de atendimento é de segunda a sexta, das 9h às 18h.\\nMensagens enviadas fora desse horário serão respondidas no próximo dia útil.\\n\\n⚠️ Importante: não realizo atendimentos de urgência ou emergência.\\nSe seu pet apresenta sinais como convulsões, vômitos, sangramentos ou dificuldade respiratória, por favor, leve-o imediatamente ao hospital veterinário mais próximo.\\n\\n💜 Agora, se o seu pet está com dificuldade para andar, claudicando, com dor crônica ou alterações neurológicas, ou precisa envelhecer bem, pode contar comigo!\\nEsses são os casos que acolho com cuidado, dedicação e técnica.\\n\\nCom carinho,\\nDra. Deniane Almeida – Veterinária Fisioterapeuta\\n\\n✨Transformando limitações em novos passos !!!', 'at': '2026-09-30T15:14:21.031323'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996841434"
+    },
+    "96118833": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:29:06.695164'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996118833"
+    },
+    "97123344": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:34:26.420154'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515997123344"
+    },
+    "91448855": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:40:14.417441'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515991448855"
+    },
+    "81336622": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:44:18.098756'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515981336622"
+    },
+    "96113377": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T12:53:49.941769'}, {'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T16:30:13.840255'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996113377"
+    },
+    "96442200": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T13:09:59.930837'}, {'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T16:43:13.706307'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515996442200"
+    },
+    "98335522": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T13:15:30.642653'}, {'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T16:44:23.628328'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515998335522"
+    },
+    "91884422": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-09-30T16:54:25.528717'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "5515991884422"
+    },
+    "46647698": {
+      "name": "[{'role': 'Lead (Meta Business Agent)', 'text': 'Olá! Para que eu possa facilitar o fechamento de novos negócios para a *Vocação*, você poderia me informar quais são os seus *métodos de pagamento* aceitos?\\n\\nSe você utiliza o *PIX*, pode me enviar as suas chaves por aqui? Ter essas informações salvas me permite ajudar seus clientes a concluir contratações de forma muito mais rápida!', 'at': '2026-10-01T13:05:06.124919'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "1807055946647698"
+    },
+    "96409494": {
+      "name": "Lumiè Estética Avançada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996409494"
+    },
+    "30165548": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-10-01T16:13:00.619019'}, {'role': 'Lead (Silvério Odontologia)', 'text': 'Olá, como vai você? \\nSeja muito bem vind@ a Silvério Odonto 💙\\n\\nPara iniciar nosso atendimento poderia nos informar:\\n\\n➡️ *Seu nome completo, data de nascimento e telefone para contato* \\n\\n*Consultas pelo convênio, informar qual é o convênio e enviar a numeração de carteirinha.*  \\n\\n⚠️ *Pedimos a paciência de até 24 horas* para um retorno, pois recebemos muitas mensagens diariamente, e são respondidas por ondem de envio.\\n\\n*ATENÇÃO: o atendimento somente inicia após os envios das informações pedidas acima*', 'at': '2026-10-01T16:13:04.108872'}, {'role': 'Vocação (Eduardo)', 'text': 'Olá! Sou o Eduardo, da Vocação Comunicação aqui de Sorocaba. Vi que vocês possuem um trabalho de excelência no Santa Rosália, mas quem pesquisa pelos seus serviços no Google ainda não encontra uma vitrine digital à altura para passar confiança de primeira. O meu trabalho aqui na cidade é justamente estruturar essa autoridade visual no Maps e no celular. Como é um assunto ligado à imagem da empresa, com quem posso falar sobre isso?', 'at': '2026-10-01T16:15:06.393990'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "551530165548"
+    },
+    "33571363": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-10-01T16:13:01.451825'}, {'role': 'Lead (Orodent Sta Rosalia)', 'text': '\\u200eOrodent Santa Rosália agradece seu contato. \\nPara agilizar seu atendimento nos informe seu nome e em que podemos ajudar  😁\\n-  *Não ouvimos áudio e não atendemos ligações pelo Whatsapp*\\n- *As mensagens são respondidas por ordem de chegada,caso mande mais mensagens sua conversa retorna ao final da fila*.', 'at': '2026-10-01T16:13:05.475543'}, {'role': 'Lead (Orodent Sta Rosalia)', 'text': 'Olá, Tudo bem?\\nBem-vindo(a) ao atendimento virtual da *ORODENT SANTA ROSÁLIA*  😁\\n\\nEm caso de *URĜENCIA*, ligue para: (15) 33255178 ou (15) 33571363\\n\\nEnd. Avenida Pereira da Silva, 1631 – Santa Rosália\\n\\nVocê é nosso cliente?\\n*1* - Sim\\n*2* - Não \\n*3* - Anúncio', 'at': '2026-10-01T16:13:06.754286'}, {'role': 'Vocação (Eduardo)', 'text': 'Olá! Sou o Eduardo, da Vocação Comunicação aqui de Sorocaba. Vi que vocês possuem um trabalho de excelência no Santa Rosália, mas quem pesquisa pelos seus serviços no Google ainda não encontra uma vitrine digital à altura para passar confiança de primeira. O meu trabalho aqui na cidade é justamente estruturar essa autoridade visual no Maps e no celular. Como é um assunto ligado à imagem da empresa, com quem posso falar sobre isso?', 'at': '2026-10-01T16:15:43.014919'}, {'role': 'Lead (Orodent Sta Rosalia)', 'text': 'Desculpe, não entendi. Por favor, digite uma das opções acima!', 'at': '2026-10-01T16:15:47.366109'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "551533571363"
+    },
+    "30111204": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Odontologia no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-10-01T16:28:19.956825'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "551530111204"
+    },
+    "30313394": {
+      "name": "[{'role': 'Vocação (Hook Prospecção)', 'text': 'Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei que quem pesquisa por Saúde & Estética no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).', 'at': '2026-10-01T16:34:08.893832'}, {'role': 'Lead (Fiscal Prestes Contabilidade)', 'text': '\\u200eFiscal Prestes Contabilidade agradece seu contato. Aguarde um instante que a Jô ou a Renata irá lhe atender', 'at': '2026-10-01T16:34:27.068451'}]",
+      "status": "Histórico Ativo",
+      "file": "chat_history.json",
+      "phone": "551530313394"
+    },
+    "98161692": {
+      "name": "{'lead_name': 'Vivá Terapias Integrativas', 'bypassed_at': '2026-09-24T10:49:27.017770'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515998161692"
+    },
+    "97760345": {
+      "name": "{'lead_name': 'Pure Pilates Campolim', 'bypassed_at': '2026-09-24T11:20:07.406181'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515997760345"
+    },
+    "81140366": {
+      "name": "{'lead_name': 'Vida Mais Pilates Clássico', 'bypassed_at': '2026-09-24T11:44:26.254826'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515981140366"
+    },
+    "91982675": {
+      "name": "{'lead_name': 'Gou Odonto Sorocaba', 'bypassed_at': '2026-09-28T13:26:08.048992'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515991982675"
+    },
+    "88137613": {
+      "name": "{'lead_name': 'Marcenaria Domke', 'bypassed_at': '2026-09-29T12:27:27.241131'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515988137613"
+    },
+    "91985650": {
+      "name": "{'lead_name': None, 'bypassed_at': '2026-09-29T12:27:35.765902'}",
+      "status": "Histórico Ativo",
+      "file": "bypassed_leads.json",
+      "phone": "5515991985650"
+    },
+    "96410306": {
+      "name": "Dra. Mariana Tocci Dermatologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996410306"
+    },
+    "91433018": {
+      "name": "Dra. Marielle Moreira Odontologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "991433018"
+    },
+    "97595506": {
+      "name": "Dra. Letícia Plens Harmonização",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997595506"
+    },
+    "97466183": {
+      "name": "Anequini Soares Dermatologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997466183"
+    },
+    "88052431": {
+      "name": "Critis Odontologia Especializada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "988052431"
+    },
+    "97930040": {
+      "name": "Estética Taís Pedroso",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997930040"
+    },
+    "96578148": {
+      "name": "Dra. Thaise Buzzo Cirurgia Plástica",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996578148"
+    },
+    "96115575": {
+      "name": "Clínica Lu",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996115575"
+    },
+    "97829252": {
+      "name": "Impact Transformation Center",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997829252"
+    },
+    "96158237": {
+      "name": "Derma Simis Dra. Tatiana",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996158237"
+    },
+    "98603211": {
+      "name": "Vita Odontologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "998603211"
+    },
+    "81350308": {
+      "name": "Corts Clínica de Ortopedia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981350308"
+    },
+    "81522821": {
+      "name": "Dr. Leandro Brandi Ortopedia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981522821"
+    },
+    "97787394": {
+      "name": "Marcenaria Sucesso Planejados",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997787394"
+    },
+    "96201252": {
+      "name": "Aliane Carmo Harmonização Facial",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996201252"
+    },
+    "88331983": {
+      "name": "Clínica Dra. Audrey Naufal",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "988331983"
+    },
+    "81314488": {
+      "name": "Estética Kirei Campolim",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981314488"
+    },
+    "96963197": {
+      "name": "Fernanda Pimentel Estética Avançada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996963197"
+    },
+    "00000000": {
+      "name": "Teste Fake",
+      "status": "Excluído pelo usuário",
+      "file": "Painel",
+      "phone": "00000000"
+    }
+  },
+  "names": {
+    "ezklo marcenaria boutique": {
+      "name": "Ezklo Marcenaria Boutique",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997120678"
+    },
+    "marcenaria mantovani": {
+      "name": "Marcenaria Mantovani",
+      "status": "Diagnóstico Agendado",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3202-9888 / (15) 3221-9435"
+    },
+    "florencio marcenaria": {
+      "name": "Florencio Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 96153-4050"
+    },
+    "marcenaria shz": {
+      "name": "Marcenaria SHZ",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99750-2210"
+    },
+    "missão & silva marcenaria de alto padrão": {
+      "name": "Missão & Silva Marcenaria de Alto Padrão",
+      "status": "Mensagem Enviada",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 91573-6479 / (11) 97032-2422"
+    },
+    "oakhouse marcenaria (rr marcenaria)": {
+      "name": "Oakhouse Marcenaria (RR Marcenaria)",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99715-7075"
+    },
+    "mdm marcenaria": {
+      "name": "MDM Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3325-1063 / (15) 99650-3634"
+    },
+    "mendes marcenaria": {
+      "name": "Mendes Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3342-6799 / (15) 99167-0071"
+    },
+    "sutil marcenaria": {
+      "name": "Sutil Marcenaria",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 98185-9590"
+    },
+    "di zanini marcenaria criativa": {
+      "name": "Di Zanini Marcenaria Criativa",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 91228-9966"
+    },
+    "harv planejados": {
+      "name": "Harv Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99772-9441 / (11) 98849-7114"
+    },
+    "cast select móveis planejados": {
+      "name": "Cast Select Móveis Planejados",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "criare sorocaba": {
+      "name": "Criare Sorocaba",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3233-5594 / (15) 99185-0844"
+    },
+    "mybox marcenaria moderna campolim": {
+      "name": "MyBox Marcenaria Moderna Campolim",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3417-3500"
+    },
+    "impeccabile móveis planejados": {
+      "name": "Impeccabile Móveis Planejados",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(11) 91064-0282 / (19) 98279-2513"
+    },
+    "marmoraria campolim": {
+      "name": "Marmoraria Campolim",
+      "status": "Mensagem Enviada",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 97404-0086"
+    },
+    "wbilino conceito mármores de luxo": {
+      "name": "Wbilino Conceito Mármores de Luxo",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 99121-0000 / Contato via site"
+    },
+    "grupo granimar superfícies nobres": {
+      "name": "Grupo Granimar Superfícies Nobres",
+      "status": "Sem Interesse",
+      "file": "Planilha_Prospeccao_Marcenaria_Alto_Ticket_Sorocaba.csv",
+      "phone": "(15) 3228-0000 / Contato via site"
+    },
+    "aliane carmo harmonização facial": {
+      "name": "Aliane Carmo Harmonização Facial",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996201252"
+    },
+    "anequini soares dermatologia": {
+      "name": "Anequini Soares Dermatologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997466183"
+    },
+    "bodybe sorocaba": {
+      "name": "BodyBe Sorocaba",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "998500008"
+    },
+    "bruna nacarato": {
+      "name": "Bruna Nacarato",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "clínica dra. audrey naufal": {
+      "name": "Clínica Dra. Audrey Naufal",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "988331983"
+    },
+    "clínica personalyze": {
+      "name": "Clínica Personalyze",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "clínica piacitelli — odontologia e estética": {
+      "name": "Clínica Piacitelli — Odontologia e Estética",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "dr. joão gabriel quiropraxia": {
+      "name": "Dr. João Gabriel Quiropraxia",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "dra. mariana tocci dermatologia": {
+      "name": "Dra. Mariana Tocci Dermatologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996410306"
+    },
+    "dra. marielle moreira odontologia": {
+      "name": "Dra. Marielle Moreira Odontologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "991433018"
+    },
+    "dra. thaísa motta - geriatria campolim": {
+      "name": "Dra. Thaísa Motta - Geriatria Campolim",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "estética kirei campolim": {
+      "name": "Estética Kirei Campolim",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981314488"
+    },
+    "estética stella maris": {
+      "name": "Estética Stella Maris",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996683892"
+    },
+    "fernanda pimentel estética avançada": {
+      "name": "Fernanda Pimentel Estética Avançada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996963197"
+    },
+    "instituto krion fisioterapia e pilates": {
+      "name": "Instituto Krion Fisioterapia e Pilates",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "jardim vivo essencial": {
+      "name": "Jardim Vivo Essencial",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "locação carretinha sorocaba": {
+      "name": "Locação Carretinha Sorocaba",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "lumiè estética avançada": {
+      "name": "Lumiè Estética Avançada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996409494"
+    },
+    "magen segurança eletrônica - unidade sorocaba e região": {
+      "name": "Magen Segurança Eletrônica - Unidade Sorocaba e Região",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "marido de aluguel — reparos e manutenção residencial": {
+      "name": "Marido de Aluguel — Reparos e Manutenção Residencial",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "med cor sorocaba": {
+      "name": "Med Cor Sorocaba",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "991984736"
+    },
+    "microvita pilates sorocaba": {
+      "name": "Microvita Pilates Sorocaba",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "mv viagens": {
+      "name": "MV VIAGENS",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "pilates mamy baby": {
+      "name": "Pilates Mamy Baby",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "prof. dr. danilo armbrust": {
+      "name": "Prof. Dr. Danilo Armbrust",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "quiro&cia centro de quiropraxia": {
+      "name": "Quiro&Cia Centro de Quiropraxia",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "recanto cecilia": {
+      "name": "Recanto Cecilia",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "revitae pilates e fisioterapia": {
+      "name": "Revitae Pilates e Fisioterapia",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "sempi serviços": {
+      "name": "SEMPI SERVIÇOS",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "studio miriam tonon - pilates fisioterapia osteopatia": {
+      "name": "Studio Miriam Tonon - Pilates Fisioterapia Osteopatia",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "supermercado irmãos nogueira": {
+      "name": "Supermercado Irmãos Nogueira",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "the blond sorocaba": {
+      "name": "The Blond Sorocaba",
+      "status": "Dossiê Existente",
+      "file": "2 Leads",
+      "phone": ""
+    },
+    "dra. letícia plens harmonização": {
+      "name": "Dra. Letícia Plens Harmonização",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997595506"
+    },
+    "critis odontologia especializada": {
+      "name": "Critis Odontologia Especializada",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "988052431"
+    },
+    "estética taís pedroso": {
+      "name": "Estética Taís Pedroso",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997930040"
+    },
+    "dra. thaise buzzo cirurgia plástica": {
+      "name": "Dra. Thaise Buzzo Cirurgia Plástica",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996578148"
+    },
+    "clínica lu": {
+      "name": "Clínica Lu",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996115575"
+    },
+    "impact transformation center": {
+      "name": "Impact Transformation Center",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997829252"
+    },
+    "derma simis dra. tatiana": {
+      "name": "Derma Simis Dra. Tatiana",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "996158237"
+    },
+    "vita odontologia": {
+      "name": "Vita Odontologia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "998603211"
+    },
+    "corts clínica de ortopedia": {
+      "name": "Corts Clínica de Ortopedia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981350308"
+    },
+    "dr. leandro brandi ortopedia": {
+      "name": "Dr. Leandro Brandi Ortopedia",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "981522821"
+    },
+    "marcenaria sucesso planejados": {
+      "name": "Marcenaria Sucesso Planejados",
+      "status": "Twenty CRM",
+      "file": "DIRECT_MAP",
+      "phone": "997787394"
+    },
+    "teste fake": {
+      "name": "Teste Fake",
+      "status": "Excluído pelo usuário",
+      "file": "Painel",
+      "phone": "00000000"
+    }
+  }
+}

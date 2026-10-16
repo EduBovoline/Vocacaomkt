@@ -19,7 +19,17 @@ Diferente de agências tradicionais que vendem contratos longos de consultoria o
 
 ## 2. Detalhamento dos Produtos e Serviços
 
-### PRODUTO PRINCIPAL: Vocação Update (5-Day Website Polish)
+### PRODUTO 01 (CARRO-CHEFE LOCAL): Vocação Start (Maps + Vitrine One-Page)
+- **Nome Comercial:** Vocação Start
+- **Ticket Oficial:** R$ 850,00 (50% de entrada + 50% após aprovação no ar)
+- **Tempo de Execução:** 7 dias úteis
+- **Problema que resolve:** Empresas consolidadas no mundo real que ainda não têm site próprio (dependem apenas de Instagram/Linktree ou WhatsApp solto) e estão com a ficha do Google Maps desatualizada.
+- **Entregáveis Técnicos:**
+  - Google Maps Otimizado e reivindicado no nome do proprietário.
+  - Vitrine Digital One-Page ultrarrápida (< 0.5s) com botão direto para WhatsApp.
+  - Extração automática de dados e fotos (zero reuniões longas ou necessidade de escrever textos do zero).
+
+### PRODUTO 02 (MODERNIZAÇÃO DE SITES): Vocação Update (5-Day Website Polish)
 - **Nome Comercial PT:** Vocação Update
 - **Nome Comercial EN:** 5-Day Website Polish / Editorial Web Refresh
 - **Páginas Oficiais:**
@@ -36,13 +46,14 @@ Diferente de agências tradicionais que vendem contratos longos de consultoria o
   - Botão de WhatsApp em posição prioritária (tempo de clique < 5 segundos).
   - Preservação total de domínios, emails, formulários e hospedagens legadas.
 
-### PRODUTO 02: Presença Local & Otimização Google Maps
+### PRODUTO 03: Presença Local & Otimização Google Maps
 - **Página Oficial:** https://vocacao.digital/presenca-local.html
-- **Ticket:** R$ 450,00
-- **Escopo:** Padronização completa do Perfil de Empresa no Google (Google Business Profile), categorização correta de palavras-chave locais, inserção de fotos de alta fidelidade e blindagem contra perda de posição.
+- **Ticket:** R$ 450,00 (Prazo: 48h a 7 dias)
+- **Escopo:** Padronização completa do Perfil de Empresa no Google (Google Business Profile), categorização correta de palavras-chave locais, inserção de fotos de alta fidelidade e blindagem contra perda de posição. Trava de exclusividade: 1 empresa por segmento em cada bairro.
 
-### PRODUTO 03: Tour Virtual 360° Homologado Street View
+### PRODUTO 04: Tour Virtual 360° Homologado Street View
 - **Página Oficial:** https://vocacao.digital/
+- **Ticket:** R$ 650,00 avulso ou R$ 950,00 no Combo Maps + Tour 360°
 - **Escopo:** Sessão fotográfica 360° em resolução 5.6K para estabelecimentos físicos (clínicas, restaurantes, academias, lojas), vinculada diretamente ao mapa do Google Street View.
 
 ---

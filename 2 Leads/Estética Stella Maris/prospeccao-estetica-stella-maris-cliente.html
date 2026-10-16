@@ -7,16 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --color-primary: #121816;         /* Escuro profundo verde-grafite Vocação */
-    --color-accent: #0B5E47;          /* Verde Esmeralda Vocação */
-    --color-accent-soft: #e8f4ef;     /* Verde sutil */
-    --color-bg: #fafaf8;              /* Off-white quente editorial */
+    --color-primary: #1a1a2e;         /* Watanabe Navy Profundo */
+    --color-accent: #e8b86d;          /* Watanabe Dourado Nobre */
+    --color-accent-soft: #f5e6c8;     /* Watanabe Creme Suave */
+    --color-bg: #fafaf8;              /* Watanabe Off-white editorial */
     --color-surface: #ffffff;
     --color-text: #1a1a1a;
-    --color-text-muted: #5a625f;
-    --color-border: #e2e8e5;
-    --color-positive: #0B5E47;
+    --color-text-muted: #6b6b6b;
+    --color-border: #e8e4dc;
+    --color-positive: #2d6a4f;
     --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
     --color-warning: #c17f24;
     --color-gold: #c69214;
   }
@@ -27,8 +28,8 @@
     font-family: 'DM Sans', sans-serif;
     background: var(--color-bg);
     color: var(--color-text);
-    line-height: 1.6;
-    font-size: 14.5px;
+    line-height: 1.65;
+    font-size: 15px;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -46,7 +47,7 @@
       break-before: page;
       padding-top: 10px;
     }
-    .header { padding: 36px 32px 30px !important; }
+    .header { padding: 44px 36px 36px !important; }
     .section { padding-top: 24px !important; }
     .channel-card, .force-card, .opp-item, .comp-table, .stat-card, .intro-card {
       page-break-inside: avoid !important;
@@ -59,70 +60,78 @@
     }
   }
 
-  /* HEADER */
+  /* HEADER PADRÃO WATANABE COM CURVA ELÍPTICA */
   .header {
     background: var(--color-primary);
     color: white;
-    padding: 48px 40px 40px;
-    border-radius: 14px;
-    margin-bottom: 24px;
+    padding: 56px 40px 48px;
     position: relative;
-    border-bottom: 3px solid var(--color-accent);
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--color-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
   }
   .header-inner { max-width: 860px; margin: 0 auto; }
   .vocacao-brand {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .vocacao-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
   }
   .vocacao-name {
     font-family: 'Fraunces', serif;
-    font-size: 13.5px;
-    color: #ffffff;
-    letter-spacing: 0.14em;
+    font-size: 14px;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    font-weight: 500;
   }
   .header-label {
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: var(--color-accent-soft);
-    margin-bottom: 8px;
-    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
   }
   .header-title {
     font-family: 'Fraunces', serif;
-    font-size: 34px;
+    font-size: 42px;
     font-weight: 400;
-    line-height: 1.18;
-    margin-bottom: 6px;
-    color: #ffffff;
+    line-height: 1.15;
+    margin-bottom: 10px;
   }
-  .header-title em { font-style: italic; color: #a4dbc9; }
+  .header-title em { font-style: italic; color: var(--color-accent); }
   .header-sub {
-    color: rgba(255,255,255,0.65);
-    font-size: 13px;
-    margin-top: 10px;
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-top: 16px;
   }
 
-  .container { max-width: 860px; margin: 0 auto; }
-  .section { padding: 28px 0 0; }
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 48px 0 0; }
   .section-label {
-    font-size: 10.5px;
-    letter-spacing: 0.16em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: 6px;
-    font-weight: 700;
+    margin-bottom: 10px;
+    font-weight: 600;
   }
   .section-title {
     font-family: 'Fraunces', serif;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: 400;
     color: var(--color-primary);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
     line-height: 1.25;
   }
 
@@ -270,7 +279,7 @@
       <div class="vocacao-name">Vocação Comunicação & Marketing</div>
     </div>
     <div class="header-label">Diagnóstico de Presença & Autoridade Digital</div>
-    <h1 class="header-title">Estética Stella Maris · <em>Sorocaba</em></h1>
+    <h1 class="header-title">Estética Stella Maris · <em>Sorocaba, SP</em></h1>
     <div class="header-sub">Documento elaborado para avaliação de posicionamento de alto valor · Setembro de 2026</div>
   </div>
 </header>
@@ -287,26 +296,26 @@
     <div class="stats-grid">
       
     <div class="stat-card">
-      <div class="stat-num">97%</div>
-      <div class="stat-desc">Pesquisam online a reputação do estabelecimento antes de fechar consulta.</div>
+      <div class="stat-num">94%</div>
+      <div class="stat-desc">Das pacientes de estética pesquisam a reputação e o ambiente da clínica online antes de agendar a primeira consulta.</div>
     </div>
   
 
     <div class="stat-card">
-      <div class="stat-num">4,2s</div>
-      <div class="stat-desc">Tempo médio de julgamento para decidir se a empresa transmite segurança digital.</div>
+      <div class="stat-num">3,4s</div>
+      <div class="stat-desc">Tempo que uma paciente leva para julgar a autoridade médica de uma clínica ao abrir o perfil ou site.</div>
     </div>
   
 
     <div class="stat-card">
-      <div class="stat-num">2,8x</div>
-      <div class="stat-desc">Mais propensão a contratar empresas com presença online organizada e profissional.</div>
+      <div class="stat-num">2,6x</div>
+      <div class="stat-desc">Mais agendamentos em clínicas que possuem site institucional próprio em relação às que atendem apenas por redes sociais.</div>
     </div>
   
 
     <div class="stat-card">
-      <div class="stat-num">100%</div>
-      <div class="stat-desc">Do investimento no ecossistema se paga logo com 1 ou 2 novos clientes de alto ticket.</div>
+      <div class="stat-num">1</div>
+      <div class="stat-desc">Único pacote ou plano de tratamento já cobre 100% do investimento em toda a infraestrutura digital proposta.</div>
     </div>
   
     </div>
@@ -323,40 +332,40 @@
       <div class="channel-card">
         <div class="channel-header">
           <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
-          <span class="badge badge-mediano">Mediano</span>
+          <span class="badge badge-bom">Bom</span>
         </div>
-        <div class="channel-name">Google Maps</div>
-        <div class="channel-note">Ficha na Washington Luiz com pouca autoridade de busca.</div>
-      </div>
-    
-
-      <div class="channel-card">
-        <div class="channel-header">
-          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
-          <span class="badge badge-gargalo">Gargalo</span>
-        </div>
-        <div class="channel-name">Site Oficial</div>
-        <div class="channel-note">Sem domínio corporativo próprio.</div>
+        <div class="channel-name">Google Meu Negócio</div>
+        <div class="channel-note">Ficha com nota máxima 5.0 estrelas, transmitindo confiança imediata. Oportunidade de ampliar fotos de ambiente e incorporar Tour Virtual 360° para dobrar a retenção.</div>
       </div>
     
 
       <div class="channel-card">
         <div class="channel-header">
           <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
-          <span class="badge badge-forte">Ativo</span>
+          <span class="badge badge-bom">Bom</span>
         </div>
         <div class="channel-name">Instagram</div>
-        <div class="channel-note">Linktree na bio.</div>
+        <div class="channel-note">Perfil ativo com boa demonstração de autoridade técnica da Dra. Stella Maris. Oportunidade de organizar destaques temáticos e direcionar o tráfego para página institucional.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <span class="badge badge-fraco">Ausente</span>
+        </div>
+        <div class="channel-name">Site Próprio</div>
+        <div class="channel-note">A clínica não possui landing page ou site próprio institucional. Sem esse ativo, perde pacientes que pesquisam no Google antes de entrar em contato e não capta tráfego orgânico de busca.</div>
       </div>
     
 
       <div class="channel-card">
         <div class="channel-header">
           <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
-          <span class="badge badge-forte">Ativo</span>
+          <span class="badge badge-otimo">Ótimo</span>
         </div>
         <div class="channel-name">WhatsApp</div>
-        <div class="channel-note">Atendimento pelo (15) 99668-3892.</div>
+        <div class="channel-note">Atendimento acolhedor e humanizado, com contato direto com a profissional. Ponto fortíssimo de retenção assim que o paciente chega à conversa.</div>
       </div>
     
     </div>
@@ -379,19 +388,46 @@
         
     <tr class="highlight">
       <td>✦ <strong>Estética Stella Maris</strong></td>
-      <td>🟡 Mediano</td>
-      <td>❌ Ausente</td>
-      <td>🟢 Ativo</td>
-      <td><span class="badge badge-gargalo">Gargalo</span></td>
+      <td>5.0 ★ (12 avaliações)</td>
+      <td>Sem site próprio</td>
+      <td>Perfil ativo (Dra. Stella)</td>
+      <td><span class="badge badge-mediano">Em Qualificação</span></td>
     </tr>
   
 
     <tr >
-      <td><strong>Clínicas Campolim</strong></td>
-      <td>🟢 Forte</td>
-      <td>✅ Autoridade</td>
-      <td>🟢 Forte</td>
-      <td><span class="badge badge-forte">Competitiva</span></td>
+      <td><strong>Lumiè Estética Avançada</strong></td>
+      <td>4.9 ★ (140+ avaliações)</td>
+      <td>Site institucional ativo</td>
+      <td>15,2k seguidores</td>
+      <td><span class="badge badge-otimo">Alta Presença</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>BodyBe Sorocaba</strong></td>
+      <td>4.8 ★ (92 avaliações)</td>
+      <td>Landing page de conversão</td>
+      <td>22,4k seguidores</td>
+      <td><span class="badge badge-otimo">Alta Presença</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Fernanda Pimentel Estética Avançada</strong></td>
+      <td>5.0 ★ (45 avaliações)</td>
+      <td>Página com agendamento</td>
+      <td>8,1k seguidores</td>
+      <td><span class="badge badge-bom">Boa Presença</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Aliane Carmo Harmonização Facial</strong></td>
+      <td>4.9 ★ (38 avaliações)</td>
+      <td>Bio link estruturado</td>
+      <td>11,8k seguidores</td>
+      <td><span class="badge badge-bom">Boa Presença</span></td>
     </tr>
   
       </tbody>
@@ -409,27 +445,27 @@
     <div class="force-card">
       <div class="force-icon-row">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span class="force-title">undefined</span>
+        <span class="force-title">Atendimento Humanizado & Direto</span>
       </div>
-      <div class="force-desc">undefined</div>
+      <div class="force-desc">Condução personalizada pela própria Dra. Stella Maris, proporcionando segurança clínica e altíssimo nível de fidelização das pacientes.</div>
     </div>
   
 
     <div class="force-card">
       <div class="force-icon-row">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span class="force-title">undefined</span>
+        <span class="force-title">Reputação Impecável no Google</span>
       </div>
-      <div class="force-desc">undefined</div>
+      <div class="force-desc">Ficha com 100% de avaliações 5 estrelas e relatos espontâneos elogiando o carinho, a pontualidade e os resultados estéticos.</div>
     </div>
   
 
     <div class="force-card">
       <div class="force-icon-row">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span class="force-title">undefined</span>
+        <span class="force-title">Localização Estratégica no Campolim</span>
       </div>
-      <div class="force-desc">undefined</div>
+      <div class="force-desc">Instalação em área nobre de Sorocaba com fácil acesso e perfil de público altamente qualificado para procedimentos de alto padrão.</div>
     </div>
   
     </div>
@@ -440,6 +476,41 @@
     <h2 class="section-title">Onde sua clínica perde pacientes hoje</h2>
     <div class="opp-list">
       
+    <div class="opp-item">
+      <div class="opp-num">01</div>
+      <div class="opp-body">
+        <div class="opp-title">Landing Page Médica de Alta Performance</div>
+        <div class="opp-desc">Construir um site institucional proprietário com apresentação dos protocolos, diferenciais e depoimentos para captar pesquisas ativas do Campolim no Google.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">02</div>
+      <div class="opp-body">
+        <div class="opp-title">Tour Virtual 360° Google Street View</div>
+        <div class="opp-desc">Digitalizar o consultório em 360° para permitir que a futura paciente visite a clínica virtualmente pelo Google Maps, multiplicando a taxa de conversão.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">03</div>
+      <div class="opp-body">
+        <div class="opp-title">Filtragem e Qualificação Prévia no WhatsApp</div>
+        <div class="opp-desc">Implementar página de acolhimento digital que esclarece os procedimentos antes do clique no WhatsApp, atraindo pacientes decididos e poupando tempo de atendimento.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">04</div>
+      <div class="opp-body">
+        <div class="opp-title">Dominância em Buscas Locais no Campolim</div>
+        <div class="opp-desc">Otimizar as tags e palavras-chave da ficha técnica para posicionar a clínica no topo quando pesquisarem por procedimentos estéticos avançados na zona sul.</div>
+      </div>
+    </div>
+  
     </div>
   </div>
 
@@ -447,7 +518,7 @@
     <div class="cta-label">Próximo Passo Estratégico</div>
     <h2>Alinhe sua presença digital à <em>qualidade real</em> do seu espaço.</h2>
     <p>A Vocação cuida de toda a organização da presença online da sua clínica — do site institucional à blindagem no Google Maps e Tour Virtual 360°.</p>
-    <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20Est%C3%A9tica%20Stella%20Maris%20e%20gostaria%20de%20falar%20sobre%20a%20presen%C3%A7a%20digital%20com%20a%20Voca%C3%A7%C3%A3o." class="cta-btn" target="_blank">Falar com a Vocação no WhatsApp</a>
+    <a href="https://wa.me/5515981512083?text=Ol%C3%A1%20Eduardo!%20Vi%20o%20diagn%C3%B3stico%20da%20Est%C3%A9tica%20Stella%20Maris%20e%20gostaria%20de%20alinhar%20a%20estrutura%20digital%20da%20cl%C3%ADnica%20com%20a%20Voca%C3%A7%C3%A3o." class="cta-btn" target="_blank">Falar com a Vocação no WhatsApp</a>
   </div>
 
   <footer class="footer">

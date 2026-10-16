@@ -12,10 +12,13 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
-# Logs
+# Logs & Python cache
 *.log
+__pycache__/
+*.pyc
+*.pyo
 
-# Relatórios internos — nunca subir ao Git
+# Relatórios e variáveis de ambiente
 Prospects/
 site_novo_temp/
 .env
@@ -24,10 +27,12 @@ twenty-crm/.env
 openseo/.env
 serpbear/.env
 
+# Backups pesados
 *.zip
+backups_legado/
+.temp_leads/
 
 # Pastas de Leads e Catálogos
-Leads/
 Catálogo/
 *.pdf
 /*.svg

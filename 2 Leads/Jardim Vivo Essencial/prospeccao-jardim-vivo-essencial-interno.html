@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Jardim Vivo Essencial — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;
+    --color-accent: #0B5E47;
+    --color-accent-soft: #e8f4ef;
+    --color-bg: #f5f4ef;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #626a66;
+    --color-border: #e2ded5;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #1b2421;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* TOP BAR */
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+  }
+  .topbar-badge {
+    background: var(--color-negative);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    padding: 3px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a4dbc9;
+    margin-bottom: 10px;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .header-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+  }
+
+  /* LAYOUT */
+  .layout {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* SECTION */
+  .section { padding: 36px 0 0; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--color-border);
+  }
+  .section-num {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--color-accent);
+    line-height: 1;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-primary);
+  }
+  .section-tag {
+    margin-left: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }
+  .tag-shared { background: #d1ecf1; color: #0c4a6e; }
+  .tag-internal { background: #fde8e8; color: #9b2335; }
+
+  /* CARD */
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+  }
+
+  /* CANAL GRID */
+  .canal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .canal-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .canal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+  }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-otimo { background: #e0f0ea; color: #084836; }
+  .badge-bom { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-mediano { background: #fff4db; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: var(--color-negative); }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  /* TABELA CONCORRENTES */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    background: white;
+    border: 1px solid var(--color-border);
+  }
+  .comp-table thead th {
+    background: var(--color-internal);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+  }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  /* FRAQUEZAS */
+  .fraqueza-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-negative);
+    border-radius: 0 10px 10px 0;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+  }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 8px;
+  }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff4db; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  /* PROPOSTA SERVIÇOS */
+  .servico-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .servico-num {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--color-accent);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff4db; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  /* GANCHO */
+  .gancho-box {
+    background: var(--color-internal);
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-top: 8px;
+    position: relative;
+    border-left: 4px solid var(--color-accent);
+  }
+  .gancho-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #a4dbc9;
+    margin-bottom: 12px;
+  }
+  .gancho-text {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 400;
+    font-style: italic;
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 18px;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 18px;
+  }
+  .gancho-context {
+    font-size: 12.5px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+  .copy-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 12px;
+    padding: 10px 22px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: opacity 0.2s;
+  }
+  .copy-btn:hover { opacity: 0.9; }
+
+  /* WARNING BOX */
+  .warning-box {
+    background: #fffbf0;
+    border: 1px solid #f0dfa8;
+    border-left: 4px solid var(--color-warning);
+    border-radius: 0 8px 8px 0;
+    padding: 14px 18px;
+    font-size: 13px;
+    color: #7c5000;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .warning-box .w-icon { flex-shrink: 0; font-size: 16px; }
+
+  /* FONTES */
+  .fonte-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 13px;
+  }
+  .fonte-item:last-child { border-bottom: none; }
+  .fonte-origin {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: #e8e4dc;
+    color: #555;
+    text-transform: uppercase;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: 24px 0 40px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 600px) {
+    .header { padding: 28px 20px; }
+    .layout { padding: 0 14px; }
+    .gancho-text { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Jardim Vivo Essencial — Negócio Digital / Brasil</div>
+    <div class="header-sub">Lead via formulário do site · Saúde Natural & Infoprodutos · Mensagem: "Quero falar sobre os próximos passos" · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        <strong>Jardim Vivo Essencial</strong> é um lead inbound que realizou o diagnóstico digital diretamente no site da Vocação. Trata-se de um projeto no nicho de <strong>saúde natural, fitoterapia prática e jardinagem descomplicada</strong>, operando há menos de 1 ano. O lead cadastrou 3 infoprodutos na Hotmart (comunidade <em>Refúgio Verde Essencial</em> e o e-book <em>"7 Ervas que Cuidam"</em>), provando que já superou a fase de concepção e possui produtos reais para vender.
+        <br><br>
+        O gargalo declarado pelo próprio lead no formulário foi: <em>"Não sei avaliar o que está faltando"</em> e encerrou com: <em>"Quero falar sobre os próximos passos"</em>. A análise técnica aponta exatamente o problema: <strong>falta de uma infraestrutura proprietária de conversão</strong>. A página de vendas está hospedada em subdomínio de terceiros (<code>inlead.digital/7ervasquecuidam/</code>), as redes sociais estão pausadas há meses, não há domínio próprio (<code>jardimvivoessencial.com.br</code>) e não há canal de atendimento direto para recuperar boletos/Pix na Hotmart.
+        <br><br>
+        Não se trata de um negócio com ponto comercial físico; é uma operação digital escalável. A abordagem deve focar na eliminação da quebra de confiança no checkout e na centralização de vendas em domínio oficial próprio.
+      </p>
+    </div>
+  </div>
+
+  <!-- DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital</div>
+      <span class="section-tag tag-shared">Versão cliente: sim</span>
+    </div>
+    <div class="canal-grid">
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">📦 Hotmart & Catálogo de Produtos</div>
+          <span class="badge badge-bom">Bom</span>
+        </div>
+        <div class="canal-desc">Três produtos cadastrados na Hotmart (produtos 7094095, 7164468 e 7164490, além do Clube Refúgio Verde Essencial e o e-book "7 Ervas que Cuidam"). Checkouts operacionais configurados.</div>
+        <div class="canal-impact">É o melhor ativo do lead. A esteira já está pronta e com potencial de entrega imediata. O gargalo é fazer as pessoas confiarem na hora de passar o cartão.</div>
+      </div>
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">🌐 Landing Page (Inlead Digital)</div>
+          <span class="badge badge-fraco">Fraco</span>
+        </div>
+        <div class="canal-desc">Página ativa em inlead.digital/7ervasquecuidam/. Estrutura de copy e módulos funcional, mas hospedada em subdomínio compartilhado de ferramenta de terceiros, sem SSL em domínio oficial.</div>
+        <div class="canal-impact">⚠️ CRÍTICO: No mercado de infoprodutos, o comprador pesquisa o link. Subdomínios genéricos passam a impressão de golpe ou negócio temporário, gerando alta taxa de desistência no carrinho.</div>
+      </div>
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">📸 Instagram (@jardimvivoessencial)</div>
+          <span class="badge badge-mediano">Mediano</span>
+        </div>
+        <div class="canal-desc">Conta criada com naming consistente e boa identidade visual inicial, mas sem publicações recentes há meses. Perfil parado.</div>
+        <div class="canal-impact">Fator determinante de perda de conversão. 70%+ dos compradores de cursos/e-books visitam o Instagram antes de pagar. Ao ver o perfil inativo, presumem que o suporte não responderá.</div>
+      </div>
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">👥 Facebook</div>
+          <span class="badge badge-mediano">Mediano</span>
+        </div>
+        <div class="canal-desc">Página ativa com conceitos sobre jardinagem leve e grupos de plantas (Energia & Vitalidade), mas estagnada e desconectada de campanhas ou funil de vendas.</div>
+        <div class="canal-impact">Presença existente, porém passiva. Não está gerando tráfego qualificado para a página de vendas.</div>
+      </div>
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">🎥 YouTube (@JardimVivoEssencial)</div>
+          <span class="badge badge-mediano">Mediano</span>
+        </div>
+        <div class="canal-desc">Canal oficial criado na plataforma. O lead informou esse link no campo de Google Maps do formulário, evidenciando que vê o YouTube como seu canal principal de presença no ecossistema Google.</div>
+        <div class="canal-impact">Ativo de altíssimo potencial no nicho de plantas e saúde. Tutoriais em vídeo têm poder absurdo de conversão orgânica contínua, mas o canal precisa de ritmo de publicação.</div>
+      </div>
+
+      <div class="canal-card">
+        <div class="canal-top">
+          <div class="canal-name">📧 Domínio & E-mail Corporativo</div>
+          <span class="badge badge-ausente">Ausente</span>
+        </div>
+        <div class="canal-desc">Sem registro de jardimvivoessencial.com.br. Comunicação com alunos e e-mails de recuperação dependem unicamente das notificações padrão da Hotmart ou de e-mails gratuitos.</div>
+        <div class="canal-impact">Vulnerabilidade jurídica da marca e redução drástica da autoridade institucional do projeto frente aos concorrentes.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes</div>
+      <span class="section-tag tag-shared">Versão cliente: resumida</span>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do consumidor de infoprodutos naturais:</strong> O comprador de conteúdos sobre cultivo de ervas e fitoterapia busca bem-estar, autonomia de saúde e conexão com o verde. A compra do e-book é quase sempre impulsiva pelo valor acessível (ticket de R$ 47 a R$ 97), mas é <em>travada na última etapa</em> se a página de vendas não transmitir segurança técnica. No digital, o domínio proprietário e o design refinado são o equivalente à fachada de uma loja respeitável no mundo físico.
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Marca / Projeto</th>
+          <th>Estrutura Web</th>
+          <th>Domínio Próprio</th>
+          <th>Redes Sociais</th>
+          <th>Modelo Comercial</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight">
+          <td>✦ Jardim Vivo Essencial</td>
+          <td>Subdomínio Inlead + Hotmart</td>
+          <td>❌ Não possui</td>
+          <td>Perfis criados, sem posts recentes</td>
+          <td>E-books & Clube Hotmart</td>
+          <td><span class="badge badge-mediano">Em Estruturação</span></td>
+        </tr>
+        <tr>
+          <td>Minhas Plantas (Carol Costa)</td>
+          <td>Portal próprio massivo</td>
+          <td>✅ minhasplantas.com.br</td>
+          <td>1.5M+ seg. / Ativo diário</td>
+          <td>Cursos, livros e parcerias</td>
+          <td><span class="badge badge-otimo">Líder Nacional</span></td>
+        </tr>
+        <tr>
+          <td>Escola de Botânica</td>
+          <td>Plataforma própria integrada</td>
+          <td>✅ escoladebotanica.com.br</td>
+          <td>250k+ seg. / Forte engajamento</td>
+          <td>Cursos, formações e eventos</td>
+          <td><span class="badge badge-otimo">Alta Autoridade</span></td>
+        </tr>
+        <tr>
+          <td>Vida no Jardim / Ervas Brasil</td>
+          <td>Site institucional + E-commerce</td>
+          <td>✅ Domínio registrado</td>
+          <td>Comunidade no YouTube ativa</td>
+          <td>Infoprodutos e mentorias</td>
+          <td><span class="badge badge-bom">Consolidado</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> O Jardim Vivo Essencial não precisa de milhões de seguidores para ser lucrativo. Com uma vitrine oficial em domínio próprio, copy lapidada e um canal de WhatsApp ativo para recuperação de vendas, o negócio se posiciona com autoridade de boutique digital, convertendo o tráfego que hoje abandona a página do Inlead.
+    </div>
+  </div>
+
+  <!-- FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças</div>
+      <span class="section-tag tag-shared">Versão cliente: sim</span>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;"><span>✅</span><div><strong>Esteira de infoprodutos pronta na Hotmart</strong> — e-book "7 Ervas que Cuidam", produtos 7164468/7164490 e Clube Refúgio Verde. O ativo principal já foi construído.</div></li>
+        <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;"><span>✅</span><div><strong>Nicho com demanda reprimida e alta conexão emocional</strong> — fitoterapia doméstica, saúde preventiva e plantas medicinais têm apelo atemporal e buscam soluções naturais para o estresse.</div></li>
+        <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;"><span>✅</span><div><strong>Conceito comercial bem delimitado</strong> — o ângulo de "jardinagem descomplicada e sem culpa para quem não tem tempo" é excelente e resolve a principal objeção de quem mata plantas.</div></li>
+        <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;"><span>✅</span><div><strong>Naming unificado nas principais redes</strong> — posse do identificador @jardimvivoessencial no Instagram, Facebook e YouTube.</div></li>
+        <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;"><span>✅</span><div><strong>Escalabilidade total e margem alta</strong> — negócio 100% digital, sem custos logísticos de envio físico e com cobertura nacional imediata.</div></li>
+        <li style="padding:8px 0; display:flex; gap:10px;"><span>✅</span><div><strong>Lead com intenção de contratação declarada</strong> — preencheu o formulário expressando explicitamente que quer entender os próximos passos para crescer.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto</div>
+      <span class="section-tag tag-internal">Somente interno</span>
+    </div>
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Landing page em subdomínio de terceiros (inlead.digital)</div>
+      <div class="fraqueza-detail">Hospedar a página principal em <code>inlead.digital/7ervasquecuidam/</code> destrói a percepção de credibilidade institucional. O comprador online moderno tem receio de fraudes e abandona o carrinho ao notar que não está no site oficial da marca.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Redes sociais estagnadas há meses</div>
+      <div class="fraqueza-detail">Perfis no Instagram e Facebook sem publicações recentes funcionam como um freio invisível de vendas. Antes de pagar na Hotmart, o comprador confere o feed; ao ver o perfil parado, presume que o criador abandonou o projeto e que não terá suporte após a compra.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Inexistência de Domínio Próprio Oficial e E-mail Corporativo</div>
+      <div class="fraqueza-detail">A falta de <code>jardimvivoessencial.com.br</code> deixa a marca desprotegida e impede a criação de e-mails como <code>contato@jardimvivoessencial.com.br</code>, diminuindo a seriedade do negócio perante alunos e parceiros.</div>
+      <span class="impacto-tag impacto-medio">Impacto médio</span>
+    </div>
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de canal direto de atendimento e recuperação via WhatsApp</div>
+      <div class="fraqueza-detail">Não há botão de WhatsApp na página do Inlead nem estrutura de recuperação ativa de boletos e Pix gerados na Hotmart. Em infoprodutos, 20% a 35% das vendas acontecem na recuperação no 1 a 1 tirando dúvidas rápidas.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Desconhecimento sobre ferramentas do Google</div>
+      <div class="fraqueza-detail">O lead colou o canal do YouTube no campo do Maps, declarando que nunca configurou o Google e não sabe o que está faltando. Há uma clara necessidade de orientação consultiva sobre como o ecossistema Google atua para negócios digitais.</div>
+      <span class="impacto-tag impacto-medio">Impacto médio</span>
+    </div>
+  </div>
+
+  <!-- PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+      <span class="section-tag tag-internal">Somente interno</span>
+    </div>
+
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Pilar 01 — Landing Page / Vitrine Digital Oficial em Domínio Próprio (R$ 1.500)</div>
+        <div class="servico-just">Migração completa do conteúdo do inlead.digital para uma página própria ultra-rápida, com design editorial refinado, botão de WhatsApp comercial, prova social e checkout direto integrado à Hotmart. Elimina a desconfiança e aumenta a taxa de conversão imediata.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Pilar 04 — Blindagem de Domínio Oficial & E-mails Corporativos</div>
+        <div class="servico-just">Registro e configuração do domínio <code>jardimvivoessencial.com.br</code> com DNS blindado, certificado SSL e e-mail institucional corporativo para suporte de alunos. Garante a proteção jurídica da marca.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">Pilar 02 — Estruturação do Canal Centralizado de Vendas & WhatsApp Comercial</div>
+        <div class="servico-just">Implantação de fluxo de atendimento direto no WhatsApp para tirar dúvidas de compradores indecisos e recuperar boletos/Pix gerados na Hotmart que não foram pagos.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+
+    <div class="servico-item">
+      <div class="servico-num">04</div>
+      <div class="servico-body">
+        <div class="servico-name">Pilar 03 — Estratégia de Conteúdo e Reativação do YouTube & Instagram</div>
+        <div class="servico-just">Definição de calendário editorial mínimo para reativar o Instagram (com posts fixados de autoridade) e roteirização de vídeos curtos/longos no YouTube para capturar buscas orgânicas de plantas medicinais. (Fase 2 / Médio Prazo).</div>
+        <span class="urgencia-tag urgencia-media">Urgência Média</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+      <span class="section-tag tag-internal">Somente interno</span>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">
+        "Olá! Tudo bem? Vi que você enviou os dados do Jardim Vivo Essencial no diagnóstico do site da Vocação e mencionou que não sabe avaliar o que está faltando para as vendas destravarem. Analisei a sua estrutura do '7 Ervas que Cuidam' e identifiquei exatamente onde está o gargalo: a página roda em subdomínio de terceiros (inlead.digital) e as redes estão sem atualização recente, o que gera insegurança no comprador na hora de passar o cartão na Hotmart. Montei um diagnóstico executivo visual mostrando o passo a passo para colocar sua marca em domínio próprio oficial e destravar a conversão. Posso te enviar o PDF por aqui?"
+      </div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Conecta diretamente com a dor que o próprio lead registrou no formulário ("não sei avaliar o que está faltando"), valida o mérito do produto na Hotmart, aponta a falha técnica no subdomínio sem rodeios e propõe o envio do diagnóstico em tom de parceria consultiva.
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('gancho').textContent.trim()); this.textContent = '✓ Copiado!'; setTimeout(() => this.textContent = 'Copiar Gancho', 2000);">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+      <span class="section-tag tag-internal">Somente interno</span>
+    </div>
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Qual o volume médio atual de visitantes únicos na página inlead.digital/7ervasquecuidam/ por semana ou mês? Isso permite calcular a taxa de abandono de checkout.</div>
+    </div>
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Quantas vendas já foram realizadas na Hotmart até o momento e quantos boletos/Pix foram gerados sem pagamento?</div>
+    </div>
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>A operação é 100% digital e escalável, ou há intenção futura de realizar cursos/workshops presenciais ou venda de mudas e produtos físicos?</div>
+    </div>
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Há verba destinada para tráfego pago (Meta Ads) após a publicação da nova página em domínio próprio, ou a estratégia inicial será focada no tráfego orgânico do YouTube e Instagram?</div>
+    </div>
+  </div>
+
+  <!-- FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      <div class="fonte-item">
+        <span class="fonte-origin">FORMULÁRIO</span>
+        <span>Dados submetidos no site da Vocação (tempo < 1 ano, gargalo declarado: "não sei avaliar o que está faltando", pedido: "quero falar sobre os próximos passos")</span>
+      </div>
+      <div class="fonte-item">
+        <span class="fonte-origin">LANDING PAGE</span>
+        <span>Página de vendas do e-book em inlead.digital/7ervasquecuidam/ (estrutura de copy, promessa e módulos)</span>
+      </div>
+      <div class="fonte-item">
+        <span class="fonte-origin">HOTMART</span>
+        <span>Clube Refúgio Verde Essencial e produtos 7094095, 7164468 e 7164490 na plataforma Hotmart</span>
+      </div>
+      <div class="fonte-item">
+        <span class="fonte-origin">INSTAGRAM</span>
+        <span>Perfil oficial @jardimvivoessencial (posse do @ e histórico de postagens)</span>
+      </div>
+      <div class="fonte-item">
+        <span class="fonte-origin">FACEBOOK</span>
+        <span>Página Jardim Vivo Essencial (id 61587053952161)</span>
+      </div>
+      <div class="fonte-item">
+        <span class="fonte-origin">YOUTUBE</span>
+        <span>Canal oficial @JardimVivoEssencial (informado no formulário)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

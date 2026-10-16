@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Cast Select Móveis Planejados — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;
+    --color-accent: #0B5E47;
+    --color-accent-soft: #e8f4ef;
+    --color-bg: #f5f4ef;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #e2e8e5;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #1b2421;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Cast Select Móveis Planejados — Sorocaba, SP</div>
+    <div class="header-sub">Contato: Responsável · 5515998201691 · Análise: Outubro de 2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da clínica em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps & Perfil da Empresa</div>
+        <span class="badge badge-forte">Forte</span>
+      </div>
+      <div class="canal-desc"></div>
+      <div class="canal-impact"></div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site / Vitrine Institucional</div>
+        <span class="badge badge-critico">Crítico</span>
+      </div>
+      <div class="canal-desc"></div>
+      <div class="canal-impact"></div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram & Redes Sociais</div>
+        <span class="badge badge-mediano">Mediano</span>
+      </div>
+      <div class="canal-desc"></div>
+      <div class="canal-impact"></div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">WhatsApp Comercial</div>
+        <span class="badge badge-mediano">Estruturado</span>
+      </div>
+      <div class="canal-desc"></div>
+      <div class="canal-impact"></div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Cast Select Móveis Planejados</strong></td>
+      <td>4.9 ★★★★★</td>
+      <td>Sem Portal</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-mediano">Lead Analisado</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Concorrentes Campolim & ZS</strong></td>
+      <td>4.8 ★★★★★</td>
+      <td>Portal Próprio</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-forte">Forte Concorrente</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Studios Convencionais</strong></td>
+      <td>4.5 ★★★★☆</td>
+      <td>Básico</td>
+      <td>Esporádico</td>
+      <td><span class="badge badge-fraco">Mediano</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Qualidade Técnica Reconhecida</strong> — Metodologia personalizada e alta satisfação dos alunos e pacientes atendidos.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Estratégica</strong> — Excelente ponto em Sorocaba com grande potencial de atração de público qualificado.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Conceito de Atendimento</strong> — Cuidado individualizado e foco em resultados de saúde e movimento consciente.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de Vitrine Digital Independente</div>
+      <div class="fraqueza-detail">Quem pesquisa pelo serviço no Google encontra pouca profundidade institucional antes do agendamento.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Perfil no Maps sem Tour 360°</div>
+      <div class="fraqueza-detail">Alunos de condomínios da região não visualizam a estrutura e os equipamentos no Street View.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Gargalo de Conversão Direta</div>
+      <div class="fraqueza-detail">Potenciais clientes particulares hesitam e acabam caindo em concorrentes com sites mais estruturados.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Vocação Start (Maps + Vitrine One-Page)</div>
+        <div class="servico-just">Ficha do Google Maps blindada e vitrine rápida mobile-first em subdomínio seguro conectada ao WhatsApp em 7 dias úteis.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Combo Maps + Tour Virtual 360°</div>
+        <div class="servico-just">Otimização avançada no Google Maps com fotos imersivas no Google Street View para multiplicar a retenção e cliques.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">""</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Gancho consultivo direto focado na dor real de busca local de pacientes de alto ticket.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

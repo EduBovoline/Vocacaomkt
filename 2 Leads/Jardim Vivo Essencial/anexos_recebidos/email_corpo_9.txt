@@ -1,0 +1,162 @@
+De: André Ramos <andrerhandrade@gmail.com>
+Para: =?UTF-8?Q?Eduardo_Bovoline_=7C_Voca=C3=A7=C3=A3o?= <contato@vocacao.digital>
+Data: Mon, 28 Sep 2026 18:12:30 -0300
+Assunto: Re: Análise & Diagnóstico de Presença Digital — Jardim Vivo Essencial (Em anexo)
+
+CORPO:
+
+[text/plain]
+Olá, Twidoo e equipe da Vocação Digital! o/
+
+Encaminho as informações levantadas sobre o *Jardim Vivo Essencial*,
+acompanhadas dos documentos de apoio, para orientar a nova abordagem do
+projeto e dos produtos.
+
+Os dados foram consultados em *28/09/2026*. Separei abaixo o que
+conseguimos confirmar e o que ainda precisa ser definido, para que possamos
+trabalhar com um ponto de partida realista.
+
+*1. Visitantes da página e histórico do Inlead*
+
+Não foi possível confirmar uma média semanal ou mensal de visitantes únicos.
+
+O painel antigo do Inlead exibia *435 visitas e acessos e 5 registros de
+leads/interações*, mas não esclarecia o período do contador nem se acessos
+repetidos eram contabilizados separadamente. Portanto, os 435 acessos não
+devem ser interpretados como visitantes únicos mensais.
+
+Foi realizada uma atualização orientada pelo suporte, com exportação dos
+leads e reset dos dados. O novo painel ficou acessível, mas não apresentou
+o histórico nas consultas realizadas. Essa ausência de dados não significa
+que o funil teve zero visitantes.
+
+*Não pretendo continuar utilizando o Inlead na nova abordagem.* Esse
+material está sendo encaminhado apenas como referência histórica, sem
+necessidade de prolongar o trabalho na plataforma anterior.
+
+*2. Vendas, Pix, boletos e abandono de checkout na Hotmart*
+
+O relatório contém *5 transações de produtos com pagamento confirmado*:
+
+   - *3 em meu nome*, que devem ficar separadas da análise de aquisição de
+   clientes;
+   - *2 em nome de uma mesma compradora*, correspondentes a um pedido com o
+   Guia das 7 Ervas e o Guia de Pragas.
+
+Portanto, não são cinco clientes diferentes: há um pedido pago em nome de
+outra compradora, além das compras em meu nome.
+
+Também foi identificado *1 pedido via Pix expirado sem pagamento*, de
+*22/02/2026*, no valor de *R$ 86,80*. Esse pedido incluía três produtos e
+aparece em três registros de transação vinculados ao mesmo pedido. *Não
+constam boletos nem pagamentos ainda em aberto no arquivo analisado.*
+
+O relatório de abandono do produto principal, consultado nos últimos 24
+meses, apresentou *1 registro*. Entretanto, a mesma compradora possui
+pagamento confirmado poucos minutos depois. Por isso, esse registro não
+deve ser tratado automaticamente como uma venda definitivamente perdida.
+Ele é diferente do pedido Pix expirado mencionado acima.
+
+*3. Modelo de operação*
+
+A operação existente é baseada em *produtos digitais comercializados pela
+Hotmart*.
+
+Para esta reformulação, considero o modelo digital como escopo inicial. Não
+há um plano confirmado de workshops presenciais, venda de mudas ou outros
+produtos físicos a incluir neste momento.
+
+Os produtos existentes e seus preços históricos estão detalhados no
+briefing. Esses preços servem como referência da operação anterior, não
+como uma definição obrigatória para a nova oferta.
+
+*4. Tráfego pago e estratégia de aquisição*
+
+*O orçamento e a estratégia de aquisição ainda estão a definir.* Não há um
+valor de mídia aprovado para informar neste momento.
+
+Meta Ads pode ser considerado na proposta, assim como produção de conteúdo
+e outros canais adequados. Também não está definida uma estratégia
+exclusivamente orgânica para YouTube e Instagram.
+
+Gostaria que a proposta diferenciasse os custos de *produção de conteúdo,
+gestão e eventual verba de mídia*, para que possamos definir os canais e o
+investimento antes da execução.
+
+*Documentos anexados*
+
+*01_JVE_Briefing_Vocacao_Digital.pdf*
+Documento principal, com as quatro respostas, contexto da reformulação,
+produtos existentes e limites dos dados.
+
+*02_JVE_Hotmart.xlsx*
+Planilha com resumo, agrupamento dos pedidos, transações e notas para
+interpretar corretamente os números.
+
+*03_JVE_Inlead_Historico.xlsx*
+Registro histórico das métricas e interações disponíveis, sem apresentar
+como confirmadas informações que não conseguimos apurar.
+
+*04_JVE_Comprovantes_dos_Paineis.pdf*
+Prints selecionados dos painéis, com explicações e ocultação dos dados
+pessoais dos compradores e dos leads.
+
+Meu objetivo é utilizar esse levantamento como ponto de partida para
+*reformular
+o posicionamento, a oferta e a estrutura comercial do Jardim Vivo Essencial*,
+sem ficar preso às limitações da configuração anterior.
+
+O histórico ainda é pequeno e não representa uma operação comercial
+validada em escala. Prefiro apresentar os números com essa transparência
+para construirmos a nova etapa sobre informações confiáveis.
+
+Obrigado pela parceria!
+
+*André Luiz RH de Andrade*
+Jardim Vivo Essencial
+
+Em seg., 28 de set. de 2026 às 14:54, Eduardo Bovoline | Vocação
+<contato@vocacao.digital> escreveu:
+
+> Olá, *André*, tudo bem?
+>
+> Conforme conversamos pelo WhatsApp, segue em anexo o arquivo oficial em
+> PDF com a nossa *análise de presença digital do Jardim Vivo Essencial*.
+>
+> No documento detalhamos o plano prático com as principais oportunidades de
+> estruturação digital da marca, com foco em domínio próprio, autoridade
+> editorial e canais de conversão direta.
+>
+> O arquivo está anexado aqui para a sua leitura. Fico à total disposição
+> para trocarmos uma ideia sobre os pontos apresentados.
+>
+> Atenciosamente,
+>
+> Eduardo Bovoline
+>
+> Vocação Comunicação & Marketing
+>
+> WhatsApp: (15) 98151-2083 | vocacao.digital
+>
+
+[text/html]
+<div dir="ltr"><div class="gmail_default" style="font-family:tahoma,sans-serif"><p>Olá, Twidoo e equipe da Vocação Digital! o/</p><p>Encaminho as informações levantadas sobre o <strong>Jardim Vivo Essencial</strong>, acompanhadas dos documentos de apoio, para orientar a nova abordagem do projeto e dos produtos.</p><p>Os dados foram consultados em <strong>28/09/2026</strong>. Separei abaixo o que conseguimos confirmar e o que ainda precisa ser definido, para que possamos trabalhar com um ponto de partida realista.</p><p><strong>1. Visitantes da página e histórico do Inlead</strong></p><p>Não foi possível confirmar uma média semanal ou mensal de visitantes únicos.</p><p>O painel antigo do Inlead exibia <strong>435 visitas e acessos e 5 registros de leads/interações</strong>, mas não esclarecia o período do contador nem se acessos repetidos eram contabilizados separadamente. Portanto, os 435 acessos não devem ser interpretados como visitantes únicos mensais.</p><p>Foi realizada uma atualização orientada pelo suporte, com exportação dos leads e reset dos dados. O novo painel ficou acessível, mas não apresentou o histórico nas consultas realizadas. Essa ausência de dados não significa que o funil teve zero visitantes.</p><p><strong>Não pretendo continuar utilizando o Inlead na nova abordagem.</strong> Esse material está sendo encaminhado apenas como referência histórica, sem necessidade de prolongar o trabalho na plataforma anterior.</p><p><strong>2. Vendas, Pix, boletos e abandono de checkout na Hotmart</strong></p><p>O relatório contém <strong>5 transações de produtos com pagamento confirmado</strong>:</p><ul><li><strong>3 em meu nome</strong>, que devem ficar separadas da análise de aquisição de clientes;</li><li><strong>2 em nome de uma mesma compradora</strong>, correspondentes a um pedido com o Guia das 7 Ervas e o Guia de Pragas.</li></ul><p>Portanto, não são cinco clientes diferentes: há um pedido pago em nome de outra compradora, além das compras em meu nome.</p><p>Também foi identificado <strong>1 pedido via Pix expirado sem pagamento</strong>, de <strong>22/02/2026</strong>, no valor de <strong>R$ 86,80</strong>. Esse pedido incluía três produtos e aparece em três registros de transação vinculados ao mesmo pedido. <strong>Não constam boletos nem pagamentos ainda em aberto no arquivo analisado.</strong></p><p>O relatório de abandono do produto principal, consultado nos últimos 24 meses, apresentou <strong>1 registro</strong>. Entretanto, a mesma compradora possui pagamento confirmado poucos minutos depois. Por isso, esse registro não deve ser tratado automaticamente como uma venda definitivamente perdida. Ele é diferente do pedido Pix expirado mencionado acima.</p><p><strong>3. Modelo de operação</strong></p><p>A operação existente é baseada em <strong>produtos digitais comercializados pela Hotmart</strong>.</p><p>Para esta reformulação, considero o modelo digital como escopo inicial. Não há um plano confirmado de workshops presenciais, venda de mudas ou outros produtos físicos a incluir neste momento.</p><p>Os produtos existentes e seus preços históricos estão detalhados no briefing. Esses preços servem como referência da operação anterior, não como uma definição obrigatória para a nova oferta.</p><p><strong>4. Tráfego pago e estratégia de aquisição</strong></p><p><strong>O orçamento e a estratégia de aquisição ainda estão a definir.</strong> Não há um valor de mídia aprovado para informar neste momento.</p><p>Meta Ads pode ser considerado na proposta, assim como produção de conteúdo e outros canais adequados. Também não está definida uma estratégia exclusivamente orgânica para YouTube e Instagram.</p><p>Gostaria que a proposta diferenciasse os custos de <strong>produção de conteúdo, gestão e eventual verba de mídia</strong>, para que possamos definir os canais e o investimento antes da execução.</p><p><strong>Documentos anexados</strong></p><p><strong>01_JVE_Briefing_Vocacao_Digital.pdf</strong><br>Documento principal, com as quatro respostas, contexto da reformulação, produtos existentes e limites dos dados.</p><p><strong>02_JVE_Hotmart.xlsx</strong><br>Planilha com resumo, agrupamento dos pedidos, transações e notas para interpretar corretamente os números.</p><p><strong>03_JVE_Inlead_Historico.xlsx</strong><br>Registro histórico das métricas e interações disponíveis, sem apresentar como confirmadas informações que não conseguimos apurar.</p><p><strong>04_JVE_Comprovantes_dos_Paineis.pdf</strong><br>Prints selecionados dos painéis, com explicações e ocultação dos dados pessoais dos compradores e dos leads.</p><p>Meu objetivo é utilizar esse levantamento como ponto de partida para <strong>reformular o posicionamento, a oferta e a estrutura comercial do Jardim Vivo Essencial</strong>, sem ficar preso às limitações da configuração anterior.</p><p>O histórico ainda é pequeno e não representa uma operação comercial validada em escala. Prefiro apresentar os números com essa transparência para construirmos a nova etapa sobre informações confiáveis.</p><p>Obrigado pela parceria!</p><p><strong>André Luiz RH de Andrade</strong><br>Jardim Vivo Essencial</p></div></div><br><div class="gmail_quote gmail_quote_container"><div dir="ltr" class="gmail_attr">Em seg., 28 de set. de 2026 às 14:54, Eduardo Bovoline | Vocação &lt;contato@vocacao.digital&gt; escreveu:<br></div><blockquote class="gmail_quote" style="margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+<div style="font-family:Arial,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,sans-serif;font-size:14px;line-height:1.6;color:rgb(34,34,34);max-width:600px">
+    <p>Olá, <b>André</b>, tudo bem?</p>
+    <p>Conforme conversamos pelo WhatsApp, segue em anexo o arquivo oficial em PDF com a nossa <b>análise de presença digital do Jardim Vivo Essencial</b>.</p>
+    <p>No documento detalhamos o plano prático com as principais oportunidades de estruturação digital da marca, com foco em domínio próprio, autoridade editorial e canais de conversão direta.</p>
+    <p>O arquivo está anexado aqui para a sua leitura. Fico à total disposição para trocarmos uma ideia sobre os pontos apresentados.</p>
+    <br>
+    <p style="margin-bottom:2px">Atenciosamente,</p>
+    <p style="margin-top:0px;font-weight:bold;color:rgb(17,17,17)">Eduardo Bovoline</p>
+    <p style="margin:0px;color:rgb(85,85,85);font-size:13px">Vocação Comunicação &amp; Marketing</p>
+    <p style="margin:0px;color:rgb(85,85,85);font-size:13px">WhatsApp: (15) 98151-2083 | <a href="https://vocacao.digital" style="color:rgb(0,102,204);text-decoration:none" target="_blank">vocacao.digital</a></p>
+</div>
+</blockquote></div>
+
+
+ANEXOS:
+01_JVE_Briefing_Vocacao_Digital.pdf (6968 bytes)
+02_JVE_Hotmart.xlsx (12672 bytes)
+03_JVE_Inlead_Historico.xlsx (9706 bytes)
+04_JVE_Comprovantes_dos_Paineis.pdf (496695 bytes)

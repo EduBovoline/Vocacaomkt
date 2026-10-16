@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Studio Espaço Pilates — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;
+    --color-accent: #0B5E47;
+    --color-accent-soft: #e8f4ef;
+    --color-bg: #f5f4ef;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #e2e8e5;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #1b2421;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Studio Espaço Pilates — Sorocaba</div>
+    <div class="header-sub">Contato: Aline (Instrutora / Responsável) · 5515997118853 · Análise: Outubro de 2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Diagnóstico executivo de presença digital do Studio Espaço Pilates, localizado na Av. Pereira da Silva, 1163, no coração comercial de Santa Rosália, Sorocaba. O estúdio dispõe de estrutura completa de aparelhos clássicos (Cadillac, Reformer, Chair, Barrel) e goza de excelente reputação técnica conduzida pela instrutora Aline. Contudo, o negócio enfrenta um gargalo severo na captação de novos alunos da região: não possui vitrine mobile própria (quem busca por pilates no Google encontra apenas diretórios de terceiros), a ficha do Google Maps não tem fotos 360° no Google Street View para valorizar os aparelhos e o espaço reservado antes da visita, e o contato via WhatsApp não tem filtro de triagem de horários e turmas. O modelo de inteligência Jev System One apontou probabilidade de 89% de perda de conversão local para concorrentes vizinhos na Pereira da Silva, com urgência crítica de 1.97/2.0. A solução prioritária é o Combo Maps + Tour Virtual 360° GoPro Max Street View (R$ 950,00) combinado à vitrine mobile Vocação Start (R$ 850,00).
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Ficha do Google Maps (Google Meu Negócio)</div>
+        <span class="badge badge-mediano">Mediano</span>
+      </div>
+      <div class="canal-desc">Ficha cadastrada na Av. Pereira da Silva, 1163.</div>
+      <div class="canal-impact">Alunos que pesquisam pilates na região não conseguem passear virtualmente pelo espaço nem ver a qualidade dos aparelhos antes da visita.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Institucional / Vitrine Digital</div>
+        <span class="badge badge-ausente">Ausente</span>
+      </div>
+      <div class="canal-desc">Sem domínio institucional ou página exclusiva de agendamento.</div>
+      <div class="canal-impact">Falta de canal oficial gera desconfiança e dispersão para estúdios concorrentes com páginas estruturadas.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Presença em Redes Sociais</div>
+        <span class="badge badge-fraco">Fraco</span>
+      </div>
+      <div class="canal-desc">Comunicação social sem funil de captação direta para WhatsApp.</div>
+      <div class="canal-impact">Potenciais alunos visitam as redes mas não encontram rota direta e rápida para agendar horários.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Canal de Agendamento WhatsApp</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">Canal de WhatsApp direto ativo.</div>
+      <div class="canal-impact">Pode dobrar a taxa de conversão em matrículas se o interessado já chegar ao WhatsApp após ver o Tour 360° e a vitrine dos planos.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> No segmento de Pilates e reabilitação postural, mais de 80% das matrículas são decididas por alunos que moram ou trabalham no próprio bairro e valorizam a conservação dos aparelhos e a organização das salas. Antes de chamar no WhatsApp, o potencial aluno pesquisa no Google Maps para ver se o estúdio tem ambiente climatizado, equipamentos modernos e facilidade de acesso na Pereira da Silva. Negócios sem Tour 360° no Street View e sem vitrine mobile perdem o fechamento para redes concorrentes que exibem fotos profissionais no topo das buscas.
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Studio Espaço Pilates (Aline)</strong></td>
+      <td>Ficha básica Pereira da Silva</td>
+      <td>Ausente (Apenas Diretórios)</td>
+      <td>Presença Básica</td>
+      <td><span class="badge badge-mediano">Oportunidade Crítica (89%)</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Pure Pilates Santa Rosália</strong></td>
+      <td>Ficha Completa com 360°</td>
+      <td>Portal de Franquia</td>
+      <td>Ativo Diário</td>
+      <td><span class="badge badge-otimo">Forte Concorrência</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Clínica Paes Pilates & Fisio</strong></td>
+      <td>Ficha com Fotos Otimizadas</td>
+      <td>Vitrine em Implantação</td>
+      <td>Ativo Semanal</td>
+      <td><span class="badge badge-otimo">Em Modernização</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Studio Vital Pilates & Yoga</strong></td>
+      <td>Ficha Otimizada</td>
+      <td>Página Local</td>
+      <td>Regular</td>
+      <td><span class="badge badge-bom">Consolidado</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Transformar a estrutura física do Studio Espaço Pilates em um ímã de captação local através do Tour Virtual 360° no Street View do Google, permitindo que o aluno conheça os aparelhos por dentro da sala antes do primeiro contato, somado a uma vitrine mobile de carregamento instantâneo (<0.5s) com apresentação de planos e botão WhatsApp direto para agendamento de aula experimental.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Nobre e Estratégica</strong> — Estabelecido no número 1163 da Av. Pereira da Silva, com visibilidade excelente no polo de saúde de Santa Rosália.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Aparelhos Clássicos Completos</strong> — Equipamentos modernos (Reformer, Cadillac, Barrel, Chair) ideais para aulas personalizadas e reabilitação postural.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Reconhecimento e Fidelidade dos Alunos</strong> — Avaliações públicas destacando a atenção, competência e acolhimento diferenciado da instrutora Aline.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Ambiente Reservado e Exclusivo</strong> — Clima calmo, organizado e climatizado, perfeito para quem foge de academias barulhentas.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Aparelhos de Alto Padrão sem Visibilidade 360° no Mapa</div>
+      <div class="fraqueza-detail">O estúdio possui estrutura impecável, mas quem pesquisa no Google Maps não consegue entrar virtualmente nas salas no Street View.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Sem Vitrine Mobile Própria na Pereira da Silva</div>
+      <div class="fraqueza-detail">A clínica não possui site oficial; quem pesquisa no Google encontra apenas cadastros genéricos em diretórios.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Atendimento de WhatsApp Sobrecarregado</div>
+      <div class="fraqueza-detail">Sem uma vitrine explicativa sobre modalidades e horários, o tempo da recepção é consumido explicando o básico no chat.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Perda Estimada de 89% de Alunos do Bairro</div>
+      <div class="fraqueza-detail">O modelo Jev System One diagnosticou urgência crítica (1.97/2.0) e risco de 89% de perda de clientes locais para redes concorrentes vizinhas.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Combo Maps + Tour Virtual 360° GoPro Max Street View (R$ 950,00)</div>
+        <div class="servico-just">Captação imersiva de alta resolução em 360° dos aparelhos de Pilates (Reformer, Cadillac, Chair), publicada oficialmente no Google Street View para que os moradores de Santa Rosália conheçam o estúdio por dentro antes de agendar a primeira aula experimental.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Vocação Start — Ficha Maps Blindada + Vitrine One-Page (R$ 850,00)</div>
+        <div class="servico-just">Desenvolvimento da vitrine oficial mobile-first do estúdio (carregamento em <0.5s) com apresentação clara dos planos, horários de turmas e botão direto para o WhatsApp da Aline, eliminando a dependência de diretórios.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">Blindagem de Perfil & SEO Local no Google Maps (R$ 450,00)</div>
+        <div class="servico-just">Reivindicação formal da ficha, organização das categorias primárias/secundárias de Pilates e fisioterapia, fotos profissionais de fachada e blindagem contra alterações de terceiros.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">"Olá, Aline! Tudo bem? Analisei a presença digital do Studio Espaço Pilates no Google Maps aqui na Pereira da Silva e vi que o estúdio tem uma estrutura impecável de aparelhos, mas quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer o espaço antes de agendar. Montei um diagnóstico visual de 2 minutos mostrando como valorizar o estúdio e atrair mais alunos do bairro. Posso te enviar por aqui? (Se preferir não receber mensagens comerciais, responda PARAR)."</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Personalizado para a Aline e para a Av. Pereira da Silva, valida o diferencial físico dos aparelhos, propõe o Tour 360° como ativo visual imediato e fecha com uma única pergunta direta respeitando o compliance LGPD.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Apresentar a matemática de retorno: 1 ou 2 novas matrículas de Pilates cobrem 100% do investimento de R$ 950.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O gancho cita a Pereira da Silva como prova de proximidade e conhecimento local.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Enviar o arquivo PDF gerado assim que ela autorizar com 'sim'.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">GOOGLE MAPS OFICIAL</span>
+      <span>Ficha Studio Espaço Pilates (Av. Pereira da Silva, 1163 - Jardim Santa Rosália, Sorocaba/SP)</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">AUDITORIA DE PRESENÇA WEB</span>
+      <span>Varredura de domínio próprio e cadastros em diretórios (SorocabaFácil, LocalTreino)</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">JEV SYSTEM ONE</span>
+      <span>Modelo jev-latest: Combo Maps + Tour 360° (fit 90%), Perda de conversão local de 89%, Urgência 1.97/2.0</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -6,6 +6,41 @@
       "source": "/index.html",
       "destination": "/",
       "statusCode": 301
+    },
+    {
+      "source": "/branding",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/design-avulso",
+      "destination": "/vocacao-update",
+      "statusCode": 301
+    },
+    {
+      "source": "/impressao",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/redes",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/trafego",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/video",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/diagnostico",
+      "destination": "/",
+      "statusCode": 301
     }
   ]
 }

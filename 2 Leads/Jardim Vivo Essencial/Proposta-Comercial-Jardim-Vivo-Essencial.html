@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta — Jardim Vivo Essencial</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #121816;
+    --color-accent: #0B5E47;
+    --color-accent-soft: #e8f4ef;
+    --color-bg: #fafaf8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #555e5a;
+    --color-border: #e2e8e5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.5;
+    font-size: 14px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header {
+    background: var(--color-primary);
+    color: white;
+    padding: 30px 32px 26px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .vocacao-name {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: #ffffff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+  .header-title em {
+    font-style: italic;
+    color: #a4dbc9;
+  }
+  .header-right {
+    text-align: right;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+  .header-right strong {
+    color: white;
+    font-size: 13px;
+  }
+
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 24px 20px 36px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .card-title {
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+  .item-list {
+    list-style: none;
+  }
+  .item-list li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+  .item-list li:last-child {
+    margin-bottom: 0;
+  }
+  .item-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -1px;
+    color: var(--color-accent);
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .timeline-bar {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+  }
+  .timeline-step {
+    text-align: center;
+    flex: 1;
+    border-right: 1px solid var(--color-border);
+    padding: 0 6px;
+  }
+  .timeline-step:last-child {
+    border-right: none;
+  }
+  .timeline-step strong {
+    color: var(--color-primary);
+    display: block;
+    font-size: 12px;
+  }
+  .timeline-step span {
+    color: var(--color-text-muted);
+    font-size: 11px;
+  }
+
+  .pay-box {
+    background: #17221e;
+    color: white;
+    border-radius: 10px;
+    padding: 20px 22px;
+    border-top: 3px solid var(--color-accent);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .pay-price {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    color: #a4dbc9;
+    line-height: 1;
+  }
+  .pay-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 4px;
+  }
+  .pay-action {
+    text-align: right;
+  }
+  .pay-btn {
+    display: inline-block;
+    background: #0B5E47;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px 24px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+  }
+  .pay-btn:hover {
+    background: #0e7357;
+  }
+  .pay-link-text {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 6px;
+  }
+  .pay-link-text a {
+    color: #a4dbc9;
+    text-decoration: underline;
+  }
+
+  .footer {
+    margin-top: 20px;
+    border-top: 1px solid var(--color-border);
+    padding-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--color-text-muted);
+  }
+
+  @media print {
+    @page { size: A4; margin: 10mm 12mm; }
+    body { background: white; }
+    .header { padding: 20px 24px; }
+    .container { padding: 16px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div>
+      <div class="vocacao-name">Vocação Comunicação & Marketing</div>
+      <h1 class="header-title">Jardim Vivo <em>Essencial</em></h1>
+    </div>
+    <div class="header-right">
+      <strong>André Andrade</strong><br>
+      Recife / Olinda — PE<br>
+      Prazo: 5 dias úteis
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- COLUNA 1 -->
+    <div class="card">
+      <div class="card-title">1. Site & Estrutura</div>
+      <ul class="item-list">
+        <li><strong>Nova Landing Page:</strong> Visual limpo, moderna, rápida (&lt; 0.5s) e pensada para celular, aposentando o Inlead.</li>
+        <li><strong>Na sua conta Vercel:</strong> O site roda na sua Vercel e no seu domínio próprio. Acesso 100% seu, sem dependência de agência.</li>
+        <li><strong>Textos revisados:</strong> Copy ajustada com as respostas reais do quiz das 7 Ervas.</li>
+        <li><strong>Zero mensalidade:</strong> Sem custo mensal fixo. Serviços extras no futuro só se você pedir.</li>
+      </ul>
+    </div>
+
+    <!-- COLUNA 2 -->
+    <div class="card">
+      <div class="card-title">2. Rastreamento & Anúncios</div>
+      <ul class="item-list">
+        <li><strong>Pixel & API Hotmart:</strong> Rastreamento correto de compras e checkouts para suas campanhas.</li>
+        <li><strong>Recuperação de Pix:</strong> Ajuda técnica para configurar o aviso no WhatsApp quando alguém gerar Pix e não pagar.</li>
+        <li><strong>Anúncios de teste:</strong> 4 imagens prontas para Feed/Stories + 2 roteiros em vídeo para gravação.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CRONOGRAMA -->
+  <div class="timeline-bar">
+    <div class="timeline-step">
+      <strong>Dia 1</strong>
+      <span>Visual novo</span>
+    </div>
+    <div class="timeline-step">
+      <strong>Dia 2</strong>
+      <span>Textos & Módulos</span>
+    </div>
+    <div class="timeline-step">
+      <strong>Dia 3</strong>
+      <span>Versão mobile</span>
+    </div>
+    <div class="timeline-step">
+      <strong>Dia 4</strong>
+      <span>Pixel & Pix</span>
+    </div>
+    <div class="timeline-step">
+      <strong>Dia 5</strong>
+      <span>Deploy na Vercel</span>
+    </div>
+  </div>
+
+  <!-- PAGAMENTO -->
+  <div class="pay-box">
+    <div>
+      <div class="pay-price">R$ 980,00</div>
+      <div class="pay-sub">À vista no Pix ou em até 12x no cartão de crédito</div>
+    </div>
+    <div class="pay-action">
+      <a href="https://link.infinitepay.io/edu_bovoline/VC1DLUMtUg-r08gVw7sFi-980,00" class="pay-btn" target="_blank">
+        Pagar via InfinitePay (até 12x)
+      </a>
+      <div class="pay-link-text">
+        <a href="https://link.infinitepay.io/edu_bovoline/VC1DLUMtUg-r08gVw7sFi-980,00" target="_blank">link.infinitepay.io/edu_bovoline/...</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>
+      Eduardo Bovoline · WhatsApp: (15) 98151-2083 · contato@vocacao.digital
+    </div>
+    <div>
+      vocacao.digital
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

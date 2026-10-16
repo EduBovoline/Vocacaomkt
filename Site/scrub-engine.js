@@ -120,8 +120,19 @@ function mountScrollWorld(container, config) {
     topbar.appendChild(brand);
   }
   const nav = el('nav', 'sw-nav'); if (config.nav !== false) topbar.appendChild(nav);
+  if (config.pageLinks && config.pageLinks.length) {
+    const plWrap = el('div', 'sw-pagelinks');
+    config.pageLinks.forEach(lk => {
+      const a = el('a', 'sw-pagelink' + (lk.active ? ' is-current' : ''));
+      a.href = lk.href || '#';
+      a.textContent = lk.label || '';
+      plWrap.appendChild(a);
+    });
+    topbar.appendChild(plWrap);
+  }
   if (config.cta && config.cta.label) {
     const c = el('a', 'sw-topcta'); c.href = config.cta.href || '#'; c.textContent = config.cta.label;
+    if (config.cta.target) c.target = config.cta.target;
     topbar.appendChild(c);
   }
 
@@ -138,7 +149,7 @@ function mountScrollWorld(container, config) {
   // segment scenes
   SEGMENTS.forEach(s => {
     const scene = el('div', 'sw-scene'); scene.style.setProperty('--sw-accent', s.accent || '');
-    const img = el('img', 'sw-scene__still'); img.alt = ''; img.decoding = 'async'; img.loading = 'lazy';
+    const img = el('img', 'sw-scene__still'); img.alt = ''; img.decoding = 'async'; img.loading = 'eager';
     const poster = (isMobile() && s.stillM) ? s.stillM : s.still;
     if (poster) img.src = poster;
     scene.appendChild(img); stage.appendChild(scene);
@@ -172,35 +183,29 @@ function mountScrollWorld(container, config) {
   // ---- math ----
   const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
   const smooth = x => { x = clamp(x); return x * x * (3 - 2 * x); };
-  // Per-section dwell: monotone remap of scroll→time so the camera settles mid-scene
-  // (where the copy peaks) and moves quicker near the seams. L=0 linear, L=1 full
-  // mid-scene pause. f(0)=0, f(1)=1 always, so seam frames are untouched.
   const lingerEase = (x, L) => { L = clamp(L); const c = x - 0.5; return (1 - L) * x + L * (4 * c * c * c + 0.5); };
   let vh = window.innerHeight, stageX = 0, totalW = 0, activeIndex = -1, ticking = false;
-  let laidOutW = window.innerWidth;   // width the current layout was computed at (see onResize)
+  let laidOutW = window.innerWidth;
 
   function layout() {
     vh = window.innerHeight;
     laidOutW = window.innerWidth;
-    stageX = window.innerWidth > 860 ? 4 : 0;
+    stageX = window.innerWidth > 860 ? 2 : 0;
     let off = 0;
     SEGMENTS.forEach(s => { s.start = off * vh; off += s.w; s.end = off * vh; });
     totalW = off;
-    track.style.height = (totalW * vh + vh) + 'px';   // +1vh so the last flight completes
+    track.style.height = (totalW * vh + 0.15 * vh) + 'px';   // compact tail so post-world sections enter immediately
     read();
   }
 
   function jumpTo(i) {
     const seg = SECTIONS[i]._seg;
-    window.scrollTo({ top: seg.start + (seg.end - seg.start) * 0.5, behavior: reduce ? 'auto' : 'smooth' });
+    window.scrollTo({ top: seg.start + (seg.end - seg.start) * 0.25, behavior: reduce ? 'auto' : 'smooth' });
   }
 
   function loadClip(s) {
-    // Under prefers-reduced-motion we never load the clips at all — the stills stay up
-    // and simply cross-dissolve as you scroll. No scrubbed video motion, no decode cost.
     if (reduce || s.loading || !s.clip) return;
     s.loading = true;
-    // Serve the lighter mobile encode on phones when one was provided.
     const url = (isMobile() && s.clipM) ? s.clipM : s.clip;
     fetch(url).then(r => r.ok ? r.blob() : Promise.reject(new Error('404')))
       .then(blob => {
@@ -214,7 +219,6 @@ function mountScrollWorld(container, config) {
         v.addEventListener('loadeddata', () => { try { v.pause(); } catch (e) {} if (userReady) primeVideo(v); });
         s.el.appendChild(v); s.video = v; s.hasClip = true;
       }).catch(() => {
-        // Fallback for file:// protocol or CORS restriction
         const v = document.createElement('video');
         v.className = 'sw-scene__video';
         v.muted = true; v.playsInline = true; v.preload = 'auto';
@@ -244,24 +248,41 @@ function mountScrollWorld(container, config) {
       s.el.style.opacity = op; s.visible = op > 0.001;
       s.el.style.zIndex = (i === ci) ? '120' : String(100 + Math.round(op * 10));
       if (!s.hasClip || !s.ready) {
-        const sc = reduce ? 1 : 1.03 + local * 0.14;
-        s.img.style.transform = `translateX(${stageX - 2}vw) scale(${sc.toFixed(3)})`;
+        const sc = reduce ? 1 : 1.02 + local * 0.08;
+        const tx = reduce ? 0 : (0.5 - local) * 1.6;
+        s.img.style.transform = `translate3d(${tx.toFixed(2)}vw, 0, 0) scale(${sc.toFixed(3)})`;
       }
     }
 
+    // Fade out fixed world layers smoothly once scrolling into post-world sections
+    const worldEnd = totalW * vh;
+    const postFade = y > worldEnd - 0.15 * vh ? clamp(1 - (y - (worldEnd - 0.15 * vh)) / (0.32 * vh), 0, 1) : 1;
+
+    // Continuous Reading Plateau: text stays 100% solid for 70%-84% of each section's scroll
+    const edge = 0.15;
     for (let i = 0; i < N; i++) {
       const seg = SECTIONS[i]._seg;
       const pr = clamp((y - seg.start) / (seg.end - seg.start), 0, 1);
-      const before = y < seg.start, after = y > seg.end;
+      const before = y < seg.start - 0.04 * vh, after = y > seg.end + 0.04 * vh;
       let cop;
-      if (i === 0) cop = after ? 0 : smooth(1 - pr / 0.62);            // greets on landing
-      else if (i === N - 1) cop = before ? 0 : smooth(pr / 0.4);       // holds CTA at the end
-      else cop = (before || after) ? 0 : smooth(1 - Math.abs(pr - 0.5) / 0.5);
+      if (i === 0) {
+        cop = after ? 0 : (pr <= (1 - edge) ? 1 : smooth((1 - pr) / edge));
+      } else if (i === N - 1) {
+        cop = before ? 0 : (pr < edge ? smooth(pr / edge) : 1);
+      } else {
+        if (before || after) cop = 0;
+        else if (pr < edge) cop = smooth(pr / edge);
+        else if (pr > (1 - edge)) cop = smooth((1 - pr) / edge);
+        else cop = 1;
+      }
       const c = copies[i];
-      c.style.opacity = cop;
-      c.style.transform = reduce ? 'none' : `translateY(${(0.5 - pr) * 4}vh)`;
-      c.style.pointerEvents = cop > 0.5 ? 'auto' : 'none';
+      c.style.opacity = cop * postFade;
+      c.style.transform = reduce ? 'translateY(-50%)' : `translateY(calc(-50% + ${(0.5 - pr) * 16}px))`;
+      c.style.pointerEvents = (cop > 0.45 && postFade > 0.45) ? 'auto' : 'none';
     }
+
+    route.style.opacity = postFade;
+    route.style.pointerEvents = postFade > 0.5 ? 'auto' : 'none';
 
     const cur = SEGMENTS[ci];
     const near = clamp(cur.kind === 'dive' ? cur.si
@@ -273,7 +294,7 @@ function mountScrollWorld(container, config) {
       container.style.setProperty('--sw-accent', SECTIONS[near].accent || '');
     }
     scrollbarFill.style.transform = `scaleX(${clamp(y / (totalW * vh))})`;
-    hint.style.opacity = clamp(1 - y / (0.5 * vh));
+    hint.style.opacity = clamp(1 - y / (0.35 * vh));
     if (particles) particles.style.transform = `translate3d(0, ${-y * 0.05}px, 0)`;
     ticking = false;
   }
@@ -387,6 +408,11 @@ function injectCSS() {
   .sw-nav{display:flex;gap:4px;padding:5px;background:color-mix(in srgb,#fff 55%,transparent);backdrop-filter:blur(10px);border:1px solid color-mix(in srgb,var(--sw-accent) 16%,transparent);border-radius:999px;}
   .sw-nav__item{font:inherit;font-size:.82rem;color:var(--sw-ink-soft);border:0;background:transparent;cursor:pointer;padding:7px 14px;border-radius:999px;transition:color .25s,background .25s;}
   .sw-nav__item:hover{color:var(--sw-ink);} .sw-nav__item.is-active{color:#fff;background:var(--sw-accent);}
+  .sw-pagelinks{display:flex;align-items:center;gap:18px;font-family:var(--sw-font-body);font-size:.82rem;}
+  .sw-pagelink{color:#94a3b8;text-decoration:none;transition:color .2s;white-space:nowrap;font-weight:500;}
+  .sw-pagelink:hover{color:#fff;}
+  .sw-pagelink.is-current{color:var(--sw-accent);font-weight:700;border-bottom:2px solid var(--sw-accent);padding-bottom:2px;}
+  @media(max-width:1100px){.sw-pagelinks{display:none;}}
   .sw-topcta{text-decoration:none;font-weight:600;font-size:.9rem;color:#fff;background:var(--sw-ink);padding:10px 20px;border-radius:999px;white-space:nowrap;}
   .sw-stage{position:fixed;inset:0;z-index:10;pointer-events:none;}
   .sw-scene{position:absolute;inset:0;opacity:0;overflow:hidden;will-change:opacity;}

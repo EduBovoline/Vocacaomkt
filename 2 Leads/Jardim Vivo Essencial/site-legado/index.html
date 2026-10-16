@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jardim Vivo Essencial — Guia das 7 Ervas que Cuidam de Você</title>
+  <style>
+    :root {
+      --cor-verde-botanico: #253C22;
+      --cor-verde-escuro: #1A2E18;
+      --cor-salvia: #7C8C71;
+      --cor-linho: #EDE4CF;
+      --cor-fundo: #FBF9F5;
+      --cor-texto: #1C241B;
+      --cor-texto-suave: #4A5649;
+      --cor-branco: #FFFFFF;
+      --cor-borda: #E5DFD1;
+      --cor-sucesso: #2E7D32;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Corbel', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 24px 0 20px;
+      text-align: center;
+      border-bottom: 1px solid var(--cor-borda);
+      background: var(--cor-fundo);
+    }
+
+    .logo-img {
+      max-width: 150px;
+      height: auto;
+      display: inline-block;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 36px 0 24px;
+      text-align: center;
+    }
+
+    .tag-topo {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cor-verde-botanico);
+      background-color: var(--cor-linho);
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 34px;
+      line-height: 1.25;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: var(--cor-texto-suave);
+      margin-bottom: 24px;
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* IMAGEM HERO DE ALTO IMPACTO */
+    .hero-media {
+      margin: 20px 0 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--cor-borda);
+      box-shadow: 0 10px 30px rgba(37, 60, 34, 0.08);
+      background-color: var(--cor-linho);
+      position: relative;
+    }
+
+    .hero-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      max-height: 380px;
+    }
+
+    .btn-principal {
+      display: inline-block;
+      width: 100%;
+      max-width: 440px;
+      background-color: var(--cor-verde-botanico);
+      color: var(--cor-branco);
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 24px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 14px rgba(37, 60, 34, 0.25);
+      transition: transform 0.15s ease, background-color 0.15s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-principal:hover {
+      background-color: var(--cor-verde-escuro);
+      transform: translateY(-2px);
+    }
+
+    .sub-btn {
+      font-size: 13px;
+      color: var(--cor-texto-suave);
+      margin-top: 10px;
+      display: block;
+    }
+
+    /* MICRO-DIAGNÓSTICO INTERATIVO */
+    .diag-box {
+      background: var(--cor-branco);
+      border: 2px solid var(--cor-salvia);
+      border-radius: 14px;
+      padding: 28px 24px;
+      margin: 36px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    .diag-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--cor-borda);
+      padding-bottom: 12px;
+    }
+
+    .diag-badge {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background: var(--cor-linho);
+      color: var(--cor-verde-botanico);
+      padding: 4px 10px;
+      border-radius: 12px;
+    }
+
+    .diag-passo {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cor-salvia);
+    }
+
+    .diag-pergunta {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .diag-opcoes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .diag-btn {
+      text-align: left;
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-size: 15px;
+      color: var(--cor-texto);
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .diag-btn:hover {
+      border-color: var(--cor-verde-botanico);
+      background: #f0ece1;
+      transform: translateX(4px);
+    }
+
+    .diag-btn-icon {
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .diag-resultado {
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .resultado-card {
+      background: #f3f7f2;
+      border: 1px solid #c3d9c1;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .resultado-titulo {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .resultado-desc {
+      font-size: 14px;
+      color: var(--cor-texto);
+      line-height: 1.5;
+    }
+
+    /* SEÇÃO ANTI-CULPA */
+    .secao-dor {
+      background-color: var(--cor-branco);
+      border: 1px solid var(--cor-borda);
+      border-radius: 12px;
+      padding: 32px 24px;
+      margin: 36px 0;
+    }
+
+    .secao-dor h2 {
+      font-size: 24px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+
+    .secao-dor p {
+      font-size: 16px;
+      color: var(--cor-texto-suave);
+      margin-bottom: 14px;
+    }
+
+    .lista-realidades {
+      list-style: none;
+      margin-top: 18px;
+    }
+
+    .lista-realidades li {
+      padding: 8px 0 8px 30px;
+      position: relative;
+      font-size: 15px;
+      color: var(--cor-texto);
+    }
+
+    .lista-realidades li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--cor-salvia);
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* AS 7 ERVAS */
+    .secao-ervas {
+      padding: 24px 0 36px;
+    }
+
+    .secao-ervas h2 {
+      text-align: center;
+      font-size: 26px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 8px;
+    }
+
+    .secao-ervas .sub-secao {
+      text-align: center;
+      font-size: 15px;
+      color: var(--cor-texto-suave);
+      margin-bottom: 28px;
+    }
+
+    .grid-ervas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card-erva {
+      background: var(--cor-branco);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .card-erva strong {
+      display: block;
+      color: var(--cor-verde-botanico);
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .card-erva span {
+      font-size: 13.5px;
+      color: var(--cor-texto-suave);
+      line-height: 1.4;
+      display: block;
+    }
+
+    /* MOCKUP DO PRODUTO */
+    .mockup-secao {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .mockup-media {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--cor-borda);
+      box-shadow: 0 12px 36px rgba(37, 60, 34, 0.1);
+      margin-bottom: 24px;
+      background: var(--cor-linho);
+    }
+
+    .mockup-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 380px;
+      object-fit: cover;
+    }
+
+    /* O QUE VOCE RECEBE */
+    .secao-conteudo {
+      background-color: var(--cor-linho);
+      border-radius: 12px;
+      padding: 32px 24px;
+      margin: 36px 0;
+    }
+
+    .secao-conteudo h2 {
+      font-size: 24px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 20px;
+    }
+
+    .item-conteudo {
+      margin-bottom: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed #d9d1be;
+    }
+
+    .item-conteudo:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .item-conteudo h3 {
+      font-size: 17px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 4px;
+    }
+
+    .item-conteudo p {
+      font-size: 14.5px;
+      color: var(--cor-texto-suave);
+    }
+
+    /* PRECO & CHECKOUT */
+    .secao-preco {
+      background: var(--cor-branco);
+      border: 2px solid var(--cor-verde-botanico);
+      border-radius: 14px;
+      padding: 36px 24px;
+      text-align: center;
+      margin: 44px 0;
+      box-shadow: 0 10px 30px rgba(37, 60, 34, 0.08);
+    }
+
+    .preco-original {
+      font-size: 15px;
+      text-decoration: line-through;
+      color: #8A9488;
+    }
+
+    .preco-destaque {
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--cor-verde-botanico);
+      line-height: 1;
+      margin: 10px 0 16px;
+    }
+
+    .preco-info {
+      font-size: 14.5px;
+      color: var(--cor-texto-suave);
+      margin-bottom: 24px;
+    }
+
+    /* BUMPS / COMPLEMENTOS */
+    .caixa-bumps {
+      background: #fafaf8;
+      border: 1px dashed var(--cor-salvia);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+      text-align: left;
+    }
+
+    .caixa-bumps strong {
+      display: block;
+      font-size: 14px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 6px;
+    }
+
+    .caixa-bumps span {
+      font-size: 13px;
+      color: var(--cor-texto-suave);
+      display: block;
+      line-height: 1.4;
+    }
+
+    /* GARANTIA */
+    .garantia-box {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--cor-fundo);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 16px;
+      margin: 24px 0 0;
+      text-align: left;
+    }
+
+    .garantia-icone {
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .garantia-texto h4 {
+      font-size: 15px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 2px;
+    }
+
+    .garantia-texto p {
+      font-size: 13px;
+      color: var(--cor-texto-suave);
+    }
+
+    /* FAQ */
+    .faq {
+      margin: 36px 0 48px;
+    }
+
+    .faq h2 {
+      text-align: center;
+      font-size: 24px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      background: var(--cor-branco);
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .faq-item h4 {
+      font-size: 16px;
+      color: var(--cor-verde-botanico);
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      font-size: 14.5px;
+      color: var(--cor-texto-suave);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--cor-borda);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 12.5px;
+      color: #8A9488;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 27px; }
+      .grid-ervas { grid-template-columns: 1fr; }
+      .preco-destaque { font-size: 38px; }
+      .diag-pergunta { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <img src="assets/logo-completo.svg" alt="Jardim Vivo Essencial" class="logo-img">
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <span class="tag-topo">Guia Prático para Apartamentos e Pequenos Espaços</span>
+      <h1>Colha temperos e ervas frescas na sua casa sem complicação e sem matar suas mudas.</h1>
+      <p>Um método direto e sem frescura para quem trabalha fora, tem pouco espaço na varanda ou na janela e só dispõe de 5 a 10 minutos por semana.</p>
+      
+      <!-- FOTO EDITORIAL HERO -->
+      <div class="hero-media">
+        <img src="assets/hero-horta-apartamento.jpg" alt="Horta de ervas frescas em vaso no peitoril de janela de apartamento" onerror="this.style.display='none'">
+      </div>
+
+      <a href="#diagnostico" class="btn-principal" onclick="document.getElementById('diagnostico').scrollIntoView({behavior: 'smooth'}); return false;">
+        Fazer Diagnóstico Rápido do Meu Espaço (30s)
+      </a>
+      <span class="sub-btn">Descubra se o seu ambiente é compatível com as 7 ervas</span>
+    </section>
+
+    <!-- MICRO-DIAGNÓSTICO INTERATIVO -->
+    <section id="diagnostico" class="diag-box">
+      <div class="diag-header">
+        <span class="diag-badge">Diagnóstico Interativo</span>
+        <span id="passo-indicador" class="diag-passo">Passo 1 de 3</span>
+      </div>
+
+      <!-- PASSO 1 -->
+      <div id="etapa-1">
+        <div class="diag-pergunta">1. Onde você pretende colocar suas ervas?</div>
+        <div class="diag-opcoes">
+          <button class="diag-btn" onclick="avancarDiagnostico(1, 'varanda')">
+            <span class="diag-btn-icon">🪴</span>
+            <span>Varanda ou sacada de apartamento (pega sol direto algumas horas)</span>
+          </button>
+          <button class="diag-btn" onclick="avancarDiagnostico(1, 'janela')">
+            <span class="diag-btn-icon">🪟</span>
+            <span>Peitoril de janela ou bancada perto da claridade (luz indireta)</span>
+          </button>
+          <button class="diag-btn" onclick="avancarDiagnostico(1, 'quintal')">
+            <span class="diag-btn-icon">🌿</span>
+            <span>Pequeno quintal, área de serviço ou corredor</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PASSO 2 -->
+      <div id="etapa-2" style="display: none;">
+        <div class="diag-pergunta">2. Qual foi sua maior frustração ao tentar cuidar de plantas?</div>
+        <div class="diag-opcoes">
+          <button class="diag-btn" onclick="avancarDiagnostico(2, 'morreu_rapido')">
+            <span class="diag-btn-icon">🥀</span>
+            <span>Comprei o vasinho no mercado e secou em menos de 10 dias</span>
+          </button>
+          <button class="diag-btn" onclick="avancarDiagnostico(2, 'rega_errada')">
+            <span class="diag-btn-icon">💧</span>
+            <span>Fiquei com dúvida de quanta água pôr e acho que afoguei a raiz</span>
+          </button>
+          <button class="diag-btn" onclick="avancarDiagnostico(2, 'nunca_plantei')">
+            <span class="diag-btn-icon">🌱</span>
+            <span>Nunca plantei nada porque acho que tenho o "dedo podre"</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PASSO 3 -->
+      <div id="etapa-3" style="display: none;">
+        <div class="diag-pergunta">3. Quanto tempo você realmente tem por semana para cuidar?</div>
+        <div class="diag-opcoes">
+          <button class="diag-btn" onclick="concluirDiagnostico('5min')">
+            <span class="diag-btn-icon">⏱️</span>
+            <span>De 3 a 5 minutos (rotina corrida durante a semana)</span>
+          </button>
+          <button class="diag-btn" onclick="concluirDiagnostico('10min')">
+            <span class="diag-btn-icon">⏱️</span>
+            <span>Cerca de 10 minutos (uma checagem rápida a cada 2 ou 3 dias)</span>
+          </button>
+          <button class="diag-btn" onclick="concluirDiagnostico('fimdesemana')">
+            <span class="diag-btn-icon">☀️</span>
+            <span>Apenas no sábado ou domingo de manhã</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- RESULTADO -->
+      <div id="etapa-resultado" class="diag-resultado">
+        <div class="resultado-card">
+          <div class="resultado-titulo">
+            <span>✅</span> Diagnóstico Concluído: 98% de Compatibilidade
+          </div>
+          <p id="resultado-texto" class="resultado-desc">
+            Excelente notícia! O seu ambiente e o seu tempo são exatamente os necessários para cultivar as <strong>7 Ervas que Cuidam de Você</strong>. Com vasos pequenos de boa drenagem e sem regas diárias excessivas, suas mudas não vão secar.
+          </p>
+        </div>
+
+        <a href="#oferta" class="btn-principal" style="width: 100%; max-width: 100%;" onclick="document.getElementById('oferta').scrollIntoView({behavior: 'smooth'}); return false;">
+          Ver o Método Recomendado para Meu Espaço (R$ 47,00) ↓
+        </a>
+      </div>
+    </section>
+
+    <!-- REALIDADE / ANTI-CULPA -->
+    <section class="secao-dor">
+      <h2>Você não tem o "dedo podre". Suas plantas só precisavam de um ambiente realista.</h2>
+      <p>A maioria das pessoas compra um vasinho bonito no supermercado, coloca na pia ou na sala, rega todo dia achando que está cuidando bem e, em duas semanas, a planta seca ou apodrece.</p>
+      <p>Isso não acontece por falta de carinho. Acontece porque ninguém te ensinou as regras básicas de luminosidade e drenagem de pequenos espaços.</p>
+      
+      <ul class="lista-realidades">
+        <li><strong>Sem necessidade de quintal grande:</strong> funciona em peitoril de janela ou varanda compacta.</li>
+        <li><strong>Rotina de 5 minutos:</strong> você não precisa virar jardineiro profissional nem perder horas.</li>
+        <li><strong>As 7 espécies mais resistentes:</strong> selecionadas especificamente para não morrerem com facilidade.</li>
+      </ul>
+    </section>
+
+    <!-- AS 7 ERVAS -->
+    <section class="secao-ervas">
+      <h2>As 7 Ervas que Você Vai Dominar</h2>
+      <p class="sub-secao">Escolhidas pelo equilíbrio perfeito entre utilidade na culinária, saúde natural e resistência em vasos:</p>
+      
+      <div class="grid-ervas">
+        <div class="card-erva">
+          <strong>1. Alecrim</strong>
+          <span>Resistente ao sol, aroma marcante e quase não exige regas frequentes.</span>
+        </div>
+        <div class="card-erva">
+          <strong>2. Manjericão</strong>
+          <span>O segredo do corte para nunca virar galho seco e dar folhas o ano todo.</span>
+        </div>
+        <div class="card-erva">
+          <strong>3. Hortelã</strong>
+          <span>Vigorosa e refrescante. O truque para não sufocar as outras raízes.</span>
+        </div>
+        <div class="card-erva">
+          <strong>4. Tomilho</strong>
+          <span>Compacto, sobrevive bem em vasos pequenos e aguenta períodos secos.</span>
+        </div>
+        <div class="card-erva">
+          <strong>5. Sálvia</strong>
+          <span>Folhas aveludadas, propriedades medicinais e ótima para temperos encorpados.</span>
+        </div>
+        <div class="card-erva">
+          <strong>6. Orégano</strong>
+          <span>Muito mais sabor do que o desidratado, crescendo forte em qualquer cantinho.</span>
+        </div>
+      </div>
+      <div style="margin-top: 14px;">
+        <div class="card-erva" style="text-align: center;">
+          <strong>+ 7. Camomila & Ervas Calmantes</strong>
+          <span>Como colher suas próprias flores para infusões frescas e naturais à noite.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCKUP DO DISPOSITIVO / GUIA -->
+    <section class="mockup-secao">
+      <div class="mockup-media">
+        <img src="assets/mockup-guia-tablet.jpg" alt="Mockup do Guia 7 Ervas que Cuidam de Você em tablet e material de apoio" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <!-- O QUE VOCE RECEBE -->
+    <section class="secao-conteudo">
+      <h2>O Que Você Recebe no Seu Acesso</h2>
+      
+      <div class="item-conteudo">
+        <h3>📘 Guia Completo: 7 Ervas que Cuidam de Você</h3>
+        <p>O passo a passo ilustrado de iluminação, substrato leve, rega correta e colheita sem estresse.</p>
+      </div>
+
+      <div class="item-conteudo">
+        <h3>🎁 Bônus 1: Calendário Visual de Regas para Apartamento</h3>
+        <p>Uma folha simples para você saber exatamente quando molhar e quando deixar a terra respirar.</p>
+      </div>
+
+      <div class="item-conteudo">
+        <h3>🎁 Bônus 2: Guia de Poda e Multiplicação de Mudas</h3>
+        <p>Como tirar galhos saudáveis para criar novos vasinhos sem gastar comprando na floricultura.</p>
+      </div>
+    </section>
+
+    <!-- OFERTA & CHECKOUT -->
+    <section id="oferta" class="secao-preco">
+      <span class="preco-original">De R$ 97,00</span>
+      <div class="preco-destaque">
+        R$ 47,00
+      </div>
+      <p class="preco-info">Pagamento único · Acesso vitalício ao material digital no seu e-mail</p>
+
+      <a href="https://pay.hotmart.com/S104136259Y?checkoutMode=10&bid=1792077150979" class="btn-principal" target="_blank">
+        Comprar Agora com Acesso Imediato
+      </a>
+
+      <!-- CAIXA DE ORDER BUMPS (VALOR AGREGADO) -->
+      <div class="caixa-bumps">
+        <strong>💡 Complementos opcionais disponíveis diretamente na tela de pagamento:</strong>
+        <span>• <strong>Manual Anti-Pragas Caseiro (+ R$ 19,90):</strong> Como proteger suas folhas de pulgões e fungos sem veneno.</span>
+        <span style="margin-top: 4px;">• <strong>Guia de Chás Naturais (+ R$ 19,90):</strong> Receitas práticas de infusões para sono e digestão.</span>
+      </div>
+
+      <div class="garantia-box">
+        <div class="garantia-icone">🛡️</div>
+        <div class="garantia-texto">
+          <h4>Garantia Incondicional de 7 Dias</h4>
+          <p>Se você abrir o guia e achar que ele não te ajudou a cuidar das suas ervas, a Hotmart devolve 100% do seu pagamento com um clique.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <h2>Dúvidas Frequentes</h2>
+
+      <div class="faq-item">
+        <h4>Eu moro em apartamento com pouca luz, vai dar certo?</h4>
+        <p>Sim. O guia mostra exatamente como posicionar os vasos perto das janelas ou sacadas para aproveitar a luminosidade indireta necessária para cada uma das 7 espécies.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Como eu recebo o material?</h4>
+        <p>Imediatamente após a confirmação do pagamento, você recebe os dados de acesso no seu e-mail cadastrado pela plataforma segura da Hotmart.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Quanto tempo preciso dedicar por semana?</h4>
+        <p>Apenas 5 a 10 minutos por semana. O objetivo do guia é justamente evitar o excesso de regas e mexidas que costuma afogar as plantas.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Jardim Vivo Essencial · Todos os direitos reservados.</p>
+      <p>Hospedado com segurança e processado pela Hotmart.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DO MICRO-DIAGNÓSTICO -->
+  <script>
+    const respostas = {};
+
+    function avancarDiagnostico(etapaAtual, valor) {
+      respostas['etapa' + etapaAtual] = valor;
+      
+      if (etapaAtual === 1) {
+        document.getElementById('etapa-1').style.display = 'none';
+        document.getElementById('etapa-2').style.display = 'block';
+        document.getElementById('passo-indicador').innerText = 'Passo 2 de 3';
+      } else if (etapaAtual === 2) {
+        document.getElementById('etapa-2').style.display = 'none';
+        document.getElementById('etapa-3').style.display = 'block';
+        document.getElementById('passo-indicador').innerText = 'Passo 3 de 3';
+      }
+    }
+
+    function concluirDiagnostico(tempo) {
+      respostas['tempo'] = tempo;
+      document.getElementById('etapa-3').style.display = 'none';
+      document.getElementById('passo-indicador').innerText = 'Resultado';
+
+      const textoEl = document.getElementById('resultado-texto');
+      let detalheEspaco = "seu peitoril de janela";
+      if (respostas.etapa1 === 'varanda') detalheEspaco = "sua varanda";
+      if (respostas.etapa1 === 'quintal') detalheEspaco = "seu espaço externo";
+
+      textoEl.innerHTML = `Identificamos que <strong>${detalheEspaco}</strong> tem as condições ideais para o cultivo de ervas resistentes. Com a rotina de apenas <strong>${tempo === '5min' ? '5 minutos' : '10 minutos'} semanais</strong>, você aprende a regar sem encharcar e colhe temperos frescos sempre que quiser.`;
+
+      document.getElementById('etapa-resultado').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
