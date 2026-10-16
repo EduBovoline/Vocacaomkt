@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" dir="ltr"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -288,6 +288,10 @@
   ::-webkit-scrollbar-thumb { background: rgba(229, 185, 16, 0.45); border-radius: 4px; border: 2px solid #0A0607; }
   ::-webkit-scrollbar-thumb:hover { background: #E5B910; }
   * { scrollbar-width: thin; scrollbar-color: rgba(229, 185, 16, 0.45) #0A0607; }
+
+  /* Prevenir sobreposição de textos do hero antes ou durante animação */
+  [data-step] { opacity: 0; visibility: hidden; will-change: transform, opacity; }
+  [data-step="0"] { opacity: 1; visibility: visible; }
   
   
   

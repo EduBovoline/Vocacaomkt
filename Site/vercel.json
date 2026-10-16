@@ -36,11 +36,6 @@
       "source": "/video",
       "destination": "/",
       "statusCode": 301
-    },
-    {
-      "source": "/diagnostico",
-      "destination": "/",
-      "statusCode": 301
     }
   ]
 }
