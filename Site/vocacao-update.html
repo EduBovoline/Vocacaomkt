@@ -685,7 +685,7 @@ body.is-scroll-world {
   user-select: none;
   cursor: ew-resize;
   background: #000;
-  touch-action: none;
+  touch-action: pan-y;
 }
 .ba-slider-container img {
   position: absolute;
@@ -714,6 +714,10 @@ body.is-scroll-world {
   z-index: 10;
   backdrop-filter: blur(10px);
   pointer-events: none;
+  max-width: calc(50% - 18px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ba-badge-after {
   right: 16px;
@@ -769,6 +773,30 @@ body.is-scroll-world {
   font-size: 10.5px;
   color: #64748b;
   letter-spacing: 0.08em;
+}
+@media (max-width: 860px) {
+  .tactical-reticle { display: none !important; }
+  .sw-topcta { font-size: 0.78rem !important; padding: 8px 13px !important; }
+  .post-world-container { padding: 56px 16px 80px; }
+  .cases-nav-tabs { flex-wrap: wrap; }
+  .case-tab-btn { width: 100%; justify-content: space-between; font-size: 13px; padding: 12px 14px; }
+  .case-card-panel { padding: 20px 16px; }
+  .ba-mockup-bar { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
+  .ba-badge-after, .ba-badge-before { font-size: 9.5px; padding: 4px 8px; top: 10px; }
+  .ba-badge-before { left: 8px; }
+  .ba-badge-after { right: 8px; }
+  .url-simulator-box { padding: 22px 16px; margin-bottom: 56px; }
+  .launchpad-card { padding: 36px 18px !important; }
+  .btn-update-cta {
+    white-space: normal !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 15px 18px !important;
+    font-size: 13.5px !important;
+    text-align: center !important;
+    box-sizing: border-box !important;
+    line-height: 1.35 !important;
+  }
 }
 </style>
 </head>

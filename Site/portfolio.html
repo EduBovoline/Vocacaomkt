@@ -49,11 +49,14 @@ html {
   background: var(--bg-obsidian);
   color: var(--ink);
   font-family: 'Montserrat', sans-serif;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
   background: var(--bg-obsidian);
   color: var(--ink);
+  max-width: 100%;
   overflow-x: hidden;
   position: relative;
 }
@@ -1054,11 +1057,241 @@ body {
   gap: 16px;
 }
 
+/* Mobile Scroll-Guard Overlay inside Liquid Iframe Wrap (prevents scroll-trapping on phones) */
+.mobile-scroll-guard {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 25;
+  background: linear-gradient(180deg, rgba(4, 18, 27, 0.04) 0%, rgba(4, 18, 27, 0.18) 65%, rgba(4, 18, 27, 0.85) 100%);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 20px 14px;
+  touch-action: pan-y;
+}
+
+.mobile-scroll-guard-btn {
+  background: rgba(6, 23, 35, 0.94);
+  border: 1.5px solid var(--accent-gold);
+  color: var(--accent-gold);
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85), 0 0 18px rgba(229, 185, 16, 0.35);
+  backdrop-filter: blur(10px);
+  transition: transform 0.2s, background 0.2s, color 0.2s;
+}
+
+.mobile-scroll-guard-btn:active,
+.mobile-scroll-guard-btn:hover {
+  background: var(--accent-gold);
+  color: #04121b;
+}
+
+.hud-unlock-btn {
+  display: none;
+  background: var(--accent-gold);
+  color: #04121b;
+  font-family: 'Geist Mono', monospace;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 5px 9px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
 @media (max-width: 960px) {
   .pf-nav-links { display: none; }
   .fan-wing-card { width: 240px; height: 420px; }
   .pf-cta-card { grid-template-columns: 1fr; padding: 36px 24px; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 768px) {
+  .ambient-aurora {
+    filter: blur(32px);
+    opacity: 0.65;
+  }
+  .pf-nav {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .pf-brand {
+    font-size: 16.5px;
+    gap: 7px;
+  }
+  .pf-brand img {
+    width: 22px;
+    height: 22px;
+  }
+  .pf-nav-cta {
+    font-size: 11.5px;
+    padding: 8px 13px;
+  }
+  .pf-hero {
+    padding: 26px 16px 10px;
+  }
+  .pf-eyebrow {
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+    padding: 5px 11px;
+    white-space: normal;
+    text-align: center;
+  }
+  .pf-hero h1 {
+    font-size: clamp(24px, 6.8vw, 34px);
+    line-height: 1.08;
+  }
+  .pf-hero p {
+    font-size: 13.5px;
+  }
+  .fan-selector-bar {
+    padding: 0 12px;
+    gap: 6px;
+    margin: 16px auto 10px;
+  }
+  .fan-pill {
+    font-size: 11px;
+    padding: 7px 11px;
+    gap: 5px;
+  }
+  .liquid-control-bar {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+  .morph-modes-group {
+    width: 100%;
+    gap: 6px;
+  }
+  .morph-label {
+    width: 100%;
+    font-size: 10px;
+    margin-bottom: 2px;
+  }
+  .morph-btn {
+    flex: 1 1 calc(50% - 6px);
+    justify-content: center;
+    font-size: 11px;
+    padding: 8px 8px;
+  }
+  .slider-morph-group {
+    width: 100%;
+    justify-content: space-between;
+    padding: 6px 12px;
+  }
+  .liquid-range {
+    flex: 1;
+    width: auto;
+    min-width: 60px;
+  }
+  .viewport-readout {
+    min-width: auto;
+    font-size: 10px;
+  }
+  .fan-stage-outer {
+    height: 600px;
+    padding: 10px 0 20px;
+  }
+  .active-liquid-screen {
+    height: 555px;
+    min-width: 0;
+    max-width: calc(100vw - 24px);
+    border-radius: 30px !important;
+    padding: 10px 8px !important;
+  }
+  .liquid-handle {
+    display: none;
+  }
+  .deck-nav-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    top: calc(50% - 20px);
+  }
+  .deck-nav-btn--prev { left: 6px; }
+  .deck-nav-btn--next { right: 6px; }
+  .liquid-hud {
+    padding: 2px 6px 8px;
+    gap: 6px;
+  }
+  .active-tag-badge {
+    font-size: 8.5px;
+    padding: 2px 6px;
+  }
+  .liquid-hud-url {
+    font-size: 10px;
+  }
+  .hud-action-link {
+    font-size: 9.5px;
+    padding: 4px 8px;
+  }
+  /* Activate Scroll-Guard by default on mobile so page scroll never freezes */
+  .mobile-scroll-guard {
+    display: flex;
+  }
+  .active-liquid-screen.is-interactive-mobile .mobile-scroll-guard {
+    display: none;
+  }
+  .active-liquid-screen.is-interactive-mobile .hud-unlock-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .active-project-bar {
+    margin: 0 auto 56px;
+    padding: 18px 16px;
+  }
+  .active-project-info h2 {
+    font-size: 18px;
+  }
+  .active-project-info p {
+    font-size: 13px;
+  }
+  .gbp-section {
+    padding: 0 16px;
+    margin: 10px auto 56px;
+  }
+  .gbp-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .pf-cta-banner {
+    padding: 0 16px;
+    margin: 0 auto 60px;
+  }
+  .pf-cta-card {
+    padding: 28px 18px;
+    gap: 24px;
+    border-radius: 20px;
+  }
+  .pf-cta-card .pf-nav-cta {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    font-size: 12.5px !important;
+    padding: 13px 14px !important;
+  }
+  .footer {
+    padding: 64px 16px 32px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 48px;
+  }
+  .footer-mark {
+    margin: 32px 0 24px;
+    font-size: clamp(52px, 16vw, 96px);
+  }
 }
 </style>
 </head>
@@ -1104,7 +1337,7 @@ body {
 <div class="fan-selector-bar" id="fanSelectorBar"></div>
 
 <!-- LIQUID MORPH CONTROLLER BAR FOR THE ACTIVE SCREEN -->
-<div style="padding: 0 20px;">
+<div style="padding: 0 14px;">
   <div class="liquid-control-bar">
     <div class="morph-modes-group" id="morphBtnsGroup">
       <span class="morph-label">FORMATO DA TELA LÍQUIDA ATIVA:</span>
@@ -1157,27 +1390,34 @@ body {
         <span class="liquid-hud-url" id="activeHudUrl">safetyfirst.com.br</span>
       </div>
       <div class="liquid-hud-actions">
+        <button type="button" class="hud-unlock-btn" onclick="disableMobileIframeInteraction()">✕ Rolagem Página</button>
         <a href="/safety-first/" target="_blank" id="activeFullLink" class="hud-action-link">Abrir Tela Cheia ↗</a>
       </div>
     </div>
 
-    <div class="liquid-iframe-wrap">
+    <div class="liquid-iframe-wrap" id="liquidIframeWrap">
       <div class="drag-shield"></div>
+      <div class="mobile-scroll-guard" id="mobileScrollGuard" onclick="enableMobileIframeInteraction()">
+        <button type="button" class="mobile-scroll-guard-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/><path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/><path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>
+          Toque para Navegar ao Vivo neste Site
+        </button>
+      </div>
       <iframe class="liquid-iframe" id="activeIframe" src="/safety-first/" title="Site Ativo no Portfólio"></iframe>
     </div>
   </div>
 </section>
 
 <!-- ACTIVE PROJECT DETAILS BAR -->
-<div style="padding: 0 20px;">
+<div style="padding: 0 16px;">
   <div class="active-project-bar">
     <div class="active-project-info">
       <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--accent-gold);letter-spacing:0.15em;text-transform:uppercase;" id="activeProjCategory">PROJETO 01 · ENGENHARIA &amp; SEGURANÇA DO TRABALHO</span>
       <h2 id="activeProjTitle">Safety First — Engenharia, Laudos &amp; Gestão SST</h2>
       <p id="activeProjDesc">Transformação de um site institucional estático em uma plataforma B2B imersiva de alta autoridade para captação de contratos industriais.</p>
     </div>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;">
-      <a href="https://wa.me/5515981512083" target="_blank" id="activeWhatsappCta" class="pf-nav-cta" style="padding:14px 24px;font-size:13.5px;display:inline-flex;align-items:center;gap:8px;">
+    <div style="display:flex;gap:12px;flex-wrap:wrap;width:100%;max-width:fit-content;">
+      <a href="https://wa.me/5515981512083" target="_blank" id="activeWhatsappCta" class="pf-nav-cta" style="padding:14px 24px;font-size:13.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;">
         Quero um site nesse padrão
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -1191,10 +1431,10 @@ body {
 <section class="gbp-section" id="google">
   <div style="border-top:1px solid var(--border-glass);padding-top:70px;">
     <div class="pf-eyebrow">ENGENHARIA DE POSICIONAMENTO LOCAL · GOOGLE MAPS</div>
-    <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(28px,4.2vw,52px);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.1;">
+    <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(26px,4.2vw,52px);font-weight:800;color:#fff;letter-spacing:-0.03em;line-height:1.1;">
       Perfis no Google Maps que colocam a empresa <em style="color:var(--accent-gold);font-style:italic;">no topo do bairro</em>.
     </h2>
-    <p style="color:var(--ink-soft);font-size:16px;max-width:680px;margin-top:12px;line-height:1.6;">
+    <p style="color:var(--ink-soft);font-size:15px;max-width:680px;margin-top:12px;line-height:1.6;">
       Reivindicação oficial, categorias de SEO local e fotos tratadas. Cada ficha abaixo está ativa e pode ser conferida diretamente no Google Maps:
     </p>
 
@@ -1242,10 +1482,10 @@ body {
   <div class="pf-cta-card">
     <div>
       <span style="font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.2em;color:var(--accent-gold);display:block;margin-bottom:12px;">PRÓXIMO PROJETO NO AR EM 5 A 7 DIAS</span>
-      <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;">
+      <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(26px,4vw,46px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;">
         Qual dessas estruturas a sua empresa precisa ativar agora?
       </h2>
-      <p style="color:var(--ink-soft);font-size:15.5px;line-height:1.65;margin-top:14px;max-width:560px;">
+      <p style="color:var(--ink-soft);font-size:15px;line-height:1.65;margin-top:14px;max-width:560px;">
         Sem mensalidades e sem reuniões intermináveis. Escolha sua necessidade ou fale direto com nossa equipe no WhatsApp:
       </p>
     </div>
@@ -1415,6 +1655,7 @@ body {
   const selectorBar = document.getElementById('fanSelectorBar');
   const wingsLayer = document.getElementById('fanWingsLayer');
   const activeScreen = document.getElementById('activeLiquidScreen');
+  const iframeWrap = document.getElementById('liquidIframeWrap');
   const activeIframe = document.getElementById('activeIframe');
   const activeHudUrl = document.getElementById('activeHudUrl');
   const activeFullLink = document.getElementById('activeFullLink');
@@ -1424,6 +1665,14 @@ body {
   const activeWhatsappCta = document.getElementById('activeWhatsappCta');
   const widthRange = document.getElementById('liquidWidthRange');
   const viewportReadout = document.getElementById('viewportReadout');
+
+  function enableMobileIframeInteraction() {
+    activeScreen.classList.add('is-interactive-mobile');
+  }
+
+  function disableMobileIframeInteraction() {
+    activeScreen.classList.remove('is-interactive-mobile');
+  }
 
   // Build the 7 Selector Pills and 7 Wing Cards
   function initFanPortfolio() {
@@ -1461,6 +1710,7 @@ body {
     });
 
     updateActiveProjectDOM();
+    applyResponsiveScreenGeometry();
     layoutRadialFan();
   }
 
@@ -1473,11 +1723,37 @@ body {
     return diff;
   }
 
+  // Ensures that even on a narrow mobile phone (e.g. 375px), selecting Tablet (768px),
+  // Notebook (1024px) or Desktop (1260px) scales the live iframe proportionally inside the Liquid Screen!
+  function applyResponsiveScreenGeometry() {
+    const maxScreenW = Math.min(window.innerWidth - 24, 1380);
+    const outerW = Math.min(currentWidthPx, maxScreenW);
+    activeScreen.style.width = outerW + 'px';
+
+    // Wait a microtask or compute inner wrap width directly
+    const padX = window.innerWidth <= 768 ? 16 : 28;
+    const wrapW = Math.max(260, outerW - padX);
+    const targetLogicalW = Math.max(340, currentWidthPx - padX);
+
+    if (targetLogicalW > wrapW + 4) {
+      const scale = wrapW / targetLogicalW;
+      activeIframe.style.width = (targetLogicalW + 20) + 'px';
+      activeIframe.style.height = (100 / scale).toFixed(2) + '%';
+      activeIframe.style.transform = `scale(${scale.toFixed(4)})`;
+      activeIframe.style.transformOrigin = 'top left';
+    } else {
+      activeIframe.style.width = 'calc(100% + 20px)';
+      activeIframe.style.height = '100%';
+      activeIframe.style.transform = 'none';
+    }
+  }
+
   // Position all 7 cards in the exact Radial Fan ("Leque") geometry from the user's diagram
   function layoutRadialFan() {
     const N = PROJECTS.length;
-    // As the center active screen widens (from 430px to 1280px), push the left & right fan wings outward so they always frame the active screen!
-    const extraSpread = Math.max(0, (currentWidthPx - 430) * 0.48);
+    const isSmallMobile = window.innerWidth <= 768;
+    const effectiveCenterW = Math.min(currentWidthPx, window.innerWidth - 24);
+    const extraSpread = Math.max(0, (effectiveCenterW - 430) * 0.48);
 
     PROJECTS.forEach((p, idx) => {
       const card = document.getElementById('wing-card-' + idx);
@@ -1495,15 +1771,23 @@ body {
         const sign = offset < 0 ? -1 : 1;
         const abs = Math.abs(offset); // 1, 2, or 3
 
-        // Radial fan arc geometry matching the diagram (3 tilted cards on left, 3 tilted cards on right)
-        const angleDeg = sign * (abs * 13.5); // +/-13.5deg, +/-27deg, +/-40.5deg
-        const baseOffsetX = sign * (155 + (abs - 1) * 115 + extraSpread);
-        const arcDropY = (abs * abs) * 16; // Parabolic arc drop
+        // On mobile GPUs, hide outer wings (abs > 1) to eliminate compositing lag and horizontal overflow
+        if (isSmallMobile && abs > 1) {
+          card.style.opacity = '0';
+          card.style.pointerEvents = 'none';
+          card.style.transform = 'translate3d(0px, 0px, 0px) scale(0.8)';
+          card.style.zIndex = '1';
+          return;
+        }
+
+        const angleDeg = sign * (abs * (isSmallMobile ? 9 : 13.5));
+        const baseOffsetX = sign * ((isSmallMobile ? 82 : 155) + (abs - 1) * 115 + extraSpread);
+        const arcDropY = (abs * abs) * 16;
         const scale = 1 - abs * 0.045;
         const zIdx = 30 - abs * 5;
         const brightness = 0.88 - (abs - 1) * 0.16;
 
-        card.style.opacity = '1';
+        card.style.opacity = isSmallMobile ? '0.45' : '1';
         card.style.pointerEvents = 'auto';
         card.style.zIndex = String(zIdx);
         card.style.filter = `brightness(${brightness})`;
@@ -1514,6 +1798,7 @@ body {
 
   function updateActiveProjectDOM() {
     const p = PROJECTS[activeIndex];
+    disableMobileIframeInteraction();
     if (activeIframe.getAttribute('src') !== p.url) {
       activeIframe.setAttribute('src', p.url);
     }
@@ -1555,7 +1840,7 @@ body {
 
     activeScreen.classList.remove('is-dragging');
     activeScreen.setAttribute('data-mode', mode);
-    activeScreen.style.width = spec.px + 'px';
+    applyResponsiveScreenGeometry();
 
     if (widthRange) widthRange.value = spec.px;
     if (viewportReadout) viewportReadout.textContent = spec.label;
@@ -1570,7 +1855,7 @@ body {
   function onSliderMorph(val) {
     const px = parseInt(val, 10);
     currentWidthPx = px;
-    activeScreen.style.width = px + 'px';
+    applyResponsiveScreenGeometry();
 
     let mode = 'desktop';
     let suffix = 'DESKTOP';
@@ -1604,7 +1889,7 @@ body {
     dragInfo = {
       dir,
       startX: e.clientX,
-      startW: activeScreen.getBoundingClientRect().width
+      startW: currentWidthPx
     };
   }
 
@@ -1622,6 +1907,11 @@ body {
     if (!dragInfo) return;
     activeScreen.classList.remove('is-dragging');
     dragInfo = null;
+  });
+
+  window.addEventListener('resize', () => {
+    applyResponsiveScreenGeometry();
+    layoutRadialFan();
   });
 
   initFanPortfolio();

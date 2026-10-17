@@ -1221,11 +1221,21 @@
       .sf-stats-grid {
         grid-template-columns: 1fr 1fr;
       }
+      .sf-stat-card__label {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+      }
       .sf-trust-badge {
         font-size: 13px;
       }
       .sf-lead-form {
         padding: 20px 16px;
+      }
+    }
+    @media (max-width: 390px) {
+      .sf-stats-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>

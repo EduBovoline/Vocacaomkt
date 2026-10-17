@@ -622,12 +622,21 @@
     }
     .producao a { color: var(--rust); text-decoration: none; font-weight: 700; }
 
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     @media (max-width: 860px) {
-      .flight-hud { bottom: 12px; right: 12px; left: 12px; justify-content: space-between; padding: 8px 12px; }
+      .flight-hud { bottom: 12px; right: 12px; left: 12px; width: auto; max-width: calc(100vw - 24px); justify-content: space-between; padding: 8px 12px; gap: 8px; }
       .hud-title { display: none; }
-      .sw-card { padding: 22px 18px; }
+      .hud-progress-bar { width: 60px; flex: 1; max-width: 110px; }
+      .sw-card { padding: 20px 14px; max-width: 100%; overflow-wrap: break-word; overflow-x: hidden; }
+      .sw-card h1 { font-size: clamp(26px, 7vw, 42px) !important; word-break: break-word; }
+      .sw-card h2 { font-size: clamp(19px, 5.5vw, 28px) !important; overflow-wrap: break-word; word-break: break-word; }
+      .beat-grid, .beat-grid[style], .sw-split-deck { grid-template-columns: 1fr !important; }
+      .beat-box { min-width: 0; max-width: 100% !important; }
       .nav-links { display: none; }
-      .globe-wrapper { max-width: 280px; height: 280px; }
+      .globe-wrapper { max-width: 240px; height: 240px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .sw-card { transition: none !important; }

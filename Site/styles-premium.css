@@ -335,28 +335,35 @@ body { letter-spacing: -0.005em; }
   background: var(--accent);
   color: var(--bg);
 }
+.wall-bento > * {
+  min-width: 0;
+}
 .wall-bento .mega .meta-num {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: oklch(0.64 0.012 250);
-  display: flex; justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
   margin-bottom: 28px;
 }
 .wall-bento .mega .meta-num b {
   color: var(--bg);
   font-family: var(--display);
   font-variation-settings: "opsz" 144, "SOFT" 20;
-  font-size: 56px;
+  font-size: clamp(28px, 4.2vw, 48px);
   font-weight: 400;
   display: block;
-  line-height: 1;
-  margin-top: 10px;
+  line-height: 1.05;
+  margin-top: 4px;
+  overflow-wrap: break-word;
 }
 @media (max-width: 900px) {
   .wall-bento { grid-template-columns: 1fr; }
-  .wall-bento .mega { grid-row: auto; }
+  .wall-bento .mega { grid-row: auto; padding: 28px 22px; }
 }
 
 /* Hide old wall-grid columns when bento is present */
