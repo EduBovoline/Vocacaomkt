@@ -188,12 +188,46 @@ function mountScrollWorld(container, config) {
     SEGMENTS.forEach(s => { s.start = off * vh; off += s.w; s.end = off * vh; });
     totalW = off;
     track.style.height = (totalW * vh + vh) + 'px';   // +1vh so the last flight completes
+
+    // Marcadores de ancora reais dentro do track para suporte nativo a #cena1 .. #cena6
+    SECTIONS.forEach((s, i) => {
+      const id = s.id || ('cena' + (i + 1));
+      let marker = document.getElementById(id);
+      if (!marker) {
+        marker = el('div', 'sw-anchor-marker');
+        marker.id = id;
+        marker.style.position = 'absolute';
+        marker.style.left = '0';
+        marker.style.width = '1px';
+        marker.style.height = '1px';
+        marker.style.pointerEvents = 'none';
+        marker.style.opacity = '0';
+        track.appendChild(marker);
+      }
+      if (s._seg) {
+        marker.style.top = Math.round(s._seg.start + (s._seg.end - s._seg.start) * 0.5) + 'px';
+      }
+    });
+
     read();
   }
 
-  function jumpTo(i) {
+  function jumpTo(i, smooth = true) {
+    if (!SECTIONS[i] || !SECTIONS[i]._seg) return;
     const seg = SECTIONS[i]._seg;
-    window.scrollTo({ top: seg.start + (seg.end - seg.start) * 0.5, behavior: reduce ? 'auto' : 'smooth' });
+    const target = seg.start + (seg.end - seg.start) * 0.5;
+    try {
+      window.scrollTo({ top: target, behavior: reduce ? 'auto' : (smooth ? 'smooth' : 'auto') });
+    } catch (e) {
+      window.scrollTo(0, target);
+    }
+    // Fallback de seguranca para navegadores mobile que cancelam scroll suave longo
+    setTimeout(() => {
+      const current = window.scrollY || window.pageYOffset;
+      if (Math.abs(current - target) > vh * 0.8) {
+        window.scrollTo({ top: target, behavior: 'auto' });
+      }
+    }, 650);
   }
   window.jumpToScrollWorld = jumpTo;
 

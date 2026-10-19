@@ -188,23 +188,25 @@
       font-size: 1.05rem !important;
       color: #A4DBC9 !important;
       text-decoration: underline !important;
+      text-underline-offset: 4px !important;
+      text-decoration-thickness: 1.5px !important;
       font-weight: 700 !important;
       cursor: pointer !important;
       letter-spacing: 0.02em !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
       pointer-events: auto !important;
       position: relative !important;
       z-index: 100 !important;
-      padding: 6px 14px !important;
-      background: rgba(164, 219, 201, 0.15) !important;
-      border: 1px solid rgba(164, 219, 201, 0.35) !important;
-      border-radius: 8px !important;
-      transition: all 0.2s ease !important;
+      transition: color 0.15s ease, opacity 0.15s ease !important;
     }
 
-    .sw-skip-link:hover {
+    .sw-skip-link:hover, .sw-skip-link:active {
       color: #FFFFFF !important;
-      background: rgba(164, 219, 201, 0.28) !important;
-      transform: translateY(-2px) !important;
+      opacity: 0.95 !important;
     }
 
     /* CAPA CINEMATOGRÁFICA DE ABERTURA — LOGO CENTRALIZADO EM MARFIM */
@@ -216,7 +218,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      pointer-events: none;
+      pointer-events: none !important;
       background: radial-gradient(circle at center, rgba(16, 26, 17, 0.42) 0%, rgba(16, 26, 17, 0.84) 100%);
       transition: opacity 0.2s ease-out, transform 0.2s ease-out;
       will-change: opacity, transform;
@@ -229,7 +231,7 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      pointer-events: none;
+      pointer-events: none !important;
     }
 
     .sw-capa__typography {
@@ -375,7 +377,7 @@
           eyebrow: 'Guia Prático em PDF · Para Apartamentos & Varandas',
           title: 'Pare de matar suas plantas. Colha ervas frescas na sua casa.',
           body: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.',
-          bodyHTML: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.<br><a href="#cena6" onclick="window.jumpToScrollWorld(5); return false;" class="sw-skip-link">Já conhece o método? Ir direto para a oferta (R$ 47) ↓</a>',
+          bodyHTML: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.<br><a href="#cena6" class="sw-skip-link">Já conhece o método? Ir direto para a oferta (R$ 47) ↓</a>',
           tags: ['E-book Prático em PDF', 'Para Pequenos Espaços', '5 Minutos / Semana']
         },
         {
@@ -458,10 +460,8 @@
         capa.style.transform = `translate3d(0, ${-progress * 45}px, 0)`;
         if (op <= 0.01) {
           capa.style.display = 'none';
-          capa.style.pointerEvents = 'none';
         } else {
           capa.style.display = 'flex';
-          capa.style.pointerEvents = op < 0.4 ? 'none' : 'auto';
         }
       };
       window.addEventListener('scroll', updateCapa, { passive: true });
@@ -478,7 +478,12 @@
         if (typeof window.jumpToScrollWorld === 'function') {
           window.jumpToScrollWorld(5);
         } else {
-          window.location.hash = '#cena6';
+          const target = document.getElementById('cena6');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.hash = '#cena6';
+          }
         }
       }
     });

@@ -1,17 +1,18 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+  <base href="/jardim-vivo-essencial/">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <base href="/jardim-vivo-essencial/">
+  
   <title>Jardim Vivo Essencial — Experiência Imersiva das 7 Ervas</title>
   <meta name="description" content="Role a página para sobrevoar o universo do cultivo urbano e das 7 ervas em pequenos espaços." />
   <link rel="icon" type="image/svg+xml" href="assets/logo-imago.svg">
   <style>
     :root, .sw-root {
-      --sw-bg: #FBF9F5;
-      --sw-ink: #1C241B;
-      --sw-ink-soft: #4A5649;
+      --sw-bg: #101A11;
+      --sw-ink: #FFFFFF;
+      --sw-ink-soft: #A4DBC9;
       --sw-accent: #253C22;
       --sw-font-display: 'Corbel', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --sw-font-body: 'Corbel', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -79,7 +80,7 @@
     /* O texto flutua naturalmente e com conforto óptico absoluto */
     .sw-copy {
       left: clamp(24px, 6vw, 90px) !important;
-      width: min(88vw, 520px) !important;
+      width: min(90vw, 580px) !important;
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
@@ -92,18 +93,18 @@
 
     .sw-copy__num {
       display: inline-block !important;
-      font-size: 0.8rem !important;
+      font-size: 0.9rem !important;
       font-weight: 700 !important;
       color: #A4DBC9 !important;
-      background: rgba(255, 255, 255, 0.12) !important;
-      padding: 4px 10px !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+      padding: 5px 12px !important;
       border-radius: 6px !important;
       letter-spacing: 0.12em !important;
     }
 
     .sw-copy__eyebrow {
       margin-top: 14px !important;
-      font-size: 0.82rem !important;
+      font-size: 0.95rem !important;
       font-weight: 700 !important;
       letter-spacing: 0.14em !important;
       text-transform: uppercase !important;
@@ -112,42 +113,42 @@
     }
 
     .sw-copy__title {
-      font-size: clamp(1.8rem, 2.7vw, 2.5rem) !important;
-      line-height: 1.18 !important;
+      font-size: clamp(2.1rem, 3.2vw, 2.85rem) !important;
+      line-height: 1.16 !important;
       margin: 12px 0 0 !important;
       letter-spacing: -0.02em !important;
       color: #FFFFFF !important;
       font-weight: 700 !important;
-      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.6) !important;
     }
 
     .sw-copy__body {
-      margin-top: 16px !important;
-      font-size: clamp(1rem, 1.2vw, 1.12rem) !important;
-      line-height: 1.6 !important;
+      margin-top: 18px !important;
+      font-size: clamp(1.15rem, 1.4vw, 1.28rem) !important;
+      line-height: 1.65 !important;
       color: #E8ECE6 !important;
       max-width: 100% !important;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5) !important;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6) !important;
     }
 
     .sw-copy__tags {
-      margin: 22px 0 0 !important;
-      gap: 8px !important;
+      margin: 24px 0 0 !important;
+      gap: 10px !important;
     }
 
     .sw-copy__tags li {
-      font-size: 0.82rem !important;
+      font-size: 0.92rem !important;
       font-weight: 600 !important;
-      padding: 6px 14px !important;
-      background: rgba(255, 255, 255, 0.12) !important;
-      border: 1px solid rgba(255, 255, 255, 0.22) !important;
+      padding: 7px 16px !important;
+      background: rgba(255, 255, 255, 0.14) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
       color: #FFFFFF !important;
       border-radius: 999px !important;
       backdrop-filter: blur(4px) !important;
     }
 
     .sw-copy__cta {
-      margin-top: 26px !important;
+      margin-top: 28px !important;
     }
 
     .sw-copy__cta a.sw-btn--primary {
@@ -155,10 +156,10 @@
       background: #A4DBC9 !important;
       color: #121E14 !important;
       font-weight: 800 !important;
-      font-size: 16px !important;
-      padding: 16px 32px !important;
+      font-size: 18px !important;
+      padding: 18px 36px !important;
       border-radius: 999px !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+      box-shadow: 0 4px 22px rgba(0, 0, 0, 0.4) !important;
       text-decoration: none !important;
       transition: transform 0.15s ease, background 0.15s ease !important;
     }
@@ -170,30 +171,42 @@
 
     /* ELEMENTOS DE GROWTH HACKING & CRO */
     .sw-copy__note {
-      margin-top: 14px !important;
-      font-size: 0.84rem !important;
-      line-height: 1.45 !important;
+      margin-top: 16px !important;
+      font-size: 0.95rem !important;
+      line-height: 1.5 !important;
       color: #A4DBC9 !important;
-      background: rgba(164, 219, 201, 0.12) !important;
-      border: 1px solid rgba(164, 219, 201, 0.28) !important;
-      padding: 10px 14px !important;
+      background: rgba(164, 219, 201, 0.14) !important;
+      border: 1px solid rgba(164, 219, 201, 0.32) !important;
+      padding: 12px 16px !important;
       border-radius: 8px !important;
       backdrop-filter: blur(4px) !important;
     }
 
     .sw-skip-link {
-      display: inline-block;
-      margin-top: 12px;
-      font-size: 0.84rem;
-      color: #A4DBC9;
-      text-decoration: underline;
-      font-weight: 700;
-      cursor: pointer;
-      letter-spacing: 0.02em;
+      display: inline-block !important;
+      margin-top: 14px !important;
+      font-size: 1.05rem !important;
+      color: #A4DBC9 !important;
+      text-decoration: underline !important;
+      text-underline-offset: 4px !important;
+      text-decoration-thickness: 1.5px !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      letter-spacing: 0.02em !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      pointer-events: auto !important;
+      position: relative !important;
+      z-index: 100 !important;
+      transition: color 0.15s ease, opacity 0.15s ease !important;
     }
 
-    .sw-skip-link:hover {
-      color: #FFFFFF;
+    .sw-skip-link:hover, .sw-skip-link:active {
+      color: #FFFFFF !important;
+      opacity: 0.95 !important;
     }
 
     /* CAPA CINEMATOGRÁFICA DE ABERTURA — LOGO CENTRALIZADO EM MARFIM */
@@ -205,7 +218,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      pointer-events: none;
+      pointer-events: none !important;
       background: radial-gradient(circle at center, rgba(16, 26, 17, 0.42) 0%, rgba(16, 26, 17, 0.84) 100%);
       transition: opacity 0.2s ease-out, transform 0.2s ease-out;
       will-change: opacity, transform;
@@ -218,7 +231,7 @@
       flex-direction: column;
       align-items: center;
       gap: 20px;
-      pointer-events: auto;
+      pointer-events: none !important;
     }
 
     .sw-capa__typography {
@@ -234,7 +247,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: #EDE4CF;
@@ -242,6 +255,7 @@
       opacity: 0.88;
       cursor: pointer;
       user-select: none;
+      pointer-events: auto;
       animation: cueBounce 2.2s infinite ease-in-out;
     }
 
@@ -276,17 +290,54 @@
         bottom: calc(24px + env(safe-area-inset-bottom)) !important;
       }
       .sw-copy__title {
-        font-size: 1.55rem !important;
+        font-size: 1.85rem !important;
+        line-height: 1.2 !important;
       }
       .sw-copy__body {
-        font-size: 0.95rem !important;
+        font-size: 1.1rem !important;
+        line-height: 1.55 !important;
+      }
+      .sw-copy__eyebrow {
+        font-size: 0.88rem !important;
+      }
+      .sw-skip-link {
+        font-size: 1rem !important;
+      }
+      .sw-copy__tags li {
+        font-size: 0.88rem !important;
+      }
+      .sw-copy__note {
+        font-size: 0.92rem !important;
       }
       .sw-capa__typography {
         width: min(85vw, 360px);
       }
+      .sw-topbar {
+        padding: 12px 14px !important;
+        gap: 8px !important;
+      }
+      .sw-brand {
+        gap: 8px !important;
+        min-width: 0;
+      }
+      .sw-brand__mark {
+        width: 30px !important;
+        height: 28px !important;
+      }
+      .sw-brand__name {
+        font-size: 0.92rem !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .sw-topcta {
+        padding: 8px 12px !important;
+        font-size: 0.75rem !important;
+        flex-shrink: 0;
+      }
     }
   </style>
-</head>
+<style id="hide-pf-scroll">html, body, * { scrollbar-width: none !important; -ms-overflow-style: none !important; } ::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }</style></head>
 <body>
   <div id="top"></div>
   <div id="hero-capa" class="sw-capa">
@@ -315,7 +366,7 @@
       diveScroll: 2.2,
       connScroll: 0.9,
       nav: true,
-      atmosphere: true,
+      atmosphere: false,
       sections: [
         {
           id: 'cena1',
@@ -326,7 +377,7 @@
           eyebrow: 'Guia Prático em PDF · Para Apartamentos & Varandas',
           title: 'Pare de matar suas plantas. Colha ervas frescas na sua casa.',
           body: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.',
-          bodyHTML: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.<br><a href="#cena6" onclick="window.jumpToScrollWorld(5); return false;" class="sw-skip-link">Já conhece o método? Ir direto para a oferta (R$ 47) ↓</a>',
+          bodyHTML: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.<br><a href="#cena6" class="sw-skip-link">Já conhece o método? Ir direto para a oferta (R$ 47) ↓</a>',
           tags: ['E-book Prático em PDF', 'Para Pequenos Espaços', '5 Minutos / Semana']
         },
         {
@@ -402,17 +453,42 @@
       const updateCapa = () => {
         const y = window.scrollY || window.pageYOffset;
         const vh = window.innerHeight;
-        // Dissolve de 0 a 0.55 vh com suavidade ótica
-        const progress = Math.min(1, Math.max(0, y / (0.55 * vh)));
+        // Dissolve nos primeiros 0.45 vh
+        const progress = Math.min(1, Math.max(0, y / (0.45 * vh)));
         const op = Math.max(0, 1 - progress);
         capa.style.opacity = op;
         capa.style.transform = `translate3d(0, ${-progress * 45}px, 0)`;
-        capa.style.pointerEvents = op < 0.05 ? 'none' : 'auto';
+        if (op <= 0.01) {
+          capa.style.display = 'none';
+        } else {
+          capa.style.display = 'flex';
+        }
       };
       window.addEventListener('scroll', updateCapa, { passive: true });
       window.addEventListener('resize', updateCapa, { passive: true });
       updateCapa();
     })();
+
+    // Disparador garantido para o link de salto direto para a oferta (R$ 47)
+    document.addEventListener('click', function(e) {
+      const skip = e.target.closest('.sw-skip-link');
+      if (skip) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (typeof window.jumpToScrollWorld === 'function') {
+          window.jumpToScrollWorld(5);
+        } else {
+          const target = document.getElementById('cena6');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            window.location.hash = '#cena6';
+          }
+        }
+      }
+    });
   </script>
 </body>
 </html>
+
+
