@@ -385,8 +385,14 @@ function mountScrollWorld(container, config) {
   function esc(s) { return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
   function ctaBtns(cta) {
     let h = '';
-    if (cta.primary) h += `<a class="sw-btn sw-btn--primary" href="${esc(cta.primary.href || '#')}">${esc(cta.primary.label)}</a>`;
-    if (cta.secondary) h += `<a class="sw-btn sw-btn--ghost" href="${esc(cta.secondary.href || '#')}">${esc(cta.secondary.label)}</a>`;
+    if (cta.primary) {
+      const isExt = cta.primary.href && cta.primary.href.startsWith('http');
+      h += `<a class="sw-btn sw-btn--primary" href="${esc(cta.primary.href || '#')}" ${isExt ? 'target="_blank" rel="noopener"' : ''}>${esc(cta.primary.label)}</a>`;
+    }
+    if (cta.secondary) {
+      const isExt = cta.secondary.href && cta.secondary.href.startsWith('http');
+      h += `<a class="sw-btn sw-btn--ghost" href="${esc(cta.secondary.href || '#')}" ${isExt ? 'target="_blank" rel="noopener"' : ''}>${esc(cta.secondary.label)}</a>`;
+    }
     return h;
   }
 }

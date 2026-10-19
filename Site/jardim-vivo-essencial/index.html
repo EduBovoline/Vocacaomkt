@@ -186,35 +186,6 @@
       z-index: 50 !important;
     }
 
-    .sw-skip-link {
-      display: inline-block !important;
-      margin-top: 14px !important;
-      font-size: 1.05rem !important;
-      color: #A4DBC9 !important;
-      text-decoration: underline !important;
-      text-underline-offset: 4px !important;
-      text-decoration-thickness: 1.5px !important;
-      font-weight: 700 !important;
-      cursor: pointer !important;
-      letter-spacing: 0.02em !important;
-      background: transparent !important;
-      border: none !important;
-      box-shadow: none !important;
-      padding: 0 !important;
-      border-radius: 0 !important;
-      pointer-events: auto !important;
-      position: relative !important;
-      z-index: 9999 !important;
-      transition: color 0.15s ease, opacity 0.15s ease !important;
-      -webkit-tap-highlight-color: rgba(164, 219, 201, 0.3) !important;
-      touch-action: manipulation !important;
-    }
-
-    .sw-skip-link:hover, .sw-skip-link:active {
-      color: #FFFFFF !important;
-      opacity: 0.95 !important;
-    }
-
     /* CAPA CINEMATOGRÁFICA DE ABERTURA — LOGO CENTRALIZADO EM MARFIM */
     .sw-capa, .sw-capa * {
       pointer-events: none !important;
@@ -314,9 +285,6 @@
       .sw-copy__eyebrow {
         font-size: 0.88rem !important;
       }
-      .sw-skip-link {
-        font-size: 1rem !important;
-      }
       .sw-copy__tags li {
         font-size: 0.88rem !important;
       }
@@ -391,8 +359,13 @@
           eyebrow: 'Guia Prático em PDF · Para Apartamentos & Varandas',
           title: 'Pare de matar suas plantas. Colha ervas frescas na sua casa.',
           body: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.',
-          bodyHTML: 'O método ilustrado passo a passo para cultivar temperos vivos e chás medicinais no peitoril da janela ou na varanda, mesmo se você já secou ou afogou vários vasinhos antes.<br><a href="javascript:void(0);" onclick="jumpToOferta(); return false;" class="sw-skip-link" role="button">Já conhece o método? Ir direto para a oferta (R$ 47) ↓</a>',
-          tags: ['E-book Prático em PDF', 'Para Pequenos Espaços', '5 Minutos / Semana']
+          tags: ['E-book Prático em PDF', 'Para Pequenos Espaços', '5 Minutos / Semana'],
+          cta: {
+            primary: { 
+              label: 'Ir direto para a oferta — R$ 47', 
+              href: 'https://pay.hotmart.com/S104136259Y?checkoutMode=10&bid=1792077150979' 
+            }
+          }
         },
         {
           id: 'cena2',
@@ -482,32 +455,6 @@
       window.addEventListener('resize', updateCapa, { passive: true });
       updateCapa();
     })();
-
-    // Função global oficial de salto direto para a oferta (Cena 6)
-    window.jumpToOferta = function() {
-      if (typeof window.jumpToScrollWorld === 'function') {
-        window.jumpToScrollWorld(5);
-      } else {
-        const target = document.getElementById('cena6');
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
-        } else {
-          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-        }
-      }
-    };
-
-    // Disparador garantido com captura e suporte pleno a Safari/iOS
-    document.addEventListener('click', function(e) {
-      let el = e.target;
-      if (el && el.nodeType === 3) el = el.parentElement; // Fix para TextNode no Safari
-      const skip = el && el.closest && el.closest('.sw-skip-link');
-      if (skip) {
-        e.preventDefault();
-        e.stopPropagation();
-        window.jumpToOferta();
-      }
-    }, true);
   </script>
 </body>
 </html>
