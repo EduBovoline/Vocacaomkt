@@ -308,6 +308,8 @@ function mountScrollWorld(container, config) {
       c.style.opacity = cop;
       c.style.transform = isMobile() ? 'none' : (reduce ? 'translateY(-50%)' : `translateY(calc(-50% + ${(0.5 - pr) * 2}vh))`);
       c.style.pointerEvents = cop > 0.08 ? 'auto' : 'none';
+      c.style.visibility = cop > 0.05 ? 'visible' : 'hidden';
+      c.style.zIndex = cop > 0.05 ? '10' : '0';
     }
 
     const cur = SEGMENTS[ci];

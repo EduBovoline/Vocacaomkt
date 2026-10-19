@@ -1,7 +1,11 @@
 <!doctype html>
 <html lang="pt-BR">
-<head>
-  <base href="/jardim-vivo-essencial/">
+  <script>
+    // Suporte universal: funciona tanto localmente no PC quanto na Vercel
+    if (location.protocol !== 'file:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+      const b = document.createElement('base'); b.href = '/jardim-vivo-essencial/'; document.head.appendChild(b);
+    }
+  </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   
@@ -88,7 +92,6 @@
       -webkit-backdrop-filter: none !important;
       padding: 0 !important;
       border-radius: 0 !important;
-      pointer-events: auto !important;
     }
 
     .sw-copy__num {
