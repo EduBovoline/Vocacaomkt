@@ -270,7 +270,7 @@ function mountScrollWorld(container, config) {
       const c = copies[i];
       c.style.opacity = cop;
       c.style.transform = isMobile() ? 'none' : (reduce ? 'translateY(-50%)' : `translateY(calc(-50% + ${(0.5 - pr) * 2}vh))`);
-      c.style.pointerEvents = cop > 0.5 ? 'auto' : 'none';
+      c.style.pointerEvents = cop > 0.08 ? 'auto' : 'none';
     }
 
     const cur = SEGMENTS[ci];
