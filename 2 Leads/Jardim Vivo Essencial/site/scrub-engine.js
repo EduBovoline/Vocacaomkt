@@ -215,19 +215,22 @@ function mountScrollWorld(container, config) {
   function jumpTo(i, smooth = true) {
     if (!SECTIONS[i] || !SECTIONS[i]._seg) return;
     const seg = SECTIONS[i]._seg;
-    const target = seg.start + (seg.end - seg.start) * 0.5;
+    const target = Math.round(seg.start + (seg.end - seg.start) * 0.5);
     try {
       window.scrollTo({ top: target, behavior: reduce ? 'auto' : (smooth ? 'smooth' : 'auto') });
     } catch (e) {
       window.scrollTo(0, target);
     }
-    // Fallback de seguranca para navegadores mobile que cancelam scroll suave longo
+    // Forca atualizacao de visualizacao imediata
+    read();
+    // Fallback garantido para Safari/iOS e mobile browsers
     setTimeout(() => {
       const current = window.scrollY || window.pageYOffset;
-      if (Math.abs(current - target) > vh * 0.8) {
-        window.scrollTo({ top: target, behavior: 'auto' });
+      if (Math.abs(current - target) > 30) {
+        window.scrollTo(0, target);
+        read();
       }
-    }, 650);
+    }, 400);
   }
   window.jumpToScrollWorld = jumpTo;
 
