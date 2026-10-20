@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <script>
+    // Suporte universal a subpasta (Vercel e local)
+    if (location.protocol !== 'file:') {
+      const b = document.createElement('base');
+      b.href = location.pathname.toLowerCase().includes('/marin') ? '/marin/' : './';
+      document.head.appendChild(b);
+    }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Marin Refeições — Cardápio, Marmitex & Delivery no Jardim Ansalca, Guarulhos | Peça no WhatsApp</title>
@@ -1864,7 +1872,28 @@
     let currentCategory = "todos";
     let orderDeliveryMode = "Delivery";
 
+    function getAssetUrl(path) {
+      if (!path) return '';
+      if (path.startsWith('http://') || path.startsWith('https://') || location.protocol === 'file:') {
+        return path;
+      }
+      if (location.pathname.toLowerCase().includes('/marin')) {
+        return '/marin/' + path.replace(/^\.\//, '').replace(/^\//, '');
+      }
+      return path;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
+      // Auto-prefix para assets estáticos em subpastas de produção
+      if (location.protocol !== 'file:' && location.pathname.toLowerCase().includes('/marin')) {
+        document.querySelectorAll('img[src^="assets/"], source[src^="assets/"]').forEach(el => {
+          el.src = '/marin/' + el.getAttribute('src');
+          if (el.tagName === 'SOURCE' && el.parentElement) el.parentElement.load();
+        });
+        document.querySelectorAll('video[poster^="assets/"]').forEach(el => {
+          el.poster = '/marin/' + el.getAttribute('poster');
+        });
+      }
       renderDishes();
       updateCartUI();
     });
@@ -1885,7 +1914,7 @@
       container.innerHTML = filtered.map(d => `
         <article class="card-prato">
           <div class="prato-img-container">
-            <img src="${d.thumb}" alt="${d.name}" class="prato-img" loading="lazy" onerror="this.src='assets/cardapio/Marin capa cardápio.jpg'">
+            <img src="${getAssetUrl(d.thumb)}" alt="${d.name}" class="prato-img" loading="lazy" onerror="this.onerror=null; this.src='${getAssetUrl('assets/still_0.jpg')}';">
             <span class="prato-badge">${d.badge}</span>
           </div>
           <div class="prato-body">
