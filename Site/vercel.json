@@ -36,6 +36,11 @@
       "source": "/video",
       "destination": "/",
       "statusCode": 301
+    },
+    {
+      "source": "/Marin",
+      "destination": "/marin",
+      "statusCode": 301
     }
   ]
 }
