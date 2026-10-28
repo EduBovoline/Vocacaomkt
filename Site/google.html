@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ativação & Blindagem Google Maps — Vocação</title>
+<meta name="description" content="Conecte ou cadastre o Perfil da Empresa no Google em 2 minutos. Nossa máquina estrutura sua ficha com autoridade local em até 5 dias úteis." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,200..900,0..100;1,9..144,200..900,0..100&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles-sections.css" />
+<link rel="stylesheet" href="styles-more.css" />
+<link rel="stylesheet" href="styles-premium.css" />
+<link rel="stylesheet" href="styles-landings.css" />
+<style>
+  body { overflow: auto; }
+  .gbp-hero {
+    padding: 56px 0 32px;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .gbp-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--ink-2);
+    margin-bottom: 18px;
+  }
+  .gbp-badge .pulse {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #16a34a;
+    box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.18);
+  }
+  .gbp-title {
+    font-family: var(--display);
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    font-weight: 400;
+  }
+  .gbp-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .gbp-sub {
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* TABS */
+  .gbp-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 32px auto 28px;
+    max-width: 560px;
+    background: var(--bg-2);
+    padding: 6px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .gbp-tab {
+    flex: 1;
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .gbp-tab.active {
+    background: var(--bg);
+    color: var(--ink);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    font-weight: 600;
+  }
+
+  /* CARD FORM */
+  .gbp-card {
+    max-width: 760px;
+    margin: 0 auto 48px;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: clamp(24px, 4vw, 42px);
+    box-shadow: 0 18px 50px rgba(20, 15, 10, 0.05);
+  }
+  .gbp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .gbp-full { grid-column: 1 / -1; }
+  @media (max-width: 640px) {
+    .gbp-grid { grid-template-columns: 1fr; }
+  }
+  .gbp-field label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .gbp-field label span {
+    font-weight: 400;
+    color: var(--ink-3);
+    font-size: 12px;
+  }
+  .gbp-input, .gbp-select, .gbp-textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    transition: border-color 0.2s;
+  }
+  .gbp-input:focus, .gbp-select:focus, .gbp-textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .gbp-textarea { min-height: 88px; resize: vertical; }
+
+  .gbp-submit-row {
+    margin-top: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+  .gbp-btn-main {
+    width: 100%;
+    padding: 16px 28px;
+    border-radius: 12px;
+    border: none;
+    background: var(--ink);
+    color: var(--bg);
+    font-family: var(--body);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: transform 0.15s ease, background 0.2s ease;
+  }
+  .gbp-btn-main:hover {
+    background: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  /* RESULT PANEL */
+  .gbp-result {
+    display: none;
+    max-width: 820px;
+    margin: 0 auto 72px;
+    animation: fadeIn 0.4s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .gbp-step-box {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+  .gbp-step-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .gbp-step-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .gbp-code-box {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+    white-space: pre-wrap;
+    margin-bottom: 14px;
+  }
+  .gbp-actions-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .gbp-btn-action {
+    padding: 11px 18px;
+    border-radius: 8px;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 13.5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .gbp-btn-action.primary {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+  }
+  .gbp-btn-action.google {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+  }
+</style>
+</head>
+<body class="is-landing">
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="brand"><span class="dot"></span> Vocação</a>
+    <span class="eyebrow" style="margin-right:auto; margin-left:32px;">Motor Google Perfil da Empresa</span>
+    <a href="https://wa.me/5515981512083" class="btn btn-ghost magnet">Suporte WhatsApp</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="gbp-hero">
+    <div class="gbp-badge">
+      <span class="pulse"></span>
+      Integração Google Business Profile · Entrega em até 5 dias úteis
+    </div>
+    <h1 class="gbp-title">Apareça com <em>autoridade</em> no Google Maps do seu bairro.</h1>
+    <p class="gbp-sub">
+      Cole o link atual da sua ficha (ou preencha os dados para criarmos do zero). Nossa máquina prepara toda a engenharia de busca local, solicita a verificação oficial e estrutura seu perfil.
+    </p>
+
+    <div class="gbp-tabs">
+      <button type="button" class="gbp-tab active" id="tabExisting" onclick="switchMode('existing')">
+        📍 Já tenho ficha no Google Maps
+      </button>
+      <button type="button" class="gbp-tab" id="tabNew" onclick="switchMode('new')">
+        ✨ Criar ou Reivindicar do Zero
+      </button>
+    </div>
+  </section>
+
+  <!-- FORMULÁRIO DE ATIVAÇÃO -->
+  <form class="gbp-card" id="gbpForm" onsubmit="handleGenerate(event)">
+    <div class="gbp-grid">
+      <div class="gbp-field gbp-full" id="mapsUrlGroup">
+        <label for="mapsUrl">Link da sua empresa no Google Maps <span>(ou cole o link de compartilhamento)</span></label>
+        <input type="text" id="mapsUrl" class="gbp-input" placeholder="Ex: https://maps.app.goo.gl/... ou nome da rua" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizName">Nome Oficial da Empresa *</label>
+        <input type="text" id="bizName" class="gbp-input" required placeholder="Ex: Marcenaria Prime / Clínica Santa Rosália" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizSegment">Segmento Principal *</label>
+        <input type="text" id="bizSegment" class="gbp-input" required placeholder="Ex: Clínica Odontológica, Marcenaria, Estética, Oficina" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizBairro">Bairro e Cidade *</label>
+        <input type="text" id="bizBairro" class="gbp-input" required placeholder="Ex: Santa Rosália, Sorocaba - SP" value="Sorocaba - SP" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizPhone">WhatsApp Comercial de Atendimento *</label>
+        <input type="tel" id="bizPhone" class="gbp-input" required placeholder="Ex: (15) 99999-9999" />
+      </div>
+
+      <div class="gbp-field gbp-full" id="addressGroup" style="display:none;">
+        <label for="bizAddress">Endereço Completo <span>(para envio/verificação de propriedade do Google)</span></label>
+        <input type="text" id="bizAddress" class="gbp-input" placeholder="Rua, número, complemento e CEP" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizHours">Horário de Funcionamento</label>
+        <input type="text" id="bizHours" class="gbp-input" placeholder="Ex: Seg a Sex 08h às 18h · Sáb 08h às 12h" value="Seg a Sex das 08h às 18h" />
+      </div>
+
+      <div class="gbp-field">
+        <label for="bizSite">Site ou Instagram atual <span>(opcional)</span></label>
+        <input type="text" id="bizSite" class="gbp-input" placeholder="Ex: @suaempresa ou www.suaempresa.com.br" />
+      </div>
+
+      <div class="gbp-field gbp-full">
+        <label for="bizServices">Principais Serviços, Produtos e Diferenciais *</label>
+        <textarea id="bizServices" class="gbp-textarea" required placeholder="Liste os 3 a 5 serviços que dão mais retorno e por que os clientes escolhem você (ex: atendimento com hora marcada, estacionamento próprio, 15 anos de tradição)..."></textarea>
+      </div>
+    </div>
+
+    <div class="gbp-submit-row">
+      <button type="submit" class="gbp-btn-main">
+        <span>⚡ Processar Ficha & Gerar Autorização Google</span>
+      </button>
+      <span style="font-size:12px; color:var(--ink-3);">
+        Protocolo Vocação · 50% na entrada + 50% somente após aprovação · Zero mensalidade
+      </span>
+    </div>
+  </form>
+
+  <!-- PAINEL DE RESULTADO AUTOMÁTICO -->
+  <section class="gbp-result" id="resultSection">
+    <!-- PASSO 1: AUTORIZAÇÃO / PROPRIEDADE -->
+    <div class="gbp-step-box" style="border-left: 4px solid #1a73e8;">
+      <div class="gbp-step-header">
+        <div>
+          <div class="gbp-step-tag" style="color:#1a73e8;">Passo 01 · Vínculo & Propriedade no Google</div>
+          <h3 style="margin:4px 0 0; font-size:20px;">Autorizar Atualização Automática da Ficha</h3>
+        </div>
+      </div>
+      <p style="font-size:14.5px; color:var(--ink-2); margin-bottom:16px;">
+        Para que nossa máquina aplique todas as configurações e solicite o selo de verificação oficial na sua ficha, conecte o gerenciamento com 1 clique (o e-mail de engenharia da Vocação <strong>edubovoline@gmail.com</strong> já é copiado automaticamente):
+      </p>
+      <div class="gbp-actions-bar">
+        <button type="button" class="gbp-btn-action google" onclick="connectGoogleManager()">
+          🔐 1. Conectar Gerente no Google (Copia E-mail + Abre Painel)
+        </button>
+        <a href="https://business.google.com/create" target="_blank" class="gbp-btn-action">
+          📲 2. Solicitar Código de Verificação do Google (SMS / Vídeo)
+        </a>
+        <button type="button" class="gbp-btn-action primary" onclick="sendToVocacaoWhatsApp()">
+          ✅ 3. Avisar Edu no WhatsApp que Autorizei
+        </button>
+      </div>
+      <div id="connectFeedback" style="display:none; margin-top:12px; padding:10px 14px; background:#eff6ff; border-radius:8px; font-size:13px; color:#1e40af;">
+        ✓ E-mail <strong>edubovoline@gmail.com</strong> copiado! Na janela do Google que se abriu, clique nos <strong>3 pontinhos (⋮) → Configurações do Perfil da Empresa → Pessoas e acesso → Adicionar</strong> e cole nosso e-mail como <strong>Administrador</strong>.
+      </div>
+    </div>
+
+    <!-- PASSO 2: KIT DE ENGENHARIA GERADO PARA A FICHA -->
+    <div class="gbp-step-box">
+      <div class="gbp-step-header">
+        <div>
+          <div class="gbp-step-tag">Passo 02 · Conteúdo Estruturado de SEO Local</div>
+          <h3 style="margin:4px 0 0; font-size:20px;">Descrição Oficial & Metadados Prontos</h3>
+        </div>
+        <button type="button" class="gbp-btn-action" onclick="copyElementText('genDesc', this)">Copiar Descrição</button>
+      </div>
+      <div class="gbp-code-box" id="genDesc"></div>
+
+      <div style="margin-top:18px;">
+        <div style="font-weight:600; font-size:13.5px; margin-bottom:8px;">Catálogo de Serviços Estruturado & Link Direto de Conversão:</div>
+        <div class="gbp-code-box" id="genMeta"></div>
+      </div>
+    </div>
+
+    <!-- PASSO 3: SUPER PROMPT GEMINI PARA O CLIENTE -->
+    <div class="gbp-step-box" style="border-left: 4px solid var(--accent);">
+      <div class="gbp-step-header">
+        <div>
+          <div class="gbp-step-tag">Passo 03 · Bônus Exclusivo Vocação</div>
+          <h3 style="margin:4px 0 0; font-size:20px;">Seu Prompt Mestre para o Google Gemini</h3>
+        </div>
+      </div>
+      <p style="font-size:14px; color:var(--ink-2); margin-bottom:12px;">
+        Além da nossa equipe deixar sua ficha 100% configurada, preparamos este comando personalizado da sua empresa. Sempre que quiser criar postagens semanais, responder avaliações de clientes ou gerar textos para o Google Meu Negócio pelo celular, basta clicar abaixo:
+      </p>
+      <div class="gbp-code-box" id="genGeminiPrompt"></div>
+      <div class="gbp-actions-bar">
+        <button type="button" class="gbp-btn-action primary" onclick="copyAndOpenGemini(this)">
+          ✨ Copiar Meu Prompt & Abrir Google Gemini
+        </button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  let currentMode = 'existing';
+  let lastPayload = null;
+
+  function switchMode(mode) {
+    currentMode = mode;
+    document.getElementById('tabExisting').classList.toggle('active', mode === 'existing');
+    document.getElementById('tabNew').classList.toggle('active', mode === 'new');
+    document.getElementById('mapsUrlGroup').style.display = mode === 'existing' ? 'block' : 'none';
+    document.getElementById('addressGroup').style.display = mode === 'new' ? 'block' : 'none';
+  }
+
+  function cleanPhone(raw) {
+    const digits = (raw || '').replace(/\D/g, '');
+    if (!digits) return '';
+    return digits.startsWith('55') ? digits : '55' + digits;
+  }
+
+  function handleGenerate(e) {
+    e.preventDefault();
+    const name = document.getElementById('bizName').value.trim();
+    const segment = document.getElementById('bizSegment').value.trim();
+    const bairro = document.getElementById('bizBairro').value.trim();
+    const phone = document.getElementById('bizPhone').value.trim();
+    const hours = document.getElementById('bizHours').value.trim();
+    const site = document.getElementById('bizSite').value.trim();
+    const services = document.getElementById('bizServices').value.trim();
+    const mapsUrl = document.getElementById('mapsUrl').value.trim();
+    const address = document.getElementById('bizAddress').value.trim();
+    const waNumber = cleanPhone(phone);
+    const waLink = `https://wa.me/${waNumber}?text=${encodeURIComponent('Olá! Encontrei a ' + name + ' no Google e gostaria de mais informações.')}`;
+
+    const descText = `${name} é referência em ${segment} na região de ${bairro}. Oferecemos atendimento especializado com foco em qualidade, transparência e agilidade: ${services}. Estrutura preparada para atender clientes de ${bairro} com horário ${hours}. Entre em contato direto pelo WhatsApp para agendamento rápido e orçamento.`;
+
+    const metaText = `• Categoria Principal Sugerida: ${segment}
+• Região de Autoridade Local: ${bairro}
+• Horário Estruturado: ${hours}
+• Link de Agendamento Direto (WhatsApp): ${waLink}
+• Serviços Destacados na Ficha: ${services}`;
+
+    const geminiPrompt = `Atue como o Especialista Oficial de Marketing Local e Gestão do Google Perfil da Empresa para a minha empresa.
+Aqui estão os dados oficiais do meu negócio:
+- Nome da Empresa: ${name}
+- Segmento: ${segment}
+- Localização / Bairro: ${bairro}${address ? ' (' + address + ')' : ''}
+- Horário: ${hours}
+- Diferenciais e Serviços: ${services}
+- Link direto do nosso WhatsApp: ${waLink}
+
+Com base nesses dados, gere imediatamente:
+1. Três postagens curtas e persuasivas de "Novidades/Ofertas" para publicar na minha ficha do Google Meu Negócio esta semana, focadas em atrair clientes de ${bairro}.
+2. Cinco perguntas e respostas estratégicas (FAQ) para cadastrar na minha ficha do Google e quebrar objeções antes do cliente chamar no WhatsApp.
+3. Três modelos de respostas elegantes e com palavras-chave locais (${segment} em ${bairro}) para responder avaliações de 5 estrelas dos meus clientes.`;
+
+    document.getElementById('genDesc').textContent = descText.slice(0, 750);
+    document.getElementById('genMeta').textContent = metaText;
+    document.getElementById('genGeminiPrompt').textContent = geminiPrompt;
+
+    lastPayload = { mode: currentMode, name, segment, bairro, phone, waNumber, hours, site, services, mapsUrl, address, waLink, createdAt: new Date().toISOString() };
+
+    // Tenta enviar silenciosamente para o webhook local do n8n se estiver ativo
+    try {
+      fetch('http://localhost:5678/webhook/google-ativacao', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(lastPayload)
+      }).catch(() => {});
+    } catch (_) {}
+
+    const res = document.getElementById('resultSection');
+    res.style.display = 'block';
+    res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function copyElementText(id, btn) {
+    const text = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(text);
+    const old = btn.textContent;
+    btn.textContent = '✓ Copiado!';
+    setTimeout(() => { btn.textContent = old; }, 2200);
+  }
+
+  function connectGoogleManager() {
+    navigator.clipboard.writeText('edubovoline@gmail.com');
+    document.getElementById('connectFeedback').style.display = 'block';
+    window.open('https://business.google.com/locations', '_blank');
+  }
+
+  function copyAndOpenGemini(btn) {
+    const text = document.getElementById('genGeminiPrompt').textContent.trim();
+    navigator.clipboard.writeText(text);
+    btn.textContent = '✓ Prompt Copiado! Abrindo Gemini...';
+    setTimeout(() => {
+      window.open('https://gemini.google.com/app', '_blank');
+      btn.textContent = '✨ Copiar Meu Prompt & Abrir Google Gemini';
+    }, 900);
+  }
+
+  function sendToVocacaoWhatsApp() {
+    if (!lastPayload) return;
+    const msg = `Olá Edu! Acabei de preencher a página de ativação do Google Maps da *${lastPayload.name}* (${lastPayload.segment} - ${lastPayload.bairro}).\n\n📍 Link/Modo: ${lastPayload.mapsUrl || lastPayload.address || 'Cadastro Novo'}\n📱 WhatsApp: ${lastPayload.phone}\n🛠️ Serviços: ${lastPayload.services}\n\nJá estou liberando o acesso da ficha para iniciarmos!`;
+    window.open(`https://wa.me/5515981512083?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+</script>
+</body>
+</html>
