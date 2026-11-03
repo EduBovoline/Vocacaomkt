@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Matt the Barber — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Matt the Barber — Sorocaba</div>
+    <div class="header-sub">Contato: Responsável · (15) 99100-6264 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da empresa em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps & Perfil de Empresa</div>
+        <span class="badge badge-mediano">Ponto de Alto Fluxo / Link Não Seguro</span>
+      </div>
+      <div class="canal-desc">Perfil com bom fluxo de clientes, mas com link de agendamento cru e sem certificado SSL próprio.</div>
+      <div class="canal-impact">Clientes novos que pesquisam barbearia na Zona Norte hesitam ao clicar no link por falta de um endereço web oficial com cadeado de segurança.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site / Vitrine de Serviços</div>
+        <span class="badge badge-fraco">Dependência de Subdomínio do AppBarber</span>
+      </div>
+      <div class="canal-desc">Ausência de site institucional independente com domínio próprio.</div>
+      <div class="canal-impact">A marca fica subordinada à identidade visual do aplicativo de agendamento em vez de construir autoridade própria de marca.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram (@_matt.thebarber)</div>
+        <span class="badge badge-bom">Conteúdo Frequente / Mostra de Trabalhos</span>
+      </div>
+      <div class="canal-desc">Excelente vitrine visual nas redes, que se beneficiaria de um link próprio conectando agendamento e WhatsApp.</div>
+      <div class="canal-impact">Gera interesse visual contínuo, mas canaliza o tráfego apenas para o link padrão do aplicativo.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Atendimento & Agendamentos (WhatsApp)</div>
+        <span class="badge badge-bom">Canal Comercial Ativo</span>
+      </div>
+      <div class="canal-desc">Canal direto já estruturado para receber clientes decididos.</div>
+      <div class="canal-impact">Canal de conversão pronto e receptivo para receber o fluxo de uma vitrine digital bem amarrada.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Matt the Barber</strong></td>
+      <td>Ficha no São Vicente (Zona Norte)</td>
+      <td>Link HTTP AppBarber</td>
+      <td>Ativo (@_matt.thebarber)</td>
+      <td><span class="badge badge-mediano">Gargalo no Link Oficial</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Barba Hall Barbearia</strong></td>
+      <td>4.8 ★ (Vila Trujillo)</td>
+      <td>Portal Próprio (.com.br)</td>
+      <td>Forte Autoridade</td>
+      <td><span class="badge badge-bom">Forte na Região</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Barbearia Pardal</strong></td>
+      <td>4.7 ★ (Vila Carvalho)</td>
+      <td>Página Básica</td>
+      <td>Tradicional</td>
+      <td><span class="badge badge-mediano">Consolidada</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Don Corleone Barbearia</strong></td>
+      <td>4.6 ★ (Zona Norte Sorocaba)</td>
+      <td>Página de Agendamento</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-bom">Competitiva</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Ponto Comercial de Altíssimo Fluxo Natural</strong> — Instalada no Supermercado São Vicente da Av. José Joaquim de Lacerda, com estacionamento amplo, segurança e passagem diária de centenas de moradores do Jardim Sorocabano, Trujillo e Vila Fiori.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Técnica Apurada em Fade e Barboterapia</strong> — Trabalhos visíveis no Instagram com acabamentos modernos, navalhados limpos e barbearia completa, demonstrando alto padrão de entrega.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Operação Ágil com Horários Marcados</strong> — Uso de plataforma de agendamento para reduzir filas de espera e dar previsibilidade ao atendimento dos clientes.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Link Não Seguro (HTTP) Disparando Alerta no Celular</div>
+      <div class="fraqueza-detail">O link cadastrado no Google Maps ('http://sites.appbarber.com.br/mattthebarber-r3a2') não possui protocolo seguro https, o que faz navegadores modernos alertarem o usuário antes de abrir a página.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de Domínio Próprio Consolidando a Marca</div>
+      <div class="fraqueza-detail">Divulgar um subdomínio longo do AppBarber enfraquece a percepção de barbearia premium e impede a criação de e-mails ou páginas exclusivas da marca.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Espaço Comercial Dentro do Mercado Subaproveitado no Digital</div>
+      <div class="fraqueza-detail">Muitos frequentadores do supermercado não sabem que existe uma barbearia completa na galeria porque a presença online não destaca a conveniência do estacionamento e localização.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">1. Vocação Start — Vitrine Própria + Maps Seguro (R$ 850)</div>
+        <div class="servico-just">Criação de vitrine digital veloz com domínio próprio, galeria de cortes, integração com AppBarber/WhatsApp e regularização completa da ficha no Google Maps em 7 dias.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">2. Presença Local & Otimização do Google Maps (R$ 450)</div>
+        <div class="servico-just">Ajuste de categorias, correção do link de website para HTTPS e inclusão de fotos profissionais da bancada e salão.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">3. Combo Vitrine + Tour Virtual 360° (R$ 1.150)</div>
+        <div class="servico-just">Vitrine institucional combinada com fotos em 360 graus do espaço da barbearia dentro do São Vicente para o Google Street View.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">""</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Gancho consultivo direto focado na dor real de busca local de clientes de alto valor.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O tom deve ser informal, moderno e direto ao ponto, falando a linguagem de barbearia.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O WhatsApp comercial registrado é o (15) 99100-6264.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps Oficial</span>
+      <span>Ficha 'Matt the barber' na Av. José Joaquim de Lacerda, 1480 no Supermercado São Vicente.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Link AppBarber Cadastrado</span>
+      <span>URL 'http://sites.appbarber.com.br/mattthebarber-r3a2' sem certificado SSL próprio.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Instagram Oficial</span>
+      <span>Perfil @_matt.thebarber com demonstrações de cortes e acabamentos.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Jev System One</span>
+      <span>Classificador Jev indicando Vocação Start (R$ 850) com 95% de probabilidade para regularização de Maps e vitrine.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -27,6 +27,14 @@ def send_email(to_email, subject, body_html, attachment_path=None, sender_name="
         print("[!] Senha de aplicativo do Zoho Mail (ZOHO_PASSWORD) não configurada.")
         return False
 
+    # P4 (auditoria): sintaxe + registro MX antes de gastar reputação de domínio.
+    from vocacao_seguranca import pode_enviar_email
+
+    email_ok, motivo_email = pode_enviar_email(to_email)
+    if not email_ok:
+        print(f"[SKIP] E-mail descartado ({to_email}): {motivo_email}")
+        return False
+
     msg = MIMEMultipart()
     msg['From'] = formataddr((str(Header(sender_name, 'utf-8')), ZOHO_USER))
     msg['To'] = to_email

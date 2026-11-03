@@ -6,6 +6,20 @@ Site oficial: [vocacao.digital](https://vocacao.digital)
 
 ---
 
+## 📍 Estado atual — 22/10/2026
+
+- **Frente aberta:** anúncio publicitário + análise financeira (última atividade hoje, 10h20)
+- **25 worktrees** registrados no projeto (um por tarefa) — estado paralelo que precisa ser encerrado
+- **Clientes/portfólio:** 6 clientes + 10 projetos em `C:\Vocação 2027\Criente e portifa` (mapa em `STATUS_PROJETOS.md`, 01/10)
+- **Prospecção:** `MAQUINA_PROSPECCAO_1ST_TOUCH` + sidecar de leads diário às 9h
+- ✅ **Esteira comercial oficial:** as 4 ofertas + 2 combos listados abaixo — espelham o site no ar (atualizado 20/10)
+
+## ▶️ Próxima ação
+
+Escolher **1** dos 25 worktrees e fechar até sexta (24/10). Os outros 24 vão para "pausado" — não são fracasso, são estado explícito.
+
+---
+
 ## 🏛️ Estrutura do Repositório
 
 ```text
@@ -35,10 +49,14 @@ Site oficial: [vocacao.digital](https://vocacao.digital)
 
 ## ⚡ Esteira Oficial de Ofertas
 
+> **Fonte da verdade:** esta lista. O site (`vocacao.digital`) e o vault de memória devem espelhar exatamente estes valores.
+> **"Pilar 01/02/04" é componente técnico, não produto** — não entra na escada comercial.
+
 1. **Vocação Start (R$ 850)**: Vitrine Digital One-Page (<0.5s) + Google Maps blindado em 7 dias úteis.
 2. **Vocação Update (R$ 980)**: Modernização completa de site legado em até 5 dias úteis sem reuniões intermináveis.
 3. **Presença Local no Google Maps (R$ 450)**: Engenharia dos 8 pilares de ranqueamento no bairro com trava de exclusividade.
 4. **Tour Virtual 360° (R$ 750 a R$ 2.600)**: Captura em 5.6K no Google Street View com remoção profissional de tripé.
+5. **Combos:** Start + Tour 360° = **R$ 1.350** (economia de R$ 250) · Maps + Tour 360° = **R$ 950** (de R$ 1.100)
 
 ---
 

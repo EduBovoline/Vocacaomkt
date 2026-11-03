@@ -41,6 +41,16 @@ def save_json(path, data):
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 def send_whatsapp(number, text):
+    # P4 (auditoria): só celular válido, texto íntegro e dentro da Janela de Ouro.
+    from vocacao_seguranca import pode_disparar_whatsapp
+
+    _ok, _motivo = pode_disparar_whatsapp(
+        number, text, verificar_janela=str(number) != str(ADMIN_WHATSAPP)
+    )
+    if not _ok:
+        print(f"[SKIP] {number}: {_motivo}")
+        return False
+
     url = f"{EVOLUTION_API_URL}/message/sendText/{INSTANCE_NAME}"
     payload = {"number": number, "text": text}
     headers = {"apikey": API_KEY, "Content-Type": "application/json"}

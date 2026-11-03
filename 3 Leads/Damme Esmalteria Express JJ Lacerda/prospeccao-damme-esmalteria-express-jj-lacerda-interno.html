@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Damme Esmalteria Express JJ Lacerda — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Damme Esmalteria Express JJ Lacerda — Sorocaba</div>
+    <div class="header-sub">Contato: Responsável · (15) 99762-7518 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da empresa em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps & Perfil de Empresa</div>
+        <span class="badge badge-mediano">Ficha Ativa / Falta Botão WhatsApp Local</span>
+      </div>
+      <div class="canal-desc">Ficha existente, mas sem o gatilho direto de WhatsApp local e sem destaque do atendimento express.</div>
+      <div class="canal-impact">Mulheres que buscam unhas com urgência nos bairros vizinhos (Vila Santana, Trujillo e Sorocabano) não têm certeza se a unidade atende na hora e desistem do deslocamento.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Institucional (Portal da Franquia)</div>
+        <span class="badge badge-mediano">Página Geral Corporativa</span>
+      </div>
+      <div class="canal-desc">Endereço corporativo padrão sem personalização operacional da loja física de Sorocaba.</div>
+      <div class="canal-impact">A franqueada investe na loja física mas divide o tráfego com a rede inteira em vez de capturar o cliente local.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram da Unidade (@dammesorocaba.jjlacerda)</div>
+        <span class="badge badge-bom">Postagens Ativas de Resultados</span>
+      </div>
+      <div class="canal-desc">Boa presença visual no Instagram com identidade bem mantida pela franqueada.</div>
+      <div class="canal-impact">Excelente gerador de interesse para quem já segue o perfil, precisando apenas ser alinhado com o Google Maps.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Atendimento Comercial (WhatsApp)</div>
+        <span class="badge badge-bom">Canal Comercial Ativo</span>
+      </div>
+      <div class="canal-desc">Ponto de contato ágil e pronto para conversão imediata.</div>
+      <div class="canal-impact">Canal receptivo que deve ser colocado em destaque absoluto no Google Maps.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Damme Esmalteria Express (JJ Lacerda)</strong></td>
+      <td>Ficha no Maps na JJ Lacerda</td>
+      <td>Portal Geral da Rede</td>
+      <td>Ativo (@dammesorocaba.jjlacerda)</td>
+      <td><span class="badge badge-mediano">Oportunidade de Otimização Local</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Madame Nails</strong></td>
+      <td>4.8 ★ (General Osório / Trujillo)</td>
+      <td>Vitrine Digital</td>
+      <td>Forte na Região</td>
+      <td><span class="badge badge-bom">Forte na Região</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Studio Geisa Santos Spa & Nails</strong></td>
+      <td>4.7 ★ (Júlio Ribeiro / Vila Santana)</td>
+      <td>Página Básica</td>
+      <td>Muito Ativo</td>
+      <td><span class="badge badge-mediano">Consolidada</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Garras Nails Lab</strong></td>
+      <td>4.9 ★ (Vila Trujillo)</td>
+      <td>Agendamento Online</td>
+      <td>Ativo em Alongamentos</td>
+      <td><span class="badge badge-bom">Competitiva</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Conceito Express sem Necessidade de Agendamento</strong> — Grande diferencial de mercado ao permitir que clientes cuidem das unhas e pés por ordem de chegada, atendendo perfeitamente quem tem rotina corrida ou imprevistos.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Acessível em Corredor Comercial</strong> — Instalada na Av. José Joaquim de Lacerda, 1111, com fácil estacionamento e proximidade imediata dos bairros Vila Santana, Jardim Sorocabano e Trujillo.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Padronização e Qualidade de Franquia</strong> — Ambiente higienizado, protocolos rigorosos de esterilização e produtos profissionais que transmitem segurança para o público feminino.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">O Maior Diferencial da Loja Está Oculto na Busca</div>
+      <div class="fraqueza-detail">Quem busca manicure de última hora na região muitas vezes não clica na ficha porque o Google Maps não evidencia com clareza o modelo 'Express / Sem Hora Marcada'.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Desvio de Clientes para o Site Geral da Rede</div>
+      <div class="fraqueza-detail">Direcionar o botão de site para o portal institucional nacional faz a cliente se perder em menus corporativos em vez de falar com a loja de Sorocaba.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Concorrência Forte nos Bairros Vizinhos (Trujillo e Vila Santana)</div>
+      <div class="fraqueza-detail">Estúdios locais vizinhos mantêm fichas com notas altas e respostas rápidas, captando as clientes que não encontram contato fácil na Damme.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">1. Presença Local & Otimização do Google Maps (R$ 450)</div>
+        <div class="servico-just">Regularização completa da ficha da unidade JJ Lacerda: ajuste de palavras-chave locais, destaque do conceito express, fotos do salão e botão direto de WhatsApp em até 48 horas.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">2. Kit Balcão de Avaliações Google (R$ 250)</div>
+        <div class="servico-just">Criação de arte para display de mesa com QR Code direto para avaliação no Google Maps, acelerando o volume de notas 5 estrelas da loja.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">3. Combo Presença Maps + Tour 360° no Salão (R$ 850)</div>
+        <div class="servico-just">Otimização da ficha acompanhada de tour imersivo em 360 graus do espaço da esmalteria para o Google Street View.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">""</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Gancho consultivo direto focado na dor real de busca local de clientes de alto valor.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>A Damme é franquia, então a proprietária não pode alterar o site matriz nem criar domínios paralelos que fujam da marca. O foco 100% da oferta deve ser a regularização e blindagem do Google Maps Local (R$ 450).</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O WhatsApp comercial registrado da unidade JJ Lacerda é o (15) 99762-7518.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps Oficial</span>
+      <span>Ficha 'Damme Esmalteria Express - JJ Lacerda - Sorocaba' na Av. José Joaquim de Lacerda, 1111.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Instagram Oficial da Unidade</span>
+      <span>Perfil @dammesorocaba.jjlacerda com rotina da esmalteria e atendimentos express.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Jev System One</span>
+      <span>Classificador Jev indicando 92% de probabilidade para regularização de Google Maps (R$ 450) em perfil 'regularizacao_maps'.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

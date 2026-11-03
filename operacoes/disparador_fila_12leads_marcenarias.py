@@ -25,7 +25,7 @@ QUEUE = [
     {
         "name": "Marcenaria SHZ",
         "number": "5515997502210",
-        "hook": "Olá pessoal da SHZ! Parabéns pelos acabamentos postados. Notei que no site oficial vocês ainda usam @gmail.com para contato comercial. Clientes de condomínios que investem R$ 40k desconfiam de e-mails gratuitos. Posso te enviar um diagnóstico visual de 2 minutos mostrando como alinhar a governança de vocês?"
+        "hook": "Olá pessoal da SHZ! Acompanho os acabamentos que vocês publicam e o nível de detalhe é ótimo. Estava montando um mapa das marcenarias de alto padrão de Sorocaba e separei uma análise de 2 minutos sobre como quem reforma apartamento na região encontra vocês no Google antes de pedir orçamento. Posso te enviar por aqui?"
     },
     {
         "name": "Oakhouse Marcenaria (RR Marcenaria)",
@@ -87,6 +87,16 @@ QUEUE = [
 from CONFIG_MOTOR_DISPARO_VOCACOES_START import ensure_lgpd_compliance
 
 def send_whatsapp(number, text):
+    # P4 (auditoria): só celular válido, texto íntegro e dentro da Janela de Ouro.
+    from vocacao_seguranca import pode_disparar_whatsapp
+
+    _ok, _motivo = pode_disparar_whatsapp(
+        number, text, verificar_janela=str(number) != str(ADMIN_WHATSAPP)
+    )
+    if not _ok:
+        print(f"[SKIP] {number}: {_motivo}")
+        return 0, {"erro": _motivo}
+
     if str(number) != str(ADMIN_WHATSAPP):
         text = ensure_lgpd_compliance(text)
     url = f"{EVOLUTION_API_URL}/message/sendText/{INSTANCE_NAME}"

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Iara Artes — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Iara Artes — Sorocaba</div>
+    <div class="header-sub">Contato: Responsável · (15) 99108-2385 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da empresa em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps & Perfil de Empresa</div>
+        <span class="badge badge-fraco">Foto de Portão Fechado / Sem Catálogo</span>
+      </div>
+      <div class="canal-desc">Perfil no Maps com imagem residencial desfavorável e horário restrito cadastrado.</div>
+      <div class="canal-impact">Mães e clientes que pesquisam por pegue e monte na região do Brasilândia e Santa Rosália veem a foto de uma casa fechada e desconfiam da estrutura da empresa.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site / Catálogo Digital Próprio</div>
+        <span class="badge badge-ausente">Inexistente</span>
+      </div>
+      <div class="canal-desc">Sem endereço web próprio ou catálogo estruturado.</div>
+      <div class="canal-impact">A proprietária perde horas no WhatsApp enviando fotos soltas de temas repetidos em vez de enviar um link organizado de catálogo.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram (@iara_artessorocaba)</div>
+        <span class="badge badge-bom">Fotos dos Trabalhos em Atividade</span>
+      </div>
+      <div class="canal-desc">Canal ativo que valida o capricho das decorações, contrastando totalmente com a foto feia do Google Maps.</div>
+      <div class="canal-impact">O Instagram vende bem para quem já conhece, mas não resgata os clientes que chegam pelo Google Maps no bairro.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Atendimento Comercial (WhatsApp)</div>
+        <span class="badge badge-bom">Canal Comercial Ativo</span>
+      </div>
+      <div class="canal-desc">Ponto de contato ágil e pronto para receber orçamentos de festas.</div>
+      <div class="canal-impact">Canal receptivo que se tornaria muito mais produtivo com um catálogo prévio de temas.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Iara Artes</strong></td>
+      <td>Foto de Portão Fechado (Brasilândia)</td>
+      <td>Inexistente</td>
+      <td>Ativo (@iara_artessorocaba)</td>
+      <td><span class="badge badge-fraco">Gargalo Crítico de Imagem</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Três Marias Locação & Decoração</strong></td>
+      <td>4.9 ★ (Santa Rosália)</td>
+      <td>Loja / Catálogo Online</td>
+      <td>Forte Autoridade</td>
+      <td><span class="badge badge-bom">Forte na Região</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Fazendo Festa Sorocaba</strong></td>
+      <td>4.8 ★ (Kits Pegue e Monte)</td>
+      <td>Catálogo Web</td>
+      <td>Muito Ativo</td>
+      <td><span class="badge badge-bom">Consolidada</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Pegue Fácil Locações</strong></td>
+      <td>4.7 ★ (Jardim Europa)</td>
+      <td>Vitrine Digital</td>
+      <td>Catálogo em Destaque</td>
+      <td><span class="badge badge-mediano">Competitiva</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Acervo Variado de Temas e Peças</strong> — Capacidade de atender festas infantis, batizados e aniversários com kits completos de cilindros, suportes e decorações temáticas modernas.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Estratégica na Zona Norte/Oeste</strong> — Ponto de fácil retirada no Jardim Brasilândia, próximo a grandes bairros residenciais (Santa Rosália, Vila Fiori e Vila Carvalho).</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Atendimento Direto e Personalizado</strong> — Flexibilidade e atenção com as famílias que buscam soluções práticas de pegue e monte com preço justo.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Foto Principal do Google Mostrando um Portão Fechado</div>
+      <div class="fraqueza-detail">A imagem automática do Google Street View mostra apenas a grade de uma residência, passando a impressão de negócio informal ou inativo para quem pesquisa locação de festas.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Horário Cadastrado Como 'Abre às 18:00'</div>
+      <div class="fraqueza-detail">A ficha indica funcionamento apenas no início da noite, fazendo muitas mães acharem que a loja está fechada durante o horário comercial.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Perda de Tempo Mandando Fotos Manuais no WhatsApp</div>
+      <div class="fraqueza-detail">Sem uma página web centralizada, cada orçamento exige que a proprietária envie dezenas de fotos de temas individualmente no chat.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">1. Presença Local & Blindagem do Google Maps (R$ 450)</div>
+        <div class="servico-just">Correção imediata da ficha: substituição da foto do portão por fotos reais de decorações, ajuste de horários e inclusão do botão de WhatsApp direto em até 48 horas.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">2. Vocação Start — Catálogo One-Page + Maps Blindado (R$ 850)</div>
+        <div class="servico-just">Criação de vitrine web com galeria de temas do acervo, fotos nítidas e ficha profissionalizada no Google Maps em 7 dias.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">3. Pacote Completo de Expansão (R$ 1.150)</div>
+        <div class="servico-just">Vitrine digital, Maps otimizado e organização dos destaques e link da bio do Instagram para profissionalização total.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Gancho de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box">
+      <div class="gancho-label">Mensagem recomendada para envio</div>
+      <div class="gancho-text" id="gancho">""</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Gancho consultivo direto focado na dor real de busca local de clientes de alto valor.
+      </div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Gancho</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O tom deve ser respeitoso e acolhedor, destacando que o trabalho do Instagram é ótimo mas o Google está 'escondendo' o capricho com a foto do portão.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O WhatsApp comercial confirmado no print é o (15) 99108-2385.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps Oficial</span>
+      <span>Ficha 'Iara Artes' na Rua Luzerne P. de Arruda - Jardim Brasilândia com foto Street View residencial.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Instagram Oficial</span>
+      <span>Perfil @iara_artessorocaba com acervo de decorações infantis e pegue e monte.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Jev System One</span>
+      <span>Classificador Jev indicando 89% de probabilidade para regularização de presença local e perda de 74% no bairro.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

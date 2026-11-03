@@ -22,7 +22,13 @@ INSTANCE_NAME = os.environ.get("INSTANCE_NAME", "vocacao_comercial")
 API_KEY = os.environ.get("API_KEY", "vocacao_update_secret_key_2026")
 ADMIN_WHATSAPP = os.environ.get("ADMIN_WHATSAPP", "5515981512083")
 
-DATA_DIR = os.environ.get("DATA_DIR", r"c:\Vocação 2027\QG Vocação 2027 do zero\auto_responder_docker\data")
+# P1 (auditoria): o caminho era absoluto e apontava para uma cópia antiga em
+# C:\...\auto_responder_docker\data. Agora segue o módulo (funciona no host e
+# dentro do container, onde o arquivo vive em /app).
+DATA_DIR = os.environ.get(
+    "DATA_DIR",
+    os.path.join(os.path.dirname(os.path.abspath(__file__)), "data"),
+)
 HISTORY_FILE = os.path.join(DATA_DIR, "chat_history.json")
 OPTOUT_FILE = os.path.join(DATA_DIR, "optout_leads.json")
 FOLLOWUP_STATE_FILE = os.path.join(DATA_DIR, "followup_state.json")
@@ -31,10 +37,10 @@ FOLLOWUP_STATE_FILE = os.path.join(DATA_DIR, "followup_state.json")
 EXCLUDED_PHONES = ["981512083", "981781911", "1807055946", "11976035867"]
 
 MSG_D3 = (
-    "Olá! Passando rápido para compartilhar um dado prático da região: hoje, mais de 70% dos clientes locais "
-    "decidem se chamam no WhatsApp olhando a nota e as fotos do Maps antes.\n\n"
+    "Olá! Passando rápido com um dado prático da região: a maioria dos clientes locais decide se chama no "
+    "WhatsApp depois de olhar a nota e as fotos da empresa no Google Maps.\n\n"
     "O nosso trabalho aqui na Vocação é justamente garantir que a sua empresa seja a primeira escolha visual "
-    "de quem busca no bairro. Se fizer sentido entender como fazemos isso na prática, me avise por aqui!"
+    "de quem busca no bairro. Quer que eu te mostre como isso funciona na prática? Me avisa por aqui!"
 )
 
 MSG_D7 = (

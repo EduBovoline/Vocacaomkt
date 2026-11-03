@@ -87,7 +87,7 @@ QUEUE = [
     {
         "name": "Pure Pilates Campolim",
         "number": "5515997760345",
-        "hook": "Olá, tudo bem? Analisei a presença digital da unidade Pure Pilates no Campolim e notei um detalhe operacional: a marca tem grande força nacional, mas na busca local do Google pacientes de Sorocaba hesitam quando não encontram fotos panorâmicas do studio e um canal direto com os instrutores da unidade local. Posso te enviar um diagnóstico visual de 2 minutos mostrando como resolver isso?"
+        "hook": "Olá, tudo bem? Estava mapeando os estúdios de pilates do Campolim e separei uma análise de 2 minutos sobre como quem procura aula no bairro encontra a unidade de vocês no Google Maps — e o que costuma pesar na hora de agendar. Posso te enviar por aqui para você dar uma olhada?"
     },
     {
         "name": "Classic Pilates e Fisioterapia",
@@ -129,6 +129,16 @@ QUEUE = [
 from CONFIG_MOTOR_DISPARO_VOCACOES_START import ensure_lgpd_compliance
 
 def send_whatsapp(number, text):
+    # P4 (auditoria): só celular válido, texto íntegro e dentro da Janela de Ouro.
+    from vocacao_seguranca import pode_disparar_whatsapp
+
+    _ok, _motivo = pode_disparar_whatsapp(
+        number, text, verificar_janela=str(number) != str(ADMIN_WHATSAPP)
+    )
+    if not _ok:
+        print(f"[SKIP] {number}: {_motivo}")
+        return 0, {"erro": _motivo}
+
     if str(number) != str(ADMIN_WHATSAPP):
         text = ensure_lgpd_compliance(text)
     url = f"{EVOLUTION_API_URL}/message/sendText/{INSTANCE_NAME}"

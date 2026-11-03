@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --gold: #E5B910;
+    --emerald: #34d399;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+  body {
+    width: 1080px;
+    height: 1350px;
+    background: #04121b;
+    color: #F8F9F9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 50px;
+  }
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    filter: brightness(0.6);
+    z-index: 0;
+  }
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4,18,27,0.85) 0%, rgba(4,18,27,0.6) 50%, rgba(4,18,27,0.95) 90%);
+    z-index: 1;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 18px;
+  }
+  .brand {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+  }
+  .num { font-size: 14px; font-weight: 800; color: var(--gold); }
+  .title-block {
+    margin: 16px 0 12px;
+  }
+  .tag {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+    display: block;
+  }
+  h2 {
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #FFFFFF;
+  }
+  h2 span { color: var(--gold); }
+  
+  /* Layout que preenche a tela inteira sem espaço vazio */
+  .gallery-layout {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 12px 0 16px;
+    gap: 16px;
+  }
+  .row-label {
+    font-size: 13.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .row-label::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+  
+  /* Anuncios 4:5 na integra */
+  .ads-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    height: 480px; /* Grande e na integra */
+  }
+  .ad-wrap {
+    height: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #000;
+  }
+  .ad-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* NUNCA CORTA */
+    display: block;
+  }
+
+  /* Carrossel 3 laminas na integra preenchendo o espaco de baixo */
+  .car-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    height: 340px; /* Preenche a faixa que antes ficava vazia */
+  }
+  .car-wrap {
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 14px 30px rgba(0,0,0,0.65);
+    border: 1px solid rgba(255,255,255,0.15);
+    background: #000;
+  }
+  .car-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* NUNCA CORTA */
+    display: block;
+  }
+
+  .footer-row {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    color: #CBD5E1;
+  }
+  .next { color: var(--gold); font-weight: 800; }
+</style>
+</head>
+<body>
+  <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/cena3-poster.jpg" class="bg-photo" alt="Background">
+  <div class="bg-gradient"></div>
+
+  <div class="content">
+    <div class="top-row">
+      <div class="brand">Vocação Comunicação &bull; Etapa 04</div>
+      <div class="num">05 / 06</div>
+    </div>
+
+    <div class="title-block">
+      <span class="tag">Máquina de Tráfego</span>
+      <h2>Anúncios &amp; <span>Carrossel 4:5</span></h2>
+    </div>
+
+    <div class="gallery-layout">
+      <!-- Bloco Anuncios A/B -->
+      <div>
+        <div class="row-label">Anúncios de Teste A/B &bull; Feed &amp; Stories</div>
+        <div class="ads-strip">
+          <div class="ad-wrap">
+            <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/ad-1a-feed.png" alt="Ad 1A">
+          </div>
+          <div class="ad-wrap">
+            <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/ad-1b-feed.png" alt="Ad 1B">
+          </div>
+        </div>
+      </div>
+
+      <!-- Bloco Carrossel na integra preenchendo o espaco -->
+      <div>
+        <div class="row-label">Carrossel Educativo &bull; Instagram 1080x1350</div>
+        <div class="car-strip">
+          <div class="car-wrap">
+            <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/carrossel-1-capa.png" alt="Carrossel 1">
+          </div>
+          <div class="car-wrap">
+            <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/carrossel-2-conteudo.png" alt="Carrossel 2">
+          </div>
+          <div class="car-wrap">
+            <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/carrossel-3-oferta.png" alt="Carrossel 3">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <div>Artes entregues na íntegra</div>
+      <div class="next">Próximo &rarr;</div>
+    </div>
+  </div>
+</body>
+</html>

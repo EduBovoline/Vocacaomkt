@@ -735,6 +735,16 @@ def is_already_delivered(phone):
     return False
 
 def send_whatsapp(number, text):
+    # P4 (auditoria): só celular válido, texto íntegro e dentro da Janela de Ouro.
+    from vocacao_seguranca import pode_disparar_whatsapp
+
+    _ok, _motivo = pode_disparar_whatsapp(
+        number, text, verificar_janela=str(number) != str(ADMIN_WHATSAPP)
+    )
+    if not _ok:
+        print(f"[SKIP] {number}: {_motivo}")
+        return 0, {"erro": _motivo}
+
     url = f"{EVOLUTION_API_URL}/message/sendText/{INSTANCE_NAME}"
     headers = {"apikey": API_KEY, "Content-Type": "application/json"}
     payload = {

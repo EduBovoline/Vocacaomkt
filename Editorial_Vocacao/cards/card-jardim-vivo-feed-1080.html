@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --bg-dark: #04121b;
+    --accent-gold: #E5B910;
+    --accent-emerald: #10B981;
+    --border: rgba(255, 255, 255, 0.12);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: #04121b;
+    color: #F8F9F9;
+    padding: 50px 60px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(229, 185, 16, 0.14) 0%, rgba(16, 185, 129, 0.05) 50%, transparent 70%);
+    top: -150px;
+    right: -150px;
+    pointer-events: none;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255,255,255,0.08);
+    padding-bottom: 20px;
+  }
+  .brand-tag {
+    font-size: 13.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent-gold);
+    font-weight: 700;
+  }
+  .case-badge {
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--accent-emerald);
+    color: var(--accent-emerald);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  .title-area {
+    margin: 16px 0 8px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+  h1 span {
+    color: var(--accent-gold);
+  }
+  .subtitle {
+    font-size: 16.5px;
+    color: #A3B8C2;
+    margin-top: 6px;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin: 16px 0;
+  }
+  .card {
+    background: #071d2b;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 16px 36px rgba(0,0,0,0.5);
+  }
+  .card-header {
+    padding: 12px 18px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .card-antes .card-header {
+    background: rgba(239, 68, 68, 0.14);
+    color: #f87171;
+    border-bottom: 1px solid rgba(239, 68, 68, 0.25);
+  }
+  .card-depois .card-header {
+    background: rgba(16, 185, 129, 0.16);
+    color: var(--accent-emerald);
+    border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+  }
+  .card-img-wrap {
+    width: 100%;
+    height: 380px;
+    background: #020a10;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+  }
+  .subdomain-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fca5a5;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: monospace;
+  }
+  .own-domain-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.75);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: var(--accent-emerald);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: monospace;
+  }
+  .card-footer {
+    padding: 16px 18px;
+    font-size: 13px;
+    color: #CBD5E1;
+    line-height: 1.45;
+  }
+  .card-footer strong {
+    color: #FFFFFF;
+  }
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 18px;
+    font-size: 13.5px;
+    color: #A3B8C2;
+  }
+  .footer strong {
+    color: var(--accent-gold);
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  
+  <div class="header">
+    <div class="brand-tag">Vocação Comunicação &bull; Estudo de Caso</div>
+    <div class="case-badge">Vocação Update (5 Dias Úteis)</div>
+  </div>
+
+  <div class="title-area">
+    <h1>Jardim Vivo Essencial: <span>Do Inlead ao Site Imersivo</span></h1>
+    <p class="subtitle">Como eliminamos a dependência de subdomínio de terceiros e entregamos velocidade de 0.4s.</p>
+  </div>
+
+  <div class="comparison-grid">
+    <!-- ANTES (INLEAD) -->
+    <div class="card card-antes">
+      <div class="card-header">
+        <span>Antes &bull; Construtor Inlead.digital</span>
+        <span>Lentidão 3.8s</span>
+      </div>
+      <div class="card-img-wrap">
+        <div class="subdomain-tag">URL: inlead.digital/7ervasquecuidam/</div>
+        <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Editorial_Vocacao/cases/inlead-live-oficial.png" alt="Antes no Inlead Digital">
+      </div>
+      <div class="card-footer">
+        <strong>Subdomínio de Terceiros &amp; Custo Fixo:</strong> O cliente pagava mensalidade no Inlead, o site demorava quase 4 segundos e gerava desconfiança no checkout.
+      </div>
+    </div>
+
+    <!-- DEPOIS (VOCAÇÃO DIGITAL) -->
+    <div class="card card-depois">
+      <div class="card-header">
+        <span>Depois &bull; Vocação Imersivo</span>
+        <span>Ultra-rápido 0.4s</span>
+      </div>
+      <div class="card-img-wrap">
+        <div class="own-domain-tag">URL: jardimvivoessencial.com.br</div>
+        <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Editorial_Vocacao/cases/jardim-vivo-novo.png" alt="Depois na Vocação Digital">
+      </div>
+      <div class="card-footer">
+        <strong>Domínio Próprio &amp; Zero Mensalidade:</strong> Scroll cinematográfico em 6 cenas fluidas, código 100% autônomo na Vercel e taxa de conversão destravada.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>Entrega: <strong>5 dias úteis</strong> &bull; Pacote: <strong>R$ 980</strong></div>
+    <div>vocacao.digital &bull; <strong>Presença Digital com Alto Valor</strong></div>
+  </div>
+</body>
+</html>

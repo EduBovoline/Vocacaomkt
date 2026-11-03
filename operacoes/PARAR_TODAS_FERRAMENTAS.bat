@@ -1,29 +1,61 @@
 @echo off
+setlocal EnableExtensions
 title Vocacao Digital 2027 - Parar Todas as Ferramentas
 echo ========================================================
 echo   PAUSANDO ECOSSISTEMA VOCACAO DIGITAL 2027
 echo ========================================================
 echo.
 
-echo [1/4] Finalizando Auto-Responder...
+rem P1 (auditoria): raiz do repositorio = "%~dp0.." (este .bat fica em operacoes).
+set "ROOT=%~dp0.."
+set "LOCAL_STACK=%VOCACAO_LOCAL_STACK%"
+if "%LOCAL_STACK%"=="" (
+    for /d %%D in ("D:\Funnel vendas obje*") do (
+        if exist "%%~fD\local_stack\docker-compose.yml" set "LOCAL_STACK=%%~fD\local_stack"
+    )
+)
+
+set "DOCKER=docker"
+where docker >nul 2>&1
+if errorlevel 1 set "DOCKER=C:\Program Files\Docker\Docker\resources\bin\docker.exe"
+
+echo [1/5] Finalizando Auto-Responder em container...
+pushd "%ROOT%\operacoes\auto_responder_docker"
+"%DOCKER%" compose down
+popd
+
+echo.
+echo [2/5] Finalizando Auto-Responder em modo host ^(se estiver rodando^)...
 taskkill /f /fi "WINDOWTITLE eq AutoResponder-Vocacao*" >nul 2>&1
 
-echo [2/4] Parando WhatsApp & n8n Stack...
-cd /d "D:\Funnel vendas objeção\local_stack"
-"C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
+echo.
+echo [3/5] Parando WhatsApp e n8n Stack...
+if exist "%LOCAL_STACK%\docker-compose.yml" (
+    pushd "%LOCAL_STACK%"
+    "%DOCKER%" compose down
+    popd
+) else (
+    echo [AVISO] Stack nao encontrada. Nada a parar.
+)
 
-echo [3/4] Parando SerpBear e OpenSEO...
-cd /d "%~dp0serpbear"
-"C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
-cd /d "%~dp0openseo"
-"C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
+echo.
+echo [4/5] Parando SerpBear e OpenSEO...
+pushd "%ROOT%\serpbear"
+"%DOCKER%" compose down
+popd
+pushd "%ROOT%\openseo"
+"%DOCKER%" compose down
+popd
 
-echo [4/4] Parando Twenty CRM...
-cd /d "%~dp0twenty-crm"
-"C:\Program Files\Docker\Docker\resources\bin\docker.exe" compose down
+echo.
+echo [5/5] Parando Twenty CRM...
+pushd "%ROOT%\twenty-crm"
+"%DOCKER%" compose down
+popd
 
 echo.
 echo ========================================================
 echo   TODAS AS FERRAMENTAS FORAM PAUSADAS COM SUCESSO!
 echo ========================================================
 pause
+exit /b 0

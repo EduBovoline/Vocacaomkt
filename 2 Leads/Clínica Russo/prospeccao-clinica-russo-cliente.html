@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico de Presença Digital — Clínica Russo</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;         /* Dark Navy Profundo (Padrão Marcenaria Sucesso) */
+    --color-accent: #E5B910;          /* Dourado Solar Vocação */
+    --color-accent-soft: #fcf9eb;     /* Dourado Suave / Creme Solar */
+    --color-bg: #fafaf8;              /* Off-white editorial */
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #e2e8e5;
+    --color-positive: #0B5E47;        /* Verde Esmeralda Vocação */
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-gold: #E5B910;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.65;
+    font-size: 15px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* DIAGRAMAÇÃO & QUEBRA DE PÁGINAS CONTROLADA */
+  @page {
+    size: A4 portrait;
+    margin: 12mm 14mm 14mm 14mm;
+  }
+
+  @media print {
+    body { background: #ffffff; }
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+      padding-top: 10px;
+    }
+    .header { padding: 44px 36px 36px !important; }
+    .section { padding-top: 24px !important; }
+    .channel-card, .force-card, .opp-item, .comp-table, .stat-card, .intro-card {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+    }
+    .cta-section {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      padding: 36px 30px !important;
+    }
+  }
+
+  /* HEADER PADRÃO WATANABE COM CURVA ELÍPTICA */
+  .header {
+    background: var(--color-primary);
+    color: white;
+    padding: 56px 40px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 40px;
+    background: var(--color-bg);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+  .header-inner { max-width: 860px; margin: 0 auto; }
+  .vocacao-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+  .vocacao-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+  .vocacao-name {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: var(--color-accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .header-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+  .header-title {
+    font-family: 'Fraunces', serif;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .header-title em { font-style: italic; color: var(--color-accent); }
+  .header-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .container { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 48px 0 0; }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    line-height: 1.25;
+  }
+
+  /* INTRO CARD */
+  .intro-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-accent);
+    border-radius: 10px;
+    padding: 22px 26px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+  .intro-card strong { color: var(--color-primary); }
+
+  /* STATS GRID */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .stat-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-accent);
+    margin-bottom: 4px;
+  }
+  .stat-desc { font-size: 11.5px; color: var(--color-text-muted); line-height: 1.4; }
+
+  /* CHANNEL GRID */
+  .channel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+  .channel-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .channel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .channel-icon-wrap {
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+  }
+  .channel-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 6px; }
+  .channel-note { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+
+  /* BADGES */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: var(--color-negative); }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  /* COMP TABLE */
+  .comp-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13px; background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 8px; overflow: hidden; }
+  .comp-table thead th { background: var(--color-primary); color: white; padding: 10px 14px; text-align: left; font-weight: 500; font-size: 11.5px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr:last-child { border-bottom: none; }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); }
+  .comp-table tbody td { padding: 11px 14px; vertical-align: middle; }
+
+  /* FORCES GRID */
+  .forces-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 10px; }
+  .force-card { background: var(--color-surface); border: 1px solid var(--color-border); border-top: 3px solid var(--color-accent); border-radius: 8px; padding: 16px 18px; }
+  .force-icon-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .force-title { font-weight: 600; font-size: 13.5px; color: var(--color-primary); }
+  .force-desc { font-size: 12.5px; color: var(--color-text-muted); line-height: 1.5; }
+
+  /* OPPORTUNITY ITEMS */
+  .opp-item {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-negative);
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .opp-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 400; color: var(--color-border); line-height: 1; flex-shrink: 0; margin-top: 2px; }
+  .opp-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .opp-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+
+  /* CTA */
+  .cta-section {
+    background: var(--color-primary);
+    border-radius: 12px;
+    padding: 38px 36px;
+    text-align: center;
+    margin-top: 24px;
+    border-top: 3px solid var(--color-accent);
+  }
+  .cta-section .cta-label { font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-accent-soft); margin-bottom: 10px; font-weight: 700; }
+  .cta-section h2 { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 400; color: white; margin-bottom: 10px; line-height: 1.25; }
+  .cta-section h2 em { font-style: italic; color: #a4dbc9; }
+  .cta-section p { color: rgba(255,255,255,0.7); font-size: 13.5px; max-width: 500px; margin: 0 auto 24px; line-height: 1.6; }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 13px 32px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.03em;
+  }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 10px; margin-top: 28px; text-align: center; }
+  .footer-brand { font-family: 'Fraunces', serif; font-size: 14px; color: var(--color-primary); margin-bottom: 2px; }
+  .footer-tag { font-size: 11px; color: var(--color-text-muted); }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="vocacao-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" width="28" height="28" fill="none">
+  <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#ffffff" />
+  <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#0B5E47" />
+</svg>
+      <div class="vocacao-name">Vocação Comunicação & Marketing</div>
+    </div>
+    <div class="header-label">Diagnóstico de Presença & Autoridade Digital</div>
+    <h1 class="header-title">Clínica Russo · <em>Sorocaba</em></h1>
+    <div class="header-sub">Documento elaborado para avaliação de posicionamento de alto valor · Setembro de 2026</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- INTRODUÇÃO & ESTATÍSTICAS -->
+  <div class="section">
+    <div class="section-label">01 / Introdução & Contexto de Mercado</div>
+    <h2 class="section-title">O Ponto de Partida</h2>
+    <div class="intro-card">
+      <p>A <strong>Clínica Russo</strong> possui estrutura física de excelência e oferta de alto valor reconhecida por seus clientes. No entanto, hoje existe um descompasso entre a qualidade real dos serviços entregues e a percepção gerada nos canais digitais. Este diagnóstico mapeia com exatidão onde sua empresa está forte e onde concorrentes da mesma região estão captando oportunidades que deveriam ser suas.</p>
+    </div>
+    <div class="stats-grid">
+      
+    <div class="stat-card">
+      <div class="stat-num">97%</div>
+      <div class="stat-desc">Pesquisam online a reputação do estabelecimento antes de comprar ou contratar.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">4,2s</div>
+      <div class="stat-desc">Tempo médio de julgamento para decidir se a empresa transmite segurança digital.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">2,8x</div>
+      <div class="stat-desc">Mais propensão a contratar empresas com presença online organizada e profissional.</div>
+    </div>
+  
+
+    <div class="stat-card">
+      <div class="stat-num">100%</div>
+      <div class="stat-desc">Do investimento no ecossistema se paga logo com 1 ou 2 novos clientes de alto ticket.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: DIAGNÓSTICO & CONCORRENTES -->
+  <div class="page-break"></div>
+
+  <div class="section">
+    <div class="section-label">02 / Diagnóstico por Canal</div>
+    <h2 class="section-title">Como a Clínica Russo é vista hoje</h2>
+    <div class="channel-grid">
+      
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <span class="badge badge-fraco">Gargalo Crítico</span>
+        </div>
+        <div class="channel-name">Google Maps & Perfil de Empresa</div>
+        <div class="channel-note">Ficha no Google Maps com avaliações que elogiam a competência médica do Dr. Alexandre e equipe, porém penalizam a nota geral por atrito e lentidão no atendimento da recepção. Ausência de canal direto e claro para agendamento ágil.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></div>
+          <span class="badge badge-fraco">Inativo / Sem Atualização</span>
+        </div>
+        <div class="channel-name">Instagram (@clinicarusso)</div>
+        <div class="channel-note">Perfil parado há meses sem linha editorial ativa de autoridade. Falta de link bio funcional para triagem e agendamento de consultas.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <span class="badge badge-ausente">Ausente</span>
+        </div>
+        <div class="channel-name">Site Oficial & Vitrine de Especialidades</div>
+        <div class="channel-note">Inexistência de uma página web rápida (Mobile-First) apresentando o corpo clínico, horários, convênios aceitos e preparos de exames.</div>
+      </div>
+    
+
+      <div class="channel-card">
+        <div class="channel-header">
+          <div class="channel-icon-wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></div>
+          <span class="badge badge-mediano">Sobrecarga de Recepção</span>
+        </div>
+        <div class="channel-name">Canal de Atendimento & Triagem</div>
+        <div class="channel-note">Atendimento dependente exclusivamente de ligação para o telefone fixo, gerando filas de espera e queixas recorrentes de pacientes.</div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">03 / Nicho & Concorrência Local</div>
+    <h2 class="section-title">O Cenário em Sorocaba</h2>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Posição Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Clínica Russo</strong></td>
+      <td>3.8 ★ (Elogio médico, queixa de recepção)</td>
+      <td>Inexistente</td>
+      <td>Inativo (@clinicarusso)</td>
+      <td><span class="badge badge-fraco">Gargalo Crítico</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Clínica LES Medicina e Reabilitação</strong></td>
+      <td>4.8 ★ (Fotos profissionais e boa ficha)</td>
+      <td>Vitrine Ativa</td>
+      <td>Ativo com agenda</td>
+      <td><span class="badge badge-bom">Forte na Região</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Clínica Equilíbrio Saúde</strong></td>
+      <td>4.5 ★ (Atendimento integrado)</td>
+      <td>Página Básica</td>
+      <td>Moderado</td>
+      <td><span class="badge badge-mediano">Mediana</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>CeiPre Saúde & Fisioterapia</strong></td>
+      <td>4.7 ★ (Ficha bem cuidada)</td>
+      <td>Em estruturação</td>
+      <td>Ativo</td>
+      <td><span class="badge badge-mediano">Mediana</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PÁGINA 3: FORÇAS, GARGALOS & CTA -->
+  <div class="page-break"></div>
+
+  <div class="section">
+    <div class="section-label">04 / Ativos Valiosos</div>
+    <h2 class="section-title">Suas Forças no Mundo Real</h2>
+    <div class="forces-grid">
+      
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Excelência e Reconhecimento Clínico</span>
+      </div>
+      <div class="force-desc">Corpo médico altamente qualificado (Gastroenterologia, Cirurgia e Clínica Geral) com pacientes fiéis que atestam a precisão dos diagnósticos e a conduta ética dos doutores.</div>
+    </div>
+  
+
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Localização Nobre e Estratégica</span>
+      </div>
+      <div class="force-desc">Ponto tradicional e consolidado no início da Av. Pereira da Silva, no coração do Santa Rosália, com fácil acesso para toda Sorocaba.</div>
+    </div>
+  
+
+    <div class="force-card">
+      <div class="force-icon-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B5E47" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        <span class="force-title">Estrutura Multidisciplinar</span>
+      </div>
+      <div class="force-desc">Capacidade instalada para consultas médicas, acompanhamento nutricional, bioimpedância e Pilates no mesmo local.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-label">05 / Gargalos Críticos</div>
+    <h2 class="section-title">Onde a Clínica Russo perde clientes hoje</h2>
+    <div class="opp-list">
+      
+    <div class="opp-item">
+      <div class="opp-num">01</div>
+      <div class="opp-body">
+        <div class="opp-title">Filtro e Vitrine One-Page para Desafogar a Recepção</div>
+        <div class="opp-desc">Criar uma vitrine digital leve e veloz para a Clínica Russo, contendo especialidades, preparos de exames, convênios e um fluxo organizado de solicitação de agendamento, aliviando o telefone fixo.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">02</div>
+      <div class="opp-body">
+        <div class="opp-title">Blindagem da Ficha do Google Maps</div>
+        <div class="opp-desc">Reestruturar a ficha oficial no Google Maps, destacando os médicos titulares, fotos de alta qualidade e uma resposta padrão humanizada para blindar a percepção pública contra queixas de espera.</div>
+      </div>
+    </div>
+  
+
+    <div class="opp-item">
+      <div class="opp-num">03</div>
+      <div class="opp-body">
+        <div class="opp-title">Base Estrutural para Futuro Atendimento Inteligente</div>
+        <div class="opp-desc">Padronizar as perguntas frequentes (FAQ), horários e dúvidas de agendamento na vitrine digital para plugar com facilidade uma automação ou assistente inteligente de WhatsApp na etapa seguinte.</div>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+
+  <div class="cta-section">
+    <div class="cta-label">Próximo Passo Estratégico</div>
+    <h2>Alinhe sua presença digital à <em>qualidade real</em> do seu espaço.</h2>
+    <p>A Vocação cuida de toda a organização da presença online da sua empresa — do site institucional à blindagem no Google Maps e Tour Virtual 360°.</p>
+    <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20diagn%C3%B3stico%20digital%20da%20Cl%C3%ADnica%20Russo%20e%20gostaria%20de%20falar%20sobre%20a%20presen%C3%A7a%20digital%20com%20a%20Voca%C3%A7%C3%A3o." class="cta-btn" target="_blank">Falar com a Vocação no WhatsApp</a>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-brand">Vocação Comunicação & Marketing</div>
+    <div class="footer-tag">Estratégia · Presença Digital · Autoridade Local</div>
+  </footer>
+
+</div>
+</body>
+</html>

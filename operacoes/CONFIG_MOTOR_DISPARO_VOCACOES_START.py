@@ -10,6 +10,9 @@ import json
 import random
 from datetime import datetime, time
 
+# P3 (auditoria): saída sempre em UTF-8, inclusive no console cp1252 do Windows.
+import vocacao_seguranca  # noqa: F401  — o import já chama forcar_utf8()
+
 # Configurações de API & Instância
 EVOLUTION_API_URL = "http://localhost:8080"
 INSTANCE_NAME     = "vocacao_comercial"
@@ -68,33 +71,35 @@ def is_in_golden_window(dt=None):
 
 def generate_compliant_hook(lead_name, segment="seu segmento", neighborhood="na sua região", contact_name=""):
     """
-    Gera a copy oficial humanizada Vocação Start com opt-out LGPD rigoroso.
-    Sem bajulação de 'espaço excelente' e sem links no primeiro toque.
+    Copy oficial do primeiro toque (P2 da auditoria).
+
+    Regra de ouro: NÃO afirmar nada sobre o lead que não tenha sido confirmado
+    no diagnóstico gerado (fotos, site, WhatsApp, e-mail). A abordagem vende a
+    análise, não uma acusação. Sem bajulação, sem link e com opt-out LGPD.
     """
     greeting = f"Opa {contact_name}, tudo bem?" if contact_name else "Olá, tudo bem?"
-    
+
     text = (
-        f"{greeting} Edu aqui da Vocação Comunicação & Marketing em Sorocaba.\n\n"
-        f"Estava pesquisando as empresas de {segment} no {neighborhood} e encontrei o contato da {lead_name}.\n\n"
-        f"Vi que vocês têm um trabalho sério na região, mas a apresentação da empresa no Google ainda não reflete isso — "
-        f"faltam fotos atualizadas e um canal direto para o WhatsApp de atendimento.\n\n"
-        f"Eu montei um resumo rápido mostrando como organizar a presença digital de vocês para quem pesquisar no bairro já abrir conversa direto no seu atendimento.\n\n"
-        f"Se fizer sentido, te mando aqui pra você dar uma olhada (leva nem 2 minutos). Abraço!\n\n"
+        f"{greeting} Edu aqui da Vocação, de Sorocaba.\n\n"
+        f"Estava mapeando {segment} aqui na região do {neighborhood} e separei uma análise rápida "
+        f"de 2 minutos sobre como quem mora no bairro encontra e escolhe a {lead_name} pelo Google Maps no celular.\n\n"
+        f"É um retrato de como a empresa aparece hoje na busca — feito com dados públicos, sem achismo.\n\n"
+        f"Posso te mandar por aqui para você dar uma olhada? Abraço!\n\n"
         f"_Contato comercial via dados públicos do Google Maps. Se não desejar receber mensagens, basta responder 'PARAR'._"
     )
     return text
 
 def generate_compliant_followup_hook(lead_name, contact_name=""):
     """
-    Gera copy de follow-up humanizada, sóbria e com opt-out LGPD rigoroso.
-    Sem bajulação, sem pressão e com saída limpa.
+    Follow-up humanizado, sóbrio e com opt-out LGPD rigoroso.
+    Não repete acusações técnicas e não usa o jargão "se fizer sentido".
     """
     greeting = f"Opa {contact_name}, tudo bem?" if contact_name else "Olá, tudo bem?"
     text = (
         f"{greeting} Edu aqui da Vocação.\n\n"
-        f"Passando apenas para checar se você conseguiu ver minha mensagem anterior sobre a presença digital da {lead_name} no Google.\n\n"
-        f"Como comentei, montei um resumo visual de 2 minutos com os principais gargalos e oportunidades que identifiquei no perfil de vocês.\n\n"
-        f"Se fizer sentido dar uma olhada rápida, me avisa por aqui que te encaminho. Abraço!\n\n"
+        f"Passando para saber se você chegou a ver minha mensagem sobre como a {lead_name} aparece nas buscas do Google no bairro.\n\n"
+        f"Se quiser, envio o resumo de 2 minutos que montei — é só responder 'quero ver'.\n\n"
+        f"Se preferir não receber mais nada, responde 'PARAR' que eu encerro o contato na hora.\n\n"
         f"_Para não receber mais mensagens, basta responder 'PARAR'._"
     )
     return text

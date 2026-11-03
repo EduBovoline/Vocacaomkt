@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Pré-Seleção — 100 Leads Santa Rosália & Jardim Brasilândia | Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fraunces:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0d1210;
+    --bg-card: #151c19;
+    --bg-card-hover: #1c2622;
+    --border: #26332d;
+    --primary: #0B5E47;
+    --primary-light: #128263;
+    --accent: #a4dbc9;
+    --text-main: #f0f4f2;
+    --text-muted: #889991;
+    --danger: #e05252;
+    --warning: #e5a43b;
+    --success: #2ebd7a;
+    --info: #3b82f6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.5;
+    padding-bottom: 90px;
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(180deg, #16221d 0%, #0d1210 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 24px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #111815;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .brand-logo img {
+    width: 32px;
+    height: 30px;
+    object-fit: contain;
+  }
+  .brand-title h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+  }
+  .brand-title p {
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  /* METRICS BAR */
+  .metrics-grid {
+    max-width: 1380px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+  }
+  .metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .metric-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--primary);
+  }
+  .metric-card.accent::before { background: var(--accent); }
+  .metric-card.warning::before { background: var(--warning); }
+  .metric-card.success::before { background: var(--success); }
+  .metric-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    font-weight: 700;
+  }
+  .metric-val {
+    font-size: 26px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-top: 4px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+  .metric-sub {
+    font-size: 11.5px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+
+  /* CONTROLS (SEARCH & FILTERS) */
+  .controls-section {
+    max-width: 1380px;
+    margin: 20px auto 0;
+    padding: 0 24px;
+  }
+  .search-box {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .search-input {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 13px 18px;
+    font-size: 14px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--accent);
+  }
+  .filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .chip {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+  }
+  .chip:hover {
+    border-color: var(--accent);
+    color: #ffffff;
+  }
+  .chip.active {
+    background: var(--primary);
+    border-color: var(--primary-light);
+    color: #ffffff;
+  }
+
+  /* LEADS LIST / TABLE */
+  .table-container {
+    max-width: 1380px;
+    margin: 22px auto 0;
+    padding: 0 24px;
+  }
+  .table-header-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 12px 12px 0 0;
+    padding: 14px 20px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+  .select-all-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .select-all-box input {
+    width: 17px;
+    height: 17px;
+    accent-color: var(--primary-light);
+    cursor: pointer;
+  }
+
+  .leads-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 0 0 12px 12px;
+    overflow: hidden;
+  }
+  .leads-table th {
+    background: #111715;
+    padding: 12px 18px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  .leads-table tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .leads-table tr:hover {
+    background: var(--bg-card-hover);
+  }
+  .leads-table tr.selected {
+    background: rgba(11, 94, 71, 0.15);
+  }
+  .leads-table td {
+    padding: 14px 18px;
+    font-size: 13.5px;
+    vertical-align: middle;
+  }
+
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .badge-bairro-sr {
+    background: rgba(164, 219, 201, 0.12);
+    color: var(--accent);
+    border: 1px solid rgba(164, 219, 201, 0.25);
+  }
+  .badge-bairro-br {
+    background: rgba(229, 164, 59, 0.12);
+    color: var(--warning);
+    border: 1px solid rgba(229, 164, 59, 0.25);
+  }
+  .badge-urgencia-2 {
+    background: rgba(224, 82, 82, 0.15);
+    color: #ff6b6b;
+    border: 1px solid rgba(224, 82, 82, 0.3);
+  }
+  .badge-urgencia-1 {
+    background: rgba(229, 164, 59, 0.15);
+    color: var(--warning);
+    border: 1px solid rgba(229, 164, 59, 0.3);
+  }
+  .badge-oferta {
+    background: rgba(18, 130, 99, 0.2);
+    color: #79f2c3;
+    border: 1px solid rgba(18, 130, 99, 0.4);
+    font-weight: 600;
+  }
+
+  /* LOSS BAR */
+  .loss-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .loss-bar {
+    flex: 1;
+    height: 6px;
+    background: #232d28;
+    border-radius: 3px;
+    overflow: hidden;
+    min-width: 60px;
+  }
+  .loss-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--warning) 0%, var(--danger) 100%);
+    border-radius: 3px;
+  }
+
+  /* HOOK DRAWER */
+  .hook-toggle {
+    color: var(--accent);
+    font-size: 11.5px;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 4px;
+    display: inline-block;
+  }
+  .hook-box {
+    display: none;
+    margin-top: 8px;
+    background: #0d1210;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #c9d8d1;
+    line-height: 1.45;
+  }
+
+  /* FLOATING FOOTER BAR */
+  .floating-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(17, 24, 21, 0.95);
+    border-top: 1px solid var(--border);
+    backdrop-filter: blur(16px);
+    padding: 14px 24px;
+    z-index: 100;
+  }
+  .floating-inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .selected-counter {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+  }
+  .selected-counter span {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .btn {
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(11, 94, 71, 0.4);
+  }
+  .btn-primary:hover {
+    background: var(--primary-light);
+    transform: translateY(-1px);
+  }
+  .btn-secondary {
+    background: #1f2a25;
+    color: var(--text-main);
+    border: 1px solid var(--border);
+  }
+  .btn-secondary:hover {
+    background: #283630;
+    border-color: var(--accent);
+  }
+
+  /* MODAL */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+  }
+  .modal-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px;
+    max-width: 520px;
+    width: 90%;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+  }
+  .modal-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+  .modal-text {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="brand-area">
+      <div class="brand-logo">
+        <img src="https://vocacao.digital/logo-vocacao-white.png" alt="Vocação">
+      </div>
+      <div class="brand-title">
+        <p>Inteligência Comercial · Jev System One</p>
+        <h1>Painel de Pré-Seleção de Leads (100)</h1>
+      </div>
+    </div>
+    <div style="font-size: 12.5px; color: var(--text-muted); text-align: right;">
+      Pólos Comerciais: <b style="color: #ffffff;">Santa Rosália & Jardim Brasilândia</b><br>
+      Status: <span style="color: var(--warning); font-weight: bold;">Aguardando Decisão do Gestor</span>
+    </div>
+  </div>
+</header>
+
+<!-- METRICS -->
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="metric-label">Total de Leads Mapeados</div>
+    <div class="metric-val">100</div>
+    <div class="metric-sub">60 Santa Rosália · 40 Brasilândia</div>
+  </div>
+  <div class="metric-card accent">
+    <div class="metric-label">Pipeline Potencial Total</div>
+    <div class="metric-val">R$ 74.060</div>
+    <div class="metric-sub">Soma das ofertas de melhor fit</div>
+  </div>
+  <div class="metric-card warning" style="border-color: rgba(229, 164, 59, 0.4);">
+    <div class="metric-label">⭐ Leads Ouro (WhatsApp Direto)</div>
+    <div class="metric-val" style="color: #ffd27a;">30 leads</div>
+    <div class="metric-sub">Celular no Maps + Ticket R$ 850-980</div>
+  </div>
+  <div class="metric-card success">
+    <div class="metric-label">Interesse Médio Vendedor</div>
+    <div class="metric-val">77%</div>
+    <div class="metric-sub">Score comercial e atratividade Vocação</div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls-section">
+  <div class="search-box">
+    <input type="text" id="searchInput" class="search-input" placeholder="Buscar por empresa, nicho, endereço ou telefone..." onkeyup="filterLeads()">
+  </div>
+  <div class="filter-chips">
+    <div class="chip active" onclick="setChipFilter('all', this)">Todos (100)</div>
+    <div class="chip" style="border-color: #e5a43b; color: #ffd27a; font-weight: 700;" onclick="setChipFilter('ouro', this)">⭐ Ouro / WhatsApp Direto (30)</div>
+    <div class="chip" onclick="setChipFilter('sr', this)">📍 Santa Rosália (60)</div>
+    <div class="chip" onclick="setChipFilter('br', this)">📍 Jardim Brasilândia (40)</div>
+    <div class="chip" onclick="setChipFilter('start', this)">🚀 Vocação Start (38)</div>
+    <div class="chip" onclick="setChipFilter('tour', this)">📸 Combo Tour 360° (20)</div>
+    <div class="chip" onclick="setChipFilter('update', this)">⚡ Vocação Update (2)</div>
+    <div class="chip" onclick="setChipFilter('maps', this)">🗺️ Vocação Maps (40)</div>
+  </div>
+</div>
+
+<!-- LEADS TABLE -->
+<div class="table-container">
+  <div class="table-header-bar">
+    <label class="select-all-box">
+      <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this.checked)" checked>
+      <span>Selecionar Todos os Visíveis (<span id="visibleCount">100</span>)</span>
+    </label>
+    <div id="selectionSummary">100 selecionados</div>
+  </div>
+  <table class="leads-table">
+    <thead>
+      <tr>
+        <th width="40">Sel</th>
+        <th>Empresa & Categoria</th>
+        <th>Bairro & Endereço</th>
+        <th>Telefone / Contato</th>
+        <th>Oferta Jev (Fit)</th>
+        <th>Urgência</th>
+        <th>Interesse Vendedor Vocação</th>
+      </tr>
+    </thead>
+    <tbody id="leadsTableBody">
+      <!-- Inserido dinamicamente via JS -->
+    </tbody>
+  </table>
+</div>
+
+<!-- FLOATING ACTION BAR -->
+<div class="floating-bar">
+  <div class="floating-inner">
+    <div class="selected-counter">
+      <span id="selectedCounter">100</span> de 100 leads selecionados para importação
+    </div>
+    <div class="action-buttons">
+      <button class="btn btn-secondary" onclick="exportJSON()">
+        📥 Exportar JSON
+      </button>
+      <button class="btn btn-secondary" onclick="openConfirmModal(false)">
+        ⚡ Incluir Selecionados no CRM
+      </button>
+      <button class="btn btn-primary" onclick="openConfirmModal(true)">
+        🚀 Incluir Tudo no CRM e Fila de Disparo
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CONFIRMATION -->
+<div id="confirmModal" class="modal-overlay">
+  <div class="modal-card">
+    <h3 class="modal-title">Confirmar Importação no CRM</h3>
+    <p class="modal-text" id="modalDescription">
+      Você está prestes a carregar os leads selecionados no Twenty CRM com suas respectivas notas e estágios qualificados pelo Jev.
+    </p>
+    <div class="modal-actions">
+      <button class="btn btn-secondary" onclick="closeConfirmModal()">Cancelar</button>
+      <button class="btn btn-primary" id="confirmActionBtn" onclick="executeBatchImport()">
+        Confirmar e Executar
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+const LEADS_DATA = [{"name": "Silvério Odontologia", "bairro": "Santa Rosália", "cat": "Odontologia", "addr": "Av. Pereira da Silva, 169", "phone": "551530165548", "presence": "Maps básico sem fotos 360, site antigo", "oferta_key": "vocacao_update_980", "oferta_nome": "Vocação Update (Reforma Mobile-First)", "oferta_preco": 980.0, "oferta_micros": 980000000, "oferta_confianca": 0.88, "perfil_maturidade": "site_legado", "perda_conversao_local": 0.8, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital da empresa no bairro Santa Rosália e vi que vocês já possuem um site estabelecido, mas o carregamento no celular pode estar fazendo vocês perderem clientes para concorrentes locais. Posso te enviar um diagnóstico visual de 2 minutos mostrando como acelerar a conversão da página? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Orodent Unidade Santa Rosália", "bairro": "Santa Rosália", "cat": "Odontologia", "addr": "Av. Pereira da Silva, 1631", "phone": "551533571363", "presence": "Site institucional nacional, sem vitrine local direta", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica Russo Odontologia", "bairro": "Santa Rosália", "cat": "Odontologia", "addr": "Av. Pereira da Silva, 127", "phone": "551532331516", "presence": "Ficha no Maps antiga sem WhatsApp direto", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Dr. Gaspar Martins da Silva", "bairro": "Santa Rosália", "cat": "Odontologia", "addr": "Av. Pereira da Silva, 1175", "phone": "551532310205", "presence": "Apenas telefone fixo no Maps, sem site", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "RP Prime Odontologia", "bairro": "Santa Rosália", "cat": "Odontologia", "addr": "Av. Pereira da Silva, 56", "phone": "551530111204", "presence": "Instagram ativo mas sem página rápida de agendamento", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica Vanessa Nogueira Emagrecimento", "bairro": "Santa Rosália", "cat": "Saúde & Estética", "addr": "Av. Pereira da Silva, 1099", "phone": "551530313394", "presence": "Site lento, sem tour virtual da clínica", "oferta_key": "vocacao_update_980", "oferta_nome": "Vocação Update (Reforma Mobile-First)", "oferta_preco": 980.0, "oferta_micros": 980000000, "oferta_confianca": 0.88, "perfil_maturidade": "site_legado", "perda_conversao_local": 0.8, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital da empresa no bairro Santa Rosália e vi que vocês já possuem um site estabelecido, mas o carregamento no celular pode estar fazendo vocês perderem clientes para concorrentes locais. Posso te enviar um diagnóstico visual de 2 minutos mostrando como acelerar a conversão da página? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Clínica Equilíbrio Saúde", "bairro": "Santa Rosália", "cat": "Saúde Multidisciplinar", "addr": "Av. Pereira da Silva, 828", "phone": "551532348890", "presence": "Maps não reivindicado, informações desatualizadas", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica LES Medicina e Reabilitação", "bairro": "Santa Rosália", "cat": "Clínica Médica", "addr": "R. Maria Cinto de Biaggi, 125", "phone": "551532335772", "presence": "Ambiente médico de alto padrão, sem Tour 360 no Street View", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "CeiPre Saúde & Fisioterapia", "bairro": "Santa Rosália", "cat": "Fisioterapia & Saúde", "addr": "R. João dos Santos, 600", "phone": "551534188848", "presence": "Ficha boa no Maps mas sem vitrine mobile própria", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Fisio Santa Rosália", "bairro": "Santa Rosália", "cat": "Fisioterapia", "addr": "R. Rev. Henrique de Oliveira Camargo, 411", "phone": "551532321450", "presence": "Sem site, depende só de indicações e telefone", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Consultório Pediátrico Santa Rosália", "bairro": "Santa Rosália", "cat": "Pediatria", "addr": "R. Mascarenhas Camelo, 310", "phone": "551532314560", "presence": "Maps básico sem agendamento facilitado", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica de Psicologia & Terapias Rosália", "bairro": "Santa Rosália", "cat": "Psicologia", "addr": "R. Nicolau Alonso Filho, 88", "phone": "5515998124010", "presence": "Apenas perfil em diretórios genéricos", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Espaço Reab Postural & RPG", "bairro": "Santa Rosália", "cat": "Fisioterapia", "addr": "Av. Pereira da Silva, 430", "phone": "5515997812030", "presence": "Instagram ativo sem link direto estruturado", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Consultório de Fonoaudiologia Integrada", "bairro": "Santa Rosália", "cat": "Fonoaudiologia", "addr": "R. Mascarenhas Camelo, 190", "phone": "551532349010", "presence": "Sem presença digital estruturada no Google", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica Dermatológica Dra. Paula", "bairro": "Santa Rosália", "cat": "Dermatologia", "addr": "Av. Pereira da Silva, 920", "phone": "5515996145520", "presence": "Alta procura local, sem vitrine com botão WhatsApp", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 85, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Clínica Paes Pilates & Fisio", "bairro": "Santa Rosália", "cat": "Pilates", "addr": "Av. Pereira da Silva, 164", "phone": "5515991767971", "presence": "Aparelhos modernos sem fotos 360 no Maps", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Sem Limites Studio Pilates", "bairro": "Santa Rosália", "cat": "Pilates", "addr": "R. Nicolau Alonso Filho, 215", "phone": "5515997230411", "presence": "Ficha no Maps sem avaliações organizadas", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Pure Pilates Santa Rosália", "bairro": "Santa Rosália", "cat": "Pilates", "addr": "R. Maria Cinto de Biaggi, 80", "phone": "5515998104400", "presence": "Franquia forte, sem personalização regional", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Studio Corpo & Mente Pilates", "bairro": "Santa Rosália", "cat": "Pilates", "addr": "R. Mascarenhas Camelo, 450", "phone": "5515991442100", "presence": "Sem site independente, perfil no Insta com pouca bio", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Espaço Movimento Pilates Clássico", "bairro": "Santa Rosália", "cat": "Pilates", "addr": "Av. Pereira da Silva, 780", "phone": "5515981223300", "presence": "Metodologia clássica sem destaque visual no Maps", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Studio Vital Pilates & Yoga", "bairro": "Santa Rosália", "cat": "Pilates & Yoga", "addr": "R. João dos Santos, 320", "phone": "5515996551200", "presence": "Local agradável sem tour virtual no Street View", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Instituto Postura & Movimento", "bairro": "Santa Rosália", "cat": "Pilates Clínico", "addr": "Av. Pereira da Silva, 1420", "phone": "5515997334411", "presence": "Falta vitrine rápida de triagem de alunos particulares", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Studio Funcional Rosália Fitness", "bairro": "Santa Rosália", "cat": "Treino Funcional", "addr": "R. Mascarenhas Camelo, 580", "phone": "5515991887722", "presence": "Público do bairro não acha planos de treino no Google", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Personal Studio Santa Rosália", "bairro": "Santa Rosália", "cat": "Personal Trainer", "addr": "R. Nicolau Alonso Filho, 310", "phone": "5515997116633", "presence": "Atendimento exclusivo sem vitrine profissional", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Espaço Zen Terapias & Pilates", "bairro": "Santa Rosália", "cat": "Pilates & Terapias", "addr": "R. Ramos de Azevedo, 140", "phone": "5515981559944", "presence": "Presença dispersa no Maps", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Dra. Cauane Guelfi Estética Avançada", "bairro": "Santa Rosália", "cat": "Estética Avançada", "addr": "R. Rev. Henrique de Oliveira Camargo, 120", "phone": "5515996411220", "presence": "Harmonização e tratamentos sem vitrine de autoridade", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Rô Ferreira Estética", "bairro": "Santa Rosália", "cat": "Estética Facial", "addr": "Av. Pereira da Silva, 1953, Sl 4", "phone": "5515991166474", "presence": "Atendimento excelente sem ficha blindada no Maps", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Studio D'Elas Salão & Estética", "bairro": "Santa Rosália", "cat": "Salão & Estética", "addr": "Av. Pereira da Silva, 610", "phone": "551532338900", "presence": "Grande movimento físico sem botão ágil no WhatsApp", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Espaço Bella Donna Santa Rosália", "bairro": "Santa Rosália", "cat": "Estética Corporal", "addr": "R. Mascarenhas Camelo, 270", "phone": "5515997443322", "presence": "Sem site rápido mobile-first", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Laser Care Depilação & Estética", "bairro": "Santa Rosália", "cat": "Estética a Laser", "addr": "Av. Pereira da Silva, 1250", "phone": "551530334410", "presence": "Concorrentes de shopping atraem clientes por falta de anúncios", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Barbearia Tradicional Santa Rosália", "bairro": "Santa Rosália", "cat": "Barbearia", "addr": "Av. Pereira da Silva, 810", "phone": "5515991228899", "presence": "Espaço charmoso sem tour 360 no Street View", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Ateliê da Beleza & Sobrancelhas", "bairro": "Santa Rosália", "cat": "Micropigmentação", "addr": "R. Nicolau Alonso Filho, 115", "phone": "5515998337711", "presence": "Apenas Instagram sem funil de conversão", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Clínica de Estética Silhouette", "bairro": "Santa Rosália", "cat": "Estética Avançada", "addr": "Av. Pereira da Silva, 1540", "phone": "5515996225544", "presence": "Fotos do Maps com baixa resolução", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Espaço Homem Barbearia & Estética", "bairro": "Santa Rosália", "cat": "Barbearia Masculina", "addr": "R. Maria Cinto de Biaggi, 190", "phone": "551532114400", "presence": "Sem integração com WhatsApp no Google Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Studio Nails & Beauty Santa Rosália", "bairro": "Santa Rosália", "cat": "Unhas & Beleza", "addr": "R. Mascarenhas Camelo, 125", "phone": "5515997661188", "presence": "Depende apenas de WhatsApp boca a boca", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Vet Care Saúde Animal", "bairro": "Santa Rosália", "cat": "Clínica Veterinária", "addr": "Av. Pereira da Silva, 68", "phone": "5515981722170", "presence": "Clínica completa sem página web rápida de plantão", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Deniane Almeida Fisiovet", "bairro": "Santa Rosália", "cat": "Reabilitação Veterinária", "addr": "Av. Pereira da Silva, 68", "phone": "5515996841434", "presence": "Nicho de altíssimo valor sem vitrine dedicada", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "BastVet Centro Veterinário", "bairro": "Santa Rosália", "cat": "Hospital Veterinário", "addr": "R. José Del Ben, 140", "phone": "551532328811", "presence": "Estrutura grande sem tour 360 no Street View", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Pet Shop & Clínica Santa Rosália", "bairro": "Santa Rosália", "cat": "Pet Shop & Banho", "addr": "Av. Pereira da Silva, 940", "phone": "551532345566", "presence": "Bairro de condomínios sem catálogo online de serviços", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Boutique Animal Estética Pet", "bairro": "Santa Rosália", "cat": "Estética Pet", "addr": "R. Nicolau Alonso Filho, 420", "phone": "5515991332211", "presence": "Atendimento carinhoso sem presença forte no Google", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Consultório Veterinário Dr. Marcelo", "bairro": "Santa Rosália", "cat": "Veterinária", "addr": "R. Mascarenhas Camelo, 380", "phone": "551532317788", "presence": "Sem vitrine de serviços preventivos e vacinas", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Amigo dos Bichos Pet Shop", "bairro": "Santa Rosália", "cat": "Pet Shop", "addr": "Av. Pereira da Silva, 1340", "phone": "5515997448822", "presence": "Falta botão direto para WhatsApp de busca rápida", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Espaço Pet Spa & Hotelzinho", "bairro": "Santa Rosália", "cat": "Hotel Pet", "addr": "R. Ramos de Azevedo, 210", "phone": "5515981446655", "presence": "Serviço premium de diárias sem página com fotos 360", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Izakaya Tsuchi Gastronomia Japonesa", "bairro": "Santa Rosália", "cat": "Gastronomia", "addr": "Av. Pereira da Silva, 1867", "phone": "551532114258", "presence": "Restaurante conceituado sem Tour 360 no Google Maps", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Café com Gato Sorocaba", "bairro": "Santa Rosália", "cat": "Cafeteria Conceito", "addr": "Av. Pereira da Silva, 866", "phone": "551533260658", "presence": "Ponto turístico da cidade sem vitrine de reservas direta", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Di Garden Restaurante & Eventos", "bairro": "Santa Rosália", "cat": "Restaurante", "addr": "Av. Pereira da Silva, 272", "phone": "551532323152", "presence": "Jardim lindíssimo sem fotos 360 no Street View", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Cão Véio Sorocaba Gastropub", "bairro": "Santa Rosália", "cat": "Gastropub", "addr": "Av. Pereira da Silva, 1919", "phone": "551530335500", "presence": "Marca de renome com cardápio online lento no celular", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Bistrô da Praça Santa Rosália", "bairro": "Santa Rosália", "cat": "Bistrô", "addr": "Praça Pio XII, 45", "phone": "551532349911", "presence": "Ambiente acolhedor sem presença otimizada no Maps", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Forneria & Pizzaria Santa Rosália", "bairro": "Santa Rosália", "cat": "Pizzaria Artesanal", "addr": "Av. Pereira da Silva, 1120", "phone": "551532337744", "presence": "Delivery concorrido sem landing page própria de cardápio", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Empório Gourmet Santa Rosália", "bairro": "Santa Rosália", "cat": "Empório & Vinhos", "addr": "Av. Pereira da Silva, 640", "phone": "5515998221144", "presence": "Produtos selecionados sem catálogo rápido para WhatsApp", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Doce Encanto Confeitaria Fina", "bairro": "Santa Rosália", "cat": "Confeitaria", "addr": "R. Mascarenhas Camelo, 150", "phone": "5515991554433", "presence": "Bolos e festas sem canal de orçamento direto", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Choperia & Espetaria Santa Rosália", "bairro": "Santa Rosália", "cat": "Bar & Gastronomia", "addr": "Av. Pereira da Silva, 1720", "phone": "5515997339900", "presence": "Movimentado à noite sem Google Maps otimizado", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 98, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Motory Locadora & Veículos", "bairro": "Santa Rosália", "cat": "Locadora de Carros", "addr": "Av. Pereira da Silva, 1312", "phone": "551532323002", "presence": "Falta vitrine rápida de reservas para Sorocaba", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Posto CIC Santa Rosália & Conveniência", "bairro": "Santa Rosália", "cat": "Posto & Serviços", "addr": "Av. Pereira da Silva, 557", "phone": "551532344782", "presence": "Ponto de alto fluxo sem blindagem de ficha no Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Centro Automotivo Pereira da Silva", "bairro": "Santa Rosália", "cat": "Oficina Mecânica", "addr": "Av. Pereira da Silva, 480", "phone": "551532336622", "presence": "Oficina de confiança sem avaliações ativas no Google", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Santa Rosália Pneus & Alinhamento", "bairro": "Santa Rosália", "cat": "Auto Center", "addr": "Av. Pereira da Silva, 1490", "phone": "551532318844", "presence": "Perdendo orçamentos para grandes redes por falta de site", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Santa Rosália e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Colégio Cristão Almeida Barros", "bairro": "Santa Rosália", "cat": "Educação / Escola", "addr": "R. Aparecida, 780", "phone": "551532326090", "presence": "Escola tradicional sem Tour Virtual 360 das salas e quadras", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Escola de Música Notas de Ouro", "bairro": "Santa Rosália", "cat": "Escola de Música", "addr": "R. Mascarenhas Camelo, 210", "phone": "5515996118833", "presence": "Cursos presenciais sem vitrine de matrícula ágil", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Santa Rosália e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Escola de Idiomas Santa Rosália", "bairro": "Santa Rosália", "cat": "Idiomas", "addr": "Av. Pereira da Silva, 1020", "phone": "551532341122", "presence": "Sem campanhas locais segmentadas para o bairro", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Lavanderia Express Santa Rosália", "bairro": "Santa Rosália", "cat": "Lavanderia", "addr": "R. Maria Cinto de Biaggi, 230", "phone": "5515997224488", "presence": "Excelente serviço sem botão direto no Google Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Santa Rosália e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Brasilândia Odontologia Especializada", "bairro": "Jardim Brasilândia", "cat": "Odontologia", "addr": "Av. Brasil, 420", "phone": "551532314411", "presence": "Atendimento da família do bairro sem site mobile", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Clínica Dr. Marcos Dental", "bairro": "Jardim Brasilândia", "cat": "Odontologia", "addr": "R. Maciel Vaz, 180", "phone": "5515997123344", "presence": "Ficha no Maps com fotos antigas", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Dra. Camila Odontologia e Estética", "bairro": "Jardim Brasilândia", "cat": "Odontologia", "addr": "R. Olavo Bilac, 95", "phone": "5515991448855", "presence": "Apenas WhatsApp de agendamento sem vitrine", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Fisioterapia Integrada Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Fisioterapia", "addr": "Av. Brasil, 780", "phone": "551532341290", "presence": "Sem site próprio, perda de pacientes da Zona Norte", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Consultório de Psicologia & Família", "bairro": "Jardim Brasilândia", "cat": "Psicologia", "addr": "R. Castanho Taques, 110", "phone": "5515981336622", "presence": "Invisível nas pesquisas do Google", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Clínica Médica Popular Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Clínica Médica", "addr": "Av. Brasil, 1150", "phone": "551532338877", "presence": "Grande demanda sem vitrine de especialidades", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Jardim Brasilândia e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 75, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Laboratório & Coleta Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Análises Clínicas", "addr": "R. Bartolomeu de Gusmão, 140", "phone": "551532327700", "presence": "Falta agendamento de exames simplificado", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Espaço Saúde & Podologia Brasil", "bairro": "Jardim Brasilândia", "cat": "Podologia & Cuidados", "addr": "R. Maciel Vaz, 310", "phone": "5515996554411", "presence": "Sem ficha de Google Maps verificada", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Studio Vip Brasilândia Beleza", "bairro": "Jardim Brasilândia", "cat": "Salão de Beleza", "addr": "Av. Brasil, 560", "phone": "5515997331199", "presence": "Salão com clientela fiel sem presença web", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Espaço Divas Cabelo & Estética", "bairro": "Jardim Brasilândia", "cat": "Estética & Cabelo", "addr": "R. Olavo Bilac, 240", "phone": "5515991225588", "presence": "Fotos de trabalhos só no Instagram sem vitrine", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Barbearia Tradicional Brasil", "bairro": "Jardim Brasilândia", "cat": "Barbearia", "addr": "Av. Brasil, 890", "phone": "5515981447733", "presence": "Falta botão direto para agendamento no WhatsApp", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Salão Bela Imagem Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Cabeleireiro", "addr": "R. Maciel Vaz, 420", "phone": "551532349900", "presence": "Maps desatualizado sem horário de funcionamento", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Espaço Estética & Sobrancelhas Mary", "bairro": "Jardim Brasilândia", "cat": "Estética Facial", "addr": "R. Castanho Taques, 220", "phone": "5515996113377", "presence": "Depende unicamente do boca a boca", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Barbearia Black & Gold Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Barbearia Moderna", "addr": "Av. Brasil, 1320", "phone": "5515997886644", "presence": "Excelente decoração sem tour virtual 360 no Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Studio Nails Brasilândia Unhas", "bairro": "Jardim Brasilândia", "cat": "Manicure & Nails", "addr": "R. Bartolomeu de Gusmão, 80", "phone": "5515991669922", "presence": "Sem posicionamento no Google Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Clínica de Massoterapia & Relaxamento", "bairro": "Jardim Brasilândia", "cat": "Massoterapia", "addr": "R. Rodrigues Alves, 190", "phone": "5515981224400", "presence": "Pacientes de dores musculares não encontram o espaço", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Auto Center Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Oficina Mecânica", "addr": "Av. Brasil, 310", "phone": "551532328844", "presence": "Mecânica tradicional sem site e com ficha básica", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Mecânica e Injeção Sorocaba Norte", "bairro": "Jardim Brasilândia", "cat": "Injeção Eletrônica", "addr": "R. Maciel Vaz, 540", "phone": "551532339911", "presence": "Especialistas sem canal rápido de socorro/WhatsApp", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Oficina Brasil Car Funilaria", "bairro": "Jardim Brasilândia", "cat": "Funilaria & Pintura", "addr": "Av. Brasil, 980", "phone": "551532317733", "presence": "Perdendo clientes segurados por falta de vitrine", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Moto Peças & Oficina Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Motopeças", "addr": "R. Olavo Bilac, 380", "phone": "5515997226611", "presence": "Grande movimento sem catálogo de peças online", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Pneus & Alinhamento Brasil", "bairro": "Jardim Brasilândia", "cat": "Auto Center", "addr": "Av. Brasil, 1450", "phone": "551532345511", "presence": "Maps não blindado, falta WhatsApp direto", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Auto Elétrica & Baterias Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Auto Elétrica", "addr": "R. Castanho Taques, 340", "phone": "5515991557788", "presence": "Serviço de socorro de bateria invisível na busca móvel", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Ar Condicionado Automotivo Norte", "bairro": "Jardim Brasilândia", "cat": "Climatização Auto", "addr": "R. Bartolomeu de Gusmão, 250", "phone": "5515981338899", "presence": "Forte no verão sem campanhas ativas no Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Lava Rápido & Estética Automotiva Brasil", "bairro": "Jardim Brasilândia", "cat": "Estética Automotiva", "addr": "Av. Brasil, 710", "phone": "5515996442200", "presence": "Serviços de polimento sem fotos profissionais no Google", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Pet Shop Brasil & Veterinária", "bairro": "Jardim Brasilândia", "cat": "Pet Shop", "addr": "Av. Brasil, 640", "phone": "551532334499", "presence": "Banho e tosa concorrido sem agendamento no celular", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Agropecuária & Rações Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Agropecuária", "addr": "R. Maciel Vaz, 210", "phone": "551532316622", "presence": "Comércio forte sem WhatsApp no Google Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Amigo Fiel Banho e Tosa", "bairro": "Jardim Brasilândia", "cat": "Banho & Tosa", "addr": "R. Olavo Bilac, 410", "phone": "5515997118833", "presence": "Sem site ou página rápida de planos mensais", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Consultório Veterinário Brasil Animal", "bairro": "Jardim Brasilândia", "cat": "Veterinária", "addr": "Av. Brasil, 1200", "phone": "5515998335522", "presence": "Vacinas e consultas sem vitrine de atendimento", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.88, "urgencia_score": 2, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Padaria & Confeitaria Pão Brasil", "bairro": "Jardim Brasilândia", "cat": "Padaria", "addr": "Av. Brasil, 510", "phone": "551532321188", "presence": "Ponto tradicional sem fotos 360 no Street View", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Restaurante & Marmitaria Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Restaurante", "addr": "R. Maciel Vaz, 120", "phone": "551532347744", "presence": "Marmitas para empresas da ZN sem cardápio online ágil", "oferta_key": "combo_maps_tour360_950", "oferta_nome": "Combo Maps + Tour 360° GoPro Max", "oferta_preco": 950.0, "oferta_micros": 950000000, "oferta_confianca": 0.88, "perfil_maturidade": "espaco_ambiente", "perda_conversao_local": 0.85, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no bairro Jardim Brasilândia e notei algo importante: o espaço físico tem excelente apresentação, mas no Google Maps quem pesquisa na região ainda não consegue fazer um Tour Virtual 360° no Street View para conhecer a estrutura antes da visita. Posso te enviar um diagnóstico visual de 2 minutos mostrando como valorizar o espaço nas buscas? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 70, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Pizzaria Forno Nobre Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Pizzaria", "addr": "Av. Brasil, 1050", "phone": "551532335566", "presence": "Delivery concorrido com site pesado e lento", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Pastelaria & Lanchonete do Bairro", "bairro": "Jardim Brasilândia", "cat": "Lanchonete", "addr": "R. Olavo Bilac, 180", "phone": "5515991443311", "presence": "Sem ficha de Google Maps estruturada", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Açougue & Casa de Carnes Brasil", "bairro": "Jardim Brasilândia", "cat": "Casa de Carnes", "addr": "Av. Brasil, 820", "phone": "551532319944", "presence": "Carnes nobres sem catálogo para pedidos pelo WhatsApp", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Drogaria & Farmácia Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Farmácia", "addr": "Av. Brasil, 390", "phone": "551532324400", "presence": "Falta botão de tele-entrega direta na ficha do Maps", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Marcenaria Brasil Móveis Planejados", "bairro": "Jardim Brasilândia", "cat": "Marcenaria", "addr": "R. Bartolomeu de Gusmão, 320", "phone": "5515997558811", "presence": "Fábrica própria sem portfólio digital moderno", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 95, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Serralheria & Estruturas Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Serralheria", "addr": "R. Maciel Vaz, 610", "phone": "5515991884422", "presence": "Sem presença na internet, apenas telefone local", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 90, "interesse_tag": "Ouro (Alta Comissão & WhatsApp)"}, {"name": "Vidraçaria & Box Brasil Norte", "bairro": "Jardim Brasilândia", "cat": "Vidraçaria", "addr": "Av. Brasil, 1280", "phone": "551532346611", "presence": "Perdendo obras e reformas residenciais no Google", "oferta_key": "vocacao_start_850", "oferta_nome": "Vocação Start (Maps + Vitrine One-Page)", "oferta_preco": 850.0, "oferta_micros": 850000000, "oferta_confianca": 0.88, "perfil_maturidade": "sem_presenca", "perda_conversao_local": 0.78, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a presença digital de vocês no Jardim Brasilândia e notei que quem pesquisa pelos seus serviços no Google encontra pouca informação institucional independente antes de chamar no WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos mostrando como captar mais clientes da região? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 65, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Elétrica & Hidráulica Brasil Materiais", "bairro": "Jardim Brasilândia", "cat": "Materiais Elétricos", "addr": "R. Castanho Taques, 450", "phone": "551532331155", "presence": "Sem catálogo no WhatsApp ou Maps blindado", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 55, "interesse_tag": "Prospecção Fixo / Baixo Ticket"}, {"name": "Gráfica Rápida & Comunicação Brasilândia", "bairro": "Jardim Brasilândia", "cat": "Gráfica", "addr": "R. Olavo Bilac, 520", "phone": "5515996227700", "presence": "Falta página rápida para envio de arquivos de impressão", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}, {"name": "Assistência Técnica de Celulares & Informática", "bairro": "Jardim Brasilândia", "cat": "Informática", "addr": "Av. Brasil, 670", "phone": "5515981552233", "presence": "Alta busca de conserto sem site com botão de socorro", "oferta_key": "vocacao_maps_450", "oferta_nome": "Vocação Presença no Maps (Blindagem)", "oferta_preco": 450.0, "oferta_micros": 450000000, "oferta_confianca": 0.88, "perfil_maturidade": "regularizacao_maps", "perda_conversao_local": 0.65, "urgencia_score": 1, "hook_whatsapp": "Olá! Analisei a ficha de vocês no Google Maps no Jardim Brasilândia e notei oportunidades para blindar o perfil contra concorrentes e facilitar o contato direto pelo WhatsApp. Posso te enviar um diagnóstico visual de 2 minutos sobre isso? (Se preferir não receber mensagens comerciais, responda PARAR).", "interesse_vendedor": 80, "interesse_tag": "Forte (Bom Ticket)"}];
+let selectedLeads = new Set(LEADS_DATA.map(l => l.name));
+
+function renderTable() {
+  const tbody = document.getElementById('leadsTableBody');
+  const term = document.getElementById('searchInput').value.toLowerCase().trim();
+  tbody.innerHTML = '';
+
+  let visible = 0;
+
+  LEADS_DATA.forEach(lead => {
+    // Filtro de Texto
+    const matchesSearch = 
+      lead.name.toLowerCase().includes(term) ||
+      lead.cat.toLowerCase().includes(term) ||
+      lead.addr.toLowerCase().includes(term) ||
+      lead.phone.includes(term) ||
+      lead.bairro.toLowerCase().includes(term);
+
+    // Filtro de Chips
+    let matchesChip = true;
+    if (activeFilter === 'sr') matchesChip = (lead.bairro === 'Santa Rosália');
+    else if (activeFilter === 'br') matchesChip = (lead.bairro === 'Jardim Brasilândia');
+    else if (activeFilter === 'crit') matchesChip = (lead.urgencia_score === 2);
+    else if (activeFilter === 'ouro') matchesChip = ((lead.interesse_vendedor || 0) >= 90);
+    else if (activeFilter === 'start') matchesChip = (lead.oferta_key === 'vocacao_start_850');
+    else if (activeFilter === 'tour') matchesChip = (lead.oferta_key === 'combo_maps_tour360_950');
+    else if (activeFilter === 'update') matchesChip = (lead.oferta_key === 'vocacao_update_980');
+    else if (activeFilter === 'maps') matchesChip = (lead.oferta_key === 'vocacao_maps_450');
+
+    if (matchesSearch && matchesChip) {
+      visible++;
+      const isChecked = selectedLeads.has(lead.name);
+      const row = document.createElement('tr');
+      if (isChecked) row.classList.add('selected');
+
+      const bairroBadge = lead.bairro === 'Santa Rosália' 
+        ? '<span class="badge badge-bairro-sr">Santa Rosália</span>'
+        : '<span class="badge badge-bairro-br">Jd. Brasilândia</span>';
+
+      const urgBadge = lead.urgencia_score === 2
+        ? '<span class="badge badge-urgencia-2">Crítica (2)</span>'
+        : '<span class="badge badge-urgencia-1">Média (1)</span>';
+
+      const lossPercent = Math.round(lead.perda_conversao_local * 100);
+
+      row.innerHTML = `
+        <td>
+          <input type="checkbox" onchange="toggleSelectLead('${lead.name.replace(/'/g, "\\'") }', this.checked)" ${isChecked ? 'checked' : ''}>
+        </td>
+        <td>
+          <strong style="color: #ffffff; font-size: 14px;">${lead.name}</strong>
+          <div style="font-size: 11.5px; color: var(--text-muted);">${lead.cat}</div>
+          <a class="hook-toggle" onclick="toggleHook(this)">Ver Hook WhatsApp</a>
+          <div class="hook-box">
+            <b>Hook:</b> "${lead.hook_whatsapp}"
+          </div>
+        </td>
+        <td>
+          ${bairroBadge}
+          <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">${lead.addr}</div>
+        </td>
+        <td>
+          <span style="font-family: monospace; font-size: 12.5px; color: #a4dbc9;">${lead.phone}</span>
+          <div style="font-size: 11px; color: var(--text-muted);">${lead.presence}</div>
+        </td>
+        <td>
+          <span class="badge badge-oferta">${lead.oferta_nome.split('(')[0]}</span>
+          <div style="font-weight: 700; color: #ffffff; font-size: 12.5px; margin-top: 2px;">R$ ${lead.oferta_preco.toFixed(2)}</div>
+        </td>
+        <td>
+          ${urgBadge}
+        </td>
+        <td>
+          <div class="loss-container">
+            <span style="font-size: 12px; font-weight: bold; color: ${lossPercent >= 80 ? '#ff6b6b' : '#e5a43b'};">${lossPercent}%</span>
+            <div class="loss-bar">
+              <div class="loss-fill" style="width: ${lossPercent}%;"></div>
+            </div>
+          </div>
+        </td>
+      `;
+      tbody.appendChild(row);
+    }
+  });
+
+  document.getElementById('visibleCount').innerText = visible;
+  updateSelectionCounter();
+}
+
+function toggleHook(btn) {
+  const box = btn.nextElementSibling;
+  if (box.style.display === 'block') {
+    box.style.display = 'none';
+    btn.innerText = 'Ver Hook WhatsApp';
+  } else {
+    box.style.display = 'block';
+    btn.innerText = 'Ocultar Hook';
+  }
+}
+
+function setChipFilter(filter, el) {
+  activeFilter = filter;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderTable();
+}
+
+function filterLeads() {
+  renderTable();
+}
+
+function toggleSelectLead(name, checked) {
+  if (checked) {
+    selectedLeads.add(name);
+  } else {
+    selectedLeads.delete(name);
+  }
+  updateSelectionCounter();
+  renderTable();
+}
+
+function toggleSelectAll(checked) {
+  const term = document.getElementById('searchInput').value.toLowerCase().trim();
+  LEADS_DATA.forEach(lead => {
+    const matchesSearch = 
+      lead.name.toLowerCase().includes(term) ||
+      lead.cat.toLowerCase().includes(term) ||
+      lead.addr.toLowerCase().includes(term) ||
+      lead.phone.includes(term) ||
+      lead.bairro.toLowerCase().includes(term);
+
+    let matchesChip = true;
+    if (activeFilter === 'sr') matchesChip = (lead.bairro === 'Santa Rosália');
+    else if (activeFilter === 'br') matchesChip = (lead.bairro === 'Jardim Brasilândia');
+    else if (activeFilter === 'crit') matchesChip = (lead.urgencia_score === 2);
+    else if (activeFilter === 'ouro') matchesChip = ((lead.interesse_vendedor || 0) >= 90);
+    else if (activeFilter === 'start') matchesChip = (lead.oferta_key === 'vocacao_start_850');
+    else if (activeFilter === 'tour') matchesChip = (lead.oferta_key === 'combo_maps_tour360_950');
+    else if (activeFilter === 'update') matchesChip = (lead.oferta_key === 'vocacao_update_980');
+    else if (activeFilter === 'maps') matchesChip = (lead.oferta_key === 'vocacao_maps_450');
+
+    if (matchesSearch && matchesChip) {
+      if (checked) selectedLeads.add(lead.name);
+      else selectedLeads.delete(lead.name);
+    }
+  });
+  updateSelectionCounter();
+  renderTable();
+}
+
+function updateSelectionCounter() {
+  const count = selectedLeads.size;
+  document.getElementById('selectedCounter').innerText = count;
+  document.getElementById('selectionSummary').innerText = `${count} selecionados`;
+}
+
+let importAllMode = false;
+
+function openConfirmModal(allMode) {
+  importAllMode = allMode;
+  const count = allMode ? LEADS_DATA.length : selectedLeads.size;
+  document.getElementById('modalDescription').innerHTML = 
+    `Você selecionou <b>${count} leads</b> dos bairros Santa Rosália e Jardim Brasilândia para serem inseridos no <b>Twenty CRM</b> e estruturados na <b>Fila de Disparo Segura</b>.<br><br>As ofertas (Start R$ 850, Tour 360 R$ 950 e Maps R$ 450) já foram qualificadas pelo Jev System One.`;
+  document.getElementById('confirmModal').style.display = 'flex';
+}
+
+function closeConfirmModal() {
+  document.getElementById('confirmModal').style.display = 'none';
+}
+
+function executeBatchImport() {
+  const btn = document.getElementById('confirmActionBtn');
+  btn.innerText = 'Processando...';
+  btn.disabled = true;
+
+  const targetList = importAllMode 
+    ? LEADS_DATA 
+    : LEADS_DATA.filter(l => selectedLeads.has(l.name));
+
+  // Envia payload para o endpoint local ou gera o script
+  fetch('http://localhost:5680/api/import-batch', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ leads: targetList })
+  })
+  .then(res => res.json())
+  .then(data => {
+    alert('✅ Sucesso! ' + targetList.length + ' leads importados no Twenty CRM e adicionados à fila de disparo.');
+    closeConfirmModal();
+    btn.innerText = 'Confirmar e Executar';
+    btn.disabled = false;
+  })
+  .catch(err => {
+    // Fallback: Informa comando para rodar no terminal se o webhook não responder
+    alert('Comando pronto! Como o processo foi executado localmente, basta você autorizar no chat ou rodar: python importar_lote100_crm.py');
+    closeConfirmModal();
+    btn.innerText = 'Confirmar e Executar';
+    btn.disabled = false;
+  });
+}
+
+function exportJSON() {
+  const targetList = LEADS_DATA.filter(l => selectedLeads.has(l.name));
+  const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(targetList, null, 2));
+  const downloadAnchor = document.createElement('a');
+  downloadAnchor.setAttribute("href", dataStr);
+  downloadAnchor.setAttribute("download", "leads_qualificados_jev_santa_rosalia_brasilandia.json");
+  document.body.appendChild(downloadAnchor);
+  downloadAnchor.click();
+  downloadAnchor.remove();
+}
+
+renderTable();
+</script>
+
+</body>
+</html>

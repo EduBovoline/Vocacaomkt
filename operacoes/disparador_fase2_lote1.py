@@ -199,6 +199,16 @@ def is_already_delivered(number):
 from CONFIG_MOTOR_DISPARO_VOCACOES_START import ensure_lgpd_compliance
 
 def send_whatsapp(number, text):
+    # P4 (auditoria): só celular válido, texto íntegro e dentro da Janela de Ouro.
+    from vocacao_seguranca import pode_disparar_whatsapp
+
+    _ok, _motivo = pode_disparar_whatsapp(
+        number, text, verificar_janela=str(number) != str(ADMIN_WHATSAPP)
+    )
+    if not _ok:
+        print(f"[SKIP] {number}: {_motivo}")
+        return 0, {"erro": _motivo}
+
     if str(number) != str(ADMIN_WHATSAPP):
         text = ensure_lgpd_compliance(text)
     url = f"{EVOLUTION_API_URL}/message/sendText/{INSTANCE_NAME}"

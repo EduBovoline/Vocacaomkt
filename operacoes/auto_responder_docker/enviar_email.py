@@ -1,10 +1,20 @@
 import os
+import sys
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from email.utils import formataddr
 from email.header import Header
+
+# P3/P4 (auditoria): UTF-8 na saída e validação de MX compartilhada com o host.
+try:
+    from vocacao_seguranca import pode_enviar_email
+except Exception:  # imagem sem o módulo montado: segue sem o pré-filtro
+    pode_enviar_email = None
+
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ZOHO_SMTP_HOST = os.environ.get("ZOHO_SMTP_HOST", "smtp.zoho.com")
 ZOHO_SMTP_PORT = int(os.environ.get("ZOHO_SMTP_PORT", 465))
@@ -15,6 +25,12 @@ def send_email(to_email, subject, body_html, attachment_path=None, sender_name="
     if not ZOHO_PASSWORD:
         print("[!] Senha do Zoho Mail não configurada.")
         return False
+
+    if pode_enviar_email is not None:
+        email_ok, motivo_email = pode_enviar_email(to_email)
+        if not email_ok:
+            print(f"[SKIP] E-mail descartado ({to_email}): {motivo_email}")
+            return False
 
     msg = MIMEMultipart()
     msg['From'] = formataddr((str(Header(sender_name, 'utf-8')), ZOHO_USER))

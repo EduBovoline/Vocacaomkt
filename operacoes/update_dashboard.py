@@ -1,5 +1,8 @@
 import json
 
+# P3 (auditoria): saída sempre em UTF-8, inclusive no console cp1252 do Windows.
+import vocacao_seguranca  # noqa: F401  — o import já chama forcar_utf8()
+
 def update():
     with open('leads_100_santa_rosalia_brasilandia.json', 'r', encoding='utf-8') as f:
         leads = json.load(f)

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Di Piero Distribuidora — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Di Piero Distribuidora — Sorocaba</div>
+    <div class="header-sub">Contato: Responsável · (15) 3411-3914 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da empresa em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Oficial B2B (WordPress Legado)</div>
+        <span class="badge badge-fraco">Site Defasado e Lento / Atrito de Contato</span>
+      </div>
+      <div class="canal-desc">Estrutura web pesada com filtros truncados e navegação confusa para compras recorrentes B2B.</div>
+      <div class="canal-impact">Marmorarias de Sorocaba e região que precisam de discos, lixas e colas com urgência desistem da navegação lenta e acabam comprando de distribuidores concorrentes por telefone.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps & Showroom Físico</div>
+        <span class="badge badge-mediano">Showroom Estruturado / Sem Tour 360°</span>
+      </div>
+      <div class="canal-desc">Perfil no Maps com endereço e horário, mas sem a experiência imersiva do showroom.</div>
+      <div class="canal-impact">Compradores técnicos e donos de marmorarias não conseguem dimensionar o porte do estoque físico antes de se deslocarem até a loja.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram (@dipierodistribuidora)</div>
+        <span class="badge badge-bom">Demonstração Técnica de Produtos</span>
+      </div>
+      <div class="canal-desc">Canal ativo com apelo técnico para o público profissional do setor de rochas.</div>
+      <div class="canal-impact">Gera interesse visual contínuo, mas o link da bio joga o usuário para o site lento em vez de um canal de cotação rápida.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Atendimento Comercial (WhatsApp)</div>
+        <span class="badge badge-bom">Canal B2B Ativo</span>
+      </div>
+      <div class="canal-desc">Equipe de balcão capacitada e pronta para fechar pedidos volumosos.</div>
+      <div class="canal-impact">Canal comercial de alta conversão que deveria ser o destino final e direto de qualquer busca no site.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Di Piero Distribuidora</strong></td>
+      <td>Ficha no Maria do Carmo</td>
+      <td>Site WooCommerce Lento</td>
+      <td>Ativo em Insumos</td>
+      <td><span class="badge badge-fraco">Gargalo Crítico no Site</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>JRC Diamantados Sorocaba</strong></td>
+      <td>4.8 ★ (Ferramentas Diamantadas)</td>
+      <td>Portal Institucional B2B</td>
+      <td>Forte no Setor</td>
+      <td><span class="badge badge-bom">Forte na Região</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Polibras Ferramentas Sorocaba</strong></td>
+      <td>4.7 ★ (Abrasivos e Polimento)</td>
+      <td>Catálogo Rápido</td>
+      <td>Consolidada</td>
+      <td><span class="badge badge-bom">Competitiva</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Fort Stone Distribuidora</strong></td>
+      <td>4.6 ★ (Zona Industrial)</td>
+      <td>Portal de Pedras e Insumos</td>
+      <td>Institucional</td>
+      <td><span class="badge badge-mediano">Concorrente de Porte</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Portfólio Completo para o Setor de Marmoraria</strong> — Linha completa de ponta a ponta: discos diamantados, lixas, rebolos, massas plásticas, cubas inox/louça, grampos e EPIs em um só fornecedor.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Showroom Físico com Pronta-Entrega em Sorocaba</strong> — Sede estabelecida na Rua João Gabriel Mendes, 1200, permitindo retirada imediata para marmorarias que não podem parar a produção por falta de insumos.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Relacionamento e Conhecimento Técnico do Marmorista</strong> — Atendimento especializado que entende a rotina de corte, desbaste e polimento de granitos, quartzos e mármores.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Atrito Crítico de Compra no Site Atual</div>
+      <div class="fraqueza-detail">O cliente precisa navegar em telas lentas de produtos individuais para pedir cotação de apenas 1 item por vez no texto, em vez de selecionar um pacote de suprimentos e fechar pelo WhatsApp.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Ausência de Tour Virtual de um Showroom que Merece Ser Visto</div>
+      <div class="fraqueza-detail">A empresa investiu em espaço físico com prateleiras e estoque de valor, mas quem entra pelo Google Maps não consegue visualizar a estrutura por dentro.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Lentidão de Carregamento Afastando Usuários de Celular</div>
+      <div class="fraqueza-detail">O site WordPress atual demora mais de 4 segundos para responder no mobile, fazendo o marmorista na correria da oficina desistir antes da página abrir.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados</div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">1. Vocação Update — Reforma de Site B2B com Cotação Ágil (R$ 980)</div>
+        <div class="servico-just">Modernização completa da vitrine digital da distribuidora em 5 dias úteis, com catálogo leve, filtros fáceis por categoria e botão direto de fechamento no WhatsApp.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">2. Tour Virtual 360° do Showroom Físico (R$ 650)</div>
+        <div class="servico-just">Mapeamento imersivo em 360 graus da loja e prateleiras de ferramentas integrado ao Google Street View e incorporado ao novo site.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">03</div>
+      <div class="servico-body">
+        <div class="servico-name">3. Combo Completo: Update B2B + Tour Virtual 360° (R$ 1.450)</div>
+        <div class="servico-just">Solução de autoridade definitiva unindo novo site B2B moderno com tour virtual 360° do showroom e blindagem da ficha no Google Maps.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 GANCHO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Ganchos de Abordagem WhatsApp</div>
+    </div>
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🖼️ Opção 1 — Legenda para Envio com Imagem "Antes e Depois" (Recomendada)</div>
+      <div style="font-size:12px; color:#a4dbc9; margin-bottom:8px;">Envie a imagem oficial da Vocação (anuncio_antes_depois_vocacao.jpg) acompanhada deste texto como legenda:</div>
+      <div class="gancho-text" id="ganchoImg">"Oi, pessoal da Di Piero, bom dia! Tudo bem?
+
+Aqui é o Eduardo, sou de Sorocaba e trabalho organizando a presença digital e páginas de empresas aqui da cidade.
+
+Estava pesquisando fornecedores de insumos para marmorarias na região e encontrei o site de vocês (dipierodistribuidora.com.br). Notei um detalhe técnico importante: a página atual é pesada no celular e a navegação está truncada. O marmorista que precisa cotar discos, colas ou lixas é obrigado a entrar item por item no texto para pedir contato, sem uma opção de cotação em lote.
+
+Te mandei esse exemplo da imagem só para ilustrar: a gente pega exatamente esse tipo de site legado e transforma numa vitrine rápida, com catálogo organizado e a possibilidade de colocar o Tour Virtual em 360° do showroom de vocês por dentro.
+
+Fiz um comparativo visual rápido de 2 minutos mostrando como fica essa modernização e a cotação no WhatsApp. Posso mandar o link por aqui para darem uma olhada?"</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> A versão com imagem conecta diretamente com a dor de sites corporativos pesados transformados em vitrines rápidas, atacando o problema real que o marmorista enfrenta ao tentar cotar insumos.
+      </div>
+      <button class="copy-btn" id="copyBtnImg" onclick="navigator.clipboard.writeText(document.getElementById('ganchoImg').innerText.replace(/^"|"$/g,'').trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Legenda com Imagem', 2500);">Copiar Legenda com Imagem</button>
+    </div>
+
+    <div class="gancho-box">
+      <div class="gancho-label">💬 Opção 2 — Abordagem Textual Rápida (Sem Imagem)</div>
+      <div class="gancho-text" id="gancho">"Oi, pessoal da Di Piero, bom dia! Tudo bem?
+
+Aqui é o Eduardo, sou de Sorocaba e trabalho com presença digital de empresas aqui da cidade.
+
+Estava pesquisando fornecedores de insumos para marmorarias na região e encontrei o site de vocês (dipierodistribuidora.com.br). Reparei num detalhe: a plataforma está lenta no celular e obriga o marmorista a entrar em item por item do texto para pedir contato, sem filtros práticos por categoria de uso.
+
+Como quem compra em distribuidora precisa de agilidade para não parar a marmoraria, um site leve com botão de cotação direta no WhatsApp e o Tour Virtual 360° do showroom de vocês aumentaria muito o fechamento de pedidos de Sorocaba e região.
+
+Montei um diagnóstico visual rápido de 2 minutos mostrando como modernizar isso em 5 dias. Posso te mandar o link por aqui para você ver?"</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar Texto Simples</button>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>A Di Piero é uma distribuidora B2B que vende para oficinas de marmoraria; o foco do discurso deve ser 'facilidade de cotação em lote, rapidez no celular e valorização do estoque no showroom'.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O WhatsApp comercial registrado para televendas é o (15) 99151-7595 e o fixo do showroom é o (15) 3411-3914.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps Oficial</span>
+      <span>Ficha 'Di Piero Distribuidora' na Rua João Gabriel Mendes, 1200 - Jardim Maria do Carmo.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Site Oficial Vigente</span>
+      <span>Portal dipierodistribuidora.com.br com catálogo WooCommerce e lentidão mobile constatada.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Instagram Corporativo</span>
+      <span>Perfil @dipierodistribuidora com demonstrações de produtos e ferramentas para corte de rochas.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Jev System One</span>
+      <span>Classificador Jev indicando Vocação Update (R$ 980) com 97% de certeza em perfil 'site_legado' e 41% de afinidade com Tour 360°.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

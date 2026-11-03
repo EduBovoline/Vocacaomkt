@@ -5,6 +5,9 @@ import uuid
 import subprocess
 from datetime import datetime, timezone
 
+# P3 (auditoria): saída sempre em UTF-8, inclusive no console cp1252 do Windows.
+import vocacao_seguranca  # noqa: F401  — o import já chama forcar_utf8()
+
 SCHEMA = "workspace_2xmx8hech9nybwidia3404k2z"
 ADMIN_MEMBER_ID = "1c0b8905-7e8f-4f50-90a1-6c67135bb381"
 ADMIN_NAME = "EDUARDO BOVOLINE"
