@@ -83,6 +83,10 @@
   let currentLang = detectLanguage();
   let currentCurrency = detectMarketCurrency();
 
+  // Se o visitante está nos EUA/Europa/LatAm, o fuso já definiu a moeda dele (USD, EUR, GBP).
+  // O seletor de idioma permite navegar em PT, EN ou ES SEM forçar a moeda para Real.
+  // Apenas se o usuário escolher explicitamente a moeda BRL é que vira Real.
+
   // Dicionário de traduções estruturadas
   const DICT = {
     // Nav
