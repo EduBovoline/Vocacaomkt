@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Centro Automotivo São João — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Centro Automotivo São João — Sorocaba, SP</div>
+    <div class="header-sub">Contato: Responsável · (15) 3011-2529 · Análise: Setembro/2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        Análise de presença digital da empresa em Sorocaba.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps</div>
+        <span class="badge badge-atencao">Incompleto</span>
+      </div>
+      <div class="canal-desc">Ficha ativa com avaliações no Retiro São João, porém sem site cadastrado.</div>
+      <div class="canal-impact">Motoristas que buscam pelo nome não encontram botão de site e acabam ligando para concorrentes.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Próprio</div>
+        <span class="badge badge-critico">Ausente</span>
+      </div>
+      <div class="canal-desc">Não possui site oficial no ar. Buscas orgânicas no Google levam para a oficina de Votorantim.</div>
+      <div class="canal-impact">Fuga de clientes de Sorocaba para a oficina homônima em Votorantim.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">WhatsApp</div>
+        <span class="badge badge-positivo">Ativo</span>
+      </div>
+      <div class="canal-desc">Atendimento direto por telefone e WhatsApp.</div>
+      <div class="canal-impact">Canal eficiente, mas que precisa receber os clientes já filtrados pela vitrine.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> 
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr >
+      <td><strong>Oficina Ramires</strong></td>
+      <td>4.6 estrelas</td>
+      <td>Não possui</td>
+      <td>Perfil ativo</td>
+      <td><span class="badge badge-mediano">Mediana</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>JR Retífica de Motores</strong></td>
+      <td>4.5 estrelas</td>
+      <td>Catálogo simples</td>
+      <td>Não possui</td>
+      <td><span class="badge badge-forte">Forte</span></td>
+    </tr>
+  
+
+    <tr class="highlight">
+      <td>✦ <strong>Centro Automotivo São João</strong></td>
+      <td>4.7 estrelas</td>
+      <td>Sem site cadastrado</td>
+      <td>Não possui</td>
+      <td><span class="badge badge-atencao">Oportunidade</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Blindagem da presença digital e consolidação de autoridade local.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Estrutura Física Consolidada</strong> — Oficina mecânica estabelecida na Rua Rita de Carvalho Monteiro com clientela no bairro.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Avaliações Positivas no Mapa</strong> — Reputação favorável no Google com clientes elogiando a qualidade e seriedade dos reparos.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Localização Estratégica</strong> — Ponto de fácil acesso no Retiro São João para motoristas da região Leste e Norte.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de Vitrine Oficial</div>
+      <div class="fraqueza-detail">O motorista que pesquisa pelo celular não tem onde consultar serviços e acaba fechando com outro.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Confusão Orgânica com Votorantim</div>
+      <div class="fraqueza-detail">Clientes locais de Sorocaba caem no site da oficina homônima em Votorantim.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados & Tabela Oficial (Zero Mensalidade)</div>
+    </div>
+    <div class="card" style="margin-bottom: 14px; border-left: 4px solid var(--color-positive); background: #f8fcfb;">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">🎯 Promessa Oficial: "Apareça com autoridade no seu bairro — em 5 dias úteis."</div>
+      <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 10px;">Condição: <strong>50% de entrada + 50% somente após aprovação final</strong> · <strong>ZERO mensalidade</strong> · Proibido prometer ranking/topo do Google (entregamos autoridade estrutural).</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 12.5px;">
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Presença Local (Maps):</strong> R$ 450</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Tour Virtual 360°:</strong> R$ 650 (Combo: R$ 950)</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Vocação Start (Maps+Vitrine):</strong> R$ 850</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Site em 5 Dias (Update):</strong> R$ 980</div>
+      </div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Vitrine Digital One-Page</div>
+        <div class="servico-just">Página rápida no celular com fotos da oficina no Retiro São João e botão direto de WhatsApp pronta em 48h.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Otimização & Vínculo no Google Maps</div>
+        <div class="servico-just">Vincular a vitrine oficial na ficha do Google Maps para estancar a perda de motoristas para Votorantim.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 CADÊNCIA COMPLETA & OBJEÇÕES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Cadência Completa (D0 → D+10), Qualificação & Quebra de Objeções</div>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🖼️ D0 (Opção 1) — Legenda para Envio com Imagem "Antes e Depois" (Recomendada)</div>
+      <div style="font-size:12px; color:#a4dbc9; margin-bottom:8px;">Envie a imagem oficial da Vocação (anuncio_antes_depois_vocacao.jpg) acompanhada deste texto como legenda:</div>
+      <div class="gancho-text" id="ganchoImg">"Olá! Encontrei a oficina de vocês no Google Maps no Retiro São João. Vi que a estrutura é ótima, mas a ficha está sem site — quem busca no Google acaba caindo na oficina de Votorantim. Te mandei a imagem acima só para ilustrar: a gente monta uma vitrine profissional no celular em 48h pronta para receber pedidos no WhatsApp. Se quiserem ver como ficaria no ar, posso mandar uma demonstração por aqui?"</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Toca no ponto cego real da fuga de clientes para a oficina homônima em Votorantim, gerando urgência imediata sem agressividade.
+      </div>
+      <button class="copy-btn" id="copyBtnImg" onclick="navigator.clipboard.writeText(document.getElementById('ganchoImg').innerText.replace(/^"|"$/g,'').trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D0 com Imagem', 2500);">Copiar D0 com Imagem</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">💬 D0 (Opção 2) — Abordagem Textual Rápida (Sem Imagem)</div>
+      <div class="gancho-text" id="gancho">"Olá, pessoal do Centro Automotivo São João, tudo bem? Estava pesquisando oficinas aqui no Retiro São João em Sorocaba e notei um detalhe importante: como a ficha de vocês no Google não tem site cadastrado, quem pesquisa pelo nome de vocês acaba caindo no site de uma oficina de Votorantim. Nós colocamos no ar uma página rápida no celular em 48h para vocês receberem orçamentos direto no WhatsApp. Querem ver uma demonstração de como ficaria no celular?"</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar D0 Texto Simples</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🔄 Cadência de Follow-up (D+2 · D+5 · D+10)</div>
+      <div style="display: grid; gap: 12px;">
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+2 (WhatsApp — Prova Social & Retomada):</div>
+          <div class="gancho-text" id="cadD2" style="margin-bottom:8px; font-size:13.5px;">Olá equipe da Centro Automotivo São João! Conseguiram dar uma olhada no diagnóstico visual que enviei? Essa semana entregamos a reformulação de uma empresa aqui de Sorocaba (saíram de um perfil desatualizado para presença completa em 5 dias úteis). Posso te mandar o PDF de 3 páginas com o raio-X de vocês?</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD2').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+2', 2000);">Copiar D+2</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+5 (E-mail B2B ou WhatsApp — Diagnóstico Direto):</div>
+          <div class="gancho-text" id="cadD5" style="margin-bottom:8px; font-size:13.5px;">Assunto: Diagnóstico de Presença Digital — Centro Automotivo São João (Retiro São João)
+
+Olá! Sou o Edu, da Vocação Comunicação & Marketing (vocacao.digital). Preparei um raio-X rápido mostrando onde a Centro Automotivo São João está perdendo clientes nas buscas locais de Retiro São João e como resolver isso em 5 dias úteis (sem mensalidade). Segue o diagnóstico em anexo. Qualquer dúvida, basta responder no WhatsApp (15) 98151-2083.</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD5').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+5', 2000);">Copiar D+5</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+10 (WhatsApp — Encerramento Gentil):</div>
+          <div class="gancho-text" id="cadD10" style="margin-bottom:8px; font-size:13.5px;">Olá equipe da Centro Automotivo São João! Sei que a rotina é corrida, então vou encerrar meus contatos por aqui para não incomodar. Deixei o diagnóstico de presença digital de vocês salvo caso queiram blindar a autoridade da empresa no bairro mais pra frente. Sucesso e ótimos negócios!</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD10').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+10', 2000);">Copiar D+10</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px; border-left: 4px solid var(--color-accent);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 10px;">🟢 Filtro de Qualificação (Porta G1 — Quando o lead responde)</div>
+      <div id="qualQuestions" style="font-size: 13.5px; color: var(--color-text); line-height: 1.7; margin-bottom: 10px;">
+        1. Vocês têm disponibilidade para atender novos clientes vindos do Google já na próxima semana?<br>
+        2. Hoje quem faz o primeiro atendimento no WhatsApp da Centro Automotivo São João?<br>
+        3. Se entregarmos toda a estrutura pronta em 5 dias úteis (50% entrada + 50% só depois de você aprovar), faz sentido avançarmos?
+      </div>
+      <button class="copy-btn" style="background: var(--color-primary);" onclick="navigator.clipboard.writeText(document.getElementById('qualQuestions').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar 3 Perguntas', 2000);">Copiar 3 Perguntas</button>
+    </div>
+
+    <div class="card" style="border-left: 4px solid var(--color-opportunity);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 12px;">🛡️ Respostas Rápidas para Quebra de Objeções (1 Clique)</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-negative); margin-bottom: 6px;">💰 Objeção: "Tá caro / Sem orçamento"</div>
+          <div id="objCaro" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O investimento é taxa única (a partir de R$ 450 na Ficha Maps ou R$ 980 no Site em 5 Dias), dividido em 50% na entrada e 50% só após sua aprovação — com ZERO mensalidade. Um único cliente captado no bairro já paga todo o projeto.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objCaro').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-warning); margin-bottom: 6px;">⏱️ Objeção: "Estou sem tempo agora"</div>
+          <div id="objTempo" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Zero trabalho para você: nós mesmos levantamos os dados, montamos tudo em 5 dias úteis e você só gasta 2 minutos no celular para aprovar o resultado pronto antes da segunda metade.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objTempo').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-opportunity); margin-bottom: 6px;">🌐 Objeção: "Já tenho site / Instagram"</div>
+          <div id="objSite" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O ponto não é apenas ter um link, mas aparecer com autoridade imediata em menos de 1 segundo no celular de quem busca em Retiro São João e jogar esse cliente direto no seu WhatsApp sem atrito.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objSite').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-positive); margin-bottom: 6px;">🤔 Objeção: "Vou pensar / Ver com sócio"</div>
+          <div id="objPensar" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Perfeito! O PDF de 3 páginas já está pronto para você encaminhar no WhatsApp do seu sócio. Como atendemos um número limitado de empresas por bairro para evitar conflito de interesse, consigo segurar a condição de vocês até sexta-feira.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objPensar').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Confirmar se o WhatsApp preferencial do balcão é o (15) 97403-9907 ou o fixo (15) 3011-2529.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Aproveitar fotos da fachada e dos elevadores da oficina para a vitrine.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps</span>
+      <span>Ficha localizada na Rua Rita de Carvalho Monteiro, 26 - Retiro São João, Sorocaba - SP.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Search</span>
+      <span>Pesquisa orgânica comprovando que o termo 'Centro Automotivo São João' exibe o site de Votorantim.</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

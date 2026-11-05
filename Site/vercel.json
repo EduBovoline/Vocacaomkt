@@ -41,6 +41,11 @@
       "source": "/Marin",
       "destination": "/marin",
       "statusCode": 301
+    },
+    {
+      "source": "/centroautomotivosaojoao",
+      "destination": "/centro-automotivo-sao-joao",
+      "statusCode": 301
     }
   ]
 }
