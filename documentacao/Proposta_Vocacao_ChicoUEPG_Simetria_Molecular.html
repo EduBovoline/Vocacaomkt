@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Comercial & Estratégica — Vocação para Professor Chico (ChicoUEPG)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-primary-light: #0d2a3d;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf8e3;
+    --color-accent-border: #d4a706;
+    --color-emerald: #0B5E47;
+    --color-emerald-soft: #e8f4ef;
+    --color-bg: #FAF9F5;
+    --color-surface: #FFFFFF;
+    --color-text: #1C242B;
+    --color-text-muted: #566573;
+    --color-border: #E2E8F0;
+    --color-border-dark: #CBD5E1;
+  }
+
+  @page {
+    size: A4;
+    margin: 14mm 16mm 14mm 16mm;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.55;
+    font-size: 13.5px;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+    background: var(--color-surface);
+  }
+
+  /* HEADER VOCAÇÃO */
+  .brand-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: 24px;
+  }
+
+  .brand-logo-wrap {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .brand-logo-wrap svg {
+    width: 38px;
+    height: 38px;
+  }
+
+  .brand-titles h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+
+  .brand-titles span {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-emerald);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .header-meta {
+    text-align: right;
+    font-size: 11px;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  .header-meta strong {
+    color: var(--color-primary);
+    display: block;
+    font-size: 12px;
+  }
+
+  /* CAPA / BANNER DE PROPOSTA */
+  .hero-banner {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #0d2a3d 100%);
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 28px 32px;
+    margin-bottom: 24px;
+    position: relative;
+    border-left: 6px solid var(--color-accent);
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(229, 185, 16, 0.18);
+    color: var(--color-accent);
+    border: 1px solid rgba(229, 185, 16, 0.4);
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+
+  .hero-banner h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 27px;
+    line-height: 1.25;
+    margin-bottom: 10px;
+    color: #ffffff;
+  }
+
+  .hero-banner h1 em {
+    color: var(--color-accent);
+    font-style: normal;
+  }
+
+  .hero-banner p {
+    font-size: 13.5px;
+    color: #CBD5E1;
+    max-width: 720px;
+  }
+
+  /* SEÇÕES E TIPOGRAFIA */
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .section-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--color-emerald);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    color: var(--color-primary);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  p {
+    margin-bottom: 10px;
+    color: var(--color-text);
+  }
+
+  /* CALLOUT BOX */
+  .manifesto-box {
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-accent-border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .manifesto-box .icon {
+    font-size: 20px;
+    line-height: 1;
+    color: #B48C00;
+  }
+
+  .manifesto-box p {
+    margin: 0;
+    font-size: 12.5px;
+    color: #4A3B00;
+    line-height: 1.5;
+  }
+
+  /* DIAGNÓSTICO DO NICHO */
+  .diagnosis-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .diagnosis-card {
+    background: #F8FAFC;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+
+  .diagnosis-card .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+  }
+
+  .diagnosis-card h4 {
+    font-size: 12.5px;
+    color: var(--color-emerald);
+    margin-bottom: 6px;
+    font-weight: 700;
+  }
+
+  .diagnosis-card p {
+    font-size: 11.5px;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  /* AS 3 PROPOSTAS - CARDS E DIAGRAMAÇÃO REVISADA */
+  .proposal-card {
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .proposal-card.recommended {
+    border-color: var(--color-emerald);
+    background: #FCFDFD;
+    box-shadow: 0 4px 16px rgba(11, 94, 71, 0.08);
+  }
+
+  /* HEADER DO CARD COM FLEXBOX (SEM ABSOLUTE OVERLAP) */
+  .proposal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #EEF2F6;
+  }
+
+  .proposal-header-main {
+    flex: 1;
+  }
+
+  .proposal-header h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 18.5px;
+    color: var(--color-primary);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .proposal-header .subtitle {
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .proposal-card .badge-type {
+    flex-shrink: 0;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 5px 12px;
+    border-radius: 14px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .badge-saas {
+    background: #EFF6FF;
+    color: #1D4ED8;
+    border: 1px solid #BFDBFE;
+  }
+
+  .badge-course {
+    background: #FEF3C7;
+    color: #92400E;
+    border: 1px solid #FDE68A;
+  }
+
+  .badge-hybrid {
+    background: var(--color-emerald-soft);
+    color: var(--color-emerald);
+    border: 1px solid #A7F3D0;
+  }
+
+  .proposal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 4px;
+  }
+
+  .block-item {
+    background: #F8FAFC;
+    border-radius: 6px;
+    padding: 12px 14px;
+    border: 1px solid #EEF2F6;
+  }
+
+  .block-item h5 {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .block-item.explain h5 { color: #1E293B; }
+  .block-item.example h5 { color: #0284C7; }
+  .block-item.defense h5 { color: var(--color-emerald); }
+  .block-item.revenue h5 { color: #B45309; }
+
+  .block-item p, .block-item ul {
+    font-size: 12px;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.45;
+  }
+
+  .block-item ul {
+    padding-left: 16px;
+  }
+
+  .block-item ul li {
+    margin-bottom: 3px;
+  }
+
+  /* MATRIZ COMPARATIVA */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 12px;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .compare-table th {
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11.5px;
+  }
+
+  .compare-table th:first-child {
+    border-top-left-radius: 6px;
+  }
+
+  .compare-table th:last-child {
+    border-top-right-radius: 6px;
+  }
+
+  .compare-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+  }
+
+  .compare-table tr:nth-child(even) td {
+    background-color: #F8FAFC;
+  }
+
+  .compare-table tr.highlight td {
+    background-color: var(--color-emerald-soft);
+    font-weight: 600;
+    color: var(--color-emerald);
+  }
+
+  /* ROTEIRO OPERACIONAL */
+  .timeline {
+    border-left: 3px solid var(--color-emerald);
+    padding-left: 18px;
+    margin: 14px 0 20px 8px;
+  }
+
+  .timeline-step {
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .timeline-step::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 4px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-emerald);
+    border: 2px solid #ffffff;
+  }
+
+  .timeline-step h4 {
+    font-size: 12.5px;
+    color: var(--color-primary);
+    font-weight: 700;
+    margin-bottom: 2px;
+  }
+
+  .timeline-step p {
+    font-size: 11.5px;
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* MEME KAPPA EMOTE */
+  .emote-kappa {
+    width: 20px;
+    height: 22px;
+    vertical-align: middle;
+    display: inline-block;
+    margin-left: 4px;
+  }
+
+  /* FOOTER */
+  .footer {
+    border-top: 1.5px solid var(--color-border);
+    padding-top: 16px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--color-text-muted);
+  }
+
+  .footer-left strong {
+    color: var(--color-primary);
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-right a {
+    color: var(--color-emerald);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .page-break {
+    page-break-after: always;
+    break-after: page;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-container">
+
+  <!-- ==================== PÁGINA 1: CAPA & CENÁRIO ==================== -->
+  <header class="brand-header">
+    <div class="brand-logo-wrap">
+      <svg viewBox="0 0 4001.88 3715.4" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#061B28"/>
+        <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#E5B910"/>
+      </svg>
+      <div class="brand-titles">
+        <h2>Vocação</h2>
+        <span>Comunicação & Estratégia Digital</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <strong>Proposta & Diagnóstico de Negócio Digital</strong>
+      Cliente: <span>Prof. Francisco (ChicoUEPG)</span><br>
+      Data: <span>Novembro / 2026</span> • Ref: <span>VOC-QUI-2026-01</span>
+    </div>
+  </header>
+
+  <div class="hero-banner">
+    <div class="hero-badge">Apresentação de Projeto & Modelos Comerciais</div>
+    <h1>Simetria Molecular & Teoria de Grupos:<br><em>Da Excelência Acadêmica ao Negócio Digital</em></h1>
+    <p>A Vocação estruturou este estudo estratégico para transformar seu domínio de química inorgânica e complexos metálicos em uma solução digital de alto valor, autoridade incontestável e receita sustentável.</p>
+  </div>
+
+  <div class="manifesto-box">
+    <div class="icon">✦</div>
+    <div>
+      <p><strong>Princípio Vocação:</strong> <em>"Estrutura antes do marketing. Clareza antes da venda. Organização antes da escala."</em> Não criamos sites vazios nem 'marketing de palco'. Construímos produtos que resolvem dores técnicas reais com fundamentação que sustenta a decisão do comprador.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <span class="section-tag">01. O Cenário de Oportunidade</span>
+    <h3 class="section-title">Por que o seu conhecimento em Inorgânica é uma mina de ouro?</h3>
+    <p>A união de <strong>Simetria Molecular</strong>, <strong>Teoria de Grupos</strong> e <strong>Complexos Metálicos</strong> representa um dos tópicos mais desafiadores do ensino superior e da pós-graduação em Química no Brasil e no mundo. A barreira de abstração matemática afasta a maioria dos professores, gerando carência crônica de soluções didáticas modernas.</p>
+
+    <div class="diagnosis-grid">
+      <div class="diagnosis-card">
+        <div class="num">01</div>
+        <h4>Dor Acadêmica Crônica</h4>
+        <p>Mais de 70% dos graduandos de Química e Eng. Química travam em Teoria de Grupos (tabelas de caracteres, operações de simetria e orbitais ligantes/antiligantes).</p>
+      </div>
+      <div class="diagnosis-card">
+        <div class="num">02</div>
+        <h4>Softwares Obsoletos</h4>
+        <p>As ferramentas disponíveis na web são dos anos 2000 (Java applets antigos, sites estáticos dos EUA ou programas pesados de terminal). Falta experiência visual moderna.</p>
+      </div>
+      <div class="diagnosis-card">
+        <div class="num">03</div>
+        <h4>Público Pagante Qualificado</h4>
+        <p>Estudantes desesperados por aprovação, pós-graduandos em Inorgânica/Materiais, professores e candidatos a concursos pagam com prazer por clareza e economia de tempo.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUEBRA PARA PÁGINA 2 -->
+  <div class="page-break"></div>
+
+  <!-- ==================== PÁGINA 2: PROPOSTAS A E B ==================== -->
+  <div class="section" style="margin-bottom: 16px;">
+    <span class="section-tag">02. As Rotas Estratégicas</span>
+    <h3 class="section-title">Análise Comparada das Propostas Vocação</h3>
+    <p>Apresentamos abaixo as arquiteturas de produto desenhadas para você com <strong>conceito</strong>, <strong>aplicação prática no seu nicho</strong>, <strong>por que vale a pena</strong> e <strong>estrutura de monetização</strong>.</p>
+  </div>
+
+  <!-- PROPOSTA 1 -->
+  <div class="proposal-card">
+    <div class="proposal-header">
+      <div class="proposal-header-main">
+        <h3>1. Plataforma Web SaaS: "SymmetryOrb 3D"</h3>
+        <div class="subtitle">Calculadora e Visualizador Interativo de Simetria e Orbitais em Complexos Metálicos</div>
+      </div>
+      <span class="badge-type badge-saas">Opção A • Plataforma</span>
+    </div>
+
+    <div class="proposal-grid">
+      <div class="block-item explain">
+        <h5>📖 O Que É (Explicação)</h5>
+        <p>Um software web acessível direto no navegador (sem instalar nada). O usuário escolhe ou monta um complexo metálico e o sistema calcula e projeta visualmente em 3D os elementos de simetria, tabela de caracteres e diagrama de orbitais moleculares.</p>
+      </div>
+
+      <div class="block-item example">
+        <h5>🔬 Exemplo Prático de Uso</h5>
+        <p>O aluno seleciona <strong>$[Fe(CN)_6]^{4-}$</strong> ou <strong>$[Co(NH_3)_6]^{3+}$</strong>. A tela renderiza o octaedro em 3D, ativa os eixos $C_4$, $C_3$, $C_2$, planos $\sigma_h, \sigma_d$, mostra o grupo pontual $O_h$, reduz as representações e monta o desdobramento de orbitais $d$ ($t_{2g}$ e $e_g$) passo a passo.</p>
+      </div>
+
+      <div class="block-item defense">
+        <h5>🛡️ Por que vale a pena</h5>
+        <ul>
+          <li><strong>Barreira competitiva intransponível:</strong> Quem domina a ferramenta vira o padrão acadêmico do Brasil.</li>
+          <li><strong>Escalabilidade global:</strong> Química é universal. A ferramenta pode ser bilíngue (PT/EN) desde o dia 1.</li>
+          <li><strong>Receita previsível (MRR):</strong> Assinaturas semestrais durante os semestres letivos universitários.</li>
+        </ul>
+      </div>
+
+      <div class="block-item revenue">
+        <h5>💰 Modelo de Monetização</h5>
+        <p><strong>Freemium:</strong> 10 complexos básicos gratuitos. Acesso completo a toda a biblioteca de complexos e gerador de relatórios por <strong>R$ 29,90/mês</strong> ou <strong>R$ 119,00/semestre letivo</strong>. Planos institucionais para universidades.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROPOSTA 2 -->
+  <div class="proposal-card">
+    <div class="proposal-header">
+      <div class="proposal-header-main">
+        <h3>2. Academia Digital: "Simetria & Inorgânica Descomplicada"</h3>
+        <div class="subtitle">Curso Online de Resolução Passo a Passo + Laboratório de Exercícios Guiados</div>
+      </div>
+      <span class="badge-type badge-course">Opção B • Infoproduto</span>
+    </div>
+
+    <div class="proposal-grid">
+      <div class="block-item explain">
+        <h5>📖 O Que É (Explicação)</h5>
+        <p>Um treinamento direto ao ponto onde o Professor Chico ensina o método definitivo para resolver qualquer questão de Teoria de Grupos e orbitais em complexos metálicos, sem depender de decoreba ou abstrações vazias.</p>
+      </div>
+
+      <div class="block-item example">
+        <h5>🔬 Exemplo Prático de Uso</h5>
+        <p>4 módulos intensivos: 1) Dominando Grupos Pontuais sem erro; 2) A Tabela de Caracteres decodificada; 3) Diagramas de Orbitais em Complexos Octaédricos e Tetraédricos; 4) Resolução das 50 questões mais difíceis de provas de pós-graduação e concursos.</p>
+      </div>
+
+      <div class="block-item defense">
+        <h5>🛡️ Por que vale a pena</h5>
+        <ul>
+          <li><strong>Velocidade de caixa:</strong> Não exige meses de programação de software para começar a faturar.</li>
+          <li><strong>Construção de Autoridade:</strong> Consolida você como o professor de maior clareza didática do Brasil no tema.</li>
+          <li><strong>Validação imediata de audiência:</strong> Testa a disposição de pagamento dos alunos antes de investir em software pesado.</li>
+        </ul>
+      </div>
+
+      <div class="block-item revenue">
+        <h5>💰 Modelo de Monetização</h5>
+        <p>Venda avulsa do treinamento completo com acesso anual: <strong>R$ 297,00 à vista</strong> (ou 12x de R$ 29,70). Turmas abertas no início de cada semestre universitário (fevereiro/março e julho/agosto).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUEBRA PARA PÁGINA 3 -->
+  <div class="page-break"></div>
+
+  <!-- ==================== PÁGINA 3: PROPOSTA C (RECOMENDADA) & MATRIZ ==================== -->
+  <!-- PROPOSTA 3 (RECOMENDADA) -->
+  <div class="proposal-card recommended">
+    <div class="proposal-header">
+      <div class="proposal-header-main">
+        <h3>3. Ecossistema Integrado: "O Atlas Interativo de Complexos Metálicos"</h3>
+        <div class="subtitle">A Combinação Perfeita: Web App Leve + Banco de Casos Resolvidos + Comunidade VIP</div>
+      </div>
+      <span class="badge-type badge-hybrid">Opção C • Recomendada Vocação</span>
+    </div>
+
+    <div class="proposal-grid">
+      <div class="block-item explain">
+        <h5>📖 O Que É (Explicação)</h5>
+        <p>Uma aplicação web moderna contendo o <strong>Compêndio Interativo dos 60 Complexos Metálicos Fundamentais</strong>. Para cada molécula, o aluno tem o modelo 3D manipulável, o roteiro de simetria, os orbitais desdobrados e uma videoaula curta do Prof. Chico explicando as pegadinhas daquele complexo.</p>
+      </div>
+
+      <div class="block-item example">
+        <h5>🔬 Exemplo Prático de Uso</h5>
+        <p>O estudante de graduação está estudando para a prova de Inorgânica II na sexta-feira. Ele abre o Atlas no celular ou notebook, pesquisa <em>"complexo quadrado planar $d^8$"</em> ou <em>"$[PtCl_4]^{2-}$"</em> e encontra em 30 segundos a dedução dos orbitais $a_{1g}, b_{1g}, e_u$, os eixos no 3D e o vídeo do Chico resolvendo em 3 minutos.</p>
+      </div>
+
+      <div class="block-item defense">
+        <h5>🛡️ Por que vale a pena</h5>
+        <ul>
+          <li><strong>Risco técnico muito baixo:</strong> Pode ser construído rapidamente com tecnologia 3D web moderna e leve, sem complexidade de servidor pesado.</li>
+          <li><strong>Produto com 'efeito uau' imediato:</strong> Altíssimo potencial de viralização orgânica em grupos acadêmicos de WhatsApp e DCEs.</li>
+          <li><strong>Caminho seguro para o SaaS futuro:</strong> O Atlas já gera receita desde o mês 1 e fornece a base de clientes para evoluir para a plataforma completa.</li>
+        </ul>
+      </div>
+
+      <div class="block-item revenue">
+        <h5>💰 Modelo de Monetização</h5>
+        <p>Acesso vitalício ou semestral ao Atlas Interativo por <strong>R$ 97,00 a R$ 147,00</strong> com upsell de sessões de mentoria para pós-graduandos e concurseiros por <strong>R$ 497,00</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRIZ DE DECISÃO EXECUTIVA -->
+  <div class="section">
+    <span class="section-tag">03. Matriz de Decisão Executiva</span>
+    <h3 class="section-title">Comparativo Estratégico das 3 Rotas</h3>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Critério de Avaliação</th>
+          <th>Opção A: Plataforma SaaS</th>
+          <th>Opção B: Curso / Infoproduto</th>
+          <th>Opção C: Atlas Interativo (Recomendada)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tempo até o Lançamento</strong></td>
+          <td>60 a 90 dias</td>
+          <td>20 a 30 dias</td>
+          <td><strong>20 a 35 dias</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Complexidade de Desenvolvimento</strong></td>
+          <td>Alta (motor matemático + login + banco)</td>
+          <td>Baixa (gravação e área de membros)</td>
+          <td><strong>Média-Baixa (web app front-end veloz)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Barreira de Entrada de Clientes</strong></td>
+          <td>Média (exige adesão a assinatura)</td>
+          <td>Média (preço de ticket intermediário)</td>
+          <td><strong>Muito Baixa (preço de impulso + apelo visual)</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Efeito de Viralização Orgânica</strong></td>
+          <td>Alto</td>
+          <td>Baixo (curso não viraliza sozinho)</td>
+          <td><strong>Altíssimo (estudantes compartilham os 3Ds)</strong></td>
+        </tr>
+        <tr class="highlight">
+          <td><strong>Veredito Vocação</strong></td>
+          <td>Excelente para o longo prazo</td>
+          <td>Bom para validar conteúdo rápido</td>
+          <td><strong>A melhor relação risco/retorno imediato</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ROTEIRO DE AÇÃO VOCAÇÃO -->
+  <div class="section">
+    <span class="section-tag">04. Próximos Passos & Execução</span>
+    <h3 class="section-title">Como a Vocação vai te apoiar neste projeto</h3>
+    <p>Nossa equipe assume toda a engenharia digital, posicionamento de autoridade e estrutura comercial para você focar no que faz melhor: ensinar com rigor e paixão <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAcCAQAAAA+LdxbAAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAAAEgAAABIAEbJaz4AAALDSURBVDjLddRLa5xlGIDh65vpJF8mk0xmJiapiSY10gNSlWorilJ0IejabRduXbkT/4H/QrEbcSG4cFURV8UDtlYQp01LaJI2hyaZUyeZ4/e6sDhJmz7bhwte3gfuqOvJ+SrkzVj2QNGl6PFt9Dj5Jaz4QeysdZueUTDk0+ip5NewpCZrRVfaqIyeNW2vmfNBdAT5OWwJghl31T1UNeqWmjmnLWlIXI4OkR9DRSJlzIoa/vYXEiUz0iqWpZzwfcSx/8CN0BTbd0+s6b51D81Zl1WyIVLStmsCj8hyqMnouGtVw55dm2YUTJq2aN0dd7Qldgak7KGWsttuq8rL6euYdN5JRW1LbvjdvgcD8puujrJl60aUTDluytvOGdeyb9KiYEVnQP4Qa1hVkRhR9KbEnDeMaunqYdh5N5UHJGXbPR2RFy2YN+84hh3T0dPXsqfggs0Bia2pGjXrdafMec6sIRmRRCQrlkjMGxuQb6IzIRKJTXnXGTGo29aQktfSQ8H4gHBMT2LG+16WQs1VN2QsKFq1bE1a3uxB8qFv5XzkHS3X/eO2mxqmjCi54ictec86NyBXw0Up153Gni23lHUVLXjJKaNiY2IzXhiQt6I/wwVBgoL3nLXmvq4TTiq5aEjasGnFgw/LmXXJlD1ZY8acUJfRE0mbt6Uo1lI7SCZNK6ir68sYkpJX0VHEpLyMYTs2DpKJKB36+tI6GrqCiqq8lnEPVLSN2NY8SGhqI6NvX0VVz/OarmjbVTetae/Rvf4ncVQOeeOCIRP6svJSFi3ZEPSVRKLDhFeja6ElK5IzbsM1Qd++WFPauIZPoscIdTtyYlVDmFazrCIxrWjt0X89EaXvQiKjK3jFnFVlq3qKdmz6InpKx/gykLcop6pmW1Nk3edHRWkwX4esvAkFfVt2VHx8IH5HEi6HfX05Qc2ezw7V8l8tNhNJnVppEAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxMi0wMy0wNlQxNTowMzozNS0wODowMACjc9IAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTItMDMtMDZUMTU6MDM6MzUtMDg6MDBx/stuAAAARnRFWHRzb2Z0d2FyZQBJbWFnZU1hZ2ljayA2LjYuNi0yIDIwMTAtMTItMDMgUTE2IGh0dHA6Ly93d3cuaW1hZ2VtYWdpY2sub3JnQBY9wgAAABh0RVh0VGh1bWI6OkRvY3VtZW50OjpQYWdlcwAxp/+7LwAAABd0RVh0VGh1bWI6OkltYWdlOjpoZWlnaHQAMjhTy6IIAAAAFnRFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADI1VyScmwAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxMzMxMDc1MDE1jO/flwAAABF0RVh0VGh1bWI6OlNpemUAODU3QkK8TFNyAAAALXRFWHRUaHVtYjo6VVJJAGZpbGU6Ly8vdG1wL21pbmltYWdpY2sxNzcxNy0yMy5wbmcV7/n0AAAAAElFTkSuQmCC" alt="Kappa" class="emote-kappa" />.</p>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <h4>Etapa 1: Definição do Escopo do MVP (Semana 1)</h4>
+        <p>Seleção dos primeiros 20 a 30 complexos metálicos de maior busca acadêmica e estruturação da arquitetura da página oficial.</p>
+      </div>
+      <div class="timeline-step">
+        <h4>Etapa 2: Construção da Infraestrutura & Identidade Digital (Semanas 2 e 3)</h4>
+        <p>Desenvolvimento da página comercial de alta conversão, motor visual 3D interativo, domínio próprio e integração de checkout no WhatsApp/Stripe.</p>
+      </div>
+      <div class="timeline-step">
+        <h4>Etapa 3: Lançamento Piloto com Comunidades Universitárias (Semana 4)</h4>
+        <p>Distribuição estratégica nos centros acadêmicos e grupos de pós-graduação em Química com oferta inaugural exclusiva.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER VOCAÇÃO -->
+  <footer class="footer">
+    <div class="footer-left">
+      <strong>Vocação Comunicação & Estratégia Digital</strong><br>
+      "Sua especialidade já tem valor. Online, ela precisa ser irresistível."
+    </div>
+    <div class="footer-right">
+      <span>WhatsApp Consultoria: <strong>(15) 98151-2083</strong></span><br>
+      <a href="https://vocacao.digital">vocacao.digital</a> • Avaliações 5.0 ★
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>

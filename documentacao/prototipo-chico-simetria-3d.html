@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUANTUM SYMMETRY LAB // Elementos de Simetria, Tabela de Caracteres & LCAO-MO • Prof. Chico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #04080E;
+    --bg-panel: rgba(7, 14, 23, 0.92);
+    --bg-card: rgba(11, 22, 36, 0.8);
+    --border-cyan: rgba(0, 229, 255, 0.3);
+    --border-dim: rgba(255, 255, 255, 0.09);
+    --cyan: #00E5FF;
+    --cyan-glow: rgba(0, 229, 255, 0.5);
+    --amber: #FFB300;
+    --amber-glow: rgba(255, 179, 0, 0.45);
+    --emerald: #00E676;
+    --magenta: #E040FB;
+    --coral: #FF5252;
+    --text-primary: #F0F6FC;
+    --text-muted: #94A3B8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', -apple-system, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background-image: 
+      radial-gradient(circle at 50% 42%, rgba(0, 160, 230, 0.13) 0%, transparent 65%),
+      linear-gradient(rgba(0, 229, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 229, 255, 0.025) 1px, transparent 1px);
+    background-size: 100% 100%, 32px 32px, 32px 32px;
+  }
+
+  /* TOP HUD BAR */
+  .hud-topbar {
+    height: 50px;
+    background: rgba(4, 9, 15, 0.96);
+    border-bottom: 1px solid var(--border-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+  }
+
+  .hud-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-glyph {
+    width: 30px;
+    height: 30px;
+    border: 1.5px solid var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    box-shadow: 0 0 12px var(--cyan-glow);
+    color: var(--cyan);
+    font-weight: 700;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+
+  .brand-text h1 {
+    font-size: 13.5px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .brand-text span {
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan);
+    letter-spacing: 0.8px;
+  }
+
+  .hud-top-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .top-toggle {
+    padding: 5px 12px;
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-dim);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .top-toggle:hover {
+    color: #fff;
+    border-color: var(--cyan);
+  }
+  .top-toggle.active {
+    color: #04080E;
+    background: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 0 0 12px var(--cyan-glow);
+    font-weight: 700;
+  }
+  .top-toggle.amber.active {
+    background: var(--amber);
+    border-color: var(--amber);
+    box-shadow: 0 0 12px var(--amber-glow);
+  }
+
+  /* MAIN WORKSPACE LAYOUT */
+  .workspace {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 325px 1fr 370px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* SIDEBAR PANELS */
+  .panel {
+    background: var(--bg-panel);
+    backdrop-filter: blur(16px);
+    padding: 14px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 20;
+  }
+  .panel-left { border-right: 1px solid var(--border-cyan); }
+  .panel-right { border-left: 1px solid var(--border-cyan); }
+
+  .section-tag {
+    font-size: 9.5px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan);
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    margin-bottom: 3px;
+  }
+
+  .panel-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .hud-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: 8px;
+    padding: 11px 13px;
+    position: relative;
+  }
+  .hud-card.highlight-cyan {
+    border-color: rgba(0, 229, 255, 0.45);
+    box-shadow: inset 0 0 15px rgba(0, 229, 255, 0.06);
+  }
+  .hud-card.highlight-amber {
+    border-color: rgba(255, 179, 0, 0.45);
+    box-shadow: inset 0 0 15px rgba(255, 179, 0, 0.06);
+  }
+
+  .metric-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .metric-box {
+    background: rgba(0, 0, 0, 0.42);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 8px 10px;
+    border-radius: 6px;
+  }
+  .metric-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--cyan);
+  }
+  .metric-lbl {
+    font-size: 9.5px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  /* COMPLEX SELECTOR BUTTONS */
+  .complex-btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .complex-btn {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid var(--border-dim);
+    border-radius: 6px;
+    padding: 8px 11px;
+    color: var(--text-primary);
+    font-size: 11.5px;
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .complex-btn:hover {
+    border-color: rgba(0, 229, 255, 0.45);
+    background: rgba(0, 229, 255, 0.07);
+  }
+  .complex-btn.active {
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.16);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.22);
+  }
+  .complex-btn .pg-badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: rgba(255, 179, 0, 0.16);
+    border: 1px solid rgba(255, 179, 0, 0.35);
+    color: var(--amber);
+    border-radius: 4px;
+    font-weight: 700;
+  }
+
+  /* SYMMETRY ELEMENT SUB-SELECTOR (E.g. C3 #1, C3 #2, ALL) */
+  .sub-element-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .sub-pill {
+    padding: 4px 9px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--border-dim);
+    color: var(--text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .sub-pill:hover {
+    border-color: var(--cyan);
+    color: #fff;
+  }
+  .sub-pill.active {
+    background: rgba(0, 229, 255, 0.22);
+    border-color: var(--cyan);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* ACTION BUTTONS */
+  .hud-btn {
+    background: rgba(0, 229, 255, 0.13);
+    border: 1px solid var(--border-cyan);
+    border-radius: 6px;
+    padding: 8px 11px;
+    color: var(--cyan);
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+  }
+  .hud-btn:hover {
+    background: var(--cyan);
+    color: #04080E;
+    box-shadow: 0 0 14px var(--cyan-glow);
+  }
+  .hud-btn.amber {
+    background: rgba(255, 179, 0, 0.14);
+    border-color: rgba(255, 179, 0, 0.4);
+    color: var(--amber);
+  }
+  .hud-btn.amber:hover {
+    background: var(--amber);
+    color: #04080E;
+    box-shadow: 0 0 14px var(--amber-glow);
+  }
+
+  /* 3D CENTER VIEWPORT */
+  .viewport-3d {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .canvas-wrap {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #glCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    cursor: grab;
+  }
+  #glCanvas:active { cursor: grabbing; }
+
+  /* HUD OVERLAYS ON CANVAS */
+  .canvas-hud-tag {
+    position: absolute;
+    padding: 7px 12px;
+    background: rgba(5, 12, 22, 0.9);
+    border: 1px solid var(--border-cyan);
+    border-radius: 6px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan);
+    backdrop-filter: blur(8px);
+    z-index: 30;
+  }
+  .tag-top-left { top: 14px; left: 14px; pointer-events: none; }
+  .tag-top-right { top: 14px; right: 14px; max-width: 340px; }
+
+  /* FLOATING CHARACTER TABLE DOCKED AT BOTTOM OF CENTER VIEWPORT */
+  .hud-character-table {
+    background: rgba(5, 12, 22, 0.97);
+    border-top: 2px solid var(--cyan);
+    padding: 10px 16px 12px;
+    z-index: 50;
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.85);
+  }
+
+  .table-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 12px;
+  }
+  .table-title {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--cyan);
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+  }
+  .table-hint {
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--amber);
+    background: rgba(255, 179, 0, 0.12);
+    border: 1px solid rgba(255, 179, 0, 0.35);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .char-table {
+    border-collapse: collapse;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    text-align: center;
+    width: 100%;
+  }
+  .char-table th, .char-table td {
+    padding: 6px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.15s;
+  }
+  .char-table th.pg-corner {
+    background: rgba(255, 179, 0, 0.18);
+    color: var(--amber);
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .char-table th.op-header {
+    background: rgba(0, 229, 255, 0.12);
+    color: var(--cyan);
+    font-weight: 700;
+    cursor: pointer;
+    position: relative;
+  }
+  .char-table th.op-header:hover {
+    background: rgba(0, 229, 255, 0.35);
+    color: #ffffff;
+    box-shadow: inset 0 0 10px var(--cyan);
+  }
+  .char-table th.op-header.active-col-header {
+    background: var(--cyan);
+    color: #04080E;
+    box-shadow: 0 0 15px var(--cyan-glow);
+  }
+  .char-table td {
+    cursor: pointer;
+    color: #CBD5E1;
+  }
+  .char-table td:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  .char-table td.active-col {
+    background: rgba(0, 229, 255, 0.22) !important;
+    color: #ffffff !important;
+    border-color: var(--cyan);
+    font-weight: 700;
+  }
+  .char-table td.rep-label {
+    background: rgba(255, 179, 0, 0.08);
+    color: var(--amber);
+    font-weight: 700;
+    text-align: left;
+    white-space: nowrap;
+  }
+  .char-table td.rep-label:hover {
+    background: rgba(255, 179, 0, 0.28);
+    color: #ffffff;
+  }
+  .char-table tr.active-row td {
+    background: rgba(255, 179, 0, 0.16);
+    border-color: rgba(255, 179, 0, 0.45);
+    color: #fff;
+  }
+
+  /* ELECTRONEGATIVITY & MO CORRELATION DIAGRAM */
+  .en-slider-wrap {
+    margin-top: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .en-presets {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .en-preset-btn {
+    flex: 1;
+    padding: 4px 6px;
+    font-size: 9.5px;
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid var(--border-dim);
+    color: var(--text-muted);
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .en-preset-btn.active, .en-preset-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+    background: rgba(255, 179, 0, 0.12);
+  }
+
+  input[type=range] {
+    width: 100%;
+    accent-color: var(--cyan);
+    cursor: pointer;
+  }
+
+  /* MO CORRELATION CANVAS */
+  #moCanvas {
+    width: 100%;
+    height: 205px;
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    display: block;
+  }
+
+  .mo-type-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 5px;
+    margin-top: 6px;
+  }
+  .mo-pill {
+    padding: 6px 4px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    border-radius: 4px;
+    border: 1px solid var(--border-dim);
+    background: rgba(0,0,0,0.4);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .mo-pill.active {
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.18);
+    color: #fff;
+    font-weight: 700;
+  }
+
+  /* TELEMETRY LOG */
+  .telemetry-log {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+    padding: 8px 10px;
+    height: 85px;
+    overflow-y: auto;
+    line-height: 1.45;
+  }
+  .log-line { margin-bottom: 2px; }
+  .log-line span { color: var(--cyan); font-weight: 700; }
+</style>
+</head>
+<body>
+
+  <!-- TOP HUD BAR -->
+  <header class="hud-topbar">
+    <div class="hud-brand">
+      <div class="brand-glyph">Ψ</div>
+      <div class="brand-text">
+        <h1>Quantum Symmetry Lab // Prof. Chico (UEPG)</h1>
+        <span>Elementos de Simetria 3D • Tabela de Caracteres • Eletronegatividade & LCAO-MO</span>
+      </div>
+    </div>
+
+    <div class="hud-top-controls">
+      <button class="top-toggle active" id="btnShowCage" onclick="togglePolyhedronCage()">⬡ Gaiola do Poliedro (Faces/Arestas)</button>
+      <button class="top-toggle active" id="btnShowSymElements" onclick="toggleSymElements()">✦ Mostrar Eixos / Planos</button>
+      <button class="top-toggle amber active" id="btnShowOrbitals" onclick="toggleOrbitals()">⚛ Mostrar Orbitais 3D</button>
+      <button class="top-toggle" id="btnAutoRotate" onclick="toggleAutoRotate()">↻ Auto-Giro</button>
+    </div>
+  </header>
+
+  <!-- MAIN WORKSPACE -->
+  <main class="workspace">
+
+    <!-- ==================== LEFT SIDEBAR ==================== -->
+    <aside class="panel panel-left">
+      <div>
+        <div class="section-tag">1. Escolha a Molécula / Complexo</div>
+        <div class="complex-btn-group">
+          <button class="complex-btn active" id="btn-fe_cn6" onclick="selectComplex('fe_cn6')">
+            <span>[Fe(CN)₆]⁴⁻ (Octaédrico)</span>
+            <span class="pg-badge">Oₕ</span>
+          </button>
+          <button class="complex-btn" id="btn-pt_cl4" onclick="selectComplex('pt_cl4')">
+            <span>[PtCl₄]²⁻ (Quadrado Planar)</span>
+            <span class="pg-badge">D₄ₕ</span>
+          </button>
+          <button class="complex-btn" id="btn-ni_co4" onclick="selectComplex('ni_co4')">
+            <span>[Ni(CO)₄] (Tetraédrico)</span>
+            <span class="pg-badge">T_d</span>
+          </button>
+          <button class="complex-btn" id="btn-h2o" onclick="selectComplex('h2o')">
+            <span>H₂O (Angular / Simetria)</span>
+            <span class="pg-badge">C₂ᵥ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- ACTIVE SYMMETRY ELEMENT INSPECTOR (CHICO'S REQUEST!) -->
+      <div class="hud-card highlight-cyan">
+        <div class="section-tag">2. Inspetor de Elemento de Simetria</div>
+        <div class="panel-title" style="margin-bottom: 4px;">
+          <span id="symElemTitle" style="color: var(--cyan);">Classe: 8C₃ (4 Eixos Triplos)</span>
+        </div>
+        <div style="font-size: 11px; color: #E2E8F0; line-height: 1.45;" id="symElemWhere">
+          <strong>Onde ficam na figura:</strong> Os 4 eixos C₃ furam exatamente o <strong>centro das 8 faces triangulares opostas</strong> do octaedro (diagonais espaciais do cubo).
+        </div>
+
+        <!-- SUB-SELECTOR TO ISOLATE 1 AXIS OR SHOW ALL -->
+        <div class="sub-element-pills" id="subElementPills">
+          <!-- Injected dynamically -->
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px;">
+          <button class="hud-btn" onclick="animateCurrentSymmetryOperation()">
+            <span id="btnApplyOpText">↻ Girar 120° no Eixo C₃</span>
+          </button>
+          <button class="hud-btn amber" onclick="alignCameraToActiveElement()">
+            <span>👁️ Olhar de Frente p/ Eixo</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- PERMUTATION & CHARACTER RESULT -->
+      <div class="hud-card">
+        <div class="section-tag">3. O Que Acontece na Transformação</div>
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; line-height: 1.5;" id="transformationSummary">
+          <div>• Operação: <strong style="color:var(--cyan);">C₃ (120°)</strong></div>
+          <div>• Ligantes: <span style="color:var(--amber);">L₁(X) → L₃(Y) → L₅(Z)</span></div>
+          <div>• Caráter χ na tabela: <strong style="color:var(--emerald);">χ = -1 (em E_g)</strong></div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-tag">Log Pedagógico em Tempo Real</div>
+        <div class="telemetry-log" id="telemetryLog">
+          <div class="log-line"><span>[DICA]</span> Clique em 8C₃, 6C₂', 6C₄, 3σₕ ou 6σ_d no topo da Tabela para localizar os eixos/planos no 3D!</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ==================== CENTER 3D VIEWPORT + CHARACTER TABLE ==================== -->
+    <section class="viewport-3d">
+      <div class="canvas-wrap">
+        <canvas id="glCanvas"></canvas>
+
+        <!-- FLOATING LEGEND TOP LEFT -->
+        <div class="canvas-hud-tag tag-top-left">
+          <div style="font-weight:700; color:#fff; margin-bottom:3px;" id="hudComplexTitle">[Fe(CN)₆]⁴⁻ • Grupo Pontual Oₕ (h = 48)</div>
+          <div>EIXOS CARTESIANOS: <span style="color:#FF5252">X (L₁,L₂)</span> • <span style="color:#69F0AE">Y (L₃,L₄)</span> • <span style="color:#40C4FF">Z (L₅,L₆)</span></div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">ARRASTE PARA GIRAR 3D • SCROLL PARA ZOOM</div>
+        </div>
+
+        <!-- FLOATING ACTIVE ELEMENT CALLOUT TOP RIGHT -->
+        <div class="canvas-hud-tag tag-top-right" id="activeOpBadge">
+          ELEMENTO EM DESTAQUE NO 3D:<br>
+          <strong style="color: var(--amber); font-size: 12.5px;" id="badgeElemName">8C₃ — Eixos pelas 8 Faces do Octaedro</strong>
+        </div>
+      </div>
+
+      <!-- BOTTOM INTERACTIVE CHARACTER TABLE -->
+      <div class="hud-character-table" id="characterTableContainer">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- ==================== RIGHT SIDEBAR: ELECTRONEGATIVITY & LCAO-MO ==================== -->
+    <aside class="panel panel-right">
+      <div class="hud-card highlight-amber">
+        <div class="section-tag">4. Eletronegatividade & Sobreposição (LCAO-MO)</div>
+        <div class="panel-title">
+          <span>Diferença de Eletronegatividade (Δχ)</span>
+          <span style="font-size: 12px; color: var(--amber); font-family: 'JetBrains Mono', monospace;" id="enReadout">χ_L > χ_M (ΔE = -2.4 eV)</span>
+        </div>
+        <p style="font-size: 11px; color: #CBD5E1; margin-top: 4px; line-height: 1.4;">
+          O átomo <strong>mais eletronegativo</strong> tem orbitais atômicos de <strong>energia mais baixa</strong>. Arraste para ver como isso desloca os orbitais moleculares:
+        </p>
+
+        <div class="en-slider-wrap">
+          <input type="range" id="enSlider" min="0.2" max="4.0" step="0.1" value="2.2" oninput="updateElectronegativity(this.value)">
+          <div class="en-presets">
+            <button class="en-preset-btn" onclick="setENPreset(0.6, 'H⁻ / CH₃⁻ (Pouco Eletroneg.)')">CH₃⁻ ( Baixa )</button>
+            <button class="en-preset-btn active" onclick="setENPreset(2.2, 'CN⁻ / CO (Intermediária)')">CN⁻ ( Média )</button>
+            <button class="en-preset-btn" onclick="setENPreset(3.6, 'F⁻ / O²⁻ (Muito Eletroneg.)')">F⁻ ( Alta χ )</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE MO CORRELATION DIAGRAM CANVAS -->
+      <div class="hud-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+          <span class="section-tag" style="margin:0;">5. Diagrama de Orbitais Moleculares</span>
+          <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--cyan);" id="activeRepTitle">Rep: E_g (σ)</span>
+        </div>
+        <canvas id="moCanvas" width="330" height="205"></canvas>
+
+        <!-- SELECT WHICH ORBITAL TYPE TO VIEW IN 3D -->
+        <div style="font-size: 10px; color: var(--text-muted); margin-top: 8px; text-align: center;">
+          ALTERNAR TIPO DE ORBITAL MOLECULAR NO 3D:
+        </div>
+        <div class="mo-type-pills">
+          <button class="mo-pill active" id="moPillBonding" onclick="setMOType('bonding')">
+            🟢 Ligante (Ψ)<br><span style="font-size:9px;">Soma de Fase</span>
+          </button>
+          <button class="mo-pill" id="moPillAtomic" onclick="setMOType('atomic')">
+            🟡 Atômicos<br><span style="font-size:9px;">Antes de Ligar</span>
+          </button>
+          <button class="mo-pill" id="moPillAntibonding" onclick="setMOType('antibonding')">
+            🔴 Antiligante (Ψ*)<br><span style="font-size:9px;">Plano Nodal</span>
+          </button>
+        </div>
+
+        <!-- SELETOR DE FORMA ESPECÍFICA DE ORBITAL (E_g: dx²-y² vs dz²) -->
+        <div id="egVariantSection" style="margin-top: 8px; padding-top: 6px; border-top: 1px dashed rgba(255,255,255,0.12);">
+          <div style="font-size: 9.5px; color: var(--amber); margin-bottom: 5px; display: flex; justify-content: space-between; font-family: 'JetBrains Mono', monospace;">
+            <span>FORMA REAL DO ORBITAL D (E_g):</span>
+            <span style="color:var(--cyan);">Piriforme / Toroide</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+            <button class="mo-pill active" id="btnEgDx2y2" onclick="setEgVariant('dx2y2')">
+              ✦ d(x²-y²)<br><span style="font-size:8.5px;">4 Lóbulos em Gota</span>
+            </button>
+            <button class="mo-pill" id="btnEgDz2" onclick="setEgVariant('dz2')">
+              ✦ d(z²)<br><span style="font-size:8.5px;">Haltere + Toroide XY</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLANATION OF ELECTRONEGATIVITY & CHARACTER TABLE -->
+      <div class="hud-card" style="font-size: 11px; color: #CBD5E1; line-height: 1.5;" id="pedagogicalCard">
+        <strong style="color: var(--cyan);">✦ Como a Eletronegatividade afeta o Orbital:</strong>
+        <div id="enExplanationText" style="margin-top: 4px;">
+          Como o ligante é mais eletronegativo que o metal, seus orbitais SALC estão em energia mais baixa. Por isso, o <strong>OM Ligante (Ψ)</strong> tem maior contribuição dos ligantes, enquanto o <strong>OM Antiligante (Ψ*)</strong> fica concentrado nos orbitais d do metal!
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+<script>
+// ============================================================================
+// MATHEMATICAL 3D SYMMETRY & LCAO-MO ENGINE FOR PROF. CHICO (UEPG)
+// ============================================================================
+
+const canvas = document.getElementById('glCanvas');
+const ctx = canvas.getContext('2d');
+const moCanvas = document.getElementById('moCanvas');
+const moCtx = moCanvas.getContext('2d');
+
+let width, height;
+function resize() {
+  width = canvas.parentElement.clientWidth;
+  height = canvas.parentElement.clientHeight;
+  canvas.width = width * window.devicePixelRatio;
+  canvas.height = height * window.devicePixelRatio;
+  ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+  drawMODiagram();
+}
+window.addEventListener('resize', resize);
+
+// Vector Math Utilities
+function vecNorm(v) {
+  const len = Math.hypot(v.x, v.y, v.z) || 1;
+  return { x: v.x / len, y: v.y / len, z: v.z / len };
+}
+function vecDot(a, b) { return a.x*b.x + a.y*b.y + a.z*b.z; }
+function vecCross(a, b) {
+  return {
+    x: a.y*b.z - a.z*b.y,
+    y: a.z*b.x - a.x*b.z,
+    z: a.x*b.y - a.y*b.x
+  };
+}
+function rotateAroundAxis(p, u, theta) {
+  const unit = vecNorm(u);
+  const cosT = Math.cos(theta);
+  const sinT = Math.sin(theta);
+  const dot = vecDot(unit, p);
+  const cross = vecCross(unit, p);
+  return {
+    x: p.x * cosT + cross.x * sinT + unit.x * dot * (1 - cosT),
+    y: p.y * cosT + cross.y * sinT + unit.y * dot * (1 - cosT),
+    z: p.z * cosT + cross.z * sinT + unit.z * dot * (1 - cosT)
+  };
+}
+function reflectAcrossPlane(p, n) {
+  const unit = vecNorm(n);
+  const dot2 = 2 * vecDot(p, unit);
+  return {
+    x: p.x - dot2 * unit.x,
+    y: p.y - dot2 * unit.y,
+    z: p.z - dot2 * unit.z
+  };
+}
+
+const dOct = 135;
+const COMPLEX_DB = {
+  fe_cn6: {
+    formula: '[Fe(CN)₆]⁴⁻',
+    title: '[Fe(CN)₆]⁴⁻ • Grupo Pontual Oₕ (h = 48)',
+    pg: 'Oₕ',
+    atoms: [
+      { x: 0, y: 0, z: 0, r: 20, color: '#FFB300', label: 'Fe²⁺' },
+      { x: dOct, y: 0, z: 0, r: 12, color: '#00E5FF', label: 'L₁(X)' },
+      { x: -dOct, y: 0, z: 0, r: 12, color: '#00E5FF', label: 'L₂(-X)' },
+      { x: 0, y: dOct, z: 0, r: 12, color: '#00E5FF', label: 'L₃(Y)' },
+      { x: 0, y: -dOct, z: 0, r: 12, color: '#00E5FF', label: 'L₄(-Y)' },
+      { x: 0, y: 0, z: dOct, r: 12, color: '#00E5FF', label: 'L₅(Z)' },
+      { x: 0, y: 0, z: -dOct, r: 12, color: '#00E5FF', label: 'L₆(-Z)' }
+    ],
+    bonds: [[0,1],[0,2],[0,3],[0,4],[0,5],[0,6]],
+    faces: [
+      [1, 3, 5], [1, 3, 6], [1, 4, 5], [1, 4, 6],
+      [2, 3, 5], [2, 3, 6], [2, 4, 5], [2, 4, 6]
+    ],
+    edges: [
+      [1,3],[3,2],[2,4],[4,1],
+      [5,1],[5,3],[5,2],[5,4],
+      [6,1],[6,3],[6,2],[6,4]
+    ],
+    operations: {
+      'E': {
+        title: 'Identidade ( E )',
+        where: 'Mantém a molécula na posição original. Observe as <strong>8 faces triangulares</strong> e os <strong>6 vértices</strong> do octaedro.',
+        btnText: '↻ Aplicar Identidade (360°)',
+        permText: 'L₁ → L₁, L₂ → L₂ (Inalterado)',
+        type: 'identity',
+        angle: Math.PI * 2,
+        elements: [
+          { name: 'Eixo Z Ref', vec: {x:0, y:0, z:1}, color: '#00E5FF' }
+        ]
+      },
+      '8C₃': {
+        title: 'Classe 8C₃ (4 Eixos de Rotação de 120°)',
+        where: '<strong>Onde ficam:</strong> Os 4 eixos C₃ atravessam o <strong>centro das 8 faces triangulares opostas</strong> do octaedro! Cada eixo gira 120° (C₃¹) e 240° (C₃²), totalizando 8C₃.',
+        btnText: '↻ Girar 120° no Eixo C₃',
+        permText: 'Permutação cíclica: L₁(X) → L₃(Y) → L₅(Z)',
+        type: 'rotation',
+        angle: (2 * Math.PI) / 3,
+        highlightFaces: true,
+        elements: [
+          { name: 'C₃ #1 (+X,+Y,+Z)', vec: {x:1, y:1, z:1}, color: '#FFB300', facePair: [0, 7] },
+          { name: 'C₃ #2 (-X,+Y,+Z)', vec: {x:-1, y:1, z:1}, color: '#00E676', facePair: [4, 3] },
+          { name: 'C₃ #3 (+X,-Y,+Z)', vec: {x:1, y:-1, z:1}, color: '#00E5FF', facePair: [2, 5] },
+          { name: 'C₃ #4 (+X,+Y,-Z)', vec: {x:1, y:1, z:-1}, color: '#E040FB', facePair: [1, 6] }
+        ]
+      },
+      '6C₂\'': {
+        title: 'Classe 6C₂\' (6 Eixos Diagonais nas Arestas)',
+        where: '<strong>Onde ficam:</strong> Os 6 eixos C₂\' passam exatamente pelo <strong>ponto médio de duas arestas opostas</strong> do octaedro (bissetrizes entre os eixos X, Y, Z)!',
+        btnText: '↻ Girar 180° no Eixo C₂\'',
+        permText: 'Troca L₁(X) ↔ L₃(Y) e inverte Z ↔ -Z',
+        type: 'rotation',
+        angle: Math.PI,
+        elements: [
+          { name: 'C₂\' #1 (XY+)', vec: {x:1, y:1, z:0}, color: '#00E676' },
+          { name: 'C₂\' #2 (XY-)', vec: {x:1, y:-1, z:0}, color: '#00E676' },
+          { name: 'C₂\' #3 (XZ+)', vec: {x:1, y:0, z:1}, color: '#00E5FF' },
+          { name: 'C₂\' #4 (XZ-)', vec: {x:1, y:0, z:-1}, color: '#00E5FF' },
+          { name: 'C₂\' #5 (YZ+)', vec: {x:0, y:1, z:1}, color: '#FFB300' },
+          { name: 'C₂\' #6 (YZ-)', vec: {x:0, y:1, z:-1}, color: '#FFB300' }
+        ]
+      },
+      '6C₄': {
+        title: 'Classe 6C₄ (3 Eixos de 90° pelos Vértices)',
+        where: '<strong>Onde ficam:</strong> Os 3 eixos C₄ coincidem com os <strong>eixos cartesianos X, Y e Z</strong>, furando diretamente os ligantes opostos (vértices do octaedro)!',
+        btnText: '↻ Girar 90° no Eixo C₄',
+        permText: 'Gira 90°: L₁(X) → L₃(Y) → L₂(-X) → L₄(-Y)',
+        type: 'rotation',
+        angle: Math.PI / 2,
+        elements: [
+          { name: 'C₄ Eixo Z (L₅-Fe-L₆)', vec: {x:0, y:0, z:1}, color: '#00E5FF' },
+          { name: 'C₄ Eixo X (L₁-Fe-L₂)', vec: {x:1, y:0, z:0}, color: '#FF5252' },
+          { name: 'C₄ Eixo Y (L₃-Fe-L₄)', vec: {x:0, y:1, z:0}, color: '#00E676' }
+        ]
+      },
+      '3C₂': {
+        title: 'Classe 3C₂ (= C₄² pelos Eixos X, Y, Z)',
+        where: '<strong>Onde ficam:</strong> Coincidem com os 3 eixos C₄ (X, Y e Z), mas aplicam uma rotação de <strong>180°</strong> em vez de 90°.',
+        btnText: '↻ Girar 180° no Eixo C₂',
+        permText: 'Inverte o plano equatorial: X ↔ -X e Y ↔ -Y',
+        type: 'rotation',
+        angle: Math.PI,
+        elements: [
+          { name: 'C₂ Eixo Z', vec: {x:0, y:0, z:1}, color: '#00E5FF' },
+          { name: 'C₂ Eixo X', vec: {x:1, y:0, z:0}, color: '#FF5252' },
+          { name: 'C₂ Eixo Y', vec: {x:0, y:1, z:0}, color: '#00E676' }
+        ]
+      },
+      'i': {
+        title: 'Centro de Inversão ( i )',
+        where: '<strong>Onde fica:</strong> Ponto único localizado exatamente no núcleo do metal central <strong>Fe²⁺ (0,0,0)</strong>. Projeta cada ponto (x,y,z) em (-x,-y,-z).',
+        btnText: '✦ Aplicar Inversão ( i )',
+        permText: 'Troca pares opostos: L₁↔L₂, L₃↔L₄, L₅↔L₆',
+        type: 'inversion',
+        elements: [
+          { name: 'Centro i (0,0,0)', vec: {x:0, y:0, z:1}, color: '#FFFFFF' }
+        ]
+      },
+      '6S₄': {
+        title: 'Classe 6S₄ (Rotação Imprópria 90° + Reflexão σₕ)',
+        where: '<strong>Onde ficam:</strong> Eixos ao longo de X, Y e Z combinados com um plano espelho perpendicular. Você <strong>gira 90° (C₄) e reflete no plano perpendicular (σₕ)</strong>!',
+        btnText: '↻ Executar S₄ (Gira 90° + Reflete)',
+        permText: 'Gira 90° em XY e troca L₅(Z) ↔ L₆(-Z)',
+        type: 'improper',
+        angle: Math.PI / 2,
+        elements: [
+          { name: 'S₄ Eixo Z + Plano XY', vec: {x:0, y:0, z:1}, color: '#E040FB' },
+          { name: 'S₄ Eixo X + Plano YZ', vec: {x:1, y:0, z:0}, color: '#FF5252' },
+          { name: 'S₄ Eixo Y + Plano XZ', vec: {x:0, y:1, z:0}, color: '#00E676' }
+        ]
+      },
+      '8S₆': {
+        title: 'Classe 8S₆ (Rotação Imprópria 60° + Reflexão)',
+        where: '<strong>Onde ficam:</strong> Coincidem com os <strong>4 eixos C₃ (pelas 8 faces triangulares)</strong>! Gira 60° em torno da face e reflete pelo plano diagonal perpendicular.',
+        btnText: '↻ Executar S₆ (Gira 60° + Reflete)',
+        permText: 'Alterna as faces superior e inferior do octaedro',
+        type: 'improper',
+        angle: Math.PI / 3,
+        highlightFaces: true,
+        elements: [
+          { name: 'S₆ #1 (+X,+Y,+Z)', vec: {x:1, y:1, z:1}, color: '#E040FB' },
+          { name: 'S₆ #2 (-X,+Y,+Z)', vec: {x:-1, y:1, z:1}, color: '#00E5FF' },
+          { name: 'S₆ #3 (+X,-Y,+Z)', vec: {x:1, y:-1, z:1}, color: '#FFB300' },
+          { name: 'S₆ #4 (+X,+Y,-Z)', vec: {x:1, y:1, z:-1}, color: '#00E676' }
+        ]
+      },
+      '3σₕ': {
+        title: 'Classe 3σₕ (3 Planos de Reflexão Horizontais)',
+        where: '<strong>Onde ficam:</strong> São os 3 planos cartesianos principais (<strong>XY, XZ e YZ</strong>). Cada plano contém o metal central e 4 ligantes!',
+        btnText: '✦ Refletir no Plano σₕ',
+        permText: 'Reflete os 2 ligantes fora do plano (ex: L₅ ↔ L₆)',
+        type: 'plane',
+        elements: [
+          { name: 'Plano σₕ (XY - Normal Z)', vec: {x:0, y:0, z:1}, color: '#00E5FF' },
+          { name: 'Plano σₕ (XZ - Normal Y)', vec: {x:0, y:1, z:0}, color: '#00E676' },
+          { name: 'Plano σₕ (YZ - Normal X)', vec: {x:1, y:0, z:0}, color: '#FF5252' }
+        ]
+      },
+      '6σ_d': {
+        title: 'Classe 6σ_d (6 Planos Diedrais / Diagonais)',
+        where: '<strong>Onde ficam:</strong> São os 6 planos que <strong>bissectam os ângulos entre os eixos X, Y e Z</strong> (cortam as arestas ao meio)!',
+        btnText: '✦ Refletir no Plano σ_d',
+        permText: 'Reflete L₁(X) ↔ L₃(Y) mantendo Z no plano',
+        type: 'plane',
+        elements: [
+          { name: 'σ_d #1 (Bissecta X,Y)', vec: {x:1, y:-1, z:0}, color: '#FFB300' },
+          { name: 'σ_d #2 (Bissecta X,-Y)', vec: {x:1, y:1, z:0}, color: '#FFB300' },
+          { name: 'σ_d #3 (Bissecta X,Z)', vec: {x:1, y:0, z:-1}, color: '#E040FB' },
+          { name: 'σ_d #4 (Bissecta X,-Z)', vec: {x:1, y:0, z:1}, color: '#E040FB' },
+          { name: 'σ_d #5 (Bissecta Y,Z)', vec: {x:0, y:1, z:-1}, color: '#00E676' },
+          { name: 'σ_d #6 (Bissecta Y,-Z)', vec: {x:0, y:1, z:1}, color: '#00E676' }
+        ]
+      }
+    },
+    charTable: {
+      cols: ['E', '8C₃', '6C₂\'', '6C₄', '3C₂', 'i', '6S₄', '8S₆', '3σₕ', '6σ_d'],
+      rows: [
+        { rep: 'A₁_g (s)', code: 'A1g', vals: ['1','1','1','1','1','1','1','1','1','1'] },
+        { rep: 'E_g (dx²-y², dz²)', code: 'Eg', active: true, vals: ['2','-1','0','0','2','2','0','-1','2','0'] },
+        { rep: 'T₂_g (dxy, dxz, dyz)', code: 'T2g', vals: ['3','0','-1','-1','-1','3','-1','0','-1','1'] },
+        { rep: 'T₁_u (px, py, pz)', code: 'T1u', vals: ['3','0','-1','1','-1','-3','-1','0','1','1'] }
+      ]
+    }
+  },
+
+  pt_cl4: {
+    formula: '[PtCl₄]²⁻',
+    title: '[PtCl₄]²⁻ • Grupo Pontual D₄ₕ (h = 16)',
+    pg: 'D₄ₕ',
+    atoms: [
+      { x: 0, y: 0, z: 0, r: 21, color: '#E040FB', label: 'Pt²⁺' },
+      { x: dOct, y: 0, z: 0, r: 13, color: '#00E676', label: 'Cl₁(X)' },
+      { x: -dOct, y: 0, z: 0, r: 13, color: '#00E676', label: 'Cl₂(-X)' },
+      { x: 0, y: dOct, z: 0, r: 13, color: '#00E676', label: 'Cl₃(Y)' },
+      { x: 0, y: -dOct, z: 0, r: 13, color: '#00E676', label: 'Cl₄(-Y)' }
+    ],
+    bonds: [[0,1],[0,2],[0,3],[0,4]],
+    faces: [[1,3,2], [2,4,1]],
+    edges: [[1,3],[3,2],[2,4],[4,1]],
+    operations: {
+      'E': {
+        title: 'Identidade ( E )',
+        where: 'Geometria Quadrada Planar no plano XY.',
+        btnText: '↻ Identidade',
+        permText: 'Sem alteração',
+        type: 'identity', angle: Math.PI*2,
+        elements: [{ name: 'Eixo Principal Z', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      '2C₄': {
+        title: 'Eixo Principal 2C₄ (Eixo Z)',
+        where: '<strong>Onde fica:</strong> Perpendicular ao plano quadrado da molécula, passando pelo átomo de Platina (Pt²⁺).',
+        btnText: '↻ Girar 90° em C₄(Z)',
+        permText: 'Cl₁(X) → Cl₃(Y) → Cl₂(-X) → Cl₄(-Y)',
+        type: 'rotation', angle: Math.PI/2,
+        elements: [{ name: 'C₄ (Eixo Z)', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      'C₂': {
+        title: 'Rotação C₂ (= C₄² no Eixo Z)',
+        where: '<strong>Onde fica:</strong> No próprio eixo Z perpendicular, girando 180°.',
+        btnText: '↻ Girar 180° em C₂(Z)',
+        permText: 'Cl₁ ↔ Cl₂ e Cl₃ ↔ Cl₄',
+        type: 'rotation', angle: Math.PI,
+        elements: [{ name: 'C₂ (Eixo Z)', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      '2C₂\'': {
+        title: '2 Eixos C₂\' (Ao longo das ligações Pt-Cl)',
+        where: '<strong>Onde ficam:</strong> No plano da molécula, passando diretamente sobre os eixos X e Y (sobre os átomos de Cloro)!',
+        btnText: '↻ Girar 180° em C₂\'',
+        permText: 'Mantém 2 Cl no eixo e troca os outros 2',
+        type: 'rotation', angle: Math.PI,
+        elements: [
+          { name: 'C₂\' Eixo X (Cl₁-Pt-Cl₂)', vec: {x:1,y:0,z:0}, color: '#FF5252' },
+          { name: 'C₂\' Eixo Y (Cl₃-Pt-Cl₄)', vec: {x:0,y:1,z:0}, color: '#00E676' }
+        ]
+      },
+      '2C₂\"': {
+        title: '2 Eixos C₂\" (Bissetrizes entre as ligações)',
+        where: '<strong>Onde ficam:</strong> No plano XY, mas <strong>entre</strong> os átomos de Cloro (cortando as arestas do quadrado a 45°)!',
+        btnText: '↻ Girar 180° em C₂\"',
+        permText: 'Troca Cl₁(X) ↔ Cl₃(Y)',
+        type: 'rotation', angle: Math.PI,
+        elements: [
+          { name: 'C₂\" Diagonal 1 (+X,+Y)', vec: {x:1,y:1,z:0}, color: '#FFB300' },
+          { name: 'C₂\" Diagonal 2 (+X,-Y)', vec: {x:1,y:-1,z:0}, color: '#FFB300' }
+        ]
+      },
+      'i': {
+        title: 'Centro de Inversão ( i )',
+        where: '<strong>Onde fica:</strong> No núcleo do Pt²⁺ (0,0,0).',
+        btnText: '✦ Aplicar Inversão ( i )',
+        permText: 'Cl₁ ↔ Cl₂ e Cl₃ ↔ Cl₄',
+        type: 'inversion',
+        elements: [{ name: 'Centro i', vec: {x:0,y:0,z:1}, color: '#FFFFFF' }]
+      },
+      'σₕ': {
+        title: 'Plano Horizontal σₕ (Plano XY da molécula)',
+        where: '<strong>Onde fica:</strong> É o próprio plano que contém a Platina e todos os 4 ligantes Cl⁻!',
+        btnText: '✦ Refletir em σₕ (XY)',
+        permText: 'Átomos não saem do lugar! Inverte apenas orbitais fora do plano (pz, dxz, dyz)',
+        type: 'plane',
+        elements: [{ name: 'Plano Molecular σₕ (XY)', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      '2σ_v': {
+        title: '2 Planos Verticais σ_v (Planos XZ e YZ)',
+        where: '<strong>Onde ficam:</strong> Planos verticais que cortam as ligações Pt-Cl!',
+        btnText: '✦ Refletir em σ_v',
+        permText: 'Reflete os ligantes perpendiculares ao plano',
+        type: 'plane',
+        elements: [
+          { name: 'Plano σ_v (XZ)', vec: {x:0,y:1,z:0}, color: '#00E676' },
+          { name: 'Plano σ_v (YZ)', vec: {x:1,y:0,z:0}, color: '#FF5252' }
+        ]
+      },
+      '2σ_d': {
+        title: '2 Planos Diedrais σ_d (Diagonais a 45°)',
+        where: '<strong>Onde ficam:</strong> Planos verticais que passam <strong>entre</strong> os átomos de Cloro!',
+        btnText: '✦ Refletir em σ_d',
+        permText: 'Reflete Cl₁(X) ↔ Cl₃(Y)',
+        type: 'plane',
+        elements: [
+          { name: 'Plano σ_d #1', vec: {x:1,y:-1,z:0}, color: '#FFB300' },
+          { name: 'Plano σ_d #2', vec: {x:1,y:1,z:0}, color: '#FFB300' }
+        ]
+      }
+    },
+    charTable: {
+      cols: ['E', '2C₄', 'C₂', '2C₂\'', '2C₂\"', 'i', 'σₕ', '2σ_v', '2σ_d'],
+      rows: [
+        { rep: 'A₁_g (dz²)', code: 'A1g', vals: ['1','1','1','1','1','1','1','1','1'] },
+        { rep: 'B₁_g (dx²-y²)', code: 'Eg', active: true, vals: ['1','-1','1','1','-1','1','1','1','-1'] },
+        { rep: 'B₂_g (dxy)', code: 'T2g', vals: ['1','-1','1','-1','1','1','1','-1','1'] },
+        { rep: 'A₂_u (pz)', code: 'T1u', vals: ['1','1','1','-1','-1','-1','-1','1','1'] }
+      ]
+    }
+  },
+
+  ni_co4: {
+    formula: '[Ni(CO)₄]',
+    title: '[Ni(CO)₄] • Grupo Pontual T_d (h = 24)',
+    pg: 'T_d',
+    atoms: [
+      { x: 0, y: 0, z: 0, r: 20, color: '#00E5FF', label: 'Ni⁰' },
+      { x: 95, y: 95, z: 95, r: 13, color: '#FFB300', label: 'CO₁' },
+      { x: 95, y: -95, z: -95, r: 13, color: '#FFB300', label: 'CO₂' },
+      { x: -95, y: 95, z: -95, r: 13, color: '#FFB300', label: 'CO₃' },
+      { x: -95, y: -95, z: 95, r: 13, color: '#FFB300', label: 'CO₄' }
+    ],
+    bonds: [[0,1],[0,2],[0,3],[0,4]],
+    faces: [[1,2,3], [1,2,4], [1,3,4], [2,3,4]],
+    edges: [[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]],
+    operations: {
+      'E': {
+        title: 'Identidade ( E )',
+        where: 'Geometria Tetraédrica inscrita em um cubo.',
+        btnText: '↻ Identidade',
+        permText: 'Inalterado',
+        type: 'identity', angle: Math.PI*2,
+        elements: [{ name: 'Eixo Z', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      '8C₃': {
+        title: 'Classe 8C₃ (4 Eixos pelas Ligações Ni-CO)',
+        where: '<strong>Onde ficam:</strong> Cada eixo C₃ passa sobre <strong>uma ligação Ni-CO</strong> e fura o centro da face triangular oposta do tetraedro!',
+        btnText: '↻ Girar 120° em C₃',
+        permText: 'Mantém 1 CO fixo e gira os outros 3 em 120°',
+        type: 'rotation', angle: (2*Math.PI)/3, highlightFaces: true,
+        elements: [
+          { name: 'C₃ #1 (Pelo CO₁)', vec: {x:1,y:1,z:1}, color: '#FFB300' },
+          { name: 'C₃ #2 (Pelo CO₂)', vec: {x:1,y:-1,z:-1}, color: '#00E5FF' },
+          { name: 'C₃ #3 (Pelo CO₃)', vec: {x:-1,y:1,z:-1}, color: '#00E676' },
+          { name: 'C₃ #4 (Pelo CO₄)', vec: {x:-1,y:-1,z:1}, color: '#E040FB' }
+        ]
+      },
+      '3C₂': {
+        title: 'Classe 3C₂ (Eixos Cartesianos X, Y, Z)',
+        where: '<strong>Onde ficam:</strong> Os 3 eixos C₂ passam pelo ponto médio de <strong>arestas opostas</strong> do tetraedro (são os próprios eixos X, Y e Z)!',
+        btnText: '↻ Girar 180° em C₂',
+        permText: 'Troca pares de ligantes CO₁↔CO₄ e CO₂↔CO₃',
+        type: 'rotation', angle: Math.PI,
+        elements: [
+          { name: 'C₂ Eixo Z', vec: {x:0,y:0,z:1}, color: '#00E5FF' },
+          { name: 'C₂ Eixo X', vec: {x:1,y:0,z:0}, color: '#FF5252' },
+          { name: 'C₂ Eixo Y', vec: {x:0,y:1,z:0}, color: '#00E676' }
+        ]
+      },
+      '6S₄': {
+        title: 'Classe 6S₄ (Rotação Imprópria nos Eixos X, Y, Z)',
+        where: '<strong>Onde ficam:</strong> O tetraedro NÃO tem eixo C₄ puro, mas tem <strong>S₄ ao longo dos eixos X, Y e Z</strong>! Você gira 90° e reflete no plano perpendicular!',
+        btnText: '↻ Executar S₄ (90° + Reflexão)',
+        permText: 'Gira 90° + reflete: leva um vértice CO exatamente em outro!',
+        type: 'improper', angle: Math.PI/2,
+        elements: [
+          { name: 'S₄ Eixo Z', vec: {x:0,y:0,z:1}, color: '#E040FB' },
+          { name: 'S₄ Eixo X', vec: {x:1,y:0,z:0}, color: '#FF5252' },
+          { name: 'S₄ Eixo Y', vec: {x:0,y:1,z:0}, color: '#00E676' }
+        ]
+      },
+      '6σ_d': {
+        title: 'Classe 6σ_d (6 Planos Espelho Diagonais)',
+        where: '<strong>Onde ficam:</strong> Cada plano σ_d contém o <strong>metal central + 2 ligantes CO</strong> e bissecta os outros 2 ligantes!',
+        btnText: '✦ Refletir em σ_d',
+        permText: 'Mantém 2 CO no plano e reflete os outros 2',
+        type: 'plane',
+        elements: [
+          { name: 'σ_d #1 (Contém CO₁, CO₄)', vec: {x:1,y:-1,z:0}, color: '#FFB300' },
+          { name: 'σ_d #2 (Contém CO₂, CO₃)', vec: {x:1,y:1,z:0}, color: '#00E5FF' },
+          { name: 'σ_d #3', vec: {x:1,y:0,z:-1}, color: '#00E676' }
+        ]
+      }
+    },
+    charTable: {
+      cols: ['E', '8C₃', '3C₂', '6S₄', '6σ_d'],
+      rows: [
+        { rep: 'A₁ (s)', code: 'A1g', vals: ['1','1','1','1','1'] },
+        { rep: 'E (dz², dx²-y²)', code: 'Eg', active: true, vals: ['2','-1','2','0','0'] },
+        { rep: 'T₂ (dxy, dxz, dyz)', code: 'T2g', vals: ['3','0','-1','-1','1'] }
+      ]
+    }
+  },
+
+  h2o: {
+    formula: 'H₂O',
+    title: 'H₂O • Grupo Pontual C₂ᵥ (h = 4)',
+    pg: 'C₂ᵥ',
+    atoms: [
+      { x: 0, y: 0, z: 35, r: 22, color: '#FF5252', label: 'O' },
+      { x: 0, y: 95, z: -45, r: 14, color: '#FFFFFF', label: 'H₁' },
+      { x: 0, y: -95, z: -45, r: 14, color: '#FFFFFF', label: 'H₂' }
+    ],
+    bonds: [[0,1],[0,2]],
+    faces: [[0,1,2]],
+    edges: [[1,2]],
+    operations: {
+      'E': {
+        title: 'Identidade ( E )',
+        where: 'Molécula de água situada no plano YZ.',
+        btnText: '↻ Identidade',
+        permText: 'Inalterado',
+        type: 'identity', angle: Math.PI*2,
+        elements: [{ name: 'Eixo Z', vec: {x:0,y:0,z:1}, color: '#00E5FF' }]
+      },
+      'C₂(z)': {
+        title: 'Eixo de Rotação C₂(z) (Bissetriz H-O-H)',
+        where: '<strong>Onde fica:</strong> Passa pelo núcleo do Oxigênio e divide o ângulo de 104,5° entre os dois Hidrogênios exatamente ao meio!',
+        btnText: '↻ Girar 180° em C₂(z)',
+        permText: 'Troca H₁ ↔ H₂',
+        type: 'rotation', angle: Math.PI,
+        elements: [{ name: 'Eixo Bissetriz C₂(z)', vec: {x:0,y:0,z:1}, color: '#FFB300' }]
+      },
+      'σ_v(xz)': {
+        title: 'Plano Vertical σ_v(xz) (Perpendicular à Molécula)',
+        where: '<strong>Onde fica:</strong> Corta o Oxigênio ao meio perpendicularmente ao plano da molécula, refletindo H₁ em H₂!',
+        btnText: '✦ Refletir em σ_v(xz)',
+        permText: 'Reflete H₁ ↔ H₂',
+        type: 'plane',
+        elements: [{ name: 'Plano σ_v(xz) (Normal Y)', vec: {x:0,y:1,z:0}, color: '#00E5FF' }]
+      },
+      'σ_v\'(yz)': {
+        title: 'Plano Molecular σ_v\'(yz) (Contém H-O-H)',
+        where: '<strong>Onde fica:</strong> É o próprio plano onde estão desenhados o Oxigênio e os dois Hidrogênios!',
+        btnText: '✦ Refletir em σ_v\'(yz)',
+        permText: 'H₁ e H₂ não se movem (inverte apenas o orbital px perpendicular)',
+        type: 'plane',
+        elements: [{ name: 'Plano Molecular σ_v\'(yz) (Normal X)', vec: {x:1,y:0,z:0}, color: '#00E676' }]
+      }
+    },
+    charTable: {
+      cols: ['E', 'C₂(z)', 'σ_v(xz)', 'σ_v\'(yz)'],
+      rows: [
+        { rep: 'A₁ (pz, s)', code: 'A1g', active: true, vals: ['1','1','1','1'] },
+        { rep: 'B₁ (px - HOMO)', code: 'T1u', vals: ['1','-1','1','-1'] },
+        { rep: 'B₂ (py)', code: 'Eg', vals: ['1','-1','-1','1'] }
+      ]
+    }
+  }
+};
+
+let activeComplexKey = 'fe_cn6';
+let activeOpKey = '8C₃';
+let activeSubElementIdx = -1;
+let activeRepCode = 'Eg';
+let activeMOType = 'bonding';
+let electronegativityDiff = 2.2;
+
+let showCage = true;
+let showSymElements = true;
+let showOrbitals = true;
+let autoRotate = false;
+
+let rotX = 0.42;
+let rotY = 0.62;
+let zoom = 1.0;
+let isDragging = false;
+let lastMouseX = 0, lastMouseY = 0;
+
+let sceneAtoms = [];
+let sceneBonds = [];
+let sceneLobes = [];
+let isAnimatingOp = false;
+let activeEgVariant = 'dx2y2'; // 'dx2y2' ou 'dz2'
+
+function setEgVariant(variant) {
+  activeEgVariant = variant;
+  const b1 = document.getElementById('btnEgDx2y2');
+  const b2 = document.getElementById('btnEgDz2');
+  if (b1) b1.classList.toggle('active', variant === 'dx2y2');
+  if (b2) b2.classList.toggle('active', variant === 'dz2');
+  sceneLobes = buildOrbitalLobes(activeComplexKey, activeRepCode, activeMOType, electronegativityDiff);
+  logMsg('ORBITAL', `Forma do orbital d ajustada para: ${variant === 'dz2' ? 'd(z²) [Haltere vertical + Toroide equatorial]' : 'd(x²-y²) [4 Lóbulos piriformes em cruz]'}`);
+}
+
+function buildOrbitalLobes(complexKey, repCode, moType, enDelta) {
+  const lobes = [];
+  const normEN = Math.min(Math.max(enDelta / 4.0, 0.15), 0.85);
+  let metalScale = 1.0;
+  let ligandScale = 1.0;
+  let signFlip = 1;
+
+  if (moType === 'bonding') {
+    metalScale = 1.15 - normEN * 0.45;
+    ligandScale = 0.75 + normEN * 0.55;
+    signFlip = 1;
+  } else if (moType === 'antibonding') {
+    metalScale = 0.75 + normEN * 0.55;
+    ligandScale = 1.15 - normEN * 0.45;
+    signFlip = -1;
+  } else {
+    metalScale = 1.0;
+    ligandScale = 0.85;
+    signFlip = 1;
+  }
+
+  const mDist = 65;
+  const lDist = 104;
+
+  // Atualiza visibilidade da seção de variantes E_g
+  const egSec = document.getElementById('egVariantSection');
+  if (egSec) {
+    egSec.style.display = (repCode === 'Eg' || repCode === 'B1g' || repCode === 'A1g_sq') ? 'block' : 'none';
+  }
+
+  if (repCode === 'A1g') {
+    // Orbital atômico s central esférico
+    lobes.push({ isSphere: true, x: 0, y: 0, z: 0, r: 34 * metalScale, phase: 1, isMetal: true });
+    if (complexKey === 'fe_cn6') {
+      [[lDist,0,0],[-lDist,0,0],[0,lDist,0],[0,-lDist,0],[0,0,lDist],[0,0,-lDist]].forEach(([x,y,z]) => {
+        // Lóbulos sigma do ligante apontando em direção ao metal
+        lobes.push({
+          isTeardrop: true,
+          originX: x, originY: y, originZ: z,
+          x: x * 0.62, y: y * 0.62, z: z * 0.62,
+          r: 18 * ligandScale,
+          phase: 1 * signFlip,
+          isMetal: false
+        });
+      });
+    }
+  } else if (repCode === 'Eg' || repCode === 'B1g') {
+    if (activeEgVariant === 'dz2') {
+      // d(z²): 2 LÓBULOS PIRIFORMES VERTICAIS (+Z e -Z) com fase positiva (+)
+      lobes.push(
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: 0, z: mDist * 1.18, r: 25 * metalScale, phase: 1, isMetal: true },
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: 0, z: -mDist * 1.18, r: 25 * metalScale, phase: 1, isMetal: true },
+        // TOROIDE (ROSQUINHA EQUATORIAL NO PLANO XY) com fase negativa (−)
+        { isTorus: true, x: 0, y: 0, z: 0, normX: 0, normY: 0, normZ: 1, r: 42 * metalScale, tubeR: 11 * metalScale, phase: -1, isMetal: true }
+      );
+      if (complexKey === 'fe_cn6') {
+        // Ligantes axiais Z com sobreposição sigma
+        lobes.push(
+          { isTeardrop: true, originX: 0, originY: 0, originZ: lDist, x: 0, y: 0, z: lDist * 0.62, r: 18 * ligandScale, phase: 1 * signFlip, isMetal: false },
+          { isTeardrop: true, originX: 0, originY: 0, originZ: -lDist, x: 0, y: 0, z: -lDist * 0.62, r: 18 * ligandScale, phase: 1 * signFlip, isMetal: false }
+        );
+      }
+    } else {
+      // d(x²-y²): 4 LÓBULOS PIRIFORMES EM FORMA DE GOTA NOS EIXOS X E Y
+      lobes.push(
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: mDist, y: 0, z: 0, r: 24 * metalScale, phase: 1, isMetal: true },
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: -mDist, y: 0, z: 0, r: 24 * metalScale, phase: 1, isMetal: true },
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: mDist, z: 0, r: 24 * metalScale, phase: -1, isMetal: true },
+        { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: -mDist, z: 0, r: 24 * metalScale, phase: -1, isMetal: true }
+      );
+      if (complexKey === 'fe_cn6' || complexKey === 'pt_cl4') {
+        // Lóbulos sigma dos ligantes equatoriais apontando para o metal
+        lobes.push(
+          { isTeardrop: true, originX: lDist, originY: 0, originZ: 0, x: lDist * 0.62, y: 0, z: 0, r: 18 * ligandScale, phase: 1 * signFlip, isMetal: false },
+          { isTeardrop: true, originX: -lDist, originY: 0, originZ: 0, x: -lDist * 0.62, y: 0, z: 0, r: 18 * ligandScale, phase: 1 * signFlip, isMetal: false },
+          { isTeardrop: true, originX: 0, originY: lDist, originZ: 0, x: 0, y: lDist * 0.62, z: 0, r: 18 * ligandScale, phase: -1 * signFlip, isMetal: false },
+          { isTeardrop: true, originX: 0, originY: -lDist, originZ: 0, x: 0, y: -lDist * 0.62, z: 0, r: 18 * ligandScale, phase: -1 * signFlip, isMetal: false }
+        );
+      }
+    }
+  } else if (repCode === 'T2g' || repCode === 'B2g') {
+    // d(xy): 4 LÓBULOS PIRIFORMES A 45° ENTRE OS EIXOS (Não apontam para ligantes)
+    const dg = mDist * 0.88;
+    lobes.push(
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: dg, y: dg, z: 0, r: 23 * metalScale, phase: 1, isMetal: true },
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: -dg, y: -dg, z: 0, r: 23 * metalScale, phase: 1, isMetal: true },
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: -dg, y: dg, z: 0, r: 23 * metalScale, phase: -1, isMetal: true },
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: dg, y: -dg, z: 0, r: 23 * metalScale, phase: -1, isMetal: true }
+    );
+  } else if (repCode === 'T1u' || repCode === 'Eu') {
+    // Orbital pz / px: Haltere clássico com 2 lóbulos opostos em Z (+ e -)
+    lobes.push(
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: 0, z: mDist * 1.15, r: 26 * metalScale, phase: 1, isMetal: true },
+      { isTeardrop: true, originX: 0, originY: 0, originZ: 0, x: 0, y: 0, z: -mDist * 1.15, r: 26 * metalScale, phase: -1, isMetal: true }
+    );
+    if (complexKey === 'fe_cn6') {
+      lobes.push(
+        { isTeardrop: true, originX: 0, originY: 0, originZ: lDist, x: 0, y: 0, z: lDist * 0.62, r: 18 * ligandScale, phase: 1 * signFlip, isMetal: false },
+        { isTeardrop: true, originX: 0, originY: 0, originZ: -lDist, x: 0, y: 0, z: -lDist * 0.62, r: 18 * ligandScale, phase: -1 * signFlip, isMetal: false }
+      );
+    }
+  }
+
+  return lobes;
+}
+
+function selectComplex(key) {
+  activeComplexKey = key;
+  document.querySelectorAll('.complex-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById(`btn-${key}`);
+  if (btn) btn.classList.add('active');
+
+  const cData = COMPLEX_DB[key];
+  document.getElementById('hudComplexTitle').innerText = cData.title;
+
+  activeOpKey = cData.charTable.cols[1] || 'E';
+  activeSubElementIdx = -1;
+  const defRow = cData.charTable.rows.find(r => r.active) || cData.charTable.rows[0];
+  activeRepCode = defRow.code;
+
+  resetSceneGeometry();
+  renderCharacterTableUI();
+  updateSymmetryInspectorUI();
+  drawMODiagram();
+  logMsg('COMPLEX', `Carregado ${cData.formula} (${cData.pg}). Eixos ${activeOpKey} exibidos no 3D!`);
+}
+
+function resetSceneGeometry() {
+  const cData = COMPLEX_DB[activeComplexKey];
+  sceneAtoms = cData.atoms.map(a => ({ ...a }));
+  sceneBonds = cData.bonds.map(b => [...b]);
+  sceneLobes = buildOrbitalLobes(activeComplexKey, activeRepCode, activeMOType, electronegativityDiff);
+}
+
+function renderCharacterTableUI() {
+  const cData = COMPLEX_DB[activeComplexKey];
+  const ct = cData.charTable;
+  const container = document.getElementById('characterTableContainer');
+
+  let html = `
+    <div class="table-header-row">
+      <span class="table-title">▼ ELEMENTOS DE SIMETRIA NO TOPO DA TABELA [${cData.pg}] — CLIQUE P/ LOCALIZAR OS EIXOS E PLANOS NA FIGURA 3D</span>
+      <span class="table-hint">✦ Clique em 8C₃, 6C₂', 6C₄, σₕ, σ_d ou i</span>
+    </div>
+    <table class="char-table" id="charTable">
+      <thead>
+        <tr>
+          <th class="pg-corner">${cData.pg}</th>
+          ${ct.cols.map(col => `
+            <th class="op-header ${col === activeOpKey ? 'active-col-header' : ''}" onclick="selectTableOperation('${col.replace(/'/g, "\\'")}')">
+              ${col}
+            </th>
+          `).join('')}
+        </tr>
+      </thead>
+      <tbody>
+        ${ct.rows.map(row => `
+          <tr class="${row.code === activeRepCode ? 'active-row' : ''}">
+            <td class="rep-label" onclick="selectTableRep('${row.code}', '${row.rep}')">${row.rep}</td>
+            ${row.vals.map((val, cIdx) => {
+              const colName = ct.cols[cIdx];
+              const isColActive = (colName === activeOpKey);
+              return `<td class="${isColActive ? 'active-col' : ''}" onclick="selectTableCell('${row.code}', '${row.rep}', '${colName.replace(/'/g, "\\'")}', '${val}')">${val}</td>`;
+            }).join('')}
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+  container.innerHTML = html;
+}
+
+function selectTableOperation(opKey) {
+  activeOpKey = opKey;
+  activeSubElementIdx = -1;
+  renderCharacterTableUI();
+  updateSymmetryInspectorUI();
+  logMsg('ELEMENTO', `Selecionado [${opKey}]: veja na figura 3D onde ficam os elementos de simetria!`);
+}
+
+function selectTableRep(repCode, repLabel) {
+  activeRepCode = repCode;
+  document.getElementById('activeRepTitle').innerText = `Rep: ${repLabel}`;
+  resetSceneGeometry();
+  renderCharacterTableUI();
+  updateSymmetryInspectorUI();
+  drawMODiagram();
+  logMsg('ORBITAL', `Orbital alterado para ${repLabel}.`);
+}
+
+function selectTableCell(repCode, repLabel, opKey, charVal) {
+  activeRepCode = repCode;
+  activeOpKey = opKey;
+  activeSubElementIdx = 0;
+  document.getElementById('activeRepTitle').innerText = `Rep: ${repLabel}`;
+  resetSceneGeometry();
+  renderCharacterTableUI();
+  updateSymmetryInspectorUI();
+  drawMODiagram();
+  animateCurrentSymmetryOperation();
+}
+
+function updateSymmetryInspectorUI() {
+  const cData = COMPLEX_DB[activeComplexKey];
+  const opData = cData.operations[activeOpKey] || cData.operations['E'];
+  const ct = cData.charTable;
+  const colIdx = ct.cols.indexOf(activeOpKey);
+  const activeRow = ct.rows.find(r => r.code === activeRepCode) || ct.rows[0];
+  const charVal = colIdx >= 0 ? activeRow.vals[colIdx] : '1';
+
+  document.getElementById('symElemTitle').innerText = opData.title;
+  document.getElementById('symElemWhere').innerHTML = opData.where;
+  document.getElementById('btnApplyOpText').innerText = opData.btnText;
+  document.getElementById('badgeElemName').innerText = opData.title;
+
+  const pillsWrap = document.getElementById('subElementPills');
+  if (opData.elements && opData.elements.length > 1) {
+    let pillsHtml = `<button class="sub-pill ${activeSubElementIdx === -1 ? 'active' : ''}" onclick="setSubElement(-1)">Ver Todos (${opData.elements.length})</button>`;
+    opData.elements.forEach((el, idx) => {
+      pillsHtml += `<button class="sub-pill ${activeSubElementIdx === idx ? 'active' : ''}" onclick="setSubElement(${idx})">${el.name}</button>`;
+    });
+    pillsWrap.innerHTML = pillsHtml;
+  } else {
+    pillsWrap.innerHTML = '';
+  }
+
+  document.getElementById('transformationSummary').innerHTML = `
+    <div>• Operação: <strong style="color:var(--cyan);">${opData.title}</strong></div>
+    <div>• Efeito nos Átomos: <span style="color:var(--amber);">${opData.permText}</span></div>
+    <div>• Caráter em <strong>${activeRow.rep}</strong>: <strong style="color:var(--emerald); font-size:12.5px;">χ(${activeOpKey}) = ${charVal}</strong></div>
+  `;
+}
+
+function setSubElement(idx) {
+  activeSubElementIdx = idx;
+  updateSymmetryInspectorUI();
+}
+
+function animateCurrentSymmetryOperation() {
+  if (isAnimatingOp) return;
+  const cData = COMPLEX_DB[activeComplexKey];
+  const opData = cData.operations[activeOpKey] || cData.operations['E'];
+  const elIdx = activeSubElementIdx >= 0 ? activeSubElementIdx : 0;
+  const targetEl = opData.elements[elIdx] || { vec: {x:0, y:0, z:1} };
+
+  resetSceneGeometry();
+  const startAtoms = sceneAtoms.map(a => ({ ...a }));
+  const startLobes = sceneLobes.map(l => ({ ...l }));
+
+  isAnimatingOp = true;
+  autoRotate = false;
+  document.getElementById('btnAutoRotate').classList.remove('active');
+
+  const totalSteps = 38;
+  let step = 0;
+
+  logMsg('ANIMAÇÃO', `Executando [${activeOpKey}] em torno de ${targetEl.name}...`);
+
+  const timer = setInterval(() => {
+    step++;
+    const progress = step / totalSteps;
+    const ease = 0.5 - 0.5 * Math.cos(progress * Math.PI);
+
+    if (opData.type === 'rotation' || opData.type === 'identity') {
+      const curAngle = opData.angle * ease;
+      for (let i = 1; i < sceneAtoms.length; i++) {
+        const pRot = rotateAroundAxis(startAtoms[i], targetEl.vec, curAngle);
+        sceneAtoms[i].x = pRot.x;
+        sceneAtoms[i].y = pRot.y;
+        sceneAtoms[i].z = pRot.z;
+      }
+      for (let i = 0; i < sceneLobes.length; i++) {
+        const lRot = rotateAroundAxis(startLobes[i], targetEl.vec, curAngle);
+        sceneLobes[i].x = lRot.x;
+        sceneLobes[i].y = lRot.y;
+        sceneLobes[i].z = lRot.z;
+        if (startLobes[i].originX || startLobes[i].originY || startLobes[i].originZ) {
+          const origRot = rotateAroundAxis({ x: startLobes[i].originX, y: startLobes[i].originY, z: startLobes[i].originZ }, targetEl.vec, curAngle);
+          sceneLobes[i].originX = origRot.x;
+          sceneLobes[i].originY = origRot.y;
+          sceneLobes[i].originZ = origRot.z;
+        }
+        if (startLobes[i].isTorus) {
+          const nRot = rotateAroundAxis({ x: startLobes[i].normX || 0, y: startLobes[i].normY || 0, z: startLobes[i].normZ || 1 }, targetEl.vec, curAngle);
+          sceneLobes[i].normX = nRot.x; sceneLobes[i].normY = nRot.y; sceneLobes[i].normZ = nRot.z;
+        }
+      }
+    } else if (opData.type === 'plane') {
+      for (let i = 1; i < sceneAtoms.length; i++) {
+        const pRefl = reflectAcrossPlane(startAtoms[i], targetEl.vec);
+        sceneAtoms[i].x = startAtoms[i].x * (1 - ease) + pRefl.x * ease;
+        sceneAtoms[i].y = startAtoms[i].y * (1 - ease) + pRefl.y * ease;
+        sceneAtoms[i].z = startAtoms[i].z * (1 - ease) + pRefl.z * ease;
+      }
+      for (let i = 0; i < sceneLobes.length; i++) {
+        const lRefl = reflectAcrossPlane(startLobes[i], targetEl.vec);
+        sceneLobes[i].x = startLobes[i].x * (1 - ease) + lRefl.x * ease;
+        sceneLobes[i].y = startLobes[i].y * (1 - ease) + lRefl.y * ease;
+        sceneLobes[i].z = startLobes[i].z * (1 - ease) + lRefl.z * ease;
+      }
+    } else if (opData.type === 'inversion') {
+      const factor = 1 - 2 * ease;
+      for (let i = 1; i < sceneAtoms.length; i++) {
+        sceneAtoms[i].x = startAtoms[i].x * factor;
+        sceneAtoms[i].y = startAtoms[i].y * factor;
+        sceneAtoms[i].z = startAtoms[i].z * factor;
+      }
+      for (let i = 0; i < sceneLobes.length; i++) {
+        sceneLobes[i].x = startLobes[i].x * factor;
+        sceneLobes[i].y = startLobes[i].y * factor;
+        sceneLobes[i].z = startLobes[i].z * factor;
+      }
+    } else if (opData.type === 'improper') {
+      if (ease <= 0.5) {
+        const e1 = ease * 2;
+        const curAngle = opData.angle * e1;
+        for (let i = 1; i < sceneAtoms.length; i++) {
+          const pRot = rotateAroundAxis(startAtoms[i], targetEl.vec, curAngle);
+          sceneAtoms[i].x = pRot.x; sceneAtoms[i].y = pRot.y; sceneAtoms[i].z = pRot.z;
+        }
+        for (let i = 0; i < sceneLobes.length; i++) {
+          const lRot = rotateAroundAxis(startLobes[i], targetEl.vec, curAngle);
+          sceneLobes[i].x = lRot.x; sceneLobes[i].y = lRot.y; sceneLobes[i].z = lRot.z;
+        }
+      } else {
+        const e2 = (ease - 0.5) * 2;
+        for (let i = 1; i < sceneAtoms.length; i++) {
+          const pRot = rotateAroundAxis(startAtoms[i], targetEl.vec, opData.angle);
+          const pRefl = reflectAcrossPlane(pRot, targetEl.vec);
+          sceneAtoms[i].x = pRot.x * (1 - e2) + pRefl.x * e2;
+          sceneAtoms[i].y = pRot.y * (1 - e2) + pRefl.y * e2;
+          sceneAtoms[i].z = pRot.z * (1 - e2) + pRefl.z * e2;
+        }
+        for (let i = 0; i < sceneLobes.length; i++) {
+          const lRot = rotateAroundAxis(startLobes[i], targetEl.vec, opData.angle);
+          const lRefl = reflectAcrossPlane(lRot, targetEl.vec);
+          sceneLobes[i].x = lRot.x * (1 - e2) + lRefl.x * e2;
+          sceneLobes[i].y = lRot.y * (1 - e2) + lRefl.y * e2;
+          sceneLobes[i].z = lRot.z * (1 - e2) + lRefl.z * e2;
+        }
+      }
+    }
+
+    if (step >= totalSteps) {
+      clearInterval(timer);
+      isAnimatingOp = false;
+      logMsg('CONCLUÍDO', `Transformação [${activeOpKey}] finalizada. Veja os átomos permutados!`);
+    }
+  }, 18);
+}
+
+function alignCameraToActiveElement() {
+  const cData = COMPLEX_DB[activeComplexKey];
+  const opData = cData.operations[activeOpKey] || cData.operations['E'];
+  const elIdx = activeSubElementIdx >= 0 ? activeSubElementIdx : 0;
+  const targetEl = opData.elements[elIdx] || { vec: {x:1, y:1, z:1} };
+  const u = vecNorm(targetEl.vec);
+
+  rotY = -Math.atan2(u.x, u.z);
+  rotX = Math.asin(Math.max(-1, Math.min(1, u.y)));
+  autoRotate = false;
+  document.getElementById('btnAutoRotate').classList.remove('active');
+  logMsg('CÂMERA', `Câmera alinhada frontalmente ao elemento ${targetEl.name}!`);
+}
+
+function updateElectronegativity(val) {
+  electronegativityDiff = parseFloat(val);
+  document.getElementById('enReadout').innerText = `Δχ = ${electronegativityDiff.toFixed(1)} (ΔE = -${(electronegativityDiff*1.2).toFixed(1)} eV)`;
+  sceneLobes = buildOrbitalLobes(activeComplexKey, activeRepCode, activeMOType, electronegativityDiff);
+  drawMODiagram();
+}
+
+function setENPreset(val, label) {
+  document.getElementById('enSlider').value = val;
+  document.querySelectorAll('.en-preset-btn').forEach(b => b.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  updateElectronegativity(val);
+  logMsg('ELETRONEG', `Ligante ajustado para: ${label}`);
+}
+
+function setMOType(type) {
+  activeMOType = type;
+  document.getElementById('moPillBonding').classList.toggle('active', type === 'bonding');
+  document.getElementById('moPillAtomic').classList.toggle('active', type === 'atomic');
+  document.getElementById('moPillAntibonding').classList.toggle('active', type === 'antibonding');
+  sceneLobes = buildOrbitalLobes(activeComplexKey, activeRepCode, activeMOType, electronegativityDiff);
+  drawMODiagram();
+  logMsg('LCAO-MO', `Visualizando: ${type === 'bonding' ? 'Orbital Molecular Ligante (Ψ)' : (type === 'antibonding' ? 'Orbital Molecular Antiligante (Ψ*)' : 'Orbitais Atômicos antes da sobreposição')}`);
+}
+
+function drawMODiagram() {
+  const w = moCanvas.width;
+  const h = moCanvas.height;
+  moCtx.clearRect(0, 0, w, h);
+
+  const metalY = 65;
+  const ligandY = Math.min(155, 65 + electronegativityDiff * 24);
+  const interaction = 28 / (1 + electronegativityDiff * 0.25);
+  const moBondingY = ligandY + interaction;
+  const moAntibondingY = metalY - interaction;
+
+  const colM = 48;
+  const colMO = 165;
+  const colL = 282;
+
+  moCtx.font = "bold 9.5px 'JetBrains Mono'";
+  moCtx.textAlign = 'center';
+  moCtx.fillStyle = '#FFB300';
+  moCtx.fillText('METAL (M)', colM, 16);
+  moCtx.fillStyle = '#00E5FF';
+  moCtx.fillText('OM (Ψ)', colMO, 16);
+  moCtx.fillStyle = '#00E676';
+  moCtx.fillText('LIGANTES (L)', colL, 16);
+
+  moCtx.setLineDash([3, 3]);
+  moCtx.lineWidth = 1.2;
+  moCtx.strokeStyle = 'rgba(255, 179, 0, 0.45)';
+  moCtx.beginPath();
+  moCtx.moveTo(colM + 22, metalY); moCtx.lineTo(colMO - 28, moAntibondingY);
+  moCtx.moveTo(colM + 22, metalY); moCtx.lineTo(colMO - 28, moBondingY);
+  moCtx.stroke();
+
+  moCtx.strokeStyle = 'rgba(0, 230, 118, 0.45)';
+  moCtx.beginPath();
+  moCtx.moveTo(colL - 22, ligandY); moCtx.lineTo(colMO + 28, moAntibondingY);
+  moCtx.moveTo(colL - 22, ligandY); moCtx.lineTo(colMO + 28, moBondingY);
+  moCtx.stroke();
+  moCtx.setLineDash([]);
+
+  moCtx.strokeStyle = '#FFB300';
+  moCtx.lineWidth = 3;
+  moCtx.beginPath(); moCtx.moveTo(colM - 22, metalY); moCtx.lineTo(colM + 22, metalY); moCtx.stroke();
+  moCtx.fillStyle = '#CBD5E1';
+  moCtx.font = "9px 'JetBrains Mono'";
+  moCtx.fillText('Orbital d (χ menor)', colM, metalY - 8);
+
+  moCtx.strokeStyle = '#00E676';
+  moCtx.beginPath(); moCtx.moveTo(colL - 22, ligandY); moCtx.lineTo(colL + 22, ligandY); moCtx.stroke();
+  moCtx.fillStyle = '#CBD5E1';
+  moCtx.fillText('SALC L (χ maior)', colL, ligandY + 14);
+
+  const isAntiActive = (activeMOType === 'antibonding');
+  moCtx.strokeStyle = isAntiActive ? '#FF5252' : '#E040FB';
+  moCtx.lineWidth = isAntiActive ? 4 : 2.5;
+  moCtx.beginPath(); moCtx.moveTo(colMO - 28, moAntibondingY); moCtx.lineTo(colMO + 28, moAntibondingY); moCtx.stroke();
+  moCtx.fillStyle = '#FF5252';
+  moCtx.font = "bold 9.5px 'JetBrains Mono'";
+  moCtx.fillText('Ψ* Antiligante (Caráter M)', colMO, moAntibondingY - 7);
+
+  const isBondActive = (activeMOType === 'bonding');
+  moCtx.strokeStyle = isBondActive ? '#00E5FF' : '#38BDF8';
+  moCtx.lineWidth = isBondActive ? 4 : 2.5;
+  moCtx.beginPath(); moCtx.moveTo(colMO - 28, moBondingY); moCtx.lineTo(colMO + 28, moBondingY); moCtx.stroke();
+  moCtx.fillStyle = '#00E5FF';
+  moCtx.fillText('Ψ Ligante (Caráter L)', colMO, moBondingY + 14);
+
+  const nbY = metalY + 4;
+  moCtx.strokeStyle = 'rgba(255,255,255,0.25)';
+  moCtx.lineWidth = 1.5;
+  moCtx.beginPath(); moCtx.moveTo(colMO - 20, nbY); moCtx.lineTo(colMO + 20, nbY); moCtx.stroke();
+  moCtx.fillStyle = '#94A3B8';
+  moCtx.font = "8.5px 'JetBrains Mono'";
+  moCtx.fillText('t₂g (Não-Ligante)', colMO, nbY - 5);
+}
+
+function project3D(p) {
+  let cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+  let x1 = p.x * cosY + p.z * sinY;
+  let y1 = p.y;
+  let z1 = -p.x * sinY + p.z * cosY;
+
+  let cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+  let x2 = x1;
+  let y2 = y1 * cosX - z1 * sinX;
+  let z2 = y1 * sinX + z1 * cosX;
+
+  const camDist = 480;
+  const scale = (camDist / (camDist + z2)) * zoom;
+  return {
+    x: width / 2 + x2 * scale,
+    y: height / 2 + y2 * scale,
+    scale: scale,
+    depth: z2
+  };
+}
+
+let animClock = 0;
+// ============================================================================
+// DRAWING AUTHENTIC QUANTUM CHEMISTRY ORBITAL LOBES (TEARDROP & DZ² TORUS)
+// ============================================================================
+
+function drawTeardropLobe(ctx, pBase, pTip, radius, phase, isMetal) {
+  const dx = pTip.x - pBase.x;
+  const dy = pTip.y - pBase.y;
+  const len = Math.hypot(dx, dy);
+
+  const isPos = phase > 0;
+  const coreColor = isPos ? '#FFB300' : '#00E5FF';
+  const glowColor = isPos ? 'rgba(255, 179, 0, 0.45)' : 'rgba(0, 229, 255, 0.45)';
+  const strokeColor = isPos ? 'rgba(255, 220, 110, 0.75)' : 'rgba(160, 245, 255, 0.75)';
+
+  if (len < 5) {
+    const grad = ctx.createRadialGradient(pTip.x, pTip.y, 2, pTip.x, pTip.y, radius);
+    grad.addColorStop(0, coreColor);
+    grad.addColorStop(0.7, glowColor);
+    grad.addColorStop(1, 'transparent');
+    ctx.beginPath();
+    ctx.arc(pTip.x, pTip.y, radius, 0, Math.PI * 2);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    return;
+  }
+
+  const ux = dx / len;
+  const uy = dy / len;
+  const nx = -uy;
+  const ny = ux;
+
+  // Bojo do lóbulo a 70% do comprimento
+  const bulgeDist = len * 0.72;
+  const bx = pBase.x + ux * bulgeDist;
+  const by = pBase.y + uy * bulgeDist;
+
+  const bLeftX = bx + nx * radius;
+  const bLeftY = by + ny * radius;
+  const bRightX = bx - nx * radius;
+  const bRightY = by - ny * radius;
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(pBase.x, pBase.y);
+
+  // Curva de transição suave da base até o bojo
+  ctx.bezierCurveTo(
+    pBase.x + ux * len * 0.22 + nx * radius * 0.2, pBase.y + uy * len * 0.22 + ny * radius * 0.2,
+    bx - ux * len * 0.16 + nx * radius * 0.95, by - uy * len * 0.16 + ny * radius * 0.95,
+    bLeftX, bLeftY
+  );
+  // Cúpula esférica na ponta do lóbulo
+  ctx.bezierCurveTo(
+    bLeftX + ux * radius * 0.65, bLeftY + uy * radius * 0.65,
+    pTip.x + nx * radius * 0.55, pTip.y + ny * radius * 0.55,
+    pTip.x, pTip.y
+  );
+  ctx.bezierCurveTo(
+    pTip.x - nx * radius * 0.55, pTip.y - ny * radius * 0.55,
+    bRightX + ux * radius * 0.65, bRightY + uy * radius * 0.65,
+    bRightX, bRightY
+  );
+  // Retorno da lateral direita à base
+  ctx.bezierCurveTo(
+    bx - ux * len * 0.16 - nx * radius * 0.95, by - uy * len * 0.16 - ny * radius * 0.95,
+    pBase.x + ux * len * 0.22 - nx * radius * 0.2, pBase.y + uy * len * 0.22 - ny * radius * 0.2,
+    pBase.x, pBase.y
+  );
+  ctx.closePath();
+
+  // Gradiente volumétrico com iluminação interna
+  const grad = ctx.createRadialGradient(bx - nx * radius * 0.2, by - ny * radius * 0.2, radius * 0.15, bx, by, radius * 1.3);
+  grad.addColorStop(0, coreColor);
+  grad.addColorStop(0.55, glowColor);
+  grad.addColorStop(0.92, isPos ? 'rgba(255, 179, 0, 0.12)' : 'rgba(0, 229, 255, 0.12)');
+  grad.addColorStop(1, 'transparent');
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  // Contorno da isossuperfície
+  ctx.strokeStyle = strokeColor;
+  ctx.lineWidth = 1.4;
+  ctx.stroke();
+
+  // Linha interna tracejada de contorno quântico (isodensidade)
+  ctx.beginPath();
+  const innerR = radius * 0.5;
+  ctx.ellipse(bx, by, innerR * 0.78, innerR, Math.atan2(uy, ux), 0, Math.PI * 2);
+  ctx.strokeStyle = 'rgba(255, 255, 255, 0.4)';
+  ctx.lineWidth = 0.9;
+  ctx.setLineDash([3, 3]);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Sinal da função de onda (+ ou −)
+  ctx.fillStyle = '#ffffff';
+  ctx.font = `bold ${Math.max(10, Math.round(13 * (radius / 22)))}px 'JetBrains Mono', monospace`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.shadowColor = coreColor;
+  ctx.shadowBlur = 6;
+  ctx.fillText(isPos ? '+' : '−', bx, by);
+  ctx.shadowBlur = 0;
+
+  ctx.restore();
+}
+
+function drawDz2Torus(ctx, lobe) {
+  // Amostra 32 pontos ao redor do anel equatorial (plano perpendicular a norm)
+  const numPts = 32;
+  const pts = [];
+  const nx = lobe.normX !== undefined ? lobe.normX : 0;
+  const ny = lobe.normY !== undefined ? lobe.normY : 0;
+  const nz = lobe.normZ !== undefined ? lobe.normZ : 1;
+
+  // Encontra dois vetores ortogonais ao normal
+  let u = Math.abs(nz) < 0.9 ? { x: -ny, y: nx, z: 0 } : { x: 1, y: 0, z: 0 };
+  const uLen = Math.hypot(u.x, u.y, u.z) || 1;
+  u.x /= uLen; u.y /= uLen; u.z /= uLen;
+  const v = {
+    x: ny * u.z - nz * u.y,
+    y: nz * u.x - nx * u.z,
+    z: nx * u.y - ny * u.x
+  };
+
+  const R = lobe.r;
+  for (let i = 0; i <= numPts; i++) {
+    const th = (i / numPts) * Math.PI * 2;
+    const cosT = Math.cos(th);
+    const sinT = Math.sin(th);
+    const px = lobe.x + (u.x * cosT + v.x * sinT) * R;
+    const py = lobe.y + (u.y * cosT + v.y * sinT) * R;
+    const pz = lobe.z + (u.z * cosT + v.z * sinT) * R;
+    pts.push(project3D({ x: px, y: py, z: pz }));
+  }
+
+  ctx.save();
+  ctx.beginPath();
+  pts.forEach((pt, idx) => {
+    if (idx === 0) ctx.moveTo(pt.x, pt.y);
+    else ctx.lineTo(pt.x, pt.y);
+  });
+  ctx.closePath();
+
+  // Brilho do anel equatorial do dz² (fase negativa − / ciano)
+  ctx.strokeStyle = 'rgba(0, 229, 255, 0.78)';
+  ctx.lineWidth = (lobe.tubeR || 10) * pts[0].scale * 1.6;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.shadowColor = '#00E5FF';
+  ctx.shadowBlur = 10;
+  ctx.stroke();
+
+  // Linha de reflexão de luz central
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 1.3;
+  ctx.shadowBlur = 0;
+  ctx.stroke();
+
+  // Sinal negativo no anel
+  const midPt = pts[Math.floor(numPts * 0.25)];
+  ctx.fillStyle = '#ffffff';
+  ctx.font = "bold 13px 'JetBrains Mono', monospace";
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('−', midPt.x, midPt.y);
+
+  ctx.restore();
+}
+
+function renderLoop() {
+  ctx.clearRect(0, 0, width, height);
+  animClock += 0.035;
+  if (autoRotate && !isAnimatingOp) {
+    rotY += 0.0035;
+  }
+
+  const cData = COMPLEX_DB[activeComplexKey];
+  const opData = cData.operations[activeOpKey] || cData.operations['E'];
+
+  if (showCage) {
+    drawPolyhedronCage(cData, opData);
+  }
+
+  if (showSymElements) {
+    drawSymmetryElements3D(opData);
+  }
+
+  const renderList = [];
+
+  sceneBonds.forEach(([i, j]) => {
+    const a1 = sceneAtoms[i];
+    const a2 = sceneAtoms[j];
+    if (!a1 || !a2) return;
+    const p1 = project3D(a1);
+    const p2 = project3D(a2);
+    renderList.push({ type: 'bond', depth: (p1.depth + p2.depth) / 2, p1, p2 });
+  });
+
+  if (showOrbitals) {
+    sceneLobes.forEach(lobe => {
+      if (lobe.isTorus) {
+        const p = project3D(lobe);
+        renderList.push({
+          type: 'torus',
+          depth: p.depth,
+          lobe,
+          p
+        });
+      } else {
+        const pTip = project3D(lobe);
+        const pBase = project3D({
+          x: lobe.originX || 0,
+          y: lobe.originY || 0,
+          z: lobe.originZ || 0
+        });
+        const pulse = Math.sin(animClock * 1.8 + lobe.x * 0.02) * 1.5;
+        const depth = (pBase.depth + pTip.depth * 2) / 3;
+        renderList.push({
+          type: 'lobe_teardrop',
+          depth,
+          pBase,
+          pTip,
+          radius: Math.max(5, (lobe.r + pulse) * pTip.scale),
+          phase: lobe.phase,
+          isMetal: lobe.isMetal,
+          isSphere: lobe.isSphere
+        });
+      }
+    });
+  }
+
+  sceneAtoms.forEach(atom => {
+    const p = project3D(atom);
+    renderList.push({
+      type: 'atom',
+      depth: p.depth,
+      p,
+      radius: atom.r * p.scale,
+      color: atom.color,
+      label: atom.label
+    });
+  });
+
+  renderList.sort((a, b) => b.depth - a.depth);
+
+  renderList.forEach(item => {
+    if (item.type === 'bond') {
+      ctx.beginPath();
+      ctx.moveTo(item.p1.x, item.p1.y);
+      ctx.lineTo(item.p2.x, item.p2.y);
+      ctx.strokeStyle = 'rgba(0, 229, 255, 0.45)';
+      ctx.lineWidth = 2.8 * item.p1.scale;
+      ctx.stroke();
+
+      if (showOrbitals && activeMOType === 'bonding') {
+        ctx.beginPath();
+        ctx.moveTo(item.p1.x, item.p1.y);
+        ctx.lineTo(item.p2.x, item.p2.y);
+        ctx.strokeStyle = 'rgba(255, 179, 0, 0.2)';
+        ctx.lineWidth = 10 * item.p1.scale;
+        ctx.stroke();
+      }
+    } else if (item.type === 'torus') {
+      // DESENHO DO TOROIDE (ROSQUINHA EQUATORIAL DO d(z²))
+      drawDz2Torus(ctx, item.lobe);
+    } else if (item.type === 'lobe_teardrop') {
+      if (item.isSphere) {
+        // Orbital s esférico
+        const isPos = item.phase > 0;
+        const grad = ctx.createRadialGradient(item.pTip.x, item.pTip.y, 2, item.pTip.x, item.pTip.y, item.radius);
+        grad.addColorStop(0, '#FFD54F');
+        grad.addColorStop(0.65, 'rgba(255, 179, 0, 0.55)');
+        grad.addColorStop(1, 'transparent');
+        ctx.beginPath();
+        ctx.arc(item.pTip.x, item.pTip.y, item.radius, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.font = `bold 12px 'JetBrains Mono'`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('+', item.pTip.x, item.pTip.y);
+      } else {
+        // FORMA REAL PIRIFORME / TEARDROP DO LÓBULO DE ORBITAL D / P
+        drawTeardropLobe(ctx, item.pBase, item.pTip, item.radius, item.phase, item.isMetal);
+      }
+    } else if (item.type === 'atom') {
+      const grad = ctx.createRadialGradient(
+        item.p.x - item.radius * 0.3,
+        item.p.y - item.radius * 0.3,
+        item.radius * 0.1,
+        item.p.x,
+        item.p.y,
+        item.radius
+      );
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.45, item.color);
+      grad.addColorStop(1, '#040B14');
+
+      ctx.beginPath();
+      ctx.arc(item.p.x, item.p.y, item.radius, 0, Math.PI * 2);
+      ctx.fillStyle = grad;
+      ctx.fill();
+
+      ctx.fillStyle = '#ffffff';
+      ctx.font = `bold ${Math.max(9, Math.round(10.5 * item.p.scale))}px 'JetBrains Mono'`;
+      ctx.textAlign = 'center';
+      ctx.fillText(item.label, item.p.x, item.p.y - item.radius - 5);
+    }
+  });
+
+  requestAnimationFrame(renderLoop);
+}
+
+function drawPolyhedronCage(cData, opData) {
+  if (cData.faces) {
+    cData.faces.forEach((f) => {
+      const a = cData.atoms[f[0]];
+      const b = cData.atoms[f[1]];
+      const c = cData.atoms[f[2]];
+      if (!a || !b || !c) return;
+      const pa = project3D(a);
+      const pb = project3D(b);
+      const pc = project3D(c);
+
+      ctx.beginPath();
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+      ctx.lineTo(pc.x, pc.y);
+      ctx.closePath();
+
+      const isFaceOp = opData.highlightFaces;
+      ctx.fillStyle = isFaceOp ? 'rgba(255, 179, 0, 0.08)' : 'rgba(0, 229, 255, 0.03)';
+      ctx.fill();
+
+      if (isFaceOp) {
+        const centroid = project3D({
+          x: (a.x + b.x + c.x) / 3,
+          y: (a.y + b.y + c.y) / 3,
+          z: (a.z + b.z + c.z) / 3
+        });
+        ctx.beginPath();
+        ctx.arc(centroid.x, centroid.y, 4.5 * centroid.scale, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFB300';
+        ctx.fill();
+      }
+    });
+  }
+
+  if (cData.edges) {
+    ctx.beginPath();
+    cData.edges.forEach(([i, j]) => {
+      const a = cData.atoms[i];
+      const b = cData.atoms[j];
+      if (!a || !b) return;
+      const pa = project3D(a);
+      const pb = project3D(b);
+      ctx.moveTo(pa.x, pa.y);
+      ctx.lineTo(pb.x, pb.y);
+    });
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+}
+
+function drawSymmetryElements3D(opData) {
+  if (!opData || !opData.elements) return;
+
+  const elementsToDraw = activeSubElementIdx === -1
+    ? opData.elements
+    : [opData.elements[activeSubElementIdx]].filter(Boolean);
+
+  const center = project3D({ x: 0, y: 0, z: 0 });
+
+  elementsToDraw.forEach((el) => {
+    const u = vecNorm(el.vec);
+
+    if (opData.type === 'rotation' || opData.type === 'improper' || opData.type === 'identity') {
+      const len = 185;
+      const pStart = project3D({ x: -u.x * len, y: -u.y * len, z: -u.z * len });
+      const pEnd = project3D({ x: u.x * len, y: u.y * len, z: u.z * len });
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.setLineDash([6, 4]);
+      ctx.moveTo(pStart.x, pStart.y);
+      ctx.lineTo(pEnd.x, pEnd.y);
+      ctx.strokeStyle = el.color;
+      ctx.lineWidth = 2.6;
+      ctx.shadowColor = el.color;
+      ctx.shadowBlur = 10;
+      ctx.stroke();
+      ctx.restore();
+
+      ctx.beginPath();
+      ctx.arc(pEnd.x, pEnd.y, 5, 0, Math.PI * 2);
+      ctx.fillStyle = el.color;
+      ctx.fill();
+
+      ctx.fillStyle = el.color;
+      ctx.font = "bold 10.5px 'JetBrains Mono'";
+      ctx.textAlign = 'left';
+      ctx.fillText(el.name, pEnd.x + 8, pEnd.y + 4);
+
+      if (opData.type === 'improper') {
+        drawPlaneFromNormal(u, el.color, `Plano ⊥ (${el.name})`);
+      }
+    } else if (opData.type === 'plane') {
+      drawPlaneFromNormal(u, el.color, el.name);
+    } else if (opData.type === 'inversion') {
+      const pulseR = 26 + Math.sin(animClock * 4) * 5;
+      ctx.beginPath();
+      ctx.arc(center.x, center.y, pulseR * center.scale, 0, Math.PI * 2);
+      ctx.strokeStyle = '#FFFFFF';
+      ctx.lineWidth = 2.2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = "bold 11px 'JetBrains Mono'";
+      ctx.fillText('CENTRO DE INVERSÃO i (0,0,0)', center.x + 28, center.y - 22);
+    }
+  });
+}
+
+function drawPlaneFromNormal(n, color, label) {
+  let ref = Math.abs(n.x) < 0.8 ? { x: 1, y: 0, z: 0 } : { x: 0, y: 1, z: 0 };
+  const v1 = vecNorm(vecCross(n, ref));
+  const v2 = vecNorm(vecCross(n, v1));
+  const sz = 148;
+
+  const corners = [
+    { x: (v1.x + v2.x)*sz, y: (v1.y + v2.y)*sz, z: (v1.z + v2.z)*sz },
+    { x: (-v1.x + v2.x)*sz, y: (-v1.y + v2.y)*sz, z: (-v1.z + v2.z)*sz },
+    { x: (-v1.x - v2.x)*sz, y: (-v1.y - v2.y)*sz, z: (-v1.z - v2.z)*sz },
+    { x: (v1.x - v2.x)*sz, y: (v1.y - v2.y)*sz, z: (v1.z - v2.z)*sz }
+  ].map(project3D);
+
+  ctx.save();
+  ctx.beginPath();
+  ctx.moveTo(corners[0].x, corners[0].y);
+  ctx.lineTo(corners[1].x, corners[1].y);
+  ctx.lineTo(corners[2].x, corners[2].y);
+  ctx.lineTo(corners[3].x, corners[3].y);
+  ctx.closePath();
+
+  ctx.fillStyle = 'rgba(0, 229, 255, 0.13)';
+  ctx.fill();
+  ctx.strokeStyle = color;
+  ctx.lineWidth = 1.8;
+  ctx.stroke();
+  ctx.restore();
+
+  ctx.fillStyle = color;
+  ctx.font = "bold 10px 'JetBrains Mono'";
+  ctx.fillText(label, corners[0].x + 6, corners[0].y + 4);
+}
+
+function togglePolyhedronCage() {
+  showCage = !showCage;
+  document.getElementById('btnShowCage').classList.toggle('active', showCage);
+}
+function toggleSymElements() {
+  showSymElements = !showSymElements;
+  document.getElementById('btnShowSymElements').classList.toggle('active', showSymElements);
+}
+function toggleOrbitals() {
+  showOrbitals = !showOrbitals;
+  document.getElementById('btnShowOrbitals').classList.toggle('active', showOrbitals);
+}
+function toggleAutoRotate() {
+  autoRotate = !autoRotate;
+  document.getElementById('btnAutoRotate').classList.toggle('active', autoRotate);
+}
+
+function logMsg(tag, text) {
+  const log = document.getElementById('telemetryLog');
+  const div = document.createElement('div');
+  div.className = 'log-line';
+  div.innerHTML = `<span>[${tag}]</span> ${text}`;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+
+canvas.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  autoRotate = false;
+  document.getElementById('btnAutoRotate').classList.remove('active');
+  lastMouseX = e.clientX;
+  lastMouseY = e.clientY;
+});
+window.addEventListener('mouseup', () => isDragging = false);
+window.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const dx = e.clientX - lastMouseX;
+  const dy = e.clientY - lastMouseY;
+  rotY += dx * 0.008;
+  rotX += dy * 0.008;
+  lastMouseX = e.clientX;
+  lastMouseY = e.clientY;
+});
+canvas.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  zoom *= (e.deltaY > 0 ? 0.92 : 1.08);
+  zoom = Math.max(0.5, Math.min(2.4, zoom));
+});
+
+resize();
+selectComplex('fe_cn6');
+renderLoop();
+</script>
+</body>
+</html>
