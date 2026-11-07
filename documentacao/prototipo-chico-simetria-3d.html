@@ -530,7 +530,324 @@
   }
   .log-line { margin-bottom: 2px; }
   .log-line span { color: var(--cyan); font-weight: 700; }
+
+  /* ==================== V4.0 KNOWLEDGE CORE & MULTILINGUAL NAVIGATION ==================== */
+  .nav-subbar {
+    height: 42px;
+    background: rgba(6, 13, 22, 0.98);
+    border-bottom: 1px solid rgba(0, 229, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 99;
+    gap: 10px;
+  }
+  .nav-tabs {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+  }
+  .nav-tab-btn {
+    padding: 6px 13px;
+    font-size: 11px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .nav-tab-btn:hover {
+    color: #fff;
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.08);
+  }
+  .nav-tab-btn.active {
+    color: #04080E;
+    background: linear-gradient(90deg, var(--cyan), #00B8D4);
+    border-color: var(--cyan);
+    box-shadow: 0 0 14px rgba(0, 229, 255, 0.4);
+    font-weight: 700;
+  }
+  .nav-tab-btn .badge-new {
+    background: var(--amber);
+    color: #04080E;
+    font-size: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+  }
+
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0, 0, 0, 0.45);
+    padding: 3px 6px;
+    border-radius: 6px;
+    border: 1px solid var(--border-dim);
+  }
+  .lang-btn {
+    padding: 3px 7px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .lang-btn:hover { color: #fff; }
+  .lang-btn.active {
+    color: #04080E;
+    background: var(--amber);
+    border-color: var(--amber);
+    font-weight: 700;
+  }
+
+  /* KNOWLEDGE CORE FULL-SCREEN / OVERLAY PANELS */
+  .knowledge-view {
+    display: none;
+    flex: 1;
+    overflow-y: auto;
+    padding: 28px 36px 60px;
+    background: radial-gradient(circle at 50% 10%, rgba(0, 229, 255, 0.08) 0%, rgba(4, 8, 14, 0.98) 70%);
+    z-index: 50;
+  }
+  .knowledge-view.active {
+    display: block;
+  }
+  .workspace.hidden {
+    display: none !important;
+  }
+
+  .kc-container {
+    max-width: 1220px;
+    margin: 0 auto;
+  }
+  .kc-hero {
+    background: linear-gradient(135deg, rgba(0, 229, 255, 0.12) 0%, rgba(255, 179, 0, 0.07) 100%);
+    border: 1px solid var(--border-cyan);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .kc-hero-text h2 {
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+  .kc-hero-text p {
+    font-size: 13.5px;
+    color: #CBD5E1;
+    line-height: 1.6;
+    max-width: 780px;
+  }
+  .kc-quote-box {
+    background: rgba(4, 8, 14, 0.85);
+    border-left: 3px solid var(--amber);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #F8FAFC;
+    max-width: 360px;
+    line-height: 1.5;
+  }
+
+  .kc-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 18px;
+    margin-bottom: 24px;
+  }
+  .kc-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .kc-card {
+    background: rgba(11, 22, 36, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 18px 20px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .kc-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 6px 24px rgba(0, 229, 255, 0.12);
+    transform: translateY(-2px);
+  }
+  .kc-card.amber-border { border-color: rgba(255, 179, 0, 0.4); }
+  .kc-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .kc-symbol-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--cyan);
+    background: rgba(0, 229, 255, 0.12);
+    border: 1px solid var(--cyan);
+    padding: 4px 12px;
+    border-radius: 6px;
+  }
+  .kc-symbol-badge.amber {
+    color: var(--amber);
+    background: rgba(255, 179, 0, 0.12);
+    border-color: var(--amber);
+  }
+  .kc-card h3 {
+    font-size: 15px;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .kc-card p {
+    font-size: 12.5px;
+    color: #CBD5E1;
+    line-height: 1.55;
+    margin-bottom: 12px;
+  }
+  .kc-etymology {
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--amber);
+    background: rgba(255, 179, 0, 0.08);
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-bottom: 12px;
+  }
+  .kc-action-btn {
+    padding: 8px 12px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #04080E;
+    background: var(--cyan);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.18s;
+  }
+  .kc-action-btn:hover {
+    background: #fff;
+    box-shadow: 0 0 12px var(--cyan-glow);
+  }
+
+  /* SCHOENFLIES DECISION TREE */
+  .tree-box {
+    background: rgba(8, 17, 28, 0.95);
+    border: 1px solid var(--border-cyan);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .tree-step-question {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .tree-step-hint {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+    line-height: 1.5;
+  }
+  .tree-btn-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .tree-choice-btn {
+    padding: 12px 24px;
+    font-size: 13px;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1.5px solid var(--cyan);
+    background: rgba(0, 229, 255, 0.12);
+    color: #fff;
+    transition: all 0.2s;
+  }
+  .tree-choice-btn:hover {
+    background: var(--cyan);
+    color: #04080E;
+  }
+  .tree-choice-btn.no-btn {
+    border-color: var(--amber);
+    background: rgba(255, 179, 0, 0.12);
+  }
+  .tree-choice-btn.no-btn:hover {
+    background: var(--amber);
+    color: #04080E;
+  }
+
+  /* MULLIKEN ANATOMY TABLE */
+  .mulliken-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 6px;
+    font-size: 12px;
+  }
+  .quiz-option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 6px;
+    color: #E2E8F0;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .quiz-option:hover {
+    border-color: var(--cyan);
+    background: rgba(0, 229, 255, 0.08);
+  }
+  .quiz-option.correct {
+    border-color: var(--emerald);
+    background: rgba(0, 230, 118, 0.18);
+    color: #fff;
+    font-weight: 600;
+  }
+  .quiz-option.wrong {
+    border-color: var(--coral);
+    background: rgba(255, 82, 82, 0.18);
+  }
 </style>
+
 </head>
 <body>
 
@@ -552,8 +869,44 @@
     </div>
   </header>
 
+  <!-- MASTER NAVIGATION TABS & MULTILINGUAL BAR (V4.0 KNOWLEDGE CORE) -->
+  <nav class="nav-subbar">
+    <div class="nav-tabs">
+      <button class="nav-tab-btn" id="tabBtn-basics" onclick="switchMasterTab('basics')">
+        <span>📘</span>
+        <span data-i18n="tab_basics">1. O Básico & Notação de Schoenflies</span>
+        <span class="badge-new">FUNDAMENTOS</span>
+      </button>
+      <button class="nav-tab-btn active" id="tabBtn-lab" onclick="switchMasterTab('lab')">
+        <span>🔬</span>
+        <span data-i18n="tab_lab">2. Laboratório 3D & Orbitais (LCAO-MO)</span>
+      </button>
+      <button class="nav-tab-btn" id="tabBtn-tree" onclick="switchMasterTab('tree')">
+        <span>🧭</span>
+        <span data-i18n="tab_tree">3. Descobridor de Grupo Pontual (Fluxograma)</span>
+      </button>
+      <button class="nav-tab-btn" id="tabBtn-mulliken" onclick="switchMasterTab('mulliken')">
+        <span>🔍</span>
+        <span data-i18n="tab_mulliken">4. Como Ler a Tabela de Caracteres (Mulliken)</span>
+      </button>
+      <button class="nav-tab-btn" id="tabBtn-classroom" onclick="switchMasterTab('classroom')">
+        <span>🎓</span>
+        <span data-i18n="tab_classroom">5. Sala de Aula, Exercícios & Livros</span>
+      </button>
+    </div>
+
+    <div class="lang-switcher" title="Global Multilingual Core">
+      <span style="font-size:10px; color:var(--cyan); margin-right:4px; font-family:'JetBrains Mono',monospace;">🌐 IDIOMA:</span>
+      <button class="lang-btn active" id="lang-pt" onclick="setLanguage('pt')">🇧🇷 PT</button>
+      <button class="lang-btn" id="lang-en" onclick="setLanguage('en')">🇺🇸 EN</button>
+      <button class="lang-btn" id="lang-es" onclick="setLanguage('es')">🇪🇸 ES</button>
+      <button class="lang-btn" id="lang-fr" onclick="setLanguage('fr')">🇫🇷 FR</button>
+      <button class="lang-btn" id="lang-de" onclick="setLanguage('de')">🇩🇪 DE</button>
+    </div>
+  </nav>
+
   <!-- MAIN WORKSPACE -->
-  <main class="workspace">
+  <main class="workspace" id="mainLabWorkspace">
 
     <!-- ==================== LEFT SIDEBAR ==================== -->
     <aside class="panel panel-left">
@@ -720,6 +1073,371 @@
     </aside>
 
   </main>
+
+  <!-- ==================== VIEW 1: FUNDAMENTOS & NOTAÇÃO DE SCHOENFLIES ==================== -->
+  <section class="knowledge-view" id="view-basics">
+    <div class="kc-container">
+      <div class="kc-hero">
+        <div class="kc-hero-text">
+          <div class="section-tag" data-i18n="basics_tag">NÚCLEO DE FUNDAMENTOS • DO ENSINO MÉDIO À PÓS-GRADUAÇÃO</div>
+          <h2 data-i18n="basics_title">O que é a Notação de Schoenflies e a Simetria Molecular?</h2>
+          <p data-i18n="basics_desc">
+            A <strong>Notação de Schoenflies</strong> é o sistema universal de símbolos criado pelo matemático alemão <strong>Arthur Moritz Schoenflies em 1891</strong> (em sua obra clássica <em>Kristallsysteme und Kristallstruktur</em>) para classificar rigorosamente as operações e os grupos de simetria de moléculas e cristais. Na Química Inorgânica, Quântica e Espectroscopia (Infravermelho e Raman), ela é a linguagem que permite prever como os orbitais atômicos se combinam para formar <strong>Orbitais Moleculares</strong> sem precisar resolver equações diferenciais gigantescas no braço!
+          </p>
+        </div>
+        <div class="kc-quote-box">
+          <strong style="color:var(--amber);">💡 Dica de Sala de Aula do Prof. Chico:</strong><br>
+          <span data-i18n="basics_chico_quote">"Antes de olhar para a Tabela de Caracteres ou para os orbitais d de um complexo metálico, o estudante precisa enxergar os 5 elementos geométricos de simetria na molécula. É daí que nasce toda a Teoria de Grupos!"</span>
+        </div>
+      </div>
+
+      <h3 style="font-size:16px; color:var(--cyan); margin-bottom:14px; font-family:'JetBrains Mono',monospace;" data-i18n="basics_5elem_heading">
+        ▼ OS 5 ELEMENTOS E OPERAÇÕES DE SIMETRIA (ETIMOLOGIA ALEMÃ DE SCHOENFLIES + DEMONSTRAÇÃO 3D)
+      </h3>
+
+      <div class="kc-grid-3">
+        <!-- 1. IDENTIDADE E -->
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge">E</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">360° / Deixar Intacto</span>
+            </div>
+            <h3 data-i18n="el_E_title">1. Operação Identidade (E)</h3>
+            <div class="kc-etymology">🇩🇪 Do alemão "Einheit" (Unidade / Identidade)</div>
+            <p data-i18n="el_E_desc">
+              Consiste em não fazer nada à molécula (ou girá-la em 360°). Toda molécula no universo possui ao menos a Identidade. Na Tabela de Caracteres, a coluna <strong>E</strong> é fundamental porque o número sob ela revela a <strong>degenerescência (dimensão)</strong> do orbital: <strong>1</strong> para orbitais simples (s, pz), <strong>2</strong> para duplos (Eg: dz², dx²-y²) e <strong>3</strong> para triplos (T2g: dxy, dxz, dyz)!
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', 'E', 'Eg')">▶ Ver Coluna E no Complexo [Fe(CN)₆]⁴⁻</button>
+        </div>
+
+        <!-- 2. ROTAÇÃO PRÓPRIA Cn -->
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge">Cₙ</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Giro de 360° / n</span>
+            </div>
+            <h3 data-i18n="el_Cn_title">2. Eixo de Rotação Própria (Cₙ)</h3>
+            <div class="kc-etymology">🔄 Eixo de Ordem n (Ex: C₂ = 180°, C₃ = 120°, C₄ = 90°)</div>
+            <p data-i18n="el_Cn_desc">
+              Se ao girar a molécula por <strong>360°/n</strong> ao redor de uma linha imaginária ela ficar indistinguível da posição inicial, existe um eixo <strong>Cₙ</strong>. O eixo de maior ordem <em>n</em> é chamado de <strong>Eixo Principal</strong> (por convenção, o eixo Z). No octaedro (Oₕ), além dos 3 eixos <strong>C₄</strong> nos vértices, existem <strong>4 eixos C₃ (classe 8C₃)</strong> que furam o centro das 8 faces triangulares!
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', '8C3', 'Eg')">▶ Ver os 4 Eixos C₃ Furando as Faces do Octaedro</button>
+        </div>
+
+        <!-- 3. PLANO DE REFLEXÃO SIGMA -->
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge">σₕ, σᵥ, σ_d</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Espelho Molecular</span>
+            </div>
+            <h3 data-i18n="el_sigma_title">3. Planos de Reflexão (σ)</h3>
+            <div class="kc-etymology">🇩🇪 Do alemão "Spiegel" (Espelho — letra grega σ)</div>
+            <p data-i18n="el_sigma_desc">
+              Reflete cada metade da molécula na outra como num espelho:<br>
+              • <strong>σₕ (Horizontal):</strong> Perpendicular (⊥) ao eixo principal Cₙ.<br>
+              • <strong>σᵥ (Vertical):</strong> Contém o eixo principal Cₙ.<br>
+              • <strong>σ_d (Diedral/Diagonal):</strong> Contém o eixo principal e bissecta o ângulo entre dois eixos C₂' adjacentes.
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', '3sh', 'Eg')">▶ Ver Planos de Reflexão σₕ no 3D</button>
+        </div>
+
+        <!-- 4. CENTRO DE INVERSÃO i -->
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge amber">i</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">(x,y,z) → (−x,−y,−z)</span>
+            </div>
+            <h3 data-i18n="el_i_title">4. Centro de Inversão (i)</h3>
+            <div class="kc-etymology">🇩🇪 Origem dos subscritos "g" (gerade) e "u" (ungerade)</div>
+            <p data-i18n="el_i_desc">
+              Pega cada átomo em <em>(x, y, z)</em>, projeta em linha reta através do centro <em>(0,0,0)</em> até o ponto oposto <em>(−x, −y, −z)</em>. Complexos octaédricos (Oₕ) e quadrados planares (D₄ₕ) possuem centro de inversão <strong>i</strong>; já tetraédricos (T_d) <strong>NÃO possuem i</strong>! Orbitais que mantêm o sinal sob <em>i</em> são <strong>g (gerade = par, como d e s)</strong>; os que invertem são <strong>u (ungerade = ímpar, como p)</strong>.
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', 'i', 'T1u')">▶ Animar Inversão (i) no Orbital p (T₁ᵤ)</button>
+        </div>
+
+        <!-- 5. ROTAÇÃO IMPRÓPRIA Sn -->
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge amber">Sₙ</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Sₙ = σₕ × Cₙ</span>
+            </div>
+            <h3 data-i18n="el_Sn_title">5. Rotação Imprópria (Sₙ)</h3>
+            <div class="kc-etymology">🔄 Operação Composta em 2 Etapas: Giro + Reflexão</div>
+            <p data-i18n="el_Sn_desc">
+              É uma operação de duas etapas seguidas: primeiro gira-se a molécula em <strong>360°/n</strong> (Cₙ) e, imediatamente a seguir, reflete-se através de um plano <strong>perpendicular (σₕ)</strong> a esse eixo. No tetraedro (T_d) existem 3 eixos <strong>S₄</strong>, e no octaedro existem <strong>S₄</strong> e <strong>S₆</strong> (ao longo dos mesmos eixos das faces triangulares C₃!).
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', '8S6', 'Eg')">▶ Animar Rotação-Reflexão S₆ no 3D</button>
+        </div>
+
+        <!-- 6. SCHOENFLIES VS HERMANN-MAUGUIN -->
+        <div class="kc-card amber-border">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge amber">Oₕ vs m3̄m</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Química vs Cristalografia</span>
+            </div>
+            <h3 data-i18n="el_comp_title">Schoenflies vs. Hermann-Mauguin</h3>
+            <div class="kc-etymology">📚 Contexto Histórico (1891 vs 1931)</div>
+            <p data-i18n="el_comp_desc">
+              • <strong>Notação de Schoenflies (1891):</strong> Ideal para <strong>moléculas discretas, complexos metálicos, orbitais e espectroscopia</strong> (usa C₂ᵥ, D₄ₕ, T_d, Oₕ).<br>
+              • <strong>Notação Internacional / Hermann-Mauguin (1931):</strong> Usada em <strong>Cristalografia de Raios-X</strong> para redes translacionais infinitas (ex: C₂ᵥ = <em>mm2</em>; Oₕ = <em>m3̄m</em>).
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="switchMasterTab('tree')">🧭 Testar o Descobridor de Grupo Pontual</button>
+        </div>
+      </div>
+
+      <!-- RESUMO DAS FAMÍLIAS DE GRUPOS PONTUAIS -->
+      <div class="tree-box">
+        <div class="section-tag">DICIONÁRIO RÁPIDO DE GRUPOS PONTUAIS DE SCHOENFLIES</div>
+        <div class="kc-grid-2" style="margin-bottom:0; margin-top:10px;">
+          <div>
+            <h4 style="color:var(--cyan); margin-bottom:6px; font-family:'JetBrains Mono',monospace;">1. Grupos de Baixa Simetria & Axiais (C)</h4>
+            <p style="font-size:12.5px; color:#CBD5E1; line-height:1.6;">
+              • <strong>C₁:</strong> Assimétrica (só tem E, ex: CHFClBr — molécula quiral).<br>
+              • <strong>Cₛ:</strong> Só tem 1 plano de espelho σ (ex: SOCl₂, quinolina).<br>
+              • <strong>Cᵢ:</strong> Só tem centro de inversão <em>i</em>.<br>
+              • <strong>Cₙᵥ:</strong> Tem eixo Cₙ + <em>n</em> planos verticais σᵥ (ex: <strong>H₂O é C₂ᵥ</strong>, <strong>NH₃ é C₃ᵥ</strong>).<br>
+              • <strong>Cₙₕ:</strong> Tem eixo Cₙ + 1 plano horizontal σₕ (ex: <em>trans</em>-N₂F₂ é C₂ₕ).
+            </p>
+          </div>
+          <div>
+            <h4 style="color:var(--amber); margin-bottom:6px; font-family:'JetBrains Mono',monospace;">2. Grupos Diedrais (D) e Platônicos/Cúbicos (T, O, I)</h4>
+            <p style="font-size:12.5px; color:#CBD5E1; line-height:1.6;">
+              • <strong>Dₙₕ:</strong> Eixo principal Cₙ + <em>n</em> eixos C₂ perpendiculares + plano horizontal σₕ (ex: <strong>BF₃ é D₃ₕ</strong>, <strong>[PtCl₄]²⁻ é D₄ₕ</strong>, Benzeno é D₆ₕ).<br>
+              • <strong>Dₙd:</strong> Eixo Cₙ + <em>n</em> eixos C₂ ⊥ + planos diedrais σ_d (ex: Etano eclipsado vs alternado D₃d).<br>
+              • <strong>T_d (Tetraédrico):</strong> 4 eixos C₃ + 3 eixos C₂ + 6 planos σ_d (ex: <strong>CH₄, [Ni(CO)₄]</strong>, ordem 24).<br>
+              • <strong>Oₕ (Octaédrico):</strong> 3 eixos C₄ + 4 eixos C₃ + centro <em>i</em> (ex: <strong>[Fe(CN)₆]⁴⁻, SF₆</strong>, ordem 48).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIEW 3: ÁRVORE DE DECISÃO DE SCHOENFLIES ==================== -->
+  <section class="knowledge-view" id="view-tree">
+    <div class="kc-container">
+      <div class="kc-hero">
+        <div class="kc-hero-text">
+          <div class="section-tag">ALGORITMO INTERATIVO DE CLASSIFICAÇÃO</div>
+          <h2>Descobridor de Grupo Pontual (Fluxograma de Schoenflies)</h2>
+          <p>
+            Qualquer aluno consegue descobrir o Grupo Pontual de uma molécula respondendo a 4 ou 5 perguntas visuais sobre seus eixos e planos. Use os botões abaixo para percorrer a árvore de decisão passo a passo ou clique em uma molécula clássica para ver o caminho automático!
+          </p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:6px;">
+          <span style="font-size:10px; font-family:'JetBrains Mono',monospace; color:var(--amber);">TESTAR MOLÉCULA PRONTA:</span>
+          <div style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="top-toggle active" onclick="runTreePreset('fe_cn6')">[Fe(CN)₆]⁴⁻ → Oₕ</button>
+            <button class="top-toggle active" onclick="runTreePreset('pt_cl4')">[PtCl₄]²⁻ → D₄ₕ</button>
+            <button class="top-toggle active" onclick="runTreePreset('ni_co4')">[Ni(CO)₄] → T_d</button>
+            <button class="top-toggle active" onclick="runTreePreset('h2o')">H₂O → C₂ᵥ</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tree-box" id="decisionTreeInteractiveBox">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <span class="section-tag" id="treeBreadcrumb">PASSO 1 DE 5 • GEOMETRIA MOLECULAR</span>
+          <button class="top-toggle" onclick="resetDecisionTree()">↺ Reiniciar Fluxograma</button>
+        </div>
+        <div class="tree-step-question" id="treeQuestionText">
+          1. A molécula é linear (todos os átomos na mesma linha reta, como CO₂ ou HCl)?
+        </div>
+        <div class="tree-step-hint" id="treeHintText">
+          Moléculas lineares possuem um eixo de rotação infinita (C∞) ao longo da ligação molecular.
+        </div>
+        <div class="tree-btn-row" id="treeButtonsContainer">
+          <button class="tree-choice-btn" onclick="answerTree('linear_yes')">✔ SIM, é Linear</button>
+          <button class="tree-choice-btn no-btn" onclick="answerTree('linear_no')">✖ NÃO é Linear</button>
+        </div>
+      </div>
+
+      <!-- HISTÓRICO DE PASSOS PERCORRIDOS -->
+      <div class="hud-card" id="treePathHistory" style="font-size:12.5px; color:#E2E8F0; line-height:1.6;">
+        <strong style="color:var(--cyan);">Caminho percorrido no algoritmo de Schoenflies:</strong>
+        <div id="treePathList" style="margin-top:6px; font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--text-muted);">
+          Aguardando sua primeira resposta acima...
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIEW 4: ANATOMIA DA TABELA DE CARACTERES & MULLIKEN ==================== -->
+  <section class="knowledge-view" id="view-mulliken">
+    <div class="kc-container">
+      <div class="kc-hero">
+        <div class="kc-hero-text">
+          <div class="section-tag">GUIA DEFINITIVO PARA NUNCA MAIS DECORAR</div>
+          <h2>Raio-X da Tabela de Caracteres & Símbolos de Mulliken</h2>
+          <p>
+            Muitos alunos têm medo da Tabela de Caracteres porque ninguém explica o que significam as letras <strong>A, B, E, T</strong> e os subscritos <strong>1, 2, g, u</strong> criados por <strong>Robert S. Mulliken</strong>. Veja abaixo como ler qualquer linha da tabela em menos de 10 segundos!
+          </p>
+        </div>
+        <div class="kc-quote-box">
+          <strong style="color:var(--cyan);">⚡ Regra de Ouro:</strong><br>
+          Olhe sempre primeiro para a coluna <strong>E (Identidade)</strong>: se o número for <strong>1</strong>, a letra é A ou B; se for <strong>2</strong>, é E (duplamente degenerado); se for <strong>3</strong>, é T (triplamente degenerado)!
+        </div>
+      </div>
+
+      <div class="kc-grid-2">
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge">A vs B</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Dimensão = 1 (Não-Degenerados)</span>
+            </div>
+            <h3>Representações Unidimensionais (A e B)</h3>
+            <p>
+              Sempre têm caractere <strong>+1 na coluna E</strong> (representam um único orbital, como <em>s</em> ou <em>pz</em> isolado):<br><br>
+              • <span class="mulliken-badge" style="background:rgba(0,230,118,0.2); color:var(--emerald);">A</span> <strong>Simétrica (+1)</strong> em relação ao giro no eixo principal Cₙ.<br>
+              • <span class="mulliken-badge" style="background:rgba(255,82,82,0.2); color:var(--coral);">B</span> <strong>Antissimétrica (−1)</strong> (troca o sinal da fase) ao girar no eixo principal Cₙ.
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', 'E', 'A1g')">▶ Ver Representação Totalmente Simétrica A₁g no 3D</button>
+        </div>
+
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge amber">E vs T</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Dimensão 2 e Dimensão 3</span>
+            </div>
+            <h3>Representações Degeneradas (E e T)</h3>
+            <p>
+              Agrupam orbitais que possuem exatamente a <strong>mesma energia</strong> por simetria e se misturam nas rotações:<br><br>
+              • <span class="mulliken-badge" style="background:rgba(255,179,0,0.2); color:var(--amber);">E</span> <strong>Duplamente Degenerada (Caractere sob E = 2):</strong> Par de orbitais, como <strong>(dx²-y², dz²)</strong> no grupo Oₕ.<br>
+              • <span class="mulliken-badge" style="background:rgba(0,229,255,0.2); color:var(--cyan);">T</span> <strong>Triplamente Degenerada (Caractere sob E = 3):</strong> Trio de orbitais equivalentes, como <strong>T₂g (dxy, dxz, dyz)</strong> ou <strong>T₁ᵤ (px, py, pz)</strong>.
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', '8C3', 'Eg')">▶ Ver por que E_g tem caractere −1 no eixo C₃</button>
+        </div>
+
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge">g vs u</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Paridade sob Inversão (i)</span>
+            </div>
+            <h3>Subscritos "g" (gerade) e "u" (ungerade)</h3>
+            <p>
+              Aparecem apenas em moléculas que têm <strong>Centro de Inversão (i)</strong> (como Oₕ e D₄ₕ):<br><br>
+              • <strong>g (gerade = par):</strong> Não muda de sinal na inversão (+1 ou positivo sob <em>i</em>). Todos os <strong>orbitais s (A₁g) e orbitais d (Eg, T₂g) são SEMPRE g</strong>!<br>
+              • <strong>u (ungerade = ímpar):</strong> Inverte o sinal na inversão (negativo sob <em>i</em>). Todos os <strong>orbitais p (px, py, pz → T₁ᵤ) são SEMPRE u</strong>!<br>
+              <em>(É daí que vem a Regra de Seleção de Laporte na espectroscopia: transições d-d são g → g, por isso têm cores suaves!)</em>
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('fe_cn6', 'i', 'Eg')">▶ Comparar paridade g vs u na Inversão 3D</button>
+        </div>
+
+        <div class="kc-card">
+          <div>
+            <div class="kc-card-header">
+              <span class="kc-symbol-badge amber">1, 2 e ' , ''</span>
+              <span style="font-size:11px; color:var(--text-muted); font-family:'JetBrains Mono',monospace;">Subscritos e Sobrescritos</span>
+            </div>
+            <h3>Subscritos 1 / 2 e Linhas ' / ''</h3>
+            <p>
+              • <strong>Subscrito 1 vs 2:</strong> Indica se é simétrico (<strong>1</strong>) ou antissimétrico (<strong>2</strong>) a um eixo C₂ perpendicular ao eixo principal (ou a um plano vertical σᵥ).<br><br>
+              • <strong>Uma linha (') vs Duas linhas (''):</strong> Usado em grupos como D₃ₕ (ex: BF₃) para indicar se é simétrico (<strong>'</strong>, caractere +1) ou antissimétrico (<strong>''</strong>, caractere −1) à reflexão no plano horizontal <strong>σₕ</strong>!
+            </p>
+          </div>
+          <button class="kc-action-btn" onclick="jumpTo3DDemo('pt_cl4', 'C4', 'B1g')">▶ Ver B₁g e B₂g no Quadrado Planar [PtCl₄]²⁻</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VIEW 5: SALA DE AULA, DESAFIOS & LIVROS ("LIVRO NÓIS TEM!") ==================== -->
+  <section class="knowledge-view" id="view-classroom">
+    <div class="kc-container">
+      <div class="kc-hero">
+        <div class="kc-hero-text">
+          <div class="section-tag">SALA DE AULA DO PROF. CHICO • EXERCÍCIOS INTERATIVOS & BIBLIOGRAFIA</div>
+          <h2>Desafios de Fixação & Guia de Livros Clássicos ("Livro Nóis Tem!")</h2>
+          <p>
+            Use este módulo em sala de aula com projetor ou envie o link para seus alunos praticarem. Ao responder cada questão abaixo, o sistema corrige na hora e permite abrir a demonstração 3D correspondente!
+          </p>
+        </div>
+      </div>
+
+      <div class="kc-grid-2">
+        <!-- QUIZ 1 -->
+        <div class="kc-card">
+          <div>
+            <div class="section-tag">DESAFIO 1 • GEOMETRIA DO OCTAEDRO (Oₕ)</div>
+            <h3>Onde passam os 4 eixos de rotação C₃ (classe 8C₃) em um complexo octaédrico como [Fe(CN)₆]⁴⁻?</h3>
+            <div style="margin-top:10px;">
+              <button class="quiz-option" onclick="checkQuiz(this, false, 'q1-fb')">A) Passam diretamente por cima dos 6 ligantes CN⁻ nos eixos X, Y e Z.</button>
+              <button class="quiz-option" onclick="checkQuiz(this, true, 'q1-fb')">B) Furam o centro das 8 faces triangulares opostas do octaedro (ao longo das diagonais do cubo).</button>
+              <button class="quiz-option" onclick="checkQuiz(this, false, 'q1-fb')">C) Passam pelo ponto médio das 12 arestas do octaedro.</button>
+            </div>
+            <div id="q1-fb" style="display:none; font-size:12px; margin-top:8px; padding:8px; border-radius:6px; background:rgba(0,230,118,0.12); color:#E2E8F0;">
+              ✔ <strong>Exato!</strong> Os eixos X, Y, Z contêm os 3 eixos C₄. Os 4 eixos C₃ atravessam os centroides das 8 faces triangulares (gerando 8 operações C₃¹ e C₃² = 8C₃)!
+            </div>
+          </div>
+          <button class="kc-action-btn" style="margin-top:10px;" onclick="jumpTo3DDemo('fe_cn6', '8C3', 'Eg')">▶ Ver Resposta no Octaedro 3D Agora</button>
+        </div>
+
+        <!-- QUIZ 2 -->
+        <div class="kc-card">
+          <div>
+            <div class="section-tag">DESAFIO 2 • ELETRONEGATIVIDADE & LCAO-MO</div>
+            <h3>Na formação de um Orbital Molecular entre o Metal (menor eletronegatividade χ) e o Ligante (maior χ), o que ocorre?</h3>
+            <div style="margin-top:10px;">
+              <button class="quiz-option" onclick="checkQuiz(this, true, 'q2-fb')">A) Os orbitais do ligante têm menor energia; logo o OM Ligante (Ψ) tem maior caráter do ligante, e o OM Antiligante (Ψ*) fica concentrado nos orbitais d do metal.</button>
+              <button class="quiz-option" onclick="checkQuiz(this, false, 'q2-fb')">B) O átomo mais eletronegativo fica sempre em energia mais alta no diagrama de orbitais moleculares.</button>
+              <button class="quiz-option" onclick="checkQuiz(this, false, 'q2-fb')">C) A eletronegatividade não altera o tamanho dos lóbulos nem a energia dos orbitais.</button>
+            </div>
+            <div id="q2-fb" style="display:none; font-size:12px; margin-top:8px; padding:8px; border-radius:6px; background:rgba(0,230,118,0.12); color:#E2E8F0;">
+              ✔ <strong>Perfeito!</strong> Quanto maior a eletronegatividade χ, mais fortemente os elétrons são atraídos pelo núcleo e mais baixa é a energia do orbital atômico/SALC!
+            </div>
+          </div>
+          <button class="kc-action-btn" style="margin-top:10px;" onclick="jumpTo3DDemo('fe_cn6', 'E', 'Eg')">▶ Testar o Slider de Eletronegatividade no 3D</button>
+        </div>
+      </div>
+
+      <!-- BIBLIOTECA CLÁSSICA ("LIVRO NÓIS TEM!") -->
+      <div class="tree-box">
+        <div class="section-tag">📚 CONEXÃO DIRETA COM OS LIVROS CLÁSSICOS DE QUÍMICA INORGÂNICA ("LIVRO NÓIS TEM!")</div>
+        <h3 style="color:#fff; margin-bottom:14px;">Onde aprofundar cada tema deste Simulador na Literatura Clássica:</h3>
+        <div class="kc-grid-3" style="margin-bottom:0;">
+          <div class="hud-card">
+            <strong style="color:var(--cyan);">1. F. Albert Cotton</strong><br>
+            <em>Chemical Applications of Group Theory</em><br>
+            <span style="font-size:11.5px; color:#CBD5E1; display:block; margin-top:6px;">
+              A "Bíblia" da Teoria de Grupos para Químicos. Capítulos 3 e 4 detalham a Notação de Schoenflies, matrizes de transformação e derivação das Tabelas de Caracteres; Capítulo 8 aborda LCAO-MO e Complexos de Metais de Transição.
+            </span>
+          </div>
+          <div class="hud-card">
+            <strong style="color:var(--amber);">2. Miessler, Fischer & Tarr</strong><br>
+            <em>Química Inorgânica (5ª Ed.)</em><br>
+            <span style="font-size:11.5px; color:#CBD5E1; display:block; margin-top:6px;">
+              Capítulo 4 (Simetria e Teoria de Grupos) traz o fluxograma de Schoenflies; Capítulo 5 (Orbitais Moleculares) explica o método SALC/LGO e o efeito da eletronegatividade; Capítulo 10 detalha a Teoria do Campo Ligante (e_g vs t_2g).
+            </span>
+          </div>
+          <div class="hud-card">
+            <strong style="color:var(--emerald);">3. Shriver & Atkins / H. E. Toma</strong><br>
+            <em>Química Inorgânica & Química de Coordenação</em><br>
+            <span style="font-size:11.5px; color:#CBD5E1; display:block; margin-top:6px;">
+              Excelente abordagem visual das formas dos orbitais d(z²) com anel toroidal, d(x²-y²) e d(xy), desdobramento octaédrico Δₒ vs tetraédrico Δₜ e séries espectroquímicas de ligantes (F⁻, H₂O, NH₃, CN⁻, CO).
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 <script>
 // ============================================================================
@@ -2227,6 +2945,255 @@ canvas.addEventListener('wheel', (e) => {
   zoom *= (e.deltaY > 0 ? 0.92 : 1.08);
   zoom = Math.max(0.5, Math.min(2.4, zoom));
 });
+
+
+// ============================================================================
+// V4.0 MASTER TABS, SCHOENFLIES DECISION TREE & 5-LANGUAGE I18N ENGINE
+// ============================================================================
+
+function switchMasterTab(tabId) {
+  document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+  const activeBtn = document.getElementById('tabBtn-' + tabId);
+  if (activeBtn) activeBtn.classList.add('active');
+
+  const labWorkspace = document.getElementById('mainLabWorkspace');
+  document.querySelectorAll('.knowledge-view').forEach(v => v.classList.remove('active'));
+
+  if (tabId === 'lab') {
+    labWorkspace.classList.remove('hidden');
+    resize();
+  } else {
+    labWorkspace.classList.add('hidden');
+    const targetView = document.getElementById('view-' + tabId);
+    if (targetView) targetView.classList.add('active');
+  }
+}
+
+function jumpTo3DDemo(complexKey, opKey, repCode) {
+  switchMasterTab('lab');
+  selectComplex(complexKey);
+  if (repCode) {
+    const cData = COMPLEX_DB[complexKey];
+    const row = cData.charTable.rows.find(r => r.code === repCode);
+    if (row) selectRepRow(repCode, row.label);
+  }
+  if (opKey) {
+    selectSymmetryClass(opKey);
+    setTimeout(() => {
+      animateCurrentSymmetryOperation();
+    }, 180);
+  }
+}
+
+// INTERACTIVE SCHOENFLIES DECISION TREE
+const TREE_NODES = {
+  start: {
+    step: 'PASSO 1 DE 5 • GEOMETRIA LINEAR',
+    q: '1. A molécula é linear (todos os átomos em linha reta, ex: CO₂, HCl, C₂H₂)?',
+    hint: 'Moléculas lineares possuem um eixo de rotação infinita (C∞) ao longo do eixo de ligação.',
+    yes: 'linear_i',
+    no: 'high_sym'
+  },
+  linear_i: {
+    step: 'PASSO 2 • CENTRO DE INVERSÃO EM MOLÉCULA LINEAR',
+    q: 'A molécula linear possui Centro de Inversão (i) (metades iguais, ex: CO₂, H₂)?',
+    hint: 'Se ambas as extremidades são idênticas (A-B-A), há inversão i.',
+    yesResult: { pg: 'D∞h', ex: 'CO₂, H₂, C₂H₂ (Acetileno)', desc: 'Linear simétrica com centro de inversão i e plano horizontal σh.' },
+    noResult: { pg: 'C∞v', ex: 'HCl, CO, HCN', desc: 'Linear assimétrica sem centro de inversão.' }
+  },
+  high_sym: {
+    step: 'PASSO 2 DE 5 • POLIEDROS PLATÔNICOS DE ALTA SIMETRIA',
+    q: '2. A molécula possui DOIS OU MAIS eixos principais Cₙ com ordem n ≥ 3 (ex: Tetraedro ou Octaedro)?',
+    hint: 'Apenas sólidos platônicos (Tetraedro, Octaedro/Cubo, Icosaedro) têm múltiplos eixos C₃, C₄ ou C₅!',
+    yes: 'platonic_i',
+    no: 'has_cn'
+  },
+  platonic_i: {
+    step: 'PASSO 3 • TETRAEDRO VS OCTAEDRO',
+    q: 'O poliedro de alta simetria possui Centro de Inversão (i) e eixos C₄ (6 ligantes nos eixos X, Y, Z)?',
+    hint: 'Complexos octaédricos ML₆ têm 3 eixos C₄, 4 eixos C₃ e centro i. Complexos tetraédricos ML₄ têm 4 eixos C₃ mas NÃO têm centro i.',
+    yesResult: { pg: 'Oₕ', ex: '[Fe(CN)₆]⁴⁻, SF₆, [Co(NH₃)₆]³⁺', desc: 'Grupo Octaédrico Completo (Ordem 48): 3 C₄, 4 C₃ (8C₃), 6 C₂', centro de inversão i, 3 σh e 6 σd!', complexKey: 'fe_cn6' },
+    noResult: { pg: 'T_d', ex: '[Ni(CO)₄], CH₄, [CoCl₄]²⁻', desc: 'Grupo Tetraédrico (Ordem 24): 4 eixos C₃ (8C₃), 3 eixos C₂, 6 S₄ e 6 planos diedrais σd (sem centro i)!', complexKey: 'ni_co4' }
+  },
+  has_cn: {
+    step: 'PASSO 3 DE 5 • EIXO DE ROTAÇÃO PRÓPRIA Cₙ',
+    q: '3. A molécula possui algum Eixo de Rotação Própria Cₙ (n ≥ 2)?',
+    hint: 'Identifique o eixo de maior ordem n (ex: C₄ no quadrado planar [PtCl₄]²⁻, C₃ na amônia NH₃, C₂ na água H₂O).',
+    yes: 'has_nc2',
+    no: 'low_sym'
+  },
+  low_sym: {
+    step: 'PASSO 4 • BAIXA SIMETRIA',
+    q: 'A molécula possui ao menos um Plano de Espelho (σ)?',
+    hint: 'Se tiver 1 plano espelhado é Cs; se não tiver nada (ou só inversão), é C₁ / Ci.',
+    yesResult: { pg: 'Cₛ', ex: 'SOCl₂, H₂C=CClBr', desc: 'Possui apenas a identidade E e um plano de reflexão σ.' },
+    noResult: { pg: 'C₁ (ou Cᵢ)', ex: 'CHFClBr (Quiral)', desc: 'Molécula assimétrica (apenas Identidade E) ou apenas centro i.' }
+  },
+  has_nc2: {
+    step: 'PASSO 4 DE 5 • EIXOS C₂ PERPENDICULARES (FAMÍLIA D vs FAMÍLIA C)',
+    q: '4. Existem n eixos C₂ perpendiculares (⊥) ao eixo principal Cₙ?',
+    hint: 'Se SIM, a molécula pertence aos grupos DIEDRAIS (Família D, como [PtCl₄]²⁻ ou BF₃). Se NÃO, pertence à Família C (como H₂O ou NH₃).',
+    yes: 'd_family_sh',
+    no: 'c_family_sh'
+  },
+  d_family_sh: {
+    step: 'PASSO 5 DE 5 • PLANO HORIZONTAL σₕ NA FAMÍLIA D',
+    q: '5. A molécula possui um Plano de Reflexão Horizontal (σₕ) perpendicular ao eixo principal Cₙ?',
+    hint: 'Moléculas planas como [PtCl₄]²⁻ (C₄), BF₃ (C₃) e Benzeno (C₆) têm o próprio plano molecular como σₕ!',
+    yesResult: { pg: 'Dₙₕ (ex: D₄ₕ, D₃ₕ, D₆ₕ)', ex: '[PtCl₄]²⁻ (D₄ₕ), BF₃ (D₃ₕ), Benzeno (D₆ₕ)', desc: 'Grupo Diedral com Plano Horizontal σh! Possui Cₙ principal, n C₂ ⊥ e plano σh.', complexKey: 'pt_cl4' },
+    noResult: { pg: 'Dₙd (ex: D₃d, D₂d)', ex: 'Etano alternado (D₃d), Aleno (D₂d)', desc: 'Grupo Diedral com Planos Diedrais σd bissectando os eixos C₂'.' }
+  },
+  c_family_sh: {
+    step: 'PASSO 5 DE 5 • PLANOS VERTICAIS σᵥ NA FAMÍLIA C',
+    q: '5. A molécula possui n Planos de Reflexão Verticais (σᵥ) que contêm o eixo principal Cₙ?',
+    hint: 'A água (H₂O) tem eixo C₂ e 2 planos verticais σv; a amônia (NH₃) tem eixo C₃ e 3 planos σv.',
+    yesResult: { pg: 'Cₙᵥ (ex: C₂ᵥ, C₃ᵥ)', ex: 'H₂O (C₂ᵥ), NH₃ (C₃ᵥ), CHCl₃ (C₃ᵥ)', desc: 'Grupo Axial Piramidal/Angular: Eixo Cₙ + n planos verticais σv!', complexKey: 'h2o' },
+    noResult: { pg: 'Cₙₕ ou Cₙ', ex: 'H₂O₂ não-planar (C₂), trans-N₂F₂ (C₂ₕ)', desc: 'Grupo com eixo Cₙ isolado ou com plano horizontal σh.' }
+  }
+};
+
+let treeHistoryArr = [];
+
+function resetDecisionTree() {
+  treeHistoryArr = [];
+  renderTreeNode('start');
+  document.getElementById('treePathList').innerHTML = 'Aguardando sua primeira resposta acima...';
+}
+
+function renderTreeNode(nodeKey) {
+  const node = TREE_NODES[nodeKey];
+  if (!node) return;
+  document.getElementById('treeBreadcrumb').innerText = node.step;
+  document.getElementById('treeQuestionText').innerText = node.q;
+  document.getElementById('treeHintText').innerText = node.hint;
+
+  const btnContainer = document.getElementById('treeButtonsContainer');
+  btnContainer.innerHTML = `
+    <button class="tree-choice-btn" onclick="stepTree('${nodeKey}', true)">✔ SIM</button>
+    <button class="tree-choice-btn no-btn" onclick="stepTree('${nodeKey}', false)">✖ NÃO</button>
+  `;
+}
+
+function stepTree(nodeKey, isYes) {
+  const node = TREE_NODES[nodeKey];
+  treeHistoryArr.push(`${node.q} → <strong style="color:${isYes ? 'var(--emerald)' : 'var(--amber)'}">${isYes ? 'SIM' : 'NÃO'}</strong>`);
+  document.getElementById('treePathList').innerHTML = treeHistoryArr.join('<br>');
+
+  const res = isYes ? node.yesResult : node.noResult;
+  if (res) {
+    document.getElementById('treeBreadcrumb').innerText = '🎉 GRUPO PONTUAL DE SCHOENFLIES IDENTIFICADO!';
+    document.getElementById('treeQuestionText').innerHTML = `Resultado: Grupo Pontual <span style="color:var(--cyan); font-family:'JetBrains Mono',monospace;">${res.pg}</span>`;
+    document.getElementById('treeHintText').innerHTML = `<strong>Exemplos Clássicos:</strong> ${res.ex}<br>${res.desc}`;
+    let actionHtml = `<button class="tree-choice-btn" onclick="resetDecisionTree()">↺ Classificar Outra Molécula</button>`;
+    if (res.complexKey) {
+      actionHtml = `<button class="tree-choice-btn" onclick="jumpTo3DDemo('${res.complexKey}', 'E', '')">🔬 Abrir ${res.pg} no Laboratório 3D Agora</button>` + actionHtml;
+    }
+    document.getElementById('treeButtonsContainer').innerHTML = actionHtml;
+  } else {
+    const nextKey = isYes ? node.yes : node.no;
+    renderTreeNode(nextKey);
+  }
+}
+
+function runTreePreset(key) {
+  resetDecisionTree();
+  if (key === 'fe_cn6') {
+    stepTree('start', false);
+    stepTree('high_sym', true);
+    stepTree('platonic_i', true);
+  } else if (key === 'ni_co4') {
+    stepTree('start', false);
+    stepTree('high_sym', true);
+    stepTree('platonic_i', false);
+  } else if (key === 'pt_cl4') {
+    stepTree('start', false);
+    stepTree('high_sym', false);
+    stepTree('has_cn', true);
+    stepTree('has_nc2', true);
+    stepTree('d_family_sh', true);
+  } else if (key === 'h2o') {
+    stepTree('start', false);
+    stepTree('high_sym', false);
+    stepTree('has_cn', true);
+    stepTree('has_nc2', false);
+    stepTree('c_family_sh', true);
+  }
+}
+
+function checkQuiz(btn, isCorrect, fbId) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('correct', 'wrong'));
+  btn.classList.add(isCorrect ? 'correct' : 'wrong');
+  const fb = document.getElementById(fbId);
+  if (fb) fb.style.display = 'block';
+}
+
+// MULTILINGUAL GLOBAL DICTIONARY (PT, EN, ES, FR, DE)
+const I18N_DICT = {
+  pt: {
+    tab_basics: '1. O Básico & Notação de Schoenflies',
+    tab_lab: '2. Laboratório 3D & Orbitais (LCAO-MO)',
+    tab_tree: '3. Descobridor de Grupo Pontual (Fluxograma)',
+    tab_mulliken: '4. Como Ler a Tabela de Caracteres (Mulliken)',
+    tab_classroom: '5. Sala de Aula, Exercícios & Livros',
+    basics_tag: 'NÚCLEO DE FUNDAMENTOS • DO ENSINO MÉDIO À PÓS-GRADUAÇÃO',
+    basics_title: 'O que é a Notação de Schoenflies e a Simetria Molecular?',
+    basics_desc: 'A <strong>Notação de Schoenflies</strong> é o sistema universal de símbolos criado pelo matemático alemão <strong>Arthur Moritz Schoenflies em 1891</strong> para classificar as operações e grupos de simetria de moléculas e cristais. Na Química e na Espectroscopia, ela permite prever como os orbitais atômicos se combinam para formar <strong>Orbitais Moleculares</strong>!'
+  },
+  en: {
+    tab_basics: '1. Fundamentals & Schoenflies Notation',
+    tab_lab: '2. Interactive 3D Lab & Orbitals (LCAO-MO)',
+    tab_tree: '3. Point Group Finder (Flowchart)',
+    tab_mulliken: '4. How to Read Character Tables (Mulliken)',
+    tab_classroom: '5. Classroom Challenges & Textbooks',
+    basics_tag: 'KNOWLEDGE CORE • FROM HIGH SCHOOL TO GRADUATE INORGANIC CHEMISTRY',
+    basics_title: 'What is Schoenflies Notation and Molecular Symmetry?',
+    basics_desc: '<strong>Schoenflies Notation</strong> is the universal symbolic system created by German mathematician <strong>Arthur Moritz Schoenflies in 1891</strong> to classify symmetry operations and point groups of molecules and crystals. In Chemistry and Spectroscopy, it predicts how atomic orbitals overlap to form <strong>Molecular Orbitals</strong>!'
+  },
+  es: {
+    tab_basics: '1. Fundamentos y Notación de Schoenflies',
+    tab_lab: '2. Laboratorio 3D y Orbitales (LCAO-MO)',
+    tab_tree: '3. Buscador de Grupo Puntual (Flujograma)',
+    tab_mulliken: '4. Cómo Leer la Tabla de Caracteres (Mulliken)',
+    tab_classroom: '5. Aula, Ejercicios y Libros Clásicos',
+    basics_tag: 'NÚCLEO DE FUNDAMENTOS • DE SECUNDARIA A POSGRADO EN QUÍMICA',
+    basics_title: '¿Qué es la Notación de Schoenflies y la Simetría Molecular?',
+    basics_desc: 'La <strong>Notación de Schoenflies</strong> es el sistema de símbolos creado por el matemático alemán <strong>Arthur Moritz Schoenflies en 1891</strong> para clasificar las operaciones y grupos de simetría de moléculas y cristales. ¡En Química y Espectroscopía permite construir <strong>Orbitales Moleculares</strong> con precisión!'
+  },
+  fr: {
+    tab_basics: '1. Fondamentaux & Notation de Schoenflies',
+    tab_lab: '2. Laboratoire 3D & Orbitales (CLOA-OM)',
+    tab_tree: '3. Trouver le Groupe Ponctuel (Arbre)',
+    tab_mulliken: '4. Lire la Table de Caractères (Mulliken)',
+    tab_classroom: '5. Salle de Classe, Quiz & Livres',
+    basics_tag: 'NOYAU DE CONNAISSANCES • CHIMIE INORGANIQUE & THÉORIE DES GROUPES',
+    basics_title: 'Qu’est-ce que la Notation de Schoenflies et la Symétrie Moléculaire ?',
+    basics_desc: 'La <strong>Notation de Schoenflies</strong> est le système de symboles créé par le mathématicien allemand <strong>Arthur Moritz Schoenflies en 1891</strong> pour classer les opérations et groupes de symétrie des molécules. Elle est indispensable en chimie quantique et en spectroscopie !'
+  },
+  de: {
+    tab_basics: '1. Grundlagen & Schoenflies-Symbolik (1891)',
+    tab_lab: '2. 3D-Symmetrielabor & Molekülorbitale (LCAO)',
+    tab_tree: '3. Punktgruppen-Entscheidungsbaum',
+    tab_mulliken: '4. Charaktertafeln & Mulliken-Symbole',
+    tab_classroom: '5. Lehrbuch-Kern & Übungen',
+    basics_tag: 'WISSENSKERN • MOLEKÜLSYMMETRIE & GRUPPENTHEORIE IN DER CHEMIE',
+    basics_title: 'Was ist die Schoenflies-Symbolik und Molekülsymmetrie?',
+    basics_desc: 'Die <strong>Schoenflies-Symbolik</strong> wurde 1891 vom deutschen Mathematiker <strong>Arthur Moritz Schoenflies</strong> entwickelt (<em>Einheit E, Spiegel σ, gerade/ungerade</em>), um Symmetrieoperationen und Punktgruppen von Molekülen und Kristallen zu klassifizieren.'
+  }
+};
+
+function setLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('lang-' + lang);
+  if (btn) btn.classList.add('active');
+
+  const dict = I18N_DICT[lang] || I18N_DICT.pt;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (dict[key]) el.innerHTML = dict[key];
+  });
+  logMsg('I18N', `Idioma global alterado para [${lang.toUpperCase()}].`);
+}
 
 resize();
 selectComplex('fe_cn6');
