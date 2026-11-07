@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -1259,8 +1259,8 @@
           Moléculas lineares possuem um eixo de rotação infinita (C∞) ao longo da ligação molecular.
         </div>
         <div class="tree-btn-row" id="treeButtonsContainer">
-          <button class="tree-choice-btn" onclick="answerTree('linear_yes')">✔ SIM, é Linear</button>
-          <button class="tree-choice-btn no-btn" onclick="answerTree('linear_no')">✖ NÃO é Linear</button>
+          <button class="tree-choice-btn" onclick="stepTree('start', true)">✔ SIM, é Linear</button>
+          <button class="tree-choice-btn no-btn" onclick="stepTree('start', false)">✖ NÃO é Linear</button>
         </div>
       </div>
 
@@ -3012,7 +3012,7 @@ const TREE_NODES = {
     step: 'PASSO 3 • TETRAEDRO VS OCTAEDRO',
     q: 'O poliedro de alta simetria possui Centro de Inversão (i) e eixos C₄ (6 ligantes nos eixos X, Y, Z)?',
     hint: 'Complexos octaédricos ML₆ têm 3 eixos C₄, 4 eixos C₃ e centro i. Complexos tetraédricos ML₄ têm 4 eixos C₃ mas NÃO têm centro i.',
-    yesResult: { pg: 'Oₕ', ex: '[Fe(CN)₆]⁴⁻, SF₆, [Co(NH₃)₆]³⁺', desc: 'Grupo Octaédrico Completo (Ordem 48): 3 C₄, 4 C₃ (8C₃), 6 C₂', centro de inversão i, 3 σh e 6 σd!', complexKey: 'fe_cn6' },
+    yesResult: { pg: 'Oₕ', ex: '[Fe(CN)₆]⁴⁻, SF₆, [Co(NH₃)₆]³⁺', desc: 'Grupo Octaédrico Completo (Ordem 48): 3 C₄, 4 C₃ (8C₃), 6 C₂′, centro de inversão i, 3 σh e 6 σd!', complexKey: 'fe_cn6' },
     noResult: { pg: 'T_d', ex: '[Ni(CO)₄], CH₄, [CoCl₄]²⁻', desc: 'Grupo Tetraédrico (Ordem 24): 4 eixos C₃ (8C₃), 3 eixos C₂, 6 S₄ e 6 planos diedrais σd (sem centro i)!', complexKey: 'ni_co4' }
   },
   has_cn: {
@@ -3041,7 +3041,7 @@ const TREE_NODES = {
     q: '5. A molécula possui um Plano de Reflexão Horizontal (σₕ) perpendicular ao eixo principal Cₙ?',
     hint: 'Moléculas planas como [PtCl₄]²⁻ (C₄), BF₃ (C₃) e Benzeno (C₆) têm o próprio plano molecular como σₕ!',
     yesResult: { pg: 'Dₙₕ (ex: D₄ₕ, D₃ₕ, D₆ₕ)', ex: '[PtCl₄]²⁻ (D₄ₕ), BF₃ (D₃ₕ), Benzeno (D₆ₕ)', desc: 'Grupo Diedral com Plano Horizontal σh! Possui Cₙ principal, n C₂ ⊥ e plano σh.', complexKey: 'pt_cl4' },
-    noResult: { pg: 'Dₙd (ex: D₃d, D₂d)', ex: 'Etano alternado (D₃d), Aleno (D₂d)', desc: 'Grupo Diedral com Planos Diedrais σd bissectando os eixos C₂'.' }
+    noResult: { pg: 'Dₙd (ex: D₃d, D₂d)', ex: 'Etano alternado (D₃d), Aleno (D₂d)', desc: 'Grupo Diedral com Planos Diedrais σd bissectando os eixos C₂′.' }
   },
   c_family_sh: {
     step: 'PASSO 5 DE 5 • PLANOS VERTICAIS σᵥ NA FAMÍLIA C',
