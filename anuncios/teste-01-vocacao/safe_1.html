@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px; height: 1920px;
+    background: #0B141A;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #E9EDEF;
+  }
+  .screen {
+    width: 1080px; height: 1920px;
+    padding: 240px 64px 340px 64px;
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    background: #0B141A;
+  }
+  .status-bar {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 28px; color: #8696A0; padding-bottom: 30px;
+    border-bottom: 1px solid #202C33;
+  }
+  .contact {
+    display: flex; align-items: center; gap: 20px;
+  }
+  .avatar {
+    width: 68px; height: 68px; border-radius: 50%; background: #2A3942;
+    display: flex; align-items: center; justify-content: center; font-size: 32px;
+  }
+  .contact-name { font-size: 34px; font-weight: 600; color: #E9EDEF; }
+  .contact-status { font-size: 22px; color: #8696A0; }
+
+  .chat-area {
+    display: flex; flex-direction: column; gap: 36px;
+    margin: auto 0;
+  }
+  .bubble {
+    max-width: 82%;
+    padding: 28px 34px;
+    border-radius: 24px;
+    font-size: 36px;
+    line-height: 1.35;
+    position: relative;
+  }
+  .bubble-in {
+    align-self: flex-start;
+    background: #202C33;
+    color: #E9EDEF;
+    border-top-left-radius: 4px;
+  }
+  .bubble-out {
+    align-self: flex-end;
+    background: #005C4B;
+    color: #E9EDEF;
+    border-top-right-radius: 4px;
+  }
+  .time {
+    font-size: 20px; color: rgba(233,237,239,0.6); text-align: right; margin-top: 10px;
+  }
+  .footer-hook {
+    background: #111B21; border: 1.5px solid #222E35; border-radius: 24px;
+    padding: 34px 36px; font-size: 36px; line-height: 1.35; color: #E9EDEF;
+    text-align: center;
+  }
+  .footer-hook b { color: #25D366; }
+</style>
+</head>
+<body>
+  <div class="screen">
+    <div class="status-bar">
+      <div class="contact">
+        <div class="avatar">👤</div>
+        <div>
+          <div class="contact-name">Cliente Novo</div>
+          <div class="contact-status">online</div>
+        </div>
+      </div>
+      <div>14:32</div>
+    </div>
+
+    <div class="chat-area">
+      <div class="bubble bubble-in">
+        Boa tarde! Gostei do atendimento no balcão. Você me passa o link do site pra eu ver os serviços e mandar pro meu sócio?
+        <div class="time">14:31</div>
+      </div>
+
+      <div class="bubble bubble-out">
+        Putz... nosso site tá meio antigo e não abre direito no celular. Deixa que eu te mando um PDF mesmo.
+        <div class="time">14:32</div>
+      </div>
+    </div>
+
+    <div class="footer-hook">
+      Você também tem <b>vergonha de mandar o link</b> do seu site?
+    </div>
+  </div>
+</body>
+</html>

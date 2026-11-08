@@ -1,0 +1,565 @@
+﻿<!DOCTYPE html>
+<html lang=pt-BR>
+<head>
+  <meta charset=UTF-8>
+  <meta name=viewport content=width=device-width, initial-scale=1.0>
+  <title>Diagnóstico de Autoridade Digital — Marcos Dreher Marcenaria e Interiores</title>
+  <link rel=preconnect href=https://fonts.googleapis.com>
+  <link rel=preconnect href=https://fonts.gstatic.com crossorigin>
+  <link href=https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&display=swap rel=stylesheet>
+  <style>
+    :root {
+      --color-primary: #061B28;
+      --color-accent: #E5B910;
+      --color-accent-soft: #fcf9eb;
+      --color-bg: #fafaf8;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #5a625f;
+      --color-border: #e2e8e5;
+      --color-positive: #0B5E47;
+      --color-negative: #9b2335;
+      --color-opportunity: #1d4e89;
+      --color-warning: #c17f24;
+      --font-display: 'Poppins', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-mono: 'Geist Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header-card {
+      background: var(--color-primary);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      box-shadow: 0 12px 36px rgba(6, 27, 40, 0.12);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent) 0%, #ffdf6d 100%);
+    }
+
+    .header-info {
+      flex: 1;
+    }
+
+    .badge-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(229, 185, 16, 0.15);
+      border: 1px solid rgba(229, 185, 16, 0.4);
+      color: var(--color-accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .header-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .header-subtitle {
+      color: #cfd8dc;
+      font-size: 0.95rem;
+    }
+
+    .header-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 6px;
+    }
+
+    .header-logo span {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #90a4ae;
+    }
+
+    /* Manifesto Box */
+    .manifesto-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-left: 5px solid var(--color-accent);
+      padding: 28px 32px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .manifesto-quote {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+
+    .manifesto-desc {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Market Metrics */
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .metric-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .metric-number {
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 4px;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      line-height: 1.3;
+    }
+
+    /* Pillars Section */
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pillars-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .pillar-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pillar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pillar-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .status-alert {
+      background: #fde8e8;
+      color: var(--color-negative);
+      border: 1px solid #f8b4b4;
+    }
+
+    .status-good {
+      background: #def7ec;
+      color: var(--color-positive);
+      border: 1px solid #bcf0da;
+    }
+
+    .status-warning {
+      background: #fef08a;
+      color: #854d0e;
+      border: 1px solid #fde047;
+    }
+
+    .pillar-content {
+      font-size: 0.92rem;
+      color: var(--color-text);
+      margin-bottom: 14px;
+    }
+
+    .value-box {
+      background: #f8fafc;
+      border-left: 3px solid var(--color-opportunity);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.88rem;
+    }
+
+    .value-box strong {
+      color: var(--color-opportunity);
+      display: block;
+      margin-bottom: 2px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.02);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-weight: 600;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .row-highlight {
+      background: #fcf9eb;
+      font-weight: 600;
+    }
+
+    /* CTA Section */
+    .cta-card {
+      background: linear-gradient(135deg, var(--color-primary) 0%, #0d2a3d 100%);
+      color: #ffffff;
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 12px 32px rgba(6, 27, 40, 0.15);
+      position: relative;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .cta-desc {
+      color: #cfd8dc;
+      font-size: 0.98rem;
+      max-width: 640px;
+      margin: 0 auto 28px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-accent);
+      color: var(--color-primary);
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      padding: 16px 36px;
+      border-radius: 50px;
+      box-shadow: 0 6px 20px rgba(229, 185, 16, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(229, 185, 16, 0.5);
+      background: #eed044;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+    }
+
+    .footer a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 680px) {
+      .header-card {
+        flex-direction: column;
+        padding: 28px 20px;
+      }
+      .header-title {
+        font-size: 1.5rem;
+      }
+      .cta-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class=container>
+
+    <!-- Header -->
+    <header class=header-card>
+      <div class=header-info>
+        <div class=badge-tag>Diagnóstico de Presença & Autoridade Digital</div>
+        <h1 class=header-title>Marcos Dreher Marcenaria e Interiores</h1>
+        <p class=header-subtitle>Localização: Boulevard Alavanca Business & Care — Jardim Vergueiro, Sorocaba/SP</p>
+      </div>
+      <div class=header-logo>
+        <svg xmlns=http://www.w3.org/2000/svg viewBox=0 0 4001.88 3715.4 width=38 height=38 fill=none>
+          <path d=M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z fill=#ffffff />
+          <rect transform=matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346) width=275.97 height=1545.42 rx=154.54 ry=154.54 fill=#061B28 />
+        </svg>
+        <span>Vocação</span>
+      </div>
+    </header>
+
+    <!-- Manifesto Box -->
+    <section class=manifesto-card>
+      <div class=manifesto-quote>Sua marcenaria já entrega sofisticação e excelência no mundo real. No digital, ela precisa transmitir esse mesmo padrão.</div>
+      <p class=manifesto-desc>Clientes que investem em ambientes planejados de alto padrão (R$ 30 mil a mais de R$ 100 mil) pesquisam minuciosamente antes de agendar uma visita. Uma presença digital impecável não é vaidade: é o filtro que garante que sua empresa seja a primeira escolha em Sorocaba.</p>
+    </section>
+
+    <!-- Market Numbers -->
+    <section class=metrics-grid>
+      <div class=metric-card>
+        <div class=metric-number>97%</div>
+        <div class=metric-label>pesquisam sobre a empresa no Google antes de fechar um projeto de móveis.</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-number>4,2s</div>
+        <div class=metric-label>é o tempo para o cliente decidir se o negócio parece confiável ao abrir a tela.</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-number>73%</div>
+        <div class=metric-label>desistem do contato ao encontrar links quebrados ou perfis desorganizados.</div>
+      </div>
+      <div class=metric-card>
+        <div class=metric-number>2,8x</div>
+        <div class=metric-label>mais chances de fechar com quem tem site próprio e catálogo profissional.</div>
+      </div>
+    </section>
+
+    <!-- 4 Pillars Diagnosis -->
+    <h2 class=section-title>Diagnóstico dos 4 Pilares de Presença Digital</h2>
+    <div class=pillars-grid>
+
+      <!-- Pilar 1 -->
+      <div class=pillar-card>
+        <div class=pillar-header>
+          <div class=pillar-name>Pilar 01 — Site Profissional & Catálogo High-End</div>
+          <span class=status-badge status-alert>Ausente / Oportunidade Alta</span>
+        </div>
+        <p class=pillar-content>A empresa não possui um site ou catálogo institucional próprio indexado no Google. Quem procura por móveis sob medida de alto padrão no Vergueiro e Campolim não encontra uma página que apresente seus diferenciais e projetos executados.</p>
+        <div class=value-box>
+          <strong>O Valor da Transformação:</strong>
+          Uma sede digital 24h que funciona como seu showroom virtual de prestígio, filtrando clientes qualificados e aumentando a taxa de fechamento de contratos de alto valor.
+        </div>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class=pillar-card>
+        <div class=pillar-header>
+          <div class=pillar-name>Pilar 02 — Presença Local (Google Maps)</div>
+          <span class=status-badge status-warning>Nota 5,0 ★ (Ajuste Crítico no Link)</span>
+        </div>
+        <p class=pillar-content>Excelente reputação inicial com 12 avaliações 5 estrelas e localização estratégica no Boulevard Alavanca Business & Care. No entanto, o único link oficial cadastrado na ficha do Google para o cliente ver fotos e portfólio aponta para uma página quebrada no Instagram.</p>
+        <div class=value-box>
+          <strong>O Valor da Transformação:</strong>
+          Ajustar o direcionamento para um site/catálogo de alto impacto retém 100% dos clientes que encontram a empresa pelo mapa e elimina a perda de orçamentos para concorrentes.
+        </div>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class=pillar-card>
+        <div class=pillar-header>
+          <div class=pillar-name>Pilar 03 — Redes Organizadas & Vitrine Social</div>
+          <span class=status-badge status-alert>Link Quebrado / Erro 404</span>
+        </div>
+        <p class=pillar-content>O link do Instagram apontado no perfil do Google Maps exibe a mensagem <em>Esta página não está disponível</em>. Para um cliente de alto padrão, um link quebrado gera desconfiança imediata sobre a continuidade das atividades da empresa.</p>
+        <div class=value-box>
+          <strong>O Valor da Transformação:</strong>
+          Um perfil visualmente harmônico com bio clara, destaques de projetos (Cozinhas, Suítes, Espaços Gourmet) e link direto para WhatsApp corporativo transmite segurança e sofisticação imediatas.
+        </div>
+      </div>
+
+      <!-- Pilar 4 -->
+      <div class=pillar-card>
+        <div class=pillar-header>
+          <div class=pillar-name>Pilar 04 — Domínio Próprio & Governança</div>
+          <span class=status-badge status-warning>Pendente de Registro</span>
+        </div>
+        <p class=pillar-content>A marca ainda não possui domínio registrado oficial (ex: marcosdreher.com.br) ou e-mail corporativo institucional, o que limita a blindagem da marca e a proteção contra uso indevido por terceiros.</p>
+        <div class=value-box>
+          <strong>O Valor da Transformação:</strong>
+          Garante a soberania e segurança da sua marca na internet, transmitindo uma imagem corporativa sólida para arquitetos parceiros e clientes exigentes.
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Competitor Comparison -->
+    <h2 class=section-title>Cenário Competitivo em Sorocaba (Marcenarias & Planejados)</h2>
+    <div class=table-container>
+      <table>
+        <thead>
+          <tr>
+            <th>Empresa / Marca</th>
+            <th>Site Próprio</th>
+            <th>Google Maps</th>
+            <th>Instagram</th>
+            <th>Percepção Digital</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class=row-highlight>
+            <td><strong>Marcos Dreher Marcenaria</strong></td>
+            <td>Não possui</td>
+            <td>5,0 ★ (12 avaliações)</td>
+            <td>Link quebrado (404)</td>
+            <td>Excelente reputação / Vulnerável no digital</td>
+          </tr>
+          <tr>
+            <td>Todeschini Sorocaba</td>
+            <td>Sim (Portal institucional)</td>
+            <td>4,8 ★ (+60 avaliações)</td>
+            <td>Ativo e profissional</td>
+            <td>Forte</td>
+          </tr>
+          <tr>
+            <td>Sutil Marcenaria</td>
+            <td>Sim (Catálogo próprio)</td>
+            <td>4,9 ★ (+30 avaliações)</td>
+            <td>Ativo com portfólio</td>
+            <td>Forte</td>
+          </tr>
+          <tr>
+            <td>Architual Móveis Planejados</td>
+            <td>Sim (Site institucional)</td>
+            <td>4,7 ★ (+25 avaliações)</td>
+            <td>Organizado</td>
+            <td>Média / Boa</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CTA Section -->
+    <section class=cta-card>
+      <h3 class=cta-title>Vamos estruturar a autoridade digital da Marcos Dreher?</h3>
+      <p class=cta-desc>Com a correção imediata do canal do Google Maps e a implantação de uma sede digital de alto padrão, sua marcenaria se posiciona no topo da preferência do público do Vergueiro, Campolim e condomínios de Sorocaba.</p>
+      <a href=https://wa.me/5515981512083?text=Ol%C3%A1%2C%20vi%20o%20diagn%C3%B3stico%20da%20Marcos%20Dreher%20Marcenaria%20e%20quero%20estruturar%20nossa%20presen%C3%A7a%20digital target=_blank class=btn-whatsapp>
+        <span>Falar com um Especialista da Vocação</span>
+      </a>
+    </section>
+
+    <!-- Footer -->
+    <footer class=footer>
+      <p><strong>Vocação Comunicação & Marketing</strong> — Estrutura antes do marketing. Confiança antes do tráfego.</p>
+      <p style=margin-top: 6px;>Sorocaba/SP • WhatsApp: <a href=https://wa.me/5515981512083>(15) 98134-2083</a> • <a href=https://vocacao.digital target=_blank>vocacao.digital</a></p>
+    </footer>
+
+  </div>
+
+</body>
+</html>

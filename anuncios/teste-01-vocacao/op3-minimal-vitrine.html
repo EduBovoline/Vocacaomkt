@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #061B28;
+    color: #F8F9F9;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .canvas {
+    width: 1080px;
+    height: 1350px;
+    padding: 84px 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(800px 600px at 50% 60%, rgba(229, 185, 16, 0.14), transparent 70%),
+      #061B28;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand img { height: 38px; }
+  .brand span {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .pill {
+    font-family: 'Geist Mono', monospace;
+    font-size: 16px;
+    color: #E5B910;
+    border: 1px solid rgba(229, 185, 16, 0.4);
+    padding: 10px 22px;
+    border-radius: 999px;
+  }
+  .headline-wrap {
+    margin-top: 20px;
+  }
+  h1 {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 92px;
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    color: #E5B910;
+    font-style: italic;
+  }
+  .showcase {
+    margin: 28px 0;
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1.5px solid rgba(229, 185, 16, 0.45);
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.65);
+    height: 560px;
+    position: relative;
+    background: #041018;
+  }
+  .showcase img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .speed-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    background: rgba(6, 27, 40, 0.92);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(229, 185, 16, 0.5);
+    color: #F8F9F9;
+    font-family: 'Geist Mono', monospace;
+    font-size: 18px;
+    padding: 12px 22px;
+    border-radius: 999px;
+  }
+  .speed-badge strong {
+    color: #E5B910;
+  }
+  .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .meta {
+    font-size: 24px;
+    color: #B8BFC3;
+    font-weight: 500;
+  }
+  .meta strong {
+    color: #F8F9F9;
+    font-weight: 700;
+  }
+  .cta {
+    background: #E5B910;
+    color: #061B28;
+    font-size: 22px;
+    font-weight: 800;
+    padding: 18px 34px;
+    border-radius: 999px;
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="top">
+      <div class="brand">
+        <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/logo-vocacao-white-gold.svg" alt="Vocação" />
+        <span>Vocação</span>
+      </div>
+      <span class="pill">Zero mensalidade</span>
+    </div>
+
+    <div class="headline-wrap">
+      <h1>Site rápido e Google Maps arrumado <em>em até 7 dias.</em></h1>
+    </div>
+
+    <div class="showcase">
+      <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/cases/safety-novo.png" alt="Projeto Vocação" />
+      <div class="speed-badge">Carrega em <strong>0.4s</strong> no celular</div>
+    </div>
+
+    <div class="bottom">
+      <span class="meta">Projetos fechados a partir de <strong>R$ 450</strong></span>
+      <div class="cta">vocacao.digital ↗</div>
+    </div>
+  </div>
+</body>
+</html>

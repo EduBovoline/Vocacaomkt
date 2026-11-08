@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    background: #061B28;
+    color: #F8F9F9;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .canvas {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    padding: 52px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(900px 600px at 88% 8%, rgba(229, 185, 16, 0.18), transparent 70%),
+      radial-gradient(800px 600px at 10% 85%, rgba(229, 185, 16, 0.10), transparent 70%),
+      linear-gradient(180deg, #061B28 0%, #04121B 100%);
+  }
+  .canvas::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(248,249,249,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,249,249,0.03) 1px, transparent 1px);
+    background-size: 54px 54px;
+    pointer-events: none;
+  }
+  .top-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand img {
+    height: 44px;
+    width: auto;
+  }
+  .brand-text {
+    font-weight: 800;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: #F8F9F9;
+  }
+  .badge-top {
+    font-family: 'Geist Mono', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    color: #E5B910;
+    background: rgba(229, 185, 16, 0.12);
+    border: 1px solid rgba(229, 185, 16, 0.4);
+    padding: 10px 20px;
+    border-radius: 999px;
+  }
+
+  .hero-block {
+    position: relative;
+    z-index: 2;
+    margin-top: 8px;
+  }
+  .headline {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 72px;
+    line-height: 0.98;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    color: #F8F9F9;
+  }
+  .headline em {
+    color: #E5B910;
+    font-style: italic;
+  }
+  .subhead {
+    margin-top: 16px;
+    font-size: 23px;
+    line-height: 1.4;
+    color: #B8BFC3;
+    font-weight: 500;
+    max-width: 950px;
+  }
+  .subhead strong {
+    color: #F8F9F9;
+    font-weight: 700;
+  }
+
+  .comparison {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1.12fr;
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 8px;
+  }
+  .comp-card {
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .comp-before {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 92, 92, 0.35);
+  }
+  .comp-after {
+    background: linear-gradient(160deg, rgba(229, 185, 16, 0.16) 0%, rgba(6, 27, 40, 0.92) 100%);
+    border: 2px solid #E5B910;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), 0 0 35px rgba(229, 185, 16, 0.18);
+  }
+  .comp-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .comp-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+  }
+  .tag-bad {
+    background: rgba(255, 77, 77, 0.18);
+    color: #FF7A7A;
+    border: 1px solid rgba(255, 77, 77, 0.4);
+  }
+  .tag-good {
+    background: #E5B910;
+    color: #061B28;
+  }
+  .comp-metric {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    color: #B8BFC3;
+  }
+  .comp-after .comp-metric {
+    color: #E5B910;
+    font-weight: 700;
+  }
+  .comp-img-wrap {
+    width: 100%;
+    height: 270px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: #000;
+  }
+  .comp-before .comp-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    filter: grayscale(35%) contrast(0.9) brightness(0.82);
+  }
+  .comp-after .comp-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+  .comp-foot {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .comp-before .comp-foot { color: #B8BFC3; }
+  .comp-after .comp-foot { color: #F8F9F9; }
+
+  .offers-section {
+    position: relative;
+    z-index: 2;
+  }
+  .offers-title {
+    font-family: 'Geist Mono', monospace;
+    font-size: 15px;
+    color: #E5B910;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .offers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  .offer-box {
+    background: rgba(248, 249, 249, 0.045);
+    border: 1px solid rgba(184, 191, 195, 0.24);
+    border-radius: 16px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .offer-box.featured {
+    background: rgba(229, 185, 16, 0.11);
+    border: 1.5px solid #E5B910;
+  }
+  .offer-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #F8F9F9;
+    line-height: 1.2;
+  }
+  .offer-desc {
+    font-size: 14px;
+    color: #B8BFC3;
+    margin-top: 6px;
+    line-height: 1.35;
+  }
+  .offer-price {
+    margin-top: 14px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #E5B910;
+    letter-spacing: -0.03em;
+  }
+  .offer-price span {
+    font-size: 13px;
+    color: #B8BFC3;
+    font-weight: 500;
+    display: block;
+    margin-top: 2px;
+  }
+
+  .cta-bar {
+    position: relative;
+    z-index: 2;
+    background: #F8F9F9;
+    color: #061B28;
+    border-radius: 20px;
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cta-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .cta-guarantees {
+    font-family: 'Geist Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: #061B28;
+  }
+  .cta-sub {
+    font-size: 19px;
+    font-weight: 700;
+    color: #243542;
+  }
+  .cta-btn {
+    background: #E5B910;
+    color: #061B28;
+    font-size: 23px;
+    font-weight: 800;
+    padding: 16px 30px;
+    border-radius: 14px;
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 24px rgba(229, 185, 16, 0.4);
+  }
+</style>
+</head>
+<body>
+  <div class="canvas">
+    <div class="top-bar">
+      <div class="brand">
+        <img src="../../Site/logo-vocacao-white-gold.svg" alt="Vocação" />
+        <span class="brand-text">Vocação</span>
+      </div>
+      <div class="badge-top">Sorocaba e região · 1 empresa por bairro</div>
+    </div>
+
+    <div class="hero-block">
+      <h1 class="headline">Tem gente procurando o seu serviço <em>agora no Google.</em><br/>Eles vão chamar você ou o vizinho?</h1>
+      <p class="subhead">Arrumamos o seu <strong>Google Maps</strong> e colocamos seu <strong>site novo no ar</strong> em até 7 dias úteis. Sem cobrar mensalidade e sem tomar o seu tempo com reunião.</p>
+    </div>
+
+    <div class="comparison">
+      <div class="comp-card comp-before">
+        <div class="comp-header">
+          <span class="comp-tag tag-bad">Como estava antes</span>
+          <span class="comp-metric">Demorava 6 segundos</span>
+        </div>
+        <div class="comp-img-wrap">
+          <img src="../../Site/cases/safety-antigo.png" alt="Antes" />
+        </div>
+        <div class="comp-foot">
+          <span>Ruim de ler no celular</span>
+          <span>O cliente fecha a aba</span>
+        </div>
+      </div>
+
+      <div class="comp-card comp-after">
+        <div class="comp-header">
+          <span class="comp-tag tag-good">Depois da Vocação</span>
+          <span class="comp-metric">Abre na hora (0.4s)</span>
+        </div>
+        <div class="comp-img-wrap">
+          <img src="../../Site/cases/safety-novo.png" alt="Depois Vocação" />
+        </div>
+        <div class="comp-foot">
+          <span>Passa confiança e leva pro WhatsApp</span>
+          <span style="color:#E5B910">Entregue em 5 dias</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="offers-section">
+      <div class="offers-title">Preços fechados · Você paga uma vez só e o projeto é seu</div>
+      <div class="offers-grid">
+        <div class="offer-box">
+          <div>
+            <div class="offer-name">Google Maps completo</div>
+            <div class="offer-desc">Sua ficha arrumada para aparecer nas buscas do bairro</div>
+          </div>
+          <div class="offer-price">R$ 450<span>Pagamento único</span></div>
+        </div>
+
+        <div class="offer-box">
+          <div>
+            <div class="offer-name">Tour Virtual 360°</div>
+            <div class="offer-desc">Fotos 360° da sua loja por dentro no Street View</div>
+          </div>
+          <div class="offer-price">R$ 750<span>Pronto em 5 dias</span></div>
+        </div>
+
+        <div class="offer-box featured">
+          <div>
+            <div class="offer-name">Vocação Start</div>
+            <div class="offer-desc">Site rápido para celular + Google Maps arrumado</div>
+          </div>
+          <div class="offer-price">R$ 850<span>Pronto em 7 dias</span></div>
+        </div>
+
+        <div class="offer-box featured">
+          <div>
+            <div class="offer-name">Vocação Update</div>
+            <div class="offer-desc">Reforma completa do seu site antigo usando os textos que já tem</div>
+          </div>
+          <div class="offer-price">R$ 980<span>Pronto em 5 dias</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-bar">
+      <div class="cta-left">
+        <div class="cta-guarantees">50% de entrada e os outros 50% só depois que você aprovar tudo no ar</div>
+        <div class="cta-sub">Peça uma avaliação gratuita da sua empresa pelo site</div>
+      </div>
+      <div class="cta-btn">vocacao.digital ↗</div>
+    </div>
+  </div>
+</body>
+</html>

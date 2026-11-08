@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #061B28;
+    color: #F8F9F9;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    padding: 96px 68px 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(950px 750px at 85% 12%, rgba(229, 185, 16, 0.22), transparent 70%),
+      radial-gradient(900px 700px at 15% 88%, rgba(229, 185, 16, 0.12), transparent 70%),
+      linear-gradient(180deg, #061B28 0%, #030E16 100%);
+  }
+  .frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(248,249,249,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,249,249,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .brand img { height: 52px; }
+  .brand span { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+  .pill {
+    font-family: 'Geist Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #E5B910;
+    background: rgba(229, 185, 16, 0.14);
+    border: 1.5px solid rgba(229, 185, 16, 0.45);
+    padding: 12px 24px;
+    border-radius: 999px;
+  }
+  .serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+  }
+  .gold { color: #E5B910; }
+  .footer-bar {
+    position: relative;
+    z-index: 2;
+    background: rgba(248,249,249,0.06);
+    border: 1px solid rgba(248,249,249,0.16);
+    border-radius: 24px;
+    padding: 26px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-bar .url {
+    font-family: 'Geist Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #E5B910;
+  }
+  .footer-bar .tag {
+    font-size: 22px;
+    color: #B8BFC3;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="brand"><img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/logo-vocacao-white-gold.svg" /><span>Vocação</span></div>
+      <div class="pill">Antes e depois real</div>
+    </div>
+
+    <div style="position:relative;z-index:2;">
+      <h1 class="serif" style="font-size:86px;line-height:1.0;">
+        No balcão a sua empresa passa confiança. <em class="gold">No celular, ela precisa passar também.</em>
+      </h1>
+
+      <div style="margin-top:36px;display:flex;flex-direction:column;gap:28px;">
+        <div style="background:rgba(255,255,255,0.03);border:1.5px solid rgba(255,90,90,0.4);border-radius:24px;padding:22px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span style="background:rgba(255,77,77,0.2);color:#FF7A7A;font-family:'Geist Mono',monospace;font-size:20px;font-weight:700;padding:8px 18px;border-radius:10px;">Como era antes</span>
+            <span style="font-family:'Geist Mono',monospace;font-size:22px;color:#B8BFC3;">Lento e difícil de ler no celular</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:360px;">
+            <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/cases/safety-antigo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;filter:grayscale(35%) brightness(0.8);" />
+            <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/cases/maca-antigo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;filter:grayscale(35%) brightness(0.8);" />
+          </div>
+        </div>
+
+        <div style="background:linear-gradient(160deg,rgba(229,185,16,0.2),rgba(6,27,40,0.95));border:2.5px solid #E5B910;border-radius:24px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,0.6);">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+            <span style="background:#E5B910;color:#061B28;font-family:'Geist Mono',monospace;font-size:20px;font-weight:800;padding:8px 18px;border-radius:10px;">Depois da Vocação</span>
+            <span style="font-family:'Geist Mono',monospace;font-size:24px;color:#E5B910;font-weight:700;">Abre em 0.4 segundo</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:400px;">
+            <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/cases/safety-novo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;" />
+            <img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/cases/maca-novo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:14px;" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="tag">Aproveitamos seus textos atuais · Sem reunião longa</span>
+      <span class="url">vocacao.digital ↗</span>
+    </div>
+  </div>
+</body></html>

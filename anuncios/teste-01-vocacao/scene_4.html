@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Geist+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #061B28;
+    color: #F8F9F9;
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .frame {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    padding: 96px 68px 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background:
+      radial-gradient(950px 750px at 85% 12%, rgba(229, 185, 16, 0.22), transparent 70%),
+      radial-gradient(900px 700px at 15% 88%, rgba(229, 185, 16, 0.12), transparent 70%),
+      linear-gradient(180deg, #061B28 0%, #030E16 100%);
+  }
+  .frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(248,249,249,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,249,249,0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+  .top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .brand img { height: 52px; }
+  .brand span { font-size: 34px; font-weight: 800; letter-spacing: -0.02em; }
+  .pill {
+    font-family: 'Geist Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #E5B910;
+    background: rgba(229, 185, 16, 0.14);
+    border: 1.5px solid rgba(229, 185, 16, 0.45);
+    padding: 12px 24px;
+    border-radius: 999px;
+  }
+  .serif {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-weight: 400;
+  }
+  .gold { color: #E5B910; }
+  .footer-bar {
+    position: relative;
+    z-index: 2;
+    background: rgba(248,249,249,0.06);
+    border: 1px solid rgba(248,249,249,0.16);
+    border-radius: 24px;
+    padding: 26px 34px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-bar .url {
+    font-family: 'Geist Mono', monospace;
+    font-size: 26px;
+    font-weight: 700;
+    color: #E5B910;
+  }
+  .footer-bar .tag {
+    font-size: 22px;
+    color: #B8BFC3;
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+    <div class="top">
+      <div class="brand"><img src="file:///C:/Users/edubo/.gemini/antigravity/worktrees/QG%20Voca%C3%A7%C3%A3o%202027%20do%20zero/criar_chat_publicitario_vocacao/Site/logo-vocacao-white-gold.svg" /><span>Vocação</span></div>
+      <div class="pill">Pagamento 50/50</div>
+    </div>
+
+    <div style="position:relative;z-index:2;text-align:center;padding:0 12px;">
+      <div style="display:inline-block;background:rgba(229,185,16,0.16);border:1.5px solid #E5B910;color:#E5B910;font-family:'Geist Mono',monospace;font-size:23px;font-weight:700;padding:14px 30px;border-radius:999px;margin-bottom:34px;">
+        Atendemos só 1 empresa de cada ramo por bairro
+      </div>
+      <h1 class="serif" style="font-size:106px;line-height:0.96;">
+        Você só paga a segunda metade <em class="gold">depois de ver tudo pronto no ar.</em>
+      </h1>
+      <p style="font-size:32px;color:#B8BFC3;margin-top:34px;line-height:1.4;font-weight:500;">
+        Entre no site e peça uma <strong style="color:#F8F9F9;">avaliação gratuita</strong> de como a sua empresa aparece hoje no Google Maps e no celular.
+      </p>
+
+      <div style="margin-top:64px;background:#E5B910;color:#061B28;border-radius:28px;padding:38px 44px;box-shadow:0 24px 60px rgba(229,185,16,0.4);">
+        <div style="font-family:'Geist Mono',monospace;font-size:22px;font-weight:700;">
+          Toque em "Saiba mais" ou acesse:
+        </div>
+        <div style="font-size:64px;font-weight:800;margin-top:8px;letter-spacing:-0.02em;">
+          vocacao.digital ↗
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span class="tag">Sorocaba e região · Entrega em 5 a 7 dias úteis</span>
+      <span class="url">WhatsApp: (15) 98151-2083</span>
+    </div>
+  </div>
+</body></html>
