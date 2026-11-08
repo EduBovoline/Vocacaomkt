@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vocação — Direção de Arte Social Media (Semana 2)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<style>
+  :root {
+    --chalk: #F8F9F9;
+    --paper: #F2F3F0;
+    --obsidian: #061B28;
+    --obsidian-deep: #04121B;
+    --citron: #E5B910;
+    --silver: #9AA5AD;
+    --ink-soft: #4A5B68;
+
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0B1318;
+    color: var(--chalk);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 90px;
+  }
+
+  .studio-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 19, 24, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .studio-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .studio-brand img { height: 24px; }
+  .studio-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .studio-title em {
+    color: var(--citron);
+    font-style: italic;
+  }
+
+  .filter-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent;
+    color: var(--silver);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 8px 14px;
+    border-radius: 99px;
+    font-family: var(--sans);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--chalk);
+    color: var(--obsidian);
+    border-color: var(--chalk);
+    font-weight: 600;
+  }
+
+  .studio-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  .post-block {
+    margin-bottom: 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 48px;
+  }
+
+  .post-meta-bar {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .post-info h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .post-info h2 em { color: var(--citron); font-style: italic; }
+  .post-label {
+    font-size: 12px;
+    color: var(--silver);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .cards-rail {
+    display: flex;
+    gap: 28px;
+    padding: 8px 0 24px;
+    overflow-x: auto;
+  }
+
+  .card-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--silver);
+  }
+  .export-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .export-btn:hover {
+    background: var(--citron);
+    color: var(--obsidian);
+    border-color: var(--citron);
+  }
+
+  /* =====================================================================
+     SENIOR ART DIRECTION CANVAS — 4:5 (380x475 -> 1140x1425 at 3x)
+     Zero corner clutter. Zero fake HUDs. Pure typography & photography.
+     ===================================================================== */
+  .ig-card {
+    width: 380px;
+    height: 475px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    user-select: none;
+  }
+
+  .v-pin {
+    width: 18px;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+  }
+  .v-pin-dark {
+    width: 18px;
+    height: auto;
+    display: block;
+  }
+
+  .ed-serif-xl {
+    font-family: var(--serif);
+    font-size: 42px;
+    line-height: 1.03;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .ed-serif-lg {
+    font-family: var(--serif);
+    font-size: 35px;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+  .ed-serif-md {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+  .ed-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .ed-caption {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  .caption-drawer {
+    margin-top: 12px;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .caption-text {
+    font-size: 13.5px;
+    color: var(--silver);
+    max-width: 920px;
+    line-height: 1.55;
+  }
+  .caption-text strong { color: var(--chalk); }
+  .copy-caption-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header class="studio-header">
+  <div class="studio-brand">
+    <img src="logo-vocacao-white-gold.svg" alt="Vocação" />
+    <div class="studio-title">Direção de Arte · <em>Semana 02</em></div>
+  </div>
+
+  <div class="filter-nav">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">Todos da Semana 2</button>
+    <button class="filter-btn" onclick="filterPosts('post-5', this)">05 · Case Maçã do Amor</button>
+    <button class="filter-btn" onclick="filterPosts('post-6', this)">06 · Carrossel Velocidade (53%)</button>
+    <button class="filter-btn" onclick="filterPosts('post-7', this)">07 · Busca Noturna (21h40)</button>
+    <button class="filter-btn" onclick="filterPosts('post-8', this)">08 · Carrossel Sem Reuniões</button>
+  </div>
+</header>
+
+<main class="studio-wrap">
+
+  <!-- =====================================================================
+       POST 05 — TERÇA (10/11): ESTUDO DE CASO MAÇÃ DO AMOR (ANTES & DEPOIS)
+       ===================================================================== -->
+  <section class="post-block" id="post-5">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 05 · Terça-feira (10/11) · Estudo de Caso Real</div>
+        <h2>A mesma tradição. <em>Outra percepção de marca.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Feed 4:5 · Antes & Depois Maçã do Amor</span>
+          <button class="export-btn" onclick="exportCard('p5-c1', 'post05-card-antes-depois-maca.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p5-c1" style="background: var(--paper); color: var(--obsidian); padding: 38px; justify-content: space-between;">
+          <div>
+            <h3 class="ed-serif-lg">
+              A mesma tradição.<br/>
+              <em style="font-style: italic;">Outra percepção de marca.</em>
+            </h3>
+          </div>
+
+          <div style="position: relative; height: 260px; margin: 8px 0;">
+            <!-- Antes -->
+            <div style="position: absolute; top: 0; left: 0; width: 70%; z-index: 1;">
+              <div style="font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); margin-bottom: 5px;">Antes</div>
+              <div style="height: 118px; overflow: hidden; box-shadow: 0 8px 20px rgba(6,27,40,0.12); filter: saturate(0.65); opacity: 0.9;">
+                <img src="cases/maca-antigo.png" alt="Antes" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+              </div>
+            </div>
+
+            <!-- Depois -->
+            <div style="position: absolute; bottom: 0; right: 0; width: 84%; z-index: 2;">
+              <div style="font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--obsidian); margin-bottom: 5px; text-align: right;">Depois · Vocação</div>
+              <div style="height: 152px; overflow: hidden; box-shadow: 0 20px 44px rgba(6,27,40,0.28);">
+                <img src="cases/maca-novo.png" alt="Depois" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" />
+              </div>
+            </div>
+          </div>
+
+          <p class="ed-body" style="font-size: 12.5px; color: var(--ink-soft);">
+            Maçã do Amor · Nova direção visual e catálogo preparado para conversão imediata no celular.
+          </p>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-5">
+        <strong>Legenda sugerida:</strong> O produto sempre foi impecável — faltava o ambiente digital refletir esse mesmo cuidado. No redesenho da Maçã do Amor, substituímos um layout antigo e difícil de navegar por uma vitrine sensorial, rápida e direta para pedidos de eventos no celular. Veja mais transformações no link da bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-5', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 06 — QUARTA (11/11): CARROSSEL 4 LÂMINAS — VELOCIDADE (< 0.5S)
+       ===================================================================== -->
+  <section class="post-block" id="post-6">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 06 · Quarta-feira (11/11) · Carrossel 4 Lâminas</div>
+        <h2>Três segundos. <em>É tudo o que o cliente espera.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1: Capa Tipográfica Escultural -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('p6-s1', 'post06-slide01-capa.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p6-s1" style="background: var(--obsidian); color: var(--chalk); justify-content: space-between; padding: 42px;">
+          <div>
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" />
+          </div>
+
+          <div>
+            <h3 class="ed-serif-xl" style="margin-bottom: 18px;">
+              Três segundos.<br/>
+              É tudo o que o cliente espera antes de <em style="color: var(--citron);">fechar a sua página.</em>
+            </h3>
+            <p class="ed-body" style="color: var(--silver);">
+              No celular, a lentidão destrói a venda antes mesmo do seu argumento começar.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2: O Dado 53% -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · O Dado</span>
+          <button class="export-btn" onclick="exportCard('p6-s2', 'post06-slide02-dado.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p6-s2" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 44px;">
+          <div style="font-family: var(--serif); font-size: 138px; line-height: 0.86; letter-spacing: -0.04em; color: var(--obsidian); margin-bottom: 24px;">
+            53<span style="font-size: 76px; font-style: italic; color: var(--citron);">%</span>
+          </div>
+
+          <h3 class="ed-serif-md" style="margin-bottom: 16px;">
+            dos visitantes abandonam um site no celular se ele demora mais de três segundos para abrir.
+          </h3>
+
+          <p class="ed-body" style="color: var(--ink-soft);">
+            Não importa o quão bom seja o seu serviço: se a tela fica em branco carregando scripts pesados, metade do seu público vai embora em silêncio.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3: Contraste Bipartido -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · O Contraste</span>
+          <button class="export-btn" onclick="exportCard('p6-s3', 'post06-slide03-contraste.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p6-s3" style="background: var(--obsidian);">
+          <div style="flex: 1; background: var(--paper); color: var(--obsidian); padding: 38px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 10px;">Templates comuns</span>
+            <h3 class="ed-serif-lg">
+              Lentos no 4G, cheios de plugins pesados e distração visual.
+            </h3>
+          </div>
+          <div style="flex: 1; background: var(--obsidian); color: var(--chalk); padding: 38px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--citron); margin-bottom: 10px;">Arquitetura Vocação</span>
+            <h3 class="ed-serif-lg">
+              Código limpo que abre em menos de meio segundo no celular.
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 4: Fechamento -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · Fechamento</span>
+          <button class="export-btn" onclick="exportCard('p6-s4', 'post06-slide04-cta.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p6-s4" style="background: var(--citron); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 class="ed-serif-xl" style="margin-bottom: 18px;">
+              Quanto tempo o seu site leva para abrir no celular hoje?
+            </h3>
+            <p class="ed-body" style="color: rgba(6,27,40,0.82);">
+              Peça uma análise técnica da sua página atual pelo link da bio.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-6">
+        <strong>Legenda sugerida:</strong> Três segundos é o limite da paciência de quem navega pelo celular. Estudos do próprio Google mostram que 53% dos acessos móveis são abandonados quando uma página demora mais do que isso para carregar. Na Vocação, desenvolvemos páginas sem templates pesados, projetadas para abrir em menos de 0.5 segundo e conduzir o cliente direto ao contato. Faça o diagnóstico do seu site pelo link na bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-6', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 07 — QUINTA (12/11): CARD ÚNICO EDITORIAL — BUSCA FORA DO EXPEDIENTE
+       ===================================================================== -->
+  <section class="post-block" id="post-7">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 07 · Quinta-feira (12/11) · Card Único Editorial</div>
+        <h2>Sua empresa fecha às 18h. <em>A busca do cliente, não.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Feed 4:5 · Tipografia Escultural 21:40</span>
+          <button class="export-btn" onclick="exportCard('p7-c1', 'post07-card-busca-noturna.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p7-c1" style="background: var(--obsidian); color: var(--chalk); justify-content: space-between; padding: 42px;">
+          <div>
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" />
+          </div>
+
+          <div>
+            <div style="font-family: var(--serif); font-style: italic; font-size: 96px; line-height: 0.9; color: var(--citron); margin-bottom: 22px;">
+              21h40.
+            </div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 14px;">
+              Sua porta fecha às 18h. Mas é à noite que o cliente decide para quem vai ligar amanhã.
+            </h3>
+            <p class="ed-body" style="color: var(--silver); font-size: 13.5px;">
+              Um perfil estruturado no Google Maps e uma página clara trabalham pela sua reputação mesmo quando não há ninguém no balcão.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-7">
+        <strong>Legenda sugerida:</strong> Grande parte das decisões de compra e contratação acontece fora do horário comercial — quando o cliente finalmente tem tempo para pesquisar no celular, comparar fotos, ler avaliações e escolher em quem confiar. Quando sua presença no Google Maps e seu site estão bem construídos, sua empresa continua convencendo mesmo de portas fechadas. Saiba mais no link da bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-7', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 08 — SEXTA (13/11): CARROSSEL 4 LÂMINAS — PROCESSO SEM ATRITO
+       ===================================================================== -->
+  <section class="post-block" id="post-8">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 08 · Sexta-feira (13/11) · Carrossel 4 Lâminas</div>
+        <h2>Sem reuniões intermináveis. <em>Sem pedir textos do zero.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · A Pergunta</span>
+          <button class="export-btn" onclick="exportCard('p8-s1', 'post08-slide01-capa.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p8-s1" style="background: var(--paper); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 class="ed-serif-xl">
+              Por que tantos empresários adiam a atualização do próprio site <em style="font-style: italic;">por anos?</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · O Motivo Real</span>
+          <button class="export-btn" onclick="exportCard('p8-s2', 'post08-slide02-motivo.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p8-s2" style="background: var(--obsidian); color: var(--chalk); justify-content: center; padding: 42px;">
+          <h3 class="ed-serif-lg" style="margin-bottom: 20px;">
+            Porque quem lidera uma operação real não tem tempo para <em style="color: var(--citron);">escrever textos do zero</em> ou participar de seis reuniões.
+          </h3>
+          <p class="ed-body" style="color: var(--silver);">
+            Projetos digitais costumam travar quando o fornecedor transfere toda a responsabilidade de conteúdo para o cliente.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · O Processo Vocação</span>
+          <button class="export-btn" onclick="exportCard('p8-s3', 'post08-slide03-metodo.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p8-s3" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 42px;">
+          <h3 class="ed-serif-lg" style="margin-bottom: 20px;">
+            Na Vocação, nós fazemos o trabalho pesado por você.
+          </h3>
+          <p class="ed-body" style="color: var(--ink-soft);">
+            Pesquisamos o seu mercado, organizamos os argumentos comerciais, refinamos a direção visual e entregamos a estrutura pronta em até uma semana.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · Fechamento</span>
+          <button class="export-btn" onclick="exportCard('p8-s4', 'post08-slide04-cta.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p8-s4" style="background: var(--obsidian); color: var(--chalk); justify-content: space-between; padding: 42px;">
+          <div>
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" />
+          </div>
+
+          <div>
+            <h3 class="ed-serif-xl" style="margin-bottom: 18px;">
+              Sua única tarefa é <em style="color: var(--citron);">aprovar o resultado</em> no ar.
+            </h3>
+            <p class="ed-body" style="color: var(--silver);">
+              Converse diretamente conosco pelo link na bio.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-8">
+        <strong>Legenda sugerida:</strong> O maior motivo pelo qual empresas excelentes continuam com sites defasados é a falta de tempo do dono para gerenciar o projeto. Na Vocação, eliminamos as reuniões intermináveis e os formulários gigantescos: nossa equipe estuda sua operação, estrutura os textos e entrega tudo pronto para aprovação em poucos dias úteis. Fale conosco pelo link da bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-8', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function filterPosts(id, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-block').forEach(sec => {
+      sec.style.display = (id === 'all' || sec.id === id) ? 'block' : 'none';
+    });
+  }
+
+  function copyText(id, btn) {
+    const text = document.getElementById(id).innerText.replace('Legenda sugerida: ', '');
+    navigator.clipboard.writeText(text);
+    const old = btn.innerText;
+    btn.innerText = '✓ Copiado';
+    setTimeout(() => btn.innerText = old, 2000);
+  }
+
+  async function exportCard(elementId, filename) {
+    const node = document.getElementById(elementId);
+    if (!node || !window.htmlToImage) return;
+    try {
+      const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 3, cacheBust: true });
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = dataUrl;
+      link.click();
+    } catch (e) {
+      alert('Os arquivos PNG em alta resolução já estão salvos em Site/img/social/cards/.');
+    }
+  }
+</script>
+</body>
+</html>

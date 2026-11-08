@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System & Master Template — Vocação Digital</title>
+  
+  <!-- Tipografia Oficial Brandbook Vocação -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN para renderização instantânea -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              accent: '#0B5E47',       // Verde Esmeralda Vocação
+              'accent-hover': '#084937',
+              'accent-soft': '#E8F4EF',
+              dark: '#121816',         // Grafite Profundo
+              bg: '#FAFAF8',           // Off-white editorial
+              surface: '#FFFFFF',
+              border: '#E2E8E5',
+              muted: '#5A625F',
+              danger: '#9B2335'
+            }
+          },
+          fontFamily: {
+            serif: ['Fraunces', 'Georgia', 'serif'],
+            sans: ['DM Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      background-color: #FAFAF8;
+      color: #121816;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .serif-title {
+      font-family: 'Fraunces', serif;
+    }
+    .badge-blur {
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+</head>
+<body class="selection:bg-brand-accent selection:text-white">
+
+  <!-- TOP BAR DE STATUS (DESIGN SYSTEM) -->
+  <div class="bg-brand-dark text-white/80 text-xs py-2 px-4 border-b border-white/10">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span class="font-medium text-white">Design System Vocação v2.0</span>
+        <span class="text-white/40">|</span>
+        <span>Template Master para <code>cliente.vocacao.digital</code></span>
+      </div>
+      <div class="hidden sm:flex items-center gap-4 text-white/60">
+        <span>Velocidade 0.4s</span>
+        <span>Mobile-First</span>
+        <span>100% Responsivo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVEGAÇÃO SUPERIOR MINIMALISTA -->
+  <header class="sticky top-0 z-40 bg-brand-bg/90 backdrop-blur-md border-b border-brand-border">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- SVG LOGO OFICIAL VOCAÇÃO -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4001.88 3715.4" class="w-8 h-8" fill="none">
+          <path d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z" fill="#121816" />
+          <rect transform="matrix(0.395693 0.564385 -1.12875 0.791372 3191.31 348.346)" width="275.97" height="1545.42" rx="154.54" ry="154.54" fill="#0B5E47" />
+        </svg>
+        <div>
+          <span class="serif-title font-bold text-lg text-brand-dark tracking-tight block leading-tight">OFICINA EXEMPLO</span>
+          <span class="text-[10px] uppercase font-bold tracking-widest text-brand-accent block">Campolim &bull; Sorocaba</span>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="#simulador" class="hidden sm:block text-sm font-medium text-brand-muted hover:text-brand-dark transition-colors">Como Funciona</a>
+        <a href="#contato" class="bg-brand-accent hover:bg-brand-accent-hover text-white text-sm font-semibold px-5 py-2.5 rounded-lg shadow-sm transition-all flex items-center gap-2">
+          <span>Abrir WhatsApp</span>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION EDITORIAL COM IMPACTO VISUAL -->
+  <section class="max-w-6xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-12 items-center">
+    <div class="md:col-span-7 space-y-6">
+      <div class="inline-flex items-center gap-2 bg-brand-accent-soft text-brand-accent text-xs font-semibold px-3 py-1.5 rounded-full border border-brand-accent/15">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+        <span>Ficha Verificada &amp; Integrada ao Google Maps</span>
+      </div>
+
+      <h1 class="serif-title text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.15] text-brand-dark tracking-tight">
+        Sua empresa já é confiável.<br>
+        <span class="italic font-light text-brand-accent">Online, ela precisa parecer.</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-brand-muted max-w-xl font-normal leading-relaxed">
+        Uma estrutura digital ultra veloz e sob medida, desenhada para capturar clientes que já estão buscando seu serviço em Sorocaba e conectá-los diretamente ao seu atendimento.
+      </p>
+
+      <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <a href="#contato" class="bg-brand-accent hover:bg-brand-accent-hover text-white text-base font-semibold px-8 py-4 rounded-xl shadow-md text-center transition-all">
+          Iniciar Atendimento Imediato
+        </a>
+        <div class="flex items-center gap-3 px-4 py-2">
+          <div class="flex -space-x-1.5">
+            <span class="w-8 h-8 rounded-full bg-emerald-700 text-white text-xs flex items-center justify-center font-bold">5★</span>
+          </div>
+          <div class="text-xs text-brand-muted">
+            <strong class="text-brand-dark block text-sm">4.9 / 5.0 no Google</strong>
+            Mais de 120 avaliações reais
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD VISUAL DO PRESTÍGIO / SIMULADOR -->
+    <div class="md:col-span-5 relative">
+      <div class="bg-brand-surface rounded-2xl border border-brand-border p-6 shadow-xl relative z-10 space-y-5">
+        <div class="flex items-center justify-between pb-4 border-b border-brand-border">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-accent-soft text-brand-accent flex items-center justify-center font-bold text-lg">
+              G
+            </div>
+            <div>
+              <div class="font-bold text-sm text-brand-dark">Perfil de Empresa Oficial</div>
+              <div class="text-xs text-brand-muted">Google Maps Sorocaba</div>
+            </div>
+          </div>
+          <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-1 rounded-md">Ativo</span>
+        </div>
+
+        <div class="space-y-3 text-xs text-brand-muted">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+            <span>Av. Washington Luiz, 1200 &bull; Sorocaba/SP</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            <span>Aberto agora &bull; Fecha às 18:00</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span>(15) 98151-2083 (Clique para ligar)</span>
+          </div>
+        </div>
+
+        <div class="bg-brand-bg rounded-xl p-4 border border-brand-border text-center space-y-2">
+          <div class="text-[11px] font-bold uppercase tracking-wider text-brand-muted">Métricas Auditadas</div>
+          <div class="serif-title text-2xl font-bold text-brand-accent">+130%</div>
+          <div class="text-xs text-brand-muted leading-tight">Mais agendamentos após modernização do perfil e tour 360°. (Fonte: Ipsos/Google)</div>
+        </div>
+      </div>
+      <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-brand-accent/10 rounded-full blur-2xl -z-10"></div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO INTERATIVA: ANTES X DEPOIS (O IMPACTO NO CLIENTE) -->
+  <section id="simulador" class="border-t border-brand-border bg-white py-16 px-6">
+    <div class="max-w-6xl mx-auto space-y-12">
+      <div class="max-w-2xl mx-auto text-center space-y-3">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-accent">O Poder da Mudança</span>
+        <h2 class="serif-title text-3xl sm:text-4xl text-brand-dark">A Diferença Brutal de Percepção</h2>
+        <p class="text-sm sm:text-base text-brand-muted">O cliente decide em 4,2 segundos se a sua empresa parece confiável ou amadora. Veja a comparação:</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- CARD ANTES (O PROBLEMA DO CLIENTE) -->
+        <div class="bg-brand-bg border border-red-200/80 rounded-2xl p-6 sm:p-8 space-y-5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-danger bg-red-50 px-3 py-1 rounded-full border border-red-200">Como está hoje</span>
+            <span class="text-xs text-brand-muted">Perfil Comum</span>
+          </div>
+          <h3 class="serif-title text-xl text-brand-dark font-semibold">Sem Estrutura Profissional</h3>
+          <ul class="space-y-3 text-sm text-brand-muted">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-danger font-bold text-base leading-none">&times;</span>
+              <span>Ficha abandonada com fotos escuras tiradas por clientes.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-danger font-bold text-base leading-none">&times;</span>
+              <span>Sem site ou mandando o cliente para um linktree quebrado.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-danger font-bold text-base leading-none">&times;</span>
+              <span>O cliente procura o telefone e cai na caixa postal ou desiste.</span>
+            </li>
+          </ul>
+          <div class="text-xs text-brand-danger font-semibold bg-red-100/50 p-3 rounded-lg border border-red-200 text-center">
+            Perda diária de clientes para os concorrentes da região.
+          </div>
+        </div>
+
+        <!-- CARD DEPOIS (O PADRÃO VOCAÇÃO) -->
+        <div class="bg-brand-accent-soft/40 border border-brand-accent/30 rounded-2xl p-6 sm:p-8 space-y-5 relative overflow-hidden shadow-sm">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-accent bg-white px-3 py-1 rounded-full border border-brand-accent/20">Padrão Vocação Start</span>
+            <span class="text-xs font-bold text-brand-accent">Ativado em 7 Dias</span>
+          </div>
+          <h3 class="serif-title text-xl text-brand-dark font-semibold">Estrutura de Alta Autoridade</h3>
+          <ul class="space-y-3 text-sm text-brand-dark">
+            <li class="flex items-start gap-2">
+              <span class="text-brand-accent font-bold text-base leading-none">&check;</span>
+              <span>Ficha 100% blindada, com fotos nítidas e categorias comerciais certas.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-accent font-bold text-base leading-none">&check;</span>
+              <span>Vitrine Digital One-Page em <code>cliente.vocacao.digital</code> abrindo em 0.4s.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-brand-accent font-bold text-base leading-none">&check;</span>
+              <span>Botão direto de WhatsApp que já abre a conversa com a mensagem certa.</span>
+            </li>
+          </ul>
+          <div class="text-xs text-brand-accent font-semibold bg-white p-3 rounded-lg border border-brand-accent/20 text-center">
+            Pronto para captar ligações e rotas no piloto comercial.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ INSTITUCIONAL & GOVERNANÇA -->
+  <footer class="bg-brand-dark text-white/70 py-12 px-6 border-t border-white/10 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <span class="serif-title text-base font-bold text-white tracking-wider">VOCAÇÃO</span>
+        <span>&bull;</span>
+        <span>Comunicação &amp; Marketing</span>
+      </div>
+      <div>
+        Estrutura antes do marketing &bull; Confiança antes do tráfego.
+      </div>
+      <div class="text-white/40">
+        Sorocaba/SP &bull; vocacao.digital &bull; Conforme LGPD
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

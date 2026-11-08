@@ -1,0 +1,1007 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TiwShirts — Case Study Editorial &amp; Branding · Vocação</title>
+<meta name="description" content="Apresentação visual completa do case TiwShirts: criação de marca, identidade no til, e-commerce reativo, Manual do Usuário e streetwear cultural por Eduardo Bovoline." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Geist+Mono:wght@400;500;600&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="logo-vocacao.png" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles-sections.css" />
+<link rel="stylesheet" href="styles-more.css" />
+<link rel="stylesheet" href="styles-premium.css" />
+
+<!-- SEO & Open Graph -->
+<link rel="canonical" href="https://vocacao.digital/tiwshirts" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Vocação — Comunicação &amp; Marketing" />
+<meta property="og:title" content="TiwShirts — Case Visual Completo · Vocação" />
+<meta property="og:description" content="Do rabisco autoral no til ao ecossistema têxtil e digital com loja ao vivo e Manual do Usuário." />
+<meta property="og:image" content="cases/tiwshirts/capa-hero.webp" />
+<script src="google-tracking.js"></script>
+
+<style>
+  :root {
+    --tiw-black: #0A0A0A;
+    --tiw-dark: #121212;
+    --tiw-surface: #181818;
+    --tiw-paper: #F4F1EA;
+    --tiw-green: #2D5A27;
+    --tiw-green-light: #3D7A35;
+    --tiw-gold: #C5A880;
+    --tiw-sold: #C0392B;
+    --voca-navy: #061B28;
+    --voca-gold: #E5B910;
+  }
+
+  body {
+    background: #0D0E11;
+    color: #EDEDED;
+    font-family: Montserrat, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection { background: var(--tiw-green); color: #FFF; }
+
+  /* ── Showcase Hero (Estilo Behance Cinema) ── */
+  .tw-showcase-hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 24px 80px;
+    background: radial-gradient(circle at center, rgba(45, 90, 39, 0.25) 0%, rgba(10, 10, 10, 0.95) 75%),
+                url('cases/tiwshirts/capa-hero.webp') center/cover no-repeat;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tw-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(6, 27, 40, 0.7) 0%, rgba(10, 10, 10, 0.88) 60%, #0D0E11 100%);
+    pointer-events: none;
+  }
+
+  .tw-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1040px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .tw-hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--tiw-gold);
+    background: rgba(197, 168, 128, 0.1);
+    border: 1px solid rgba(197, 168, 128, 0.25);
+    padding: 7px 18px;
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+
+  .tw-hero-title {
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    font-size: clamp(38px, 6.2vw, 84px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+  }
+
+  .tw-hero-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, #FFF 30%, var(--tiw-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .tw-hero-desc {
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 680px;
+    margin: 0 auto 36px;
+    font-weight: 300;
+  }
+
+  .tw-hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    text-align: left;
+  }
+
+  .tw-hero-meta-item .lbl {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255, 255, 255, 0.45);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .tw-hero-meta-item .val {
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  /* ── Seções Visuais ── */
+  .tw-section {
+    padding: 110px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    position: relative;
+  }
+
+  .tw-header-editorial {
+    margin-bottom: 56px;
+  }
+
+  .tw-ch-index {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: var(--tiw-green-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .tw-ch-index::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--tiw-green-light);
+  }
+
+  .tw-sec-title {
+    font-family: Poppins, sans-serif;
+    font-size: clamp(30px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+  }
+
+  .tw-sec-desc {
+    font-size: 16.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.65);
+    max-width: 64ch;
+    margin-top: 14px;
+  }
+
+  /* ── Grid Editorial de Imagens Grandes ── */
+  .tw-gallery-hero {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  .tw-gallery-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  .tw-gallery-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .tw-gallery-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+
+  .tw-img-card {
+    background: var(--tiw-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+  }
+  .tw-img-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(197, 168, 128, 0.4);
+  }
+
+  .tw-img-card img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .tw-img-card:hover img {
+    transform: scale(1.03);
+  }
+
+  .tw-img-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px 20px;
+    background: linear-gradient(0deg, rgba(10, 10, 10, 0.95) 0%, rgba(10, 10, 10, 0.6) 60%, transparent 100%);
+  }
+
+  .tw-caption-tag {
+    font-family: 'Geist Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--tiw-gold);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .tw-caption-title {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #FFF;
+    margin-top: 4px;
+  }
+
+  /* ── Bloco Identidade & Tipografia ── */
+  .tw-brand-stage {
+    background: #080808;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+  }
+
+  .tw-brand-mark {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.6));
+  }
+
+  .tw-palette-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+    max-width: 820px;
+    margin-top: 48px;
+  }
+
+  .tw-color-box {
+    padding: 20px 16px;
+    border-radius: 12px;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+  }
+
+  /* ── 3 Linhas Têxteis ── */
+  .tw-textile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .tw-textile-card {
+    background: #111317;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tw-textile-media {
+    position: relative;
+    aspect-ratio: 16/10;
+    overflow: hidden;
+  }
+
+  .tw-textile-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tw-textile-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--tiw-green);
+    color: #FFF;
+    font-family: 'Geist Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  .tw-textile-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .tw-textile-title {
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #FFF;
+  }
+
+  .tw-textile-spec {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 10px 0 16px;
+  }
+
+  .tw-textile-ritual {
+    background: rgba(45, 90, 39, 0.12);
+    border-left: 3px solid var(--tiw-green);
+    padding: 12px 14px;
+    border-radius: 0 8px 8px 0;
+    margin-top: auto;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ── Interactive Web Preview ── */
+  .tw-device-wrapper {
+    background: #14171E;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px -25px rgba(0, 0, 0, 0.8);
+    margin-top: 36px;
+  }
+
+  .tw-device-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    background: #0B0E13;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tw-device-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .tw-device-dots span {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+  }
+
+  .tw-device-url {
+    font-family: 'Geist Mono', monospace;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 5px 18px;
+    border-radius: 6px;
+  }
+
+  /* ── B2B & Documentos ── */
+  .tw-docs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .tw-doc-card-premium {
+    background: #12141A;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    transition: all 0.25s ease;
+  }
+  .tw-doc-card-premium:hover {
+    border-color: var(--tiw-green);
+    transform: translateY(-4px);
+  }
+
+  /* ── Botões Customizados ── */
+  .tw-btn-glow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--tiw-green);
+    color: #FFFFFF;
+    font-family: Poppins, sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 14px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px -6px rgba(45, 90, 39, 0.5);
+  }
+  .tw-btn-glow:hover {
+    background: var(--tiw-green-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -4px rgba(45, 90, 39, 0.7);
+    color: #FFF;
+  }
+
+  .tw-btn-outline-light {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: transparent;
+    color: #FFFFFF;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.22s ease;
+  }
+  .tw-btn-outline-light:hover {
+    border-color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFF;
+  }
+
+  @media (max-width: 900px) {
+    .tw-gallery-grid-2,
+    .tw-gallery-grid-3,
+    .tw-textile-grid {
+      grid-template-columns: 1fr;
+    }
+    .tw-palette-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tw-showcase-hero {
+      padding: 120px 20px 60px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV PADRÃO VOCAÇÃO -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+    <nav class="nav-links">
+      <a href="presenca-local">Presença Local</a>
+      <a href="design-avulso">Design Avulso</a>
+      <a href="impressao">Impressão</a>
+      <a href="redes">Redes</a>
+      <a href="trafego">Tráfego</a>
+      <a href="portfolio" style="color:var(--voca-navy);font-weight:600;border-bottom:2px solid var(--voca-gold);padding-bottom:2px">Portfólio</a>
+    </nav>
+    <a href="diagnostico" class="btn btn-primary magnet">
+      Diagnóstico<span class="hide-mobile"> gratuito</span>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+    </a>
+  </div>
+</header>
+
+<!-- HERO SHOWCASE (ESTILO ADOBE / BEHANCE COVER) -->
+<section class="tw-showcase-hero">
+  <div class="tw-hero-overlay"></div>
+  <div class="tw-hero-content">
+    <div class="tw-hero-tag">
+      <span>●</span> CASE STUDY · STREETWEAR CULTURAL &amp; IA APLICADA
+    </div>
+
+    <h1 class="tw-hero-title">
+      TiwShirts: <em>se lê antes de vestir</em>.
+    </h1>
+
+    <p class="tw-hero-desc">
+      Apresentação visual completa do projeto idealizado e dirigido por <strong>Eduardo Bovoline</strong>. Da gênese gráfica no til (~) ao e-commerce reativo com 3 linhas de malha, Manual do Usuário e atacado B2B.
+    </p>
+
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://tiwshirts.space" target="_blank" rel="noopener" class="tw-btn-glow">
+        Explorar Loja ao Vivo ↗
+      </a>
+      <a href="#lookbook" class="tw-btn-outline-light">
+        Ver Editorial de Fotos ↓
+      </a>
+    </div>
+
+    <div class="tw-hero-meta">
+      <div class="tw-hero-meta-item">
+        <div class="lbl">Criação &amp; Direção</div>
+        <div class="val">Eduardo Bovoline</div>
+      </div>
+      <div class="tw-hero-meta-item">
+        <div class="lbl">Símbolo Central</div>
+        <div class="val">Rabisco no Til (~)</div>
+      </div>
+      <div class="tw-hero-meta-item">
+        <div class="lbl">Engenharia Têxtil</div>
+        <div class="val">Classic, Suedine 230g e Plus Size</div>
+      </div>
+      <div class="tw-hero-meta-item">
+        <div class="lbl">Ambiente Live</div>
+        <div class="val">tiwshirts.space</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 01 · GÊNESE GRÁFICA & IDENTIDADE VISUAL -->
+<section class="tw-section" id="identidade">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">01 · BRANDING &amp; IDENTIDADE</div>
+      <h2 class="tw-sec-title">A fonética do til, a gíria e o rabisco vetorial.</h2>
+      <p class="tw-sec-desc">
+        A marca nasce da sonoridade da palavra <strong>«Tiw»</strong> — idêntica à pronúncia do acento til — e do trocadilho popular com <strong>«tio»</strong>. O logotipo foge do padrão corporativo asséptico: é um lettering gestual desenhado rigorosamente dentro da área vetorial e sinuosa do acento til (~).
+      </p>
+    </div>
+
+    <!-- Stage Visual da Marca -->
+    <div class="tw-brand-stage">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.25em;color:rgba(255,255,255,0.4);text-transform:uppercase;margin-bottom:24px">
+        SÍMBOLO OFICIAL TIWSHIRTS DENTRO DO «~»
+      </span>
+      <img src="cases/tiwshirts/logo-tiw-mark.png" alt="Logotipo Oficial TiwShirts no Til" class="tw-brand-mark" />
+      
+      <div style="display:flex;gap:12px;margin-top:28px">
+        <a href="cases/tiwshirts/logo-tiwshirts.svg" target="_blank" class="tw-btn-outline-light" style="font-size:12px;padding:8px 20px">
+          Ver Vetor SVG ↗
+        </a>
+        <a href="cases/tiwshirts/logo-tiwshirts.png" download class="tw-btn-outline-light" style="font-size:12px;padding:8px 20px">
+          Baixar PNG Alta Resolução ↓
+        </a>
+      </div>
+
+      <!-- Paleta Cromática Institucional -->
+      <div class="tw-palette-strip">
+        <div class="tw-color-box" style="background:#F4F1EA;color:#1A1A18">
+          <b>#F4F1EA</b>
+          <span>Papel Cru</span>
+        </div>
+        <div class="tw-color-box" style="background:#1A1A18;color:#FFF;border:1px solid rgba(255,255,255,0.1)">
+          <b>#1A1A18</b>
+          <span>Quase-Preto</span>
+        </div>
+        <div class="tw-color-box" style="background:#2D5A27;color:#FFF">
+          <b>#2D5A27</b>
+          <span>Verde Folha</span>
+        </div>
+        <div class="tw-color-box" style="background:#C0392B;color:#FFF">
+          <b>#C0392B</b>
+          <span>Sold Out</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · ENGENHARIA TÊXTIL, DETALHES & RITUAL DE POSSE -->
+<section class="tw-section" id="produto">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">02 · PRODUTO &amp; ACABAMENTO</div>
+      <h2 class="tw-sec-title">Construção física, texturas e unboxing exclusivo.</h2>
+      <p class="tw-sec-desc">
+        A densidade têxtil valida o posicionamento de grife independente. Eduardo estruturou três experiências de corte e vestimenta, combinando embalagens que ressignificam o ato da compra.
+      </p>
+    </div>
+
+    <!-- Grid de Fotos Macro dos Detalhes -->
+    <div class="tw-gallery-grid-3">
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/textura-suedine.jpeg" alt="Textura Suedine 230g" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">DENSIDADE 230G</span>
+          <div class="tw-caption-title">Malha Suedine Peach Skin</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/detalhe-costura.jpeg" alt="Detalhe Costura Ombro a Ombro" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">REFORÇO ESTRUTURAL</span>
+          <div class="tw-caption-title">Costura Ombro a Ombro</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/detalhe-etiqueta.jpeg" alt="Etiqueta com QR Code" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">ACESSO AO MANUAL</span>
+          <div class="tw-caption-title">Etiqueta com QR Code</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- As 3 Linhas Explicadas -->
+    <div class="tw-textile-grid">
+      <div class="tw-textile-card">
+        <div class="tw-textile-media">
+          <img src="cases/tiwshirts/tricomas-ogkush-1.jpeg" alt="Linha Classic 30.1" />
+          <div class="tw-textile-badge">R$ 139,00</div>
+        </div>
+        <div class="tw-textile-body">
+          <div class="tw-textile-title">Classic — Algodão 30.1</div>
+          <p class="tw-textile-spec">
+            Corte reto clássico (~160 g/m²). Toque penteado nobre, gola firme e alta resistência para o dia a dia.
+          </p>
+          <div class="tw-textile-ritual">
+            <strong>Ritual de Posse:</strong> Entregue no Pote Hermético de Vidro (600ml), reutilizável para cura e preservação botânica.
+          </div>
+        </div>
+      </div>
+
+      <div class="tw-textile-card">
+        <div class="tw-textile-media">
+          <img src="cases/tiwshirts/costas-oversized.jpeg" alt="Linha Oversized Suedine" />
+          <div class="tw-textile-badge">R$ 179,00</div>
+        </div>
+        <div class="tw-textile-body">
+          <div class="tw-textile-title">Oversized — Suedine 230g</div>
+          <p class="tw-textile-spec">
+            Malha pesada de alta densidade tátil. Ombros caídos, corte boxy e gola canelada encorpada de 2,8cm.
+          </p>
+          <div class="tw-textile-ritual">
+            <strong>Ritual de Posse:</strong> Acondicionada em Embalagem Cilíndrica Rígida Hermética de grande capacidade.
+          </div>
+        </div>
+      </div>
+
+      <div class="tw-textile-card">
+        <div class="tw-textile-media">
+          <img src="cases/tiwshirts/full-vento.jpeg" alt="Linha Plus Size Especial" />
+          <div class="tw-textile-badge">R$ 179,00</div>
+        </div>
+        <div class="tw-textile-body">
+          <div class="tw-textile-title">Plus Size — G1 ao G3</div>
+          <p class="tw-textile-spec">
+            Modelagem ampla real projetada do zero. Conforto anatômico no tórax e braços sem repuxar a gola.
+          </p>
+          <div class="tw-textile-ritual">
+            <strong>Ritual de Posse:</strong> Tubo rígido industrial colecionável mantendo a malha impecável no unboxing.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · LOOKBOOK EDITORIAL (FOTOS REAIS DE MODELO) -->
+<section class="tw-section" id="lookbook">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">03 · EDITORIAL STREETWEAR</div>
+      <h2 class="tw-sec-title">Coleção Consciência: ensaio fotográfico nas ruas.</h2>
+      <p class="tw-sec-desc">
+        Estética crua, luz natural e presença autêntica. As estampas não são meras ilustrações: são declarações conceituais com peso tipográfico e histórico.
+      </p>
+    </div>
+
+    <!-- Grade Fotográfica Dinâmica -->
+    <div class="tw-gallery-grid-2">
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/maconheiro-1.jpeg" alt="Camiseta Maconheiro" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">STATEMENT</span>
+          <div class="tw-caption-title">Maconheiro · Tipografia na Barra</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/legaliza-1.jpeg" alt="Legaliza Pra Pobre Também" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">MANIFESTO SOCIAL</span>
+          <div class="tw-caption-title">Legaliza Pra Pobre Também</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tw-gallery-grid-3" style="margin-top:24px">
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/justdoobit-black-1.jpeg" alt="Just Doob It" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">RELEITURA</span>
+          <div class="tw-caption-title">Just Doob It (Suedine)</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/maconhasalvavidas-1.jpeg" alt="Maconha Salva Vidas" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">CIÊNCIA &amp; SAÚDE</span>
+          <div class="tw-caption-title">Maconha Salva Vidas</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/sugiromaconha-1.jpeg" alt="Sugiro Maconha" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">MICROCOPY</span>
+          <div class="tw-caption-title">Sugiro Maconha (Se Informar)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · E-COMMERCE REATIVO & TECNOLOGIA HEADLESS -->
+<section class="tw-section" id="loja">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">04 · ENGENHARIA DIGITAL &amp; E-COMMERCE</div>
+      <h2 class="tw-sec-title">tiwshirts.space: arquitetura reativa sem intermediários.</h2>
+      <p class="tw-sec-desc">
+        A plataforma foi construída em componentes reativos (<code>&lt;x-dc&gt;</code>) com carregamento instantâneo. O visitante explora o lookbook, aciona o modal com fotos reais e fecha o pedido diretamente no WhatsApp oficial.
+      </p>
+    </div>
+
+    <!-- Moldura de Navegador com a Loja Viva -->
+    <div class="tw-device-wrapper">
+      <div class="tw-device-bar">
+        <div class="tw-device-dots">
+          <span style="background:#FF5F56"></span>
+          <span style="background:#FFBD2E"></span>
+          <span style="background:#27C93F"></span>
+        </div>
+        <div class="tw-device-url">https://tiwshirts.space</div>
+        <a href="https://tiwshirts.space" target="_blank" rel="noopener" style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--voca-gold);text-decoration:none">
+          Abrir Loja ↗
+        </a>
+      </div>
+      <div style="position:relative;background:#080808">
+        <img src="cases/tiwshirts/capa-hero.webp" alt="Interface da Loja TiwShirts" style="width:100%;height:auto;display:block;opacity:0.9" />
+      </div>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:16px;margin-top:36px;flex-wrap:wrap">
+      <a href="https://tiwshirts.space" target="_blank" rel="noopener" class="tw-btn-glow">
+        Navegar pela Loja Oficial ↗
+      </a>
+      <a href="https://tiwshirts.space/manual" target="_blank" rel="noopener" class="tw-btn-outline-light">
+        Acessar Manual do Usuário Digital ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · O MANUAL DO USUÁRIO: O LIVRO ANTES DA PEÇA -->
+<section class="tw-section" id="manual" style="background:linear-gradient(180deg, #0D0E11 0%, #080A0D 100%)">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">05 · ÂNCORA CULTURAL &amp; PESQUISA</div>
+      <h2 class="tw-sec-title">Manual do Usuário: a credencial impressa na etiqueta.</h2>
+      <p class="tw-sec-desc">
+        Antes de produzir as roupas, Eduardo escreveu e diagramou o <strong>Manual do Usuário Cannabis</strong>: uma obra aberta em 9 capítulos científicos sobre arqueologia milenar, farmacologia do sistema endocanabinoide, medicina regulada e redução de danos.
+      </p>
+    </div>
+
+    <div class="tw-gallery-hero" style="background:#080808">
+      <img src="cases/tiwshirts/full-vento.jpeg" alt="Conceito Manual do Usuário TiwShirts" style="max-height:480px;object-fit:cover;opacity:0.4" />
+      <div style="position:absolute;inset:0;padding:48px 36px;display:flex;flex-direction:column;justify-content:center;max-width:680px">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.2em;color:var(--tiw-gold);text-transform:uppercase;margin-bottom:12px">
+          PUBLICAÇÃO DIGITAL OFICIAL
+        </span>
+        <h3 style="font-family:Poppins,sans-serif;font-size:clamp(24px,3.2vw,38px);font-weight:700;color:#FFF;line-height:1.2">
+          "Você não veste tecido. Você veste a tese que defende antes mesmo de falar."
+        </h3>
+        <p style="color:rgba(255,255,255,0.75);font-size:15px;line-height:1.6;margin-top:16px">
+          A camiseta funciona como credencial física. Ao apontar o celular para o QR Code da gola, o cliente acessa os estudos que sustentam a afirmação da estampa.
+        </p>
+        <div style="margin-top:24px">
+          <a href="https://tiwshirts.space/manual" target="_blank" rel="noopener" class="tw-btn-glow" style="padding:12px 24px;font-size:13px">
+            Ler os 9 Capítulos no Manual Digital ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 · SOCIAL MEDIA & EXPANSÃO ATACADO B2B -->
+<section class="tw-section" id="social-atacado">
+  <div class="wrap">
+    <div class="tw-header-editorial">
+      <div class="tw-ch-index">06 · REDES SOCIAIS &amp; ATACADO B2B</div>
+      <h2 class="tw-sec-title">Campanhas no Instagram e viabilidade comercial para lojistas.</h2>
+      <p class="tw-sec-desc">
+        A marca foi pensada de ponta a ponta: do debate cultural no feed (@tiwshirts) à política comercial com markup de 2.01x para tabacarias premium, skateshops e multimarcas.
+      </p>
+    </div>
+
+    <!-- Posts de Destaque -->
+    <div class="tw-gallery-grid-3">
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/social/post-vestindo-ideias.png" alt="Post Vestindo Ideias" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">CAMPANHA</span>
+          <div class="tw-caption-title">Vestindo Ideias</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/social/post-maconheiro-ad.png" alt="Post Maconheiro" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">IDENTIDADE</span>
+          <div class="tw-caption-title">Releitura do Estigma</div>
+        </div>
+      </div>
+      <div class="tw-img-card">
+        <img src="cases/tiwshirts/social/post-nem-tudo-pode-ser-dito.png" alt="Post Nem tudo pode ser dito" />
+        <div class="tw-img-caption">
+          <span class="tw-caption-tag">EDITORIAL</span>
+          <div class="tw-caption-title">Nem Tudo Pode Ser Dito</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentos Comerciais -->
+    <div class="tw-docs-grid">
+      <div class="tw-doc-card-premium">
+        <div>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--tiw-gold);letter-spacing:0.15em">DOCUMENTO B2B OFICIAL</span>
+          <h4 style="font-family:Poppins,sans-serif;font-size:20px;font-weight:600;color:#FFF;margin-top:8px">Lâmina Comercial de Atacado</h4>
+          <p style="font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.6;margin-top:10px">
+            Apresentação executiva detalhando o modelo híbrido, kits Starter Mix (a partir de 15 peças), tabela de preços e 101% de margem no balcão.
+          </p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="cases/tiwshirts/Lamina_Comercial_Atacado_TiwShirts.pdf" target="_blank" class="tw-btn-glow" style="font-size:12.5px;padding:10px 20px">
+            Ver Lâmina PDF ↗
+          </a>
+          <a href="cases/tiwshirts/Lamina_Comercial_Atacado_TiwShirts.pdf" download class="tw-btn-outline-light" style="font-size:12.5px;padding:10px 20px">
+            Baixar Arquivo ↓
+          </a>
+        </div>
+      </div>
+
+      <div class="tw-doc-card-premium">
+        <div>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--tiw-gold);letter-spacing:0.15em">LOOKBOOK DIGITAL</span>
+          <h4 style="font-family:Poppins,sans-serif;font-size:20px;font-weight:600;color:#FFF;margin-top:8px">Catálogo Oficial de Coleção</h4>
+          <p style="font-size:13.5px;color:rgba(255,255,255,0.65);line-height:1.6;margin-top:10px">
+            Fichas técnicas das malhas, tabelas de medidas das três modelagens (Classic, Oversized, Plus Size) e diretrizes de conservação têxtil.
+          </p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap">
+          <a href="cases/tiwshirts/tiwshirts-drop01-catalogo.pdf" target="_blank" class="tw-btn-glow" style="font-size:12.5px;padding:10px 20px">
+            Abrir Lookbook PDF ↗
+          </a>
+          <a href="cases/tiwshirts/tiwshirts-drop01-catalogo.pdf" download class="tw-btn-outline-light" style="font-size:12.5px;padding:10px 20px">
+            Baixar Catálogo ↓
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL DA VOCAÇÃO -->
+<section style="padding:120px 0;background:#061B28;color:#F8F9F9;text-align:center;position:relative;overflow:hidden">
+  <div style="position:absolute;top:-40%;left:-20%;width:80vw;height:80vw;background:radial-gradient(circle,rgba(229,185,16,0.12) 0%,transparent 60%);pointer-events:none"></div>
+  <div class="wrap" style="position:relative;z-index:2">
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.25em;color:var(--voca-gold);text-transform:uppercase">PORTFÓLIO VOCAÇÃO</span>
+    <h2 style="font-family:Poppins,sans-serif;font-size:clamp(32px,4.8vw,60px);font-weight:700;line-height:1.1;margin-top:20px">
+      Sua empresa precisa de uma marca com alma.<br/>
+      E uma estrutura que <em style="font-style:italic;color:var(--voca-gold)">realmente vende</em>.
+    </h2>
+    <p style="font-size:16.5px;color:rgba(248,249,249,0.7);max-width:58ch;margin:24px auto 0;line-height:1.6">
+      Do conceito de naming à loja reativa no ar: unimos visão estratégica humana, ferramentas de inteligência artificial e processos comerciais validados.
+    </p>
+
+    <div style="display:flex;gap:16px;justify-content:center;margin-top:44px;flex-wrap:wrap">
+      <a href="diagnostico" class="btn btn-primary" style="background:var(--voca-gold);color:var(--voca-navy);font-weight:700;padding:15px 32px;font-size:15px">
+        Quero meu diagnóstico gratuito
+        <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+      </a>
+      <a href="portfolio" class="btn btn-ghost" style="border-color:rgba(248,249,249,0.3);color:#F8F9F9;padding:15px 30px;font-size:15px">
+        Voltar ao Portfólio
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER OFICIAL VOCAÇÃO -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
+        <p class="lede">A Vocação ajuda empresas a organizarem sua presença digital para transmitir confiança antes de investir em marketing.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Ofertas Diretas</h5>
+        <ul>
+          <li><a href="presenca-local">Presença Local</a></li>
+          <li><a href="design-avulso">Design Avulso</a></li>
+          <li><a href="impressao">Impressão Gráfica</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Marketing &amp; Escala</h5>
+        <ul>
+          <li><a href="redes">Gestão de Redes <span class="arrow">↗</span></a></li>
+          <li><a href="trafego">Tráfego Pago <span class="arrow">↗</span></a></li>
+          <li><a href="branding">Branding &amp; Naming <span class="arrow">↗</span></a></li>
+          <li><a href="portfolio">Portfólio de Casos <span class="arrow">↗</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contato</h5>
+        <ul>
+          <li><a href="https://wa.me/5515981512083" target="_blank" rel="noopener">WhatsApp Comercial <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico">Diagnóstico <span class="arrow">↗</span></a></li>
+          <li>(15) 98151-2083</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Empresa</h5>
+        <ul>
+          <li><a href="tiwshirts">Caso TiwShirts</a></li>
+          <li><a href="braza-urbana">Caso Braza Urbana</a></li>
+          <li>Brasil · PT-BR</li>
+          <li>Atendimento nacional</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-mark">Vocação<span class="dot">.</span></div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Vocação · Comunicação &amp; Marketing</span>
+      <span>Trabalho feito com critério, padrão e responsabilidade.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a class="wa-float" href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20caso%20TiwShirts%20e%20quero%20conversar%20sobre%20branding%20e%20e-commerce" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.94 11.94 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.7 6L0 24l6.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12 0-3.2-1.2-6.2-3.5-8.3zM12 21.8c-1.9 0-3.7-.5-5.3-1.5l-.4-.2-3.7 1 1-3.6-.2-.4c-1-1.6-1.6-3.5-1.6-5.4 0-5.5 4.5-10 10-10 2.7 0 5.2 1 7.1 3 1.9 1.9 3 4.4 3 7.1 0 5.5-4.5 10-10 10zm5.5-7.5c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-.3-.2-1.3-.5-2.5-1.5-.9-.8-1.6-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4 0-.6 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1 2.9 1.2 3.1c.2.2 2 3.1 4.9 4.4 2.9 1.2 2.9.8 3.4.8.5 0 1.7-.7 2-1.4.3-.7.3-1.2.2-1.4-.1-.2-.3-.3-.6-.4z"></path></svg>
+</a>
+
+</body>
+</html>

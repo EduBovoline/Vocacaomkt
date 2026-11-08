@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root {
+    --gold: #E5B910;
+    --emerald: #34d399;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Montserrat', sans-serif; }
+  body {
+    width: 1080px;
+    height: 1350px;
+    background: #04121b;
+    color: #F8F9F9;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 70px 60px;
+  }
+  .bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    filter: brightness(0.65);
+    z-index: 0;
+  }
+  .bg-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4,18,27,0.85) 0%, rgba(4,18,27,0.55) 45%, rgba(4,18,27,0.95) 90%);
+    z-index: 1;
+  }
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding-bottom: 20px;
+  }
+  .brand {
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--gold);
+  }
+  .num { font-size: 14px; font-weight: 800; color: var(--emerald); }
+  .title-block {
+    margin: 24px 0 16px;
+  }
+  .tag {
+    color: var(--emerald);
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    display: block;
+  }
+  h2 {
+    font-size: 46px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: #FFFFFF;
+  }
+  h2 span { color: var(--emerald); }
+
+  /* Diagramação Editorial sem 'balisas' ou caixinhas de IA */
+  .editorial-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  .quote-section {
+    border-left: 3px solid var(--gold);
+    padding-left: 24px;
+  }
+  .stars {
+    font-size: 26px;
+    margin-bottom: 14px;
+    letter-spacing: 4px;
+  }
+  .quote-text {
+    font-size: 24px;
+    color: #FFFFFF;
+    font-style: italic;
+    line-height: 1.5;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  }
+  .quote-author {
+    margin-top: 14px;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    padding: 24px 10px;
+  }
+  .s-item strong {
+    display: block;
+    font-size: 38px;
+    font-weight: 800;
+    color: var(--emerald);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .s-item span {
+    font-size: 15px;
+    color: #CBD5E1;
+    font-weight: 600;
+  }
+  .cta-editorial {
+    padding-left: 10px;
+  }
+  .cta-editorial h3 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+  .cta-editorial p {
+    font-size: 18px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .footer-row {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #CBD5E1;
+  }
+  .save { color: var(--gold); font-weight: 800; }
+</style>
+</head>
+<body>
+  <img src="C:/Vocação 2027/QG Vocação 2027 do zero/Site/jardim-vivo-essencial/assets/cena5-poster.jpg" class="bg-photo" alt="Background">
+  <div class="bg-gradient"></div>
+
+  <div class="content">
+    <div class="top-row">
+      <div class="brand">Vocação Comunicação &bull; Fechamento</div>
+      <div class="num">06 / 06</div>
+    </div>
+
+    <div class="title-block">
+      <span class="tag">Entrega Concluída</span>
+      <h2>Cliente Satisfeito &bull; <span>Código 100% Entregue</span></h2>
+    </div>
+
+    <div class="editorial-body">
+      <!-- Depoimento Editorial -->
+      <div class="quote-section">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p class="quote-text">
+          "A Vocação transformou completamente a presença digital do Jardim Vivo Essencial! O novo site ficou ultrarrápido, moderno e com uma experiência incrível."
+        </p>
+        <div class="quote-author">André Andrade &bull; Jardim Vivo Essencial</div>
+      </div>
+
+      <!-- Métricas Reais Diagramadas -->
+      <div class="stats-row">
+        <div class="s-item">
+          <strong>5 Dias</strong>
+          <span>Prazo cumprido</span>
+        </div>
+        <div class="s-item">
+          <strong>0.4s</strong>
+          <span>Carregamento</span>
+        </div>
+        <div class="s-item">
+          <strong>R$ 0</strong>
+          <span>Sem mensalidades</span>
+        </div>
+      </div>
+
+      <!-- Chamada Comercial Direta -->
+      <div class="cta-editorial">
+        <h3>Quer renovar a presença digital da sua empresa?</h3>
+        <p>Mande uma mensagem no direct &bull; vocacao.digital</p>
+      </div>
+    </div>
+
+    <div class="footer-row">
+      <div>vocacao.digital</div>
+      <div class="save">Salve para consultar depois &uarr;</div>
+    </div>
+  </div>
+</body>
+</html>

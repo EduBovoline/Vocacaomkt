@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vocação — Editorial Inbound (Semanas 1 e 2 · Puro Valor, Zero Venda)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<style>
+  :root {
+    --chalk: #F8F9F9;
+    --paper: #F2F3F0;
+    --obsidian: #061B28;
+    --obsidian-deep: #04121B;
+    --citron: #E5B910;
+    --silver: #9AA5AD;
+    --ink-soft: #4A5B68;
+
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0B1318;
+    color: var(--chalk);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 90px;
+  }
+
+  .studio-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 19, 24, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .studio-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .studio-brand img { height: 24px; }
+  .studio-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .studio-title em {
+    color: var(--citron);
+    font-style: italic;
+  }
+
+  .filter-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent;
+    color: var(--silver);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 8px 14px;
+    border-radius: 99px;
+    font-family: var(--sans);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--chalk);
+    color: var(--obsidian);
+    border-color: var(--chalk);
+    font-weight: 600;
+  }
+
+  .studio-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  .week-divider {
+    font-family: var(--serif);
+    font-size: 38px;
+    color: var(--citron);
+    margin: 12px 0 32px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(229, 185, 16, 0.25);
+  }
+
+  .post-block {
+    margin-bottom: 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 48px;
+  }
+
+  .post-meta-bar {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .post-info h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .post-info h2 em { color: var(--citron); font-style: italic; }
+  .post-label {
+    font-size: 12px;
+    color: var(--silver);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .cards-rail {
+    display: flex;
+    gap: 28px;
+    padding: 8px 0 24px;
+    overflow-x: auto;
+  }
+
+  .card-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--silver);
+  }
+  .export-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .export-btn:hover {
+    background: var(--citron);
+    color: var(--obsidian);
+    border-color: var(--citron);
+  }
+
+  /* =====================================================================
+     INBOUND EDITORIAL CANVAS — 4:5 (380x475 -> 1140x1425 at 3x)
+     Zero pitch. Zero service mention. Pure business & brand wisdom.
+     ===================================================================== */
+  .ig-card {
+    width: 380px;
+    height: 475px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    user-select: none;
+  }
+
+  .v-pin {
+    width: 18px;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+  }
+  .v-pin-dark {
+    width: 18px;
+    height: auto;
+    display: block;
+  }
+
+  .ed-serif-xl {
+    font-family: var(--serif);
+    font-size: 40px;
+    line-height: 1.04;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .ed-serif-lg {
+    font-family: var(--serif);
+    font-size: 33px;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+  .ed-serif-md {
+    font-family: var(--serif);
+    font-size: 27px;
+    line-height: 1.14;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+  .ed-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .ed-caption {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  .caption-drawer {
+    margin-top: 12px;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .caption-text {
+    font-size: 13.5px;
+    color: var(--silver);
+    max-width: 920px;
+    line-height: 1.55;
+  }
+  .caption-text strong { color: var(--chalk); }
+  .copy-caption-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<header class="studio-header">
+  <div class="studio-brand">
+    <img src="logo-vocacao-white-gold.svg" alt="Vocação" />
+    <div class="studio-title">Editorial Inbound · <em>Semanas 1 e 2 (Zero Venda)</em></div>
+  </div>
+
+  <div class="filter-nav">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">Todos (6 Posts Inbound)</button>
+    <button class="filter-btn" onclick="filterPosts('inb-1', this)">S1 · Por que pedem desconto</button>
+    <button class="filter-btn" onclick="filterPosts('inb-2', this)">S1 · Regra dos 5 Minutos</button>
+    <button class="filter-btn" onclick="filterPosts('inb-3', this)">S1 · 3 Fotos com o Celular</button>
+    <button class="filter-btn" onclick="filterPosts('inb-4', this)">S2 · Avaliações Inteligentes</button>
+    <button class="filter-btn" onclick="filterPosts('inb-5', this)">S2 · O Sócio Oculto</button>
+    <button class="filter-btn" onclick="filterPosts('inb-6', this)">S2 · Vocabulário de Valor</button>
+  </div>
+</header>
+
+<main class="studio-wrap">
+
+  <h1 class="week-divider">Semana 1 · Conteúdo Inbound (Puro Valor)</h1>
+
+  <!-- =====================================================================
+       INBOUND 01 (SEMANA 1): POR QUE CLIENTES PEDEM DESCONTO
+       ===================================================================== -->
+  <section class="post-block" id="inb-1">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 01 · Semana 1 · Carrossel 4 Lâminas (Posicionamento & Margem)</div>
+        <h2>O cliente raramente pede desconto <em>porque acha caro.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('inb1-s1', 'inbound01-slide01.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb1-s1" style="background: var(--obsidian); justify-content: space-between; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/inbound-flow-craft.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.2) 0%, rgba(4,18,27,0.35) 40%, rgba(4,18,27,0.95) 100%);"></div>
+
+          <div style="position:relative; z-index:2;"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" /></div>
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-xl" style="color: var(--chalk); margin-bottom: 16px;">
+              O cliente raramente pede desconto porque acha caro.<br/>
+              Ele pede quando <em style="color: var(--citron);">não vê a diferença.</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · A Lógica do Comprador</span>
+          <button class="export-btn" onclick="exportCard('inb1-s2', 'inbound01-slide02.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb1-s2" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 42px;">
+          <h3 class="ed-serif-lg" style="margin-bottom: 20px;">
+            Quando duas empresas parecem iguais por fora, o comprador só tem uma ferramenta para se proteger: <em style="font-style: italic;">escolher a mais barata.</em>
+          </h3>
+          <p class="ed-body" style="color: var(--ink-soft);">
+            Na ausência de clareza sobre o seu método, o preço vira o único critério de comparação.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · O Contraste</span>
+          <button class="export-btn" onclick="exportCard('inb1-s3', 'inbound01-slide03.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb1-s3" style="background: var(--obsidian);">
+          <div style="flex: 1; background: var(--paper); color: var(--obsidian); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 8px;">O que atrai pedido de desconto</span>
+            <h3 class="ed-serif-md">
+              Dizer apenas o nome do serviço e mandar o valor solto em uma linha no WhatsApp.
+            </h3>
+          </div>
+          <div style="flex: 1; background: var(--obsidian); color: var(--chalk); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--citron); margin-bottom: 8px;">O que protege sua margem</span>
+            <h3 class="ed-serif-md">
+              Explicar o rigor técnico do seu processo e o risco que o cliente evita ao escolher você.
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · Síntese Prática</span>
+          <button class="export-btn" onclick="exportCard('inb1-s4', 'inbound01-slide04.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb1-s4" style="background: var(--citron); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 16px;">
+              Regra prática para o comercial da sua empresa:
+            </h3>
+            <p class="ed-body" style="color: rgba(6,27,40,0.88); font-size: 15px;">
+              Nunca apresente o preço antes de mostrar o cuidado invisível que existe por trás da sua entrega.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb1">
+        <strong>Legenda Inbound (Sem venda):</strong> Quando o cliente pede desconto antes mesmo de entender como você trabalha, raramente o problema está no bolso dele — está na falta de contraste entre a sua empresa e as demais opções do mercado. Quem explica o próprio método e mostra os bastidores da entrega educa o cliente a valorizar segurança em vez de pechincha. Salve para compartilhar com sua equipe comercial.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb1', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       INBOUND 02 (SEMANA 1): O ERRO SILENCIOSO DOS 5 MINUTOS NO WHATSAPP
+       ===================================================================== -->
+  <section class="post-block" id="inb-2">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 02 · Semana 1 · Card Único Editorial (Atendimento Comercial)</div>
+        <h2>Os primeiros <em>5 minutos</em> no WhatsApp.</h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Card 4:5 · Atendimento & Conversão</span>
+          <button class="export-btn" onclick="exportCard('inb2-c1', 'inbound02-card-5min.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb2-c1" style="background: var(--paper); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+
+          <div>
+            <div style="font-family: var(--serif); font-size: 112px; line-height: 0.88; letter-spacing: -0.03em; color: var(--obsidian); margin-bottom: 20px;">
+              5 <span style="font-size: 64px; font-style: italic; color: var(--citron);">min.</span>
+            </div>
+            <h3 class="ed-serif-md" style="margin-bottom: 14px;">
+              Responder um cliente em até cinco minutos multiplica em 4x a chance de fechar negócio.
+            </h3>
+            <p class="ed-body" style="color: var(--ink-soft); font-size: 13.5px;">
+              Mas cuidado com a armadilha: substituir o primeiro acolhimento humano por menus de robô ("Digite 1 para...") afasta justamente o cliente disposto a pagar mais por atenção.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb2">
+        <strong>Legenda Inbound (Sem venda):</strong> Quem manda mensagem pedindo orçamento geralmente acabou de abrir três abas no celular. A empresa que responde nos primeiros 5 minutos com voz humana, fazendo uma pergunta inteligente sobre a necessidade do cliente em vez de despejar um menu automático, sai na frente antes mesmo de falar de valores.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb2', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       INBOUND 03 (SEMANA 1): 3 FOTOS QUE TODO NEGÓCIO DEVERIA TIRAR HOJE
+       ===================================================================== -->
+  <section class="post-block" id="inb-3">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 03 · Semana 1 · Carrossel 4 Lâminas (Guia Prático Faça-Você-Mesmo)</div>
+        <h2>Três fotos que aumentam a confiança da sua empresa <em>usando o próprio celular.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('inb3-s1', 'inbound03-slide01.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb3-s1" style="background: var(--obsidian); justify-content: space-between; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/flow-storefront.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.2) 0%, rgba(4,18,27,0.3) 40%, rgba(4,18,27,0.94) 100%);"></div>
+
+          <div style="position:relative; z-index:2;">
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" />
+          </div>
+
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-lg" style="color: var(--chalk);">
+              Três fotos que você pode tirar hoje com o celular para <em style="color: var(--citron);">transmitir mais confiança.</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · Foto 1: A Chegada</span>
+          <button class="export-btn" onclick="exportCard('inb3-s2', 'inbound03-slide02.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb3-s2" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 42px;">
+          <div style="font-family: var(--serif); font-style: italic; font-size: 54px; color: var(--citron); line-height: 1; margin-bottom: 16px;">01.</div>
+          <h3 class="ed-serif-lg" style="margin-bottom: 16px;">
+            A fachada vista da calçada, com luz natural.
+          </h3>
+          <p class="ed-body" style="color: var(--ink-soft);">
+            O cliente sente segurança quando reconhece o prédio antes de sair de casa, enxerga onde estacionar e percebe que o endereço existe de verdade. Prefira o sol das 8h ou das 17h.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · Foto 2: O Ofício</span>
+          <button class="export-btn" onclick="exportCard('inb3-s3', 'inbound03-slide03.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb3-s3" style="background: var(--obsidian); color: var(--chalk); justify-content: center; padding: 42px;">
+          <div style="font-family: var(--serif); font-style: italic; font-size: 54px; color: var(--citron); line-height: 1; margin-bottom: 16px;">02.</div>
+          <h3 class="ed-serif-lg" style="margin-bottom: 16px;">
+            O detalhe do trabalho em execução — sem pose.
+          </h3>
+          <p class="ed-body" style="color: var(--silver);">
+            Mãos ajustando uma peça, uma mesa de projeto limpa ou o equipamento real em uso geram dez vezes mais credibilidade do que qualquer foto genérica de banco de imagens.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · Foto 3: As Pessoas</span>
+          <button class="export-btn" onclick="exportCard('inb3-s4', 'inbound03-slide04.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb3-s4" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 42px;">
+          <div style="font-family: var(--serif); font-style: italic; font-size: 54px; color: var(--obsidian); line-height: 1; margin-bottom: 16px;">03.</div>
+          <h3 class="ed-serif-lg" style="margin-bottom: 16px;">
+            Quem recebe o cliente na porta.
+          </h3>
+          <p class="ed-body" style="color: var(--ink-soft);">
+            Negócios locais são construídos sobre relações humanas. Mostrar o rosto real de quem atende ou lidera a operação dissolve a frieza da internet no primeiro olhar.
+          </p>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb3">
+        <strong>Legenda Inbound (Sem venda):</strong> Você não precisa esperar uma grande produção para atualizar a primeira impressão da sua empresa na internet. Limpe a lente do celular, aproveite a luz natural perto das janelas e registre a verdade da sua operação: a fachada real, o cuidado técnico do ofício e as pessoas por trás do balcão.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb3', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <h1 class="week-divider">Semana 2 · Conteúdo Inbound (Gestão & Reputação)</h1>
+
+  <!-- =====================================================================
+       INBOUND 04 (SEMANA 2): COMO RESPONDER AVALIAÇÕES DE FORMA INTELIGENTE
+       ===================================================================== -->
+  <section class="post-block" id="inb-4">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 04 · Semana 2 · Carrossel 4 Lâminas (Reputação & Psicologia do Cliente)</div>
+        <h2>Você não responde uma avaliação <em>para quem escreveu.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('inb4-s1', 'inbound04-slide01.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb4-s1" style="background: var(--obsidian); justify-content: space-between; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/inbound-flow-store.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.2) 0%, rgba(4,18,27,0.35) 40%, rgba(4,18,27,0.95) 100%);"></div>
+
+          <div style="position:relative; z-index:2;"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" /></div>
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-xl" style="color: var(--chalk);">
+              Você não responde uma avaliação no Google para quem escreveu.<br/>
+              Você responde para os <em style="color: var(--citron);">próximos cem que vão ler.</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · O Erro Comum</span>
+          <button class="export-btn" onclick="exportCard('inb4-s2', 'inbound04-slide02.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb4-s2" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 42px;">
+          <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 10px;">O erro mais comum nos elogios</span>
+          <h3 class="ed-serif-lg" style="margin-bottom: 18px;">
+            Responder apenas:<br/>
+            <em style="font-style: italic;">"Muito obrigado pela preferência!"</em>
+          </h3>
+          <p class="ed-body" style="color: var(--ink-soft);">
+            Respostas copiadas e coladas soam burocráticas e desperdiçam o espaço mais lido por quem está pesquisando sobre a sua empresa.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · O Jeito Inteligente</span>
+          <button class="export-btn" onclick="exportCard('inb4-s3', 'inbound04-slide03.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb4-s3" style="background: var(--obsidian); color: var(--chalk); justify-content: center; padding: 42px;">
+          <span class="ed-caption" style="color: var(--citron); margin-bottom: 10px;">A resposta que educa novos clientes</span>
+          <h3 class="ed-serif-md" style="margin-bottom: 18px;">
+            Cite o serviço realizado e o bairro ou contexto do projeto na resposta.
+          </h3>
+          <p class="ed-body" style="color: var(--silver);">
+            Exemplo: "Ficamos felizes que o projeto da marcenaria em nogueira ficou pronto antes do prazo da mudança, Mariana." Quem lê descobre sua especialidade e sua pontualidade sem esforço.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · E nas críticas?</span>
+          <button class="export-btn" onclick="exportCard('inb4-s4', 'inbound04-slide04.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb4-s4" style="background: var(--citron); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 14px;">
+              E quando surgir uma crítica? Nunca discuta em público.
+            </h3>
+            <p class="ed-body" style="color: rgba(6,27,40,0.86);">
+              Uma resposta serena, chamando pelo nome e resolvendo por telefone, transmite mais maturidade do que cem avaliações mudas.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb4">
+        <strong>Legenda Inbound (Sem venda):</strong> Antes de ligar para uma empresa que não conhece, o comprador moderno abre as avaliações para ver duas coisas: o que os clientes falam e como o dono se comporta. Usar as respostas para mencionar com naturalidade o trabalho entregue transforma cada depoimento em uma vitrine da sua competência.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb4', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       INBOUND 05 (SEMANA 2): O TESTE DO CLIENTE OCULTO TRIMESTRAL
+       ===================================================================== -->
+  <section class="post-block" id="inb-5">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 05 · Semana 2 · Card Único Editorial (Gestão & Experiência)</div>
+        <h2>O exercício que todo dono deveria fazer <em>a cada 90 dias.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Card 4:5 · Gestão Prática</span>
+          <button class="export-btn" onclick="exportCard('inb5-c1', 'inbound05-card-cliente-oculto.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb5-c1" style="background: var(--obsidian); color: var(--chalk); justify-content: space-between; padding: 42px;">
+          <div><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" /></div>
+
+          <div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 18px;">
+              Uma vez por trimestre, peça para um amigo tentar contratar a sua empresa <em style="color: var(--citron);">como se fosse um desconhecido.</em>
+            </h3>
+            <p class="ed-body" style="color: var(--silver); font-size: 13.5px;">
+              Quem vive a rotina de dentro se acostuma com pequenos tropeços: um telefone que demora a atender, uma informação difícil de achar ou uma resposta fria. Olhar a própria porta pelo lado de fora é o jeito mais barato de estancar perdas.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb5">
+        <strong>Legenda Inbound (Sem venda):</strong> Quando conhecemos nossa própria empresa de cor, esquecemos como é a experiência de quem está chegando pela primeira vez. Pedir para alguém de confiança percorrer a jornada completa — da busca no celular até o pedido de orçamento no WhatsApp — revela gargalos simples que passam despercebidos na correria diária.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb5', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       INBOUND 06 (SEMANA 2): VOCABULÁRIO QUE VALORIZA VS. EMPOBRECE O SERVIÇO
+       ===================================================================== -->
+  <section class="post-block" id="inb-6">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Inbound 06 · Semana 2 · Carrossel 4 Lâminas (Comunicação & Negociação)</div>
+        <h2>Pequenas trocas de palavras que <em>mudam o respeito pelo seu preço.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('inb6-s1', 'inbound06-slide01.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb6-s1" style="background: var(--paper); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="ed-serif-xl">
+              Pequenas trocas de vocabulário que mudam o respeito do cliente <em style="font-style: italic;">pelo seu orçamento.</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · Troca 1</span>
+          <button class="export-btn" onclick="exportCard('inb6-s2', 'inbound06-slide02.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb6-s2" style="background: var(--obsidian);">
+          <div style="flex: 1; background: var(--paper); color: var(--obsidian); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 8px;">Evite dizer</span>
+            <h3 class="ed-serif-md">
+              "Fazemos orçamento sem compromisso."
+            </h3>
+          </div>
+          <div style="flex: 1; background: var(--obsidian); color: var(--chalk); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--citron); margin-bottom: 8px;">Prefira dizer</span>
+            <h3 class="ed-serif-md">
+              "Fazemos uma análise técnica da sua necessidade para indicar a solução certa."
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 3 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · Troca 2</span>
+          <button class="export-btn" onclick="exportCard('inb6-s3', 'inbound06-slide03.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb6-s3" style="background: var(--obsidian);">
+          <div style="flex: 1; background: var(--paper); color: var(--obsidian); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 8px;">Evite dizer</span>
+            <h3 class="ed-serif-md">
+              "Qualquer dúvida, estou à disposição."
+            </h3>
+          </div>
+          <div style="flex: 1; background: var(--obsidian); color: var(--chalk); padding: 36px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--citron); margin-bottom: 8px;">Prefira dizer</span>
+            <h3 class="ed-serif-md">
+              "Conseguimos reservar sua data de entrega se validarmos a proposta até quinta-feira."
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 4 -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · Síntese</span>
+          <button class="export-btn" onclick="exportCard('inb6-s4', 'inbound06-slide04.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="inb6-s4" style="background: var(--obsidian); justify-content: space-between; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/inbound-flow-meeting.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.2) 0%, rgba(4,18,27,0.4) 40%, rgba(4,18,27,0.95) 100%);"></div>
+
+          <div style="position:relative; z-index:2;"><img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" /></div>
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-lg" style="color: var(--chalk); margin-bottom: 16px;">
+              Autoridade não é arrogância.<br/>
+              É tratar o próprio tempo com a <em style="color: var(--citron);">seriedade que o cliente espera encontrar.</em>
+            </h3>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-inb6">
+        <strong>Legenda Inbound (Sem venda):</strong> A forma como você conduz o final de uma conversa comercial define se o cliente vê sua empresa como mais um fornecedor descartável ou como um parceiro indispensável. Substituir frases passivas por próximos passos claros ajuda o cliente a tomar decisão com segurança. Salve para revisar com seu time.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-inb6', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function filterPosts(id, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-block').forEach(sec => {
+      sec.style.display = (id === 'all' || sec.id === id) ? 'block' : 'none';
+    });
+  }
+
+  function copyText(id, btn) {
+    const text = document.getElementById(id).innerText.replace('Legenda Inbound (Sem venda): ', '');
+    navigator.clipboard.writeText(text);
+    const old = btn.innerText;
+    btn.innerText = '✓ Copiado';
+    setTimeout(() => btn.innerText = old, 2000);
+  }
+
+  async function exportCard(elementId, filename) {
+    const node = document.getElementById(elementId);
+    if (!node || !window.htmlToImage) return;
+    try {
+      const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 3, cacheBust: true });
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = dataUrl;
+      link.click();
+    } catch (e) {
+      alert('Os arquivos PNG em alta resolução já estão salvos em Site/img/social/cards/.');
+    }
+  }
+</script>
+</body>
+</html>

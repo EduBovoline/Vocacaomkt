@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vocação — Direção de Arte Social Media (Semana 1)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html-to-image/1.11.11/html-to-image.min.js"></script>
+<style>
+  :root {
+    --chalk: #F8F9F9;
+    --paper: #F2F3F0;
+    --obsidian: #061B28;
+    --obsidian-deep: #04121B;
+    --citron: #E5B910;
+    --silver: #9AA5AD;
+    --ink-soft: #4A5B68;
+
+    --serif: "Instrument Serif", Georgia, serif;
+    --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0B1318;
+    color: var(--chalk);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 90px;
+  }
+
+  /* Studio Navigation (Workspace UI only, not inside cards) */
+  .studio-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 19, 24, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .studio-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .studio-brand img { height: 24px; }
+  .studio-title {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .studio-title em {
+    color: var(--citron);
+    font-style: italic;
+  }
+
+  .filter-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    background: transparent;
+    color: var(--silver);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    padding: 8px 14px;
+    border-radius: 99px;
+    font-family: var(--sans);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: var(--chalk);
+    color: var(--obsidian);
+    border-color: var(--chalk);
+    font-weight: 600;
+  }
+
+  .studio-wrap {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 32px;
+  }
+
+  .post-block {
+    margin-bottom: 72px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 48px;
+  }
+
+  .post-meta-bar {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .post-info h2 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--chalk);
+  }
+  .post-info h2 em { color: var(--citron); font-style: italic; }
+  .post-label {
+    font-size: 12px;
+    color: var(--silver);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .cards-rail {
+    display: flex;
+    gap: 28px;
+    padding: 8px 0 24px;
+    overflow-x: auto;
+  }
+
+  .card-wrapper {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--silver);
+  }
+  .export-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+  }
+  .export-btn:hover {
+    background: var(--citron);
+    color: var(--obsidian);
+    border-color: var(--citron);
+  }
+
+  /* =====================================================================
+     SENIOR ART DIRECTION CANVAS — 4:5 (380x475 -> 1140x1425 at 3x)
+     Zero corner clutter. Zero fake HUDs. Pure typography & photography.
+     ===================================================================== */
+  .ig-card {
+    width: 380px;
+    height: 475px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+    user-select: none;
+  }
+
+  .ig-reels {
+    width: 320px;
+    height: 568px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.55);
+    user-select: none;
+  }
+
+  /* Single discreet brand mark (used sparingly, never with 4-corner text) */
+  .v-pin {
+    width: 18px;
+    height: auto;
+    display: block;
+    opacity: 0.9;
+  }
+  .v-pin-dark {
+    width: 18px;
+    height: auto;
+    display: block;
+  }
+
+  /* Editorial Typography Classes */
+  .ed-serif-xl {
+    font-family: var(--serif);
+    font-size: 44px;
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    font-weight: 400;
+  }
+  .ed-serif-lg {
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1.06;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+  }
+  .ed-serif-md {
+    font-family: var(--serif);
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    font-weight: 400;
+  }
+  .ed-body {
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+  .ed-caption {
+    font-family: var(--sans);
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  /* Caption drawer below each post */
+  .caption-drawer {
+    margin-top: 12px;
+    padding: 18px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .caption-text {
+    font-size: 13.5px;
+    color: var(--silver);
+    max-width: 920px;
+    line-height: 1.55;
+  }
+  .caption-text strong { color: var(--chalk); }
+  .copy-caption-btn {
+    background: transparent;
+    color: var(--chalk);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  /* Subtle 360 slow pan for browser preview */
+  @keyframes pan360 {
+    0% { background-position: 0% center; }
+    100% { background-position: 100% center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="studio-header">
+  <div class="studio-brand">
+    <img src="logo-vocacao-white-gold.svg" alt="Vocação" />
+    <div class="studio-title">Direção de Arte · <em>Semana 01</em></div>
+  </div>
+
+  <div class="filter-nav">
+    <button class="filter-btn active" onclick="filterPosts('all', this)">Todos os Posts</button>
+    <button class="filter-btn" onclick="filterPosts('post-1', this)">01 · Carrossel Busca Local</button>
+    <button class="filter-btn" onclick="filterPosts('post-2', this)">02 · Case Safety First</button>
+    <button class="filter-btn" onclick="filterPosts('post-3', this)">03 · Confiança Digital</button>
+    <button class="filter-btn" onclick="filterPosts('post-4', this)">04 · Espaço Físico 360°</button>
+  </div>
+</header>
+
+<main class="studio-wrap">
+
+  <!-- =====================================================================
+       POST 01 — SEXTA (30/10): CARROSSEL EDITORIAL (5 TELAS)
+       Direção de Arte: Fotografia sangrada + Tipografia escultural + Silêncio visual
+       ===================================================================== -->
+  <section class="post-block" id="post-1">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 01 · Sexta-feira · Carrossel 5 Lâminas</div>
+        <h2>A melhor empresa da rua. <em>Invisível no celular.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- SLIDE 1: Fotografia Sangrada + Título Escultural -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>01 · Capa</span>
+          <button class="export-btn" onclick="exportCard('p1-s1', 'post01-slide01-capa.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p1-s1" style="background: var(--obsidian); justify-content: space-between; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/flow-storefront.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.18) 0%, rgba(4,18,27,0.1) 38%, rgba(4,18,27,0.92) 100%);"></div>
+
+          <div style="position:relative; z-index:2;">
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" />
+          </div>
+
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-xl" style="color: var(--chalk);">
+              A melhor estrutura da rua.<br/>
+              <em style="color: var(--citron);">Invisível</em> no celular.
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 2: Tipografia Gigante Editorial (O Dado Puro, sem widgets falsos) -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>02 · O Dado</span>
+          <button class="export-btn" onclick="exportCard('p1-s2', 'post01-slide02-mapa.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p1-s2" style="background: var(--paper); color: var(--obsidian); justify-content: center; padding: 44px;">
+          <div style="font-family: var(--serif); font-size: 138px; line-height: 0.86; letter-spacing: -0.04em; color: var(--obsidian); margin-bottom: 24px;">
+            78<span style="font-size: 76px; font-style: italic; color: var(--citron);">%</span>
+          </div>
+
+          <h3 class="ed-serif-md" style="color: var(--obsidian); margin-bottom: 16px;">
+            das buscas por serviços locais no celular terminam em contato no mesmo dia.
+          </h3>
+
+          <p class="ed-body" style="color: var(--ink-soft); max-width: 280px;">
+            Quase todas ficam concentradas nas três primeiras empresas que aparecem no mapa. Abaixo disso, até o melhor negócio deixa de existir para quem está procurando agora.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 3: Contraste Editorial Bipartido (Sem caixas, apenas cor e espaço) -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>03 · O Contraste</span>
+          <button class="export-btn" onclick="exportCard('p1-s3', 'post01-slide03-pilares.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p1-s3" style="background: var(--obsidian);">
+          <!-- Top Half: Chalk -->
+          <div style="flex: 1; background: var(--paper); color: var(--obsidian); padding: 38px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--ink-soft); margin-bottom: 10px;">Porta para dentro</span>
+            <h3 class="ed-serif-lg">
+              Anos de reputação, equipe preparada e entrega impecável.
+            </h3>
+          </div>
+          <!-- Bottom Half: Obsidian -->
+          <div style="flex: 1; background: var(--obsidian); color: var(--chalk); padding: 38px 40px; display: flex; flex-direction: column; justify-content: center;">
+            <span class="ed-caption" style="color: var(--citron); margin-bottom: 10px;">Na busca do Google</span>
+            <h3 class="ed-serif-lg">
+              Um perfil esquecido, perdendo clientes para negócios menores.
+            </h3>
+          </div>
+        </article>
+      </div>
+
+      <!-- SLIDE 4: A Tese Editorial -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>04 · A Tese</span>
+          <button class="export-btn" onclick="exportCard('p1-s4', 'post01-slide04-proposta.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p1-s4" style="background: var(--obsidian); color: var(--chalk); justify-content: center; padding: 44px;">
+          <h3 class="ed-serif-xl" style="margin-bottom: 24px;">
+            Aparecer primeiro não é sorte.<br/>
+            É <em style="color: var(--citron);">arquitetura de busca.</em>
+          </h3>
+
+          <p class="ed-body" style="color: var(--silver); max-width: 285px;">
+            O algoritmo lê precisão: categorias técnicas corretas, semântica local, fotografia real do seu espaço e uma página que abre antes do cliente pensar em voltar.
+          </p>
+        </article>
+      </div>
+
+      <!-- SLIDE 5: Fechamento Minimalista -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>05 · Fechamento</span>
+          <button class="export-btn" onclick="exportCard('p1-s5', 'post01-slide05-cta.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p1-s5" style="background: var(--citron); color: var(--obsidian); justify-content: space-between; padding: 42px;">
+          <div>
+            <svg class="v-pin-dark" viewBox="0 0 4001.88 3715.4" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#061B28" d="M45.03 0.01l1213.22 0 1387.23 2638.86c-277.85,525.48 -495.08,935.8 -517.87,978.08 -64.91,120.45 -134.89,140.51 -212.88,3.18 -632.47,-1181.24 -1264.91,-2362.48 -1897.38,-3543.73 -28.66,-49.03 -23.4,-76.94 27.68,-76.4zm2311.4 0l1578.29 0c66.2,0 95.98,9.39 30.56,136.59 -56.81,110.47 -396.78,755.17 -769.29,1460.51l-839.57 -1597.1z"/>
+            </svg>
+          </div>
+
+          <div>
+            <h3 class="ed-serif-xl" style="margin-bottom: 18px;">
+              Quem aparece hoje quando procuram pelo seu serviço?
+            </h3>
+            <p class="ed-body" style="color: rgba(6,27,40,0.82);">
+              Peça o diagnóstico visual da sua presença local pelo link da bio.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-1">
+        <strong>Legenda sugerida:</strong> Ter a melhor estrutura física da rua não garante que o cliente chegue até você se, no celular, outro nome aparece antes. 78% das pesquisas locais no Google resultam em contato no mesmo dia — concentradas quase inteiramente nos três primeiros resultados do mapa. Na Vocação, estruturamos toda a engenharia de presença local da sua empresa para que sua autoridade no mundo real seja encontrada primeiro no digital. Solicite um diagnóstico gratuito pelo link na bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-1', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 02 — SEGUNDA (02/11): CASE REAL SAFETY FIRST
+       Direção de Arte: Apresentação de portfólio estilo estúdio de design internacional
+       ===================================================================== -->
+  <section class="post-block" id="post-2">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 02 · Segunda-feira · Portfólio & Transformação</div>
+        <h2>Estudo de Caso: <em>Safety First</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- REELS / STORIES 9:16: Layout Sangrado de Portfólio -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Reels 9:16 · Capa & Showcase</span>
+          <button class="export-btn" onclick="exportCard('p2-reels', 'post02-reels-safetyfirst.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-reels" id="p2-reels" style="background: var(--obsidian-deep); justify-content: space-between;">
+          <div style="padding: 36px 32px 0;">
+            <img src="logo-vocacao-white-gold.svg" alt="Vocação" class="v-pin" style="margin-bottom: 28px;" />
+            <h3 class="ed-serif-lg" style="color: var(--chalk); margin-bottom: 12px;">
+              Sua empresa evoluiu.<br/>
+              Seu site <em style="color: var(--citron);">acompanhou?</em>
+            </h3>
+            <p class="ed-body" style="color: var(--silver); font-size: 13px;">
+              Nova direção digital para a Safety First — Engenharia e Segurança do Trabalho.
+            </p>
+          </div>
+
+          <!-- Imagem real do projeto sangrando na base lateral sem moldura artificial de browser -->
+          <div style="margin-left: 28px; height: 295px; border-top-left-radius: 10px; overflow: hidden; box-shadow: -12px -12px 44px rgba(0,0,0,0.65); border-top: 1px solid rgba(255,255,255,0.12); border-left: 1px solid rgba(255,255,255,0.12);">
+            <img src="cases/safety-novo.png" alt="Safety First" style="width: 100%; height: 100%; object-fit: cover; object-position: left top; display: block;" />
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 4:5: Antes e Depois Editorial (Galeria limpa sobre papel claro) -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Feed 4:5 · Antes & Depois Editorial</span>
+          <button class="export-btn" onclick="exportCard('p2-card', 'post02-card-antes-depois.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p2-card" style="background: var(--paper); color: var(--obsidian); padding: 38px; justify-content: space-between;">
+          <div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 6px;">
+              O mesmo negócio.<br/>
+              <em style="color: var(--obsidian);">Outra percepção de valor.</em>
+            </h3>
+          </div>
+
+          <div style="position: relative; height: 260px; margin: 8px 0;">
+            <!-- Antes (Plano de fundo superior esquerdo, proporção horizontal real) -->
+            <div style="position: absolute; top: 0; left: 0; width: 72%; z-index: 1;">
+              <div style="font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--ink-soft); margin-bottom: 5px;">Antes</div>
+              <div style="height: 120px; overflow: hidden; box-shadow: 0 8px 20px rgba(6,27,40,0.1); filter: saturate(0.65); opacity: 0.88;">
+                <img src="cases/safety-antigo.png" alt="Antes" style="width: 100%; height: 100%; object-fit: cover; object-position: left top;" />
+              </div>
+            </div>
+
+            <!-- Depois (Primeiro plano inferior direito, proporção horizontal ampla sem cortar texto) -->
+            <div style="position: absolute; bottom: 0; right: 0; width: 84%; z-index: 2;">
+              <div style="font-family: var(--serif); font-style: italic; font-size: 16px; color: var(--obsidian); margin-bottom: 5px; text-align: right;">Depois · Vocação</div>
+              <div style="height: 148px; overflow: hidden; box-shadow: 0 20px 44px rgba(6,27,40,0.28); border: 1px solid rgba(6,27,40,0.08);">
+                <img src="cases/safety-novo.png" alt="Depois" style="width: 100%; height: 100%; object-fit: cover; object-position: left top;" />
+              </div>
+            </div>
+          </div>
+
+          <p class="ed-body" style="font-size: 12.5px; color: var(--ink-soft);">
+            Safety First · Redesenho completo e engenharia de performance para captação corporativa.
+          </p>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-2">
+        <strong>Legenda sugerida:</strong> O mesmo negócio, outra percepção de valor. Quando um comprador corporativo pesquisa o nome da sua empresa, o seu site confirma a maturidade da sua operação ou parece ter ficado no passado? Na renovação digital da Safety First, eliminamos o excesso de ruído para criar uma presença sóbria, técnica e instantânea no celular. Veja mais projetos no link da bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-2', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 03 — QUARTA (04/11): POSICIONAMENTO & CONFIANÇA DIGITAL
+       Direção de Arte: Revista Editorial (Recorte fotográfico reto + Tipografia pura)
+       ===================================================================== -->
+  <section class="post-block" id="post-3">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 03 · Quarta-feira · Posicionamento Digital</div>
+        <h2>Sua empresa é confiável. <em>Online, ela precisa parecer.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- VERSÃO A: Editorial Chalk + Case Maçã do Amor Sangrado na Base -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Opção A · Editorial Papel + Case</span>
+          <button class="export-btn" onclick="exportCard('p3-c1', 'post03-card-chalk-maca.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p3-c1" style="background: var(--paper); color: var(--obsidian); justify-content: space-between;">
+          <div style="padding: 38px 38px 20px;">
+            <h3 class="ed-serif-xl" style="margin-bottom: 14px;">
+              Sua empresa é confiável.<br/>
+              Online, <em style="font-style: italic;">ela precisa parecer.</em>
+            </h3>
+            <p class="ed-body" style="color: var(--ink-soft); font-size: 13.5px; max-width: 295px;">
+              A confiança que você constrói pessoalmente precisa existir no primeiro segundo em que o cliente abre seu site no celular.
+            </p>
+          </div>
+
+          <div style="height: 215px; width: 100%; overflow: hidden;">
+            <img src="cases/maca-novo.png" alt="Case Maçã do Amor" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block;" />
+          </div>
+        </article>
+      </div>
+
+      <!-- VERSÃO B: Fotografia Documental Ateliê -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Opção B · Fotografia Documental</span>
+          <button class="export-btn" onclick="exportCard('p3-c2', 'post03-card-obsidian-start.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p3-c2" style="background: var(--obsidian); justify-content: flex-end; padding: 38px;">
+          <div style="position:absolute; inset:0; background-image: url('img/social/flow-craftsman.png'); background-size: cover; background-position: center;"></div>
+          <div style="position:absolute; inset:0; background: linear-gradient(180deg, rgba(4,18,27,0.05) 0%, rgba(4,18,27,0.25) 45%, rgba(4,18,27,0.93) 100%);"></div>
+
+          <div style="position:relative; z-index:2;">
+            <h3 class="ed-serif-lg" style="color: var(--chalk); margin-bottom: 12px;">
+              Quem vende trabalho de alto valor não pode depender de <em style="color: var(--citron);">Stories que somem.</em>
+            </h3>
+            <p class="ed-body" style="color: rgba(248,249,249,0.78); font-size: 13px;">
+              O Instagram atrai a atenção. Uma página própria, clara e rápida é o que transforma o interesse em orçamento.
+            </p>
+          </div>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-3">
+        <strong>Legenda sugerida:</strong> Sua empresa é confiável na vida real — online, ela precisa transmitir exatamente a mesma segurança. Quem procura um serviço especializado, um projeto sob medida ou uma clínica de referência não quer garimpar dezenas de destaques antigos para entender como você trabalha. Criamos páginas próprias com direção de arte editorial e abertura instantânea no celular. Conheça pelo link na bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-3', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+
+  <!-- =====================================================================
+       POST 04 — SEXTA (06/11): ARQUITETURA & TOUR VIRTUAL 360°
+       Direção de Arte: Fotografia imersiva limpa, sem selos ou pílulas de interface falsa
+       ===================================================================== -->
+  <section class="post-block" id="post-4">
+    <div class="post-meta-bar">
+      <div class="post-info">
+        <div class="post-label">Post 04 · Sexta-feira · Imersão & Espaço Físico</div>
+        <h2>Você construiu um espaço admirável. <em>Deixe o cliente entrar.</em></h2>
+      </div>
+    </div>
+
+    <div class="cards-rail">
+
+      <!-- CARD 1: Showroom & Arquitetura -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Opção A · Showrooms & Marcenarias</span>
+          <button class="export-btn" onclick="exportCard('p4-c1', 'post04-card-tour360-showroom.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p4-c1" style="background: var(--obsidian); color: var(--chalk); justify-content: space-between;">
+          <div style="height: 255px; width: 100%; background-image: url('img/tour360-marcenaria-showroom.jpg'); background-size: 165% auto; background-position: center; animation: pan360 18s ease-in-out infinite alternate;"></div>
+
+          <div style="padding: 28px 36px 36px;">
+            <h3 class="ed-serif-lg" style="margin-bottom: 10px;">
+              Você investiu em cada detalhe do seu espaço. <em style="color: var(--citron);">Mostre-o por dentro.</em>
+            </h3>
+            <p class="ed-body" style="color: var(--silver); font-size: 13px;">
+              Tour Virtual 360° em 5.6K integrado diretamente à busca do Google Maps.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <!-- CARD 2: Clínicas & Consultórios -->
+      <div class="card-wrapper">
+        <div class="card-actions">
+          <span>Opção B · Clínicas & Consultórios</span>
+          <button class="export-btn" onclick="exportCard('p4-c2', 'post04-card-tour360-clinica.png')">Baixar PNG</button>
+        </div>
+        <article class="ig-card" id="p4-c2" style="background: var(--paper); color: var(--obsidian); justify-content: space-between; padding: 36px;">
+          <div>
+            <h3 class="ed-serif-lg" style="margin-bottom: 10px;">
+              Quando o paciente conhece sua clínica por dentro, <em style="font-style: italic;">a dúvida acaba antes da consulta.</em>
+            </h3>
+          </div>
+
+          <div style="height: 225px; width: 100%; overflow: hidden;">
+            <img src="img/tour360-recepcao-clinica.jpg" alt="Recepção Clínica 360" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+          </div>
+
+          <p class="ed-body" style="color: var(--ink-soft); font-size: 12.5px;">
+            Fotografia imersiva em 360° publicada no Google Street View da sua empresa.
+          </p>
+        </article>
+      </div>
+
+    </div>
+
+    <div class="caption-drawer">
+      <p class="caption-text" id="cap-4">
+        <strong>Legenda sugerida:</strong> Fotos estáticas raramente fazem justiça à arquitetura e ao cuidado de um espaço bem projetado. Com o Tour Virtual 360° em 5.6K da Vocação, o cliente caminha pela sua clínica, showroom ou escritório diretamente pela pesquisa do Google Maps, antes mesmo de sair de casa. Veja exemplos reais no link da bio.
+      </p>
+      <button class="copy-caption-btn" onclick="copyText('cap-4', this)">Copiar Legenda</button>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function filterPosts(id, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.post-block').forEach(sec => {
+      sec.style.display = (id === 'all' || sec.id === id) ? 'block' : 'none';
+    });
+  }
+
+  function copyText(id, btn) {
+    const text = document.getElementById(id).innerText.replace('Legenda sugerida: ', '');
+    navigator.clipboard.writeText(text);
+    const old = btn.innerText;
+    btn.innerText = '✓ Copiado';
+    setTimeout(() => btn.innerText = old, 2000);
+  }
+
+  async function exportCard(elementId, filename) {
+    const node = document.getElementById(elementId);
+    if (!node || !window.htmlToImage) return;
+    try {
+      const dataUrl = await htmlToImage.toPng(node, { pixelRatio: 3, cacheBust: true });
+      const link = document.createElement('a');
+      link.download = filename;
+      link.href = dataUrl;
+      link.click();
+    } catch (e) {
+      alert('Os arquivos PNG em alta resolução já estão salvos em Site/img/social/cards/.');
+    }
+  }
+</script>
+</body>
+</html>
