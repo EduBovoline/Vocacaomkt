@@ -151,5 +151,41 @@
     "phone": "5515997339900",
     "bairro": "Santa Rosália",
     "oferta": "Vocação Start"
+  },
+  {
+    "time": "16:38:56",
+    "status": "failed",
+    "reason": "Sem WhatsApp ou falha na API",
+    "name": "Lavanderia Express Santa Rosália",
+    "phone": "5515997224488",
+    "bairro": "Santa Rosália",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "16:39:27",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Espaço Saúde & Podologia Brasil",
+    "phone": "5515996554411",
+    "bairro": "Jardim Brasilândia",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "16:39:58",
+    "status": "success",
+    "reason": "Entregue via WhatsApp",
+    "name": "Studio Vip Brasilândia Beleza",
+    "phone": "5515997331199",
+    "bairro": "Jardim Brasilândia",
+    "oferta": "Vocação Start"
+  },
+  {
+    "time": "16:40:28",
+    "status": "failed",
+    "reason": "Sem WhatsApp ou falha na API",
+    "name": "Espaço Divas Cabelo & Estética",
+    "phone": "5515991225588",
+    "bairro": "Jardim Brasilândia",
+    "oferta": "Vocação Start"
   }
 ]

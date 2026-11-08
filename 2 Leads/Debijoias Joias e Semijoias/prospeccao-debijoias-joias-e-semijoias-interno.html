@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Debijoias Joias e Semijoias — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Debijoias Joias e Semijoias — Sorocaba, SP</div>
+    <div class="header-sub">Contato: Equipe Debijoias · (15) 99853-3696 · Análise: Novembro de 2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        A Debijoias Joias e Semijoias possui excelente acervo de semijoias finas e loja física na Av. José Joaquim de Lacerda, mas comete um dos maiores erros de conversão do varejo digital: colocar um link de PDF no Google Drive na bio do Instagram. O Jev System One calculou 80% de perda de conversão local e score de urgência 1.34/2.0, indicando com 100% de confiança a oferta Vocação Start (R$ 850 taxa única, zero mensalidade) para entregar uma vitrine digital mobile-first com a ficha do Google Maps blindada em 5 a 7 dias úteis.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Link da Bio (Google Drive)</div>
+        <span class="badge badge-fraco">Fraco</span>
+      </div>
+      <div class="canal-desc">Uso de link do Google Drive para catálogo em PDF na bio do Instagram, gerando atrito e taxa de abandono massiva.</div>
+      <div class="canal-impact">Fuga diária de clientes do Instagram que desistem antes de conseguir ver as peças.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram (@debijoias.semijoias)</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">Conta no Instagram engajada com fotos autorais das semijoias, atraindo público qualificado.</div>
+      <div class="canal-impact">Canal de atração forte, mas com gargalo severo na ponte para o WhatsApp.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps / Ficha Local</div>
+        <span class="badge badge-mediano">Mediano</span>
+      </div>
+      <div class="canal-desc">Perfil comercial no Jardim Sorocabano sem catálogo de semijoias e sem site oficial.</div>
+      <div class="canal-impact">Perda de buscas locais de moradoras dos bairros próximos buscando presentes e semijoias.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">WhatsApp Comercial</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">Canal comercial ativo pelo celular (15) 99853-3696.</div>
+      <div class="canal-impact">Tempo excessivo gasto explicando peças básicas em vez de fechar pedidos prontos.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> Clientes de semijoias compram por impulso visual no celular. Ao clicar na bio do Instagram e se deparar com o Google Drive (que exige login, aplicativo externo, trava no 4G e não tem botão para pedir a peça), mais de 70% das mulheres abandonam a compra e migram para concorrentes com vitrine mobile direta no WhatsApp.
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Debijoias Joias e Semijoias</strong></td>
+      <td>Ficha sem vitrine</td>
+      <td>Catálogo no Google Drive (PDF)</td>
+      <td>@debijoias.semijoias</td>
+      <td><span class="badge badge-fraco">Gargalo no Drive</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Lavi Shine Semijoias</strong></td>
+      <td>Ficha ativa (Santa Rosália)</td>
+      <td>Loja virtual estruturada</td>
+      <td>Ativo com e-commerce</td>
+      <td><span class="badge badge-bom">Forte</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Lumore Semijoias</strong></td>
+      <td>Ficha com vitrine</td>
+      <td>Catálogo mobile responsivo</td>
+      <td>Forte presença digital</td>
+      <td><span class="badge badge-bom">Forte</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Sandra Marques Joias</strong></td>
+      <td>Ficha consolidada (Campolim)</td>
+      <td>Vitrine de produtos ativa</td>
+      <td>Boutique física e online</td>
+      <td><span class="badge badge-bom">Forte</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Eliminar o atrito do Google Drive substituindo o PDF por uma Vitrine One-Page ultrarrápida (<0.5s) com fotos organizadas das coleções e botões que jogam a foto da peça direto no WhatsApp, além de otimizar a ficha do Google Maps no Jardim Sorocabano.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Loja Física Estabelecida em Sorocaba</strong> — Ponto comercial na Av. José Joaquim de Lacerda (Loja 9), transmitindo segurança e permitindo retirada presencial.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Curadoria Visual e Acervo de Peças</strong> — Variedade refinada de semijoias, anéis, colares e brincos com alto apelo estético para presentes e uso próprio.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Produção Constante de Conteúdo</strong> — Perfil do Instagram movimentado com fotos reais e stories frequentes demonstrando as peças no corpo.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Atendimento Direto no WhatsApp</strong> — Disponibilidade de canal rápido para tirar dúvidas e fechar vendas em Sorocaba.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Catálogo Preso no Google Drive</div>
+      <div class="fraqueza-detail">O cliente que clica na bio precisa abrir um PDF pesado no Google Drive, exigindo login ou aplicativo externo que derruba a venda.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Ausência de Vitrine Web Própria</div>
+      <div class="fraqueza-detail">Falta de uma página leve e limpa onde as coleções possam ser visualizadas em segundos sem travar o celular.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Ficha do Google Maps Subaproveitada</div>
+      <div class="fraqueza-detail">A loja física deixa de captar clientes dos bairros ao redor por não exibir um catálogo de produtos no mapa.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados & Tabela Oficial (Zero Mensalidade)</div>
+    </div>
+    <div class="card" style="margin-bottom: 14px; border-left: 4px solid var(--color-positive); background: #f8fcfb;">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">🎯 Promessa Oficial: "Apareça com autoridade no seu bairro — em 5 dias úteis."</div>
+      <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 10px;">Condição: <strong>50% de entrada + 50% somente após aprovação final</strong> · <strong>ZERO mensalidade</strong> · Proibido prometer ranking/topo do Google (entregamos autoridade estrutural).</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 12.5px;">
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Presença Local (Maps):</strong> R$ 450</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Tour Virtual 360°:</strong> R$ 650 (Combo: R$ 950)</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Vocação Start (Maps+Vitrine):</strong> R$ 850</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Site em 5 Dias (Update):</strong> R$ 980</div>
+      </div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Vocação Start — Maps Blindado + Vitrine One-Page (R$ 850)</div>
+        <div class="servico-just">Solução ideal para a Debijoias: substitui o link do Google Drive por uma Vitrine One-Page mobile-first com carregamento instantâneo (<0.5s), fotos das peças e botão direto de WhatsApp, além da organização da ficha no Google Maps em 5 dias úteis, sem mensalidade.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Otimização Avançada do Google Maps (R$ 450)</div>
+        <div class="servico-just">Configuração da vitrine de produtos na ficha local da Av. José Joaquim de Lacerda para atrair clientes de Sorocaba.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 CADÊNCIA COMPLETA & OBJEÇÕES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Cadência Completa (D0 → D+10), Qualificação & Quebra de Objeções</div>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🖼️ D0 (Opção 1) — Legenda para Envio com Imagem "Antes e Depois" (Recomendada)</div>
+      <div style="font-size:12px; color:#a4dbc9; margin-bottom:8px;">Envie a imagem oficial da Vocação (anuncio_antes_depois_vocacao.jpg) acompanhada deste texto como legenda:</div>
+      <div class="gancho-text" id="ganchoImg">"Boa tarde! Sou o Eduardo, da Vocação aqui de Sorocaba. Tudo bem?
+
+Estava mapeando lojas de joias e semijoias da nossa região e vi o perfil da Debijoias no Instagram e a loja de vocês na Av. José Joaquim de Lacerda.
+
+Reparei que vocês têm peças lindíssimas, mas hoje o link da bio manda a cliente para um arquivo em PDF dentro do Google Drive. Pelo celular, o Drive demora a abrir, pede aplicativo e não deixa a cliente clicar para pedir a peça direto no WhatsApp, fazendo muitas compras por impulso serem perdidas.
+
+Preparamos vitrines digitais que carregam em menos de 1 segundo (como as do nosso portfólio em vocacao.digital/portfolio) para substituir o PDF em 5 dias úteis, sem mensalidade. Montei um diagnóstico de 3 páginas sobre isso. Posso te mandar o PDF por aqui?"</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Aponta com gentileza e precisão a maior dor de quem vende semijoias no Instagram: mandar a cliente pro Google Drive em vez de uma vitrine limpa que vende em 1 clique.
+      </div>
+      <button class="copy-btn" id="copyBtnImg" onclick="navigator.clipboard.writeText(document.getElementById('ganchoImg').innerText.replace(/^"|"$/g,'').trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D0 com Imagem', 2500);">Copiar D0 com Imagem</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">💬 D0 (Opção 2) — Abordagem Textual Rápida (Sem Imagem)</div>
+      <div class="gancho-text" id="gancho">"Boa tarde! Sou o Eduardo, da Vocação aqui de Sorocaba. Tudo bem?
+
+Estava mapeando lojas de semijoias da nossa região e encontrei a Debijoias no Instagram e no Google Maps.
+
+Vi que o acervo de peças de vocês é maravilhoso, mas reparei num detalhe que trava muitas vendas no celular: o link da bio manda as clientes para um arquivo em PDF no Google Drive. Muita gente desiste na hora porque o Drive é pesado e não tem botão para pedir a peça no WhatsApp.
+
+Montei um raio-X rápido de 3 páginas mostrando como substituir o Drive por uma vitrine leve em 5 dias úteis, sem mensalidade. Posso te mandar o PDF por aqui para vocês darem uma olhada?"</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar D0 Texto Simples</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🔄 Cadência de Follow-up (D+2 · D+5 · D+10)</div>
+      <div style="display: grid; gap: 12px;">
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+2 (WhatsApp — Prova Social & Retomada):</div>
+          <div class="gancho-text" id="cadD2" style="margin-bottom:8px; font-size:13.5px;">Boa tarde! Conseguiram dar uma olhada no ponto do catálogo do Google Drive que comentei? O PDF de 3 páginas com o diagnóstico da Debijoias já está pronto aqui. Se quiserem ver, te envio agora mesmo.</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD2').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+2', 2000);">Copiar D+2</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+5 (E-mail B2B ou WhatsApp — Diagnóstico Direto):</div>
+          <div class="gancho-text" id="cadD5" style="margin-bottom:8px; font-size:13.5px;">Assunto: Diagnóstico Digital — Debijoias Joias e Semijoias (Sorocaba)
+
+Olá equipe Debijoias! Sou o Eduardo, da Vocação Comunicação & Marketing em Sorocaba. Preparei um diagnóstico visual mostrando como substituir o catálogo em PDF do Google Drive por uma vitrine digital mobile-first em 5 dias úteis (sem mensalidade), aumentando a conversão das clientes do Instagram e do Google Maps. Segue o material em anexo. WhatsApp: (15) 98151-2083.</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD5').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+5', 2000);">Copiar D+5</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+10 (WhatsApp — Encerramento Gentil):</div>
+          <div class="gancho-text" id="cadD10" style="margin-bottom:8px; font-size:13.5px;">Olá equipe da Debijoias! Sei que o atendimento na loja e no WhatsApp é corrido, então vou encerrar meus contatos por aqui. Deixei o diagnóstico salvo caso queiram modernizar o catálogo e a presença no Google mais para frente. Boas vendas e muito sucesso!</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD10').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+10', 2000);">Copiar D+10</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px; border-left: 4px solid var(--color-accent);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 10px;">🟢 Filtro de Qualificação (Porta G1 — Quando o lead responde)</div>
+      <div id="qualQuestions" style="font-size: 13.5px; color: var(--color-text); line-height: 1.7; margin-bottom: 10px;">
+        1. Vocês têm disponibilidade para atender novos clientes vindos do Google já na próxima semana?<br>
+        2. Hoje quem faz o primeiro atendimento no WhatsApp da Debijoias Joias e Semijoias?<br>
+        3. Se entregarmos toda a estrutura pronta em 5 dias úteis (50% entrada + 50% só depois de você aprovar), faz sentido avançarmos?
+      </div>
+      <button class="copy-btn" style="background: var(--color-primary);" onclick="navigator.clipboard.writeText(document.getElementById('qualQuestions').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar 3 Perguntas', 2000);">Copiar 3 Perguntas</button>
+    </div>
+
+    <div class="card" style="border-left: 4px solid var(--color-opportunity);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 12px;">🛡️ Respostas Rápidas para Quebra de Objeções (1 Clique)</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-negative); margin-bottom: 6px;">💰 Objeção: "Tá caro / Sem orçamento"</div>
+          <div id="objCaro" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O investimento é taxa única (a partir de R$ 450 na Ficha Maps ou R$ 980 no Site em 5 Dias), dividido em 50% na entrada e 50% só após sua aprovação — com ZERO mensalidade. Um único cliente captado no bairro já paga todo o projeto.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objCaro').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-warning); margin-bottom: 6px;">⏱️ Objeção: "Estou sem tempo agora"</div>
+          <div id="objTempo" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Zero trabalho para você: nós mesmos levantamos os dados, montamos tudo em 5 dias úteis e você só gasta 2 minutos no celular para aprovar o resultado pronto antes da segunda metade.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objTempo').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-opportunity); margin-bottom: 6px;">🌐 Objeção: "Já tenho site / Instagram"</div>
+          <div id="objSite" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O ponto não é apenas ter um link, mas aparecer com autoridade imediata em menos de 1 segundo no celular de quem busca em Jardim Sorocabano e jogar esse cliente direto no seu WhatsApp sem atrito.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objSite').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-positive); margin-bottom: 6px;">🤔 Objeção: "Vou pensar / Ver com sócio"</div>
+          <div id="objPensar" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Perfeito! O PDF de 3 páginas já está pronto para você encaminhar no WhatsApp do seu sócio. Como atendemos um número limitado de empresas por bairro para evitar conflito de interesse, consigo segurar a condição de vocês até sexta-feira.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objPensar').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Confirmar se o WhatsApp (15) 99853-3696 é o canal direto da proprietária ou de uma vendedora da loja física.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>O link atual do Google Drive é: https://drive.google.com/file/d/1SIM4VYbTcfwf9xlS7MM-yBMkNIy_BStR/view</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>A loja física fica na Av. José Joaquim de Lacerda, 1480 - Loja 9 (Jardim Sorocabano).</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Instagram</span>
+      <span>Perfil @debijoias.semijoias (verificado link de catálogo em PDF hospedado no Google Drive).</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps</span>
+      <span>Ficha Debijoias Joias e Semijoias na Av. José Joaquim de Lacerda, 1480 - Loja 9.</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Pesquisa Local Sorocaba</span>
+      <span>Concorrentes mapeados no setor de semijoias e pratas (Lavi Shine, Lumore, Sandra Marques).</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>

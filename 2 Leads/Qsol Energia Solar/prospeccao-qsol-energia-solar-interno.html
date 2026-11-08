@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[INTERNO] Qsol Energia Solar — Análise Vocação</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #061B28;
+    --color-accent: #E5B910;
+    --color-accent-soft: #fcf9eb;
+    --color-bg: #f4f6f8;
+    --color-surface: #ffffff;
+    --color-text: #1a1a1a;
+    --color-text-muted: #5a625f;
+    --color-border: #dbe4e0;
+    --color-positive: #0B5E47;
+    --color-negative: #9b2335;
+    --color-opportunity: #1d4e89;
+    --color-warning: #c17f24;
+    --color-internal: #061B28;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  .topbar {
+    background: var(--color-internal);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .topbar-left { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.45); }
+  .topbar-badge { background: var(--color-negative); color: white; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; padding: 3px 10px; border-radius: 4px; text-transform: uppercase; }
+
+  .header {
+    background: var(--color-internal);
+    color: white;
+    padding: 36px 40px 32px;
+    border-bottom: 3px solid var(--color-accent);
+  }
+  .header-inner { max-width: 1000px; margin: 0 auto; }
+  .header-meta { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .header-title { font-family: 'Fraunces', serif; font-size: 32px; font-weight: 400; line-height: 1.2; margin-bottom: 8px; }
+  .header-sub { color: rgba(255,255,255,0.5); font-size: 13px; }
+
+  .layout { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 36px 0 0; }
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid var(--color-border); }
+  .section-num { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 300; color: var(--color-accent); line-height: 1; }
+  .section-title { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 400; color: var(--color-primary); }
+
+  .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 20px 24px; margin-bottom: 12px; }
+
+  .canal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; }
+  .canal-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 20px; }
+  .canal-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+  .canal-name { font-weight: 600; font-size: 14px; color: var(--color-primary); }
+  .canal-desc { font-size: 13px; color: var(--color-text-muted); line-height: 1.55; }
+  .canal-impact { margin-top: 8px; font-size: 12px; padding: 6px 10px; background: #fef9f0; border-left: 3px solid var(--color-warning); color: var(--color-warning); border-radius: 0 4px 4px 0; }
+
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+  .badge-otimo { background: var(--color-accent-soft); color: var(--color-accent); }
+  .badge-bom { background: #e0f0ea; color: #084836; }
+  .badge-mediano { background: #fff5e0; color: #875a00; }
+  .badge-fraco { background: #fde8e8; color: #9b2335; }
+  .badge-ausente { background: #f0f0f0; color: #555555; }
+
+  .comp-table { width: 100%; border-collapse: collapse; font-size: 13px; background: white; border: 1px solid var(--color-border); }
+  .comp-table thead th { background: var(--color-internal); color: white; padding: 10px 12px; text-align: left; font-weight: 500; font-size: 11px; letter-spacing: 0.05em; }
+  .comp-table tbody tr { border-bottom: 1px solid var(--color-border); }
+  .comp-table tbody tr.highlight { background: var(--color-accent-soft); font-weight: 600; }
+  .comp-table tbody td { padding: 10px 12px; vertical-align: top; line-height: 1.45; }
+
+  .fraqueza-item { background: var(--color-surface); border: 1px solid var(--color-border); border-left: 4px solid var(--color-negative); border-radius: 0 10px 10px 0; padding: 16px 20px; margin-bottom: 12px; }
+  .fraqueza-title { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 5px; }
+  .fraqueza-detail { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; }
+  .impacto-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 8px; }
+  .impacto-alto { background: #fde8e8; color: #9b2335; }
+  .impacto-medio { background: #fff5e0; color: #875a00; }
+  .impacto-baixo { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .servico-item { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 10px; padding: 18px 22px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .servico-num { font-family: 'Fraunces', serif; font-size: 26px; font-weight: 300; color: var(--color-accent); line-height: 1; flex-shrink: 0; }
+  .servico-body { flex: 1; }
+  .servico-name { font-weight: 600; font-size: 14px; color: var(--color-primary); margin-bottom: 4px; }
+  .servico-just { font-size: 13px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 8px; }
+  .urgencia-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+  .urgencia-alta { background: #fde8e8; color: #9b2335; }
+  .urgencia-media { background: #fff5e0; color: #875a00; }
+  .urgencia-baixa { background: var(--color-accent-soft); color: var(--color-accent); }
+
+  .gancho-box { background: var(--color-internal); color: white; border-radius: 10px; padding: 24px; margin-top: 12px; position: relative; border-left: 4px solid var(--color-accent); }
+  .gancho-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: #a4dbc9; margin-bottom: 10px; }
+  .gancho-text { font-size: 15px; line-height: 1.7; color: #ffffff; background: rgba(255,255,255,0.06); padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; }
+  .gancho-context { font-size: 12.5px; color: rgba(255,255,255,0.65); line-height: 1.6; margin-bottom: 16px; }
+  .copy-btn { background: var(--color-accent); color: white; border: none; border-radius: 6px; padding: 10px 22px; font-weight: 600; font-size: 13px; cursor: pointer; transition: opacity 0.2s; }
+  .copy-btn:hover { opacity: 0.9; }
+
+  .warning-box { background: #fffbf0; border: 1px solid #f0dfa8; border-left: 4px solid var(--color-warning); border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 10px; font-size: 13px; color: #7c5000; display: flex; gap: 10px; align-items: flex-start; }
+  .fonte-item { display: flex; gap: 12px; font-size: 13px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+  .fonte-origin { font-family: monospace; font-size: 11px; background: #e8e4dc; color: #333; padding: 2px 6px; border-radius: 4px; height: fit-content; }
+
+  .footer { border-top: 1px solid var(--color-border); padding: 24px 0 32px; margin-top: 40px; text-align: center; font-size: 12px; color: var(--color-text-muted); }
+</style>
+<script>
+  function copyGancho() {
+    const text = document.getElementById('gancho').innerText.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✓ Copiado!';
+      setTimeout(() => { btn.innerText = 'Copiar Gancho'; }, 2500);
+    });
+  }
+</script>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-left">Vocação Comunicação & Marketing · Uso Interno</span>
+  <span class="topbar-badge">Confidencial</span>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-meta">Análise de Prospecção · Dossiê Interno</div>
+    <div class="header-title">Qsol Energia Solar — Sorocaba, SP</div>
+    <div class="header-sub">Contato: Anderson Azevedo · (15) 99157-8558 · Análise: Novembro de 2026</div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- 00 SUMÁRIO EXECUTIVO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">00</div>
+      <div class="section-title">Sumário Executivo</div>
+    </div>
+    <div class="card">
+      <p style="line-height:1.75; font-size:14px;">
+        A Qsol Energia Solar (liderada por Anderson Azevedo) tem quase 10 anos de mercado e sede comercial no Parque Campolim, mas sofre com um site legado parado em 2020 (com marcações HTML quebradas '-->' na tela e menção à antiga Resolução 687/2015) e ficha do Google Maps desalinhada. O classificador Jev aponta 77% de probabilidade de perda de conversão local e score de urgência 1.54/2.0. As ofertas ideais são o Vocação Update (R$ 980) para reforma completa do site em 5 dias úteis ou o Vocação Start (R$ 850) para blindagem do Maps + Vitrine, ambos sem mensalidade.
+      </p>
+    </div>
+  </div>
+
+  <!-- 01 DIAGNÓSTICO CANAIS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">Diagnóstico de Presença Digital & Impacto</div>
+    </div>
+    <div class="canal-grid">
+      
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Site Oficial (qsolenergia.com.br)</div>
+        <span class="badge badge-fraco">Fraco</span>
+      </div>
+      <div class="canal-desc">Estrutura web antiga (QubeDesign) parada em 2020, com erros de sintaxe HTML visíveis na tela e conteúdo regulatório defasado.</div>
+      <div class="canal-impact">Transmite impressão de empresa inativa para clientes de alto padrão que buscam tecnologia de ponta.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Google Maps / Ficha Local</div>
+        <span class="badge badge-fraco">Fraco</span>
+      </div>
+      <div class="canal-desc">Divergência geográfica entre o escritório comercial do Campolim e a localização marcada no Google Maps, com baixa densidade de provas sociais.</div>
+      <div class="canal-impact">Perda direta de buscas qualificadas de moradores e condomínios da zona sul de Sorocaba.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">Instagram & Redes Sociais</div>
+        <span class="badge badge-ausente">Ausente</span>
+      </div>
+      <div class="canal-desc">Ausência de integração de portfólio social atualizado na vitrine principal da empresa.</div>
+      <div class="canal-impact">O cliente não vê obras recentes em condomínios de Sorocaba para validar a decisão.</div>
+    </div>
+  
+
+    <div class="canal-card">
+      <div class="canal-top">
+        <div class="canal-name">WhatsApp Comercial</div>
+        <span class="badge badge-bom">Bom</span>
+      </div>
+      <div class="canal-desc">Canal de WhatsApp ativo vinculado ao número (15) 99157-8558.</div>
+      <div class="canal-impact">Bom canal de fechamento, mas recebe menos chamadas do que deveria devido ao filtro negativo do site antigo.</div>
+    </div>
+  
+    </div>
+  </div>
+
+  <!-- 02 NICHO E CONCORRENTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">Nicho & Concorrentes Locais</div>
+    </div>
+    <div class="card" style="margin-bottom:16px;">
+      <strong>Comportamento do nicho:</strong> Compradores de sistemas fotovoltaicos residenciais e comerciais em bairros de alto ticket como o Campolim pesquisam a solidez técnica da integradora no Google antes de pedir orçamento. Um site com referências regulatórias de 2015/2020 e falhas visuais de código gera insegurança imediata, desviando pedidos para integradoras concorrentes com presença digital atualizada.
+    </div>
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Empresa</th>
+          <th>Google Maps</th>
+          <th>Site Oficial</th>
+          <th>Instagram</th>
+          <th>Presença Geral</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr class="highlight">
+      <td>✦ <strong>Qsol Energia Solar</strong></td>
+      <td>Pino desalinhado / Poucas fotos</td>
+      <td>Legado (2020) c/ falhas visuais</td>
+      <td>Não integrado ao site</td>
+      <td><span class="badge badge-fraco">Defasado</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>Sfero Energia Solar</strong></td>
+      <td>Ficha estruturada (Boa Vista)</td>
+      <td>Site moderno c/ simulador</td>
+      <td>Ativo com obras locais</td>
+      <td><span class="badge badge-bom">Forte</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>CSolar Energia Fotovoltaica</strong></td>
+      <td>Ficha ativa (Jardim Europa)</td>
+      <td>Landing page atualizada</td>
+      <td>Portfólio de instalações</td>
+      <td><span class="badge badge-bom">Forte</span></td>
+    </tr>
+  
+
+    <tr >
+      <td><strong>SolarComp Sorocaba</strong></td>
+      <td>Ficha local consolidada</td>
+      <td>Site institucional ativo</td>
+      <td>Presença regional</td>
+      <td><span class="badge badge-mediano">Mediana</span></td>
+    </tr>
+  
+      </tbody>
+    </table>
+    <div class="card" style="margin-top:16px; border-left: 4px solid var(--color-opportunity);">
+      <strong style="color:var(--color-opportunity)">Oportunidade Competitiva:</strong> Alinhar o endereço corporativo do Parque Campolim no Google Maps e substituir o site legado por uma plataforma moderna, rápida (<0.5s) e atualizada com o Marco Legal atual e projetos recentes em Sorocaba.
+    </div>
+  </div>
+
+  <!-- 03 FORÇAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <div class="section-title">Forças da Empresa</div>
+    </div>
+    <div class="card">
+      <ul style="list-style:none; padding:0;">
+        
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Quase 10 Anos de Mercado (Desde 2016)</strong> — Histórico sólido em Sorocaba com domínio próprio registrado e experiência completa em homologação e instalação.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Endereço Comercial no Parque Campolim</strong> — Presença na Av. Izoraida Marques Peres, localização nobre que gera alta credibilidade junto a condomínios e empresas da região.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Solução Turnkey (Ponta a Ponta)</strong> — Atuação desde a viabilidade técnica e projeto junto à concessionária até a montagem final e pós-venda.</div>
+    </li>
+  
+
+    <li style="padding:8px 0; border-bottom:1px solid var(--color-border); display:flex; gap:10px;">
+      <span>✅</span>
+      <div><strong>Canal Direto de WhatsApp Ativo</strong> — Atendimento ágil via WhatsApp em Sorocaba pronto para receber demandas qualificadas.</div>
+    </li>
+  
+      </ul>
+    </div>
+  </div>
+
+  <!-- 04 FRAQUEZAS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <div class="section-title">Fraquezas & Impacto Comercial</div>
+    </div>
+    
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Site Parado em 2020 com Erros de Código</div>
+      <div class="fraqueza-detail">A página exibe caracteres de comentário HTML quebrados ('--> -->') no meio dos títulos e cita a antiga Resolução 687/2015, passando sensação de abandono.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Conflito de Endereço no Google Maps</div>
+      <div class="fraqueza-detail">A ficha do Google Maps não reflete adequadamente a estrutura do Campolim e carece de fotos atualizadas de projetos entregues.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+
+    <div class="fraqueza-item">
+      <div class="fraqueza-title">Falta de Prova Social Visual Recente</div>
+      <div class="fraqueza-detail">Ausência de galeria moderna de usinas instaladas e depoimentos de clientes de Sorocaba para acelerar a confiança.</div>
+      <span class="impacto-tag impacto-alto">Impacto alto</span>
+    </div>
+  
+  </div>
+
+  <!-- 05 PROPOSTA VOCAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <div class="section-title">Proposta Vocação — Serviços Priorizados & Tabela Oficial (Zero Mensalidade)</div>
+    </div>
+    <div class="card" style="margin-bottom: 14px; border-left: 4px solid var(--color-positive); background: #f8fcfb;">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 6px;">🎯 Promessa Oficial: "Apareça com autoridade no seu bairro — em 5 dias úteis."</div>
+      <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 10px;">Condição: <strong>50% de entrada + 50% somente após aprovação final</strong> · <strong>ZERO mensalidade</strong> · Proibido prometer ranking/topo do Google (entregamos autoridade estrutural).</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; font-size: 12.5px;">
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Presença Local (Maps):</strong> R$ 450</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Tour Virtual 360°:</strong> R$ 650 (Combo: R$ 950)</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Vocação Start (Maps+Vitrine):</strong> R$ 850</div>
+        <div style="background: white; padding: 8px 12px; border: 1px solid var(--color-border); border-radius: 6px;"><strong>Site em 5 Dias (Update):</strong> R$ 980</div>
+      </div>
+    </div>
+    
+    <div class="servico-item">
+      <div class="servico-num">01</div>
+      <div class="servico-body">
+        <div class="servico-name">Vocação Update — Reforma de Site em 5 Dias (R$ 980)</div>
+        <div class="servico-just">Reformulação completa do site qsolenergia.com.br em 5 dias úteis com zero mensalidade (padrão vocacao.digital/portfolio). Remove os erros de código e textos de 2015/2020, instalando uma vitrine de alta conversão para captar orçamentos solares.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+
+    <div class="servico-item">
+      <div class="servico-num">02</div>
+      <div class="servico-body">
+        <div class="servico-name">Vocação Start — Maps Blindado + Vitrine One-Page (R$ 850)</div>
+        <div class="servico-just">Alternativa enxuta que unifica a regularização completa da ficha do Google Maps no Campolim com uma página rápida de conversão imediata.</div>
+        <span class="urgencia-tag urgencia-alta">Urgência Alta</span>
+      </div>
+    </div>
+  
+  </div>
+
+  <!-- 06 CADÊNCIA COMPLETA & OBJEÇÕES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <div class="section-title">Cadência Completa (D0 → D+10), Qualificação & Quebra de Objeções</div>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🖼️ D0 (Opção 1) — Legenda para Envio com Imagem "Antes e Depois" (Recomendada)</div>
+      <div style="font-size:12px; color:#a4dbc9; margin-bottom:8px;">Envie a imagem oficial da Vocação (anuncio_antes_depois_vocacao.jpg) acompanhada deste texto como legenda:</div>
+      <div class="gancho-text" id="ganchoImg">"Boa tarde, Anderson! Tudo bem? Sou o Eduardo, da Vocação aqui de Sorocaba.
+
+Estava mapeando empresas de energia solar aqui da região pelo Google Maps e acessei o site da Qsol (qsolenergia.com.br).
+
+Vi que vocês têm sede no Campolim e atuam desde 2016, mas o site atual ficou parado em 2020 (ainda cita a Resolução 687/2015 e está com alguns códigos '-->' aparecendo quebrados na tela), além do pino do Maps estar desalinhado com o endereço da Izoraida Marques Peres.
+
+Preparei um diagnóstico visual de 3 páginas mostrando como modernizar essa estrutura em 5 dias úteis e sem mensalidade (no padrão do nosso portfólio em vocacao.digital/portfolio). Posso te mandar o PDF por aqui?"</div>
+      <div class="gancho-context">
+        <strong style="color:rgba(255,255,255,0.85)">Por que funciona:</strong> Compacto em um único bloco de leitura rápida, cita fatos técnicos reais do site deles (ano 2020, código quebrado, endereço no Campolim) e pede permissão antes de anexar o PDF.
+      </div>
+      <button class="copy-btn" id="copyBtnImg" onclick="navigator.clipboard.writeText(document.getElementById('ganchoImg').innerText.replace(/^"|"$/g,'').trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D0 com Imagem', 2500);">Copiar D0 com Imagem</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">💬 D0 (Opção 2) — Abordagem Textual Rápida (Sem Imagem)</div>
+      <div class="gancho-text" id="gancho">"Boa tarde! Sou o Eduardo, da Vocação aqui de Sorocaba. Tudo bem?
+
+Estava mapeando empresas de energia solar da nossa região e acessei a ficha e o site da Qsol Energia Solar.
+
+Reparei que vocês têm uma operação sólida no Campolim, mas o site atual está com informações paradas em 2020 e algumas falhas visuais de código na tela, o que acaba fazendo clientes de alto ticket hesitarem antes de pedir orçamento.
+
+Montei um raio-X rápido de 3 páginas comparando o cenário de Sorocaba e mostrando como atualizar o site e o Maps de vocês em 5 dias úteis, sem mensalidade. Posso te mandar o PDF aqui no WhatsApp para o Anderson dar uma olhada?"</div>
+      <button class="copy-btn" id="copyBtn" onclick="copyGancho()">Copiar D0 Texto Simples</button>
+    </div>
+
+    <div class="gancho-box" style="margin-bottom: 16px;">
+      <div class="gancho-label">🔄 Cadência de Follow-up (D+2 · D+5 · D+10)</div>
+      <div style="display: grid; gap: 12px;">
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+2 (WhatsApp — Prova Social & Retomada):</div>
+          <div class="gancho-text" id="cadD2" style="margin-bottom:8px; font-size:13.5px;">Boa tarde! Conseguiram dar uma olhada na mensagem acima sobre o site e o Google Maps da Qsol? O PDF de 3 páginas já está pronto aqui com o comparativo das integradoras de Sorocaba. Se quiser, te envio agora mesmo.</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD2').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+2', 2000);">Copiar D+2</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+5 (E-mail B2B ou WhatsApp — Diagnóstico Direto):</div>
+          <div class="gancho-text" id="cadD5" style="margin-bottom:8px; font-size:13.5px;">Assunto: Diagnóstico Digital — Qsol Energia Solar (Parque Campolim)
+
+Olá, Anderson! Sou o Eduardo, da Vocação Comunicação & Marketing em Sorocaba. Preparei um diagnóstico técnico mostrando os pontos do site atual da Qsol (qsolenergia.com.br) e da ficha do Google Maps que estão travando pedidos de orçamento em Sorocaba, e como resolver em 5 dias úteis sem mensalidade. Segue o PDF em anexo. Qualquer dúvida, estou no WhatsApp (15) 98151-2083.</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD5').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+5', 2000);">Copiar D+5</button>
+        </div>
+        <div>
+          <div style="font-size:11.5px; color:#a4dbc9; margin-bottom:4px; font-weight:600;">D+10 (WhatsApp — Encerramento Gentil):</div>
+          <div class="gancho-text" id="cadD10" style="margin-bottom:8px; font-size:13.5px;">Olá equipe da Qsol! Sei que a rotina de projetos e instalações é corrida, então vou encerrar meus contatos por aqui para não incomodar. Deixei o diagnóstico de presença digital da Qsol salvo caso decidam atualizar o site mais para frente. Sucesso e ótimos negócios!</div>
+          <button class="copy-btn" onclick="navigator.clipboard.writeText(document.getElementById('cadD10').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar D+10', 2000);">Copiar D+10</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom: 16px; border-left: 4px solid var(--color-accent);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 10px;">🟢 Filtro de Qualificação (Porta G1 — Quando o lead responde)</div>
+      <div id="qualQuestions" style="font-size: 13.5px; color: var(--color-text); line-height: 1.7; margin-bottom: 10px;">
+        1. Vocês têm disponibilidade para atender novos clientes vindos do Google já na próxima semana?<br>
+        2. Hoje quem faz o primeiro atendimento no WhatsApp da Qsol Energia Solar?<br>
+        3. Se entregarmos toda a estrutura pronta em 5 dias úteis (50% entrada + 50% só depois de você aprovar), faz sentido avançarmos?
+      </div>
+      <button class="copy-btn" style="background: var(--color-primary);" onclick="navigator.clipboard.writeText(document.getElementById('qualQuestions').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar 3 Perguntas', 2000);">Copiar 3 Perguntas</button>
+    </div>
+
+    <div class="card" style="border-left: 4px solid var(--color-opportunity);">
+      <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 12px;">🛡️ Respostas Rápidas para Quebra de Objeções (1 Clique)</div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;">
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-negative); margin-bottom: 6px;">💰 Objeção: "Tá caro / Sem orçamento"</div>
+          <div id="objCaro" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O investimento é taxa única (a partir de R$ 450 na Ficha Maps ou R$ 980 no Site em 5 Dias), dividido em 50% na entrada e 50% só após sua aprovação — com ZERO mensalidade. Um único cliente captado no bairro já paga todo o projeto.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objCaro').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-warning); margin-bottom: 6px;">⏱️ Objeção: "Estou sem tempo agora"</div>
+          <div id="objTempo" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Zero trabalho para você: nós mesmos levantamos os dados, montamos tudo em 5 dias úteis e você só gasta 2 minutos no celular para aprovar o resultado pronto antes da segunda metade.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objTempo').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-opportunity); margin-bottom: 6px;">🌐 Objeção: "Já tenho site / Instagram"</div>
+          <div id="objSite" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">O ponto não é apenas ter um link, mas aparecer com autoridade imediata em menos de 1 segundo no celular de quem busca em Parque Campolim e jogar esse cliente direto no seu WhatsApp sem atrito.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objSite').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+        <div style="background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid var(--color-border);">
+          <div style="font-weight: 600; font-size: 12.5px; color: var(--color-positive); margin-bottom: 6px;">🤔 Objeção: "Vou pensar / Ver com sócio"</div>
+          <div id="objPensar" style="font-size: 12.5px; color: var(--color-text-muted); margin-bottom: 8px;">Perfeito! O PDF de 3 páginas já está pronto para você encaminhar no WhatsApp do seu sócio. Como atendemos um número limitado de empresas por bairro para evitar conflito de interesse, consigo segurar a condição de vocês até sexta-feira.</div>
+          <button class="copy-btn" style="padding: 6px 14px; font-size: 11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('objPensar').innerText.trim()); this.innerText='✓ Copiado!'; setTimeout(() => this.innerText='Copiar Resposta', 2000);">Copiar Resposta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 A CONFIRMAR -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <div class="section-title">Informações a Confirmar</div>
+    </div>
+    
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Confirmar se o atendimento na Av. Izoraida Marques Peres, 256 (Sala 91 - Campolim) continua ativo ou se operam em novo galpão operacional.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Validar se o WhatsApp (15) 99157-8558 fala diretamente com o sócio Anderson Azevedo ou com a equipe comercial.</div>
+    </div>
+  
+
+    <div class="warning-box">
+      <span class="w-icon">⚠️</span>
+      <div>Checar se possuem fotos recentes de instalações próprias em Sorocaba para substituir as imagens genéricas do site atual.</div>
+    </div>
+  
+  </div>
+
+  <!-- 08 FONTES -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">08</div>
+      <div class="section-title">Fontes Analisadas</div>
+    </div>
+    <div class="card">
+      
+    <div class="fonte-item">
+      <span class="fonte-origin">Site Oficial</span>
+      <span>Auditoria técnica em https://www.qsolenergia.com.br/ (identificado controlador Anderson Azevedo, política de 2020 e erros de marcação HTML).</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Google Maps</span>
+      <span>Ficha Qsol Energia Solar (coordenadas -23.4783, -47.4358 em Sorocaba - SP).</span>
+    </div>
+  
+
+    <div class="fonte-item">
+      <span class="fonte-origin">Pesquisa Local Sorocaba</span>
+      <span>Comparativo com integradoras locais (Sfero Energia Solar, CSolar, SolarComp).</span>
+    </div>
+  
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div>Vocação Comunicação & Marketing · Dossiê Interno · Uso Restrito</div>
+    <div style="margin-top:4px;">vocacao.digital · WhatsApp: (15) 98151-2083</div>
+  </footer>
+
+</div>
+</body>
+</html>
