@@ -2,11 +2,11 @@
    VOCAÇÃO — LOCALIZAÇÃO DINÂMICA (i18n PT | EN | ES + MULTIMOEDA POR MERCADO)
    ----------------------------------------------------------------------------
    MERCADOS ATENDIDOS:
-   1. Brasil (BR): BRL (R$) -> R$ 450, R$ 850, R$ 980
-   2. Estados Unidos (US) e Canadá: USD ($) -> $450, $850, $980
-   3. América Latina (México, etc.): USD ($) -> $450, $850, $980
-   4. Europa (Zona do Euro): EUR (€) -> €450, €850, €980
-   5. Reino Unido (UK): GBP (£) -> £450, £850, £980
+   1. Brasil (BR): BRL (R$) -> R$ 450, R$ 850, R$ 490
+   2. Estados Unidos (US) e Canadá: USD ($) -> $450, $850, $490
+   3. América Latina (México, etc.): USD ($) -> $450, $850, $490
+   4. Europa (Zona do Euro): EUR (€) -> €450, €850, €490
+   5. Reino Unido (UK): GBP (£) -> £450, £850, £490
 
    REGRAS:
    - Seletor visível e elegante: PT | EN | ES
@@ -91,6 +91,8 @@
   const DICT = {
     // Nav
     'Início': { en: 'Home', es: 'Inicio' },
+    'Site em 5 Dias': { en: '5-Day Website', es: 'Sitio en 5 Días' },
+    'Diagnóstico': { en: 'Diagnostic', es: 'Diagnóstico' },
     'Portfólio': { en: 'Portfolio', es: 'Portafolio' },
     'Falar no WhatsApp': { en: 'Chat on WhatsApp', es: 'Hablar por WhatsApp' },
     'Pedir Orçamento no WhatsApp ↗': { en: 'Request Quote on WhatsApp ↗', es: 'Pedir Presupuesto en WhatsApp ↗' },
@@ -111,8 +113,8 @@
     // Prazos e Condições
     'Escopo Fechado · Zero Mensalidade': { en: 'Fixed Scope · Zero Monthly Fees', es: 'Alcance Cerrado · Cero Mensualidades' },
     '5 a 7 dias úteis': { en: '5 to 7 business days', es: '5 a 7 días hábiles' },
-    '50% entrada · 50% ao aprovar': { en: '50% deposit · 50% upon approval', es: '50% anticipo · 50% al aprobar' },
-    'Garantia 50/50': { en: '50/50 Guarantee', es: 'Garantía 50/50' }
+    'Cartão de Crédito ou Pix': { en: 'Credit Card or Instant Transfer', es: 'Tarjeta de Crédito o Transferencia' },
+    'Pagamento Facilitado': { en: 'Flexible Payment', es: 'Pago Facilitado' }
   };
 
   function formatPrice(val, curr) {

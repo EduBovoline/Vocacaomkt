@@ -8,6 +8,26 @@
       "statusCode": 301
     },
     {
+      "source": "/vocacao-start",
+      "destination": "/vocacao-update",
+      "statusCode": 301
+    },
+    {
+      "source": "/vocacao-start.html",
+      "destination": "/vocacao-update",
+      "statusCode": 301
+    },
+    {
+      "source": "/tour-virtual",
+      "destination": "/vocacao-update",
+      "statusCode": 301
+    },
+    {
+      "source": "/tour-virtual.html",
+      "destination": "/vocacao-update",
+      "statusCode": 301
+    },
+    {
       "source": "/branding",
       "destination": "/",
       "statusCode": 301

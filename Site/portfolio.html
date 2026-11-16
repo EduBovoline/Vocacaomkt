@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Portfólio em Leque de Telas Líquidas — Vocação Comunicação &amp; Marketing</title>
-<meta name="description" content="Explore ao vivo os 7 projetos em destaque da Vocação (Safety First, Maçã d'Amor, Samurai Car Styling, Sorelle Zanoni, TiwShirts, Manual do Usuário e Jardim Vivo) em um leque interativo de Telas Líquidas responsivas." />
+<meta name="description" content="Explore ao vivo os 9 projetos em destaque da Vocação (Musgo in Vitro, Prof. Chico UEPG, Safety First, Maçã d'Amor, Samurai Car Styling, Sorelle Zanoni, TiwShirts, Manual do Usuário e Jardim Vivo) em um leque interativo de Telas Líquidas responsivas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -51,14 +51,14 @@ html {
   color: var(--ink);
   font-family: 'Montserrat', sans-serif;
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
   background: var(--bg-obsidian);
   color: var(--ink);
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
 }
 
@@ -1310,11 +1310,9 @@ body {
     </a>
     <div class="pf-nav-links">
       <a href="index.html">Início</a>
-      <a href="vocacao-start.html">Vocação Start</a>
-      <a href="vocacao-update.html">Vocação Update</a>
-      <a href="presenca-local.html">Google Maps</a>
-      <a href="tour-virtual.html">Tour 360°</a>
+      <a href="vocacao-update.html">Site em 5 Dias</a>
       <a href="portfolio.html" class="active">Portfólio</a>
+      <a href="diagnostico.html">Diagnóstico</a>
     </div>
     <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20Voca%C3%A7%C3%A3o%20e%20quero%20um%20projeto%20para%20minha%20empresa" target="_blank" rel="noopener" class="pf-nav-cta">
       Pedir Orçamento no WhatsApp ↗
@@ -1388,11 +1386,11 @@ body {
     <div class="liquid-hud">
       <div class="liquid-hud-left">
         <span class="active-tag-badge">● SITE ATIVO</span>
-        <span class="liquid-hud-url" id="activeHudUrl">safetyfirst.com.br</span>
+        <span class="liquid-hud-url" id="activeHudUrl">musgoinvitro.com.br</span>
       </div>
       <div class="liquid-hud-actions">
         <button type="button" class="hud-unlock-btn" onclick="disableMobileIframeInteraction()">✕ Rolagem Página</button>
-        <a href="/safety-first/" target="_blank" id="activeFullLink" class="hud-action-link">Abrir Tela Cheia ↗</a>
+        <a href="musgo-in-vitro/index.html" target="_blank" id="activeFullLink" class="hud-action-link">Abrir Tela Cheia ↗</a>
       </div>
     </div>
 
@@ -1404,7 +1402,7 @@ body {
           Toque para Navegar ao Vivo neste Site
         </button>
       </div>
-      <iframe class="liquid-iframe" id="activeIframe" src="/safety-first/" title="Site Ativo no Portfólio"></iframe>
+      <iframe class="liquid-iframe" id="activeIframe" src="musgo-in-vitro/index.html" title="Site Ativo no Portfólio"></iframe>
     </div>
   </div>
 </section>
@@ -1413,9 +1411,9 @@ body {
 <div style="padding: 0 16px;">
   <div class="active-project-bar">
     <div class="active-project-info">
-      <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--accent-gold);letter-spacing:0.15em;text-transform:uppercase;" id="activeProjCategory">PROJETO 01 · ENGENHARIA &amp; SEGURANÇA DO TRABALHO</span>
-      <h2 id="activeProjTitle">Safety First — Engenharia, Laudos &amp; Gestão SST</h2>
-      <p id="activeProjDesc">Transformação de um site institucional estático em uma plataforma B2B imersiva de alta autoridade para captação de contratos industriais.</p>
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;color:var(--accent-gold);letter-spacing:0.15em;text-transform:uppercase;" id="activeProjCategory">PROJETO 01 · BOTÂNICA &amp; TERRÁRIOS ARTESANAIS</span>
+      <h2 id="activeProjTitle">Musgo in Vitro — Terrários, Kokedamas &amp; Catálogo WhatsApp</h2>
+      <p id="activeProjDesc">Vitrine botânica em 8 páginas com galeria filtrável, modal de detalhes e seleção inteligente de referências com orçamento montado no WhatsApp.</p>
     </div>
     <div style="display:flex;gap:12px;flex-wrap:wrap;width:100%;max-width:fit-content;">
       <a href="https://wa.me/5515981512083" target="_blank" id="activeWhatsappCta" class="pf-nav-cta" style="padding:14px 24px;font-size:13.5px;display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;">
@@ -1482,26 +1480,21 @@ body {
 <section class="pf-cta-banner">
   <div class="pf-cta-card">
     <div>
-      <span style="font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.2em;color:var(--accent-gold);display:block;margin-bottom:12px;">PRÓXIMO PROJETO NO AR EM 5 A 7 DIAS</span>
+      <span style="font-family:'Geist Mono',monospace;font-size:11.5px;letter-spacing:0.2em;color:var(--accent-gold);display:block;margin-bottom:12px;">PRÓXIMO PROJETO NO AR EM 4 A 5 DIAS ÚTEIS</span>
       <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(26px,4vw,46px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-0.03em;">
-        Qual dessas estruturas a sua empresa precisa ativar agora?
+        Pronto para ter um site nesse nível para a sua empresa?
       </h2>
       <p style="color:var(--ink-soft);font-size:15px;line-height:1.65;margin-top:14px;max-width:560px;">
-        Sem mensalidades e sem reuniões intermináveis. Escolha sua necessidade ou fale direto com nossa equipe no WhatsApp:
+        Criamos do zero ou modernizamos seu site atual em 4 a 5 dias úteis por R$ 490 único (Cartão de Crédito ou Pix), sem mensalidade e sem reuniões intermináveis.
       </p>
     </div>
     <div style="display:flex;flex-direction:column;gap:12px;">
-      <a href="vocacao-start.html" class="pf-nav-cta" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;font-size:14.5px;border-radius:12px;">
+      <a href="vocacao-update.html" class="pf-nav-cta" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;font-size:14.5px;border-radius:12px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-        Não tenho site → Vocação Start (Maps + Vitrine)
+        Quero meu site novo em 4 a 5 dias úteis (R$ 490) →
       </a>
-      <a href="vocacao-update.html" class="pf-nav-cta" style="background:#0d283a;color:#fff;border:1px solid rgba(229,185,16,0.45);display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;font-size:14px;border-radius:12px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
-        Já tenho site lento/antigo → Vocação Update (em 5 dias úteis)
-      </a>
-      <a href="presenca-local.html" class="pf-nav-cta" style="background:rgba(255,255,255,0.05);color:#cbd5e1;border:1px solid rgba(255,255,255,0.15);display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 24px;font-size:13.5px;border-radius:12px;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E5B910" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-        Quero dominar as buscas do bairro → Google Maps
+      <a href="https://wa.me/5515981512083?text=Ol%C3%A1!%20Vi%20o%20portf%C3%B3lio%20da%20Voca%C3%A7%C3%A3o%20e%20quero%20um%20site%20para%20minha%20empresa" target="_blank" rel="noopener" class="pf-nav-cta" style="background:#0d283a;color:#fff;border:1px solid rgba(229,185,16,0.45);display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 24px;font-size:14px;border-radius:12px;">
+        Falar com a equipe no WhatsApp ↗
       </a>
     </div>
   </div>
@@ -1513,15 +1506,14 @@ body {
     <div class="footer-grid">
       <div>
         <a href="index.html" class="brand"><img src="logo-vocacao.png" alt="Vocação" class="brand-logo" /> Vocação</a>
-        <p class="lede">Engenharia de presença digital e conversão local. Entregamos em 5 a 7 dias úteis, sem mensalidades e com pagamento 50% somente após aprovação no ar.</p>
+        <p class="lede">Engenharia de presença digital e conversão direta. Sites ultrarrápidos em 4 a 5 dias úteis, sem mensalidades e com pagamento facilitado via Cartão de Crédito ou Pix.</p>
       </div>
       <div class="footer-col">
-        <h5>Esteira Oficial</h5>
+        <h5>Solução Oficial</h5>
         <ul>
-          <li><a href="vocacao-start.html">Vocação Start <span class="arrow">★</span></a></li>
-          <li><a href="vocacao-update.html">Vocação Update <span class="arrow">↗</span></a></li>
-          <li><a href="presenca-local.html">Presença no Maps <span class="arrow">↗</span></a></li>
-          <li><a href="tour-virtual.html">Tour Virtual 360° <span class="arrow">↗</span></a></li>
+          <li><a href="vocacao-update.html" style="color: var(--accent-gold);">Site em 5 Dias (R$ 490) <span class="arrow">★</span></a></li>
+          <li><a href="index.html#cases">Antes &amp; Depois <span class="arrow">↗</span></a></li>
+          <li><a href="diagnostico.html">Diagnóstico Gratuito <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1547,7 +1539,7 @@ body {
           <li>(15) 98151-2083</li>
           <li>Sorocaba &amp; Votorantim / SP</li>
           <li>Atendimento Nacional &amp; Global</li>
-          <li>Entrega travada em 5 a 7 dias úteis</li>
+          <li>Entrega travada em 4 a 5 dias úteis</li>
         </ul>
       </div>
     </div>
@@ -1565,47 +1557,71 @@ body {
 <script>
   const PROJECTS = [
     {
-      id: 'safety',
+      id: 'musgo',
       num: '01',
+      shortName: 'Musgo in Vitro',
+      title: 'Musgo in Vitro — Terrários, Kokedamas & Catálogo WhatsApp',
+      category: 'PROJETO 01 · BOTÂNICA & TERRÁRIOS ARTESANAIS',
+      desc: 'Vitrine botânica em 8 páginas com galeria filtrável, modal de detalhes e seleção inteligente de referências com orçamento montado no WhatsApp.',
+      url: 'musgo-in-vitro/index.html',
+      externalUrl: 'musgo-in-vitro/index.html',
+      domainLabel: 'musgoinvitro.com.br · Terrários & Kokedamas',
+      poster: 'musgo-in-vitro/assets/terrario-1.webp'
+    },
+    {
+      id: 'chico',
+      num: '02',
+      shortName: 'Prof. Chico UEPG',
+      title: 'Prof. Chico · UEPG — Quantum Symmetry Lab 3D',
+      category: 'PROJETO 02 · PLATAFORMA ACADÊMICA & SIMULADOR 3D',
+      desc: 'Laboratório interativo em 3D para ensino de Simetria Molecular, Grupos Pontuais, Tabela de Caracteres e orbitais LCAO-MO construído sob medida.',
+      url: 'chico-uepg/index.html',
+      externalUrl: 'chico-uepg/index.html',
+      domainLabel: 'chicouepg · Quantum Symmetry Lab 3D',
+      poster: 'cases/chico-uepg-poster.svg'
+    },
+    {
+      id: 'safety',
+      num: '03',
       shortName: 'Safety First',
       title: 'Safety First — Engenharia, Laudos & Gestão SST',
-      category: 'PROJETO 01 · ENGENHARIA & SEGURANÇA DO TRABALHO (B2B)',
+      category: 'PROJETO 03 · ENGENHARIA & SEGURANÇA DO TRABALHO (B2B)',
       desc: 'Transformação de um site institucional estático em uma plataforma B2B imersiva de alta autoridade para captação de contratos industriais (PGR, LTCAT, NR-10, NR-12 e e-Social).',
-      url: '/safety-first/',
-      externalUrl: '/safety-first/',
+      url: 'safety-first/index.html',
+      externalUrl: 'safety-first/index.html',
       domainLabel: 'safetyfirst.com.br · Engenharia & SST',
       poster: 'cases/safety-novo.png'
     },
     {
       id: 'maca',
-      num: '02',
+      num: '04',
       shortName: "Maçã d'Amor",
       title: "Maçã d'Amor — Confeitaria Gourmet & Eventos",
-      category: 'PROJETO 02 · GASTRONOMIA & EVENTOS · SÃO PAULO/SP',
+      category: 'PROJETO 04 · GASTRONOMIA & EVENTOS · SÃO PAULO/SP',
       desc: 'Modernização Vocação Update: de uma página antiga que demorava 4.6s para abrir para uma vitrine editorial gourmet (<0.5s) com pedido pré-montado direto no WhatsApp.',
-      url: '/maca-de-amor/',
-      externalUrl: '/maca-de-amor/',
+      url: 'maca-de-amor/index.html',
+      externalUrl: 'maca-de-amor/index.html',
       domainLabel: 'macadamor.com.br · Confeitaria & Eventos',
       poster: 'cases/maca-novo.png'
     },
     {
       id: 'samurai',
-      num: '03',
+      num: '05',
       shortName: 'Samurai Car Styling',
       title: 'Samurai Car Styling — Estética Automotiva',
-      category: 'PROJETO 03 · ESTÉTICA AUTOMOTIVA · SOROCABA/SP',
+      category: 'PROJETO 05 · ESTÉTICA AUTOMOTIVA · SOROCABA/SP',
       desc: 'Vitrine digital de impacto para oficina especializada em polimento técnico, vitrificação, restauração de faróis e higienização interna em Sorocaba.',
-      url: '/samurai/',
-      externalUrl: '/samurai/',
+      url: 'samurai/index.html',
+      externalUrl: 'samurai/index.html',
       domainLabel: 'vocacao.digital/samurai · Estética Automotiva',
       poster: 'cases/samurai-preview.png'
     },
     {
       id: 'zanoni',
-      num: '04',
+      num: '06',
       shortName: 'Irmãs Zanoni',
       title: 'Sorelle Zanoni (Irmãs Zanoni) — Boutique Feminina',
-      category: 'PROJETO 04 · MODA & ALFAIATARIA FEMININA · GUARULHOS/SP',
+      category: 'PROJETO 06 · MODA & ALFAIATARIA FEMININA · GUARULHOS/SP',
       desc: 'Posicionamento digital elegante para a marca das irmãs Zanoni, unindo storytelling familiar, curadoria de coleções e atendimento consultivo personalizado.',
       url: 'https://sorellezanoni.netlify.app/',
       externalUrl: 'https://sorellezanoni.netlify.app/',
@@ -1614,37 +1630,37 @@ body {
     },
     {
       id: 'tiwshirts',
-      num: '05',
+      num: '07',
       shortName: 'TiwShirts',
       title: 'TiwShirts — Manifesto Portátil & Streetwear Cultural',
-      category: 'PROJETO 05 · MODA AUTORAL & E-COMMERCE · D2C & B2B',
+      category: 'PROJETO 07 · MODA AUTORAL & E-COMMERCE · D2C & B2B',
       desc: 'Arquitetura de marca, lookbook interativo com zoom de gramatura (Algodão 30.1 e Suedine 230g), seletor de linhas e engenharia de vendas.',
-      url: '/tiwshirts/',
-      externalUrl: '/tiwshirts/',
+      url: 'tiwshirts/index.html',
+      externalUrl: 'tiwshirts/index.html',
       domainLabel: 'tiwshirts.space · Streetwear Cultural',
       poster: 'tiwshirts/assets/capa-hero.webp'
     },
     {
       id: 'manual',
-      num: '06',
+      num: '08',
       shortName: 'Manual do Usuário',
       title: 'Manual do Usuário — Documentário Interativo Scroll-World',
-      category: 'PROJETO 06 · EXPERIÊNCIA EDITORIAL IMERSIVA · SCROLL-WORLD',
+      category: 'PROJETO 08 · EXPERIÊNCIA EDITORIAL IMERSIVA · SCROLL-WORLD',
       desc: 'Experiência web cinematográfica onde cada rolagem conduz o leitor por diferentes salas e laboratórios visuais com transições de câmera contínuas.',
-      url: '/tiwshirts/manual.html',
-      externalUrl: '/tiwshirts/manual.html',
+      url: 'tiwshirts/manual.html',
+      externalUrl: 'tiwshirts/manual.html',
       domainLabel: 'tiwshirts.space/manual · Scroll-World 3D',
       poster: 'tiwshirts/assets/scroll-world/stills/scene_1_poster.webp'
     },
     {
       id: 'jardim',
-      num: '07',
+      num: '09',
       shortName: 'Jardim Vivo',
       title: 'Jardim Vivo Essencial — Experiência Imersiva das 7 Ervas',
-      category: 'PROJETO 07 · CULTIVO URBANO & BOTÂNICA · SCROLL-WORLD',
+      category: 'PROJETO 09 · CULTIVO URBANO & BOTÂNICA · SCROLL-WORLD',
       desc: 'Landing page imersiva em formato Scroll-World orgânico onde o visitante sobrevoa ambientes reais de cultivo doméstico em pequenos espaços.',
-      url: '/jardim-vivo-essencial/',
-      externalUrl: '/jardim-vivo-essencial/',
+      url: 'jardim-vivo-essencial/index.html',
+      externalUrl: 'jardim-vivo-essencial/index.html',
       domainLabel: 'jardimvivoessencial.com.br · Scroll-World Botânico',
       poster: 'jardim-vivo-essencial/assets/cena1-poster.jpg'
     }
@@ -1760,26 +1776,17 @@ body {
       const card = document.getElementById('wing-card-' + idx);
       if (!card) return;
 
-      const offset = getSignedOffset(idx, activeIndex, N); // -3, -2, -1, 0, +1, +2, +3
+      const offset = getSignedOffset(idx, activeIndex, N); // up to +-4 for 9 items
+      const abs = Math.abs(offset);
 
-      if (offset === 0) {
-        // Center card is represented by the live Active Liquid Screen in the foreground
+      if (offset === 0 || abs > 3 || (isSmallMobile && abs > 1)) {
+        // Hide center card and outer wings beyond +-3 (or +-1 on mobile)
         card.style.opacity = '0';
         card.style.pointerEvents = 'none';
-        card.style.transform = 'translate3d(0px, 0px, 0px) rotate(0deg) scale(0.9)';
+        card.style.transform = 'translate3d(0px, 0px, 0px) rotate(0deg) scale(0.85)';
         card.style.zIndex = '1';
       } else {
         const sign = offset < 0 ? -1 : 1;
-        const abs = Math.abs(offset); // 1, 2, or 3
-
-        // On mobile GPUs, hide outer wings (abs > 1) to eliminate compositing lag and horizontal overflow
-        if (isSmallMobile && abs > 1) {
-          card.style.opacity = '0';
-          card.style.pointerEvents = 'none';
-          card.style.transform = 'translate3d(0px, 0px, 0px) scale(0.8)';
-          card.style.zIndex = '1';
-          return;
-        }
 
         const angleDeg = sign * (abs * (isSmallMobile ? 9 : 13.5));
         const baseOffsetX = sign * ((isSmallMobile ? 82 : 155) + (abs - 1) * 115 + extraSpread);

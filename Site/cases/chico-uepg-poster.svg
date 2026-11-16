@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="42%" r="60%">
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.22"/>
+      <stop offset="55%" stop-color="#071321" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#04080E" stop-opacity="1"/>
+    </radialGradient>
+    <linearGradient id="orbBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#005B82"/>
+    </linearGradient>
+    <linearGradient id="orbAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#9A4E00"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00E5FF" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="1200" fill="#04080E"/>
+  <rect width="800" height="1200" fill="url(#grid)"/>
+  <rect width="800" height="1200" fill="url(#bgGlow)"/>
+
+  <!-- HUD Top Badge -->
+  <rect x="64" y="72" width="320" height="36" rx="18" fill="#071524" stroke="#00E5FF" stroke-opacity="0.45"/>
+  <circle cx="88" cy="90" r="5" fill="#00E5FF"/>
+  <text x="106" y="95" fill="#00E5FF" font-family="monospace" font-size="14" font-weight="700" letter-spacing="2">QUANTUM SYMMETRY LAB 3D</text>
+
+  <!-- Symmetry Plane & Axes -->
+  <g stroke="#00E5FF" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="8 6">
+    <line x1="400" y1="220" x2="400" y2="820"/>
+    <line x1="140" y1="520" x2="660" y2="520"/>
+  </g>
+
+  <!-- Symmetry Mirror Plane -->
+  <polygon points="400,260 560,360 560,680 400,580" fill="#00E5FF" fill-opacity="0.06" stroke="#00E5FF" stroke-opacity="0.4" stroke-width="1.5"/>
+
+  <!-- Molecular / Orbital 3D Illustration -->
+  <g transform="translate(400, 500)">
+    <!-- Rings / Orbitals -->
+    <ellipse cx="0" cy="0" rx="220" ry="80" transform="rotate(-24)" fill="none" stroke="#00E5FF" stroke-opacity="0.35" stroke-width="2"/>
+    <ellipse cx="0" cy="0" rx="220" ry="80" transform="rotate(24)" fill="none" stroke="#FFB300" stroke-opacity="0.35" stroke-width="2"/>
+    <circle cx="0" cy="0" r="170" fill="none" stroke="#E040FB" stroke-opacity="0.22" stroke-width="1.5" stroke-dasharray="6 8"/>
+
+    <!-- Bonds -->
+    <line x1="0" y1="0" x2="-135" y2="-110" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="135" y2="-110" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+    <line x1="0" y1="0" x2="0" y2="155" stroke="#94A3B8" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Lobes (LCAO-MO) -->
+    <ellipse cx="0" cy="-120" rx="48" ry="85" fill="#00E5FF" fill-opacity="0.18" stroke="#00E5FF" stroke-width="2"/>
+    <ellipse cx="0" cy="120" rx="48" ry="85" fill="#E040FB" fill-opacity="0.18" stroke="#E040FB" stroke-width="2"/>
+
+    <!-- Central Atom & Ligands -->
+    <circle cx="0" cy="0" r="44" fill="url(#orbAmber)" stroke="#FFE082" stroke-width="2"/>
+    <circle cx="-135" cy="-110" r="28" fill="url(#orbBlue)" stroke="#80F3FF" stroke-width="2"/>
+    <circle cx="135" cy="-110" r="28" fill="url(#orbBlue)" stroke="#80F3FF" stroke-width="2"/>
+    <circle cx="0" cy="155" r="28" fill="url(#orbBlue)" stroke="#80F3FF" stroke-width="2"/>
+  </g>
+
+  <!-- Point Group Pill -->
+  <rect x="275" y="790" width="250" height="44" rx="10" fill="#0B1624" stroke="#FFB300" stroke-opacity="0.5"/>
+  <text x="400" y="818" text-anchor="middle" fill="#FFB300" font-family="monospace" font-size="18" font-weight="700" letter-spacing="2">GRUPO PONTUAL C2v · LCAO</text>
+
+  <!-- Bottom Editorial Title -->
+  <text x="64" y="960" fill="#00E5FF" font-family="monospace" font-size="16" font-weight="700" letter-spacing="3">PLATAFORMA ACADÊMICA INTERATIVA</text>
+  <text x="64" y="1025" fill="#FFFFFF" font-family="sans-serif" font-size="48" font-weight="800">Prof. Chico · UEPG</text>
+  <text x="64" y="1075" fill="#94A3B8" font-family="sans-serif" font-size="22" font-weight="500">Simetria Molecular, Caracteres &amp; Orbitais 3D</text>
+</svg>

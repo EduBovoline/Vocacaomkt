@@ -39,7 +39,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
+html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: clip; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -51,7 +51,7 @@ body {
   line-height: 1.55;
   font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
   background-image:
     radial-gradient(1400px 800px at 80% -10%, color-mix(in oklab, var(--accent) 5%, transparent), transparent 70%),
     radial-gradient(1200px 700px at -10% 30%, color-mix(in oklab, oklch(0.88 0.008 260) 30%, transparent), transparent 70%);

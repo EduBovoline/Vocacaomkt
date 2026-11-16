@@ -191,21 +191,21 @@
 
     score = Math.max(18, Math.min(88, score));
 
-    let recTitle = 'Vocação Start (Google Maps + Vitrine One-Page)';
-    let recTime = 'Prazo de referência: 7 dias úteis · Escopo Fechado';
-    let recDesc = 'Foco em blindar sua ficha no Google Maps e colocar no ar uma Vitrine Digital ultrarrápida sem você precisar escrever textos do zero.';
-    let recCode = 'VOCACAO_START';
+    let recTitle = 'Vocação Update — Site & Vitrine de Alta Conversão (< 0.5s)';
+    let recTime = 'Prazo de referência: 4 a 5 dias úteis · R$ 490 (Cartão ou Pix)';
+    let recDesc = 'Extraímos suas informações atuais e colocamos no ar um site rápido (<0.5s) focado em levar clientes direto para o WhatsApp, sem você escrever textos do zero.';
+    let recCode = 'VOCACAO_UPDATE';
 
     if (siteAns.includes('antigo, lento') || (ans.link_site && !siteAns.includes('Ainda não temos'))) {
-      recTitle = 'Vocação Update (Modernização de Site < 0.5s)';
-      recTime = 'Prazo de referência: 5 dias úteis · Escopo Fechado';
-      recDesc = 'Aproveitamos seus textos e domínio atuais e renovamos 100% do visual e da velocidade mobile em 5 dias úteis.';
+      recTitle = 'Vocação Update — Modernização de Site (< 0.5s)';
+      recTime = 'Prazo de referência: 4 a 5 dias úteis · R$ 490 (Cartão ou Pix)';
+      recDesc = 'Aproveitamos seus textos e domínio atuais e renovamos 100% do visual e da velocidade mobile em 4 a 5 dias úteis.';
       recCode = 'VOCACAO_UPDATE';
     } else if (siteAns.includes('rápido e atualizado') && !googleAns.includes('Bem configurada')) {
-      recTitle = 'Presença no Google Maps + Tour Virtual 360°';
-      recTime = 'Prazo de referência: 48h a 7 dias úteis';
-      recDesc = 'Blindagem completa da ficha no Google Meu Negócio e imersão Street View 5.6K para dominar as buscas locais.';
-      recCode = 'PRESENCA_MAPS_360';
+      recTitle = 'Presença no Google Maps (Complementar)';
+      recTime = 'Prazo de referência: 3 a 5 dias úteis · Cartão ou Pix';
+      recDesc = 'Complemente seu site atual com a blindagem completa da ficha no Google Meu Negócio para ganhar relevância nas buscas locais.';
+      recCode = 'PRESENCA_MAPS';
     }
 
     return { score, findings, recTitle, recTime, recDesc, recCode };

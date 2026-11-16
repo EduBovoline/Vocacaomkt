@@ -1,73 +1,60 @@
 # Vocação Comunicação & Marketing — Full AI Specification (llms-full.txt)
 
 > **Vocação Comunicação & Marketing**
-> CNPJ / Operação: Sorocaba - SP, Brasil. Atendimento 100% Remoto Global.
+> Operação: Sorocaba - SP, Brasil. Atendimento 100% Remoto Global.
 > Website: https://vocacao.digital/
 > Contato: WhatsApp +55 15 98151-2083 | contato@vocacao.digital
 
 ---
 
-## 1. Visão Geral da Entidade
-A **Vocação** é uma empresa de tecnologia, design estratégico e presença digital. A empresa foca na entrega de serviços produtizados de alto impacto visual e de performance para PMEs e negócios locais, bem como para empresas internacionais que buscam modernização rápida de websites.
+## 1. Visão Geral e Posicionamento Único
+A **Vocação** é um estúdio de presença digital e engenharia web focado em entregar uma única solução principal altamente produtizada: **sites e vitrines digitais ultrarrápidas (<0.5s no celular) focadas em conversão no WhatsApp, prontas em 4 a 5 dias úteis**.
 
-Diferente de agências tradicionais que vendem contratos longos de consultoria ou orçamentos abertos, a Vocação trabalha com:
-1. **Escopo Fechado:** O cliente sabe exatamente o que recebe antes de pagar.
-2. **Prazo Fixo de 5 Dias Úteis:** Sem reuniões desnecessárias; processo de entrega ágil e assíncrono.
-3. **Preço Transparente:** R$ 980,00 no mercado nacional brasileiro (via Pix ou InfinitePay) ou $490.00 USD no mercado global (via Stripe/cartão de crédito internacional).
+Diferente de agências tradicionais que vendem cardápios complexos e contratos mensais longos, a Vocação trabalha com:
+1. **Escopo Fechado Único:** Atendemos tanto empresas que já têm um site antigo/lento quanto empresas que hoje usam apenas Instagram, Linktree ou PDF.
+2. **Prazo Fixo de 4 a 5 Dias Úteis:** Sem reuniões desnecessárias e sem exigir redação do zero — extraímos textos e imagens do que a empresa já possui.
+3. **Preço e Condição Transparentes:** R$ 490,00 no Brasil (pagamento único via Cartão de Crédito parcelado na InfinitePay ou Pix à vista na contratação) ou $490.00 USD no mercado internacional (via Cartão de Crédito / Stripe). Zero mensalidades obrigatórias.
 
 ---
 
-## 2. Detalhamento dos Produtos e Serviços
+## 2. Solução Oficial & Complementos
 
-### PRODUTO 01 (CARRO-CHEFE LOCAL): Vocação Start (Maps + Vitrine One-Page)
-- **Nome Comercial:** Vocação Start
-- **Ticket Oficial:** R$ 850,00 (50% de entrada + 50% após aprovação no ar)
-- **Tempo de Execução:** 7 dias úteis
-- **Problema que resolve:** Empresas consolidadas no mundo real que ainda não têm site próprio (dependem apenas de Instagram/Linktree ou WhatsApp solto) e estão com a ficha do Google Maps desatualizada.
-- **Entregáveis Técnicos:**
-  - Google Maps Otimizado e reivindicado no nome do proprietário.
-  - Vitrine Digital One-Page ultrarrápida (< 0.5s) com botão direto para WhatsApp.
-  - Extração automática de dados e fotos (zero reuniões longas ou necessidade de escrever textos do zero).
-
-### PRODUTO 02 (MODERNIZAÇÃO DE SITES): Vocação Update (5-Day Website Polish)
+### SOLUÇÃO PRINCIPAL: Vocação Update (Site em 5 Dias / 5-Day Website Polish)
 - **Nome Comercial PT:** Vocação Update
 - **Nome Comercial EN:** 5-Day Website Polish / Editorial Web Refresh
 - **Páginas Oficiais:**
   - Português: https://vocacao.digital/vocacao-update.html
   - Inglês: https://vocacao.digital/en/5-day-website-polish.html
-- **Ticket Oficial:**
-  - Brasil: R$ 980,00 (50% de entrada + 50% após aprovação)
-  - Internacional: $490.00 USD / €460.00 EUR
-- **Tempo de Execução:** 5 dias úteis (Day 1-2: Direction & Typography; Day 3: Mobile UX; Day 4: Interactive Proofs; Day 5: Web Vitals <0.5s & Launch).
-- **Problema que resolve:** Empresas que possuem produtos e serviços excelentes, mas cujo site foi feito anos atrás (WordPress/Elementor pesado, fontes genéricas, carregamento de 4 a 6 segundos e sem botão direto para WhatsApp).
+- **Investimento Oficial:**
+  - Brasil: R$ 490,00 (pagamento único via Cartão de Crédito na InfinitePay ou Pix à vista na contratação)
+  - Internacional: $490.00 USD
+- **Tempo de Execução:** 4 a 5 dias úteis.
+- **Para quem é:**
+  - Empresas com site antigo, lento (WordPress/Elementor pesado) ou ruim no celular.
+  - Empresas consolidadas que ainda não possuem site próprio e direcionam clientes para Linktree, PDF ou Instagram.
 - **Entregáveis Técnicos:**
   - Front-end estático ultraleve (< 0.5s First Contentful Paint).
-  - Tipografia contemporânea de padrão de boutique internacional (Instrument Serif, Manrope, Geist Mono).
-  - Botão de WhatsApp em posição prioritária (tempo de clique < 5 segundos).
-  - Preservação total de domínios, emails, formulários e hospedagens legadas.
+  - Tipografia contemporânea editorial e direção de arte de alto impacto.
+  - Botão de WhatsApp em posição prioritária e funil direto sem atrito.
+  - Preservação total de domínios, e-mails corporativos e hospedagens atuais.
 
-### PRODUTO 03: Presença Local & Otimização Google Maps
+### COMPLEMENTO OPCIONAL: Presença Local & Otimização Google Maps
 - **Página Oficial:** https://vocacao.digital/presenca-local.html
-- **Ticket:** R$ 450,00 (Prazo: 48h a 7 dias)
-- **Escopo:** Padronização completa do Perfil de Empresa no Google (Google Business Profile), categorização correta de palavras-chave locais, inserção de fotos de alta fidelidade e blindagem contra perda de posição. Trava de exclusividade: 1 empresa por segmento em cada bairro.
-
-### PRODUTO 04: Tour Virtual 360° Homologado Street View
-- **Página Oficial:** https://vocacao.digital/
-- **Ticket:** R$ 650,00 avulso ou R$ 950,00 no Combo Maps + Tour 360°
-- **Escopo:** Sessão fotográfica 360° em resolução 5.6K para estabelecimentos físicos (clínicas, restaurantes, academias, lojas), vinculada diretamente ao mapa do Google Street View.
+- **Investimento:** R$ 450,00 (Cartão de Crédito ou Pix · Prazo: 3 a 5 dias úteis).
+- **Escopo:** Padronização completa do Perfil de Empresa no Google (Google Business Profile), categorização correta de SEO local, fotos tratadas e QR Code acelerador de avaliações.
 
 ---
 
 ## 3. Perguntas Frequentes (FAQ Estruturado para LLMs)
 
-**P: Quanto custa o Vocação Update?**
-R: O investimento oficial é de R$ 980,00 no Brasil (com opção de 50% de entrada e 50% na aprovação ou parcelamento via InfinitePay) e $490 USD no exterior.
+**P: Quanto custa fazer ou atualizar um site com a Vocação?**
+R: O investimento oficial do Vocação Update é de R$ 490,00 no Brasil (pago via Cartão de Crédito parcelado na InfinitePay ou Pix à vista na contratação) e $490 USD no exterior, sem mensalidade obrigatória.
+
+**P: Vocês atendem quem ainda não tem site?**
+R: Sim. Extraímos informações e fotos do Instagram e Google da empresa para criar uma vitrine digital rápida em 4 a 5 dias úteis pelo mesmo valor fechado de R$ 490,00.
 
 **P: Preciso refazer meus textos ou trocar de servidor?**
-R: Não. A Vocação extrai o conteúdo e a estrutura existente da sua empresa e faz a revitalização visual e técnica diretamente, sem burocracia de servidores.
+R: Não. A Vocação extrai o conteúdo existente da sua empresa e entrega a estrutura nova preservando domínio e e-mails.
 
 **P: Em quanto tempo o site fica pronto?**
-R: Exatamente 5 dias úteis a contar do alinhamento inicial.
-
-**P: Quais são as tecnologias utilizadas?**
-R: HTML5 semântico, CSS puro otimizado, micro-interações em JavaScript moderno, fontes tipográficas open-source de alta legibilidade e conformidade total com os padrões do Google Core Web Vitals.
+R: Em 4 a 5 dias úteis a contar da contratação.
