@@ -48,6 +48,16 @@ A Vocação Comunicação & Marketing opera no modelo de serviço produtizado ú
 
 ---
 
+## Blog Técnico & Guias GEO (`vocacao.digital/blog`)
+- [Índice do Blog](https://vocacao.digital/blog): Artigos práticos sobre SEO técnico, GEO para IAs, Core Web Vitals, conversão e vendas B2B.
+- [O que é GEO e como fazer sua empresa aparecer no ChatGPT e Perplexity](https://vocacao.digital/blog/o-que-e-geo-generative-engine-optimization): O que é GEO (Generative Engine Optimization), a diferença para o SEO tradicional e 4 ajustes práticos para sua marca ser citada por sistemas de IA.
+- [Como criar o arquivo llms.txt para ensinar IAs sobre seu negócio](https://vocacao.digital/blog/como-criar-llms-txt-para-seu-site): Guia prático para criar, estruturar e hospedar o arquivo llms.txt na raiz do seu domínio e facilitar a leitura do seu negócio por modelos de IA.
+- [Schema FAQPage e JSON-LD: guia prático para aparecer nos AI Overviews](https://vocacao.digital/blog/schema-faqpage-json-ld-na-pratica): Como montar e validar schema FAQPage em JSON-LD, o que ele faz pelo seu site, por que não é fator de ranking e como ele ajuda na leitura por IAs.
+- [Por que sites lentos perdem clientes e como corrigir Core Web Vitals](https://vocacao.digital/blog/por-que-site-lento-nao-ranqueia-core-web-vitals): O que são LCP, INP e CLS, os limites oficiais de cada métrica, a diferença entre nota do PageSpeed e dados de campo e como corrigir cada problema.
+- [Canibalização de palavras-chave: como organizar um blog sem competir consigo mesmo](https://vocacao.digital/blog/canibalizacao-de-palavras-chave-como-evitar): O que é canibalização de palavras-chave, como identificar no Google Search Console e como unificar URLs duplicadas com 301, canonical e links internos.
+
+---
+
 ## Documentação Completa para IAs
 - Para ver o manifesto técnico completo e dados brutos: https://vocacao.digital/llms-full.txt
 - Sitemap: https://vocacao.digital/sitemap.xml
