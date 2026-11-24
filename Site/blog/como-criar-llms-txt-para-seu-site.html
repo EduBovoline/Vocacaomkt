@@ -618,7 +618,7 @@ img, video { max-width: 100%; display: block; }
     </header>
 
     <figure class="cover-frame">
-      <video autoplay loop muted playsinline preload="auto" poster="/blog/02-como-criar-llms-txt-capa.webp" width="1280" height="720" aria-label="Como criar o arquivo llms.txt para ensinar IAs sobre seu negócio"><source src="/blog/02-como-criar-llms-txt-capa.webm" type="video/webm" /><source src="/blog/02-como-criar-llms-txt-capa.mp4" type="video/mp4" /></video>
+      <video class="js-autoplay-cover" autoplay loop muted playsinline preload="auto" poster="/blog/02-como-criar-llms-txt-capa.webp" data-anim-fallback="/blog/02-como-criar-llms-txt-capa-anim.webp" width="1280" height="720" aria-label="Como criar o arquivo llms.txt para ensinar IAs sobre seu negócio"><source src="/blog/02-como-criar-llms-txt-capa.webm" type="video/webm" /><source src="/blog/02-como-criar-llms-txt-capa.mp4" type="video/mp4" /></video>
     </figure>
 
     <article class="prose">
@@ -745,7 +745,7 @@ Se você quer que sua empresa seja citada no ChatGPT Search e no Perplexity, man
   <h2>Continue lendo</h2>
   <div class="posts-grid" style="padding:0 0 24px">
     <a href="/blog/o-que-e-geo-generative-engine-optimization" class="post-card">
-        <div class="post-card-media"><video autoplay loop muted playsinline preload="metadata" poster="/blog/01-o-que-e-geo-capa.webp" width="1280" height="720" aria-label="O que é GEO e como fazer sua empresa aparecer no ChatGPT e Perplexity"><source src="/blog/01-o-que-e-geo-capa.webm" type="video/webm" /><source src="/blog/01-o-que-e-geo-capa.mp4" type="video/mp4" /></video></div>
+        <div class="post-card-media"><img src="/blog/01-o-que-e-geo-capa-anim.webp" alt="O que é GEO e como fazer sua empresa aparecer no ChatGPT e Perplexity" width="640" height="360" loading="lazy" decoding="async" /></div>
         <div class="post-card-body">
           <div class="post-card-meta"><span>GEO &amp; SEO para IAs</span><span>4 min</span></div>
           <h3>O que é GEO e como fazer sua empresa aparecer no ChatGPT e Perplexity</h3>
@@ -753,7 +753,7 @@ Se você quer que sua empresa seja citada no ChatGPT Search e no Perplexity, man
           <span class="post-card-read">Ler guia completo →</span>
         </div>
       </a><a href="/blog/schema-faqpage-json-ld-na-pratica" class="post-card">
-        <div class="post-card-media"><video autoplay loop muted playsinline preload="metadata" poster="/blog/03-schema-faqpage-json-ld-capa.webp" width="1280" height="720" aria-label="Schema FAQPage e JSON-LD: guia prático para aparecer nos AI Overviews"><source src="/blog/03-schema-faqpage-json-ld-capa.webm" type="video/webm" /><source src="/blog/03-schema-faqpage-json-ld-capa.mp4" type="video/mp4" /></video></div>
+        <div class="post-card-media"><img src="/blog/03-schema-faqpage-json-ld-capa-anim.webp" alt="Schema FAQPage e JSON-LD: guia prático para aparecer nos AI Overviews" width="640" height="360" loading="lazy" decoding="async" /></div>
         <div class="post-card-body">
           <div class="post-card-meta"><span>GEO &amp; SEO para IAs</span><span>7 min</span></div>
           <h3>Schema FAQPage e JSON-LD: guia prático para aparecer nos AI Overviews</h3>
@@ -761,7 +761,7 @@ Se você quer que sua empresa seja citada no ChatGPT Search e no Perplexity, man
           <span class="post-card-read">Ler guia completo →</span>
         </div>
       </a><a href="/blog/por-que-site-lento-nao-ranqueia-core-web-vitals" class="post-card">
-        <div class="post-card-media"><video autoplay loop muted playsinline preload="metadata" poster="/blog/04-core-web-vitals-capa.webp" width="1280" height="720" aria-label="Por que sites lentos perdem clientes e como corrigir Core Web Vitals"><source src="/blog/04-core-web-vitals-capa.webm" type="video/webm" /><source src="/blog/04-core-web-vitals-capa.mp4" type="video/mp4" /></video></div>
+        <div class="post-card-media"><img src="/blog/04-core-web-vitals-capa-anim.webp" alt="Por que sites lentos perdem clientes e como corrigir Core Web Vitals" width="640" height="360" loading="lazy" decoding="async" /></div>
         <div class="post-card-body">
           <div class="post-card-meta"><span>GEO &amp; SEO para IAs</span><span>7 min</span></div>
           <h3>Por que sites lentos perdem clientes e como corrigir Core Web Vitals</h3>
@@ -785,5 +785,26 @@ Se você quer que sua empresa seja citada no ChatGPT Search e no Perplexity, man
     </div>
   </div>
 </footer>
+<script>
+(function() {
+  document.querySelectorAll('video.js-autoplay-cover').forEach(function(v) {
+    v.muted = true;
+    var p = v.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function() {
+        var fb = v.getAttribute('data-anim-fallback');
+        if (fb) {
+          var img = document.createElement('img');
+          img.src = fb;
+          img.alt = v.getAttribute('aria-label') || '';
+          img.width = 1280;
+          img.height = 720;
+          v.replaceWith(img);
+        }
+      });
+    }
+  });
+})();
+</script>
 </body>
 </html>
