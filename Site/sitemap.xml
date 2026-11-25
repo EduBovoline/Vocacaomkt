@@ -56,11 +56,10 @@
     <priority>0.6</priority>
   </url>
 
-
   <!-- BLOG VOCAÇÃO START -->
   <url>
     <loc>https://vocacao.digital/blog</loc>
-    <lastmod>2026-11-24</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -91,6 +90,42 @@
   <url>
     <loc>https://vocacao.digital/blog/canibalizacao-de-palavras-chave-como-evitar</loc>
     <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/seo-local-google-meu-negocio-para-empresas</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/como-usar-google-search-console-para-crescer</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/conteudo-eeat-google-saude-financas-nichos-sensiveis</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/quanto-custa-uma-landing-page-que-converte</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/erros-que-matam-conversao-site-institucional</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://vocacao.digital/blog/anatomia-dobra-acima-do-scroll-hero-section</loc>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>

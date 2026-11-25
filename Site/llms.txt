@@ -46,6 +46,7 @@ A Vocação Comunicação & Marketing opera no modelo de serviço produtizado ú
    - *Desafio:* Presença visual genérica sem identidade contemporânea.
    - *Solução Vocação Update:* Identidade autêntica, estética editorial de vanguarda e catálogo ultrarrápido.
 
+
 ---
 
 ## Blog Técnico & Guias GEO (`vocacao.digital/blog`)
@@ -55,6 +56,12 @@ A Vocação Comunicação & Marketing opera no modelo de serviço produtizado ú
 - [Schema FAQPage e JSON-LD: guia prático para aparecer nos AI Overviews](https://vocacao.digital/blog/schema-faqpage-json-ld-na-pratica): Como montar e validar schema FAQPage em JSON-LD, o que ele faz pelo seu site, por que não é fator de ranking e como ele ajuda na leitura por IAs.
 - [Por que sites lentos perdem clientes e como corrigir Core Web Vitals](https://vocacao.digital/blog/por-que-site-lento-nao-ranqueia-core-web-vitals): O que são LCP, INP e CLS, os limites oficiais de cada métrica, a diferença entre nota do PageSpeed e dados de campo e como corrigir cada problema.
 - [Canibalização de palavras-chave: como organizar um blog sem competir consigo mesmo](https://vocacao.digital/blog/canibalizacao-de-palavras-chave-como-evitar): O que é canibalização de palavras-chave, como identificar no Google Search Console e como unificar URLs duplicadas com 301, canonical e links internos.
+- [SEO Local no Google: como dominar buscas da sua cidade sem pagar anúncio](https://vocacao.digital/blog/seo-local-google-meu-negocio-para-empresas): Guia prático de SEO local para otimizar o Perfil da Empresa no Google, alinhar o site com JSON-LD LocalBusiness e conquistar posições no Google Maps sem mídia paga.
+- [Google Search Console sem mistério: 5 relatórios que geram receita](https://vocacao.digital/blog/como-usar-google-search-console-para-crescer): Tutorial direto de como usar o Google Search Console para encontrar palavras na página 2, aumentar CTR, corrigir falhas de indexação e crescer o tráfego orgânico.
+- [E-E-A-T no Google: como ranquear em nichos regulados e sensíveis](https://vocacao.digital/blog/conteudo-eeat-google-saude-financas-nichos-sensiveis): Guia prático de E-E-A-T para nichos sensíveis e regulados (YMYL), cobrindo como estruturar autores, revisores técnicos, fontes oficiais e sinais de confiança no Google e em IAs.
+- [Quanto custa uma landing page profissional que realmente gera leads](https://vocacao.digital/blog/quanto-custa-uma-landing-page-que-converte): Entenda quanto custa uma landing page profissional no Brasil, as faixas de preço do mercado, o que separa um template barato de uma página sob medida e o que exigir no orçamento.
+- [7 erros silenciosos que fazem seu site institucional espantar clientes](https://vocacao.digital/blog/erros-que-matam-conversao-site-institucional): Conheça os 7 erros técnicos e de comunicação que derrubam a conversão de sites institucionais e aprenda como diagnosticar alta rejeição em poucos minutos.
+- [A primeira dobra perfeita: o que precisa aparecer nos primeiros 3 segundos](https://vocacao.digital/blog/anatomia-dobra-acima-do-scroll-hero-section): Entenda como estruturar a hero section (primeira dobra) do seu site com H1 direto, prova visual leve, CTA único e adaptação real para celular.
 
 ---
 
