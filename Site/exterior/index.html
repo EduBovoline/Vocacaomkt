@@ -72,7 +72,7 @@
         },
         {
           "@type": "Offer",
-          "name": "Pacote Exterior (Portugal e Europa)",
+          "name": "Pacote Exterior (Portugal e União Europeia)",
           "price": "490.00",
           "priceCurrency": "EUR",
           "availability": "https://schema.org/InStock",
@@ -460,15 +460,24 @@
     'Europe/London', 'Europe/Belfast', 'Europe/Guernsey',
     'Europe/Isle_of_Man', 'Europe/Jersey', 'Europe/Gibraltar'
   ]);
-  const EUR_ATLANTIC_TZ = new Set([
-    'Atlantic/Azores', 'Atlantic/Madeira', 'Atlantic/Canary', 'Atlantic/Faroe'
+  const EU_TZ = new Set([
+    'Europe/Amsterdam', 'Europe/Andorra', 'Europe/Athens', 'Europe/Berlin',
+    'Europe/Bratislava', 'Europe/Brussels', 'Europe/Bucharest', 'Europe/Budapest',
+    'Europe/Busingen', 'Europe/Copenhagen', 'Europe/Dublin', 'Europe/Helsinki',
+    'Europe/Lisbon', 'Europe/Ljubljana', 'Europe/Luxembourg', 'Europe/Madrid',
+    'Europe/Malta', 'Europe/Monaco', 'Europe/Nicosia', 'Europe/Paris',
+    'Europe/Prague', 'Europe/Riga', 'Europe/Rome', 'Europe/San_Marino',
+    'Europe/Sofia', 'Europe/Stockholm', 'Europe/Tallinn', 'Europe/Vatican',
+    'Europe/Vienna', 'Europe/Vilnius', 'Europe/Warsaw', 'Europe/Zagreb',
+    'Atlantic/Azores', 'Atlantic/Madeira', 'Atlantic/Canary',
+    'Africa/Ceuta', 'Asia/Nicosia'
   ]);
   let label = 'US$ 490';
   try {
     const tz = (Intl.DateTimeFormat().resolvedOptions().timeZone || '').trim();
     if (UK_TZ.has(tz)) {
       label = '£490';
-    } else if (tz.startsWith('Europe/') || EUR_ATLANTIC_TZ.has(tz)) {
+    } else if (EU_TZ.has(tz)) {
       label = '€490';
     }
   } catch (e) {}
