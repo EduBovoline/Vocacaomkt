@@ -2,34 +2,54 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- HOME VOCAÇÃO -->
+  <!-- HOME VOCAÇÃO (BRASIL PT-BR) -->
   <url>
     <loc>https://vocacao.digital/</loc>
-    <lastmod>2026-11-16</lastmod>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vocacao.digital/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vocacao.digital/" />
+    <lastmod>2026-11-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+
+  <!-- BRASILEIROS NO EXTERIOR (PT · USD / EUR / GBP) -->
+  <url>
+    <loc>https://vocacao.digital/exterior</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vocacao.digital/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vocacao.digital/" />
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- GLOBAL ENGLISH (EN · USD) -->
+  <url>
+    <loc>https://vocacao.digital/en</loc>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/" />
+    <xhtml:link rel="alternate" hreflang="pt-PT" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://vocacao.digital/exterior" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://vocacao.digital/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://vocacao.digital/" />
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
 
   <!-- VOCAÇÃO UPDATE — SOLUÇÃO PRINCIPAL (PT-BR) -->
   <url>
     <loc>https://vocacao.digital/vocacao-update.html</loc>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/vocacao-update.html" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://vocacao.digital/en/5-day-website-polish.html" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://vocacao.digital/en" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://vocacao.digital/vocacao-update.html" />
-    <lastmod>2026-11-16</lastmod>
+    <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-
-  <!-- 5-DAY WEBSITE POLISH (EN-US GLOBAL) -->
-  <url>
-    <loc>https://vocacao.digital/en/5-day-website-polish.html</loc>
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://vocacao.digital/en/5-day-website-polish.html" />
-    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/vocacao-update.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://vocacao.digital/vocacao-update.html" />
-    <lastmod>2026-11-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
   </url>
 
   <!-- PORTFÓLIO DE CASES -->

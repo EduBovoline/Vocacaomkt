@@ -8,25 +8,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/png" href="../logo-vocacao.png" />
-<link rel="stylesheet" href="../styles.css" />
-<link rel="stylesheet" href="../styles-sections.css" />
-<link rel="stylesheet" href="../styles-more.css" />
-<link rel="stylesheet" href="../styles-premium.css" />
+<link rel="icon" type="image/png" href="/logo-vocacao.png" />
+<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles-sections.css" />
+<link rel="stylesheet" href="/styles-more.css" />
+<link rel="stylesheet" href="/styles-premium.css" />
 
 <!-- Canonical & hreflang -->
-<link rel="canonical" href="https://vocacao.digital/en/5-day-website-polish.html" />
-<link rel="alternate" hreflang="en-US" href="https://vocacao.digital/en/5-day-website-polish.html" />
-<link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/vocacao-update.html" />
-<link rel="alternate" hreflang="x-default" href="https://vocacao.digital/vocacao-update.html" />
+<link rel="canonical" href="https://vocacao.digital/en" />
+<link rel="alternate" hreflang="en" href="https://vocacao.digital/en" />
+<link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/" />
+<link rel="alternate" hreflang="pt-PT" href="https://vocacao.digital/exterior" />
+<link rel="alternate" hreflang="pt" href="https://vocacao.digital/exterior" />
+<link rel="alternate" hreflang="x-default" href="https://vocacao.digital/" />
 
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Vocação — Digital Studio" />
+<meta property="og:url" content="https://vocacao.digital/en" />
 <meta property="og:title" content="5-Day Website Polish — $490 Flat | Vocação" />
 <meta property="og:description" content="No rebuilds from scratch. No $5k agency bills. We take what you have and elevate it to high-converting editorial standards in 5 business days." />
 <meta property="og:image" content="https://vocacao.digital/logo-vocacao.png" />
 <meta name="theme-color" content="#04121b" />
+<script src="/google-tracking.js"></script>
+<script src="/meta-tracking.js"></script>
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -45,7 +50,7 @@
     },
     {
       "@type": ["Service", "Product"],
-      "@id": "https://vocacao.digital/en/5-day-website-polish.html#service",
+      "@id": "https://vocacao.digital/en#service",
       "name": "5-Day Website Polish",
       "alternateName": ["5-Day Web Refresh", "Editorial Website Polish"],
       "description": "Fixed-scope visual & technical overhaul for service businesses, interior designers, and boutique firms. Sub-0.5s mobile speed, refined typography, and streamlined conversion in 5 business days.",
@@ -58,20 +63,20 @@
       "offers": [
         {
           "@type": "Offer",
-          "@id": "https://vocacao.digital/en/5-day-website-polish.html#offer-usd",
+          "@id": "https://vocacao.digital/en#offer-usd",
           "name": "5-Day Website Polish (Global USD)",
           "price": "490.00",
           "priceCurrency": "USD",
           "priceValidUntil": "2027-12-31",
           "availability": "https://schema.org/InStock",
-          "url": "https://vocacao.digital/en/5-day-website-polish.html",
-          "acceptedPaymentMethod": ["Credit Card", "Stripe", "Wire Transfer"]
+          "url": "https://vocacao.digital/en",
+          "acceptedPaymentMethod": ["Credit Card", "Stripe", "Apple Pay", "Google Pay"]
         }
       ],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
-        "reviewCount": "18",
+        "reviewCount": "12",
         "bestRating": "5",
         "worstRating": "1"
       }
@@ -254,12 +259,13 @@ footer {
 <div class="polish-wrap">
   <header class="polish-nav">
     <a href="/" class="polish-brand">
-      <img src="../logo-vocacao-white-gold.svg" alt="Vocação" />
+      <img src="/logo-vocacao-white-gold.svg" alt="Vocação" />
       <span>Vocação</span>
     </a>
     <div>
       <span class="badge badge-citron">5-Day Turnaround · $490 Flat</span>
-      <a href="../vocacao-update.html" style="color:var(--sw-ink-soft); font-size:0.85rem; margin-left:16px; text-decoration:none;">Versão PT-BR ↗</a>
+      <a href="/exterior" style="color:var(--sw-ink-soft); font-size:0.85rem; margin-left:16px; text-decoration:none;">Brasileiros no Exterior ↗</a>
+      <a href="/" style="color:var(--sw-ink-soft); font-size:0.85rem; margin-left:16px; text-decoration:none;">Brasil PT-BR ↗</a>
     </div>
   </header>
 
@@ -316,7 +322,7 @@ footer {
         <tbody>
           <tr>
             <td><strong>Cost</strong></td>
-            <td class="highlight-col"><strong>$490 Flat</strong> (50% upfront / 50% on approval)</td>
+            <td class="highlight-col"><strong>$490 Flat</strong> (One-time via Stripe · Zero monthly fees)</td>
             <td>$3,500 – $8,000+</td>
             <td>Unpredictable ($500 - $2,500+)</td>
           </tr>
@@ -333,7 +339,7 @@ footer {
             <td>Hit or miss depending on contractor</td>
           </tr>
           <tr>
-            <td><strong>Speed & Vitals</strong></td>
+            <td><strong>Speed &amp; Vitals</strong></td>
             <td class="highlight-col"><strong>&lt; 0.5s Load Time</strong> (Green Core Web Vitals)</td>
             <td>Often bloated with heavy scripts</td>
             <td>Rarely optimized for performance</td>
@@ -341,8 +347,8 @@ footer {
           <tr>
             <td><strong>Communication</strong></td>
             <td class="highlight-col"><strong>Async (Slack / Loom / WhatsApp)</strong></td>
-            <td>Endless Zoom calls & discovery workshops</td>
-            <td>Timezone lag & communication gaps</td>
+            <td>Endless Zoom calls &amp; discovery workshops</td>
+            <td>Timezone lag &amp; communication gaps</td>
           </tr>
         </tbody>
       </table>
@@ -362,7 +368,7 @@ footer {
         <strong>After:</strong> Industrial high-contrast layout, lightning-fast response, and instant direct inquiry routing.</p>
       </div>
       <div class="spec-card">
-        <span class="badge badge-citron">E-Commerce & Food</span>
+        <span class="badge badge-citron">E-Commerce &amp; Food</span>
         <h3 style="margin-top:12px">Maçã d'Amor Gourmet</h3>
         <p><strong>Before:</strong> 4.6-second loading time, broken mobile catalog, zero direct purchase velocity.<br><br>
         <strong>After:</strong> 0.4s load time, luxury editorial typography (Instrument Serif + Manrope), and 1-tap direct ordering flow.</p>
@@ -372,23 +378,24 @@ footer {
 
   <!-- Guarantee Box -->
   <div class="guarantee-box">
-    <span class="badge badge-citron">Simple & Risk-Free</span>
+    <span class="badge badge-citron">Simple &amp; Risk-Free</span>
     <div class="price-tag">$490 <span style="font-size:1.2rem; color:var(--sw-ink-soft); font-weight:400;">USD flat</span></div>
-    <h2 style="font-family:var(--font-display); margin: 16px 0 12px;">50% Upfront, 50% Upon Final Approval</h2>
+    <h2 style="font-family:var(--font-display); margin: 16px 0 12px;">$490 Flat via Stripe · Zero Monthly Fees</h2>
     <p style="max-width:540px; margin:0 auto 28px; color:var(--sw-ink-soft);">
-      You only pay the remaining balance once you review the staging link and approve the transformed website. Delivered in 5 business days, guaranteed.
+      One fixed payment via Stripe (Credit Card, Apple Pay, or Google Pay). You keep 100% ownership of your site and domain, delivered in 5 business days.
     </p>
-    <a href="https://wa.me/5515981512083?text=Hi!%20I%20want%20to%20get%20started%20with%20the%205-Day%20Website%20Polish%20($490)" class="btn-primary-citron" target="_blank" rel="noopener">
+    <a href="https://wa.me/5515981512083?text=Hi!%20I%20want%20to%20get%20started%20with%20the%205-Day%20Website%20Polish%20($490%20via%20Stripe)" class="btn-primary-citron" target="_blank" rel="noopener">
       Get Started with a 5-Day Polish ⚡
     </a>
   </div>
 
   <footer>
-    <p>© 2026 Vocação Comunicação & Marketing · Sorocaba, SP, Brazil · Global Delivery</p>
+    <p>© 2026 Vocação Comunicação &amp; Marketing · Sorocaba, SP, Brazil · Global Delivery</p>
     <p style="margin-top:8px">
-      <a href="../llms.txt" style="color:var(--sw-ink-soft); margin: 0 10px;">llms.txt (AI Index)</a> ·
-      <a href="../sitemap.xml" style="color:var(--sw-ink-soft); margin: 0 10px;">Sitemap</a> ·
-      <a href="../vocacao-update.html" style="color:var(--sw-ink-soft); margin: 0 10px;">Versão em Português</a>
+      <a href="/llms.txt" style="color:var(--sw-ink-soft); margin: 0 10px;">llms.txt (AI Index)</a> ·
+      <a href="/sitemap.xml" style="color:var(--sw-ink-soft); margin: 0 10px;">Sitemap</a> ·
+      <a href="/exterior" style="color:var(--sw-ink-soft); margin: 0 10px;">Brasileiros no Exterior</a> ·
+      <a href="/" style="color:var(--sw-ink-soft); margin: 0 10px;">Brasil (PT-BR)</a>
     </p>
   </footer>
 </div>
