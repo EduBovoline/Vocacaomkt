@@ -16,6 +16,11 @@
 
 <!-- ===== SEO 2026/2027 ===== -->
 <link rel="canonical" href="https://vocacao.digital/" />
+<link rel="alternate" hreflang="pt-BR" href="https://vocacao.digital/" />
+<link rel="alternate" hreflang="pt-PT" href="https://vocacao.digital/exterior" />
+<link rel="alternate" hreflang="pt" href="https://vocacao.digital/exterior" />
+<link rel="alternate" hreflang="en" href="https://vocacao.digital/en" />
+<link rel="alternate" hreflang="x-default" href="https://vocacao.digital/" />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="geo.region" content="BR-SP" />
 <meta name="geo.placename" content="Sorocaba, São Paulo, Brasil" />
@@ -35,7 +40,7 @@
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Vocação | Site Rápido (&lt;0,5s) em 4 a 5 Dias Úteis" />
 <meta name="twitter:description" content="Criamos ou reformamos o site da sua empresa para converter no WhatsApp em 4 a 5 dias úteis. R$ 490 no cartão ou Pix." />
-<meta property="twitter:image" content="https://vocacao.digital/logo-vocacao.png" />
+<meta name="twitter:image" content="https://vocacao.digital/logo-vocacao.png" />
 <link rel="apple-touch-icon" href="logo-vocacao.png" />
 <link rel="manifest" href="site.webmanifest" />
 <!-- Google Search Console & Analytics -->
@@ -1089,7 +1094,8 @@
         <ul>
           <li><a href="https://wa.me/5515981512083" target="_blank" rel="noopener">WhatsApp Comercial <span class="arrow">↗</span></a></li>
           <li><a href="https://share.google/Pn6GF0P0kFkoMPHhM" target="_blank" rel="noopener">Avaliações Google <span class="arrow">↗</span></a></li>
-          <li><a href="en/5-day-website-polish.html">English Version <span class="arrow">↗</span></a></li>
+          <li><a href="/exterior">Brasileiros no Exterior <span class="arrow">↗</span></a></li>
+          <li><a href="/en">English Version <span class="arrow">↗</span></a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1192,7 +1198,7 @@ function dispararWhatsAppUpdate() {
   const siteUrl = input ? input.value.trim() : '';
   const suffix = siteUrl ? `\nLink ou @ atual: ${siteUrl}` : '';
   const msg = encodeURIComponent(`Olá! Quero contratar meu site profissional em 4 a 5 dias úteis (R$ 490) pela Vocação.${suffix}`);
-  window.open(`https://wa.me/5515981512083?text=${msg}`, '_blank');
+  window.open(`https://wa.me/5515981512083?text=${msg}`, '_blank', 'noopener,noreferrer');
 }
 
 // ============================================================================
@@ -1524,6 +1530,5 @@ function dispararWhatsAppUpdate() {
   layoutRadialFan();
 })();
 </script>
-<script src="i18n.js"></script>
 </body>
 </html>

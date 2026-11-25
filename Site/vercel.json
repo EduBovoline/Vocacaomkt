@@ -66,6 +66,16 @@
       "source": "/centroautomotivosaojoao",
       "destination": "/centro-automotivo-sao-joao",
       "statusCode": 301
+    },
+    {
+      "source": "/en/5-day-website-polish.html",
+      "destination": "/en",
+      "statusCode": 301
+    },
+    {
+      "source": "/en/5-day-website-polish",
+      "destination": "/en",
+      "statusCode": 301
     }
   ]
 }
