@@ -1,0 +1,9 @@
+{
+  "source": "Site/index.html",
+  "last_synced_commit": "c440bdd5641e85ef599b50236bcea43f6fecfe64",
+  "last_synced_at": "2026-11-25",
+  "targets": [
+    "Site/exterior/index.html",
+    "Site/en/index.html"
+  ]
+}
