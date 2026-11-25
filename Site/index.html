@@ -739,7 +739,7 @@
       <span class="hero-meta-time">R$ 490 Único · <b>Sem Mensalidade</b></span>
     </div>
 
-    <h1 class="reveal" data-d="1" id="hero-headline">Seu próximo cliente <em style="color:#E5B910">está pesquisando agora.</em><br/>Ele vai fechar com você ou com o concorrente?</h1>
+    <h1 class="reveal" data-d="1" id="hero-headline">Seu próximo cliente merece um <em style="color:#E5B910">site à altura</em> do seu trabalho.</h1>
 
     <div class="hero-grid">
       <div>
@@ -1171,26 +1171,24 @@
 <script>
 (function () {
   var headlines = [
-    'Seu próximo cliente <em style="color:#E5B910">está pesquisando agora.</em><br/>Ele vai fechar com você ou com o concorrente?',
-    'Quem passa na sua porta <em style="color:#E5B910">já confia.</em><br/>E quem busca no Google?',
-    'Você já faz um bom trabalho.<br/><em style="color:#E5B910">Seu site novo</em> mostra isso logo de cara.'
+    'Seu próximo cliente merece um <em style="color:#E5B910">site à altura</em> do seu trabalho.',
+    'Site profissional em <em style="color:#E5B910">4 a 5 dias úteis</em>, pronto para gerar contatos no WhatsApp.',
+    'Você já faz um bom trabalho.<br/><em style="color:#E5B910">Seu site novo</em> mostra isso no primeiro clique.'
   ];
 
   var el = document.getElementById('hero-headline');
   if (!el) return;
 
-  var idx = Math.floor(Math.random() * headlines.length);
-  el.innerHTML = headlines[idx];
-  el.style.transition = 'opacity .55s ease';
-
-  setInterval(function () {
-    el.style.opacity = '0';
-    setTimeout(function () {
-      idx = (idx + 1) % headlines.length;
+  try {
+    var key = 'vocacao_hero_idx';
+    var stored = sessionStorage.getItem(key);
+    var idx = stored === null ? 0 : (parseInt(stored, 10) + 1) % headlines.length;
+    if (isNaN(idx) || idx < 0 || idx >= headlines.length) idx = 0;
+    sessionStorage.setItem(key, String(idx));
+    if (idx !== 0) {
       el.innerHTML = headlines[idx];
-      el.style.opacity = '1';
-    }, 520);
-  }, 6500);
+    }
+  } catch (e) {}
 })();
 
 function dispararWhatsAppUpdate() {
