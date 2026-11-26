@@ -17,7 +17,10 @@
     whatsappConversionLabel: '',
 
     // Rótulo da Conversão do Diagnóstico (Lead) no Google Ads (Ex: 'AW-123456789/LeadFormLabel')
-    leadConversionLabel: ''
+    leadConversionLabel: '',
+
+    // ID do Microsoft Clarity (Heatmaps & Gravações)
+    clarityId: 'zjfc5dj13o'
   };
 
   const config = window.VOCACAO_TRACKING_CONFIG;
@@ -53,6 +56,20 @@
       document.head.appendChild(scriptAds);
     }
     gtag('config', config.googleAdsId);
+  }
+
+  // Configura Microsoft Clarity (Heatmaps & Gravações) de forma assíncrona
+  const clarityId = config.clarityId || 'zjfc5dj13o';
+  if (clarityId && !window.clarity) {
+    (function (c, l, a, r, i, t, y) {
+      c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/' + encodeURIComponent(i);
+      y = l.getElementsByTagName(r)[0];
+      if (y && y.parentNode) y.parentNode.insertBefore(t, y);
+      else l.head.appendChild(t);
+    })(window, document, 'clarity', 'script', clarityId);
   }
 
   // Captura Parâmetros de UTM e GCLID da URL para persistência
