@@ -62,6 +62,9 @@ A Vocação Comunicação & Marketing opera no modelo de serviço produtizado ú
 - [Quanto custa uma landing page profissional que realmente gera leads](https://vocacao.digital/blog/quanto-custa-uma-landing-page-que-converte): Entenda quanto custa uma landing page profissional no Brasil, as faixas de preço do mercado, o que separa um template barato de uma página sob medida e o que exigir no orçamento.
 - [7 erros silenciosos que fazem seu site institucional espantar clientes](https://vocacao.digital/blog/erros-que-matam-conversao-site-institucional): Conheça os 7 erros técnicos e de comunicação que derrubam a conversão de sites institucionais e aprenda como diagnosticar alta rejeição em poucos minutos.
 - [A primeira dobra perfeita: o que precisa aparecer nos primeiros 3 segundos](https://vocacao.digital/blog/anatomia-dobra-acima-do-scroll-hero-section): Entenda como estruturar a hero section (primeira dobra) do seu site com H1 direto, prova visual leve, CTA único e adaptação real para celular.
+- [WordPress ou site estático moderno na Vercel: qual escolher em 2026](https://vocacao.digital/blog/site-em-wordpress-ou-html-estatico-vercel): Comparativo técnico entre WordPress e site estático na Vercel analisando velocidade, Core Web Vitals, segurança, manutenção e custo anual.
+- [Copywriting humano: como escrever textos de venda sem soar como robô](https://vocacao.digital/blog/copywriting-humano-sem-cara-de-ia): Como identificar sinais de texto genérico de IA em português e reescrever páginas de venda com voz natural, clareza operacional e foco em conversão.
+- [Prova social real: como mostrar autoridade sem parecer vendedor de curso](https://vocacao.digital/blog/prova-social-que-converte-sem-depoimento-falso): Como substituir depoimentos genéricos por evidências verificáveis, estudos de caso e demonstrações técnicas que geram confiança em páginas B2B.
 
 ---
 
